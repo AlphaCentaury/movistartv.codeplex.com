@@ -37,6 +37,8 @@ namespace Project.DvbIpTv.ChannelList
             InitializeComponent();
         } // constructor
 
+        #region Form events
+
         private void ChannelListForm_Load(object sender, EventArgs e)
         {
             this.Text = Properties.Texts.ChannelListFormCaption;
@@ -70,12 +72,168 @@ namespace Project.DvbIpTv.ChannelList
             } // for
         } // ChannelListForm_Shown
 
+        #endregion
+
+        #region Provider-related events
+
         private void buttonRefreshServiceProviderList_Click(object sender, EventArgs e)
         {
             LoadServiceProviderList(false);
         } // buttonRefreshServiceProviderList_Click
 
-        bool LoadServiceProviderList(bool fromCache)
+        private void comboServiceProvider_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ServiceProviderChanged();
+        } // comboServiceProvider_SelectedIndexChanged
+
+        private void buttonProviderDetails_Click(object sender, EventArgs e)
+        {
+            if (SelectedServiceProvider == null) return;
+
+            using (var dlg = new PropertiesDlg()
+                {
+                    Caption = Properties.Texts.SPProperties,
+                    Properties = DumpProperties(SelectedServiceProvider),
+                    Description = string.Format("Service provider: {0}", SelectedServiceProvider.DisplayName),
+                    Logo = SelectedServiceProvider.Logo.GetImage(LogoSize.Size64, true),
+                })
+            {
+                dlg.ShowDialog(this);
+            } // using
+        } // buttonProviderDetails_Click
+
+        #endregion
+
+        #region Service-related events
+
+        private void buttonRefreshChannelsList_Click(object sender, EventArgs e)
+        {
+            LoadBroadcastDiscovery(false);
+        }  // buttonRefreshChannelsList_Click
+
+        private void listViewChannels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BroadcastServiceChanged();
+        } // listViewChannels_SelectedIndexChanged
+
+        private void listViewChannels_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ShowTvChannel();
+            }
+            catch (Exception ex)
+            {
+                MyApplication.HandleException(this, ex);
+            } // try-catch
+        } // listViewChannels_DoubleClick
+
+        private void buttonChannelDetails_Click(object sender, EventArgs e)
+        {
+            if (SelectedBroadcastService == null) return;
+
+            using (var dlg = new PropertiesDlg()
+            {
+                Caption = Properties.Texts.BroadcastServiceProperties,
+                Properties = DumpProperties(SelectedBroadcastService),
+                Description = string.Format("Broadcast Service: {0}", SelectedBroadcastService.DisplayName),
+                Logo = SelectedBroadcastService.Logo.GetImage(LogoSize.Size64, true),
+            })
+            {
+                dlg.ShowDialog(this);
+            } // using
+        } // buttonChannelDetails_Click
+
+        private void buttonValidateChannels_Click(object sender, EventArgs e)
+        {
+            int timeout;
+
+            if ((MulticastScanner != null) && (!MulticastScanner.IsDisposed))
+            {
+                MulticastScanner.Visible = false;
+                MulticastScanner.Show(this);
+                return;
+            } // if
+
+            using (var dialog = new MulticastScannerOptionsDialog())
+            {
+                if (dialog.ShowDialog(this) != DialogResult.OK) return;
+                // TODO: get "what" & "action" and proceed accordingly
+                timeout = dialog.Timeout;
+            } // using
+
+            MulticastScanner = new MulticastScannerDialog();
+            MulticastScanner.ChannelScanResult += MulticastScanner_ChannelScanResult;
+            MulticastScanner.Timeout = timeout;
+            // TODO: filter as indicated in "what"
+            MulticastScanner.BroadcastDiscovery = BroadcastDiscovery;
+            MulticastScanner.Show(this);
+        } // buttonValidateChannels_Click
+
+        void MulticastScanner_ChannelScanResult(object sender, MulticastScannerDialog.ChannelScanResultEventArgs e)
+        {
+            // TODO: implement "disable" or delete as indicated in "action"
+
+            var item = listViewChannels.Items[e.ServiceKey];
+            if (e.IsDead)
+            {
+                item.Font = item.ListView.Font;
+                item.UseItemStyleForSubItems = true;
+                item.ForeColor = SystemColors.GrayText;
+                item.BackColor = SystemColors.Control;
+                item.Font = item.ListView.Font;
+            }
+            else
+            {
+                item.ForeColor = item.ListView.ForeColor;
+                item.BackColor = item.ListView.BackColor;
+                item.UseItemStyleForSubItems = false;
+                item.Font = ServiceNameItemFont;
+            } // if-else
+        }  // MulticastScanner_ChannelScanResult
+
+        private void buttonRecordChannel_Click(object sender, EventArgs e)
+        {
+            RecordTask task;
+
+            using (var dlg = new RecordChannelDialog())
+            {
+                dlg.Task = RecordTask.CreateWithDefaultValues(new RecordChannel()
+                    {
+                        LogicalNumber = "---",
+                        Name = SelectedBroadcastService.DisplayName,
+                        Description = SelectedBroadcastService.DisplayDescription,
+                        LogoKey = SelectedBroadcastService.Logo.Key,
+                        ServiceName = SelectedBroadcastService.ServiceName,
+                        ChannelUrl = SelectedBroadcastService.LocationUrl,
+                    });
+                dlg.IsNewTask = true;
+                dlg.ShowDialog(this);
+                task = dlg.Task;
+                if (dlg.DialogResult != DialogResult.OK) return;
+            } // using dlg
+
+            RecordHelper helper = new RecordHelper();
+            helper.Record(task);
+        } // buttonRecordChannel_Click
+
+        private void buttonDisplayChannel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ShowTvChannel();
+            }
+            catch (Exception ex)
+            {
+                MyApplication.HandleException(this, ex);
+            } // try-catch
+        } // buttonDisplayChannel_Click
+
+        #endregion
+
+        #region Auxiliary methods: providers
+
+        private bool LoadServiceProviderList(bool fromCache)
         {
             try
             {
@@ -138,31 +296,112 @@ namespace Project.DvbIpTv.ChannelList
             } // try-catch
         } // LoadServiceProviderList
 
-        private void comboServiceProvider_SelectedIndexChanged(object sender, EventArgs e)
+        private void ServiceProviderChanged()
         {
-            ServiceProviderChanged();
-        } // comboServiceProvider_SelectedIndexChanged
+            SelectedServiceProvider = comboServiceProvider.SelectedItem as UiServiceProvider;
+            BroadcastDiscovery = null;
 
-        private void buttonProviderDetails_Click(object sender, EventArgs e)
-        {
-            if (SelectedServiceProvider == null) return;
+            Properties.Settings.Default.LastSelectedServiceProvider = (SelectedServiceProvider != null) ? SelectedServiceProvider.Key : null;
+            Properties.Settings.Default.Save();
 
-            using (var dlg = new PropertiesDlg()
-                {
-                    Caption = Properties.Texts.SPProperties,
-                    Properties = DumpProperties(SelectedServiceProvider),
-                    Description = string.Format("Service provider: {0}", SelectedServiceProvider.DisplayName),
-                    Logo = SelectedServiceProvider.Logo.GetImage(LogoSize.Size64, true),
-                })
+            if (SelectedServiceProvider == null)
             {
-                dlg.ShowDialog(this);
-            } // using
-        } // buttonProviderDetails_Click
+                labelProviderDescription.Text = Properties.Texts.NotSelectedServiceProvider;
+                pictureProviderLogo.Image = null;
+                buttonProviderDetails.Enabled = false;
+                buttonRefreshChannelsList.Enabled = false;
+                BroadcastServiceChanged();
 
-        private void buttonRefreshChannelsList_Click(object sender, EventArgs e)
+                return;
+            } // if
+
+            labelProviderDescription.Text = SelectedServiceProvider.DisplayDescription;
+            pictureProviderLogo.Image = SelectedServiceProvider.Logo.GetImage(LogoSize.Size32, true);
+
+            buttonProviderDetails.Enabled = true;
+            labelChannelsList.Enabled = true;
+            buttonRefreshChannelsList.Enabled = true;
+
+            LoadBroadcastDiscovery(true);
+            BroadcastServiceChanged();
+        } // ServiceProviderChanged
+
+        private IEnumerable<PropertiesDlg.Property> DumpProperties(UiServiceProvider provider)
         {
-            LoadBroadcastDiscovery(false);
-        }  // buttonRefreshChannelsList_Click
+            MultilingualText text;
+
+            if (provider == null)
+            {
+                yield break;
+            } // if
+
+            text = provider.Data.Name.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguages, false);
+            yield return GetLanguageProperty("Name", text);
+            text = provider.Data.Description.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguages, false);
+            yield return GetLanguageProperty("Description", text);
+            yield return new PropertiesDlg.Property("Domain name", provider.DomainName);
+            yield return new PropertiesDlg.Property("Logo URI", provider.Data.LogoUri);
+
+            if (provider.Offering.Push != null)
+            {
+                foreach (var push in provider.Offering.Push)
+                {
+                    if (push.PayloadId == null)
+                    {
+                        yield return new PropertiesDlg.Property("Push offering",
+                            string.Format("{0}:{1}", push.Address, push.Port));
+                    }
+                    else
+                    {
+                        yield return new PropertiesDlg.Property("Push offering",
+                            string.Format("{0}:{1} with {2} payloads", push.Address, push.Port, push.PayloadId.Length));
+                    } // if-else
+                } // foreach push
+            } // if
+
+            if (provider.Offering.Pull != null)
+            {
+                foreach (var pull in provider.Offering.Pull)
+                {
+                    if (pull.PayloadId == null)
+                    {
+                        yield return new PropertiesDlg.Property("Pull offering",
+                            string.Format("{0}", pull.Location));
+                    }
+                    else
+                    {
+                        yield return new PropertiesDlg.Property("Pull offering",
+                            string.Format("{0} with {1} payloads", pull.Location, pull.PayloadId.Length));
+                    } // if-else
+                } // foreach pull
+            } // if
+
+            if (provider.Data.Name != null)
+            {
+                foreach (var txt in provider.Data.Name)
+                {
+                    yield return GetLanguageProperty("Name", txt);
+                } // foreach
+            } // if
+            if (provider.Data.Description != null)
+            {
+                foreach (var txt in provider.Data.Description)
+                {
+                    yield return GetLanguageProperty("Description", txt);
+                } // foreach
+            } // if
+        } // DumpProperties (UiServiceProvider)
+
+        private PropertiesDlg.Property GetLanguageProperty(string name, MultilingualText text)
+        {
+            if (text == null) return new PropertiesDlg.Property(name, null);
+            if (text.Language == null) return new PropertiesDlg.Property(name, text.Value);
+            return new PropertiesDlg.Property(string.Format("{0} ({1})", name, text.Language), text.Value);
+        } // GetLanguageProperty
+
+        #endregion
+
+        #region Auxiliary methods: services
 
         bool LoadBroadcastDiscovery(bool fromCache)
         {
@@ -232,41 +471,10 @@ namespace Project.DvbIpTv.ChannelList
             }
             catch (Exception ex)
             {
-                MyApplication.HandleException(this, null,
-                    Properties.Texts.BroadcastListUnableRefresh, ex);
+                MyApplication.HandleException(this, null, Properties.Texts.BroadcastListUnableRefresh, ex);
                 return false;
             } // try-catch
         } // LoadBroadcastDiscovery
-
-        private void ServiceProviderChanged()
-        {
-            SelectedServiceProvider = comboServiceProvider.SelectedItem as UiServiceProvider;
-            BroadcastDiscovery = null;
-
-            Properties.Settings.Default.LastSelectedServiceProvider = (SelectedServiceProvider != null)? SelectedServiceProvider.Key : null;
-            Properties.Settings.Default.Save();
-
-            if (SelectedServiceProvider == null)
-            {
-                labelProviderDescription.Text = Properties.Texts.NotSelectedServiceProvider;
-                pictureProviderLogo.Image = null;
-                buttonProviderDetails.Enabled = false;
-                buttonRefreshChannelsList.Enabled = false;
-                BroadcastServiceChanged();
-
-                return;
-            } // if
-
-            labelProviderDescription.Text = SelectedServiceProvider.DisplayDescription;
-            pictureProviderLogo.Image = SelectedServiceProvider.Logo.GetImage(LogoSize.Size32, true);
-
-            buttonProviderDetails.Enabled = true;
-            labelChannelsList.Enabled = true;
-            buttonRefreshChannelsList.Enabled = true;
-
-            LoadBroadcastDiscovery(true);
-            BroadcastServiceChanged();
-        } // ServiceProviderChanged
 
         private void BroadcastServiceChanged()
         {
@@ -302,77 +510,34 @@ namespace Project.DvbIpTv.ChannelList
             SelectedBroadcastService = listViewChannels.SelectedItems[0].Tag as UiBroadcastService;
             Properties.Settings.Default.LastSelectedService = SelectedBroadcastService.Key;
             Properties.Settings.Default.Save();
-            
+
             buttonChannelDetails.Enabled = true;
             buttonRecordChannel.Enabled = true;
             buttonDisplayChannel.Enabled = true;
         } // BroadcastServiceChanged
 
-        private IEnumerable<PropertiesDlg.Property> DumpProperties(UiServiceProvider provider)
+        private void ShowTvChannel()
         {
-            MultilingualText text;
+            if (SelectedBroadcastService == null) return;
 
-            if (provider == null)
+            // TODO: player must be user-selectable
+            var player = AppUiConfiguration.Current.User.Players[0];
+
+            ExternalPlayer.Launch(player, SelectedBroadcastService, true);
+        } // ShowTvChannel
+
+        private string GetChannelLogoKey(ServiceLogo logo)
+        {
+            if (!imageListChannels.Images.ContainsKey(logo.Key))
             {
-                yield break;
-            } // if
-
-            text = provider.Data.Name.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguages, false);
-            yield return GetLanguageProperty("Name", text);
-            text = provider.Data.Description.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguages, false);
-            yield return GetLanguageProperty("Description", text);
-            yield return new PropertiesDlg.Property("Domain name", provider.DomainName);
-            yield return new PropertiesDlg.Property("Logo URI", provider.Data.LogoUri);
-
-            if (provider.Offering.Push != null)
-            {
-                foreach (var push in provider.Offering.Push)
+                using (var image = logo.GetImage(LogoSize.Size32, true))
                 {
-                    if (push.PayloadId == null)
-                    {
-                        yield return new PropertiesDlg.Property("Push offering",
-                            string.Format("{0}:{1}", push.Address, push.Port));
-                    }
-                    else
-                    {
-                        yield return new PropertiesDlg.Property("Push offering",
-                            string.Format("{0}:{1} with {2} payloads", push.Address, push.Port, push.PayloadId.Length));
-                    } // if-else
-                } // foreach push
+                    imageListChannels.Images.Add(logo.Key, image);
+                } // using image
             } // if
 
-            if (provider.Offering.Pull != null)
-            {
-                foreach (var pull in provider.Offering.Pull)
-                {
-                    if (pull.PayloadId == null)
-                    {
-                        yield return new PropertiesDlg.Property("Pull offering",
-                            string.Format("{0}", pull.Location));
-                    }
-                    else
-                    {
-                        yield return new PropertiesDlg.Property("Pull offering",
-                            string.Format("{0} with {1} payloads", pull.Location, pull.PayloadId.Length));
-                    } // if-else
-                } // foreach pull
-            } // if
-
-            if (provider.Data.Name != null)
-            {
-                foreach (var txt in provider.Data.Name)
-                {
-                    yield return GetLanguageProperty("Name", txt);
-                } // foreach
-            } // if
-            if (provider.Data.Description != null)
-            {
-                foreach (var txt in provider.Data.Description)
-                {
-                    yield return GetLanguageProperty("Description", txt);
-                } // foreach
-            } // if
-        } // DumpProperties (UiServiceProvider)
+            return logo.Key;
+        } // GetChannelLogoKey
 
         private IEnumerable<PropertiesDlg.Property> DumpProperties(UiBroadcastService service)
         {
@@ -523,131 +688,6 @@ namespace Project.DvbIpTv.ChannelList
             yield return new PropertiesDlg.Property("Has video details", (data.VideoAttibutes != null).ToString());
         } // DumpProperties (UiBroadcastService)
 
-        private PropertiesDlg.Property GetLanguageProperty(string name, MultilingualText text)
-        {
-            if (text == null) return new PropertiesDlg.Property(name, null);
-            if (text.Language == null) return new PropertiesDlg.Property(name, text.Value);
-            return new PropertiesDlg.Property(string.Format("{0} ({1})", name, text.Language), text.Value);
-        } // GetLanguageProperty
-
-        private void buttonDisplayChannel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // TODO: player must be user-selectable
-                ExternalPlayer.Launch(AppUiConfiguration.Current.User.Players[0], SelectedBroadcastService, true);
-            }
-            catch (Exception ex)
-            {
-                MyApplication.HandleException(this, ex);
-            } // try-catch
-        } // buttonDisplayChannel_Click
-
-        private void listViewChannels_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BroadcastServiceChanged();
-        } // listViewChannels_SelectedIndexChanged
-
-        private string GetChannelLogoKey(ServiceLogo logo)
-        {
-            if (!imageListChannels.Images.ContainsKey(logo.Key))
-            {
-                using (var image = logo.GetImage(LogoSize.Size32, true))
-                {
-                    imageListChannels.Images.Add(logo.Key, image);
-                } // using image
-            } // if
-
-            return logo.Key;
-        } // GetChannelLogoKey
-
-        private void buttonChannelDetails_Click(object sender, EventArgs e)
-        {
-            if (SelectedBroadcastService == null) return;
-
-            using (var dlg = new PropertiesDlg()
-            {
-                Caption = Properties.Texts.BroadcastServiceProperties,
-                Properties = DumpProperties(SelectedBroadcastService),
-                Description = string.Format("Broadcast Service: {0}", SelectedBroadcastService.DisplayName),
-                Logo = SelectedBroadcastService.Logo.GetImage(LogoSize.Size64, true),
-            })
-            {
-                dlg.ShowDialog(this);
-            } // using
-        } // buttonChannelDetails_Click
-
-        private void buttonValidateChannels_Click(object sender, EventArgs e)
-        {
-            int timeout;
-
-            if ((MulticastScanner != null) && (!MulticastScanner.IsDisposed))
-            {
-                MulticastScanner.Visible = false;
-                MulticastScanner.Show(this);
-                return;
-            } // if
-
-            using (var dialog = new MulticastScannerOptionsDialog())
-            {
-                if (dialog.ShowDialog(this) != DialogResult.OK) return;
-                // TODO: get "what" & "action" and proceed accordingly
-                timeout = dialog.Timeout;
-            } // using
-
-            MulticastScanner = new MulticastScannerDialog();
-            MulticastScanner.ChannelScanResult += MulticastScanner_ChannelScanResult;
-            MulticastScanner.Timeout = timeout;
-            // TODO: filter as indicated in "what"
-            MulticastScanner.BroadcastDiscovery = BroadcastDiscovery;
-            MulticastScanner.Show(this);
-        } // buttonValidateChannels_Click
-
-        void MulticastScanner_ChannelScanResult(object sender, MulticastScannerDialog.ChannelScanResultEventArgs e)
-        {
-            // TODO: implement "disable" or delete as indicated in "action"
-
-            var item = listViewChannels.Items[e.ServiceKey];
-            if (e.IsDead)
-            {
-                item.Font = item.ListView.Font;
-                item.UseItemStyleForSubItems = true;
-                item.ForeColor = SystemColors.GrayText;
-                item.BackColor = SystemColors.Control;
-                item.Font = item.ListView.Font;
-            }
-            else
-            {
-                item.ForeColor = item.ListView.ForeColor;
-                item.BackColor = item.ListView.BackColor;
-                item.UseItemStyleForSubItems = false;
-                item.Font = ServiceNameItemFont;
-            } // if-else
-        }  // MulticastScanner_ChannelScanResult
-
-        private void buttonRecordChannel_Click(object sender, EventArgs e)
-        {
-            RecordTask task;
-
-            using (var dlg = new RecordChannelDialog())
-            {
-                dlg.Task = RecordTask.CreateWithDefaultValues(new RecordChannel()
-                    {
-                        LogicalNumber = "---",
-                        Name = SelectedBroadcastService.DisplayName,
-                        Description = SelectedBroadcastService.DisplayDescription,
-                        LogoKey = SelectedBroadcastService.Logo.Key,
-                        ServiceName = SelectedBroadcastService.ServiceName,
-                        ChannelUrl = SelectedBroadcastService.LocationUrl,
-                    });
-                dlg.IsNewTask = true;
-                dlg.ShowDialog(this);
-                task = dlg.Task;
-                if (dlg.DialogResult != DialogResult.OK) return;
-            } // using dlg
-
-            RecordHelper helper = new RecordHelper();
-            helper.Record(task);
-        } // buttonRecordChannel_Click
-    }
-}
+        #endregion
+    } // class ChannelListForm
+} // namespace

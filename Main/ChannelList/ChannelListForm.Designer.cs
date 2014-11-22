@@ -157,8 +157,8 @@
             // 
             // listViewChannels
             // 
-            resources.ApplyResources(this.listViewChannels, "listViewChannels");
             this.listViewChannels.AllowColumnReorder = true;
+            resources.ApplyResources(this.listViewChannels, "listViewChannels");
             this.listViewChannels.CausesValidation = false;
             this.listViewChannels.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             Name,
@@ -181,6 +181,7 @@
             this.listViewChannels.UseCompatibleStateImageBehavior = false;
             this.listViewChannels.View = System.Windows.Forms.View.Details;
             this.listViewChannels.SelectedIndexChanged += new System.EventHandler(this.listViewChannels_SelectedIndexChanged);
+            this.listViewChannels.DoubleClick += new System.EventHandler(this.listViewChannels_DoubleClick);
             // 
             // buttonRecordChannel
             // 

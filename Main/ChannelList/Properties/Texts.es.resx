@@ -133,7 +133,7 @@
     <value>Espere, por favor. Cancelando la descarga...</value>
   </data>
   <data name="ChannelListFormCaption" xml:space="preserve">
-    <value>Movistar TV DVB-IPTV: listado de canales y/o servicios (beta 1.0 “Wolf 424”)</value>
+    <value>Movistar TV DVB-IPTV: listado de canales y/o servicios (beta 1.0.1 “Wolf 424”)</value>
   </data>
   <data name="CompletedDownloadDataReception" xml:space="preserve">
     <value>Completada la recepción de datos</value>

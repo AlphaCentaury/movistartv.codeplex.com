@@ -106,7 +106,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV DVB-IPTV channel/services list (beta 1.0 “Wolf 424”).
+        ///   Looks up a localized string similar to Movistar TV DVB-IPTV channel/services list (beta 1.0.1 “Wolf 424”).
         /// </summary>
         internal static string ChannelListFormCaption {
             get {
