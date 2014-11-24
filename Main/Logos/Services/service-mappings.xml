@@ -75,7 +75,6 @@
       <Mapping serviceName="757" logo="barca_tv" />
       <Mapping serviceName="770" logo="extreme" />
       <Mapping serviceName="772" logo="somos" />
-      <Mapping serviceName="773" logo="cinematk" />
       <Mapping serviceName="777" logo="syfy" />
       <Mapping serviceName="778" logo="baby_tv" />
       <Mapping serviceName="779" logo="unitel_classica" />
@@ -102,11 +101,11 @@
       <Mapping serviceName="898" logo="hd_cplus_liga" />
       <Mapping serviceName="900" logo="disney_cinemagic" />
       <Mapping serviceName="904" logo="hd_axn" />
-      <Mapping serviceName="927" logo="hd_mgm" />
+      <Mapping serviceName="927" logo="hd_amc" />
       <Mapping serviceName="934" logo="neox" />
       <Mapping serviceName="935" logo="nova" />
       <Mapping serviceName="936" logo="iberalia" />
-      <Mapping serviceName="939" logo="mgm" />
+      <Mapping serviceName="939" logo="amc" />
       <Mapping serviceName="960" logo="fox_life" />
       <Mapping serviceName="982" logo="hd_eurosport" />
       <Mapping serviceName="983" logo="hd_natgeo_wild" />
@@ -120,8 +119,10 @@
       <Mapping serviceName="1214" logo="hd_movistar_generico" />
       <Mapping serviceName="1221" logo="paramountchannel" />
       <Mapping serviceName="1243" logo="hd_cplus_ligacampeones" />
+      <Mapping serviceName="1283" logo="hd_movistar_futbol" />
       <Mapping serviceName="1284" logo="hd_cplus_1" />
       <Mapping serviceName="1343" logo="gol_2_internacional" />
+      <Mapping serviceName="1363" logo="hd_movistar_generico" />
       <Mapping serviceName="1563" logo="natgeo_wild" />
       <Mapping serviceName="1597" logo="cplus_ligacampeones" />
       <Mapping serviceName="1603" logo="cplus_liga" />
@@ -131,7 +132,7 @@
       <Mapping serviceName="1610" logo="hd_cosmo" />
       <Mapping serviceName="1611" logo="hd_axn_white" />
       <Mapping serviceName="1612" logo="hd_hollywood" />
-      <Mapping serviceName="1613" logo="hd_mgm" />
+      <Mapping serviceName="1613" logo="hd_amc" />
       <Mapping serviceName="1614" logo="hd_disney_cinemagic" />
       <Mapping serviceName="1615" logo="hd_sundance" />
       <Mapping serviceName="1616" logo="hd_disney_channel" />
@@ -159,41 +160,42 @@
       <Mapping serviceName="1826" logo="hd_tele5" />
       <Mapping serviceName="1843" logo="cuatro" />
       <Mapping serviceName="1844" logo="tele5" />
+      <Mapping serviceName="1905" logo="playboy" />
       <Mapping serviceName="1907" logo="movistar_motogp" />
-      <Mapping serviceName="1909" logo="movistar_generico" />
-      <Mapping serviceName="1911" logo="movistar_generico" />
-      <Mapping serviceName="1913" logo="movistar_generico" />
-      <Mapping serviceName="1915" logo="movistar_generico" />
-      <Mapping serviceName="1917" logo="movistar_generico" />
-      <Mapping serviceName="1919" logo="movistar_generico" />
+      <Mapping serviceName="1909" logo="movistar_f1" />
+      <Mapping serviceName="1911" logo="movistar_f1" />
+      <Mapping serviceName="1913" logo="movistar_f1" />
+      <Mapping serviceName="1915" logo="movistar_f1" />
+      <Mapping serviceName="1917" logo="movistar_f1" />
+      <Mapping serviceName="1919" logo="movistar_f1" />
       <Mapping serviceName="1920" logo="hd_movistar_generico" />
       <Mapping serviceName="1921" logo="hd_movistar_generico" />
-      <Mapping serviceName="1922" logo="movistar_generico" />
-      <Mapping serviceName="1923" logo="movistar_generico" />
+      <Mapping serviceName="1922" logo="movistar_f1" />
+      <Mapping serviceName="1923" logo="movistar_f1" />
       <Mapping serviceName="1924" logo="hd_movistar_generico" />
-      <Mapping serviceName="1925" logo="movistar_generico" />
+      <Mapping serviceName="1925" logo="movistar_f1" />
       <Mapping serviceName="1927" logo="hd_movistar_generico" />
-      <Mapping serviceName="1928" logo="movistar_generico" />
-      <Mapping serviceName="1931" logo="movistar_generico" />
+      <Mapping serviceName="1928" logo="movistar_f1" />
+      <Mapping serviceName="1931" logo="movistar_f1" />
       <Mapping serviceName="1932" logo="hd_movistar_generico" />
       <Mapping serviceName="1940" logo="movistar_generico" />
-      <Mapping serviceName="1964" logo="movistar_f1" />
-      <Mapping serviceName="2024" logo="movistar_generico" />
-      <Mapping serviceName="2025" logo="hd_movistar_generico" />
+      <Mapping serviceName="1964" logo="movistar_motogp" />
+      <Mapping serviceName="2024" logo="movistar_f1" />
+      <Mapping serviceName="2025" logo="hd_movistar_f1" />
       <Mapping serviceName="2064" logo="hd_movistar_f1" />
       <Mapping serviceName="2065" logo="hd_movistar_motogp" />
-      <Mapping serviceName="2084" logo="hd_movistar_generico" />
-      <Mapping serviceName="2085" logo="hd_movistar_generico" />
-      <Mapping serviceName="2086" logo="hd_movistar_generico" />
-      <Mapping serviceName="2087" logo="hd_movistar_generico" />
-      <Mapping serviceName="2088" logo="hd_movistar_generico" />
-      <Mapping serviceName="2090" logo="hd_movistar_generico" />
-      <Mapping serviceName="2091" logo="hd_movistar_generico" />
-      <Mapping serviceName="2094" logo="hd_movistar_generico" />
-      <Mapping serviceName="2096" logo="hd_movistar_generico" />
-      <Mapping serviceName="2097" logo="hd_movistar_generico" />
+      <Mapping serviceName="2084" logo="hd_movistar_f1" />
+      <Mapping serviceName="2085" logo="hd_movistar_f1" />
+      <Mapping serviceName="2086" logo="hd_movistar_f1" />
+      <Mapping serviceName="2087" logo="hd_movistar_f1" />
+      <Mapping serviceName="2088" logo="hd_movistar_f1" />
+      <Mapping serviceName="2090" logo="hd_movistar_f1" />
+      <Mapping serviceName="2091" logo="hd_movistar_f1" />
+      <Mapping serviceName="2094" logo="hd_movistar_f1" />
+      <Mapping serviceName="2096" logo="hd_movistar_f1" />
+      <Mapping serviceName="2097" logo="hd_movistar_f1" />
       <Mapping serviceName="2128" logo="hd_eurosport" />
-      <Mapping serviceName="2163" logo="hd_movistar_generico" />
+      <Mapping serviceName="2163" logo="hd_movistar_f1" />
       <Mapping serviceName="2184" logo="hd_movistar_generico" />
       <Mapping serviceName="2203" logo="hd_fox_life" />
       <Mapping serviceName="2204" logo="hd_tcm" />
@@ -211,25 +213,29 @@
       <Mapping serviceName="2252" logo="movistar_generico" />
       <Mapping serviceName="2253" logo="movistar_generico" />
       <Mapping serviceName="2254" logo="movistar_generico" />
-      <Mapping serviceName="2267" logo="movistar_generico" />
-      <Mapping serviceName="2268" logo="hd_movistar_generico" />
-      <Mapping serviceName="2278" logo="hd_movistar_generico" />
-      <Mapping serviceName="2281" logo="movistar_generico" />
-      <Mapping serviceName="2282" logo="hd_movistar_generico" />
-      <Mapping serviceName="2283" logo="movistar_generico" />
-      <Mapping serviceName="2284" logo="hd_movistar_generico" />
-      <Mapping serviceName="2285" logo="movistar_generico" />
-      <Mapping serviceName="2286" logo="hd_movistar_generico" />
-      <Mapping serviceName="2287" logo="movistar_generico" />
-      <Mapping serviceName="2288" logo="hd_movistar_generico" />
-      <Mapping serviceName="2289" logo="movistar_generico" />
-      <Mapping serviceName="2290" logo="hd_movistar_generico" />
+      <Mapping serviceName="2261" logo="hd_movistar_motogp" />
+      <Mapping serviceName="2267" logo="movistar_futbol" />
+      <Mapping serviceName="2268" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2278" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2281" logo="movistar_futbol" />
+      <Mapping serviceName="2282" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2283" logo="movistar_futbol" />
+      <Mapping serviceName="2284" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2285" logo="movistar_futbol" />
+      <Mapping serviceName="2286" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2287" logo="movistar_futbol" />
+      <Mapping serviceName="2288" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2289" logo="movistar_futbol" />
+      <Mapping serviceName="2290" logo="hd_movistar_futbol" />
       <Mapping serviceName="2303" logo="hd_movistar_generico" />
       <Mapping serviceName="2304" logo="hd_movistar_generico" />
       <Mapping serviceName="2305" logo="hd_movistar_generico" />
       <Mapping serviceName="2306" logo="hd_movistar_generico" />
       <Mapping serviceName="2307" logo="hd_movistar_generico" />
-      <Mapping serviceName="2343" logo="hd_movistar_generico" />
+      <Mapping serviceName="2343" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2464" logo="hd_movistar_generico" />
+      <Mapping serviceName="2466" logo="movistar_generico" />
+      <Mapping serviceName="2467" logo="hd_movistar_generico" />
     </Domain>
     <Domain name="dem_19.imagenio.es" redirectDomain="imagenio.es">
       <Mapping serviceName="58" logo="autonomico_madrid" />

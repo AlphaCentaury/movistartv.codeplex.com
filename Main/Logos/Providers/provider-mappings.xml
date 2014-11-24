@@ -5,7 +5,7 @@
   </Package>
   <Package name="movistarTV">
     <Mapping domainName="DEM_1.imagenio.es" annotation="Cataluña" logo="movistarTV-Cataluna" />
-    <Mapping domainName="DEM_4.imagenio.es" annotation="Castilla-León" logo="movistarTV-Leon" />
+    <Mapping domainName="DEM_4.imagenio.es" annotation="Castilla y León" logo="movistarTV-Leon" />
     <Mapping domainName="DEM_6.imagenio.es" annotation="Valencia" logo="movistarTV-Valencia" />
     <Mapping domainName="DEM_10.imagenio.es" annotation="Baleares" logo="movistarTV-Baleares" />
     <Mapping domainName="DEM_12.imagenio.es" annotation="Murcia" logo="movistarTV-Murcia" />
@@ -20,6 +20,6 @@
     <Mapping domainName="DEM_35.imagenio.es" annotation="Navarra" logo="movistarTV-Navarra" />
     <Mapping domainName="DEM_36.imagenio.es" annotation="País Vasco" logo="movistarTV-Vasco" />
     <Mapping domainName="DEM_37.imagenio.es" annotation="Canarias" logo="movistarTV-Canarias" />
-    <Mapping domainName="DEM_38.imagenio.es" annotation="Castilla La Mancha" logo="movistarTV-Mancha" />
+    <Mapping domainName="DEM_38.imagenio.es" annotation="Castilla-La Mancha" logo="movistarTV-Mancha" />
   </Package>
 </Logos-Providers>

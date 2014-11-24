@@ -494,7 +494,7 @@
             this.selectFolder.ShowFullPathInEditBox = true;
             this.selectFolder.ShowNewFolderButton = true;
             // 
-            // DialogRecordChannel
+            // RecordChannelDialog
             // 
             this.AcceptButton = this.buttonOk;
             resources.ApplyResources(this, "$this");
@@ -511,7 +511,7 @@
             this.Controls.Add(this.pictureChannelLogo);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "DialogRecordChannel";
+            this.Name = "RecordChannelDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.DialogRecordChannel_Load);

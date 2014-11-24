@@ -157,8 +157,8 @@
             // 
             // listViewChannels
             // 
-            this.listViewChannels.AllowColumnReorder = true;
             resources.ApplyResources(this.listViewChannels, "listViewChannels");
+            this.listViewChannels.AllowColumnReorder = true;
             this.listViewChannels.CausesValidation = false;
             this.listViewChannels.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             Name,

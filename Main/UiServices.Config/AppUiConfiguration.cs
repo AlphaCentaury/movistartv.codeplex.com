@@ -43,8 +43,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             friendlyNamesServiceProviders.Add("DEM_10.imagenio.es", "Movistar TV: Baleares");
             friendlyNamesServiceProviders.Add("DEM_37.imagenio.es", "Movistar TV: Canarias");
             friendlyNamesServiceProviders.Add("DEM_29.imagenio.es", "Movistar TV: Cantabria");
-            friendlyNamesServiceProviders.Add("DEM_38.imagenio.es", "Movistar TV: Castilla La Mancha");
-            friendlyNamesServiceProviders.Add("DEM_4.imagenio.es", "Movistar TV: Castilla-León");
+            friendlyNamesServiceProviders.Add("DEM_38.imagenio.es", "Movistar TV: Castilla-La Mancha");
+            friendlyNamesServiceProviders.Add("DEM_4.imagenio.es", "Movistar TV: Castilla y León");
             friendlyNamesServiceProviders.Add("DEM_1.imagenio.es", "Movistar TV: Cataluña");
             friendlyNamesServiceProviders.Add("DEM_32.imagenio.es", "Movistar TV: Extremadura");
             friendlyNamesServiceProviders.Add("DEM_24.imagenio.es", "Movistar TV: Galicia");

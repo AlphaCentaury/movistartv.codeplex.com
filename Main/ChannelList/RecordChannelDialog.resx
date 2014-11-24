@@ -442,7 +442,7 @@
     <value>recordingSchedule</value>
   </data>
   <data name="&gt;&gt;recordingSchedule.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.RecordingSchedule, DvbIpTv.UiServices.Controls, Version=1.0.5432.271, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.RecordingSchedule, UiServices.Controls, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;recordingSchedule.Parent" xml:space="preserve">
     <value>tabPageSchedule</value>
@@ -490,7 +490,7 @@
     <value>recordingTime</value>
   </data>
   <data name="&gt;&gt;recordingTime.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.RecordingTime, DvbIpTv.UiServices.Controls, Version=1.0.5432.271, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.RecordingTime, UiServices.Controls, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;recordingTime.Parent" xml:space="preserve">
     <value>tabPageLength</value>
@@ -775,7 +775,7 @@
     <value>textTaskName</value>
   </data>
   <data name="&gt;&gt;textTaskName.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.FilenameTextBox, DvbIpTv.UiServices.Controls, Version=1.0.5432.271, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.FilenameTextBox, UiServices.Controls, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textTaskName.Parent" xml:space="preserve">
     <value>tabPageDescription</value>
@@ -824,50 +824,50 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAA0
-        CwAAAk1TRnQBSQFMAgEBAgEAAbgBAQG4AQEBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
-        AwABEAMAAQEBAAEgBgABEDIAA1MBqgM4AVz4AAG4AUoBAAH/AbgBSgEAAf8DOAFcFAABuAGjAZQB/wEv
-        ARUBAQH/AS8BFQEBAf8BLwEVAQEB/wEvARUBAQH/AS8BFQEBAf8BLwEVAQEB/wEvARUBAQH/AS8BFQEB
-        Af8BLwEVAQEB/wEvARUBAQH/AS8BFQEBAf8BLwEVAQEB/wEvARUBAQH/AS8BFQEBAf8BLwEVAQEB/6AA
-        AbgBSgEAAf8B8QHMAY4B/wG4AUoBAAH/AzgBXBAAAbkBpAGVAf8B9QHoAd8B/wHwAdwBzgH/Ae8B2QHL
+        CwAAAk1TRnQBSQFMAgEBAgEAAcABAQHAAQEBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AwABEAMAAQEBAAEgBgABEDIAA1MBqgM4AVz4AAG4AUkBAAH/AbgBSQEAAf8DOAFcFAABuAGjAZQB/wEu
+        ARQBAAH/AS4BFAEAAf8BLgEUAQAB/wEuARQBAAH/AS4BFAEAAf8BLgEUAQAB/wEuARQBAAH/AS4BFAEA
+        Af8BLgEUAQAB/wEuARQBAAH/AS4BFAEAAf8BLgEUAQAB/wEuARQBAAH/AS4BFAEAAf8BLgEUAQAB/6AA
+        AbgBSQEAAf8B8QHMAY4B/wG4AUkBAAH/AzgBXBAAAbkBpAGVAf8B9QHoAd8B/wHwAdwBzgH/Ae8B2QHL
         Af8B7QHSAcMB/wHpAc0BuwH/AegByAGzAf8B5gHEAa8B/wHkAcABqQH/AeMBvQGkAf8B4wG8AaUB/wHi
-        AbwBowH/AeIBuwGjAf8B4gG4AZ4B/wHfAbYBnQH/AS8BFQEBAf+gAAG4AUoBAAH/AfABwAE4Af8B7wHK
-        AYwB/wG4AUoBAAH/AzgBXAwAAboBpQGWAf8B+QHxAewB/wH2AeoB4wH/AfUB5wHeAf8B8wHjAdkB/wHy
+        AbwBowH/AeIBuwGjAf8B4gG4AZ4B/wHfAbYBnQH/AS4BFAEAAf+gAAG4AUkBAAH/AfABwAE3Af8B7wHK
+        AYwB/wG4AUkBAAH/AzgBXAwAAboBpQGWAf8B+QHxAewB/wH2AeoB4wH/AfUB5wHeAf8B8wHjAdkB/wHy
         AeAB1QH/AfAB3AHQAf8B7wHZAcsB/wHtAdUBxgH/AewB0gHCAf8B6QHNAbkB/wHnAcgBswH/AeYBwwGt
-        Af8B5AG9AaYB/wHhAbcBngH/AS8BFQEBAf+AAANDAXcBuAFKAQAB/wG4AUoBAAH/AbgBSgEAAf8BuAFK
-        AQAB/wG4AUoBAAH/AbgBSgEAAf8BuAFKAQAB/wG4AUoBAAH/AfMBxQE6Af8B5QGZAQAB/wHvAcsBjAH/
-        AbgBSgEAAf8DSgGKCAABvAGmAZcB/wH5AfMB7gH/AfcB7QHmAf8B9gHqAeIB/wH1AeYB3QH/AfMB4wHY
+        Af8B5AG9AaYB/wHhAbcBngH/AS4BFAEAAf+AAANDAXcBuAFJAQAB/wG4AUkBAAH/AbgBSQEAAf8BuAFJ
+        AQAB/wG4AUkBAAH/AbgBSQEAAf8BuAFJAQAB/wG4AUkBAAH/AfMBxQE5Af8B5QGZAQAB/wHvAcsBjAH/
+        AbgBSQEAAf8DSgGKCAABvAGmAZcB/wH5AfMB7gH/AfcB7QHmAf8B9gHqAeIB/wH1AeYB3QH/AfMB4wHY
         Af8B8gHfAdQB/wHwAdwBzwH/Ae8B2AHKAf8B7QHVAcUB/wHsAdEBwQH/AeoBzgG9Af8B6QHKAbcB/wHn
-        AcQBsAH/AeMBvQGlAf8BLwEVAQEB/4AAAaUBMgEAAf8B6QG6ATMB/wHuAcEBOAH/AfQBxwE7Af8B9wHM
-        AT0B/wH6Ac8BPwH/AfsBzwE/Af8B+wHPAT8B/wH5AcwBPgH/AfIBsQEAAf8B6wGhAQAB/wHlAZkBAAH/
-        Ae8BygGMAf8BsgFCAQAB/wM4AVwEAAG9AagBmQH/AfoB9QHxAf8B+AHvAeoB/wH3AewB5QH/AfYB6QHh
+        AcQBsAH/AeMBvQGlAf8BLgEUAQAB/4AAAaUBMQEAAf8B6QG6ATIB/wHuAcEBNwH/AfQBxwE6Af8B9wHM
+        ATwB/wH6Ac8BPgH/AfsBzwE+Af8B+wHPAT4B/wH5AcwBPQH/AfIBsQEAAf8B6wGhAQAB/wHlAZkBAAH/
+        Ae8BygGMAf8BsgFBAQAB/wM4AVwEAAG9AagBmQH/AfoB9QHxAf8B+AHvAeoB/wH3AewB5QH/AfYB6QHh
         Af8B9AHlAdwB/wHzAeIB1wH/AfEB3gHTAf8B8AHbAc4B/wHuAdcByQH/Ae0B1AHEAf8B6wHRAcAB/wHq
-        AcwBuwH/AecBxgGzAf8B5AG+AacB/wEvARUBAQH/gAABpQEyAQAB/wFtAVkBKwH8Ad0BlAEAAf8B5AGb
+        AcwBuwH/AecBxgGzAf8B5AG+AacB/wEuARQBAAH/gAABpQExAQAB/wFsAVgBKwH8Ad0BlAEAAf8B5AGb
         AQAB/wHtAaUBAAH/AfMBrAEAAf8B+AGxAQAB/wH5AbIBAAH/AfkBsQEAAf8B9QGtAQAB/wHyAacBAAH/
-        AewBoAEAAf8B5AGWAQAB/wHvAckBiwH/AbIBQgEAAf8DOAFcAb8BqQGaAf8B+wH2AfIB/wH5AfIB7QH/
+        AewBoAEAAf8B5AGWAQAB/wHvAckBiwH/AbIBQQEAAf8DOAFcAb8BqQGaAf8B+wH2AfIB/wH5AfIB7QH/
         AfgB7wHpAf8B9wHrAeQB/wH1AegB4AH/AfQB5QHbAf8B8gHhAdYB/wHxAd4B0gH/Ae8B2gHNAf8B7gHX
-        AcgB/wHtAdMBwwH/AesB0AG/Af8B6gHMAbkB/wHjAb4BpwH/AS8BFQEBAf+AAAGlATIBAAH/AW0BXAEr
+        AcgB/wHtAdMBwwH/AesB0AG/Af8B6gHMAbkB/wHjAb4BpwH/AS4BFAEAAf+AAAGlATEBAAH/AWwBWwEr
         AfwB3AGcAQAB/wHgAZ0BAAH/AecBoQEAAf8B7QGmAQAB/wHzAasBAAH/AfgBsQEAAf8B+QGyAQAB/wH4
-        AbEBAAH/AfUBrQEAAf8B8QGmAQAB/wHqAZ4BAAH/AeIBlQEAAf8B7wHMAZIB/wGzAUQBAAH/AcABqwGc
+        AbEBAAH/AfUBrQEAAf8B8QGmAQAB/wHqAZ4BAAH/AeIBlQEAAf8B7wHMAZIB/wGzAUMBAAH/AcABqwGc
         Af8B/AH3AfQB/wH6AfQB8AH/AfkB8QHsAf8B+AHuAegB/wH2AesB5AH/AfUB5wHfAf8B9AHkAdoB/wHy
-        AeAB1QH/AfEB3QHRAf8B7wHZAcwB/wHuAdYBxwH/AewB0wHDAf8B6wHPAb4B/wHkAcABqgH/AS8BFQEB
-        Af+AAAGlATIBAAH/AdwBqQEhAf8B1wGZAQAB/wHeAaABAAH/AeQBpgEAAf8B6gGrAQAB/wHwAa4BAAH/
-        AfQBrwEAAf8B9wGxAQAB/wH5AbEBAAH/AfgBrwEAAf8B9AGrAQAB/wHwAaUBAAH/AfABugEjAf8BswFE
+        AeAB1QH/AfEB3QHRAf8B7wHZAcwB/wHuAdYBxwH/AewB0wHDAf8B6wHPAb4B/wHkAcABqgH/AS4BFAEA
+        Af+AAAGlATEBAAH/AdwBqQEgAf8B1wGZAQAB/wHeAaABAAH/AeQBpgEAAf8B6gGrAQAB/wHwAa4BAAH/
+        AfQBrwEAAf8B9wGxAQAB/wH5AbEBAAH/AfgBrwEAAf8B9AGrAQAB/wHwAaUBAAH/AfABugEiAf8BswFD
         AQAB/wM4AVwBwgGsAZ0B/wH8AfkB9wH/AfsB9gHzAf8B+gH0Ae8B/wH5AfEB6wH/AfgB7QHnAf8B9wHr
         AeUB/wH2AekB4QH/AfQB5QHcAf8B8wHjAdgB/wHxAd8B1AH/AfAB3AHQAf8B7wHZAcsB/wHuAdYByAH/
-        AecBxwGyAf8BLwEVAQEB/4AAAaUBMgEAAf8DXAHfAmQBXAHnAmUBXgHlAmUBXgHlAmUBXgHlAmUBXgHl
-        Al8BWAHjAmQBUwHxAfoBuQEAAf8B+gG4AQAB/wH4AbIBAAH/AfcBxAEqAf8BswFEAQAB/wM4AVwEAAHD
+        AecBxwGyAf8BLgEUAQAB/4AAAaUBMQEAAf8DXAHfAmQBXAHnAmUBXgHlAmUBXgHlAmUBXgHlAmUBXgHl
+        Al8BWAHjAmQBUwHxAfoBuQEAAf8B+gG4AQAB/wH4AbIBAAH/AfcBxAEpAf8BswFDAQAB/wM4AVwEAAHD
         Aa4BnwH/Af0B+wH4Af8B/AH4AfYB/wH7AfYB8gH/AfoB8wHvAf8B+QHwAeoB/wH4AfEB7AH/AfgB7wHp
-        Af8B9gHtAeYB/wH2AeoB4gH/AfUB6QHgAf8B9QHlAd4B/wH0AeQB2gH/AfMB4QHXAf8B7wHYAcoB/wEv
-        ARUBAQH/gAADQwF3AaUBMgEAAf8BpQEyAQAB/wGlATIBAAH/AaUBMgEAAf8BpQEyAQAB/wGlATIBAAH/
-        AaUBMgEAAf8BpQEyAQAB/wH4AbwBDQH/AfsBwQEPAf8B/AHSAUQB/wGzAUQBAAH/AzgBXAgAAcUBrwGg
+        Af8B9gHtAeYB/wH2AeoB4gH/AfUB6QHgAf8B9QHlAd4B/wH0AeQB2gH/AfMB4QHXAf8B7wHYAcoB/wEu
+        ARQBAAH/gAADQwF3AaUBMQEAAf8BpQExAQAB/wGlATEBAAH/AaUBMQEAAf8BpQExAQAB/wGlATEBAAH/
+        AaUBMQEAAf8BpQExAQAB/wH4AbwBDAH/AfsBwQEOAf8B/AHSAUMB/wGzAUMBAAH/AzgBXAgAAcUBrwGg
         Af8B/gH7AfgB/wH9AfoB+QH/AfwB+AH1Af8B+wH1AfIB/wH6AfIB7gH/AfkB8QHsAf8BvQGpAZsB/wG9
-        AakBmwH/Ab0BqQGbAf8BvQGpAZsB/wG9AakBmwH/Ab0BqQGbAf8BvQGpAZsB/wEvARUBAQH/AS8BFQEB
-        Af+gAAGlATIBAAH/AfMBtgEIAf8B+wHQAUMB/wGzAUQBAAH/AzgBXAwAAcYBsAGhAf8B/gH7AfoB/wH+
-        AfwB+wH/Af0B+gH4Af8B/AH3AfQB/wH7AfUB8QH/AfoB8wHuAf8BPAEjARAB/wHWAdEBzgH/AckBxAHA
-        Af8BwQG7AbcB/wG5AbIBrAH/AbUBrQGnAf8BsgGpAaIB/wFIAS8BHQH/pAABpQEyAQAB/wHzAcgBPgH/
-        AbMBRAEAAf8DOAFcEAABxwGxAaIC/wH7AfoB/wH+AvwB/wH+AfsB+QH/Af0B+QH3Af8B+wH3AfQB/wH6
-        AfYB8gH/AZ0BiAFCAf8B4AHcAdoB/wHcAdoB1wH/AdIB0QHPAf8B1QHUAdIB/wHLAcgBxgH/AbkBswGt
-        Af8BngGKAUYB/6QAAaUBMgEAAf8BswFEAQAB/wM4AVwUAAHIAbIBowH/AcYBsAGhAf8BxAGuAZ8B/wHB
+        AakBmwH/Ab0BqQGbAf8BvQGpAZsB/wG9AakBmwH/Ab0BqQGbAf8BvQGpAZsB/wEuARQBAAH/AS4BFAEA
+        Af+gAAGlATEBAAH/AfMBtgEHAf8B+wHQAUIB/wGzAUMBAAH/AzgBXAwAAcYBsAGhAf8B/gH7AfoB/wH+
+        AfwB+wH/Af0B+gH4Af8B/AH3AfQB/wH7AfUB8QH/AfoB8wHuAf8BOwEiAQ8B/wHWAdEBzgH/AckBxAHA
+        Af8BwQG7AbcB/wG5AbIBrAH/AbUBrQGnAf8BsgGpAaIB/wFHAS4BHAH/pAABpQExAQAB/wHzAcgBPQH/
+        AbMBQwEAAf8DOAFcEAABxwGxAaIC/wH7AfoB/wH+AvwB/wH+AfsB+QH/Af0B+QH3Af8B+wH3AfQB/wH6
+        AfYB8gH/AZ0BiAFBAf8B4AHcAdoB/wHcAdoB1wH/AdIB0QHPAf8B1QHUAdIB/wHLAcgBxgH/AbkBswGt
+        Af8BngGKAUUB/6QAAaUBMQEAAf8BswFDAQAB/wM4AVwUAAHIAbIBowH/AcYBsAGhAf8BxAGuAZ8B/wHB
         AasBnAH/Ab4BqQGaAf8BuwGmAZcB/wG5AaQBlQH/AbcBogGTAf8B2AHHAbwB/wHOAbwBrgH/AcgBtAGn
         Af8BwwGuAaAB/wG8AacBmAH/AbkBpAGVAf8BrQGZAYwB/6QAA1MBqgM4AVz/ANkAAUIBTQE+BwABPgMA
         ASgDAAFAAwABEAMAAQEBAAEBBQABgBcAA/8BAAH/AT8C/wQAAf8BHwYAAf8BDwYAAf8BBwcAAQMHAAEB
@@ -881,7 +881,7 @@
     <value>listViewLocations</value>
   </data>
   <data name="&gt;&gt;listViewLocations.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.ListViewSortable, DvbIpTv.UiServices.Controls, Version=1.0.5432.271, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.ListViewSortable, UiServices.Controls, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewLocations.Parent" xml:space="preserve">
     <value>tabPageSave</value>
@@ -977,7 +977,7 @@
     <value>textFilename</value>
   </data>
   <data name="&gt;&gt;textFilename.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.FilenameTextBox, DvbIpTv.UiServices.Controls, Version=1.0.5432.271, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.FilenameTextBox, UiServices.Controls, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textFilename.Parent" xml:space="preserve">
     <value>tabPageSave</value>
@@ -1082,7 +1082,7 @@
     <value>timeSpanSchedulerDeleteTaskAfter</value>
   </data>
   <data name="&gt;&gt;timeSpanSchedulerDeleteTaskAfter.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown, DvbIpTv.UiServices.Controls, Version=1.0.5432.271, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown, UiServices.Controls, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;timeSpanSchedulerDeleteTaskAfter.Parent" xml:space="preserve">
     <value>tabPageAdvanced</value>
@@ -1103,7 +1103,7 @@
     <value>timeSpanSchedulerRetry</value>
   </data>
   <data name="&gt;&gt;timeSpanSchedulerRetry.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown, DvbIpTv.UiServices.Controls, Version=1.0.5432.271, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown, UiServices.Controls, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;timeSpanSchedulerRetry.Parent" xml:space="preserve">
     <value>tabPageAdvanced</value>
@@ -1456,6 +1456,9 @@
   <data name="pictureChannelLogo.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 64</value>
   </data>
+  <data name="pictureChannelLogo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
   <data name="pictureChannelLogo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -1463,7 +1466,7 @@
     <value>pictureChannelLogo</value>
   </data>
   <data name="&gt;&gt;pictureChannelLogo.Type" xml:space="preserve">
-    <value>ChannelListing.Controls.PictureBoxEx, ChannelList, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.ChannelList.Controls.PictureBoxEx, ChannelList, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureChannelLogo.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1511,10 +1514,10 @@
     <value>selectFolder</value>
   </data>
   <data name="&gt;&gt;selectFolder.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.SelectFolderDialog, DvbIpTv.UiServices.Controls, Version=1.0.5432.271, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.SelectFolderDialog, UiServices.Controls, Version=1.0.1000.100, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>DialogRecordChannel</value>
+    <value>RecordChannelDialog</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
