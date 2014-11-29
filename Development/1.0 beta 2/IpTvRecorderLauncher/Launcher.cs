@@ -22,75 +22,90 @@ namespace Project.DvbIpTv.RecorderLauncher
         private DateTime StartTime;
         private TimeSpan TotalTime;
         private bool RecordingLate;
-        private bool Overflow;
-        private bool OverflowDisplayed;
+        private bool RecordingTimeExceeded;
+        private bool RecordingTimeExceededDisplayed;
 
-        public Program.Result Start(string taskXmlFilename)
+        public Program.Result Run(string taskXmlFilename)
+        {
+            Logger.Start(Path.ChangeExtension(taskXmlFilename, Properties.Resources.ExtensionLogFile), Logger.Level.Verbose);
+
+            var task = LoadRecordTask(taskXmlFilename);
+            if (task == null) return Program.Result.XmlFile;
+
+            CreateWindowsJob();
+
+            return LaunchRecorderProgram(task);
+        } // Run
+
+        private static RecordTask LoadRecordTask(string taskXmlFilename)
         {
             RecordTask task;
 
             try
             {
-                Console.Write("Loading XML...");
-                task = LoadRecordTask(taskXmlFilename);
-                Console.WriteLine(" Ok");
+                Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLoadingXml, taskXmlFilename);
+                Console.Write(Properties.Texts.DisplayLoadingXml);
+
+                using (var input = new FileStream(taskXmlFilename, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    var serializer = new XmlSerializer(typeof(RecordTask));
+                    task = serializer.Deserialize(input) as RecordTask;
+                } // using input
+
+                Console.WriteLine(Properties.Texts.DisplayActionOk);
+                Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLoadingXmlOk, taskXmlFilename);
+
+                return task;
             }
             catch (Exception ex)
             {
                 Console.WriteLine();
-                Console.WriteLine(Properties.Texts.ErrorLoadTaskFile);
+                Console.WriteLine(Properties.Texts.DisplayErrorLoadTaskFile);
                 Program.DisplayException(ex);
-                return Program.Result.XmlFile;
+                Logger.Exception(ex, Properties.Texts.LogExceptionLoadTaskFile);
+                return null;
             } // try-catch
-
-            CreateWindowsJob();
-
-            return LaunchRecorderProgram(task);
-        } // Start
-
-        private static RecordTask LoadRecordTask(string taskXmlFilename)
-        {
-            using (var input = new FileStream(taskXmlFilename, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                var serializer = new XmlSerializer(typeof(RecordTask));
-                return serializer.Deserialize(input) as RecordTask;
-            } // using input
-        } // LoadRecordTask
+        } // LoadXml
 
         private static void CreateWindowsJob()
         {
-            Console.Write("Creating Windows job...");
-
 #if DEBUG
             // Running in the development envrionment?
+            // If running under Visual Studio host process (vshost) or launched by Visual Studio,
+            // a "permission denied" error is thrown by Windows when trying to create the job
+
             var assembly = Assembly.GetEntryAssembly();
             var exePath = Path.GetDirectoryName(assembly.CodeBase);
-            if (exePath.EndsWith(@"\bin\debug"))
+            if (exePath.EndsWith(Properties.Resources.PathUnderDevelopmentEnvironment))
             {
-                // If running under Visual Studio host process (vshost) or launched by Visual Studio,
-                // a "permission denied" error is thrown by Windows, so we can't create the job
-                Console.WriteLine(" skipped");
+                Logger.Log(Logger.Level.Warning, Properties.Texts.LogWarningDevelopmentWindowsJob);
                 return;
             } // if
 #endif
             SafeFileHandle jobHandle;
 
+            Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoCreatingWindowsJob);
             using (var process = Process.GetCurrentProcess())
             {
-                string jobName = string.Format("Job:{0}:{1}", Assembly.GetEntryAssembly().GetName().Name, process.Id);
+                string jobName = string.Format(Properties.Resources.FormatJobName, Assembly.GetEntryAssembly().GetName().Name, process.Id);
+                Logger.Log(Logger.Level.Verbose, Properties.Texts.LogVerboseJobName, jobName);
+                
                 var jobHandleNative = UnsafeNativeMethods.CreateJobObject(IntPtr.Zero, jobName);
                 jobHandle = new SafeFileHandle(jobHandleNative, true);
                 if (jobHandle.DangerousGetHandle() == IntPtr.Zero)
                 {
                     jobHandle.SetHandleAsInvalid();
-                    Console.WriteLine(" Error - CreateJobObject('" + jobName + "'");
-                    throw new Win32Exception();
+                    var ex = new Win32Exception();
+                    Logger.Exception(ex, Properties.Texts.LogExceptionCreateJobObject, jobName);
+                    throw ex;
                 } // if
+                Logger.Log(Logger.Level.Verbose, Properties.Texts.LogVerboseJobHandle, jobHandleNative);
 
                 if (UnsafeNativeMethods.AssignProcessToJobObject(jobHandleNative, process.Handle) == false)
                 {
-                    Console.WriteLine(" Error - AssignProcessToJobObject(this); job=" + jobName);
-                    throw new Win32Exception();
+                    var ex = new Win32Exception();
+                    Logger.Exception(ex, Properties.Texts.LogExceptionAssignProcessToJobObject, jobHandleNative, process.Handle);
+                    throw ex;
                 } // if
             } // using process
 
@@ -107,34 +122,45 @@ namespace Project.DvbIpTv.RecorderLauncher
             Marshal.StructureToPtr(extendedInfo, extendedInfoPtr, false);
             if (!UnsafeNativeMethods.SetInformationJobObject(jobHandle.DangerousGetHandle(), UnsafeNativeMethods.JobObjectInfoClass.ExtendedLimitInformation, extendedInfoPtr, (uint)length))
             {
-                Console.WriteLine("Error - SetInformationJobObject()");
-                throw new Win32Exception();
+                var ex = new Win32Exception();
+                Logger.Exception(ex, Properties.Texts.LogExceptionSetInformationJobObject);
+                throw ex;
             } // if
 
             jobHandle = null;
             Marshal.FreeHGlobal(extendedInfoPtr);
 
-            Console.WriteLine(" Ok");
+            Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoCreatingWindowsJobOk);
         } // CreateWindowsJob
+
+        private void DisplayTaskData(RecordTask task, TimeSpan totalRecordTime)
+        {
+            var buffer = new StringBuilder();
+
+            task.BuildDescription(false, true, false, true, true, true, totalRecordTime, buffer);
+            buffer.AppendLine();
+
+            Console.WriteLine(buffer.ToString());
+        } // DisplayTaskData
 
         private Program.Result LaunchRecorderProgram(RecordTask task)
         {
-            Console.WriteLine("Launching recorder program...");
-
             var scheduledStartTime = task.Schedule.GetStartDateTime();
             var scheduledTotalTime = task.Schedule.GetSafetyMargin() + task.Duration.Length + task.Duration.SafetyMarginTimeSpan;
             var now = DateTime.Now;
-            var gap = now - new DateTime(now.Year, now.Month, now.Day, scheduledStartTime.Hour, scheduledStartTime.Minute, scheduledStartTime.Second);
+            var scheduledDateTime = new DateTime(now.Year, now.Month, now.Day, scheduledStartTime.Hour, scheduledStartTime.Minute, scheduledStartTime.Second);
+            var gap = now - scheduledDateTime;
+
             if (gap.TotalSeconds < 1) gap = TimeSpan.Zero;
             TotalTime = scheduledTotalTime - gap;
 
-            Console.WriteLine("Scheduled record time: {0}", scheduledTotalTime);
-            Console.WriteLine("Gap: {0}", gap);
-            Console.WriteLine("Real record time: {0}", TotalTime);
+            Logger.Log(Logger.Level.Verbose, Properties.Texts.LogVerboseScheduledStartTimeGap,
+                scheduledStartTime, scheduledTotalTime, gap, TotalTime);
+            DisplayTaskData(task, TotalTime);
 
             if (TotalTime.TotalSeconds < 1)
             {
-                Console.WriteLine("TOO LATE! Sorry about that!");
+                Logger.Log(Logger.Level.Error, Properties.Texts.LogErrorTooLate);
                 return Program.Result.TooLate;
             } // if
 
@@ -142,19 +168,81 @@ namespace Project.DvbIpTv.RecorderLauncher
             if (gap.TotalSeconds > task.Schedule.GetSafetyMargin().TotalSeconds)
             {
                 RecordingLate = true;
-            } // if
+                Logger.Log(Logger.Level.Warning, Properties.Texts.LogWarningRecordingLate, (int)task.Schedule.GetSafetyMargin().TotalMinutes);
+                Console.WriteLine(Properties.Texts.DisplayWarningRecordingLate, (int)task.Schedule.GetSafetyMargin().TotalMinutes);
+            }
+            else if (gap.TotalSeconds > 0)
+            {
+                Logger.Log(Logger.Level.Warning, Properties.Texts.LogWarningBehindSchedule, gap);
+                Console.WriteLine(Properties.Texts.DisplayWarningBehindSchedule, gap);
+            } // if-else
 
-            // La fecha debe ser la de hora programada, no la de hora de comienzo; además si se ha excedido el margen de seguridad por desfase en el comienzo, debe indicarse
-            var date = string.Format("{0}-{1:00}-{2:00} {3:00}-{4:00}-{5:00}",
+            var date = string.Format(Properties.Texts.FormatRecordFileDate,
                 now.Year, now.Month, now.Day,
                 scheduledStartTime.Hour, scheduledStartTime.Minute, scheduledStartTime.Second);
 
-            var filename = string.Format("{0}\\{1} {2}{3}{4}", task.Action.SaveLocationPath,
+            var filename = string.Format(Properties.Texts.FormatRecordFileName,
+                task.Action.SaveLocationPath,
                 task.Action.Filename,
                 date,
-                RecordingLate ? " Delayed!" : "",
+                RecordingLate ? Properties.Texts.FormatRecordFileDelayed : null,
                 task.Action.FileExtension);
 
+            var parameters = CreateParameters(filename, task);
+            LogParameters(parameters);
+            var arguments = ArgumentsManager.ExpandArguments(task.Action.Recorder.Arguments, parameters, Properties.Resources.ArgumentsOpenBrace, Properties.Resources.ArgumentsCloseBrace, StringComparison.CurrentCultureIgnoreCase);
+            var joinedArguments = ArgumentsManager.JoinArguments(arguments);
+            LogArguments(task.Action.Recorder.Path, task.Action.Recorder.Arguments, joinedArguments);
+
+            try
+            {
+                var info = new ProcessStartInfo()
+                {
+                    FileName = task.Action.Recorder.Path,
+                    Arguments = joinedArguments,
+                    ErrorDialog = false,
+                    UseShellExecute = false,
+                };
+
+                Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLaunchingRecorder);
+                Console.Write(Properties.Texts.DisplayLaunchingRecorder);
+                using (var process = Process.Start(info))
+                {
+                    Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLaunchingRecorderOk, process.Id);
+                    Console.WriteLine(Properties.Texts.DisplayLaunchingRecorderOk, process.Id);
+
+                    StartTime = DateTime.UtcNow;
+                    var timer = new System.Threading.Timer(OnTimerTick, null, 0, 15000);
+
+                    Logger.Log(Logger.Level.Verbose, Properties.Texts.LogVerboseWaitForExit);
+                    process.WaitForExit();
+
+                    timer.Dispose();
+                    Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoRecorderExited, process.ExitCode);
+
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine(Properties.Texts.DisplayRecorderFinished);
+
+                    if (process.ExitCode != 0)
+                    {
+                        return Program.Result.ExecFailure;
+                    } // if
+                } // using
+            }
+            catch (Exception ex)
+            {
+                Logger.Exception(ex, Properties.Texts.LogExceptionLaunchingRecorder);
+                Program.DisplayException(ex);   
+
+                return Program.Result.ExecProblem;
+            } // try-catch
+
+            return Program.Result.Ok;
+        } // LaunchRecorderProgram
+
+        private IDictionary<string, string> CreateParameters(string filename, RecordTask task)
+        {
             var paramKeys = new string[]
             {
                 "OutputFile",
@@ -175,39 +263,9 @@ namespace Project.DvbIpTv.RecorderLauncher
                 task.Description.Description,
                 ((int)TotalTime.TotalSeconds).ToString(CultureInfo.InvariantCulture),
             };
-            var parameters = ArgumentsManager.CreateParameters(paramKeys, paramValues, false);
-            var arguments = ArgumentsManager.ExpandArguments(task.Action.Recorder.Arguments, parameters, "{param:", "}", StringComparison.CurrentCultureIgnoreCase);
 
-            Console.WriteLine(task.Action.Recorder.Path);
-            for (int index = 0; index < arguments.Length; index++)
-            {
-                Console.WriteLine("Arg {0}: {1}", index, arguments[index]);
-            } // for
-
-            var info = new ProcessStartInfo()
-            {
-                FileName = task.Action.Recorder.Path,
-                Arguments = ArgumentsManager.JoinArguments(arguments),
-                ErrorDialog = false,
-                UseShellExecute = false,
-            };
-
-            using (var process = Process.Start(info))
-            {
-                Console.WriteLine("Launch ok (Process Id: {0})", process.Id);
-                StartTime = DateTime.UtcNow;
-                var timer = new System.Threading.Timer(OnTimerTick, null, 0, 15000);
-
-                process.WaitForExit();
-
-                timer.Dispose();
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine("Recorder program has ended");
-            } // using
-
-            return Program.Result.Ok;
-        } // LaunchRecorderProgram
+            return ArgumentsManager.CreateParameters(paramKeys, paramValues, false);
+        } // CreateParameters
 
         private void OnTimerTick(object state)
         {
@@ -222,11 +280,15 @@ namespace Project.DvbIpTv.RecorderLauncher
                 }
                 else
                 {
-                    Overflow = true;
-                    if (!OverflowDisplayed)
+                    if (!RecordingTimeExceededDisplayed)
                     {
-                        OverflowDisplayed = true;
-                        Console.WriteLine("Recording time exceeded!");
+                        RecordingTimeExceeded = true;
+                        RecordingTimeExceededDisplayed = true;
+                        Logger.Log(Logger.Level.Error, Properties.Texts.LogErrorRecordingTimeExceeded);
+
+                        Console.Write(new string(' ', Console.WindowWidth - 2));
+                        Console.Write("\r");
+                        Console.WriteLine(Properties.Texts.DisplayRecordingTimeExceeded);
                     } // if
                     remaining = TimeSpan.FromSeconds(-remaining.TotalSeconds);
                 } // if
@@ -237,20 +299,58 @@ namespace Project.DvbIpTv.RecorderLauncher
             var remainingFormat = (remaining.Days > 0) ? "{0,3}.{1:00}:{2:00}:{3:00}" : "{1:00}:{2:00}:{3:00}";
             var remainingText = string.Format(remainingFormat, remaining.Days, remaining.Hours, remaining.Minutes, remaining.Seconds);
 
-            var barLength = 78 - remainingText.Length;
+            var barLength = (Console.WindowWidth - 2) - remainingText.Length;
             var secondsPerChar = TotalTime.TotalSeconds / barLength;
             var elapsedChars = (int)(elapsed.TotalSeconds / secondsPerChar);
             var progressElapsed = new string('#', elapsedChars);
-            var progressRemaining = new string('-', barLength - elapsedChars);
+            var progressRemaining = new string('.', barLength - elapsedChars);
 
             var ForeColor = Console.ForegroundColor;
-            if (Overflow) Console.ForegroundColor = ConsoleColor.Red;
+            if (RecordingTimeExceeded) Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(progressElapsed);
             Console.Write(progressRemaining);
-            if (Overflow) Console.ForegroundColor = ForeColor;
+            if (RecordingTimeExceeded) Console.ForegroundColor = ForeColor;
             Console.Write(" ");
             Console.Write(remainingText);
             Console.Write("\r");
         } // OnTimerTick
+
+        private void LogParameters(IDictionary<string, string> parameters)
+        {
+            if (Logger.MinLevel > Logger.Level.Verbose) return;
+
+            var buffer = new StringBuilder();
+
+            buffer.Append(Properties.Texts.LogVerboseCreatingRecorderParameters);
+            foreach(var parameter in parameters)
+            {
+                buffer.AppendLine();
+                buffer.AppendFormat("{0}: {1}", parameter.Key, parameter.Value);
+            } // for
+
+            Logger.Log(Logger.Level.Verbose, buffer.ToString());
+        } // LogParameters
+
+        private void LogArguments(string exePath, string[] originalArguments, string arguments)
+        {
+            if (Logger.MinLevel > Logger.Level.Verbose) return;
+
+            var buffer = new StringBuilder();
+
+            buffer.AppendLine(Properties.Texts.LogVerboseAboutLaunchRecorder);
+
+            buffer.Append('"');
+            buffer.Append(exePath);
+            buffer.Append("\" ");
+            buffer.Append(arguments);
+
+            for (int index = 0; index < originalArguments.Length; index++)
+            {
+                buffer.AppendLine();
+                buffer.AppendFormat("{0}", originalArguments[index]);
+            } // for
+
+            Logger.Log(Logger.Level.Verbose, buffer.ToString());
+        } // LogArguments
     } // static class Launcher
 } // namespace

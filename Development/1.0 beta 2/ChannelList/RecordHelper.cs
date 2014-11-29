@@ -249,45 +249,8 @@ namespace Project.DvbIpTv.ChannelList
             }
             else
             {
-                StringBuilder details;
-
-                details = new StringBuilder();
-                details.AppendLine(">>> Channel details <<<");
-                details.AppendFormat("Number: {0}", task.Channel.LogicalNumber);
-                details.AppendLine();
-                details.AppendFormat("Name: {0}", task.Channel.Name);
-                details.AppendLine();
-                details.AppendFormat("URL: {0}", task.Channel.ChannelUrl);
-                details.AppendLine();
-                details.AppendFormat("DVB-IP Service: {0}", task.Channel.ServiceName);
-                details.AppendLine();
-
-                details.AppendLine(">>> Recording schedule <<<  ");
-                task.Schedule.Verbalize(details);
-                details.AppendLine();
-
-                details.AppendFormat("Recording duration is {0}, with a safety margin of {1} minutes.", RecordDuration, (int)EndSafetyMargin.TotalMinutes);
-                details.AppendLine();
-                details.AppendFormat("Total recording time, including safety margins, is {0}.", TotalRecordTime);
-                details.AppendLine();
-
-                if (task.Schedule.Kind != RecordScheduleKind.RightNow)
-                {
-                    string format;
-                    var schedule = (RecordScheduleTime)task.Schedule;
-                    var startDate = schedule.StartDate - schedule.SafetyMarginTimeSpan;
-                    var endDate = startDate + TotalRecordTime;
-                    if (startDate.Day == endDate.Day)
-                    {
-                        format = "The recording will end the same day at {0:T}.";
-                    }
-                    else
-                    {
-                        format = "The recording will end the next day at {0:T}.";
-                    } // if-else
-                    details.AppendFormat(format, endDate);
-                } // if
-
+                var details = new StringBuilder();
+                task.BuildDescription(true, false, false, true, true, true, null, details);
                 task.Description.Details = details.ToString();
 
                 if (userDescription.Length > 0)

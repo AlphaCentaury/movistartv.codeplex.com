@@ -35,22 +35,22 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             RecurEveryDays = 1;
         } // SetDefaultValues
 
-        public override void Verbalize(StringBuilder builder)
+        public override void Verbalize(bool pastTime, StringBuilder builder)
         {
             string format;
 
             if (RecurEveryDays > 1)
             {
-                format = "Daily recording, every {0} days, at {1:T}, with a safety margin of {2} minutes.";
+                format = Properties.SerializationTexts.VerbalizeRecordDaily;
             }
             else
             {
-                format = "Daily recording, every day, at {1:T}, with a safety margin of {2} minutes.";
+                format = Properties.SerializationTexts.VerbalizeRecordDailyEveryday;
             } // if-else
             builder.AppendFormat(format, RecurEveryDays, StartDate, SafetyMarginTimeSpan.TotalMinutes);
             builder.AppendLine();
 
-            VerbalizeStartExpiryDate(builder);
+            VerbalizeStartExpiryDate(pastTime, builder);
         } // Verbalize
     } // class RecordDaily
 } // namespace

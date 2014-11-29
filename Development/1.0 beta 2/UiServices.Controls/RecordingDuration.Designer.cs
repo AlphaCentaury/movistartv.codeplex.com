@@ -1,6 +1,6 @@
 ﻿namespace Project.DvbIpTv.UiServices.Controls
 {
-    partial class RecordingTime
+    partial class RecordingDuration
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordingTime));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordingDuration));
             this.comboQuickSetting = new System.Windows.Forms.ComboBox();
             this.radioQuickSettings = new System.Windows.Forms.RadioButton();
             this.dateTimeEndTime = new System.Windows.Forms.DateTimePicker();
@@ -40,9 +40,9 @@
             // 
             // comboQuickSetting
             // 
+            resources.ApplyResources(this.comboQuickSetting, "comboQuickSetting");
             this.comboQuickSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboQuickSetting.FormattingEnabled = true;
-            resources.ApplyResources(this.comboQuickSetting, "comboQuickSetting");
             this.comboQuickSetting.Name = "comboQuickSetting";
             this.comboQuickSetting.SelectedIndexChanged += new System.EventHandler(this.comboQuickSetting_SelectedIndexChanged);
             // 
@@ -56,9 +56,9 @@
             // 
             // dateTimeEndTime
             // 
+            resources.ApplyResources(this.dateTimeEndTime, "dateTimeEndTime");
             this.dateTimeEndTime.CausesValidation = false;
             this.dateTimeEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            resources.ApplyResources(this.dateTimeEndTime, "dateTimeEndTime");
             this.dateTimeEndTime.Name = "dateTimeEndTime";
             this.dateTimeEndTime.ShowUpDown = true;
             this.dateTimeEndTime.ValueChanged += new System.EventHandler(this.dateTimeEndTime_ValueChanged);
@@ -66,8 +66,8 @@
             // 
             // dateTimeEndDate
             // 
-            this.dateTimeEndDate.CausesValidation = false;
             resources.ApplyResources(this.dateTimeEndDate, "dateTimeEndDate");
+            this.dateTimeEndDate.CausesValidation = false;
             this.dateTimeEndDate.Name = "dateTimeEndDate";
             this.dateTimeEndDate.ValueChanged += new System.EventHandler(this.dateTimeEndDate_ValueChanged);
             this.dateTimeEndDate.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimeEndDate_Validating);
@@ -94,11 +94,11 @@
             this.timeSpanLength.MaxDays = 7;
             this.timeSpanLength.MinutesIncrement = 5;
             this.timeSpanLength.Name = "timeSpanLength";
-            this.timeSpanLength.SecondsAllowed = false;
+            this.timeSpanLength.SecondsAllowed = true;
             this.timeSpanLength.Value = System.TimeSpan.Parse("00:00:00");
             this.timeSpanLength.ValueChanged += new System.EventHandler(this.timeSpanLength_ValueChanged);
             // 
-            // RecordingTime
+            // RecordingDuration
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.dateTimeEndDate);
             this.Controls.Add(this.radioEndDateTime);
             this.Controls.Add(this.radioTimeSpan);
-            this.Name = "RecordingTime";
+            this.Name = "RecordingDuration";
             this.Load += new System.EventHandler(this.RecordingTime_Load);
             this.Validating += new System.ComponentModel.CancelEventHandler(this.RecordingTime_Validating);
             this.ResumeLayout(false);

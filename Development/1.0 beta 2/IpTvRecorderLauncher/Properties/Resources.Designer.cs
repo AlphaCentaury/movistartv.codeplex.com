@@ -61,6 +61,51 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to }.
+        /// </summary>
+        internal static string ArgumentsCloseBrace {
+            get {
+                return ResourceManager.GetString("ArgumentsCloseBrace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {param:.
+        /// </summary>
+        internal static string ArgumentsOpenBrace {
+            get {
+                return ResourceManager.GetString("ArgumentsOpenBrace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .log.txt.
+        /// </summary>
+        internal static string ExtensionLogFile {
+            get {
+                return ResourceManager.GetString("ExtensionLogFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job:{0}:{1}.
+        /// </summary>
+        internal static string FormatJobName {
+            get {
+                return ResourceManager.GetString("FormatJobName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \bin\debug.
+        /// </summary>
+        internal static string PathUnderDevelopmentEnvironment {
+            get {
+                return ResourceManager.GetString("PathUnderDevelopmentEnvironment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon RecorderAppIcon {

@@ -76,7 +76,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
 
             task = new RecordTask()
             {
-                Channel = (channel!= null)? channel : new RecordChannel(),
+                Channel = (channel != null) ? channel : new RecordChannel(),
                 Schedule = RecordSchedule.CreateWithDefaultValues(RecordScheduleKind.OneTime),
                 Duration = RecordDuration.CreateWithDefaultValues(),
                 Description = RecordDescription.CreateWithDefaultValues(),
@@ -90,7 +90,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
         public string ToXml()
         {
             var buffer = new StringBuilder();
-            using (var writer = XmlWriter.Create(buffer, new XmlWriterSettings() { Indent = true}))
+            using (var writer = XmlWriter.Create(buffer, new XmlWriterSettings() { Indent = true }))
             {
                 ToXml(writer);
 
@@ -117,5 +117,90 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             var serializer = new XmlSerializer(typeof(RecordTask));
             serializer.Serialize(writer, this);
         } // ToXml
+
+        public string BuildDescription(bool pastTime)
+        {
+            return BuildDescription(pastTime, true, false, true, true, true);
+        } // BuildDescription
+
+        public string BuildDescription(bool pastTime, bool withBasicDescription, bool withFullDescription, bool withChannel, bool withSchedule, bool withDuration)
+        {
+            var buffer = new StringBuilder();
+            BuildDescription(pastTime, withBasicDescription, withFullDescription, withChannel, withSchedule, withDuration, null, buffer);
+
+            return buffer.ToString();
+        } // BuildDescription
+
+        public void BuildDescription(bool pastTime, StringBuilder buffer)
+        {
+            BuildDescription(pastTime, true, false, true, true, true, null, buffer);
+        } // BuildDescription
+
+        public void BuildDescription(bool pastTime, bool withBasicDescription, bool withFullDescription, bool withChannel, bool withSchedule, bool withDuration, TimeSpan? overrideTotalRecordTime, StringBuilder buffer)
+        {
+            if ((withBasicDescription) || (withFullDescription))
+            {
+                var taskFormat = withFullDescription ? Properties.SerializationTexts.BuildDescriptionTaskDescription : Properties.SerializationTexts.BuildDescriptionTaskName;
+                buffer.AppendFormat(taskFormat, Description.Name, Description.Description);
+                buffer.AppendLine();
+            } // if
+
+            if (withChannel)
+            {
+                buffer.AppendFormat(Properties.SerializationTexts.BuildDescriptionChannel,
+                    Channel.LogicalNumber, Channel.Name,
+                    Channel.ChannelUrl,
+                    Channel.ServiceName);
+                buffer.AppendLine();
+            } // if withChannel
+
+            if (withSchedule)
+            {
+                buffer.AppendLine(Properties.SerializationTexts.BuildDescriptionScheduleHeader);
+                Schedule.Verbalize(pastTime, buffer);
+                buffer.AppendLine();
+            } // if withSchedule
+
+            if (withDuration)
+            {
+                buffer.AppendLine(Properties.SerializationTexts.BuildDescriptionDurationHeader);
+                var scheduleTime = Schedule as RecordScheduleTime;
+                var startSafetyMargin = (scheduleTime != null) ? scheduleTime.SafetyMarginTimeSpan : TimeSpan.Zero;
+                var endSafetyMargin = Duration.SafetyMarginTimeSpan;
+                var recordDuration = Duration.Length;
+                var totalRecordTime = startSafetyMargin + recordDuration + endSafetyMargin;
+                if (overrideTotalRecordTime.HasValue) totalRecordTime = overrideTotalRecordTime.Value;
+
+                var formatDuration = pastTime ? Properties.SerializationTexts.BuildDescriptionDurationPast : Properties.SerializationTexts.BuildDescriptionDuration;
+                buffer.AppendFormat(formatDuration,
+                    recordDuration, (int)endSafetyMargin.TotalMinutes,
+                    totalRecordTime);
+                buffer.AppendLine();
+
+                if (scheduleTime != null)
+                {
+                    string format;
+                    var schedule = (RecordScheduleTime)Schedule;
+                    var startDate = schedule.StartDate - schedule.SafetyMarginTimeSpan;
+                    var endDate = startDate + totalRecordTime;
+                    if (startDate.Day == endDate.Day)
+                    {
+                        format = pastTime ? Properties.SerializationTexts.BuildDescriptionDurationEndsSameDay : Properties.SerializationTexts.BuildDescriptionDurationEndsToday;
+                    }
+                    else
+                    {
+                        format = pastTime ? Properties.SerializationTexts.BuildDescriptionDurationEndsNextDay : Properties.SerializationTexts.BuildDescriptionDurationEndsTomorrow;
+                    } // if-else
+                    buffer.AppendFormat(format, endDate);
+                    buffer.AppendLine();
+                } // if
+            } // if withDuration
+
+            // remove last CRLF
+            if (buffer.Length > 2)
+            {
+                buffer.Remove(buffer.Length - 2, 2);
+            } // if
+        } // BuildDescription
     } // class RecordTask
 } // namespace

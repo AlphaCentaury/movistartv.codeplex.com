@@ -18,9 +18,10 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             get { return RecordScheduleKind.OneTime; }
         } // King
 
-        public override void Verbalize(StringBuilder builder)
+        public override void Verbalize(bool pastTime, StringBuilder builder)
         {
-            builder.AppendFormat("One time recording, on {0:D} at {1:T}, with a safety margin of {2} minutes.", StartDate, StartDate, SafetyMarginTimeSpan.TotalMinutes);
+            builder.AppendFormat(pastTime? Properties.SerializationTexts.VerbalizeRecordOneTimePast : Properties.SerializationTexts.VerbalizeRecordOneTime,
+                StartDate, StartDate, SafetyMarginTimeSpan.TotalMinutes);
         } // Verbalize
     } // class RecordOneTime
 } // namespace

@@ -55,35 +55,20 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             WeekDays = RecordWeekly.ToRecordWeekDays(DateTime.Now.DayOfWeek);
         } // SetDefaultValues
 
-        public override void Verbalize(StringBuilder builder)
+        public override void Verbalize(bool pastTime, StringBuilder builder)
         {
             string format;
 
             if (RecurEveryWeeks < 2)
             {
-                if (WeekDays == AllWeekDays)
-                {
-                    format = "Weekly recording, every day on every week, at {1:T}, with a safety margin of {2} minutes.";
-                }
-                else
-                {
-                    format = "Weekly recording, every week, at {1:T}, with a safety margin of {2} minutes.";
-                } // if-else
+                format = (WeekDays == AllWeekDays) ? Properties.SerializationTexts.VerbalizeRecordWeeklyEveryday : Properties.SerializationTexts.VerbalizeRecordWeekly;
             }
             else
             {
-                if (WeekDays == AllWeekDays)
-                {
-                    format = "Weekly recording, every day, every {0} weeks, at {1:T}, with a safety margin of {2} minutes.";
-                }
-                else
-                {
-                    format = "Weekly recording, every {0} weeks, at {1:T}, with a safety margin of {2} minutes.";
-                } // if-else
+                format = (WeekDays == AllWeekDays) ? Properties.SerializationTexts.VerbalizeRecordWeeklyEveryWeeksEveryday : Properties.SerializationTexts.VerbalizeRecordWeeklyEveryWeeks;
             } // if-else
 
             builder.AppendFormat(format, RecurEveryWeeks, StartDate, SafetyMarginTimeSpan.TotalMinutes);
-            builder.AppendLine();
 
             if (WeekDays != AllWeekDays)
             {
@@ -114,26 +99,28 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
                     day = (day + 1) % 7;
                 } // for
 
-                builder.Append("Recording will occur on ");
+                builder.Append(pastTime ? Properties.SerializationTexts.VerbalizeRecordWeeklyDaysPast : Properties.SerializationTexts.VerbalizeRecordWeeklyDays);
+                builder.Append(' ');
                 for (int index = 0; index < days.Count; index++)
                 {
                     if (index != 0)
                     {
                         if (index == (days.Count - 1))
                         {
-                            builder.Append(" and ");
+                            builder.Append(Properties.SerializationTexts.VerbalizeRecordWeeklyDaysSeparatorFinal);
                         }
                         else
                         {
-                            builder.Append(", ");
+                            builder.Append(Properties.SerializationTexts.VerbalizeRecordWeeklyDaysSeparator);
                         } // if-else
                     } // if
                     builder.Append(days[index]);
                 } // for
-                builder.AppendLine();
+                builder.Append(".");
             } // if
+            builder.AppendLine();
 
-            VerbalizeStartExpiryDate(builder);
+            VerbalizeStartExpiryDate(pastTime, builder);
         } // Verbalize
     } // class RecordWeekly
 } // namespace

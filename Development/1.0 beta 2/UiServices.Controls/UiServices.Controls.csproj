@@ -61,11 +61,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RecordingTime.cs">
+    <Compile Include="RecordingDuration.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RecordingTime.Designer.cs">
-      <DependentUpon>RecordingTime.cs</DependentUpon>
+    <Compile Include="RecordingDuration.Designer.cs">
+      <DependentUpon>RecordingDuration.cs</DependentUpon>
     </Compile>
     <Compile Include="RecordingSchedule.cs">
       <SubType>UserControl</SubType>
@@ -123,12 +123,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecordingTime.es.resx">
-      <DependentUpon>RecordingTime.cs</DependentUpon>
+    <EmbeddedResource Include="RecordingDuration.es.resx">
+      <DependentUpon>RecordingDuration.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecordingTime.resx">
-      <DependentUpon>RecordingTime.cs</DependentUpon>
+    <EmbeddedResource Include="RecordingDuration.resx">
+      <DependentUpon>RecordingDuration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecordingSchedule.es.resx">
       <DependentUpon>RecordingSchedule.cs</DependentUpon>

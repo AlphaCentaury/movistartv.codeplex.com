@@ -23,9 +23,9 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             // nothing to initialize
         } // SetDefaultValues
 
-        public override void Verbalize(StringBuilder builder)
+        public override void Verbalize(bool pastTime, StringBuilder builder)
         {
-            builder.AppendFormat("Recording as soon as possible.");
+            builder.AppendFormat(pastTime? Properties.SerializationTexts.VerbalizeRecordRightNowPast : Properties.SerializationTexts.VerbalizeRecordRightNow);
         } // Verbalize
 
         public override DateTime GetStartDateTime()

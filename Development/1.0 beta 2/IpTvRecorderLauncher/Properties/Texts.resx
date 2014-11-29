@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DisplayActionOk" xml:space="preserve">
+    <value> ok</value>
+  </data>
+  <data name="DisplayErrorLoadTaskFile" xml:space="preserve">
+    <value>ERROR: Unable to load the XML recording task configuration file.</value>
+  </data>
   <data name="DisplayExceptionFormat" xml:space="preserve">
     <value>EXCEPTION: {1}</value>
   </data>
-  <data name="ErrorLoadTaskFile" xml:space="preserve">
-    <value>ERROR: Unable to load the XML recording task configuration file.</value>
+  <data name="DisplayLoadingXml" xml:space="preserve">
+    <value>Loading XML...</value>
   </data>
   <data name="ErrorNoArguments" xml:space="preserve">
     <value>ERROR: No arguments have been specified.
@@ -132,6 +138,26 @@ Use /HELP for more information.</value>
   </data>
   <data name="InfoOk" xml:space="preserve">
     <value>OK</value>
+  </data>
+  <data name="LogExceptionLoadTaskFile" xml:space="preserve">
+    <value>Unable to load the XML recording task configuration file.</value>
+  </data>
+  <data name="LoggerExceptionFormat" xml:space="preserve">
+    <value>{0}
+Exception details: {1}</value>
+  </data>
+  <data name="LogInfoCreatingWindowsJob" xml:space="preserve">
+    <value>Creating Windows Job</value>
+  </data>
+  <data name="LogInfoCreatingWindowsJobOk" xml:space="preserve">
+    <value>Windows Job created</value>
+  </data>
+  <data name="LogInfoLoadingXml" xml:space="preserve">
+    <value>Loading XML file
+{0}</value>
+  </data>
+  <data name="LogInfoLoadingXmlOk" xml:space="preserve">
+    <value>XML file loaded</value>
   </data>
   <data name="PressAnyKeyEnd" xml:space="preserve">
     <value>Press any key to exit...</value>
@@ -144,7 +170,7 @@ Use /HELP for more information.</value>
 {0} /help | /h | /? | -help | -h | -?
 
 XMLTaskFile     XML file containing the record task definition.
-                Loads the task and launches the recorder.
+                Loads the task and launches the external recorder.
 
 /help      Displays this help message.
 
@@ -156,5 +182,107 @@ Options and switches can be specified with '/' or with '-'</value>
     <value>IPTV Recorder launcher utility
 Version {0}
 (C) 2014. All rights reserved.</value>
+  </data>
+  <data name="DisplayWarningRecordingLate" xml:space="preserve">
+    <value>Warning: RECORDING LATE, beyond the safety margin of {0} minutes</value>
+  </data>
+  <data name="LogErrorTooLate" xml:space="preserve">
+    <value>TOO LATE! Sorry about that!</value>
+  </data>
+  <data name="LogExceptionAssignProcessToJobObject" xml:space="preserve">
+    <value>AssignProcessToJobObject({0}, {1})</value>
+  </data>
+  <data name="LogExceptionCreateJobObject" xml:space="preserve">
+    <value>CreateJobObject('{0}')</value>
+  </data>
+  <data name="LogExceptionSetInformationJobObject" xml:space="preserve">
+    <value>SetInformationJobObject(...)</value>
+  </data>
+  <data name="LogVerboseJobHandle" xml:space="preserve">
+    <value>Job handle: {0}</value>
+  </data>
+  <data name="LogVerboseJobName" xml:space="preserve">
+    <value>Job name: {0}</value>
+  </data>
+  <data name="LogVerboseScheduledStartTimeGap" xml:space="preserve">
+    <value>Scheduled start time: {0:T}
+Scheduled total time: {1}
+Gap: {2}
+Real record time: {3}</value>
+  </data>
+  <data name="LogWarningDevelopmentWindowsJob" xml:space="preserve">
+    <value>Running under development context. Windows Job creation was aborted</value>
+  </data>
+  <data name="LogWarningRecordingLate" xml:space="preserve">
+    <value>RECORDING LATE, beyond the safety margin of {0} minutes</value>
+  </data>
+  <data name="DisplayLaunchingRecorder" xml:space="preserve">
+    <value>Launching external recorder...</value>
+  </data>
+  <data name="DisplayLaunchingRecorderOk" xml:space="preserve">
+    <value> ok (PID {0})</value>
+  </data>
+  <data name="DisplayRecorderFinished" xml:space="preserve">
+    <value>Recorder program has finished</value>
+  </data>
+  <data name="DisplayRecordingTimeExceeded" xml:space="preserve">
+    <value>ERROR: Recording time exceeded!</value>
+  </data>
+  <data name="DisplayScheduledDuration" xml:space="preserve">
+    <value>Scheduled recording duration is {0}, with an additional safety margin of {1} minutes.</value>
+  </data>
+  <data name="DisplayTaskName" xml:space="preserve">
+    <value>Task name: {0}</value>
+  </data>
+  <data name="DisplayTotalRecordingTime" xml:space="preserve">
+    <value>Total recording time, including safety margins, will be {0}.</value>
+  </data>
+  <data name="DisplayWarningBehindSchedule" xml:space="preserve">
+    <value>Warning: Recording behind schedule. Gap is {0}</value>
+  </data>
+  <data name="FormatRecordFileDate" xml:space="preserve">
+    <value>{0}-{1:00}-{2:00} {3:00}-{4:00}-{5:00}</value>
+  </data>
+  <data name="FormatRecordFileDelayed" xml:space="preserve">
+    <value> Delayed!</value>
+  </data>
+  <data name="FormatRecordFileName" xml:space="preserve">
+    <value>{0}\{1} {2}{3}{4}</value>
+  </data>
+  <data name="LogErrorRecordingTimeExceeded" xml:space="preserve">
+    <value>Recording time exceeded!</value>
+  </data>
+  <data name="LogExceptionLaunchingRecorder" xml:space="preserve">
+    <value>Unable to execute recorder program</value>
+  </data>
+  <data name="LogInfoLaunchingRecorder" xml:space="preserve">
+    <value>Launching external recorder program</value>
+  </data>
+  <data name="LogInfoLaunchingRecorderOk" xml:space="preserve">
+    <value>Recorder program successfully started (process Id is {0})</value>
+  </data>
+  <data name="LogInfoRecorderExited" xml:space="preserve">
+    <value>Recorder program has exited (exit code is {0})</value>
+  </data>
+  <data name="LogVerboseAboutLaunchRecorder" xml:space="preserve">
+    <value>About to launch recorder program</value>
+  </data>
+  <data name="LogVerboseCreatingRecorderParameters" xml:space="preserve">
+    <value>Creating parameters for recorder program</value>
+  </data>
+  <data name="LogVerboseWaitForExit" xml:space="preserve">
+    <value>WaitForExit()</value>
+  </data>
+  <data name="LogWarningBehindSchedule" xml:space="preserve">
+    <value>Recording behind schedule. Gap is {0}</value>
+  </data>
+  <data name="ExceptionEndInnerList" xml:space="preserve">
+    <value>[End of inner exception list]</value>
+  </data>
+  <data name="DisplayDurationEndsToday" xml:space="preserve">
+    <value>The recording ends today at {0:T}.</value>
+  </data>
+  <data name="DisplayDurationEndsTomorrow" xml:space="preserve">
+    <value>The recording ends tomorrow at {0:T}.</value>
   </data>
 </root>

@@ -38,7 +38,6 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.tabProperties = new System.Windows.Forms.TabControl();
             this.tabPageSchedule = new System.Windows.Forms.TabPage();
-            this.dateTimeExpiryTime = new System.Windows.Forms.DateTimePicker();
             this.dateTimeExpiryDate = new System.Windows.Forms.DateTimePicker();
             this.checkBoxExpiryDate = new System.Windows.Forms.CheckBox();
             this.labelStartMarginSufix = new System.Windows.Forms.Label();
@@ -46,7 +45,7 @@
             this.checkBoxStartMargin = new System.Windows.Forms.CheckBox();
             this.recordingSchedule = new Project.DvbIpTv.UiServices.Controls.RecordingSchedule();
             this.tabPageLength = new System.Windows.Forms.TabPage();
-            this.recordingTime = new Project.DvbIpTv.UiServices.Controls.RecordingTime();
+            this.recordingTime = new Project.DvbIpTv.UiServices.Controls.RecordingDuration();
             this.labelEndMarginSufix = new System.Windows.Forms.Label();
             this.numericEndMargin = new System.Windows.Forms.NumericUpDown();
             this.checkBoxEndMargin = new System.Windows.Forms.CheckBox();
@@ -144,29 +143,20 @@
             // 
             // tabPageSchedule
             // 
-            this.tabPageSchedule.Controls.Add(this.dateTimeExpiryTime);
+            resources.ApplyResources(this.tabPageSchedule, "tabPageSchedule");
             this.tabPageSchedule.Controls.Add(this.dateTimeExpiryDate);
             this.tabPageSchedule.Controls.Add(this.checkBoxExpiryDate);
             this.tabPageSchedule.Controls.Add(this.labelStartMarginSufix);
             this.tabPageSchedule.Controls.Add(this.numericStartMargin);
             this.tabPageSchedule.Controls.Add(this.checkBoxStartMargin);
             this.tabPageSchedule.Controls.Add(this.recordingSchedule);
-            resources.ApplyResources(this.tabPageSchedule, "tabPageSchedule");
             this.tabPageSchedule.Name = "tabPageSchedule";
             this.tabPageSchedule.UseVisualStyleBackColor = true;
             // 
-            // dateTimeExpiryTime
-            // 
-            this.dateTimeExpiryTime.CausesValidation = false;
-            this.dateTimeExpiryTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            resources.ApplyResources(this.dateTimeExpiryTime, "dateTimeExpiryTime");
-            this.dateTimeExpiryTime.Name = "dateTimeExpiryTime";
-            this.dateTimeExpiryTime.ShowUpDown = true;
-            // 
             // dateTimeExpiryDate
             // 
-            this.dateTimeExpiryDate.CausesValidation = false;
             resources.ApplyResources(this.dateTimeExpiryDate, "dateTimeExpiryDate");
+            this.dateTimeExpiryDate.CausesValidation = false;
             this.dateTimeExpiryDate.Name = "dateTimeExpiryDate";
             // 
             // checkBoxExpiryDate
@@ -207,18 +197,18 @@
             // 
             // tabPageLength
             // 
+            resources.ApplyResources(this.tabPageLength, "tabPageLength");
             this.tabPageLength.Controls.Add(this.recordingTime);
             this.tabPageLength.Controls.Add(this.labelEndMarginSufix);
             this.tabPageLength.Controls.Add(this.numericEndMargin);
             this.tabPageLength.Controls.Add(this.checkBoxEndMargin);
-            resources.ApplyResources(this.tabPageLength, "tabPageLength");
             this.tabPageLength.Name = "tabPageLength";
             this.tabPageLength.UseVisualStyleBackColor = true;
             // 
             // recordingTime
             // 
-            this.recordingTime.CausesValidation = false;
             resources.ApplyResources(this.recordingTime, "recordingTime");
+            this.recordingTime.CausesValidation = false;
             this.recordingTime.Name = "recordingTime";
             // 
             // labelEndMarginSufix
@@ -250,13 +240,13 @@
             // 
             // tabPageDescription
             // 
+            resources.ApplyResources(this.tabPageDescription, "tabPageDescription");
             this.tabPageDescription.Controls.Add(this.checkAppendRecordingDetails);
             this.tabPageDescription.Controls.Add(this.textTaskDescription);
             this.tabPageDescription.Controls.Add(this.labelTaskDescription);
             this.tabPageDescription.Controls.Add(this.checkAddTaskPrefix);
             this.tabPageDescription.Controls.Add(this.labelTaskName);
             this.tabPageDescription.Controls.Add(this.textTaskName);
-            resources.ApplyResources(this.tabPageDescription, "tabPageDescription");
             this.tabPageDescription.Name = "tabPageDescription";
             this.tabPageDescription.UseVisualStyleBackColor = true;
             // 
@@ -300,13 +290,13 @@
             // 
             // tabPageSave
             // 
+            resources.ApplyResources(this.tabPageSave, "tabPageSave");
             this.tabPageSave.Controls.Add(this.listViewLocations);
             this.tabPageSave.Controls.Add(this.buttonSelectFolder);
             this.tabPageSave.Controls.Add(this.comboFileExtension);
             this.tabPageSave.Controls.Add(this.textFilename);
             this.tabPageSave.Controls.Add(this.labelFilename);
             this.tabPageSave.Controls.Add(this.labelSaveLocation);
-            resources.ApplyResources(this.tabPageSave, "tabPageSave");
             this.tabPageSave.Name = "tabPageSave";
             this.tabPageSave.UseVisualStyleBackColor = true;
             // 
@@ -376,6 +366,7 @@
             // 
             // tabPageAdvanced
             // 
+            resources.ApplyResources(this.tabPageAdvanced, "tabPageAdvanced");
             this.tabPageAdvanced.Controls.Add(this.timeSpanSchedulerDeleteTaskAfter);
             this.tabPageAdvanced.Controls.Add(this.timeSpanSchedulerRetry);
             this.tabPageAdvanced.Controls.Add(this.comboSchedulerAlreadyRunning);
@@ -387,7 +378,6 @@
             this.tabPageAdvanced.Controls.Add(this.checkSchedulerASAP);
             this.tabPageAdvanced.Controls.Add(this.comboSchedulerFolder);
             this.tabPageAdvanced.Controls.Add(this.labelSchedulerFolder);
-            resources.ApplyResources(this.tabPageAdvanced, "tabPageAdvanced");
             this.tabPageAdvanced.Name = "tabPageAdvanced";
             this.tabPageAdvanced.UseVisualStyleBackColor = true;
             // 
@@ -407,6 +397,7 @@
             // 
             // comboSchedulerAlreadyRunning
             // 
+            resources.ApplyResources(this.comboSchedulerAlreadyRunning, "comboSchedulerAlreadyRunning");
             this.comboSchedulerAlreadyRunning.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSchedulerAlreadyRunning.FormattingEnabled = true;
             this.comboSchedulerAlreadyRunning.Items.AddRange(new object[] {
@@ -414,7 +405,6 @@
             resources.GetString("comboSchedulerAlreadyRunning.Items1"),
             resources.GetString("comboSchedulerAlreadyRunning.Items2"),
             resources.GetString("comboSchedulerAlreadyRunning.Items3")});
-            resources.ApplyResources(this.comboSchedulerAlreadyRunning, "comboSchedulerAlreadyRunning");
             this.comboSchedulerAlreadyRunning.Name = "comboSchedulerAlreadyRunning";
             // 
             // labelSchedulerConcurrent
@@ -477,8 +467,8 @@
             // 
             // pictureChannelLogo
             // 
-            this.pictureChannelLogo.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.pictureChannelLogo, "pictureChannelLogo");
+            this.pictureChannelLogo.BackColor = System.Drawing.SystemColors.Control;
             this.pictureChannelLogo.Name = "pictureChannelLogo";
             this.pictureChannelLogo.TabStop = false;
             // 
@@ -552,7 +542,7 @@
         private System.Windows.Forms.Label labelEndMarginSufix;
         private System.Windows.Forms.NumericUpDown numericEndMargin;
         private System.Windows.Forms.CheckBox checkBoxEndMargin;
-        private Project.DvbIpTv.UiServices.Controls.RecordingTime recordingTime;
+        private Project.DvbIpTv.UiServices.Controls.RecordingDuration recordingTime;
         private System.Windows.Forms.Label labelChannelNumber;
         private System.Windows.Forms.TabPage tabPageDescription;
         private System.Windows.Forms.TabPage tabPageAdvanced;
@@ -579,7 +569,6 @@
         private System.Windows.Forms.CheckBox checkSchedulerRetry;
         private System.Windows.Forms.CheckBox checkSchedulerASAP;
         private System.Windows.Forms.ImageList imageListLocations;
-        private System.Windows.Forms.DateTimePicker dateTimeExpiryTime;
         private System.Windows.Forms.DateTimePicker dateTimeExpiryDate;
         private System.Windows.Forms.CheckBox checkBoxExpiryDate;
         private Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown timeSpanSchedulerRetry;

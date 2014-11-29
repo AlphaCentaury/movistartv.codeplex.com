@@ -57,6 +57,12 @@
     <Compile Include="InternalExtensions.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="ArgumentsManager.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Properties\SerializationTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SerializationTexts.resx</DependentUpon>
+    </Compile>
     <Compile Include="Serialization\RecordRecorder.cs" />
     <Compile Include="UnsafeNativeMethods.cs" />
     <Compile Include="Program.cs" />
@@ -98,6 +104,11 @@
     <EmbeddedResource Include="Properties\Texts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SerializationTexts.es.resx" />
+    <EmbeddedResource Include="Properties\SerializationTexts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SerializationTexts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

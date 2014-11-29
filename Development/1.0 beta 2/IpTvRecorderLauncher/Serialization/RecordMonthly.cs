@@ -30,7 +30,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             throw new NotImplementedException();
         } // SetDefaultValues
 
-        public override void Verbalize(StringBuilder builder)
+        public override void Verbalize(bool pastTime, StringBuilder builder)
         {
             throw new NotImplementedException();
         } // Verbalize

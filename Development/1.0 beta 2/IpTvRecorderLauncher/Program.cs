@@ -21,12 +21,14 @@ namespace Project.DvbIpTv.RecorderLauncher
 
         public enum Result
         {
-            Exception = -10,
-            Arguments = -1,
+            Exception = -10, // unhandled exception occurred
+            Arguments = -1, // missing arguments or bad arguments
             Ok = 0,
-            Help = 1,
-            XmlFile = 10,
-            TooLate = 100,
+            Help = 1, // help requested
+            XmlFile = 10, // exception/error while loading task XML file
+            TooLate = 100, // recording beyond the scheduled end date/time
+            ExecProblem = 200, // exception while launching recorder
+            ExecFailure = 250, // recorder exit code != 0
         } // enum Result
 
         static int Main(string[] args)
@@ -35,11 +37,12 @@ namespace Project.DvbIpTv.RecorderLauncher
 
             try
             {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = System.Threading.Thread.CurrentThread.CurrentCulture;
                 result = Run(args);
             }
             catch (Exception ex)
             {
-                DisplayException(ex);
+                Logger.Exception(ex);
                 result = Result.Exception;
             } // try-catch
 
@@ -51,6 +54,7 @@ namespace Project.DvbIpTv.RecorderLauncher
                 Console.ReadKey(true);
             } // if
 
+            Logger.Stop((int)result);
             return (int)result;
         } // Main
 
@@ -85,7 +89,7 @@ namespace Project.DvbIpTv.RecorderLauncher
                 case ProgramMode.Record:
                     PressAnyKey = false;
                     var launcher = new Launcher();
-                    return launcher.Start(TaskXmlFilename);
+                    return launcher.Run(TaskXmlFilename);
 
                 default:
                     return Result.Arguments;

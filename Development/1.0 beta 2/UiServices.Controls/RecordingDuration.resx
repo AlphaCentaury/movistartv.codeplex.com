@@ -117,196 +117,196 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="comboQuickSetting.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 26</value>
-  </data>
-  <data name="comboQuickSetting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 21</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="comboQuickSetting.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;comboQuickSetting.Name" xml:space="preserve">
-    <value>comboQuickSetting</value>
-  </data>
-  <data name="&gt;&gt;comboQuickSetting.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comboQuickSetting.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;comboQuickSetting.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="radioQuickSettings.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="radioQuickSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioQuickSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 3</value>
-  </data>
-  <data name="radioQuickSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 17</value>
-  </data>
-  <data name="radioQuickSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="radioQuickSettings.Text" xml:space="preserve">
-    <value>Quick settings</value>
-  </data>
-  <data name="&gt;&gt;radioQuickSettings.Name" xml:space="preserve">
-    <value>radioQuickSettings</value>
-  </data>
-  <data name="&gt;&gt;radioQuickSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioQuickSettings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;radioQuickSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="dateTimeEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 125</value>
-  </data>
-  <data name="dateTimeEndTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 20</value>
+  <data name="timeSpanLength.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="dateTimeEndTime.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;dateTimeEndTime.Name" xml:space="preserve">
-    <value>dateTimeEndTime</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="radioTimeSpan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 53</value>
   </data>
-  <data name="&gt;&gt;dateTimeEndTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;radioQuickSettings.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;dateTimeEndTime.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dateTimeEndTime.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="dateTimeEndDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 125</value>
-  </data>
-  <data name="dateTimeEndDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 20</value>
-  </data>
-  <data name="dateTimeEndDate.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;dateTimeEndDate.Name" xml:space="preserve">
-    <value>dateTimeEndDate</value>
-  </data>
-  <data name="&gt;&gt;dateTimeEndDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dateTimeEndDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dateTimeEndDate.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="radioEndDateTime.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioEndDateTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioEndDateTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 102</value>
-  </data>
-  <data name="radioEndDateTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 17</value>
-  </data>
-  <data name="radioEndDateTime.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="radioEndDateTime.Text" xml:space="preserve">
-    <value>Specify recording end date and time</value>
-  </data>
-  <data name="&gt;&gt;radioEndDateTime.Name" xml:space="preserve">
-    <value>radioEndDateTime</value>
-  </data>
-  <data name="&gt;&gt;radioEndDateTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioEndDateTime.Parent" xml:space="preserve">
+  <data name="&gt;&gt;radioQuickSettings.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;radioEndDateTime.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="radioTimeSpan.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioTimeSpan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioTimeSpan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 53</value>
-  </data>
-  <data name="radioTimeSpan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 17</value>
-  </data>
-  <data name="radioTimeSpan.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="radioTimeSpan.Text" xml:space="preserve">
-    <value>Set total record length</value>
-  </data>
-  <data name="&gt;&gt;radioTimeSpan.Name" xml:space="preserve">
-    <value>radioTimeSpan</value>
-  </data>
-  <data name="&gt;&gt;radioTimeSpan.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="dateTimeEndDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 125</value>
   </data>
   <data name="&gt;&gt;radioTimeSpan.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;radioTimeSpan.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;dateTimeEndTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="radioEndDateTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="timeSpanLength.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 76</value>
   </data>
-  <data name="timeSpanLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 20</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="radioTimeSpan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="timeSpanLength.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="dateTimeEndDate.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="&gt;&gt;timeSpanLength.Name" xml:space="preserve">
-    <value>timeSpanLength</value>
+  <data name="radioQuickSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 17</value>
   </data>
-  <data name="&gt;&gt;timeSpanLength.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown, DvbIpTv.UiServices.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;radioEndDateTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="radioQuickSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
+  </data>
+  <data name="radioTimeSpan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 17</value>
+  </data>
+  <data name="&gt;&gt;dateTimeEndDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="radioQuickSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioTimeSpan.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;comboQuickSetting.Name" xml:space="preserve">
+    <value>comboQuickSetting</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>RecordingDuration</value>
+  </data>
+  <data name="comboQuickSetting.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;comboQuickSetting.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="dateTimeEndTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>241, 125</value>
   </data>
   <data name="&gt;&gt;timeSpanLength.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;timeSpanLength.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;radioEndDateTime.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="radioEndDateTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioQuickSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
   </data>
-  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>425, 175</value>
+  <data name="&gt;&gt;dateTimeEndTime.Name" xml:space="preserve">
+    <value>dateTimeEndTime</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>RecordingTime</value>
+  <data name="&gt;&gt;radioEndDateTime.Name" xml:space="preserve">
+    <value>radioEndDateTime</value>
+  </data>
+  <data name="&gt;&gt;comboQuickSetting.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dateTimeEndTime.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="radioTimeSpan.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="comboQuickSetting.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 26</value>
+  </data>
+  <data name="radioEndDateTime.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="radioEndDateTime.Text" xml:space="preserve">
+    <value>Specify recording end date and time:</value>
+  </data>
+  <data name="&gt;&gt;radioTimeSpan.Name" xml:space="preserve">
+    <value>radioTimeSpan</value>
+  </data>
+  <data name="&gt;&gt;dateTimeEndTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="radioQuickSettings.Text" xml:space="preserve">
+    <value>Use quick settings:</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>425, 175</value>
+  </data>
+  <data name="timeSpanLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 20</value>
+  </data>
+  <data name="radioEndDateTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 17</value>
+  </data>
+  <data name="dateTimeEndTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 20</value>
+  </data>
+  <data name="radioEndDateTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 102</value>
+  </data>
+  <data name="&gt;&gt;radioQuickSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="comboQuickSetting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 21</value>
+  </data>
+  <data name="radioQuickSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radioTimeSpan.Text" xml:space="preserve">
+    <value>Specify total record length:</value>
+  </data>
+  <data name="&gt;&gt;radioTimeSpan.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dateTimeEndDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;timeSpanLength.Type" xml:space="preserve">
+    <value>Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown, UiServices.Controls, Version=1.0.1000.200, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;dateTimeEndDate.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;dateTimeEndDate.Name" xml:space="preserve">
+    <value>dateTimeEndDate</value>
+  </data>
+  <data name="&gt;&gt;timeSpanLength.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radioTimeSpan.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;timeSpanLength.Name" xml:space="preserve">
+    <value>timeSpanLength</value>
+  </data>
+  <data name="&gt;&gt;radioQuickSettings.Name" xml:space="preserve">
+    <value>radioQuickSettings</value>
+  </data>
+  <data name="&gt;&gt;comboQuickSetting.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dateTimeEndDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 20</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

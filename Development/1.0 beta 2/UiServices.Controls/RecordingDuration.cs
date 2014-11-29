@@ -13,7 +13,7 @@ using Project.DvbIpTv.RecorderLauncher.Serialization;
 
 namespace Project.DvbIpTv.UiServices.Controls
 {
-    public partial class RecordingTime : UserControl
+    public partial class RecordingDuration : UserControl
     {
         private bool ManualUpdateOfValue;
         private RecordDuration Duration;
@@ -30,7 +30,7 @@ namespace Project.DvbIpTv.UiServices.Controls
             private set;
         } // RecordTimeSpan
 
-        public RecordingTime()
+        public RecordingDuration()
         {
             InitializeComponent();
             InitComboQuickSettings(comboQuickSetting);

@@ -38,7 +38,7 @@ namespace Project.DvbIpTv.RecorderLauncher
                 ex.InnerException.ToString(buffer, withMessage, withStackTrace);
                 buffer.Append(Environment.NewLine);
                 buffer.Append("      ");
-                buffer.Append("[End of inner exception list]");
+                buffer.Append(Properties.Texts.ExceptionEndInnerList);
             } // if
 
             if (withStackTrace)

@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DisplayActionOk" xml:space="preserve">
+    <value> correcto</value>
+  </data>
+  <data name="DisplayErrorLoadTaskFile" xml:space="preserve">
+    <value>ERROR: No se puede cargar el archivo XML con la configuración de la tarea de grabación.</value>
+  </data>
   <data name="DisplayExceptionFormat" xml:space="preserve">
     <value>EXCEPCIÓN: {1}</value>
   </data>
-  <data name="ErrorLoadTaskFile" xml:space="preserve">
-    <value>ERROR: No se puede cargar el archivo XML con la configuración de la tarea de grabación.</value>
+  <data name="DisplayLoadingXml" xml:space="preserve">
+    <value>Leyendo XML...</value>
   </data>
   <data name="ErrorNoArguments" xml:space="preserve">
     <value>ERROR: No se han especificado argumentos.
@@ -134,6 +140,20 @@ Especifique /HELP como argumento para obtener más información.</value>
   <data name="InfoOk" xml:space="preserve">
     <value>correcto</value>
   </data>
+  <data name="LogExceptionLoadTaskFile" xml:space="preserve">
+    <value>No se puede cargar el archivo XML con la configuración de la tarea de grabación.</value>
+  </data>
+  <data name="LoggerExceptionFormat" xml:space="preserve">
+    <value>{0}
+Detalles de la excepción: {1}</value>
+  </data>
+  <data name="LogInfoLoadingXml" xml:space="preserve">
+    <value>Cargando archivo XML
+{0}</value>
+  </data>
+  <data name="LogInfoLoadingXmlOk" xml:space="preserve">
+    <value>Archivo XML leído</value>
+  </data>
   <data name="PressAnyKeyEnd" xml:space="preserve">
     <value>Pulse cualquier tecla para finalizar...</value>
   </data>
@@ -144,5 +164,126 @@ Especifique /HELP como argumento para obtener más información.</value>
     <value>Utilidad de ejecución de grabación IPTV
 Versión {0}
 (C) 2014. Todos los derechos reservados.</value>
+  </data>
+  <data name="LogErrorTooLate" xml:space="preserve">
+    <value>¡DEMASIADO TARDE! ¡Lo sentimos!</value>
+  </data>
+  <data name="LogExceptionAssignProcessToJobObject" xml:space="preserve">
+    <value>AssignProcessToJobObject({0}, {1})</value>
+  </data>
+  <data name="LogExceptionCreateJobObject" xml:space="preserve">
+    <value>CreateJobObject('{0}')</value>
+  </data>
+  <data name="LogExceptionSetInformationJobObject" xml:space="preserve">
+    <value>SetInformationJobObject(...)</value>
+  </data>
+  <data name="LogInfoCreatingWindowsJob" xml:space="preserve">
+    <value>Creando Job de Windows</value>
+  </data>
+  <data name="LogInfoCreatingWindowsJobOk" xml:space="preserve">
+    <value>Job de Windows creado</value>
+  </data>
+  <data name="LogVerboseJobHandle" xml:space="preserve">
+    <value>Indentificador del Job: {0}</value>
+  </data>
+  <data name="LogVerboseJobName" xml:space="preserve">
+    <value>Nombre del Job: {0}</value>
+  </data>
+  <data name="LogVerboseScheduledStartTimeGap" xml:space="preserve">
+    <value>Hora programada de inicio: {0:T}
+Tiempo total programado: {1}
+Diferencia: {2}
+Tiempo de grabación real: {3}</value>
+  </data>
+  <data name="LogWarningDevelopmentWindowsJob" xml:space="preserve">
+    <value>Ejecutando en contexto de desarrollo. La creación del Job de Windows se ha cancelado</value>
+  </data>
+  <data name="DisplayLaunchingRecorder" xml:space="preserve">
+    <value>Ejecutando grabador externo...</value>
+  </data>
+  <data name="DisplayLaunchingRecorderOk" xml:space="preserve">
+    <value> correcto (PID {0})</value>
+  </data>
+  <data name="DisplayRecorderFinished" xml:space="preserve">
+    <value>El programa de grabación ha finalizado</value>
+  </data>
+  <data name="DisplayRecordingTimeExceeded" xml:space="preserve">
+    <value>ERROR: ¡Tiempo de grabación excedido!</value>
+  </data>
+  <data name="DisplayScheduledDuration" xml:space="preserve">
+    <value>La duración programada de la grabación era {0}, con un margen de seguridad adicional de {1} minutos.</value>
+  </data>
+  <data name="DisplayTaskName" xml:space="preserve">
+    <value>Nombre de la tarea: {0}</value>
+  </data>
+  <data name="DisplayTotalRecordingTime" xml:space="preserve">
+    <value>La duración total de la grabación, incluyendo márgenes de seguridad, será {0}.</value>
+  </data>
+  <data name="DisplayWarningBehindSchedule" xml:space="preserve">
+    <value>Aviso: Grabando con retraso. El retraso es {0}</value>
+  </data>
+  <data name="DisplayWarningRecordingLate" xml:space="preserve">
+    <value>Aviso: Grabando CON RETRASO, mas allá del margen de seguridad de {0} minutos</value>
+  </data>
+  <data name="FormatRecordFileDate" xml:space="preserve">
+    <value>{0}-{1:00}-{2:00} {3:00}-{4:00}-{5:00}</value>
+  </data>
+  <data name="FormatRecordFileDelayed" xml:space="preserve">
+    <value> ¡Con-retraso!</value>
+  </data>
+  <data name="FormatRecordFileName" xml:space="preserve">
+    <value>{0}\{1} {2}{3}{4}</value>
+  </data>
+  <data name="LogErrorRecordingTimeExceeded" xml:space="preserve">
+    <value>¡Se ha sobrepasado el tiempo de grabación!</value>
+  </data>
+  <data name="LogExceptionLaunchingRecorder" xml:space="preserve">
+    <value>No se ha podido ejecutar el programa externo de grabación</value>
+  </data>
+  <data name="LogInfoLaunchingRecorder" xml:space="preserve">
+    <value>Ejecutando el programa de grabación externo</value>
+  </data>
+  <data name="LogInfoLaunchingRecorderOk" xml:space="preserve">
+    <value>Se ha iniciado correctamente el programa de grabación (el Id del proceso es {0})</value>
+  </data>
+  <data name="LogInfoRecorderExited" xml:space="preserve">
+    <value>El programa de grabación ha terminado (el código de salida es {0})</value>
+  </data>
+  <data name="LogVerboseAboutLaunchRecorder" xml:space="preserve">
+    <value>A punto de ejecutar el grabador externo</value>
+  </data>
+  <data name="LogVerboseCreatingRecorderParameters" xml:space="preserve">
+    <value>Creando los parámetros para el grabador externo</value>
+  </data>
+  <data name="LogVerboseWaitForExit" xml:space="preserve">
+    <value>WaitForExit()</value>
+  </data>
+  <data name="LogWarningBehindSchedule" xml:space="preserve">
+    <value>Grabando con retraso. El retraso es {0}</value>
+  </data>
+  <data name="LogWarningRecordingLate" xml:space="preserve">
+    <value>Grabando CON RETRASO, mas allá del margen de seguridad de {0} minutos</value>
+  </data>
+  <data name="ProgramHelp" xml:space="preserve">
+    <value>{0} XMLTaskFile
+{0} /help | /h | /? | -help | -h | -?
+
+XMLTaskFile     Archivo XMLcon la definición de la tarea de grabación.
+                Carga la tarea y ejecuta el grabador externo.
+
+/help      Muestra este mensaje de ayuda.
+
+-- Opciones generales --
+/nologo     Suprimer el mensaje de cabecera.
+Las opciones y los selectores se pueden especificar con '/' o con '-'</value>
+  </data>
+  <data name="ExceptionEndInnerList" xml:space="preserve">
+    <value>[Fin de la lista de excepciones anidadas]</value>
+  </data>
+  <data name="DisplayDurationEndsToday" xml:space="preserve">
+    <value>La grabación finalizará hoy a las {0:T}.</value>
+  </data>
+  <data name="DisplayDurationEndsTomorrow" xml:space="preserve">
+    <value>La grabación finalizará manaña a las {0:T}.</value>
   </data>
 </root>

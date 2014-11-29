@@ -44,15 +44,15 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             return schedule;
         } // CreateWithDefaultValues
 
-        public virtual string Verbalize()
+        public virtual string Verbalize(bool pastTime)
         {
             var builder = new StringBuilder();
-            Verbalize(builder);
+            Verbalize(pastTime, builder);
             return builder.ToString();
         } // Verbalize
 
         public abstract void SetDefaultValues();
-        public abstract void Verbalize(StringBuilder builder);
+        public abstract void Verbalize(bool pastTime, StringBuilder builder);
         public abstract DateTime GetStartDateTime();
         public abstract TimeSpan GetSafetyMargin();
     } // abstract class RecordSchedule
