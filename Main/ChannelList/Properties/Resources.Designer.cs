@@ -143,6 +143,16 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SplashScreenBackground {
+            get {
+                object obj = ResourceManager.GetObject("SplashScreenBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Warning_48x48 {
             get {
                 object obj = ResourceManager.GetObject("Warning_48x48", resourceCulture);

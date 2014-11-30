@@ -74,5 +74,14 @@ namespace Project.DvbIpTv.ChannelList.Properties {
                 return ResourceManager.GetString("ExceptionForceUiCulture", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://movistartv.codeplex.com.
+        /// </summary>
+        internal static string SplashScreenDefaultStatus {
+            get {
+                return ResourceManager.GetString("SplashScreenDefaultStatus", resourceCulture);
+            }
+        }
     }
 }

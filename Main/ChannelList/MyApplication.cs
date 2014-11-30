@@ -22,41 +22,36 @@ namespace Project.DvbIpTv.ChannelList
             private set;
         } // RecorderLauncherPath
 
-        public static bool LoadConfig()
+        internal static InitializationResult LoadAppUiConfig()
         {
-            try
-            {
-                var myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                var configBasePath = Path.Combine(myDocumentsPath, Properties.Settings.Default.UserDataPath);
-                var myPath = Application.StartupPath;
-                var userConfigXmlPath = Path.Combine(configBasePath, "user-config.xml");
+            InitializationResult result;
+
+            var myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var configBasePath = Path.Combine(myDocumentsPath, Properties.Settings.Default.UserDataPath);
+            var myPath = Application.StartupPath;
+            var userConfigXmlPath = Path.Combine(configBasePath, "user-config.xml");
 
 #if DEBUG
-                var recorderLauncher = myPath.EndsWith(Properties.Settings.Default.DevelopmentLocationPath, StringComparison.OrdinalIgnoreCase) ? Properties.Settings.Default.RecorderLauncherDevelopment : Properties.Settings.Default.RecorderLauncher;
+            var recorderLauncher = myPath.EndsWith(Properties.Settings.Default.DevelopmentLocationPath, StringComparison.OrdinalIgnoreCase) ? Properties.Settings.Default.RecorderLauncherDevelopment : Properties.Settings.Default.RecorderLauncher;
 #else
                 var recorderLauncher = Properties.Settings.Default.RecorderLauncher;
 #endif // DEBUG
-                RecorderLauncherPath = Path.Combine(myPath, recorderLauncher);
-                RecorderLauncherPath = Path.GetFullPath(RecorderLauncherPath);
-                if (!File.Exists(RecorderLauncherPath))
-                {
-                    throw new FileNotFoundException(string.Format(Properties.Texts.MyAppRecorderLauncherNotFound, RecorderLauncherPath));
-                } // if
 
-                AppUiConfiguration.Load(configBasePath, userConfigXmlPath);
-
-                return true;
-            }
-            catch (Exception ex)
+            RecorderLauncherPath = Path.Combine(myPath, recorderLauncher);
+            RecorderLauncherPath = Path.GetFullPath(RecorderLauncherPath);
+            if (!File.Exists(RecorderLauncherPath))
             {
-                HandleException(null,
-                    Properties.Texts.MyAppLoadConfigExceptionCaption,
-                    Properties.Texts.MyAppLoadConfigException,
-                    MessageBoxIcon.Exclamation,
-                    ex);
-                return false;
-            } // try-catch
-        } // LoadConfig
+                return new InitializationResult()
+                {
+                    Message = string.Format(Properties.Texts.MyAppRecorderLauncherNotFound, RecorderLauncherPath)
+                };
+            } // if
+
+            result = AppUiConfiguration.Load(configBasePath, userConfigXmlPath);
+            if (!result.IsOk) return result;
+
+            return InitializationResult.Ok;
+        } // LoadAppUiConfig
 
         public static void HandleException(IWin32Window owner, Exception ex)
         {

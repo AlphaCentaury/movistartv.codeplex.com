@@ -138,13 +138,13 @@
     <value>139, 13</value>
   </data>
   <data name="labelSelectProvider.Text" xml:space="preserve">
-    <value>Elija proveedor de servicios:</value>
+    <value>Elija &amp;proveedor de servicios:</value>
   </data>
   <data name="buttonRefreshServiceProviderList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonRefreshServiceProviderList.Text" xml:space="preserve">
-    <value>Actualizar lista</value>
+    <value>Act&amp;ualizar lista</value>
   </data>
   <data name="labelProviderDescription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -156,7 +156,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonProviderDetails.Text" xml:space="preserve">
-    <value>Detalles...</value>
+    <value>D&amp;etalles...</value>
   </data>
   <data name="labelChannelsList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -171,25 +171,25 @@
     <value>NoControl</value>
   </data>
   <data name="buttonRefreshChannelsList.Text" xml:space="preserve">
-    <value>Actualizar lista</value>
+    <value>A&amp;ctualizar lista</value>
   </data>
   <data name="buttonChannelDetails.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonChannelDetails.Text" xml:space="preserve">
-    <value>Detalles...</value>
+    <value>Det&amp;alles...</value>
   </data>
   <data name="buttonDisplayChannel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonDisplayChannel.Text" xml:space="preserve">
-    <value>Mostrar canal TV</value>
+    <value>Mostrar canal &amp;TV</value>
   </data>
   <data name="buttonValidateChannels.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonValidateChannels.Text" xml:space="preserve">
-    <value>Verificar servicios...</value>
+    <value>&amp;Verificar servicios...</value>
   </data>
   <data name="pictureProviderLogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -198,6 +198,33 @@
     <value>NoControl</value>
   </data>
   <data name="buttonRecordChannel.Text" xml:space="preserve">
-    <value>Grabar...</value>
+    <value>&amp;Grabar...</value>
+  </data>
+  <data name="labelListChannelsView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>532, 80</value>
+  </data>
+  <data name="labelListChannelsView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 13</value>
+  </data>
+  <data name="labelListChannelsView.Text" xml:space="preserve">
+    <value>Vista:</value>
+  </data>
+  <data name="radioListViewTile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>571, 78</value>
+  </data>
+  <data name="radioListViewTile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 17</value>
+  </data>
+  <data name="radioListViewTile.Text" xml:space="preserve">
+    <value>&amp;Mosaico</value>
+  </data>
+  <data name="radioListViewDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>642, 78</value>
+  </data>
+  <data name="radioListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="radioListViewDetails.Text" xml:space="preserve">
+    <value>&amp;Detallada</value>
   </data>
 </root>

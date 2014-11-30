@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.UiServices.Configuration
+namespace Project.DvbIpTv.UiServices.Configuration.Logos
 {
     public partial class ServiceLogoMappings
     {
@@ -121,7 +121,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
             string partialPath;
             bool firstReplacementChance;
 
-            if (providerDomain == null) throw new ArgumentNullException("string providerDomain");
+            if (providerDomain == null) throw new ArgumentNullException("providerDomain");
             if (serviceDomainName == null) serviceDomainName = providerDomain;
             if (serviceName == null) serviceName = Properties.InvariantTexts.ServiceNameAny;
 

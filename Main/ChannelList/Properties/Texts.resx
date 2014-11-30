@@ -133,7 +133,7 @@
     <value>Please wait. Canceling download...</value>
   </data>
   <data name="ChannelListFormCaption" xml:space="preserve">
-    <value>Movistar TV DVB-IPTV channel/services list (beta 1.0.1 “Wolf 424”)</value>
+    <value>Movistar TV DVB-IPTV channel/services list (beta 1.0.2 “Wolf 424”)</value>
   </data>
   <data name="CompletedDownloadDataReception" xml:space="preserve">
     <value>Data reception is complete</value>
@@ -163,6 +163,30 @@ Please select one or browse for a folder.</value>
   <data name="DialogRecordSaveMissingLocation" xml:space="preserve">
     <value>&lt;Missing location&gt;</value>
   </data>
+  <data name="DvbStpDownloadHelperExceptionCaption" xml:space="preserve">
+    <value>An error has ocurred while fetching data</value>
+  </data>
+  <data name="DvbStpDownloadHelperUserCancelledCaption" xml:space="preserve">
+    <value>Request cancelled</value>
+  </data>
+  <data name="ExternalPlayerShortcutDescription" xml:space="preserve">
+    <value>Launches {0} player to view DVB-IPTV channel '{1}'</value>
+  </data>
+  <data name="MulticastScannerDlgActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="MulticastScannerDlgDead" xml:space="preserve">
+    <value>“Dead”</value>
+  </data>
+  <data name="MulticastScannerDlgError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MulticastScannerDlgSkipped" xml:space="preserve">
+    <value>Skipped</value>
+  </data>
+  <data name="MulticastScannerDlgTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
   <data name="MulticastServiceScanningCancelled" xml:space="preserve">
     <value>Scan has been cancelled by the user</value>
   </data>
@@ -175,6 +199,24 @@ Please select one or browse for a folder.</value>
   <data name="MulticastServiceScanningError" xml:space="preserve">
     <value>An error has occurred during the scan and has been aborted</value>
   </data>
+  <data name="MyAppCtxExceptionCaption" xml:space="preserve">
+    <value>Unable to start the application</value>
+  </data>
+  <data name="MyAppCtxExceptionMsg" xml:space="preserve">
+    <value>An unexpected error has occurred while initializating the application.</value>
+  </data>
+  <data name="MyAppCtxInitializationErrorCaption" xml:space="preserve">
+    <value>Application configuration error</value>
+  </data>
+  <data name="MyAppCtxLoadingConfig" xml:space="preserve">
+    <value>Loading application configuration...</value>
+  </data>
+  <data name="MyAppCtxLoadingUserConfig" xml:space="preserve">
+    <value>Loading user configuration and preferences...</value>
+  </data>
+  <data name="MyAppCtxStarting" xml:space="preserve">
+    <value>Starting application...</value>
+  </data>
   <data name="MyAppHandleExceptionDefaultCaption" xml:space="preserve">
     <value>An error has occurred while processing your request</value>
   </data>
@@ -183,12 +225,7 @@ Please select one or browse for a folder.</value>
 The application will now end.</value>
   </data>
   <data name="MyAppLoadConfigExceptionCaption" xml:space="preserve">
-    <value>Application startup error</value>
-  </data>
-  <data name="MyAppLoadConfigUserConfigValidation" xml:space="preserve">
-    <value>The user configuration file at '{0}' is invalid or has severe errors.
-{1}
-Please verify the XML syntax of the file and correct the detected errors.</value>
+    <value>Application configuration error</value>
   </data>
   <data name="MyAppRecorderLauncherNotFound" xml:space="preserve">
     <value>Unable to find the 'Recorder Launcher' program at '{0}'.</value>

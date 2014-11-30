@@ -6,18 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.UiServices.Configuration
+namespace Project.DvbIpTv.UiServices.Configuration.Logos
 {
-    public class ServiceLogo : BaseLogo
+    public class ProviderLogo : BaseLogo
     {
         protected override string ImageNotFoundExceptionText
         {
-            get { return Properties.Texts.ExceptionLogosServiceImageNotFound; }
+            get { return Properties.Texts.ExceptionLogosProviderImageNotFound; }
         } // ImageNotFoundExceptionText
 
         protected override string ImageLoadExceptionText
         {
-            get { return Properties.Texts.ExceptionLogosServiceImageLoadError; }
+            get { return Properties.Texts.ExceptionLogosProviderImageLoadError; }
         } // ImageLoadExceptionText
-    } // class ServiceLogo
+    } // class ProviderLogo
 } // namespace

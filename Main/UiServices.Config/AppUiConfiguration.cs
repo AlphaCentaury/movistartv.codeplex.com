@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using System;
 using System.Collections.Generic;
@@ -12,18 +13,21 @@ namespace Project.DvbIpTv.UiServices.Configuration
 {
     public class AppUiConfiguration
     {
+        private string userConfigXmlPath;
+
         public static AppUiConfiguration Current
         {
             get;
             private set;
         } // Current
 
-        public static void Load(string configBasePath, string userConfigXmlPath)
+        public static InitializationResult Load(string configBasePath, string userConfigXmlPath)
         {
             AppUiConfiguration config;
 
             config = new AppUiConfiguration();
 
+            config.userConfigXmlPath = userConfigXmlPath;
             config.BasePath = configBasePath;
 
             // Jobs
@@ -78,7 +82,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
             string validationError = Validate(config);
             if (validationError != null)
             {
-                throw new ApplicationException(validationError);
+                return new InitializationResult()
+                {
+                    Caption = Properties.Texts.LoadConfigValidationCaption,
+                    Message = validationError
+                };
             } // if
 
             // Initialize managers and providers
@@ -99,21 +107,39 @@ namespace Project.DvbIpTv.UiServices.Configuration
             Current = config;
 
             // Load and validate user configuration
+            return InitializationResult.Ok;
+        } // Load
+
+        public InitializationResult LoadUserConfiguration()
+        {
             try
             {
-                config.User = UserConfig.Load(userConfigXmlPath);
-                validationError = config.User.Validate();
+                // load
+                User = UserConfig.Load(userConfigXmlPath);
+
+                // validate
+                var validationError = User.Validate();
+                if (validationError != null)
+                {
+                    return new InitializationResult()
+                    {
+                        Caption = Properties.Texts.LoadUserConfigValidationCaption,
+                        Message = string.Format(Properties.Texts.LoadConfigUserConfigValidation, userConfigXmlPath, validationError),
+                    };
+                } // if
+
+                return InitializationResult.Ok;
             }
             catch (Exception ex)
             {
-                throw new ApplicationException(string.Format(Properties.Texts.LoadConfigUserConfigValidation, userConfigXmlPath, Properties.Texts.LoadConfigUserConfigValidationException), ex);
+                return new InitializationResult()
+                {
+                    Caption = Properties.Texts.LoadUserConfigExceptionCaption,
+                    Message = string.Format(Properties.Texts.LoadConfigUserConfigValidation, userConfigXmlPath, Properties.Texts.LoadConfigUserConfigValidationException),
+                    InnerException = ex
+                };
             } // try-catch
-
-            if (validationError != null)
-            {
-                throw new ApplicationException(string.Format(Properties.Texts.LoadConfigUserConfigValidation, userConfigXmlPath, validationError));
-            } // if
-        } // Load
+        } // LoadUserConfiguration
 
         public string BasePath
         {
@@ -185,18 +211,18 @@ namespace Project.DvbIpTv.UiServices.Configuration
         {
             if (config == null)
             {
-                return "No configuration is available.";
+                return Properties.Texts.AppConfigValidationNull;
                 //ConfigurationException();
             } // if
 
             if (!Directory.Exists(config.BasePath))
             {
-                return string.Format("Unable to find the 'base' folder at '{0}'.", config.BasePath);
+                return string.Format(Properties.Texts.AppConfigValidationBasePath, config.BasePath);
             } // if
 
             if (!Directory.Exists(config.LogosBasePath))
             {
-                return string.Format("Unable to locate the 'logos' folder at '{0}'.", config.LogosBasePath);
+                return string.Format(Properties.Texts.AppConfigValidationLogosPath, config.LogosBasePath);
             } // if
 
             return null;

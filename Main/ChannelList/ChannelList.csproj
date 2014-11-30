@@ -85,6 +85,7 @@
     <Compile Include="ChannelListForm.Designer.cs">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyApplicationContext.cs" />
     <Compile Include="RecordChannelDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +222,7 @@
     <None Include="Resources\RecordHS.png" />
     <Content Include="License.txt" />
     <Content Include="Resources\IPTV.ico" />
+    <None Include="Resources\Splash.png" />
     <Content Include="Resources\Warning_48x48.png" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +261,10 @@
     <ProjectReference Include="..\UiServices.Discovery\UiServices.Discovery.csproj">
       <Project>{7e5e21b9-4bd6-4fb3-9055-9b09cc479c6c}</Project>
       <Name>UiServices.Discovery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UiServices.Forms\UiServices.Forms.csproj">
+      <Project>{90f750b3-64db-493f-96a6-e68de5ea60a1}</Project>
+      <Name>UiServices.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

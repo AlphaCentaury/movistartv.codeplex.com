@@ -151,13 +151,13 @@
     <value>0, 3</value>
   </data>
   <data name="radioQuickSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 17</value>
+    <value>115, 17</value>
   </data>
   <data name="radioQuickSettings.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="radioQuickSettings.Text" xml:space="preserve">
-    <value>Quick settings</value>
+    <value>Use quick settings:</value>
   </data>
   <data name="&gt;&gt;radioQuickSettings.Name" xml:space="preserve">
     <value>radioQuickSettings</value>
@@ -223,13 +223,13 @@
     <value>0, 102</value>
   </data>
   <data name="radioEndDateTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 17</value>
+    <value>198, 17</value>
   </data>
   <data name="radioEndDateTime.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="radioEndDateTime.Text" xml:space="preserve">
-    <value>Specify recording end date and time</value>
+    <value>Specify recording end date and time:</value>
   </data>
   <data name="&gt;&gt;radioEndDateTime.Name" xml:space="preserve">
     <value>radioEndDateTime</value>
@@ -253,13 +253,13 @@
     <value>0, 53</value>
   </data>
   <data name="radioTimeSpan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 17</value>
+    <value>151, 17</value>
   </data>
   <data name="radioTimeSpan.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="radioTimeSpan.Text" xml:space="preserve">
-    <value>Set total record length</value>
+    <value>Specify total record length:</value>
   </data>
   <data name="&gt;&gt;radioTimeSpan.Name" xml:space="preserve">
     <value>radioTimeSpan</value>
@@ -286,7 +286,7 @@
     <value>timeSpanLength</value>
   </data>
   <data name="&gt;&gt;timeSpanLength.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown, DvbIpTv.UiServices.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown, UiServices.Controls, Version=1.0.1000.200, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;timeSpanLength.Parent" xml:space="preserve">
     <value>$this</value>
@@ -304,7 +304,7 @@
     <value>425, 175</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>RecordingTime</value>
+    <value>RecordingDuration</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

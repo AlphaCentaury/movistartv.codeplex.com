@@ -43,7 +43,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             } // if
             if (!System.IO.File.Exists(Path))
             {
-                return string.Format("{0} recorder can not be found at '{1}'.", Name, Path);
+                return string.Format(Properties.Texts.RecorderConfigValidationPathNotFound, Name, Path);
             } // if
 
             var validationError = ConfigCommon.ValidateArray(Arguments, "Argument", "Arguments", ownerTag);

@@ -34,42 +34,42 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
 
         internal static string ErrorMissingTag(string tagName, string ownerTag)
         {
-            return string.Format("<{0}> is missing under <{1}>.", tagName, ownerTag);
+            return string.Format(Properties.Texts.UserConfigValidationMissingTag, tagName, ownerTag);
         } // ErrorMissingTag
 
         internal static string ErrorMissingEmptyAttribute(string attrName, string ownerTag)
         {
-            return string.Format("Attribute '{0}' is missing or empty in <{1}>.", attrName, ownerTag);
+            return string.Format(Properties.Texts.UserConfigValidationMissingEmptyAttribute, attrName, ownerTag);
         } // ErrorMissingEmptyAttribute
 
         internal static string ErrorMissingEmpty(string tagName)
         {
-            return string.Format("<{0}> is missing or empty.", tagName);
+            return string.Format(Properties.Texts.UserConfigValidationMissingEmpty, tagName);
         } // ErrorMissingEmpty
 
         internal static string ErrorMissingEmpty(string tagName, string ownerTag)
         {
-            return string.Format("<{0}> is missing or empty in <{1}>.", tagName, ownerTag);
+            return string.Format(Properties.Texts.UserConfigValidationMissingEmptyOwner, tagName, ownerTag);
         } // ErrorMissingEmpty
 
         internal static string ErrorMissingEmpty(string tagName, string ownerTag, string idField, string idFieldValue)
         {
-            return string.Format("<{0}> is missing or empty in <{1}>. '{2}' is '{3}'.", tagName, ownerTag, idField, idFieldValue);
+            return string.Format(Properties.Texts.UserConfigValidationMissingEmptyValue, tagName, ownerTag, idField, idFieldValue);
         } // ErrorMissingEmpty
 
         internal static string ErrorAtLeastOne(string tagName, string ownerTag)
         {
-            return string.Format("At least one <{0}> has to be specified in <{1}>.", tagName, ownerTag);
+            return string.Format(Properties.Texts.UserConfigValidationAtLeastOne, tagName, ownerTag);
         } // ErrorAtLeastOne
 
         internal static string ErrorValueType(string tagName, string type, string value)
         {
-            return string.Format("Value '{2}' specified in <{0}> is not a valid {1}.", tagName, type, value);
+            return string.Format(Properties.Texts.UserConfigValidationValueType, tagName, type, value);
         } // ErrorValueType
 
         internal static string ErrorDuplicatedEntry(string arrayTag, string arrayElementTag, string idField, string idFieldValue)
         {
-            return string.Format("Duplicated <{1}> item in <{0}> list. '{2}' is '{3}'", arrayTag, arrayElementTag, idField, idFieldValue);
+            return string.Format(Properties.Texts.UserConfigValidationDuplicatedEntry, arrayTag, arrayElementTag, idField, idFieldValue);
             throw new NotImplementedException();
         } // ErrorDuplicatedEntry
 

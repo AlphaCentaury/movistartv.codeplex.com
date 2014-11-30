@@ -106,7 +106,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV DVB-IPTV channel/services list (beta 1.0.1 “Wolf 424”).
+        ///   Looks up a localized string similar to Movistar TV DVB-IPTV channel/services list (beta 1.0.2 “Wolf 424”).
         /// </summary>
         internal static string ChannelListFormCaption {
             get {
@@ -191,6 +191,78 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error has ocurred while fetching data.
+        /// </summary>
+        internal static string DvbStpDownloadHelperExceptionCaption {
+            get {
+                return ResourceManager.GetString("DvbStpDownloadHelperExceptionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request cancelled.
+        /// </summary>
+        internal static string DvbStpDownloadHelperUserCancelledCaption {
+            get {
+                return ResourceManager.GetString("DvbStpDownloadHelperUserCancelledCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launches {0} player to view DVB-IPTV channel &apos;{1}&apos;.
+        /// </summary>
+        internal static string ExternalPlayerShortcutDescription {
+            get {
+                return ResourceManager.GetString("ExternalPlayerShortcutDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        internal static string MulticastScannerDlgActive {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to “Dead”.
+        /// </summary>
+        internal static string MulticastScannerDlgDead {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgDead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string MulticastScannerDlgError {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skipped.
+        /// </summary>
+        internal static string MulticastScannerDlgSkipped {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgSkipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string MulticastScannerDlgTotal {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scan has been cancelled by the user.
         /// </summary>
         internal static string MulticastServiceScanningCancelled {
@@ -227,6 +299,60 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to start the application.
+        /// </summary>
+        internal static string MyAppCtxExceptionCaption {
+            get {
+                return ResourceManager.GetString("MyAppCtxExceptionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unexpected error has occurred while initializating the application..
+        /// </summary>
+        internal static string MyAppCtxExceptionMsg {
+            get {
+                return ResourceManager.GetString("MyAppCtxExceptionMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application configuration error.
+        /// </summary>
+        internal static string MyAppCtxInitializationErrorCaption {
+            get {
+                return ResourceManager.GetString("MyAppCtxInitializationErrorCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading application configuration....
+        /// </summary>
+        internal static string MyAppCtxLoadingConfig {
+            get {
+                return ResourceManager.GetString("MyAppCtxLoadingConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading user configuration and preferences....
+        /// </summary>
+        internal static string MyAppCtxLoadingUserConfig {
+            get {
+                return ResourceManager.GetString("MyAppCtxLoadingUserConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting application....
+        /// </summary>
+        internal static string MyAppCtxStarting {
+            get {
+                return ResourceManager.GetString("MyAppCtxStarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error has occurred while processing your request.
         /// </summary>
         internal static string MyAppHandleExceptionDefaultCaption {
@@ -246,22 +372,11 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application startup error.
+        ///   Looks up a localized string similar to Application configuration error.
         /// </summary>
         internal static string MyAppLoadConfigExceptionCaption {
             get {
                 return ResourceManager.GetString("MyAppLoadConfigExceptionCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The user configuration file at &apos;{0}&apos; is invalid or has severe errors.
-        ///{1}
-        ///Please verify the XML syntax of the file and correct the detected errors..
-        /// </summary>
-        internal static string MyAppLoadConfigUserConfigValidation {
-            get {
-                return ResourceManager.GetString("MyAppLoadConfigUserConfigValidation", resourceCulture);
             }
         }
         

@@ -5,8 +5,10 @@ using DvbIpTypes.Schema2006;
 using Project.DvbIpTv.DvbStp.Client;
 using Project.DvbIpTv.RecorderLauncher.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
+using Project.DvbIpTv.UiServices.Forms.Startup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,20 +24,33 @@ using System.Xml.Serialization;
 
 namespace Project.DvbIpTv.ChannelList
 {
-    public partial class ChannelListForm : Form
+    public partial class ChannelListForm : Form, ISplashScreenAwareForm
     {
         UiProviderDiscovery ProvidersDiscovery;
         UiServiceProvider SelectedServiceProvider;
         UiBroadcastDiscovery BroadcastDiscovery;
         UiBroadcastService SelectedBroadcastService;
         MulticastScannerDialog MulticastScanner;
-        Font ServiceNameItemFont;
+        Font ChannelListTileFont;
+        Font ChannelListDetailsFont;
+        Font ChannelListDetailsNameItemFont;
         string LastSelectedServiceProvider;
 
         public ChannelListForm()
         {
             InitializeComponent();
         } // constructor
+
+        #region ISplashScreenAwareForm implementation
+
+        public event EventHandler FormLoadCompleted;
+
+        bool ISplashScreenAwareForm.DisposeOnFormClose
+        {
+            get { return true; }
+        } // ISplashScreenAwareForm.DisposeOnFormClose
+
+        #endregion
 
         #region Form events
 
@@ -49,7 +64,17 @@ namespace Project.DvbIpTv.ChannelList
             LastSelectedServiceProvider = Properties.Settings.Default.LastSelectedServiceProvider;
             ServiceProviderChanged();
             BroadcastServiceChanged();
-            ServiceNameItemFont = new Font(listViewChannels.Font.FontFamily, 11.0f, FontStyle.Bold);
+
+            ChannelListTileFont = new Font("Tahoma", 10.5f, FontStyle.Bold);
+            listViewChannels.TileSize = new Size(225, 54);
+            ChannelListDetailsFont = this.Font;
+            ChannelListDetailsNameItemFont = new Font("Tahoma", 11.0f, FontStyle.Bold);
+
+            // notify Splash Screeen the form has finished loading and is about to be shown
+            if (FormLoadCompleted != null)
+            {
+                FormLoadCompleted(this, e);
+            } // if
         }  // ChannelListForm_Load
 
         private void ChannelListForm_Shown(object sender, EventArgs e)
@@ -105,6 +130,16 @@ namespace Project.DvbIpTv.ChannelList
         #endregion
 
         #region Service-related events
+
+        private void radioListViewTile_CheckedChanged(object sender, EventArgs e)
+        {
+            FillListViewChannels();
+        } // radioListViewTile_CheckedChanged
+
+        private void radioListViewDetails_CheckedChanged(object sender, EventArgs e)
+        {
+            FillListViewChannels();
+        } // radioListViewDetails_CheckedChanged
 
         private void buttonRefreshChannelsList_Click(object sender, EventArgs e)
         {
@@ -188,7 +223,7 @@ namespace Project.DvbIpTv.ChannelList
                 item.ForeColor = item.ListView.ForeColor;
                 item.BackColor = item.ListView.BackColor;
                 item.UseItemStyleForSubItems = false;
-                item.Font = ServiceNameItemFont;
+                item.Font = ChannelListDetailsNameItemFont;
             } // if-else
         }  // MulticastScanner_ChannelScanResult
 
@@ -406,8 +441,6 @@ namespace Project.DvbIpTv.ChannelList
         bool LoadBroadcastDiscovery(bool fromCache)
         {
             BroadcastDiscoveryXml discovery;
-            ListViewItem[] listItems;
-            int index;
 
             try
             {
@@ -446,25 +479,7 @@ namespace Project.DvbIpTv.ChannelList
                 } // if
 
                 BroadcastDiscovery = new UiBroadcastDiscovery(discovery, SelectedServiceProvider.DomainName);
-
-                listItems = new ListViewItem[BroadcastDiscovery.Services.Count()];
-                index = 0;
-                foreach (var service in BroadcastDiscovery.Services)
-                {
-                    var item = new ListViewItem(service.DisplayName);
-                    item.ImageKey = GetChannelLogoKey(service.Logo);
-                    item.SubItems.Add(service.DisplayDescription);
-                    item.SubItems.Add(service.DisplayServiceType);
-                    item.SubItems.Add(service.DisplayLocationUrl);
-                    item.UseItemStyleForSubItems = false;
-                    item.Font = ServiceNameItemFont;
-                    item.Tag = service;
-                    item.Name = service.Key;
-                    listItems[index++] = item;
-                } // foreach
-
-                listViewChannels.Items.Clear();
-                listViewChannels.Items.AddRange(listItems);
+                FillListViewChannels();
                 BroadcastServiceChanged();
 
                 return true;
@@ -475,6 +490,45 @@ namespace Project.DvbIpTv.ChannelList
                 return false;
             } // try-catch
         } // LoadBroadcastDiscovery
+
+        private void FillListViewChannels()
+        {
+            ListViewItem[] listItems;
+            View view;
+            int index;
+
+            view = (radioListViewDetails.Checked) ? View.Details : View.Tile;
+            listItems = new ListViewItem[BroadcastDiscovery.Services.Count()];
+            index = 0;
+            foreach (var service in BroadcastDiscovery.Services)
+            {
+                var item = new ListViewItem(service.DisplayName);
+                item.ImageKey = GetChannelLogoKey(service.Logo);
+                if (view == View.Details)
+                {
+                    item.SubItems.Add(service.DisplayDescription);
+                    item.SubItems.Add(service.DisplayServiceType);
+                    item.SubItems.Add(service.DisplayLocationUrl);
+                    item.UseItemStyleForSubItems = false;
+                    item.Font = ChannelListDetailsNameItemFont;
+                }
+                else
+                {
+                    item.UseItemStyleForSubItems = false;
+                    item.SubItems.Add(service.DisplayServiceType).ForeColor = Color.Red;
+                } // if-else
+                item.Tag = service;
+                item.Name = service.Key;
+                listItems[index++] = item;
+            } // foreach
+
+            listViewChannels.BeginUpdate();
+            listViewChannels.View = view;
+            listViewChannels.Font = (view == View.Details)? ChannelListDetailsFont : ChannelListTileFont;
+            listViewChannels.Items.Clear();
+            listViewChannels.Items.AddRange(listItems);
+            listViewChannels.EndUpdate();
+        } // FillListViewChannels
 
         private void BroadcastServiceChanged()
         {
@@ -488,6 +542,9 @@ namespace Project.DvbIpTv.ChannelList
                 Properties.Settings.Default.Save();
 
                 labelChannelsList.Enabled = false;
+                labelListChannelsView.Enabled = false;
+                radioListViewTile.Enabled = false;
+                radioListViewDetails.Enabled = false;
                 listViewChannels.Enabled = false;
                 listViewChannels.Items.Clear();
                 buttonValidateChannels.Enabled = false;
@@ -497,6 +554,10 @@ namespace Project.DvbIpTv.ChannelList
                 return;
             } // if
 
+            labelChannelsList.Enabled = true;
+            labelListChannelsView.Enabled = true;
+            radioListViewTile.Enabled = true;
+            radioListViewDetails.Enabled = true;
             listViewChannels.Enabled = true;
             buttonValidateChannels.Enabled = true;
             if (listViewChannels.SelectedItems.Count == 0)
@@ -533,6 +594,10 @@ namespace Project.DvbIpTv.ChannelList
                 using (var image = logo.GetImage(LogoSize.Size32, true))
                 {
                     imageListChannels.Images.Add(logo.Key, image);
+                } // using image
+                using (var image = logo.GetImage(LogoSize.Size48, true))
+                {
+                    imageListChannelsLarge.Images.Add(logo.Key, image);
                 } // using image
             } // if
 

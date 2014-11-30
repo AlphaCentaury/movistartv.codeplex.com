@@ -100,20 +100,13 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             SafetyMargin = DefaultSafetyMargin;
         } // SetDefaultValues
 
-        protected void VerbalizeStartExpiryDate(StringBuilder builder)
+        protected void VerbalizeStartExpiryDate(bool pastTime, StringBuilder builder)
         {
-            string format;
+            if (!pastTime) return;
 
-            if (!ExpiryDate.HasValue)
-            {
-                format = "Starting on {0:D} with no expiry date.";
-            }
-            else
-            {
-                format = "Starting on {0:D} and ending on {1:D} at {1:T}.";
-            } // if-else
+            var format = (ExpiryDate.HasValue) ? Properties.SerializationTexts.VerbalizeStartExpiryDate : Properties.SerializationTexts.VerbalizeStartDate;
             builder.AppendFormat(format, StartDate, ExpiryDate);
-        } // AddStartExpiryDate
+        } // VerbalizeStartExpiryDate
 
         public override RecordScheduleKind Kind
         {

@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.UiServices.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,15 +21,12 @@ namespace Project.DvbIpTv.ChannelList
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            MyApplication.ForceUiCulture(arguments, Properties.Settings.Default.ForceUiCulture);
-            if (!MyApplication.LoadConfig())
-            {
-                return -1;
-            } // if
+            var appContext = new MyApplicationContext();
+            Application.Run(appContext);
+            var exitCode = appContext.ExitCode;
+            appContext.Dispose();
 
-            Application.Run(new ChannelListForm());
-
-            return 0;
+            return exitCode;
         } // Main
 
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)

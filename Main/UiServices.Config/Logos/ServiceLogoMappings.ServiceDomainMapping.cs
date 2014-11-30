@@ -6,23 +6,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.UiServices.Configuration
+namespace Project.DvbIpTv.UiServices.Configuration.Logos
 {
     partial class ServiceLogoMappings
     {
-        public class ReplacementDomain
+        public class ServiceDomainMapping
         {
-            public bool IsMandatory
+            public string DomainRedirection
             {
                 get;
                 internal set;
-            } // IsMandatory
+            } // DomainRedirection
 
-            public string Replacement
+            public IDictionary<string, string> Logos
             {
                 get;
                 internal set;
-            } // Replacement
-        } // ReplacementDomain
-    } // partial class ServiceLogoMappings
+            } // Logos
+        } // class ServiceDomainMapping
+    } // partial class
 } // namespace

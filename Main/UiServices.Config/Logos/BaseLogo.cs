@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.UiServices.Configuration
+namespace Project.DvbIpTv.UiServices.Configuration.Logos
 {
     public abstract class BaseLogo
     {
@@ -83,6 +83,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                 case LogoSize.Size64: return Properties.Resources.BrokenFile_64;
                 case LogoSize.Size96: return Properties.Resources.BrokenFile_96;
                 case LogoSize.Size128: return Properties.Resources.BrokenFile_128;
+                case LogoSize.Size256: return Properties.Resources.BrokenFile_256;
             } // switch
 
             return null;
@@ -97,6 +98,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                 case LogoSize.Size64:
                 case LogoSize.Size96:
                 case LogoSize.Size128:
+                case LogoSize.Size256:
                     return true;
                 default:
                     return false;
@@ -112,6 +114,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                 case LogoSize.Size64: return "@64";
                 case LogoSize.Size96: return "@96";
                 case LogoSize.Size128: return "@128";
+                case LogoSize.Size256: return "@256";
                 default:
                     throw new ArgumentOutOfRangeException("LogoSize logoSize");
             } // switch

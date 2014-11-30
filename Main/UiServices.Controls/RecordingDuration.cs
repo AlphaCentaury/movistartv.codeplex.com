@@ -13,7 +13,7 @@ using Project.DvbIpTv.RecorderLauncher.Serialization;
 
 namespace Project.DvbIpTv.UiServices.Controls
 {
-    public partial class RecordingTime : UserControl
+    public partial class RecordingDuration : UserControl
     {
         private bool ManualUpdateOfValue;
         private RecordDuration Duration;
@@ -30,7 +30,7 @@ namespace Project.DvbIpTv.UiServices.Controls
             private set;
         } // RecordTimeSpan
 
-        public RecordingTime()
+        public RecordingDuration()
         {
             InitializeComponent();
             InitComboQuickSettings(comboQuickSetting);
@@ -92,19 +92,6 @@ namespace Project.DvbIpTv.UiServices.Controls
             // no op
         } // RecordingTime_Load
 
-        private void RecordingTime_Validating(object sender, CancelEventArgs e)
-        {
-            var span = timeSpanLength.Value;
-            if (span.TotalSeconds < 60)
-            {
-                e.Cancel = true;
-                MessageBox.Show(this, Properties.Texts.RecordingTimeInvalidTimeSpan, Properties.Texts.RecordingTimeValidationCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Parent.Focus();
-                this.Focus();
-            } // if
-            RecordTimeSpan = span;
-        } // RecordingTime_Validating
-
         #endregion
 
         #region Controls events
@@ -132,6 +119,19 @@ namespace Project.DvbIpTv.UiServices.Controls
             var span = ((KeyValuePair<string, TimeSpan>)comboQuickSetting.SelectedItem).Value;
             UpdateTimeSpan(span);
         } // comboQuickSetting_SelectedIndexChanged
+
+        private void timeSpanLength_Validating(object sender, CancelEventArgs e)
+        {
+            var span = timeSpanLength.Value;
+            if (span.TotalSeconds < 60)
+            {
+                e.Cancel = true;
+                MessageBox.Show(this, Properties.Texts.RecordingTimeInvalidTimeSpan, Properties.Texts.RecordingTimeValidationCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Parent.Focus();
+                this.Focus();
+            } // if
+            RecordTimeSpan = span;
+        } // timeSpanLength_Validating
 
         private void timeSpanLength_ValueChanged(object sender, EventArgs e)
         {

@@ -263,11 +263,6 @@ namespace Project.DvbIpTv.ChannelList
         void StpClient_PayloadSectionReceived(object sender, DvbStpSimpleClientPayloadSectionReceivedEventArgs e)
         {
             Worker.ReportProgress((e.SectionsReceived * 1000) / e.SectionCount, e);
-        }
-
-        private void labelDataReception_Click(object sender, EventArgs e)
-        {
-
         } // StpClient_PayloadSectionReceived
 
         #endregion

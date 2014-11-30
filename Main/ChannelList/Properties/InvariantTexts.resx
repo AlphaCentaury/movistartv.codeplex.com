@@ -126,4 +126,7 @@ No se ha podido cambiar el idioma de la aplicación.
 El identificador de idioma ("cultura") puede no ser válido o no ser reconocido por el sistema.
 Verifique el valor de  la propiedad 'ForceUICulture' del archivo '.config'</value>
   </data>
+  <data name="SplashScreenDefaultStatus" xml:space="preserve">
+    <value>http://movistartv.codeplex.com</value>
+  </data>
 </root>

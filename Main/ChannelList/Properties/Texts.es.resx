@@ -133,7 +133,7 @@
     <value>Espere, por favor. Cancelando la descarga...</value>
   </data>
   <data name="ChannelListFormCaption" xml:space="preserve">
-    <value>Movistar TV DVB-IPTV: listado de canales y/o servicios (beta 1.0.1 “Wolf 424”)</value>
+    <value>Movistar TV DVB-IPTV: listado de canales y/o servicios (beta 1.0.2 “Wolf 424”)</value>
   </data>
   <data name="CompletedDownloadDataReception" xml:space="preserve">
     <value>Completada la recepción de datos</value>
@@ -163,6 +163,30 @@ Por favor seleccione una ubicación o seleccione una carpeta.</value>
   <data name="DialogRecordSaveMissingLocation" xml:space="preserve">
     <value>&lt;Missing location&gt;</value>
   </data>
+  <data name="DvbStpDownloadHelperExceptionCaption" xml:space="preserve">
+    <value>Se ha producido un error al obtener la información</value>
+  </data>
+  <data name="DvbStpDownloadHelperUserCancelledCaption" xml:space="preserve">
+    <value>Petición cancelada</value>
+  </data>
+  <data name="ExternalPlayerShortcutDescription" xml:space="preserve">
+    <value>Abre el reproductor {0} para ver el canal DVB-IPTV '{1}'</value>
+  </data>
+  <data name="MulticastScannerDlgActive" xml:space="preserve">
+    <value>Activos</value>
+  </data>
+  <data name="MulticastScannerDlgDead" xml:space="preserve">
+    <value>“Muertos”</value>
+  </data>
+  <data name="MulticastScannerDlgError" xml:space="preserve">
+    <value>Con error</value>
+  </data>
+  <data name="MulticastScannerDlgSkipped" xml:space="preserve">
+    <value>Ignorados</value>
+  </data>
+  <data name="MulticastScannerDlgTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
   <data name="MulticastServiceScanningCancelled" xml:space="preserve">
     <value>La verificación ha sido cancelada por el usuario</value>
   </data>
@@ -174,6 +198,24 @@ Por favor seleccione una ubicación o seleccione una carpeta.</value>
   </data>
   <data name="MulticastServiceScanningError" xml:space="preserve">
     <value>Se ha producido un error durante la verificación y se ha finalizado</value>
+  </data>
+  <data name="MyAppCtxExceptionCaption" xml:space="preserve">
+    <value>Error en la configuración de la aplicación</value>
+  </data>
+  <data name="MyAppCtxExceptionMsg" xml:space="preserve">
+    <value>Se ha producido un error inesperado durante la inicialización de la aplicación.</value>
+  </data>
+  <data name="MyAppCtxInitializationErrorCaption" xml:space="preserve">
+    <value>Error en la configuración de la aplicación</value>
+  </data>
+  <data name="MyAppCtxLoadingConfig" xml:space="preserve">
+    <value>Cargando la configuración de la aplicación...</value>
+  </data>
+  <data name="MyAppCtxLoadingUserConfig" xml:space="preserve">
+    <value>Leyendo la configuración de usuario y las preferencias...</value>
+  </data>
+  <data name="MyAppCtxStarting" xml:space="preserve">
+    <value>Iniciando la aplicación...</value>
   </data>
   <data name="MyAppHandleExceptionDefaultCaption" xml:space="preserve">
     <value>Se ha producido un error al procesar su solicitud</value>

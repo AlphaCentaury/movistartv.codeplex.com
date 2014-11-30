@@ -3,6 +3,7 @@
 
 using Project.DvbIpTv.RecorderLauncher.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using Project.DvbIpTv.UiServices.Controls;
 using System;
@@ -142,13 +143,11 @@ namespace Project.DvbIpTv.ChannelList
             {
                 checkBoxExpiryDate.Checked = true;
                 dateTimeExpiryDate.Value = scheduleTime.ExpiryDate.Value;
-                dateTimeExpiryTime.Value = scheduleTime.ExpiryDate.Value;
             }
             else
             {
                 checkBoxExpiryDate.Checked = false;
                 dateTimeExpiryDate.Value = CurrentStartDateTime + new TimeSpan(15, 0, 0, 0);
-                dateTimeExpiryTime.Value = dateTimeExpiryDate.Value;
             } // if-else
 
             // Safety margin
@@ -177,8 +176,7 @@ namespace Project.DvbIpTv.ChannelList
             if ((checkBoxExpiryDate.Checked) && (checkBoxExpiryDate.Enabled))
             {
                 var date = dateTimeExpiryDate.Value;
-                var time = dateTimeExpiryTime.Value;
-                var expiryDate = new DateTime(date.Year, date.Month, date.Day, time.Hour, time.Minute, time.Second);
+                var expiryDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
                 scheduleTime.ExpiryDate = expiryDate;
             }
             else
@@ -226,7 +224,6 @@ namespace Project.DvbIpTv.ChannelList
 
             checkBoxExpiryDate.Enabled = !expiryDisallowed;
             dateTimeExpiryDate.Enabled = checkBoxExpiryDate.Checked & !expiryDisallowed;
-            dateTimeExpiryTime.Enabled = checkBoxExpiryDate.Checked & !expiryDisallowed;
 
             EnableSchedulerDeleteTask(expiryDisallowed | (checkBoxExpiryDate.Enabled & checkBoxExpiryDate.Checked));
         } // EnableExpiryDate

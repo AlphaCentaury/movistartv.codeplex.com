@@ -1,6 +1,6 @@
 ﻿namespace Project.DvbIpTv.UiServices.Controls
 {
-    partial class RecordingTime
+    partial class RecordingDuration
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordingTime));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordingDuration));
             this.comboQuickSetting = new System.Windows.Forms.ComboBox();
             this.radioQuickSettings = new System.Windows.Forms.RadioButton();
             this.dateTimeEndTime = new System.Windows.Forms.DateTimePicker();
@@ -94,15 +94,16 @@
             this.timeSpanLength.MaxDays = 7;
             this.timeSpanLength.MinutesIncrement = 5;
             this.timeSpanLength.Name = "timeSpanLength";
-            this.timeSpanLength.SecondsAllowed = false;
+            this.timeSpanLength.SecondsAllowed = true;
             this.timeSpanLength.Value = System.TimeSpan.Parse("00:00:00");
             this.timeSpanLength.ValueChanged += new System.EventHandler(this.timeSpanLength_ValueChanged);
+            this.timeSpanLength.Validating += new System.ComponentModel.CancelEventHandler(this.timeSpanLength_Validating);
             // 
-            // RecordingTime
+            // RecordingDuration
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CausesValidation = false;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.Controls.Add(this.timeSpanLength);
             this.Controls.Add(this.comboQuickSetting);
             this.Controls.Add(this.radioQuickSettings);
@@ -110,9 +111,8 @@
             this.Controls.Add(this.dateTimeEndDate);
             this.Controls.Add(this.radioEndDateTime);
             this.Controls.Add(this.radioTimeSpan);
-            this.Name = "RecordingTime";
+            this.Name = "RecordingDuration";
             this.Load += new System.EventHandler(this.RecordingTime_Load);
-            this.Validating += new System.ComponentModel.CancelEventHandler(this.RecordingTime_Validating);
             this.ResumeLayout(false);
             this.PerformLayout();
 
