@@ -7,6 +7,7 @@ using Project.DvbIpTv.RecorderLauncher.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
+using Project.DvbIpTv.UiServices.Forms.Startup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,7 @@ using System.Xml.Serialization;
 
 namespace Project.DvbIpTv.ChannelList
 {
-    public partial class ChannelListForm : Form
+    public partial class ChannelListForm : Form, ISplashScreenAwareForm
     {
         UiProviderDiscovery ProvidersDiscovery;
         UiServiceProvider SelectedServiceProvider;
@@ -37,6 +38,17 @@ namespace Project.DvbIpTv.ChannelList
             InitializeComponent();
         } // constructor
 
+        #region ISplashScreenAwareForm implementation
+
+        public event EventHandler FormLoadCompleted;
+
+        bool ISplashScreenAwareForm.DisposeOnFormClose
+        {
+            get { return true; }
+        } // ISplashScreenAwareForm.DisposeOnFormClose
+
+        #endregion
+
         #region Form events
 
         private void ChannelListForm_Load(object sender, EventArgs e)
@@ -50,6 +62,12 @@ namespace Project.DvbIpTv.ChannelList
             ServiceProviderChanged();
             BroadcastServiceChanged();
             ServiceNameItemFont = new Font(listViewChannels.Font.FontFamily, 11.0f, FontStyle.Bold);
+
+            // notify Splash Screeen the form has finished loading and is about to be shown
+            if (FormLoadCompleted != null)
+            {
+                FormLoadCompleted(this, e);
+            } // if
         }  // ChannelListForm_Load
 
         private void ChannelListForm_Shown(object sender, EventArgs e)

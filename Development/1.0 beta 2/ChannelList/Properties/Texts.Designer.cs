@@ -227,6 +227,42 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to start the application.
+        /// </summary>
+        internal static string MyAppCtxExceptionCaption {
+            get {
+                return ResourceManager.GetString("MyAppCtxExceptionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unexpected error has occurred while initializating the application..
+        /// </summary>
+        internal static string MyAppCtxExceptionMsg {
+            get {
+                return ResourceManager.GetString("MyAppCtxExceptionMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading application configuration....
+        /// </summary>
+        internal static string MyAppCtxLoadingConfig {
+            get {
+                return ResourceManager.GetString("MyAppCtxLoadingConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting application....
+        /// </summary>
+        internal static string MyAppCtxStarting {
+            get {
+                return ResourceManager.GetString("MyAppCtxStarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error has occurred while processing your request.
         /// </summary>
         internal static string MyAppHandleExceptionDefaultCaption {

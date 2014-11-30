@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyFileVersion(SolutionVersion.AssemblyFileVersion)]
 [assembly: AssemblyInformationalVersion(SolutionVersion.AssemblyInformationalVersion)]
 [assembly: AssemblyProduct(SolutionVersion.AssemblyProduct)]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("http://movistartv.codeplex.com")]
 [assembly: AssemblyTrademark("")]
 
 internal static class SolutionVersion

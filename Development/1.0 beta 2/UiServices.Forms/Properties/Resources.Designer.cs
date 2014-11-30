@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.ChannelList.Properties {
+namespace Project.DvbIpTv.UiServices.Forms.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Project.DvbIpTv.ChannelList.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class InvariantTexts {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal InvariantTexts() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.ChannelList.Properties.InvariantTexts", typeof(InvariantTexts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.Forms.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,26 +61,12 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to change the applicationt UI language.
-        ///The language (&quot;culture&quot;) id may not be valid or not recognized by the system.
-        ///Please verify the value of the &apos;ForceUICulture&apos; property in &apos;.config&apos; file.
-        ///
-        ///No se ha podido cambiar el idioma de la aplicación.
-        ///El identificador de idioma (&quot;cultura&quot;) puede no ser válido o no ser reconocido por el sistema.
-        ///Verifique el valor de  la propiedad &apos;ForceUICulture&apos; del archivo &apos;.config&apos;.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string ExceptionForceUiCulture {
+        internal static System.Drawing.Bitmap DefaultSplashBackground {
             get {
-                return ResourceManager.GetString("ExceptionForceUiCulture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://movistartv.codeplex.com.
-        /// </summary>
-        internal static string SplashScreenDefaultStatus {
-            get {
-                return ResourceManager.GetString("SplashScreenDefaultStatus", resourceCulture);
+                object obj = ResourceManager.GetObject("DefaultSplashBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
