@@ -21,15 +21,6 @@ namespace Project.DvbIpTv.ChannelList
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            /*
-            MyApplication.ForceUiCulture(arguments, Properties.Settings.Default.ForceUiCulture);
-            if (!MyApplication.LoadConfig())
-            {
-                return -1;
-            } // if
-
-            Application.Run(new ChannelListForm());
-            */
             var appContext = new MyApplicationContext();
             Application.Run(appContext);
             var exitCode = appContext.ExitCode;

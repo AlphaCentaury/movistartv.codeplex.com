@@ -49,9 +49,9 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             {
                 return ConfigCommon.ErrorMissingEmpty(ownerTag);
             } // if
-            if (Path[0] != '\\')
+            if ((!Path.StartsWith("\\")) || (Path.EndsWith("\\")))
             {
-                return string.Format("The <{1}> Task Scheduler folder value '{0}' must start with '\\'.", Path, ownerTag);
+                return string.Format(Properties.Texts.RecordTaskSchedulerFolderValidationPath, Path, ownerTag);
             } // if
 
             return null;

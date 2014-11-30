@@ -181,8 +181,14 @@ Please select one or browse for a folder.</value>
   <data name="MyAppCtxExceptionMsg" xml:space="preserve">
     <value>An unexpected error has occurred while initializating the application.</value>
   </data>
+  <data name="MyAppCtxInitializationErrorCaption" xml:space="preserve">
+    <value>Application configuration error</value>
+  </data>
   <data name="MyAppCtxLoadingConfig" xml:space="preserve">
     <value>Loading application configuration...</value>
+  </data>
+  <data name="MyAppCtxLoadingUserConfig" xml:space="preserve">
+    <value>Loading user configuration and preferences...</value>
   </data>
   <data name="MyAppCtxStarting" xml:space="preserve">
     <value>Starting application...</value>
@@ -195,12 +201,7 @@ Please select one or browse for a folder.</value>
 The application will now end.</value>
   </data>
   <data name="MyAppLoadConfigExceptionCaption" xml:space="preserve">
-    <value>Application startup error</value>
-  </data>
-  <data name="MyAppLoadConfigUserConfigValidation" xml:space="preserve">
-    <value>The user configuration file at '{0}' is invalid or has severe errors.
-{1}
-Please verify the XML syntax of the file and correct the detected errors.</value>
+    <value>Application configuration error</value>
   </data>
   <data name="MyAppRecorderLauncherNotFound" xml:space="preserve">
     <value>Unable to find the 'Recorder Launcher' program at '{0}'.</value>

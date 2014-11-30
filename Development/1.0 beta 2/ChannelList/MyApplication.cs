@@ -22,8 +22,10 @@ namespace Project.DvbIpTv.ChannelList
             private set;
         } // RecorderLauncherPath
 
-        internal static bool LoadConfig()
+        internal static InitializationResult LoadAppUiConfig()
         {
+            InitializationResult result;
+
             var myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var configBasePath = Path.Combine(myDocumentsPath, Properties.Settings.Default.UserDataPath);
             var myPath = Application.StartupPath;
@@ -39,13 +41,17 @@ namespace Project.DvbIpTv.ChannelList
             RecorderLauncherPath = Path.GetFullPath(RecorderLauncherPath);
             if (!File.Exists(RecorderLauncherPath))
             {
-                throw new FileNotFoundException(string.Format(Properties.Texts.MyAppRecorderLauncherNotFound, RecorderLauncherPath));
+                return new InitializationResult()
+                {
+                    Message = string.Format(Properties.Texts.MyAppRecorderLauncherNotFound, RecorderLauncherPath)
+                };
             } // if
 
-            AppUiConfiguration.Load(configBasePath, userConfigXmlPath);
+            result = AppUiConfiguration.Load(configBasePath, userConfigXmlPath);
+            if (!result.IsOk) return result;
 
-            return true;
-        } // LoadConfig
+            return InitializationResult.Ok;
+        } // LoadAppUiConfig
 
         public static void HandleException(IWin32Window owner, Exception ex)
         {

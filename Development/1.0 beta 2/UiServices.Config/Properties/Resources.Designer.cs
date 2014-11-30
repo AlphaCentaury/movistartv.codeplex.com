@@ -83,6 +83,16 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BrokenFile_256 {
+            get {
+                object obj = ResourceManager.GetObject("BrokenFile_256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BrokenFile_32 {
             get {
                 object obj = ResourceManager.GetObject("BrokenFile_32", resourceCulture);

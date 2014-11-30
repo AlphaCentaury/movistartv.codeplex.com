@@ -53,7 +53,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             } // if
             if (!ConfigCommon.IsAbsoluteWindowsPath(Path))
             {
-                return string.Format(@"The <{1}> path value '{0}' has to be either an absolute volume path (like 'C:\folder') or an UNC (like '\\server\share').", Path, ownerTag);
+                return string.Format(Properties.Texts.RecordSaveLocationValidationAbsolutePath, Path, ownerTag);
             } // if
 
             return null;

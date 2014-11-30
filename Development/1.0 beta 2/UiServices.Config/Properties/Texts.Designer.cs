@@ -61,6 +61,33 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to find the &apos;base&apos; folder at &apos;{0}&apos;..
+        /// </summary>
+        internal static string AppConfigValidationBasePath {
+            get {
+                return ResourceManager.GetString("AppConfigValidationBasePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to locate the &apos;logos&apos; folder at &apos;{0}&apos;..
+        /// </summary>
+        internal static string AppConfigValidationLogosPath {
+            get {
+                return ResourceManager.GetString("AppConfigValidationLogosPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No configuration is available..
+        /// </summary>
+        internal static string AppConfigValidationNull {
+            get {
+                return ResourceManager.GetString("AppConfigValidationNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Duplicated domain name &apos;{0}&apos; in &apos;logos/services/domain-mappings.xml&apos;.
         /// </summary>
         internal static string ExceptionLogosDomainMappingsDuplicatedDomain {
@@ -150,6 +177,159 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         internal static string LoadConfigUserConfigValidationException {
             get {
                 return ResourceManager.GetString("LoadConfigUserConfigValidationException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application configuration verification failure.
+        /// </summary>
+        internal static string LoadConfigValidationCaption {
+            get {
+                return ResourceManager.GetString("LoadConfigValidationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load the user configuration.
+        /// </summary>
+        internal static string LoadUserConfigExceptionCaption {
+            get {
+                return ResourceManager.GetString("LoadUserConfigExceptionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User configuration verification failure.
+        /// </summary>
+        internal static string LoadUserConfigValidationCaption {
+            get {
+                return ResourceManager.GetString("LoadUserConfigValidationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} player can not be found at &apos;{1}&apos;..
+        /// </summary>
+        internal static string PlayerConfigValidationPathNotFound {
+            get {
+                return ResourceManager.GetString("PlayerConfigValidationPathNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} recorder can not be found at &apos;{1}&apos;.
+        /// </summary>
+        internal static string RecorderConfigValidationPathNotFound {
+            get {
+                return ResourceManager.GetString("RecorderConfigValidationPathNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;{1}&gt; path value &apos;{0}&apos; has to be either an absolute volume path (like &apos;C:\folder&apos;) or an UNC (like &apos;\\server\share&apos;)..
+        /// </summary>
+        internal static string RecordSaveLocationValidationAbsolutePath {
+            get {
+                return ResourceManager.GetString("RecordSaveLocationValidationAbsolutePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;{1}&gt; Task Scheduler folder value &apos;{0}&apos; must start with &apos;\&apos; and must not end with &apos;\&apos;.
+        /// </summary>
+        internal static string RecordTaskSchedulerFolderValidationPath {
+            get {
+                return ResourceManager.GetString("RecordTaskSchedulerFolderValidationPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one &lt;{0}&gt; tag has to be specified at &lt;{1}&gt; tag..
+        /// </summary>
+        internal static string UserConfigValidationAtLeastOne {
+            get {
+                return ResourceManager.GetString("UserConfigValidationAtLeastOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duplicated &lt;{1}&gt; item in &lt;{0}&gt; list. &apos;{2}&apos; value is &apos;{3}&apos;.
+        /// </summary>
+        internal static string UserConfigValidationDuplicatedEntry {
+            get {
+                return ResourceManager.GetString("UserConfigValidationDuplicatedEntry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP address.
+        /// </summary>
+        internal static string UserConfigValidationIpAddress {
+            get {
+                return ResourceManager.GetString("UserConfigValidationIpAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IP port number.
+        /// </summary>
+        internal static string UserConfigValidationIpPort {
+            get {
+                return ResourceManager.GetString("UserConfigValidationIpPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;{0}&gt; tag is missing or empty..
+        /// </summary>
+        internal static string UserConfigValidationMissingEmpty {
+            get {
+                return ResourceManager.GetString("UserConfigValidationMissingEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attribute &apos;{0}&apos; is missing or empty at &lt;{1}&gt; tag..
+        /// </summary>
+        internal static string UserConfigValidationMissingEmptyAttribute {
+            get {
+                return ResourceManager.GetString("UserConfigValidationMissingEmptyAttribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;{0}&gt; tag is missing or empty under &lt;{1}&gt; tag..
+        /// </summary>
+        internal static string UserConfigValidationMissingEmptyOwner {
+            get {
+                return ResourceManager.GetString("UserConfigValidationMissingEmptyOwner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;{0}&gt; tag is missing or empty under &lt;{1}&gt; tag. Value of &apos;{2}&apos; is &apos;{3}&apos;..
+        /// </summary>
+        internal static string UserConfigValidationMissingEmptyValue {
+            get {
+                return ResourceManager.GetString("UserConfigValidationMissingEmptyValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;{0}&gt; tag is missing under &lt;{1}&gt; tag..
+        /// </summary>
+        internal static string UserConfigValidationMissingTag {
+            get {
+                return ResourceManager.GetString("UserConfigValidationMissingTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value &apos;{2}&apos; specified at &lt;{0}&gt; tag is not a valid {1}..
+        /// </summary>
+        internal static string UserConfigValidationValueType {
+            get {
+                return ResourceManager.GetString("UserConfigValidationValueType", resourceCulture);
             }
         }
     }

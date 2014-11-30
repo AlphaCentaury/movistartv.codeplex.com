@@ -245,11 +245,29 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application configuration error.
+        /// </summary>
+        internal static string MyAppCtxInitializationErrorCaption {
+            get {
+                return ResourceManager.GetString("MyAppCtxInitializationErrorCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading application configuration....
         /// </summary>
         internal static string MyAppCtxLoadingConfig {
             get {
                 return ResourceManager.GetString("MyAppCtxLoadingConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading user configuration and preferences....
+        /// </summary>
+        internal static string MyAppCtxLoadingUserConfig {
+            get {
+                return ResourceManager.GetString("MyAppCtxLoadingUserConfig", resourceCulture);
             }
         }
         
@@ -282,22 +300,11 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application startup error.
+        ///   Looks up a localized string similar to Application configuration error.
         /// </summary>
         internal static string MyAppLoadConfigExceptionCaption {
             get {
                 return ResourceManager.GetString("MyAppLoadConfigExceptionCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The user configuration file at &apos;{0}&apos; is invalid or has severe errors.
-        ///{1}
-        ///Please verify the XML syntax of the file and correct the detected errors..
-        /// </summary>
-        internal static string MyAppLoadConfigUserConfigValidation {
-            get {
-                return ResourceManager.GetString("MyAppLoadConfigUserConfigValidation", resourceCulture);
             }
         }
         

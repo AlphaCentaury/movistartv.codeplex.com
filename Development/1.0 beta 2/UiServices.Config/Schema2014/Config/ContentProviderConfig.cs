@@ -49,12 +49,12 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             } // if
             if (!IPAddress.TryParse(RootMulticastAddress, out dummyIp))
             {
-                return ConfigCommon.ErrorValueType("RootMulticastAddress", "IP address", RootMulticastAddress);
+                return ConfigCommon.ErrorValueType("RootMulticastAddress", Properties.Texts.UserConfigValidationIpAddress, RootMulticastAddress);
             } // if
 
             if ((RootMulticastPort <= 0) || (RootMulticastPort > 65535))
             {
-                return ConfigCommon.ErrorValueType("RootMulticastPort", "IP port", RootMulticastPort.ToString());
+                return ConfigCommon.ErrorValueType("RootMulticastPort", Properties.Texts.UserConfigValidationIpPort, RootMulticastPort.ToString());
             } // if
 
             return null;

@@ -1,4 +1,5 @@
-﻿using Project.DvbIpTv.UiServices.Forms.Startup;
+﻿using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.UiServices.Forms.Startup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,27 +35,45 @@ namespace Project.DvbIpTv.ChannelList
             CallForegroundAction(ForceUiCulture, Thread.CurrentThread, false);
 
             // load app config
-            DisplayProgress(Properties.Texts.MyAppCtxLoadingConfig, true);
-            if (!LoadConfiguration()) return -1;
+            var result = LoadConfiguration();
 
-            return 0;
+            return result;
         } // DoBackgroundWork
 
-        protected override void BackgroundWorkCompleted(System.ComponentModel.RunWorkerCompletedEventArgs result)
+        protected override bool BackgroundWorkCompleted(System.ComponentModel.RunWorkerCompletedEventArgs result)
         {
             if (result.Error != null)
             {
                 MyApplication.HandleException(null, Properties.Texts.MyAppCtxExceptionCaption, Properties.Texts.MyAppCtxExceptionMsg, result.Error);
                 ExitCode = -1;
-                return;
+                return false;
             } // if
             if (result.Cancelled)
             {
                 ExitCode = -2;
-                return;
+                return false;
+            } // if
+
+            var initResult = result.Result as InitializationResult;
+            if ((initResult != null) && (!initResult.IsOk))
+            {
+                if (initResult.InnerException == null)
+                {
+                    DisplayMessage(initResult.Caption ?? Properties.Texts.MyAppCtxInitializationErrorCaption,
+                        initResult.Message, MessageBoxIcon.Exclamation, false);
+                }
+                else
+                {
+                    DisplayException(initResult.Caption ?? Properties.Texts.MyAppCtxInitializationErrorCaption,
+                        initResult.Message, MessageBoxIcon.Error, false, false, initResult.InnerException);
+                } // if-else
+
+                ExitCode = -3;
+                return false;
             } // if
 
             DisplayProgress(Properties.Texts.MyAppCtxStarting, false);
+            return true;
         } // BackgroundWorkCompleted
 
         protected override void DoDisplayMessage(IWin32Window splashScreen, string caption, string message, MessageBoxIcon icon)
@@ -76,19 +95,29 @@ namespace Project.DvbIpTv.ChannelList
 
         #region Initialization methods
 
-        private bool LoadConfiguration()
+        private InitializationResult LoadConfiguration()
         {
+            InitializationResult result;
+
             try
             {
-                return MyApplication.LoadConfig();
+                DisplayProgress(Properties.Texts.MyAppCtxLoadingConfig, true);
+                result = MyApplication.LoadAppUiConfig();
+                if (!result.IsOk) return result;
+
+                DisplayProgress(Properties.Texts.MyAppCtxLoadingUserConfig, true);
+                result = AppUiConfiguration.Current.LoadUserConfiguration();
+
+                return result;
             }
             catch (Exception ex)
             {
-                DisplayException(Properties.Texts.MyAppLoadConfigExceptionCaption,
-                    Properties.Texts.MyAppLoadConfigException,
-                    MessageBoxIcon.Exclamation,
-                    false, true, ex);
-                return false;
+                return new InitializationResult()
+                {
+                    Caption = Properties.Texts.MyAppLoadConfigExceptionCaption,
+                    Message = Properties.Texts.MyAppLoadConfigException,
+                    InnerException = ex
+                };
             } // try-catch
         } // LoadConfiguration
 

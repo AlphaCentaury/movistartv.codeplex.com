@@ -3,6 +3,7 @@
 
 using Project.DvbIpTv.RecorderLauncher.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using Project.DvbIpTv.UiServices.Controls;
 using System;

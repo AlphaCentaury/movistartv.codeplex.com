@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppConfigValidationBasePath" xml:space="preserve">
+    <value>No se puede encontrar la carpeta 'base' en '{0}'.</value>
+  </data>
+  <data name="AppConfigValidationLogosPath" xml:space="preserve">
+    <value>No se puede encontrar la carpeta de 'logotipos' en '{0}'.</value>
+  </data>
+  <data name="AppConfigValidationNull" xml:space="preserve">
+    <value>Ninguna configuración está disponible.</value>
+  </data>
   <data name="ExceptionLogosDomainMappingsDuplicatedDomain" xml:space="preserve">
     <value>El nombre de dominio (domain name) '{0}' está duplicado en 'logos/services/domain-mappings.xml'</value>
   </data>
@@ -151,5 +160,56 @@ Verifique la sintáxis XML del archivo y solucione los errores detectados.</valu
   </data>
   <data name="LoadConfigUserConfigValidationException" xml:space="preserve">
     <value>Consulte los detalles de la excepción (más abajo) para obtener información detallada del problema.</value>
+  </data>
+  <data name="LoadConfigValidationCaption" xml:space="preserve">
+    <value>Error al validar la configuración de la aplicación</value>
+  </data>
+  <data name="LoadUserConfigExceptionCaption" xml:space="preserve">
+    <value>Imposible cargar la configuración de usuario</value>
+  </data>
+  <data name="LoadUserConfigValidationCaption" xml:space="preserve">
+    <value>Error al validar la configuración y las preferencias de usuario</value>
+  </data>
+  <data name="PlayerConfigValidationPathNotFound" xml:space="preserve">
+    <value>No se ha localizado el reproductor '{0}' en '{1}'.</value>
+  </data>
+  <data name="RecorderConfigValidationPathNotFound" xml:space="preserve">
+    <value>No se ha localizado el grabador externo '{0}' en '{1}'.</value>
+  </data>
+  <data name="RecordSaveLocationValidationAbsolutePath" xml:space="preserve">
+    <value>El valor '{0}' no es válido como ruta en la etiqueta &lt;{1}&gt;. Tiene que ser una ruta absoluta con letra de volumen (como 'C:\Carpeta') o una ubicación de red en formato 'UNC' (como  '\\servidor\compartido').</value>
+  </data>
+  <data name="RecordTaskSchedulerFolderValidationPath" xml:space="preserve">
+    <value>El valor '{0}' en la etiqueta &lt;{1}&gt; no es un nombre de carpeta válido para el Programador de Tareas. Debe comenzar forzosamente por '\' y no puede terminar en '\'.</value>
+  </data>
+  <data name="UserConfigValidationAtLeastOne" xml:space="preserve">
+    <value>Debe especificarse al menos una etiqueta &lt;{0}&gt; bajo la etiqueta &lt;{1}&gt;.</value>
+  </data>
+  <data name="UserConfigValidationDuplicatedEntry" xml:space="preserve">
+    <value>Elemento &lt;{1}&gt; duplicado en la lista &lt;{0}&gt;. El valor de '{2}' es '{3}'</value>
+  </data>
+  <data name="UserConfigValidationIpAddress" xml:space="preserve">
+    <value>dirección IP</value>
+  </data>
+  <data name="UserConfigValidationIpPort" xml:space="preserve">
+    <value>número de puerto IP</value>
+  </data>
+  <data name="UserConfigValidationMissingEmpty" xml:space="preserve">
+    <value>La etiqueta &lt;{0}&gt; no existe o está vacía.</value>
+  </data>
+  <data name="UserConfigValidationMissingEmptyAttribute" xml:space="preserve">
+    <value>El attribute '{0}' falta o está vacío en la etiqueta &lt;{1}&gt;.</value>
+  </data>
+  <data name="UserConfigValidationMissingEmptyOwner" xml:space="preserve">
+    <value>La etiqueta &lt;{0}&gt; no existe o está vacía bajo la etiqueta &lt;{1}&gt; tag.</value>
+  </data>
+  <data name="UserConfigValidationMissingEmptyValue" xml:space="preserve">
+    <value>La etiquete &lt;{0}&gt; no existe o está vacía bajo la etiqueta&lt;{1}&gt;. EL valor de '{2}' es '{3}'.</value>
+  </data>
+  <data name="UserConfigValidationMissingTag" xml:space="preserve">
+    <value>Falta una etiqueta &lt;{0}&gt; bajo la etiqueta &lt;{1}&gt;.</value>
+  </data>
+  <data name="UserConfigValidationValueType" xml:space="preserve">
+    <value>El valor '{2}' especificado en la etiqueta &lt;{0}&gt; no es un/una {1} válido.</value>
   </data>
 </root>

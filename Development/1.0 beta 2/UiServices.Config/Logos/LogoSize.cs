@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.UiServices.Configuration
+namespace Project.DvbIpTv.UiServices.Configuration.Logos
 {
     public enum LogoSize
     {
@@ -14,6 +14,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
         Size48,
         Size64,
         Size96,
-        Size128
+        Size128,
+        Size256,
     } // enum LogoSize
 } // namespace

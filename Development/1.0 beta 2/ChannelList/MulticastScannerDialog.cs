@@ -4,6 +4,7 @@
 using DvbIpTypes.Schema2006;
 using Project.DvbIpTv.DvbStp.Client;
 using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Discovery;
 using System;
 using System.Collections.Generic;

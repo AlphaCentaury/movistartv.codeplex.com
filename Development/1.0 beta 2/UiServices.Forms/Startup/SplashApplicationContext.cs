@@ -127,7 +127,7 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
         } // SetupSplashScreen
 
         protected abstract object DoBackgroundWork();
-        protected abstract void BackgroundWorkCompleted(RunWorkerCompletedEventArgs result);
+        protected abstract bool BackgroundWorkCompleted(RunWorkerCompletedEventArgs result);
         protected abstract void DoDisplayMessage(IWin32Window splashScreen, string caption, string message, MessageBoxIcon icon);
         protected abstract void DoDisplayException(IWin32Window splashScreen, string caption, string message, MessageBoxIcon icon, Exception exception);
         protected abstract Form GetMainForm();
@@ -273,11 +273,11 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
         {
             Form mainForm = null;
 
-            BackgroundWorkCompleted(e);
+            var isOk = BackgroundWorkCompleted(e);
             worker.Dispose();
             worker = null;
 
-            if ((e.Cancelled) || (e.Error != null) || ((mainForm = GetMainForm()) == null))
+            if ((!isOk) || (e.Cancelled) || (e.Error != null) || ((mainForm = GetMainForm()) == null))
             {
                 splashScreen.Close();
                 ExitThread();

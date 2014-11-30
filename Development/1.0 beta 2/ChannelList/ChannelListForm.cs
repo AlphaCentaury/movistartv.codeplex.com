@@ -5,6 +5,7 @@ using DvbIpTypes.Schema2006;
 using Project.DvbIpTv.DvbStp.Client;
 using Project.DvbIpTv.RecorderLauncher.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.Forms.Startup;
