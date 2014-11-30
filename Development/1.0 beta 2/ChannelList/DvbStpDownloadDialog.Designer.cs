@@ -84,7 +84,6 @@
             // 
             resources.ApplyResources(this.labelDataReception, "labelDataReception");
             this.labelDataReception.Name = "labelDataReception";
-            this.labelDataReception.Click += new System.EventHandler(this.labelDataReception_Click);
             // 
             // buttonRequestCancel
             // 

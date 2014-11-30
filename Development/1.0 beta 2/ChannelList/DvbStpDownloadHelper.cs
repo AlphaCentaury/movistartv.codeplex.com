@@ -60,8 +60,8 @@ namespace Project.DvbIpTv.ChannelList
 
         public DvbStpDownloadHelper()
         {
-            CaptionUserCancelled = "Request cancelled";
-            CaptionDownloadException = "An error has ocurred while fetching data";
+            CaptionUserCancelled = Properties.Texts.DvbStpDownloadHelperUserCancelledCaption;
+            CaptionDownloadException = Properties.Texts.DvbStpDownloadHelperExceptionCaption;
         } // constructor
 
         public void ShowDialog(IWin32Window owner)

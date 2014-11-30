@@ -163,6 +163,30 @@ Please select one or browse for a folder.</value>
   <data name="DialogRecordSaveMissingLocation" xml:space="preserve">
     <value>&lt;Missing location&gt;</value>
   </data>
+  <data name="DvbStpDownloadHelperExceptionCaption" xml:space="preserve">
+    <value>An error has ocurred while fetching data</value>
+  </data>
+  <data name="DvbStpDownloadHelperUserCancelledCaption" xml:space="preserve">
+    <value>Request cancelled</value>
+  </data>
+  <data name="ExternalPlayerShortcutDescription" xml:space="preserve">
+    <value>Launches {0} player to view DVB-IPTV channel '{1}'</value>
+  </data>
+  <data name="MulticastScannerDlgActive" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="MulticastScannerDlgDead" xml:space="preserve">
+    <value>“Dead”</value>
+  </data>
+  <data name="MulticastScannerDlgError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="MulticastScannerDlgSkipped" xml:space="preserve">
+    <value>Skipped</value>
+  </data>
+  <data name="MulticastScannerDlgTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
   <data name="MulticastServiceScanningCancelled" xml:space="preserve">
     <value>Scan has been cancelled by the user</value>
   </data>

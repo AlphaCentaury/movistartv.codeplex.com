@@ -191,6 +191,78 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error has ocurred while fetching data.
+        /// </summary>
+        internal static string DvbStpDownloadHelperExceptionCaption {
+            get {
+                return ResourceManager.GetString("DvbStpDownloadHelperExceptionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Request cancelled.
+        /// </summary>
+        internal static string DvbStpDownloadHelperUserCancelledCaption {
+            get {
+                return ResourceManager.GetString("DvbStpDownloadHelperUserCancelledCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launches {0} player to view DVB-IPTV channel &apos;{1}&apos;.
+        /// </summary>
+        internal static string ExternalPlayerShortcutDescription {
+            get {
+                return ResourceManager.GetString("ExternalPlayerShortcutDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        internal static string MulticastScannerDlgActive {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to “Dead”.
+        /// </summary>
+        internal static string MulticastScannerDlgDead {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgDead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string MulticastScannerDlgError {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skipped.
+        /// </summary>
+        internal static string MulticastScannerDlgSkipped {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgSkipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string MulticastScannerDlgTotal {
+            get {
+                return ResourceManager.GetString("MulticastScannerDlgTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scan has been cancelled by the user.
         /// </summary>
         internal static string MulticastServiceScanningCancelled {

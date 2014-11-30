@@ -47,7 +47,11 @@
             this.buttonValidateChannels = new System.Windows.Forms.Button();
             this.pictureProviderLogo = new System.Windows.Forms.PictureBox();
             this.listViewChannels = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
+            this.imageListChannelsLarge = new System.Windows.Forms.ImageList(this.components);
             this.buttonRecordChannel = new System.Windows.Forms.Button();
+            this.labelListChannelsView = new System.Windows.Forms.Label();
+            this.radioListViewTile = new System.Windows.Forms.RadioButton();
+            this.radioListViewDetails = new System.Windows.Forms.RadioButton();
             Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ServiceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -157,8 +161,8 @@
             // 
             // listViewChannels
             // 
-            resources.ApplyResources(this.listViewChannels, "listViewChannels");
             this.listViewChannels.AllowColumnReorder = true;
+            resources.ApplyResources(this.listViewChannels, "listViewChannels");
             this.listViewChannels.CausesValidation = false;
             this.listViewChannels.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             Name,
@@ -173,7 +177,7 @@
             this.listViewChannels.HeaderUsesCustomFont = true;
             this.listViewChannels.HeaderUsesCustomTextAlignment = true;
             this.listViewChannels.HideSelection = false;
-            this.listViewChannels.LargeImageList = this.imageListChannels;
+            this.listViewChannels.LargeImageList = this.imageListChannelsLarge;
             this.listViewChannels.MultiSelect = false;
             this.listViewChannels.Name = "listViewChannels";
             this.listViewChannels.OwnerDraw = true;
@@ -183,6 +187,12 @@
             this.listViewChannels.SelectedIndexChanged += new System.EventHandler(this.listViewChannels_SelectedIndexChanged);
             this.listViewChannels.DoubleClick += new System.EventHandler(this.listViewChannels_DoubleClick);
             // 
+            // imageListChannelsLarge
+            // 
+            this.imageListChannelsLarge.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            resources.ApplyResources(this.imageListChannelsLarge, "imageListChannelsLarge");
+            this.imageListChannelsLarge.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // buttonRecordChannel
             // 
             resources.ApplyResources(this.buttonRecordChannel, "buttonRecordChannel");
@@ -191,10 +201,34 @@
             this.buttonRecordChannel.UseVisualStyleBackColor = true;
             this.buttonRecordChannel.Click += new System.EventHandler(this.buttonRecordChannel_Click);
             // 
+            // labelListChannelsView
+            // 
+            resources.ApplyResources(this.labelListChannelsView, "labelListChannelsView");
+            this.labelListChannelsView.Name = "labelListChannelsView";
+            // 
+            // radioListViewTile
+            // 
+            resources.ApplyResources(this.radioListViewTile, "radioListViewTile");
+            this.radioListViewTile.Checked = true;
+            this.radioListViewTile.Name = "radioListViewTile";
+            this.radioListViewTile.TabStop = true;
+            this.radioListViewTile.UseVisualStyleBackColor = true;
+            this.radioListViewTile.CheckedChanged += new System.EventHandler(this.radioListViewTile_CheckedChanged);
+            // 
+            // radioListViewDetails
+            // 
+            resources.ApplyResources(this.radioListViewDetails, "radioListViewDetails");
+            this.radioListViewDetails.Name = "radioListViewDetails";
+            this.radioListViewDetails.UseVisualStyleBackColor = true;
+            this.radioListViewDetails.CheckedChanged += new System.EventHandler(this.radioListViewDetails_CheckedChanged);
+            // 
             // ChannelListForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.radioListViewDetails);
+            this.Controls.Add(this.radioListViewTile);
+            this.Controls.Add(this.labelListChannelsView);
             this.Controls.Add(this.buttonRecordChannel);
             this.Controls.Add(this.pictureProviderLogo);
             this.Controls.Add(this.buttonValidateChannels);
@@ -234,5 +268,9 @@
         private System.Windows.Forms.Button buttonValidateChannels;
         private System.Windows.Forms.PictureBox pictureProviderLogo;
         private System.Windows.Forms.Button buttonRecordChannel;
+        private System.Windows.Forms.Label labelListChannelsView;
+        private System.Windows.Forms.RadioButton radioListViewTile;
+        private System.Windows.Forms.RadioButton radioListViewDetails;
+        private System.Windows.Forms.ImageList imageListChannelsLarge;
     }
 }

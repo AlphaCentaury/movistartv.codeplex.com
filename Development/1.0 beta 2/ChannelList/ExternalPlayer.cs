@@ -62,7 +62,7 @@ namespace Project.DvbIpTv.ChannelList
             var shortcut = new ShellLink.ShellLink();
             shortcut.TargetPath = player.Path;
             shortcut.Arguments = ArgumentsManager.JoinArguments(arguments);
-            shortcut.Description = string.Format("Launches {0} player to view DVB-IPTV channel '{1}'", player.Name, service.DisplayName);
+            shortcut.Description = string.Format(Properties.Texts.ExternalPlayerShortcutDescription, player.Name, service.DisplayName);
             shortcut.IconLocation = service.Logo.GetLogoIconPath();
             shortcutPath = shortcut.CreateShortcut(shortcutPath);
 

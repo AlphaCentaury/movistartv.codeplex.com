@@ -135,11 +135,11 @@ namespace Project.DvbIpTv.ChannelList
         {
             if (listViewStats.Items.Count == 0)
             {
-                listViewStats.Items.Add(new ListViewItem(new string[] { "Active", "-"}));
-                listViewStats.Items.Add(new ListViewItem(new string[] { "“Dead”", "-" }));
-                listViewStats.Items.Add(new ListViewItem(new string[] { "Error", "-" }));
-                listViewStats.Items.Add(new ListViewItem(new string[] { "Skipped", "-" }));
-                listViewStats.Items.Add(new ListViewItem(new string[] { "Total", "-" }));
+                listViewStats.Items.Add(new ListViewItem(new string[] { Properties.Texts.MulticastScannerDlgActive, "-"}));
+                listViewStats.Items.Add(new ListViewItem(new string[] { Properties.Texts.MulticastScannerDlgDead, "-" }));
+                listViewStats.Items.Add(new ListViewItem(new string[] { Properties.Texts.MulticastScannerDlgError, "-" }));
+                listViewStats.Items.Add(new ListViewItem(new string[] { Properties.Texts.MulticastScannerDlgSkipped, "-" }));
+                listViewStats.Items.Add(new ListViewItem(new string[] { Properties.Texts.MulticastScannerDlgTotal, "-" }));
                 for (int index = 0; index < listViewStats.Items.Count; index++)
                 {
                     listViewStats.Items[index].UseItemStyleForSubItems = false;
@@ -339,6 +339,7 @@ namespace Project.DvbIpTv.ChannelList
                 Worker.ReportProgress((int)ProgressReportKind.ChannelScanned, progress.ShallowClone());
             } // foreach
 
+            progress.Count = BroadcastDiscovery.Services.Count;
             Worker.ReportProgress((int)ProgressReportKind.Ended, progress.ShallowClone());
             e.Cancel = Worker.CancellationPending;
         } // Worker_DoWork
