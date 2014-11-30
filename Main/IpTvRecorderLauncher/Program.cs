@@ -37,7 +37,6 @@ namespace Project.DvbIpTv.RecorderLauncher
 
             try
             {
-                System.Threading.Thread.CurrentThread.CurrentUICulture = System.Threading.Thread.CurrentThread.CurrentCulture;
                 result = Run(args);
             }
             catch (Exception ex)
