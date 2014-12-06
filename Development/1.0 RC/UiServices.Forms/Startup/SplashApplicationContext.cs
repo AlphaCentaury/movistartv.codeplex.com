@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -31,11 +34,15 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
             splashScreen.Show();
         }  // SetThingsInMotion
 
-        private void EndSplashScreen()
+        private void EndSplashScreen(Form mainForm)
         {
+            if (splashScreen == null) return;
+
             splashScreen.Close();
             splashScreen.Dispose();
             splashScreen = null;
+
+            mainForm.Activate();
         } // EndSplashScreen
 
         #region Main form handling
@@ -63,12 +70,12 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
 
         void MainForm_FormLoadCompleted(object sender, EventArgs e)
         {
-            EndSplashScreen();
+            EndSplashScreen(sender as Form);
         } // MainForm_FormLoadCompleted
 
         void MainForm_Shown(object sender, EventArgs e)
         {
-            EndSplashScreen();
+            EndSplashScreen(sender as Form);
         } // MainForm_Shown
 
         void MainForm_FormClosed(object sender, FormClosedEventArgs e)

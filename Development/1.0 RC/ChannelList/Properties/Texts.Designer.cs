@@ -106,7 +106,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV DVB-IPTV channel/services list (beta 1.0.2 “Wolf 424”).
+        ///   Looks up a localized string similar to Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”).
         /// </summary>
         internal static string ChannelListFormCaption {
             get {
@@ -413,6 +413,17 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string NotSelectedServiceProvider {
             get {
                 return ResourceManager.GetString("NotSelectedServiceProvider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to open browser for URL &apos;{0}&apos;.
+        ///
+        ///{1}.
+        /// </summary>
+        internal static string OpenUrlError {
+            get {
+                return ResourceManager.GetString("OpenUrlError", resourceCulture);
             }
         }
         

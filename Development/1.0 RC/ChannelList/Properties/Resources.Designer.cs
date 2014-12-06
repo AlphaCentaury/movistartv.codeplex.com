@@ -63,9 +63,9 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _112_RefreshArrow_Blue_16x16_72 {
+        internal static System.Drawing.Bitmap ActionCancel_16x16 {
             get {
-                object obj = ResourceManager.GetObject("112_RefreshArrow_Blue_16x16_72", resourceCulture);
+                object obj = ResourceManager.GetObject("ActionCancel_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,39 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _112_RightArrowShort_Green_16x16_72 {
+        internal static System.Drawing.Bitmap ActionOk_16x16 {
             get {
-                object obj = ResourceManager.GetObject("112_RightArrowShort_Green_16x16_72", resourceCulture);
+                object obj = ResourceManager.GetObject("ActionOk_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ActionRun_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ActionRun_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Close_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Close_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Help_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Help_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -101,11 +131,25 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to --------------------------------------------------------------------------------
+        ///Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
+        ///--------------------------------------------------------------------------------
+        ///
+        ///Este software, ya sea en forma de código binario o fuente, está sujeta a los términos de la Licencia Recíproca de Microsoft &quot;Microsoft Reciprocal License&quot; (Ms-RL), excepto cuanto se indica en &quot;EXCEPCIONES&quot;.
+        ///Todos los demás derechos están reservados por el/los autor(es) del s [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string License {
+            get {
+                return ResourceManager.GetString("License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Properties {
+        internal static System.Drawing.Bitmap ListBullets_16x16 {
             get {
-                object obj = ResourceManager.GetObject("Properties", resourceCulture);
+                object obj = ResourceManager.GetObject("ListBullets_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +157,39 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RecordHS {
+        internal static System.Drawing.Bitmap Properties_16x16 {
             get {
-                object obj = ResourceManager.GetObject("RecordHS", resourceCulture);
+                object obj = ResourceManager.GetObject("Properties_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Record_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Record_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RefreshBlue_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("RefreshBlue_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RightArrowShort_Green_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("RightArrowShort_Green_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +207,49 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap settings_16 {
+        internal static System.Drawing.Bitmap Settings_16x616 {
             get {
-                object obj = ResourceManager.GetObject("settings_16", resourceCulture);
+                object obj = ResourceManager.GetObject("Settings_16x616", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SortAscending_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("SortAscending_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SortAZ_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("SortAZ_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SortDescending_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("SortDescending_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SortZA_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("SortZA_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +260,26 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static System.Drawing.Bitmap SplashScreenBackground {
             get {
                 object obj = ResourceManager.GetObject("SplashScreenBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ThumbnailView_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ThumbnailView_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewThumbnails_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ViewThumbnails_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

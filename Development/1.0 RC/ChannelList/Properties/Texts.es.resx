@@ -133,7 +133,7 @@
     <value>Espere, por favor. Cancelando la descarga...</value>
   </data>
   <data name="ChannelListFormCaption" xml:space="preserve">
-    <value>Movistar TV DVB-IPTV: listado de canales y/o servicios (beta 1.0.2 “Wolf 424”)</value>
+    <value>Listado de canales y/o servicios Movistar TV - DVB-IPTV (1.0 RC “Wolf 424”)</value>
   </data>
   <data name="CompletedDownloadDataReception" xml:space="preserve">
     <value>Completada la recepción de datos</value>
@@ -155,13 +155,13 @@ Por favor indique un nombre para la tarea.</value>
 Por favor seleccione una ubicación o seleccione una carpeta.</value>
   </data>
   <data name="DialogRecordSaveCustomLocation" xml:space="preserve">
-    <value>&lt;Custom location&gt;</value>
+    <value>&lt;Ubicación particular&gt;</value>
   </data>
   <data name="DialogRecordSaveDefaultLocation" xml:space="preserve">
-    <value>&lt;Default&gt;</value>
+    <value>&lt;Por defecto&gt;</value>
   </data>
   <data name="DialogRecordSaveMissingLocation" xml:space="preserve">
-    <value>&lt;Missing location&gt;</value>
+    <value>&lt;No localizada&gt;</value>
   </data>
   <data name="DvbStpDownloadHelperExceptionCaption" xml:space="preserve">
     <value>Se ha producido un error al obtener la información</value>
@@ -243,6 +243,10 @@ Verifique la sintáxis XML del archivo y corrija los errores detectados.</value>
   </data>
   <data name="NotSelectedServiceProvider" xml:space="preserve">
     <value>Ne se ha seleccionado un proveedor de servicios</value>
+  </data>
+  <data name="OpenUrlError" xml:space="preserve">
+    <value>No ha sido posible abrir un navegador para mostrar la URL '{0}'.
+{1}</value>
   </data>
   <data name="RecordTaskNameSuggestedNameFormat" xml:space="preserve">
     <value>{0} [{1:yyyy\-MM\-dd} {2:HH\-mm\-ss}]</value>

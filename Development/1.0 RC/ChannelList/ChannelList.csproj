@@ -79,6 +79,12 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChannelListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SelectProviderDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectProviderDialog.Designer.cs">
+      <DependentUpon>SelectProviderDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShellLink.cs" />
     <Compile Include="Properties\InvariantTexts.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -126,16 +138,7 @@
       <DependentUpon>InvariantTexts.resx</DependentUpon>
     </Compile>
     <Compile Include="MyApplication.cs" />
-    <Compile Include="PictureBoxEx.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="PropertiesDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PropertiesDlg.Designer.cs">
-      <DependentUpon>PropertiesDlg.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Texts.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -143,6 +146,12 @@
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
     <Compile Include="RecordHelper.cs" />
+    <EmbeddedResource Include="AboutBox.es.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChannelListForm.es.resx">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,9 +165,6 @@
     <EmbeddedResource Include="MulticastScannerOptionsDialog.es.resx">
       <DependentUpon>MulticastScannerOptionsDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PropertiesDlg.es.resx">
-      <DependentUpon>PropertiesDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecordChannelDialog.es.resx">
       <DependentUpon>RecordChannelDialog.cs</DependentUpon>
@@ -182,9 +188,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>InvariantTexts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="PropertiesDlg.resx">
-      <DependentUpon>PropertiesDlg.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -196,6 +199,12 @@
     <EmbeddedResource Include="Properties\Texts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectProviderDialog.es.resx">
+      <DependentUpon>SelectProviderDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectProviderDialog.resx">
+      <DependentUpon>SelectProviderDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -209,20 +218,34 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\internet-download.png" />
+    <None Include="Resources\InternetDownload.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\128-scan-tv.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\112_RefreshArrow_Blue_16x16_72.png" />
-    <None Include="Resources\Properties.png" />
-    <None Include="Resources\settings_16.png" />
-    <None Include="Resources\112_RightArrowShort_Green_16x16_72.png" />
-    <None Include="Resources\RecordHS.png" />
-    <Content Include="License.txt" />
+    <None Include="Resources\RefreshBlue_16x16.png" />
+    <None Include="Resources\Properties_16x16.png" />
+    <None Include="Resources\Settings_16x616.png" />
+    <None Include="Resources\RightArrowShort_Green_16x16.png" />
+    <None Include="Resources\Record_16x16.png" />
+    <Content Include="License.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Help_16x16.png" />
+    <None Include="Resources\ActionCancel_16x16.png" />
+    <Content Include="Resources\ActionOk_16x16.png" />
+    <None Include="Resources\ActionRun_16x16.png" />
+    <Content Include="Resources\Close_16x16.png" />
     <Content Include="Resources\IPTV.ico" />
     <None Include="Resources\Splash.png" />
+    <None Include="Resources\SortAZ_16x16.png" />
+    <None Include="Resources\ThumbnailView_16x16.png" />
+    <None Include="Resources\ListBullets_16x16.png" />
+    <None Include="Resources\ViewThumbnails_16x16.png" />
+    <None Include="Resources\SortZA_16x16.png" />
+    <None Include="Resources\SortDescending_16x16.png" />
+    <None Include="Resources\SortAscending_16x16.png" />
     <Content Include="Resources\Warning_48x48.png" />
   </ItemGroup>
   <ItemGroup>

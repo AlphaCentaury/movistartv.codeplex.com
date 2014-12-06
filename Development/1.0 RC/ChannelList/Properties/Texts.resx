@@ -133,7 +133,7 @@
     <value>Please wait. Canceling download...</value>
   </data>
   <data name="ChannelListFormCaption" xml:space="preserve">
-    <value>Movistar TV DVB-IPTV channel/services list (beta 1.0.2 “Wolf 424”)</value>
+    <value>Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”)</value>
   </data>
   <data name="CompletedDownloadDataReception" xml:space="preserve">
     <value>Data reception is complete</value>
@@ -238,6 +238,11 @@ The application will now end.</value>
   </data>
   <data name="NotSelectedServiceProvider" xml:space="preserve">
     <value>No service provider has been selected</value>
+  </data>
+  <data name="OpenUrlError" xml:space="preserve">
+    <value>Unable to open browser for URL '{0}'.
+
+{1}</value>
   </data>
   <data name="RecordTaskNameSuggestedNameFormat" xml:space="preserve">
     <value>{0} [{1:yyyy\-MM\-dd} {2:HH\-mm\-ss}]</value>

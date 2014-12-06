@@ -42,8 +42,8 @@
             this.listViewStats = new System.Windows.Forms.ListView();
             this.labelEllapsedTime = new System.Windows.Forms.Label();
             this.timerEllapsed = new System.Windows.Forms.Timer(this.components);
-            this.pictureBoxServiceLogo = new Project.DvbIpTv.ChannelList.Controls.PictureBoxEx();
-            this.pictureBoxIcon = new Project.DvbIpTv.ChannelList.Controls.PictureBoxEx();
+            this.pictureBoxServiceLogo = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.pictureBoxIcon = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
             columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxServiceLogo)).BeginInit();
@@ -91,6 +91,7 @@
             // buttonRequestCancel
             // 
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionCancel_16x16;
             resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;
@@ -176,13 +177,13 @@
 
         #endregion
 
-        private Controls.PictureBoxEx pictureBoxIcon;
+        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxIcon;
         private System.Windows.Forms.Label labelScanning;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label labelProgressPercentage;
         private System.Windows.Forms.Label labelServiceUrl;
         private System.Windows.Forms.Label labelServiceName;
-        private Controls.PictureBoxEx pictureBoxServiceLogo;
+        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxServiceLogo;
         private System.Windows.Forms.Button buttonRequestCancel;
         private System.Windows.Forms.Label labelCaption;
         private System.Windows.Forms.ListView listViewStats;

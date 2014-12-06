@@ -29,12 +29,14 @@ namespace Project.DvbIpTv.UiServices.Discovery
                         from service in list.Services
                         select new UiBroadcastService(service, providerDomainName);
 
+            /*
             var q = from service in services
                     orderby service.DisplayName
                     select service;
+            */
 
             var l = new List<UiBroadcastService>(services.Count());
-            l.AddRange(q);
+            l.AddRange(services);
 
             Services = l.AsReadOnly();
         } // Create

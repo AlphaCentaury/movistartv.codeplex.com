@@ -47,7 +47,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private class Stats
         {
-            public int Active, Dead, Skipped;
+            public int Active, Dead, Skipped, Error;
             public int Count, Total;
         } // class Stats
 
@@ -150,9 +150,9 @@ namespace Project.DvbIpTv.ChannelList
             {
                 listViewStats.Items[0].SubItems[1].Text = stats.Active.ToString("N0");
                 listViewStats.Items[1].SubItems[1].Text = stats.Dead.ToString("N0");
-                listViewStats.Items[2].SubItems[1].Text = stats.Skipped.ToString("N0");
+                listViewStats.Items[2].SubItems[1].Text = stats.Error.ToString("N0");
                 listViewStats.Items[3].SubItems[1].Text = stats.Skipped.ToString("N0");
-                listViewStats.Items[4].SubItems[1].Text = (stats.Count - 1).ToString("N0");
+                listViewStats.Items[4].SubItems[1].Text = stats.Count.ToString("N0");
             } // if-else
 
             labelProgressPercentage.Text = string.Format(FormatProgressPercentage, ((double)stats.Count) / ((double)stats.Total));
@@ -293,10 +293,10 @@ namespace Project.DvbIpTv.ChannelList
             {
                 if (Worker.CancellationPending) break;
 
-                progress.Count++;
                 progress.Service = service;
                 progress.Logo = SafeLoadLogo(service.Logo);
                 Worker.ReportProgress((int)ProgressReportKind.Progress, progress.ShallowClone());
+                progress.Count++;
 
                 if ((service.Data.ServiceLocation == null) || (service.Data.ServiceLocation.Multicast == null))
                 {
@@ -329,17 +329,15 @@ namespace Project.DvbIpTv.ChannelList
                     }
                     else
                     {
-                        // re-throw
-                        throw;
+                        progress.Error++;
+                        service.IsDead = true;
                     } // if
                 } // try-catch
-
                 s.Close();
 
                 Worker.ReportProgress((int)ProgressReportKind.ChannelScanned, progress.ShallowClone());
             } // foreach
 
-            progress.Count = BroadcastDiscovery.Services.Count;
             Worker.ReportProgress((int)ProgressReportKind.Ended, progress.ShallowClone());
             e.Cancel = Worker.CancellationPending;
         } // Worker_DoWork

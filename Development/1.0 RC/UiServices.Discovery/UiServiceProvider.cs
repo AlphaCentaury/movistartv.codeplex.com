@@ -11,6 +11,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Xml.Serialization;
+using Property = System.Collections.Generic.KeyValuePair<string, string>;
 
 namespace Project.DvbIpTv.UiServices.Discovery
 {
@@ -19,12 +20,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private string fieldDisplayName;
         private string fieldDisplayDescription;
         private ProviderLogo fieldLogo;
-
-        /// <remarks>Used by Serialization</remarks>
-        protected UiServiceProvider()
-        {
-            // no op
-        } // constructor
 
         public UiServiceProvider(ServiceProvider provider)
         {
@@ -94,6 +89,90 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 return fieldLogo;
             }
         } // Logo
+
+        // v1.0 RC 0: code moved from ChannelList > ChanneListForm.cs > DumpProperties(UiServiceProvider)
+
+        public IEnumerable<Property> DumpProperties()
+        {
+            var properties = new List<Property>();
+
+            MultilingualText text;
+
+            text = Data.Name.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguages, true);
+            properties.Add(Utils.GetLanguageProperty("Name (display)", text));
+            text = Data.Description.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguages, true);
+            properties.Add(Utils.GetLanguageProperty("Description (display)", text));
+            properties.Add(new Property("Domain name", DomainName));
+            properties.Add(new Property("Logo URI", Data.LogoUri));
+
+            if (Offering.Push != null)
+            {
+                foreach (var push in Offering.Push)
+                {
+                    if (push.PayloadId == null)
+                    {
+                        properties.Add(new Property("Push offering",
+                            string.Format("{0}:{1}", push.Address, push.Port)));
+                    }
+                    else
+                    {
+                        properties.Add(new Property("Push offering",
+                            string.Format("{0}:{1} with {2} payloads", push.Address, push.Port, push.PayloadId.Length)));
+                    } // if-else
+                } // foreach push
+            }
+            else
+            {
+                properties.Add(new Property("Push offering list", null));
+            } // if-else
+
+            if (Offering.Pull != null)
+            {
+                foreach (var pull in Offering.Pull)
+                {
+                    if (pull.PayloadId == null)
+                    {
+                        properties.Add(new Property("Pull offering",
+                            string.Format("{0}", pull.Location)));
+                    }
+                    else
+                    {
+                        properties.Add(new Property("Pull offering",
+                            string.Format("{0} with {1} payloads", pull.Location, pull.PayloadId.Length)));
+                    } // if-else
+                } // foreach pull
+            }
+            else
+            {
+                properties.Add(new Property("Pull offering list", null));
+            } // if-else
+
+            if (Data.Name != null)
+            {
+                foreach (var txt in Data.Name)
+                {
+                    properties.Add(Utils.GetLanguageProperty("Name", txt));
+                } // foreach
+            }
+            else
+            {
+                properties.Add(new Property("Name list", null));
+            } // if-else
+
+            if (Data.Description != null)
+            {
+                foreach (var txt in Data.Description)
+                {
+                    properties.Add(Utils.GetLanguageProperty("Description", txt));
+                } // foreach
+            }
+            else
+            {
+                properties.Add(new Property("Description list", null));
+            } // if-else
+
+            return properties;
+        } // DumpProperties
 
         private string GetDisplayName()
         {

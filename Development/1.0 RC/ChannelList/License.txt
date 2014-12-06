@@ -1,9 +1,24 @@
-﻿Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
+﻿--------------------------------------------------------------------------------
+Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
+--------------------------------------------------------------------------------
+
+Este software, ya sea en forma de código binario o fuente, está sujeta a los términos de la Licencia Recíproca de Microsoft "Microsoft Reciprocal License" (Ms-RL), excepto cuanto se indica en "EXCEPCIONES".
+Todos los demás derechos están reservados por el/los autor(es) del software.
+
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, expresa o implícita, incluyendo (pero no limitándose a) las garantías de comerciabilidad, idoneidad para un propósito particular y no infracción.
+En ningún caso, los autores o titulares del Copyright serán responsables de ninguna reclamación, daños o cualquier otra responsabilidad, ya sea en una acción de contrato, agravio o cualquier otro motivo, con o sin relación con el software o el uso u otros aspectos del software.
+
+Aviso: Las traducciones al Español de este archivo se proporcionan únicamente a modo informativo y no tienen caracter vinculante o validez legal alguna.
+
+--------------------------------------------------------------------------------
 
 This Software, either in binary or source code form, is licensed under the terms of the Microsoft Reciprocal License (Ms-RL) except when noted in "EXCEPTIONS".
 All other rights are reserved by the author(s) of the software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement.
+In no event shall the authors or the copyright holders be liable for any claim, damages or other liability, whether in action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+
+Note: Spanish translations in this file are provided solely for informative purposes and have no binding or legal value whatsoever.
 
 *****************************************************************************
 ** Microsoft Reciprocal License (Ms-RL)                                    **

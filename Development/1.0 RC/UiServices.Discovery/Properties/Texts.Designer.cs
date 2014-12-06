@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;No description has been supplied for this TV channel/service&gt;.
+        ///   Looks up a localized string similar to No description is available for this TV channel/service.
         /// </summary>
         internal static string BroadcastUnknownDisplayDescription {
             get {
@@ -115,7 +115,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No description has been supplied for this service provider.
+        ///   Looks up a localized string similar to No description is available for this service provider.
         /// </summary>
         internal static string ProviderUnknownDisplayDescription {
             get {

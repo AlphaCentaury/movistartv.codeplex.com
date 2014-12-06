@@ -42,7 +42,7 @@
             this.radioActionDelete = new System.Windows.Forms.RadioButton();
             this.radioActionDisable = new System.Windows.Forms.RadioButton();
             this.labelInfo = new System.Windows.Forms.Label();
-            this.pictureIcon = new Project.DvbIpTv.ChannelList.Controls.PictureBoxEx();
+            this.pictureIcon = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.numericTimeout)).BeginInit();
             this.groupScanWhat.SuspendLayout();
             this.groupActionScan.SuspendLayout();
@@ -61,51 +61,53 @@
             // 
             // numericTimeout
             // 
-            resources.ApplyResources(this.numericTimeout, "numericTimeout");
             this.numericTimeout.DecimalPlaces = 3;
             this.numericTimeout.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
+            resources.ApplyResources(this.numericTimeout, "numericTimeout");
             this.numericTimeout.Maximum = new decimal(new int[] {
             30,
             0,
             0,
             0});
             this.numericTimeout.Minimum = new decimal(new int[] {
-            1,
+            250,
             0,
             0,
-            0});
+            196608});
             this.numericTimeout.Name = "numericTimeout";
             this.numericTimeout.Value = new decimal(new int[] {
-            5,
+            3,
             0,
             0,
             0});
             // 
             // buttonRequestCancel
             // 
-            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionCancel_16x16;
+            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;
             // 
             // buttonStart
             // 
-            resources.ApplyResources(this.buttonStart, "buttonStart");
             this.buttonStart.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonStart.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionRun_16x16;
+            resources.ApplyResources(this.buttonStart, "buttonStart");
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // groupScanWhat
             // 
-            resources.ApplyResources(this.groupScanWhat, "groupScanWhat");
             this.groupScanWhat.Controls.Add(this.radioScanDead);
             this.groupScanWhat.Controls.Add(this.radioScanActive);
             this.groupScanWhat.Controls.Add(this.radioScanAll);
+            resources.ApplyResources(this.groupScanWhat, "groupScanWhat");
             this.groupScanWhat.Name = "groupScanWhat";
             this.groupScanWhat.TabStop = false;
             // 
@@ -131,9 +133,9 @@
             // 
             // groupActionScan
             // 
-            resources.ApplyResources(this.groupActionScan, "groupActionScan");
             this.groupActionScan.Controls.Add(this.radioActionDelete);
             this.groupActionScan.Controls.Add(this.radioActionDisable);
+            resources.ApplyResources(this.groupActionScan, "groupActionScan");
             this.groupActionScan.Name = "groupActionScan";
             this.groupActionScan.TabStop = false;
             // 
@@ -158,8 +160,8 @@
             // 
             // pictureIcon
             // 
-            resources.ApplyResources(this.pictureIcon, "pictureIcon");
             this.pictureIcon.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ScanTv_128x128;
+            resources.ApplyResources(this.pictureIcon, "pictureIcon");
             this.pictureIcon.Name = "pictureIcon";
             this.pictureIcon.TabStop = false;
             // 
@@ -196,7 +198,7 @@
 
         #endregion
 
-        private Controls.PictureBoxEx pictureIcon;
+        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureIcon;
         private System.Windows.Forms.Label labelCaption;
         private System.Windows.Forms.Label labelScanTimeout;
         private System.Windows.Forms.NumericUpDown numericTimeout;

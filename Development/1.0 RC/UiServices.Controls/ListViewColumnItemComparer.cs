@@ -31,7 +31,7 @@ namespace Project.DvbIpTv.UiServices.Controls
 
             if (object.Equals(item1, item2)) return 0;
 
-            compare = ResultSign * string.Compare(item1.SubItems[ColumnIndex].Text, item2.SubItems[ColumnIndex].Text);
+            compare = ResultSign * string.Compare(GetSafeText(item1, ColumnIndex), GetSafeText(item2, ColumnIndex));
             if (compare == 0)
             {
                 compare = string.Compare(item1.SubItems[0].Text, item2.SubItems[0].Text);
@@ -39,5 +39,11 @@ namespace Project.DvbIpTv.UiServices.Controls
 
             return compare;
         } // Compare
+
+        private static string GetSafeText(ListViewItem item, int subItemIndex)
+        {
+            if (subItemIndex >= item.SubItems.Count) return null;
+            return item.SubItems[subItemIndex].Text;
+        } // GetSafeText
     } // class ListViewColumnItemComparer
 } // namespace

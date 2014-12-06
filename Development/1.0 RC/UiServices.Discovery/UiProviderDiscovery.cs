@@ -22,18 +22,31 @@ namespace Project.DvbIpTv.UiServices.Discovery
             Create(discoveryXml);
         } // constructor
 
+        public static UiServiceProvider GetUiServiceProviderFromKey(ServiceProviderDiscoveryXml discoveryXml, string serviceKey)
+        {
+            var providers = from discovery in discoveryXml.ServiceProviderDiscovery
+                            from provider in discovery.ServiceProvider
+                            let uiProvider = new UiServiceProvider(provider)
+                            where uiProvider.Key == serviceKey
+                            select uiProvider;
+
+            return providers.FirstOrDefault();
+        } // GetUiServiceProviderFromKey
+
         private void Create(ServiceProviderDiscoveryXml discoveryXml)
         {
             var providers = from discovery in discoveryXml.ServiceProviderDiscovery
                             from provider in discovery.ServiceProvider
                             select new UiServiceProvider(provider);
 
+            /*
             var q = from provider in providers
                     orderby provider.DisplayName
                     select provider;
+            */
 
             var list = new List<UiServiceProvider>(providers.Count());
-            list.AddRange(q);
+            list.AddRange(providers);
 
             Providers = list.AsReadOnly();
         } // Create

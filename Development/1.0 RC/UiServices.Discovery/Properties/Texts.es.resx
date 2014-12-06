@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BroadcastUnknownDisplayDescription" xml:space="preserve">
-    <value>No se ha proporcionado una descripción para este canal de TV o servicio</value>
+    <value>No existe una descripción de este canal de TV o servicio</value>
   </data>
   <data name="FormatBroadcastUnknownDisplayName" xml:space="preserve">
     <value>Desconocido: {0}.{1}</value>
@@ -136,6 +136,6 @@
     <value>&lt;No suministrado&gt;</value>
   </data>
   <data name="ProviderUnknownDisplayDescription" xml:space="preserve">
-    <value>No se ha proporcionado una descripción para este proveedor</value>
+    <value>No existe una descripción de este proveedor de servicios</value>
   </data>
 </root>
