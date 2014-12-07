@@ -60,8 +60,6 @@
             this.menuItemChannelListSortNone = new System.Windows.Forms.ToolStripMenuItem();
             this.separatorChannel2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemChannelDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemNotices = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemNoticesShow = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureProviderLogo = new System.Windows.Forms.PictureBox();
             this.labelProviderName = new System.Windows.Forms.Label();
             this.labelProviderDescription = new System.Windows.Forms.Label();
@@ -71,12 +69,16 @@
             this.buttonRecordChannel = new System.Windows.Forms.Button();
             this.buttonDisplayChannel = new System.Windows.Forms.Button();
             this.listViewChannels = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
+            this.pictureNotificationIcon = new System.Windows.Forms.PictureBox();
+            this.labelNotification = new System.Windows.Forms.Label();
+            this.timerDismissNotification = new System.Windows.Forms.Timer(this.components);
             Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ServiceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureNotificationIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // Name
@@ -112,8 +114,7 @@
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemDvbIpTv,
             this.menuItemProvider,
-            this.menuItemChannel,
-            this.menuItemNotices});
+            this.menuItemChannel});
             resources.ApplyResources(this.menuStripMain, "menuStripMain");
             this.menuStripMain.Name = "menuStripMain";
             // 
@@ -276,20 +277,6 @@
             this.menuItemChannelDetails.Name = "menuItemChannelDetails";
             this.menuItemChannelDetails.Click += new System.EventHandler(this.menuItemChannelDetails_Click);
             // 
-            // menuItemNotices
-            // 
-            this.menuItemNotices.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.menuItemNotices.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemNoticesShow});
-            this.menuItemNotices.Name = "menuItemNotices";
-            resources.ApplyResources(this.menuItemNotices, "menuItemNotices");
-            // 
-            // menuItemNoticesShow
-            // 
-            this.menuItemNoticesShow.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
-            this.menuItemNoticesShow.Name = "menuItemNoticesShow";
-            resources.ApplyResources(this.menuItemNoticesShow, "menuItemNoticesShow");
-            // 
             // pictureProviderLogo
             // 
             resources.ApplyResources(this.pictureProviderLogo, "pictureProviderLogo");
@@ -375,9 +362,26 @@
             this.listViewChannels.SelectedIndexChanged += new System.EventHandler(this.listViewChannels_SelectedIndexChanged);
             this.listViewChannels.DoubleClick += new System.EventHandler(this.listViewChannels_DoubleClick);
             // 
+            // pictureNotificationIcon
+            // 
+            resources.ApplyResources(this.pictureNotificationIcon, "pictureNotificationIcon");
+            this.pictureNotificationIcon.Name = "pictureNotificationIcon";
+            this.pictureNotificationIcon.TabStop = false;
+            // 
+            // labelNotification
+            // 
+            resources.ApplyResources(this.labelNotification, "labelNotification");
+            this.labelNotification.Name = "labelNotification";
+            // 
+            // timerDismissNotification
+            // 
+            this.timerDismissNotification.Tick += new System.EventHandler(this.timerDismissNotification_Tick);
+            // 
             // ChannelListForm
             // 
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.labelNotification);
+            this.Controls.Add(this.pictureNotificationIcon);
             this.Controls.Add(this.buttonRecordChannel);
             this.Controls.Add(this.buttonDisplayChannel);
             this.Controls.Add(this.listViewChannels);
@@ -394,6 +398,7 @@
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureNotificationIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,7 +441,8 @@
         private System.Windows.Forms.ToolStripSeparator separatorChannel2;
         private System.Windows.Forms.ToolStripSeparator separatorChannelSort1;
         private System.Windows.Forms.ToolStripMenuItem menuItemChannelListSortNone;
-        private System.Windows.Forms.ToolStripMenuItem menuItemNotices;
-        private System.Windows.Forms.ToolStripMenuItem menuItemNoticesShow;
+        private System.Windows.Forms.PictureBox pictureNotificationIcon;
+        private System.Windows.Forms.Label labelNotification;
+        private System.Windows.Forms.Timer timerDismissNotification;
     }
 }

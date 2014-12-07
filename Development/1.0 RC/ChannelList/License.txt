@@ -2,6 +2,8 @@
 Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
 --------------------------------------------------------------------------------
 
+AVISO IMPORTANTE: El presente software NO ESTÁ SOPORTADO NI RESPALDADO por Movistar ni por Telefónica. Telefónica de España no tiene responsabilidad alguna si hay canales (incluso si están contratados) que no pueden verse en el PC. NO DEBE LLAMARSE NUNCA al 1002 o al 1004 si desaparecen canales de la lista o no pueden verse o cualquier otra anomalía. Telefónica sólo proporcionará ayuda y soporte técnico para su decodificador físico y sólo para los servicios contratados.
+
 Este software, ya sea en forma de código binario o fuente, está sujeta a los términos de la Licencia Recíproca de Microsoft "Microsoft Reciprocal License" (Ms-RL), excepto cuanto se indica en "EXCEPCIONES".
 Todos los demás derechos están reservados por el/los autor(es) del software.
 
@@ -11,6 +13,8 @@ En ningún caso, los autores o titulares del Copyright serán responsables de ni
 Aviso: Las traducciones al Español de este archivo se proporcionan únicamente a modo informativo y no tienen caracter vinculante o validez legal alguna.
 
 --------------------------------------------------------------------------------
+
+NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
 
 This Software, either in binary or source code form, is licensed under the terms of the Microsoft Reciprocal License (Ms-RL) except when noted in "EXCEPTIONS".
 All other rights are reserved by the author(s) of the software.

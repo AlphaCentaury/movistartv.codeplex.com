@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>372, 275</value>
-  </data>
   <data name="okButton.Text" xml:space="preserve">
     <value>&amp;Aceptar</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="logoPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAe
@@ -238,44 +235,11 @@
         qAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="labelProductName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>323, 30</value>
-  </data>
-  <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 56</value>
-  </data>
-  <data name="labelVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>323, 17</value>
-  </data>
   <data name="labelVersion.Text" xml:space="preserve">
     <value>Versión {0}</value>
   </data>
-  <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 73</value>
-  </data>
-  <data name="labelCopyright.Size" type="System.Drawing.Size, System.Drawing">
-    <value>323, 17</value>
-  </data>
-  <data name="labelCompanyName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 90</value>
-  </data>
-  <data name="labelCompanyName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>323, 17</value>
-  </data>
-  <data name="textBoxDescription.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="textBoxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 123</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 13</value>
-  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Acuerdo de licencia de usuario final (ALUF):</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>484, 312</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Acerca de la aplicación {0}</value>

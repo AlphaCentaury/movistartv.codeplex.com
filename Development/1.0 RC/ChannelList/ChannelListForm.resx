@@ -409,21 +409,6 @@
   <data name="menuItemChannel.Text" xml:space="preserve">
     <value>&amp;Channel</value>
   </data>
-  <data name="menuItemNoticesShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 22</value>
-  </data>
-  <data name="menuItemNoticesShow.Text" xml:space="preserve">
-    <value>Show list of notices</value>
-  </data>
-  <data name="menuItemNotices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
-  </data>
-  <data name="menuItemNotices.Text" xml:space="preserve">
-    <value>&amp;Notices</value>
-  </data>
-  <data name="menuItemNotices.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -443,7 +428,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="pictureProviderLogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -470,7 +455,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureProviderLogo.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="labelProviderName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -503,7 +488,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelProviderName.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="labelProviderDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -536,7 +521,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelProviderDescription.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="radioListViewDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -569,7 +554,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;radioListViewDetails.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="radioListViewTile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -602,7 +587,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;radioListViewTile.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="labelListChannelsView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -635,7 +620,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelListChannelsView.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="buttonRecordChannel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -671,7 +656,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonRecordChannel.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="buttonDisplayChannel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -722,7 +707,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonDisplayChannel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="listViewChannels.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -746,8 +731,68 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;listViewChannels.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
+  <data name="pictureNotificationIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 386</value>
+  </data>
+  <data name="pictureNotificationIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureNotificationIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="pictureNotificationIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="pictureNotificationIcon.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureNotificationIcon.Name" xml:space="preserve">
+    <value>pictureNotificationIcon</value>
+  </data>
+  <data name="&gt;&gt;pictureNotificationIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureNotificationIcon.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureNotificationIcon.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelNotification.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 386</value>
+  </data>
+  <data name="labelNotification.Size" type="System.Drawing.Size, System.Drawing">
+    <value>433, 24</value>
+  </data>
+  <data name="labelNotification.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="labelNotification.Text" xml:space="preserve">
+    <value>(Notification area)</value>
+  </data>
+  <data name="labelNotification.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="labelNotification.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;labelNotification.Name" xml:space="preserve">
+    <value>labelNotification</value>
+  </data>
+  <data name="&gt;&gt;labelNotification.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelNotification.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;labelNotification.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="timerDismissNotification.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>488, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -931,17 +976,11 @@
   <data name="&gt;&gt;menuItemChannelDetails.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemNotices.Name" xml:space="preserve">
-    <value>menuItemNotices</value>
+  <data name="&gt;&gt;timerDismissNotification.Name" xml:space="preserve">
+    <value>timerDismissNotification</value>
   </data>
-  <data name="&gt;&gt;menuItemNotices.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemNoticesShow.Name" xml:space="preserve">
-    <value>menuItemNoticesShow</value>
-  </data>
-  <data name="&gt;&gt;menuItemNoticesShow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;timerDismissNotification.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ChannelListForm</value>

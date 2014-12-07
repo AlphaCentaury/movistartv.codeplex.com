@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.ChannelList
 {
-    public partial class SelectProviderDialog : Form
+    public partial class SelectProviderDialog : CommonBaseForm
     {
         UiProviderDiscovery ProvidersDiscovery;
 
@@ -24,36 +24,32 @@ namespace Project.DvbIpTv.ChannelList
             InitializeComponent();
         } // constructor
 
+        #region CommonBaseForm implementation
+
+        protected override void HandleException(Exception ex)
+        {
+            MyApplication.HandleException(this, ex);
+        } // HandleException
+
+        #endregion
+
         public UiServiceProvider SelectedServiceProvider
         {
             get;
             set;
         } // SelectedServiceProvider
 
-        public static UiServiceProvider GetLastUserSelectedProvider()
-        {
-            var lastSelectedProvider = Properties.Settings.Default.LastSelectedServiceProvider;
-            if (lastSelectedProvider == null) return null;
-
-            var baseIpAddress = AppUiConfiguration.Current.User.ContentProvider.RootMulticastAddress;
-            var discovery = AppUiConfiguration.Current.Cache.LoadXml<ServiceProviderDiscoveryXml>("ProviderDiscovery", baseIpAddress);
-            if (discovery == null) return null;
-
-            return UiProviderDiscovery.GetUiServiceProviderFromKey(discovery, lastSelectedProvider);
-        } // GetLastUserSelectedProvider
-
         private void SelectProviderDialog_Load(object sender, EventArgs e)
         {
-            if (SelectedServiceProvider == null)
+            if (!SafeCall(SelectProviderDialog_Load_Implementation, sender, e))
             {
-                SelectedIndexChanged();
+                this.Close();
             } // if
-            LoadServiceProviderList(true);
         } // SelectProviderDialog_Load
 
         private void listViewServiceProviders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedIndexChanged();
+            SafeCall(SelectedIndexChanged);
         } // listViewServiceProviders_SelectedIndexChanged
 
         private void listViewServiceProviders_DoubleClick(object sender, EventArgs e)
@@ -66,10 +62,31 @@ namespace Project.DvbIpTv.ChannelList
 
         private void buttonRefreshServiceProviderList_Click(object sender, EventArgs e)
         {
-            LoadServiceProviderList(false);
+            SafeCall(buttonRefreshServiceProviderList_Click_Implementation, sender, e);
         } // buttonRefreshServiceProviderList_Click
 
         private void buttonProviderDetails_Click(object sender, EventArgs e)
+        {
+            SafeCall(buttonProviderDetails_Click_Implementation, sender, e);
+        } // buttonProviderDetails_Click
+
+        #region Event handlers implemention
+
+        private void SelectProviderDialog_Load_Implementation(object sender, EventArgs e)
+        {
+            if (SelectedServiceProvider == null)
+            {
+                SelectedIndexChanged();
+            } // if
+            LoadServiceProviderList(true);
+        } // SelectProviderDialog_Load_Implementation
+
+        private void buttonRefreshServiceProviderList_Click_Implementation(object sender, EventArgs e)
+        {
+            LoadServiceProviderList(false);
+        } // buttonRefreshServiceProviderList_Click_Implementation
+
+        private void buttonProviderDetails_Click_Implementation(object sender, EventArgs e)
         {
             if (SelectedServiceProvider == null) return;
 
@@ -83,7 +100,21 @@ namespace Project.DvbIpTv.ChannelList
             {
                 dlg.ShowDialog(this);
             } // using
-        } // buttonProviderDetails_Click
+        } // buttonProviderDetails_Click_Implementation
+
+        #endregion
+
+        public static UiServiceProvider GetLastUserSelectedProvider()
+        {
+            var lastSelectedProvider = Properties.Settings.Default.LastSelectedServiceProvider;
+            if (lastSelectedProvider == null) return null;
+
+            var baseIpAddress = AppUiConfiguration.Current.User.ContentProvider.RootMulticastAddress;
+            var discovery = AppUiConfiguration.Current.Cache.LoadXml<ServiceProviderDiscoveryXml>("ProviderDiscovery", baseIpAddress);
+            if (discovery == null) return null;
+
+            return UiProviderDiscovery.GetUiServiceProviderFromKey(discovery, lastSelectedProvider);
+        } // GetLastUserSelectedProvider
 
         private bool LoadServiceProviderList(bool fromCache)
         {

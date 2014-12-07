@@ -126,4 +126,7 @@
   <data name="PropertiesDlgValueNull" xml:space="preserve">
     <value>&lt;not specified&gt;</value>
   </data>
+  <data name="UncaughtExceptionCaption" xml:space="preserve">
+    <value>Unexpected exception in program</value>
+  </data>
 </root>

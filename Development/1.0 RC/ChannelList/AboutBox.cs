@@ -22,6 +22,8 @@ namespace Project.DvbIpTv.ChannelList
         private void AboutBox_Load(object sender, EventArgs e)
         {
             this.Text = String.Format(this.Text, Assembly.GetEntryAssembly().GetName().Name);
+            labelAppName.Text = string.Format("{0}", Properties.Texts.AppName);
+            labelAppVersion.Text = string.Format("{0} - {1}", Properties.Texts.AppVersion, Properties.Texts.AppState);
             labelProductName.Text = AssemblyProduct;
             labelVersion.Text = String.Format(labelVersion.Text, AssemblyVersion);
             labelCopyright.Text = AssemblyCopyright;

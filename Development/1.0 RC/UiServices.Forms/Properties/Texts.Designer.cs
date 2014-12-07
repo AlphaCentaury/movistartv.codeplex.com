@@ -86,5 +86,14 @@ namespace Project.DvbIpTv.UiServices.Forms.Properties {
                 return ResourceManager.GetString("PropertiesDlgValueNull", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected exception in program.
+        /// </summary>
+        internal static string UncaughtExceptionCaption {
+            get {
+                return ResourceManager.GetString("UncaughtExceptionCaption", resourceCulture);
+            }
+        }
     }
 }

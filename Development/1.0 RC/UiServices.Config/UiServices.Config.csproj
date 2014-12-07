@@ -44,6 +44,8 @@
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
     <Compile Include="AppUiConfiguration.cs" />
+    <Compile Include="CachedItemBase.cs" />
+    <Compile Include="CachedXmlDocument.cs" />
     <Compile Include="InitializationResult.cs" />
     <Compile Include="Logos\BaseLogo.cs" />
     <Compile Include="CacheManager.cs" />

@@ -47,6 +47,9 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>AssemblySolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="CommonBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PropertiesDialog.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppCaption" xml:space="preserve">
+    <value>Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”)</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>DVB-IPTV: Movistar TV channel/services list</value>
+  </data>
+  <data name="AppState" xml:space="preserve">
+    <value>Stable (Release candidate)</value>
+  </data>
+  <data name="AppVersion" xml:space="preserve">
+    <value>1.0 RC “Wolf 424”</value>
+  </data>
   <data name="BroadcastListUnableRefresh" xml:space="preserve">
     <value>Unable to obtain the list of TV channels/services</value>
   </data>
@@ -132,8 +144,20 @@
   <data name="CancellingDownloadOperation" xml:space="preserve">
     <value>Please wait. Canceling download...</value>
   </data>
-  <data name="ChannelListFormCaption" xml:space="preserve">
-    <value>Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”)</value>
+  <data name="ChannelListAgeObsolete" xml:space="preserve">
+    <value>The channel list can be outdated. It is over {0} days old.</value>
+  </data>
+  <data name="ChannelListAgeOld" xml:space="preserve">
+    <value>The channel list is {0} days old.</value>
+  </data>
+  <data name="ChannelListNoCache" xml:space="preserve">
+    <value>No cached version of the channel list exists. You have to refresh the list.</value>
+  </data>
+  <data name="ChannelListRefreshEmpty" xml:space="preserve">
+    <value>The list has been successfully refreshed, but it is empty.</value>
+  </data>
+  <data name="ChannelListRefreshSuccess" xml:space="preserve">
+    <value>The list has been successfully refreshed.</value>
   </data>
   <data name="CompletedDownloadDataReception" xml:space="preserve">
     <value>Data reception is complete</value>
@@ -243,6 +267,13 @@ The application will now end.</value>
     <value>Unable to open browser for URL '{0}'.
 
 {1}</value>
+  </data>
+  <data name="RecordHelpTaskCreationException" xml:space="preserve">
+    <value>Unexpected error while contacting with the Windows Task Manager to create the recording task.
+The recording task has not been created.</value>
+  </data>
+  <data name="RecordHelpTaskRunException" xml:space="preserve">
+    <value>Unable to run the 'Right now' recording task and no recording action will take place.</value>
   </data>
   <data name="RecordTaskNameSuggestedNameFormat" xml:space="preserve">
     <value>{0} [{1:yyyy\-MM\-dd} {2:HH\-mm\-ss}]</value>

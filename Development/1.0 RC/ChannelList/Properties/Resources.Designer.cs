@@ -103,9 +103,49 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Error_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Error_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exception_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Exception_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Help_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Help_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HighPriority_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("HighPriority_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Info_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Info_24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -135,8 +175,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         ///Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
         ///--------------------------------------------------------------------------------
         ///
-        ///Este software, ya sea en forma de código binario o fuente, está sujeta a los términos de la Licencia Recíproca de Microsoft &quot;Microsoft Reciprocal License&quot; (Ms-RL), excepto cuanto se indica en &quot;EXCEPCIONES&quot;.
-        ///Todos los demás derechos están reservados por el/los autor(es) del s [rest of string was truncated]&quot;;.
+        ///AVISO IMPORTANTE: El presente software NO ESTÁ SOPORTADO NI RESPALDADO por Movistar ni por Telefónica. Telefónica de España no tiene responsabilidad alguna si hay canales (incluso si están contratados) que no pueden verse en el PC. NO DEBE LLAMARSE NUNCA al 1002 o al 1004 si  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string License {
             get {
@@ -267,6 +306,16 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Success_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Success_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ThumbnailView_16x16 {
             get {
                 object obj = ResourceManager.GetObject("ThumbnailView_16x16", resourceCulture);
@@ -280,6 +329,16 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static System.Drawing.Bitmap ViewThumbnails_16x16 {
             get {
                 object obj = ResourceManager.GetObject("ViewThumbnails_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Warning_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Warning_24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

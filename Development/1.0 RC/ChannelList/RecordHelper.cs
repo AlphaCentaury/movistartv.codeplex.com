@@ -11,6 +11,7 @@ using Project.DvbIpTv.RecorderLauncher.Serialization;
 using System.Reflection;
 using Project.DvbIpTv.UiServices.Configuration;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -23,7 +24,7 @@ namespace Project.DvbIpTv.ChannelList
         private TaskFolder TaskFolder;
         private string TaskName;
 
-        public void Record(RecordTask record)
+        public bool Record(IWin32Window ownerWindow, RecordTask record)
         {
             TaskService taskScheduler;
             TaskDefinition definition;
@@ -37,7 +38,6 @@ namespace Project.DvbIpTv.ChannelList
             definition = null;
             task = null;
             xmlFile = null;
-
 
             try
             {
@@ -76,12 +76,27 @@ namespace Project.DvbIpTv.ChannelList
                 // Register task
                 task = TaskFolder.RegisterTaskDefinition(TaskName, definition);
                 xmlFile = null;
-                
+
                 // Run task right now?
                 if (record.Schedule.Kind == RecordScheduleKind.RightNow)
                 {
-                    task.Run(null);
+                    try
+                    {
+                        task.Run(null);
+                    }
+                    catch (Exception ex)
+                    {
+                        MyApplication.HandleException(ownerWindow, Properties.Texts.RecordHelpTaskRunException, ex);
+                        return false;
+                    } // try-catch
                 } // if
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MyApplication.HandleException(ownerWindow, Properties.Texts.RecordHelpTaskCreationException, ex);
+                return false;
             }
             finally
             {

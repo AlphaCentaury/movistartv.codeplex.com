@@ -30,13 +30,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
             this.okButton = new System.Windows.Forms.Button();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.labelProductName = new System.Windows.Forms.Label();
-            this.labelVersion = new System.Windows.Forms.Label();
-            this.labelCopyright = new System.Windows.Forms.Label();
-            this.labelCompanyName = new System.Windows.Forms.Label();
+            this.labelProductName = new System.Windows.Forms.TextBox();
+            this.labelVersion = new System.Windows.Forms.TextBox();
+            this.labelCopyright = new System.Windows.Forms.TextBox();
+            this.labelCompanyName = new System.Windows.Forms.TextBox();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.linkLabelCodeplex = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelEULA = new System.Windows.Forms.Label();
+            this.labelAppName = new System.Windows.Forms.Label();
+            this.labelAppVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,29 +58,36 @@
             // labelProductName
             // 
             resources.ApplyResources(this.labelProductName, "labelProductName");
+            this.labelProductName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.labelProductName.Name = "labelProductName";
+            this.labelProductName.ReadOnly = true;
             // 
             // labelVersion
             // 
             resources.ApplyResources(this.labelVersion, "labelVersion");
+            this.labelVersion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.labelVersion.Name = "labelVersion";
+            this.labelVersion.ReadOnly = true;
             // 
             // labelCopyright
             // 
             resources.ApplyResources(this.labelCopyright, "labelCopyright");
+            this.labelCopyright.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.labelCopyright.Name = "labelCopyright";
+            this.labelCopyright.ReadOnly = true;
             // 
             // labelCompanyName
             // 
             resources.ApplyResources(this.labelCompanyName, "labelCompanyName");
+            this.labelCompanyName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.labelCompanyName.Name = "labelCompanyName";
+            this.labelCompanyName.ReadOnly = true;
             // 
             // textBoxDescription
             // 
             resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
-            this.textBoxDescription.TabStop = false;
             // 
             // linkLabelCodeplex
             // 
@@ -88,17 +97,29 @@
             this.linkLabelCodeplex.TabStop = true;
             this.linkLabelCodeplex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCodeplex_LinkClicked);
             // 
-            // label1
+            // labelEULA
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.labelEULA, "labelEULA");
+            this.labelEULA.Name = "labelEULA";
+            // 
+            // labelAppName
+            // 
+            resources.ApplyResources(this.labelAppName, "labelAppName");
+            this.labelAppName.Name = "labelAppName";
+            // 
+            // labelAppVersion
+            // 
+            resources.ApplyResources(this.labelAppVersion, "labelAppVersion");
+            this.labelAppVersion.Name = "labelAppVersion";
             // 
             // AboutBox
             // 
             this.AcceptButton = this.okButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelAppVersion);
+            this.Controls.Add(this.labelAppName);
+            this.Controls.Add(this.labelEULA);
             this.Controls.Add(this.linkLabelCodeplex);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.labelProductName);
@@ -124,13 +145,15 @@
 
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.PictureBox logoPictureBox;
-        private System.Windows.Forms.Label labelProductName;
-        private System.Windows.Forms.Label labelVersion;
-        private System.Windows.Forms.Label labelCopyright;
-        private System.Windows.Forms.Label labelCompanyName;
+        private System.Windows.Forms.TextBox labelProductName;
+        private System.Windows.Forms.TextBox labelVersion;
+        private System.Windows.Forms.TextBox labelCopyright;
+        private System.Windows.Forms.TextBox labelCompanyName;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.LinkLabel linkLabelCodeplex;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEULA;
+        private System.Windows.Forms.Label labelAppName;
+        private System.Windows.Forms.Label labelAppVersion;
 
     }
 }

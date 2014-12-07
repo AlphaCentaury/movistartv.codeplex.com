@@ -237,6 +237,10 @@
     <Content Include="Resources\ActionOk_16x16.png" />
     <None Include="Resources\ActionRun_16x16.png" />
     <Content Include="Resources\Close_16x16.png" />
+    <None Include="Resources\HighPriority_24x24.png" />
+    <None Include="Resources\Error_24x24.png" />
+    <None Include="Resources\Exception_24x24.png" />
+    <None Include="Resources\Info_24x24.png" />
     <Content Include="Resources\IPTV.ico" />
     <None Include="Resources\Splash.png" />
     <None Include="Resources\SortAZ_16x16.png" />
@@ -246,6 +250,8 @@
     <None Include="Resources\SortZA_16x16.png" />
     <None Include="Resources\SortDescending_16x16.png" />
     <None Include="Resources\SortAscending_16x16.png" />
+    <None Include="Resources\Success_24x24.png" />
+    <None Include="Resources\Warning_24x24.png" />
     <Content Include="Resources\Warning_48x48.png" />
   </ItemGroup>
   <ItemGroup>
