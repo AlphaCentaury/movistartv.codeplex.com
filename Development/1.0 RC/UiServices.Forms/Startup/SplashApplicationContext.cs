@@ -273,6 +273,7 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            System.Threading.Thread.CurrentThread.Name = "SplashAplicationContext BackgroundWorker";
             e.Result = DoBackgroundWork();
         } // Worker_DoWork
 

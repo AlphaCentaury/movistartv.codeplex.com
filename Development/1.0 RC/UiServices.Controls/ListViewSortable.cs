@@ -26,11 +26,19 @@ namespace Project.DvbIpTv.UiServices.Controls
             : base()
         {
             SelfSorting = true;
+            IsDoubleBuffered = true;
             CurrentSortColumn = -1;
             HeaderCustomTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
         } // constructor
 
         public event EventHandler AfterSorting;
+
+        public bool IsDoubleBuffered
+        {
+            get { return base.DoubleBuffered; }
+            set { base.DoubleBuffered = value; }
+        } // IsDoubleBuffered
+
 
         [DefaultValue(false)]
         public bool HeaderUsesCustomFont

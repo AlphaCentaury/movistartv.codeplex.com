@@ -17,6 +17,8 @@ namespace Project.DvbIpTv.ChannelList
         [STAThread]
         static int Main(string[] arguments)
         {
+            System.Threading.Thread.CurrentThread.Name = "Program main thread";
+
             //Application.ThreadException += Application_ThreadException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -142,6 +142,25 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The verification of available TV channels and services is in progress.
+        ///The verification has to be canceled before you can perform the requested action..
+        /// </summary>
+        internal static string ChannelFormActiveScan {
+            get {
+                return ResourceManager.GetString("ChannelFormActiveScan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Services verification is in progress.
+        /// </summary>
+        internal static string ChannelFormActiveScanCaption {
+            get {
+                return ResourceManager.GetString("ChannelFormActiveScanCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The channel list can be outdated. It is over {0} days old..
         /// </summary>
         internal static string ChannelListAgeObsolete {
@@ -156,6 +175,15 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string ChannelListAgeOld {
             get {
                 return ResourceManager.GetString("ChannelListAgeOld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The channel list has been obtained from the cache, but it is empty..
+        /// </summary>
+        internal static string ChannelListCacheEmpty {
+            get {
+                return ResourceManager.GetString("ChannelListCacheEmpty", resourceCulture);
             }
         }
         
@@ -178,7 +206,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The list has been successfully refreshed..
+        ///   Looks up a localized string similar to The channel list has been successfully refreshed..
         /// </summary>
         internal static string ChannelListRefreshSuccess {
             get {

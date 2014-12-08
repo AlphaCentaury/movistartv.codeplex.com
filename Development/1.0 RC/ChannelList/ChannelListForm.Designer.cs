@@ -351,6 +351,7 @@
             this.listViewChannels.HeaderUsesCustomFont = true;
             this.listViewChannels.HeaderUsesCustomTextAlignment = true;
             this.listViewChannels.HideSelection = false;
+            this.listViewChannels.IsDoubleBuffered = true;
             this.listViewChannels.LargeImageList = this.imageListChannelsLarge;
             this.listViewChannels.MultiSelect = false;
             this.listViewChannels.Name = "listViewChannels";
@@ -394,6 +395,7 @@
             this.Controls.Add(this.menuStripMain);
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "ChannelListForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChannelListForm_FormClosing);
             this.Load += new System.EventHandler(this.ChannelListForm_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();

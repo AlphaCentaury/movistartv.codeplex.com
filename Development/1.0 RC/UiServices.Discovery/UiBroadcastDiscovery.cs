@@ -6,23 +6,67 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Project.DvbIpTv.UiServices.Discovery
 {
+    [Serializable]
     public class UiBroadcastDiscovery
     {
-        public IList<UiBroadcastService> Services
+        private IDictionary<string, UiBroadcastService> ServicesDictionary;
+
+        [XmlAttribute("version")]
+        public int Version
         {
             get;
-            private set;
+            set;
+        } // Version
+
+        public List<UiBroadcastService> Services
+        {
+            get;
+            set;
         } // Services
 
-        public UiBroadcastDiscovery(BroadcastDiscoveryXml discoveryXml, string providerDomainName)
+        public UiBroadcastService this[int index]
         {
-            Create(discoveryXml, providerDomainName);
+            get { return Services[index]; }
+        } // this[index]
+
+        public UiBroadcastService this[string serviceKey]
+        {
+            get
+            {
+                if (ServicesDictionary == null) BuildServicesDictionary();
+                return ServicesDictionary[serviceKey];
+            } // get
+        } // this[string]
+
+        public bool TryGetService(string serviceKey, out UiBroadcastService service)
+        {
+            if (ServicesDictionary == null) BuildServicesDictionary();
+            return ServicesDictionary.TryGetValue(serviceKey, out service);
+        } // TryGetService
+
+        public UiBroadcastService TryGetService(string serviceKey)
+        {
+            UiBroadcastService service;
+
+            if (ServicesDictionary == null) BuildServicesDictionary();
+            return ServicesDictionary.TryGetValue(serviceKey, out service) ? service : null;
+        } // TryGetService
+
+        /// <remarks>Used by Serialization</remarks>
+        protected UiBroadcastDiscovery()
+        {
         } // constructor
 
-        private void Create(BroadcastDiscoveryXml discoveryXml, string providerDomainName)
+        public UiBroadcastDiscovery(BroadcastDiscoveryXml discoveryXml, string providerDomainName, int version)
+        {
+            Create(discoveryXml, providerDomainName, version);
+        } // constructor
+
+        private void Create(BroadcastDiscoveryXml discoveryXml, string providerDomainName, int version)
         {
             var services = from offering in discoveryXml.BroadcastDiscovery
                         from list in offering.ServicesList
@@ -38,7 +82,17 @@ namespace Project.DvbIpTv.UiServices.Discovery
             var l = new List<UiBroadcastService>(services.Count());
             l.AddRange(services);
 
-            Services = l.AsReadOnly();
+            Version = version;
+            Services = l;
         } // Create
+
+        private void BuildServicesDictionary()
+        {
+            ServicesDictionary = new Dictionary<string, UiBroadcastService>(Services.Count);
+            foreach (var service in Services)
+            {
+                ServicesDictionary.Add(service.Key, service);
+            } // foreach
+        } // BuildServicesDictionary
     } // class UiBroadcastDiscovery
 } // namespace

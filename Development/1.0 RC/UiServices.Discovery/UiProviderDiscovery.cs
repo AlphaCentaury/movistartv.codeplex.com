@@ -6,21 +6,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace Project.DvbIpTv.UiServices.Discovery
 {
+    [Serializable]
+    [XmlRoot(ElementName = "UI-BroadcastDiscovery", Namespace = CommonSerialization.XmlNamespace)]
     public class UiProviderDiscovery
     {
-        public IList<UiServiceProvider> Providers
-        {
-            get;
-            private set;
-        } // Providers
-
         public UiProviderDiscovery(ServiceProviderDiscoveryXml discoveryXml)
         {
             Create(discoveryXml);
         } // constructor
+        
+        public IList<UiServiceProvider> Providers
+        {
+            get;
+            set;
+        } // Providers
 
         public static UiServiceProvider GetUiServiceProviderFromKey(ServiceProviderDiscoveryXml discoveryXml, string serviceKey)
         {

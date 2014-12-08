@@ -230,6 +230,8 @@ namespace Project.DvbIpTv.ChannelList
             DvbStpSimpleClient stpClient;
             byte[] payload;
 
+            System.Threading.Thread.CurrentThread.Name = "DvbStpDownloadDialog BackgroundWorker";
+
             stpClient = new DvbStpSimpleClient(Request.MulticastAddress, Request.MulticastPort);
             CancelDownloadRequest = stpClient.CancelRequest;
             try

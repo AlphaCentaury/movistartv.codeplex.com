@@ -45,6 +45,7 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="CommonSerialization.cs" />
     <Compile Include="Properties\InvariantTexts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -96,6 +97,7 @@
   <ItemGroup>
     <Content Include="License.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

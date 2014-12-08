@@ -14,8 +14,11 @@ using Property = System.Collections.Generic.KeyValuePair<string, string>;
 
 namespace Project.DvbIpTv.UiServices.Discovery
 {
+    [Serializable]
+    [XmlType(TypeName="UI-BroadcastService", Namespace=CommonSerialization.XmlNamespace)]
     public class UiBroadcastService
     {
+        private string fieldKey;
         private string fieldDisplayName;
         private string fieldDisplayDescription;
         private string fieldLocationUrl;
@@ -23,7 +26,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private ServiceLogo fieldLogo;
 
         /// <remarks>Used by Serialization</remarks>
-        protected UiBroadcastService()
+        public UiBroadcastService()
         {
         } // constructor
 
@@ -36,28 +39,32 @@ namespace Project.DvbIpTv.UiServices.Discovery
             Key = string.Format(Properties.InvariantTexts.FormatServiceProviderKey, ServiceName, DomainName);
         } // constructor
 
+        [XmlElement(Namespace = IpService.XmlNamespace)]
         public IpService Data
         {
             get;
-            private set;
+            set;
         } // Data
 
         public string DomainName
         {
             get;
-            private set;
+            set;
         } // DomainName
 
+        [XmlIgnore]
         public string ServiceName
         {
             get { return Data.TextualIdentifier.ServiceName; }
         } // ServiceName
 
+        [XmlIgnore]
         public string FullServiceName
         {
             get { return ServiceName + "." + DomainName; }
         } // FullServiceName
 
+        [XmlIgnore]
         public string DisplayName
         {
             get
@@ -71,6 +78,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // get
         } // DisplayName
 
+        [XmlIgnore]
         public string DisplayDescription
         {
             get
@@ -84,11 +92,13 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // get
         } // DisplayDescription
 
+        [XmlIgnore]
         public string ServiceType
         {
             get { return (Data.ServiceInformation == null) ? null : Data.ServiceInformation.ServiceType; }
         } // ServiceType
 
+        [XmlIgnore]
         public string DisplayServiceType
         {
             get
@@ -102,6 +112,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // get
         } //  DisplayServiceType
 
+        [XmlIgnore]
         public string LocationUrl
         {
             get
@@ -115,6 +126,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // get
         } // LocationUrl
 
+        [XmlIgnore]
         public string DisplayLocationUrl
         {
             get
@@ -125,6 +137,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // get
         } // DisplayLocationUrl
 
+        [XmlIgnore]
         public ServiceLogo Logo
         {
             get
@@ -140,8 +153,19 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         public string Key
         {
-            get;
-            private set;
+            get
+            {
+                if (fieldKey == null)
+                {
+                    fieldKey = string.Format(Properties.InvariantTexts.FormatServiceProviderKey, ServiceName, DomainName);
+                } // if
+
+                return fieldKey;
+            } // get
+            set
+            {
+                fieldKey = value;
+            } // set
         } // Key
 
         public bool IsDead
@@ -160,6 +184,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             properties.Add(new Property("Description (display)", DisplayDescription));
             properties.Add(new Property("Type (display)", DisplayServiceType));
             properties.Add(new Property("Location URL (display)", DisplayLocationUrl));
+            properties.Add(new Property("Is active", (!IsDead).ToString()));
 
             if (Data.ServiceLocation == null)
             {

@@ -167,8 +167,10 @@
             // 
             // MulticastScannerOptionsDialog
             // 
+            this.AcceptButton = this.buttonStart;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonRequestCancel;
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.groupActionScan);
             this.Controls.Add(this.groupScanWhat);

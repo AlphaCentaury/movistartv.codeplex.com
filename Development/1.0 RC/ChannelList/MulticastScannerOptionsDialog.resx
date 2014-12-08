@@ -273,9 +273,6 @@
   <data name="radioScanDead.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="radioScanDead.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="radioScanDead.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -305,9 +302,6 @@
   </data>
   <data name="radioScanActive.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="radioScanActive.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="radioScanActive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -392,9 +386,6 @@
   </data>
   <data name="radioActionDelete.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="radioActionDelete.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="radioActionDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
