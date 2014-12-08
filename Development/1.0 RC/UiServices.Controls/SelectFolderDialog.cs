@@ -15,6 +15,7 @@ namespace Project.DvbIpTv.UiServices.Controls
     The following code has been copied verbatim from the http://dotnetzip.codeplex.com project
     It has been modified where needed to changed the class name from FolderBrowserDialogEx to
     SelectFolderDialog. http://dotnetzip.codeplex.com/SourceControl/changeset/view/29832#432677
+    It has also been modified to address Code Analysis issues.
     The code is licensed under the Ms-PL license (http://dotnetzip.codeplex.com/license)
     */
 
@@ -57,12 +58,12 @@ namespace Project.DvbIpTv.UiServices.Controls
     //
 
     //[Designer("System.Windows.Forms.Design.FolderBrowserDialogDesigner, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), DefaultEvent("HelpRequest"), SRDescription("DescriptionFolderBrowserDialog"), DefaultProperty("SelectedPath")]
-    public class SelectFolderDialog : System.Windows.Forms.CommonDialog
+    public class SelectFolderDialog : CommonDialog
     {
         private static readonly int MAX_PATH = 260;
 
         // Fields
-        private PInvoke.BrowseFolderCallbackProc _callback;
+        private UnsafeNativeMethods.BrowseFolderCallbackProc _callback;
         private string _descriptionText;
         private Environment.SpecialFolder _rootFolder;
         private string _selectedPath;
@@ -120,7 +121,7 @@ namespace Project.DvbIpTv.UiServices.Controls
         {
             _uiFlags += BrowseFlags.BIF_BROWSEFORPRINTER;
             Description = "Select a printer:";
-            PInvoke.Shell32.SHGetSpecialFolderLocation(IntPtr.Zero, CSIDL.PRINTERS, ref this._rootFolderLocation);
+            UnsafeNativeMethods.Shell32.SHGetSpecialFolderLocation(IntPtr.Zero, CSIDL.PRINTERS, ref this._rootFolderLocation);
             ShowNewFolderButton = false;
             ShowEditBox = false;
         }
@@ -129,7 +130,7 @@ namespace Project.DvbIpTv.UiServices.Controls
         {
             _uiFlags += BrowseFlags.BIF_BROWSEFORCOMPUTER;
             Description = "Select a computer:";
-            PInvoke.Shell32.SHGetSpecialFolderLocation(IntPtr.Zero, CSIDL.NETWORK, ref this._rootFolderLocation);
+            UnsafeNativeMethods.Shell32.SHGetSpecialFolderLocation(IntPtr.Zero, CSIDL.NETWORK, ref this._rootFolderLocation);
             ShowNewFolderButton = false;
             ShowEditBox = false;
         }
@@ -177,19 +178,19 @@ namespace Project.DvbIpTv.UiServices.Controls
             public const int BFFM_SETSELECTIONW = 0x467;
         }
 
-        private int FolderBrowserCallback(IntPtr hwnd, int msg, IntPtr lParam, IntPtr lpData)
+        private int FolderBrowserCallback(IntPtr hwnd, uint msg, IntPtr lParam, IntPtr lpData)
         {
             switch (msg)
             {
                 case BrowseForFolderMessages.BFFM_INITIALIZED:
                     if (this._selectedPath.Length != 0)
                     {
-                        PInvoke.User32.SendMessage(new HandleRef(null, hwnd), BrowseForFolderMessages.BFFM_SETSELECTIONW, 1, this._selectedPath);
+                        UnsafeNativeMethods.User32.SendMessage(new HandleRef(null, hwnd), BrowseForFolderMessages.BFFM_SETSELECTIONW, (IntPtr)1, this._selectedPath);
                         if (this._showEditBox && this._showFullPathInEditBox)
                         {
                             // get handle to the Edit box inside the Folder Browser Dialog
-                            _hwndEdit = PInvoke.User32.FindWindowEx(new HandleRef(null, hwnd), IntPtr.Zero, "Edit", null);
-                            PInvoke.User32.SetWindowText(_hwndEdit, this._selectedPath);
+                            _hwndEdit = UnsafeNativeMethods.User32.FindWindowExW(new HandleRef(null, hwnd), IntPtr.Zero, "Edit", null);
+                            UnsafeNativeMethods.User32.SetWindowTextW(_hwndEdit, this._selectedPath);
                         }
                     }
                     break;
@@ -202,16 +203,16 @@ namespace Project.DvbIpTv.UiServices.Controls
                             ((_uiFlags & BrowseFlags.BIF_BROWSEFORCOMPUTER) == BrowseFlags.BIF_BROWSEFORCOMPUTER))
                         {
                             // we're browsing for a printer or computer, enable the OK button unconditionally.
-                            PInvoke.User32.SendMessage(new HandleRef(null, hwnd), BrowseForFolderMessages.BFFM_ENABLEOK, 0, 1);
+                            UnsafeNativeMethods.User32.SendMessage(new HandleRef(null, hwnd), BrowseForFolderMessages.BFFM_ENABLEOK, (IntPtr)0, (IntPtr)1);
                         }
                         else
                         {
                             IntPtr pszPath = Marshal.AllocHGlobal(MAX_PATH * Marshal.SystemDefaultCharSize);
-                            bool haveValidPath = PInvoke.Shell32.SHGetPathFromIDList(pidl, pszPath);
+                            bool haveValidPath = UnsafeNativeMethods.Shell32.SHGetPathFromIDList(pidl, pszPath);
                             String displayedPath = Marshal.PtrToStringAuto(pszPath);
                             Marshal.FreeHGlobal(pszPath);
                             // whether to enable the OK button or not. (if file is valid)
-                            PInvoke.User32.SendMessage(new HandleRef(null, hwnd), BrowseForFolderMessages.BFFM_ENABLEOK, 0, haveValidPath ? 1 : 0);
+                            UnsafeNativeMethods.User32.SendMessage(new HandleRef(null, hwnd), BrowseForFolderMessages.BFFM_ENABLEOK, (IntPtr)0, (IntPtr)(haveValidPath ? 1 : 0));
 
                             // Maybe set the Edit Box text to the Full Folder path
                             if (haveValidPath && !String.IsNullOrEmpty(displayedPath))
@@ -219,11 +220,11 @@ namespace Project.DvbIpTv.UiServices.Controls
                                 if (_showEditBox && _showFullPathInEditBox)
                                 {
                                     if (_hwndEdit != IntPtr.Zero)
-                                        PInvoke.User32.SetWindowText(_hwndEdit, displayedPath);
+                                        UnsafeNativeMethods.User32.SetWindowTextW(_hwndEdit, displayedPath);
                                 }
 
                                 if ((_uiFlags & BrowseFlags.BIF_STATUSTEXT) == BrowseFlags.BIF_STATUSTEXT)
-                                    PInvoke.User32.SendMessage(new HandleRef(null, hwnd), BrowseForFolderMessages.BFFM_SETSTATUSTEXT, 0, displayedPath);
+                                    UnsafeNativeMethods.User32.SendMessage(new HandleRef(null, hwnd), BrowseForFolderMessages.BFFM_SETSTATUSTEXT, (IntPtr)0, displayedPath);
                             }
                         }
                     }
@@ -232,10 +233,10 @@ namespace Project.DvbIpTv.UiServices.Controls
             return 0;
         }
 
-        private static PInvoke.IMalloc GetSHMalloc()
+        private static UnsafeNativeMethods.IMalloc GetSHMalloc()
         {
-            PInvoke.IMalloc[] ppMalloc = new PInvoke.IMalloc[1];
-            PInvoke.Shell32.SHGetMalloc(ppMalloc);
+            UnsafeNativeMethods.IMalloc[] ppMalloc = new UnsafeNativeMethods.IMalloc[1];
+            UnsafeNativeMethods.Shell32.SHGetMalloc(ppMalloc);
             return ppMalloc[0];
         }
 
@@ -253,15 +254,16 @@ namespace Project.DvbIpTv.UiServices.Controls
             this._rootFolderLocation = IntPtr.Zero;
         }
 
+        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         protected override bool RunDialog(IntPtr hWndOwner)
         {
             bool result = false;
             if (_rootFolderLocation == IntPtr.Zero)
             {
-                PInvoke.Shell32.SHGetSpecialFolderLocation(hWndOwner, (int)this._rootFolder, ref _rootFolderLocation);
+                UnsafeNativeMethods.Shell32.SHGetSpecialFolderLocation(hWndOwner, (int)this._rootFolder, ref _rootFolderLocation);
                 if (_rootFolderLocation == IntPtr.Zero)
                 {
-                    PInvoke.Shell32.SHGetSpecialFolderLocation(hWndOwner, 0, ref _rootFolderLocation);
+                    UnsafeNativeMethods.Shell32.SHGetSpecialFolderLocation(hWndOwner, 0, ref _rootFolderLocation);
                     if (_rootFolderLocation == IntPtr.Zero)
                     {
                         throw new InvalidOperationException("FolderBrowserDialogNoRootFolder");
@@ -291,10 +293,10 @@ namespace Project.DvbIpTv.UiServices.Controls
             IntPtr pszPath = IntPtr.Zero;
             try
             {
-                PInvoke.BROWSEINFO browseInfo = new PInvoke.BROWSEINFO();
+                UnsafeNativeMethods.BROWSEINFO browseInfo = new UnsafeNativeMethods.BROWSEINFO();
                 hglobal = Marshal.AllocHGlobal(MAX_PATH * Marshal.SystemDefaultCharSize);
                 pszPath = Marshal.AllocHGlobal(MAX_PATH * Marshal.SystemDefaultCharSize);
-                this._callback = new PInvoke.BrowseFolderCallbackProc(this.FolderBrowserCallback);
+                this._callback = new UnsafeNativeMethods.BrowseFolderCallbackProc(this.FolderBrowserCallback);
                 browseInfo.pidlRoot = _rootFolderLocation;
                 browseInfo.Owner = hWndOwner;
                 browseInfo.pszDisplayName = hglobal;
@@ -303,7 +305,7 @@ namespace Project.DvbIpTv.UiServices.Controls
                 browseInfo.callback = this._callback;
                 browseInfo.lParam = IntPtr.Zero;
                 browseInfo.iImage = 0;
-                pidl = PInvoke.Shell32.SHBrowseForFolder(browseInfo);
+                pidl = UnsafeNativeMethods.Shell32.SHBrowseForFolderW(browseInfo);
                 if (((_uiFlags & BrowseFlags.BIF_BROWSEFORPRINTER) == BrowseFlags.BIF_BROWSEFORPRINTER) ||
                 ((_uiFlags & BrowseFlags.BIF_BROWSEFORCOMPUTER) == BrowseFlags.BIF_BROWSEFORCOMPUTER))
                 {
@@ -314,7 +316,7 @@ namespace Project.DvbIpTv.UiServices.Controls
                 {
                     if (pidl != IntPtr.Zero)
                     {
-                        PInvoke.Shell32.SHGetPathFromIDList(pidl, pszPath);
+                        UnsafeNativeMethods.Shell32.SHGetPathFromIDList(pidl, pszPath);
                         this._selectedPathNeedsCheck = true;
                         this._selectedPath = Marshal.PtrToStringAuto(pszPath);
                         result = true;
@@ -323,7 +325,7 @@ namespace Project.DvbIpTv.UiServices.Controls
             }
             finally
             {
-                PInvoke.IMalloc sHMalloc = GetSHMalloc();
+                UnsafeNativeMethods.IMalloc sHMalloc = GetSHMalloc();
                 sHMalloc.Free(_rootFolderLocation);
                 _rootFolderLocation = IntPtr.Zero;
                 if (pidl != IntPtr.Zero)
@@ -482,29 +484,23 @@ namespace Project.DvbIpTv.UiServices.Controls
         }
     }
 
-
-
-    internal static class PInvoke
+    internal static class UnsafeNativeMethods
     {
-        static PInvoke() { }
-
-        public delegate int BrowseFolderCallbackProc(IntPtr hwnd, int msg, IntPtr lParam, IntPtr lpData);
+        public delegate int BrowseFolderCallbackProc(IntPtr hwnd, uint msg, IntPtr lParam, IntPtr lpData);
 
         internal static class User32
         {
-            [DllImport("user32.dll", CharSet = CharSet.Auto)]
-            public static extern IntPtr SendMessage(HandleRef hWnd, int msg, int wParam, string lParam);
+            [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+            public static extern IntPtr SendMessage(HandleRef hWnd, uint msg, IntPtr wParam, string lParam);
 
-            [DllImport("user32.dll", CharSet = CharSet.Auto)]
-            public static extern IntPtr SendMessage(HandleRef hWnd, int msg, int wParam, int lParam);
+            [DllImport("user32.dll")]
+            public static extern IntPtr SendMessage(HandleRef hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
-            [DllImport("user32.dll", SetLastError = true)]
-            //public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
-            //public static extern IntPtr FindWindowEx(HandleRef hwndParent, HandleRef hwndChildAfter, string lpszClass, string lpszWindow);
-            public static extern IntPtr FindWindowEx(HandleRef hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
+            [DllImport("user32.dll", SetLastError = true, CharSet=CharSet.Unicode)]
+            public static extern IntPtr FindWindowExW(HandleRef hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
 
-            [DllImport("user32.dll", SetLastError = true)]
-            public static extern Boolean SetWindowText(IntPtr hWnd, String text);
+            [DllImport("user32.dll", CharSet=CharSet.Unicode, SetLastError = true)]
+            public static extern Boolean SetWindowTextW(IntPtr hWnd, String text);
         }
 
         [ComImport, Guid("00000002-0000-0000-c000-000000000046"), SuppressUnmanagedCodeSecurity, InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
@@ -524,12 +520,13 @@ namespace Project.DvbIpTv.UiServices.Controls
             void HeapMinimize();
         } // interface IMalloc
 
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
         public class BROWSEINFO
         {
             public IntPtr Owner;
             public IntPtr pidlRoot;
             public IntPtr pszDisplayName;
+            [MarshalAs(UnmanagedType.LPWStr)]
             public string Title;
             public int Flags;
             public BrowseFolderCallbackProc callback;
@@ -541,14 +538,14 @@ namespace Project.DvbIpTv.UiServices.Controls
         internal static class Shell32
         {
             // Methods
-            [DllImport("shell32.dll", CharSet = CharSet.Auto)]
-            public static extern IntPtr SHBrowseForFolder([In] PInvoke.BROWSEINFO lpbi);
+            [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
+            public static extern IntPtr SHBrowseForFolderW([In] UnsafeNativeMethods.BROWSEINFO lpbi);
             [DllImport("shell32.dll")]
-            public static extern int SHGetMalloc([Out, MarshalAs(UnmanagedType.LPArray)] PInvoke.IMalloc[] ppMalloc);
+            public static extern int SHGetMalloc([Out, MarshalAs(UnmanagedType.LPArray)] UnsafeNativeMethods.IMalloc[] ppMalloc);
             [DllImport("shell32.dll", CharSet = CharSet.Auto)]
             public static extern bool SHGetPathFromIDList(IntPtr pidl, IntPtr pszPath);
             [DllImport("shell32.dll")]
             public static extern int SHGetSpecialFolderLocation(IntPtr hwnd, int csidl, ref IntPtr ppidl);
         } // internal static class Shell32
-    } // class SelectFolderDialog
+    } // class UnsafeNativeMethods
 } // namespace

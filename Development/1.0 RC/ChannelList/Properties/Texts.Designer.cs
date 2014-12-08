@@ -79,7 +79,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stable (Release candidate).
+        ///   Looks up a localized string similar to Stable (release candidate).
         /// </summary>
         internal static string AppState {
             get {

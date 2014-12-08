@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -20,6 +21,9 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.ChannelList
 {
+    //CA1301	Avoid duplicate accelerators	Define unique accelerators for the following controls in 'MulticastScannerDialog' that all currently use &C as an accelerator: MulticastScannerDialog.buttonRequestCancel, MulticastScannerDialog.buttonClose.	ChannelList	MulticastScannerDialog.cs	23
+    //This is OK. Both buttons are never active at the same time; in fact, one replaces the other when scan is completed (or cancelled)
+    [SuppressMessage("Microsoft.Globalization", "CA1301:AvoidDuplicateAccelerators")]
     public partial class MulticastScannerDialog : Form
     {
         private string FormatProgressPercentage;

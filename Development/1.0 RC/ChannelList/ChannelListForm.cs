@@ -26,7 +26,7 @@ using Property = System.Collections.Generic.KeyValuePair<string, string>;
 
 namespace Project.DvbIpTv.ChannelList
 {
-    public partial class ChannelListForm : CommonBaseForm, ISplashScreenAwareForm
+    public sealed partial class ChannelListForm : CommonBaseForm, ISplashScreenAwareForm
     {
         const int ListObsoleteAge = 30;
         const int ListOldAge = 15;
@@ -103,8 +103,8 @@ namespace Project.DvbIpTv.ChannelList
 
             listViewChannels.TileSize = new Size(225, imageListChannelsLarge.ImageSize.Height + 6);
             ChannelListTileFont = new Font("Tahoma", 10.5f, FontStyle.Bold);
-            ChannelListTileDisabledFont = listViewChannels.Font;
-            ChannelListDetailsFont = listViewChannels.Font;
+            ChannelListTileDisabledFont = new Font(listViewChannels.Font, listViewChannels.Font.Style);
+            ChannelListDetailsFont = new Font(listViewChannels.Font, listViewChannels.Font.Style);
             ChannelListDetailsNameItemFont = new Font("Tahoma", 11.0f, FontStyle.Bold);
             ChannelListViewChanged(View.Tile);
             listViewChannels.Sort(0, true);

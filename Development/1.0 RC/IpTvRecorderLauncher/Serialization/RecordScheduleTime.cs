@@ -109,11 +109,6 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
             builder.AppendFormat(format, StartDate, ExpiryDate);
         } // VerbalizeStartExpiryDate
 
-        public override RecordScheduleKind Kind
-        {
-            get { throw new NotImplementedException(); }
-        } // Kind
-
         public override DateTime GetStartDateTime()
         {
             return StartDate;

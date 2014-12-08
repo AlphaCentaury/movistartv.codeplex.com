@@ -23,6 +23,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private string fieldDisplayDescription;
         private string fieldLocationUrl;
         private string fieldDisplayServiceType;
+        [NonSerialized]
         private ServiceLogo fieldLogo;
 
         /// <remarks>Used by Serialization</remarks>

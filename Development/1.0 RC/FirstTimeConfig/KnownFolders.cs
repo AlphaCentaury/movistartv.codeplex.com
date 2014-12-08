@@ -5,13 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using System.Text;
 
 namespace Project.DvbIpTv.Tools.FirstTimeConfig
 {
     public class KnownFolders
     {
-        public class UnsafeNativeMethods
+        internal class UnsafeNativeMethods
         {
             [DllImport("shell32.dll")]
             public static extern int SHGetKnownFolderPath([MarshalAs(UnmanagedType.LPStruct)] Guid rfid,
@@ -85,6 +86,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             AliasOnly = 0x80000000
         } // Flags
 
+        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         public static string GetKnownFolder(string knownFolderGuid, Flags flags)
         {
             IntPtr pszPath;

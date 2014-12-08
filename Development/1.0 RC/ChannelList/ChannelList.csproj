@@ -207,6 +207,7 @@
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="license.rtf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -229,7 +230,7 @@
     <None Include="Resources\Settings_16x616.png" />
     <None Include="Resources\RightArrowShort_Green_16x16.png" />
     <None Include="Resources\Record_16x16.png" />
-    <Content Include="License.txt">
+    <Content Include="license.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Help_16x16.png" />

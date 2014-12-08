@@ -124,7 +124,7 @@
     <value>DVB-IPTV: Listado de canales y/o servicios Movistar TV</value>
   </data>
   <data name="AppState" xml:space="preserve">
-    <value>Estable (prelanzamiento)</value>
+    <value>Estable (candidata a definitiva)</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
     <value>1.0 RC “Wolf 424”</value>

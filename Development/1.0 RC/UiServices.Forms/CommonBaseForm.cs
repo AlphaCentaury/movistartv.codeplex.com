@@ -23,6 +23,12 @@ namespace Project.DvbIpTv.UiServices.Forms
             MessageBox.Show(this, Properties.Texts.UncaughtExceptionCaption, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Stop);
         } // HandleException
 
+        protected void SafeDispose(IDisposable disposable)
+        {
+            if (disposable == null) return;
+            disposable.Dispose();
+        } // SafeDispose
+
         protected bool SafeCall(Action implementation)
         {
             try

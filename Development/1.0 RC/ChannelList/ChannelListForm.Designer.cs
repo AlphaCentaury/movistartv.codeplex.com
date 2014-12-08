@@ -16,6 +16,11 @@ namespace Project.DvbIpTv.ChannelList
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            if (ChannelListTileFont != null) ChannelListTileFont.Dispose();
+            if (ChannelListTileFont != null) ChannelListTileDisabledFont.Dispose();
+            if (ChannelListTileFont != null) ChannelListDetailsFont.Dispose();
+            if (ChannelListTileFont != null) ChannelListDetailsNameItemFont.Dispose();
+
             if (disposing && (components != null))
             {
                 components.Dispose();
