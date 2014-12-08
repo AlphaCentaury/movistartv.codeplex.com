@@ -104,6 +104,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
         {
             if (!pastTime) return;
 
+            builder.AppendLine();
             var format = (ExpiryDate.HasValue) ? Properties.SerializationTexts.VerbalizeStartExpiryDate : Properties.SerializationTexts.VerbalizeStartDate;
             builder.AppendFormat(format, StartDate, ExpiryDate);
         } // VerbalizeStartExpiryDate

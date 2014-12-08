@@ -230,6 +230,7 @@ Tiempo de grabación real: {3}</value>
   </data>
   <data name="FormatRecordFileDelayed" xml:space="preserve">
     <value> ¡Con-retraso!</value>
+    <comment>Keep start space!</comment>
   </data>
   <data name="FormatRecordFileName" xml:space="preserve">
     <value>{0}\{1} {2}{3}{4}</value>

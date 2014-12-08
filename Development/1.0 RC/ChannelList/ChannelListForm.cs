@@ -409,7 +409,7 @@ namespace Project.DvbIpTv.ChannelList
                         Name = SelectedBroadcastService.DisplayName,
                         Description = SelectedBroadcastService.DisplayDescription,
                         LogoKey = SelectedBroadcastService.Logo.Key,
-                        ServiceName = SelectedBroadcastService.ServiceName,
+                        ServiceName = SelectedBroadcastService.FullServiceName,
                         ChannelUrl = SelectedBroadcastService.LocationUrl,
                     });
                 dlg.IsNewTask = true;

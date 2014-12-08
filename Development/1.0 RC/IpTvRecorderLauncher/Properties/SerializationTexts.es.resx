@@ -125,7 +125,7 @@ Servicio DVB-IPTV: {3}</value>
   </data>
   <data name="BuildDescriptionDuration" xml:space="preserve">
     <value>La duración programada de la grabación era de {0}, con un margen de seguridad de {1} minutos.
-El tiempo total de grabación, incluyendo los márgenes de seguridad, es de {0}.</value>
+El tiempo total de grabación, incluyendo los márgenes de seguridad, es de {2}.</value>
   </data>
   <data name="BuildDescriptionDurationEndsNextDay" xml:space="preserve">
     <value>La grabación finalizará al día siguiente a las {0:T}.</value>
@@ -175,10 +175,10 @@ Descripción de la tarea: {1}</value>
     <value>Se grabará lo antes posible.</value>
   </data>
   <data name="VerbalizeRecordWeekly" xml:space="preserve">
-    <value>Grabación semanal, todas las semanas a las {1:T}, con un margen de seguridad de {2} minutos.</value>
+    <value>Grabación semanal, {3} de todas las semanas a las {1:T}, con un margen de seguridad de {2} minutos.</value>
   </data>
   <data name="VerbalizeRecordWeeklyDays" xml:space="preserve">
-    <value>Se graba el </value>
+    <value>el </value>
     <comment>Keep trailing space!</comment>
   </data>
   <data name="VerbalizeRecordWeeklyDaysSeparatorFinal" xml:space="preserve">
@@ -186,7 +186,7 @@ Descripción de la tarea: {1}</value>
     <comment>Keep start &amp; end space!</comment>
   </data>
   <data name="VerbalizeRecordWeeklyDaysPast" xml:space="preserve">
-    <value>Se grabará el </value>
+    <value>el </value>
     <comment>Keep trailing space!</comment>
   </data>
   <data name="VerbalizeRecordWeeklyDaysSeparator" xml:space="preserve">
@@ -197,7 +197,7 @@ Descripción de la tarea: {1}</value>
     <value>Grabación semanal, todos los días de todas las semanas a las {1:T}, con un margen de seguridad de {2} minutos.</value>
   </data>
   <data name="VerbalizeRecordWeeklyEveryWeeks" xml:space="preserve">
-    <value>Grabación semanal, cada {0} semanas a las {1:T}, con un margen de seguridad de {2} minutos.</value>
+    <value>Grabación semanal, {3} cada {0} semanas a las {1:T}, con un margen de seguridad de {2} minutos.</value>
   </data>
   <data name="VerbalizeRecordWeeklyEveryWeeksEveryday" xml:space="preserve">
     <value>Grabación semanal, todos los días cada {0} semanas a las {1:T}, con un margen de seguridad de {2} minutos.</value>

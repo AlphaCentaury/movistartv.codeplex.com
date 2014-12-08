@@ -74,7 +74,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Scheduled recording duration is {0}, with a safety margin of {1} minutes.
-        ///Total recording time, including safety margins, es {0}..
+        ///Total recording time, including safety margins, is {2}..
         /// </summary>
         internal static string BuildDescriptionDuration {
             get {
@@ -220,7 +220,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weekly recording, every week at {1:T}, with a safety margin of {2} minutes..
+        ///   Looks up a localized string similar to Weekly recording, {3} of every week at {1:T}, with a safety margin of {2} minutes..
         /// </summary>
         internal static string VerbalizeRecordWeekly {
             get {
@@ -229,7 +229,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recording on .
+        ///   Looks up a localized string similar to every .
         /// </summary>
         internal static string VerbalizeRecordWeeklyDays {
             get {
@@ -238,7 +238,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Recording on .
+        ///   Looks up a localized string similar to every .
         /// </summary>
         internal static string VerbalizeRecordWeeklyDaysPast {
             get {
@@ -274,7 +274,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weekly recording, every {0} weeks at {1:T}, with a safety margin of {2} minutes..
+        ///   Looks up a localized string similar to Weekly recording, {3} every {0} weeks at {1:T}, with a safety margin of {2} minutes..
         /// </summary>
         internal static string VerbalizeRecordWeeklyEveryWeeks {
             get {
@@ -301,7 +301,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Starting on {0:D} and ending on {1:D} at {1:T}..
+        ///   Looks up a localized string similar to Starting on {0:D} and ending on {1:D}..
         /// </summary>
         internal static string VerbalizeStartExpiryDate {
             get {

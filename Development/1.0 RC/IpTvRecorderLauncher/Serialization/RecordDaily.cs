@@ -48,8 +48,6 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
                 format = Properties.SerializationTexts.VerbalizeRecordDailyEveryday;
             } // if-else
             builder.AppendFormat(format, RecurEveryDays, StartDate, SafetyMarginTimeSpan.TotalMinutes);
-            builder.AppendLine();
-
             VerbalizeStartExpiryDate(pastTime, builder);
         } // Verbalize
     } // class RecordDaily
