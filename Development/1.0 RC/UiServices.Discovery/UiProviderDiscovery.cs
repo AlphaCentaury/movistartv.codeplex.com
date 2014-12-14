@@ -11,7 +11,7 @@ using System.Xml.Serialization;
 namespace Project.DvbIpTv.UiServices.Discovery
 {
     [Serializable]
-    [XmlRoot(ElementName = "UI-BroadcastDiscovery", Namespace = CommonSerialization.XmlNamespace)]
+    [XmlRoot(ElementName = "UI-BroadcastDiscovery", Namespace = SerializationCommon.XmlNamespace)]
     public class UiProviderDiscovery
     {
         public UiProviderDiscovery(ServiceProviderDiscoveryXml discoveryXml)

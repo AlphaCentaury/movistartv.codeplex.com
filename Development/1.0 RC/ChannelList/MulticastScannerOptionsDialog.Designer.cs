@@ -64,13 +64,13 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // numericTimeout
             // 
+            resources.ApplyResources(this.numericTimeout, "numericTimeout");
             this.numericTimeout.DecimalPlaces = 3;
             this.numericTimeout.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-            resources.ApplyResources(this.numericTimeout, "numericTimeout");
             this.numericTimeout.Maximum = new decimal(new int[] {
             30,
             0,
@@ -90,27 +90,27 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // buttonRequestCancel
             // 
+            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonRequestCancel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionCancel_16x16;
-            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;
             // 
             // buttonStart
             // 
+            resources.ApplyResources(this.buttonStart, "buttonStart");
             this.buttonStart.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonStart.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionRun_16x16;
-            resources.ApplyResources(this.buttonStart, "buttonStart");
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // groupScanWhat
             // 
+            resources.ApplyResources(this.groupScanWhat, "groupScanWhat");
             this.groupScanWhat.Controls.Add(this.radioScanDead);
             this.groupScanWhat.Controls.Add(this.radioScanActive);
             this.groupScanWhat.Controls.Add(this.radioScanAll);
-            resources.ApplyResources(this.groupScanWhat, "groupScanWhat");
             this.groupScanWhat.Name = "groupScanWhat";
             this.groupScanWhat.TabStop = false;
             // 
@@ -136,9 +136,9 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // groupActionScan
             // 
+            resources.ApplyResources(this.groupActionScan, "groupActionScan");
             this.groupActionScan.Controls.Add(this.radioActionDelete);
             this.groupActionScan.Controls.Add(this.radioActionDisable);
-            resources.ApplyResources(this.groupActionScan, "groupActionScan");
             this.groupActionScan.Name = "groupActionScan";
             this.groupActionScan.TabStop = false;
             // 
@@ -163,8 +163,8 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // pictureIcon
             // 
-            this.pictureIcon.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ScanTv_128x128;
             resources.ApplyResources(this.pictureIcon, "pictureIcon");
+            this.pictureIcon.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ScanTv_128x128;
             this.pictureIcon.Name = "pictureIcon";
             this.pictureIcon.TabStop = false;
             // 

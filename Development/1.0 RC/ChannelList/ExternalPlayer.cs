@@ -60,7 +60,7 @@ namespace Project.DvbIpTv.ChannelList
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         private static void LaunchShortcut(PlayerConfig player, UiBroadcastService service, string[] arguments)
         {
-            var shortcutPath = Path.Combine(AppUiConfiguration.Current.CachePath, service.FullServiceName);
+            var shortcutPath = Path.Combine(AppUiConfiguration.Current.Folders.Cache, service.FullServiceName);
             var shortcut = new ShellLink.ShellLink();
             shortcut.TargetPath = player.Path;
             shortcut.Arguments = ArgumentsManager.JoinArguments(arguments);

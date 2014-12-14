@@ -339,7 +339,7 @@ namespace Project.DvbIpTv.ChannelList
             
             format = string.IsNullOrEmpty(record.Description.Name)? "Job {1:P}.xml" : "{0} {1:P}.xml";
             filename = string.Format(format, record.Description.Name, record.TaskId);
-            fullFilename = Path.Combine(AppUiConfiguration.Current.RecordJobsPath, filename);
+            fullFilename = Path.Combine(AppUiConfiguration.Current.Folders.RecordTasks, filename);
 
             record.ToXml(fullFilename);
 

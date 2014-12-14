@@ -182,7 +182,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             result = Data.Name.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguages, AppUiConfiguration.Current.DisplayPreferredOrFirst, null);
             if (result != null) return result;
 
-            if (AppUiConfiguration.Current.FriendlyNamesServiceProviders.TryGetValue(Data.DomainName, out friendlyName))
+            if (AppUiConfiguration.Current.ContentProvider.FriendlyNames.ServiceProvider.TryGetValue(Data.DomainName, out friendlyName))
             {
                 return string.Format(Properties.Texts.FormatProviderFriendlyDisplayName, friendlyName);
             }

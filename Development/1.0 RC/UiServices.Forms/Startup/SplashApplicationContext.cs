@@ -259,11 +259,18 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
             }
             else
             {
-                DoDisplayException(splashScreen, caption, message, icon, exception);
-                if (isFatal)
+                try
                 {
-                    worker.CancelAsync();
-                } // if
+                    DoDisplayException(splashScreen, caption, message, icon, exception);
+                    if ((isFatal) && (worker != null))
+                    {
+                        worker.CancelAsync();
+                    } // if
+                }
+                catch
+                {
+                    // ignore
+                }
             } // if-else InvokeRequired
         } // DisplayException
 

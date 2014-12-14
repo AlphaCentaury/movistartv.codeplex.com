@@ -127,7 +127,7 @@
     <value>{0} (deduced)</value>
   </data>
   <data name="FormatProviderUnknownDisplayName" xml:space="preserve">
-    <value>Not provided: {0}</value>
+    <value>(Nameless) {0}</value>
   </data>
   <data name="FormatServiceTypeIdUnknown" xml:space="preserve">
     <value>Unknown ({0})</value>

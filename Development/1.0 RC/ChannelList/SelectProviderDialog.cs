@@ -109,7 +109,7 @@ namespace Project.DvbIpTv.ChannelList
             var lastSelectedProvider = Properties.Settings.Default.LastSelectedServiceProvider;
             if (lastSelectedProvider == null) return null;
 
-            var baseIpAddress = AppUiConfiguration.Current.User.ContentProvider.RootMulticastAddress;
+            var baseIpAddress = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastAddress;
             var discovery = AppUiConfiguration.Current.Cache.LoadXml<ServiceProviderDiscoveryXml>("ProviderDiscovery", baseIpAddress);
             if (discovery == null) return null;
 
@@ -121,7 +121,7 @@ namespace Project.DvbIpTv.ChannelList
             try
             {
                 ServiceProviderDiscoveryXml discovery;
-                var baseIpAddress = AppUiConfiguration.Current.User.ContentProvider.RootMulticastAddress;
+                var baseIpAddress = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastAddress;
 
                 // can load from cache?
                 discovery = null;
@@ -136,7 +136,7 @@ namespace Project.DvbIpTv.ChannelList
 
                 if (discovery == null)
                 {
-                    var basePort = AppUiConfiguration.Current.User.ContentProvider.RootMulticastPort;
+                    var basePort = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastPort;
 
                     var download = new DvbStpDownloadHelper()
                     {

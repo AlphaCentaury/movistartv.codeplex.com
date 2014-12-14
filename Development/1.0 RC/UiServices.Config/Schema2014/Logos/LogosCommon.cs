@@ -17,7 +17,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Logos
 
         public static ServiceMappingsXml ParseServiceMappingsXml(string filename)
         {
-            var xmlMappings = ParseXml(filename, typeof(ServiceMappingsXml)) as ServiceMappingsXml;
+            var xmlMappings = SerializationUtils.LoadFromXml<ServiceMappingsXml>(filename);
             xmlMappings.BasePath = System.IO.Path.GetDirectoryName(filename);
 
             return xmlMappings;
@@ -25,7 +25,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Logos
 
         public static DomainMappingsXml ParseDomainMappingsXml(string filename)
         {
-            var xmlMappings = ParseXml(filename, typeof(DomainMappingsXml)) as DomainMappingsXml;
+            var xmlMappings = SerializationUtils.LoadFromXml<DomainMappingsXml>(filename);
             xmlMappings.BasePath = System.IO.Path.GetDirectoryName(filename);
 
             return xmlMappings;
@@ -33,37 +33,10 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Logos
 
         public static ProviderMappingsXml ParseProviderMappingsXml(string filename)
         {
-            var xmlMappings = ParseXml(filename, typeof(ProviderMappingsXml)) as ProviderMappingsXml;
+            var xmlMappings = SerializationUtils.LoadFromXml<ProviderMappingsXml>(filename);
             xmlMappings.BasePath = System.IO.Path.GetDirectoryName(filename);
 
             return xmlMappings;
         } // ParseProviderMappingsXml
-
-        public static object ParseXml(string filename, Type type)
-        {
-            XmlReaderSettings settings;
-            XmlSerializer serializer;
-
-            using (FileStream input = new FileStream(filename, FileMode.Open))
-            {
-                using (XmlTextReader textReader = new XmlTextReader(input))
-                {
-                    textReader.WhitespaceHandling = WhitespaceHandling.None;
-                    settings = new XmlReaderSettings()
-                        {
-                            IgnoreComments = true,
-                            IgnoreWhitespace = true,
-                            ProhibitDtd = true,
-                            IgnoreProcessingInstructions = true,
-                            CheckCharacters = true,
-                        };
-                    using (XmlReader reader = XmlReader.Create(textReader, settings))
-                    {
-                        serializer = new XmlSerializer(type);
-                        return serializer.Deserialize(reader);
-                    } // using reader
-                } // using textreader
-            } // using input
-        } // ParseXml
     } // class Common
 } // namespace

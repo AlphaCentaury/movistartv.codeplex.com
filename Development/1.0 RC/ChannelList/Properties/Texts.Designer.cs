@@ -327,7 +327,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to “Dead”.
+        ///   Looks up a localized string similar to Unavailable.
         /// </summary>
         internal static string MulticastScannerDlgDead {
             get {
@@ -431,6 +431,15 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string MyAppCtxLoadingConfig {
             get {
                 return ResourceManager.GetString("MyAppCtxLoadingConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading content provider data....
+        /// </summary>
+        internal static string MyAppCtxLoadingContentProviderConfig {
+            get {
+                return ResourceManager.GetString("MyAppCtxLoadingContentProviderConfig", resourceCulture);
             }
         }
         

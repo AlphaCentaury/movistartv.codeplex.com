@@ -15,7 +15,7 @@ using Property = System.Collections.Generic.KeyValuePair<string, string>;
 namespace Project.DvbIpTv.UiServices.Discovery
 {
     [Serializable]
-    [XmlType(TypeName="UI-BroadcastService", Namespace=CommonSerialization.XmlNamespace)]
+    [XmlType(TypeName="UI-BroadcastService", Namespace=SerializationCommon.XmlNamespace)]
     public class UiBroadcastService
     {
         private string fieldKey;

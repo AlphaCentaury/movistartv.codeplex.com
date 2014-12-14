@@ -210,7 +210,7 @@ Please select one or browse for a folder.</value>
     <value>Active</value>
   </data>
   <data name="MulticastScannerDlgDead" xml:space="preserve">
-    <value>“Dead”</value>
+    <value>Unavailable</value>
   </data>
   <data name="MulticastScannerDlgError" xml:space="preserve">
     <value>Error</value>
@@ -244,6 +244,9 @@ Please select one or browse for a folder.</value>
   </data>
   <data name="MyAppCtxLoadingConfig" xml:space="preserve">
     <value>Loading application configuration...</value>
+  </data>
+  <data name="MyAppCtxLoadingContentProviderConfig" xml:space="preserve">
+    <value>Loading content provider data...</value>
   </data>
   <data name="MyAppCtxLoadingUserConfig" xml:space="preserve">
     <value>Loading user configuration and preferences...</value>

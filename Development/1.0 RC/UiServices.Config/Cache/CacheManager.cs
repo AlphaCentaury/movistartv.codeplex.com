@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Project.DvbIpTv.UiServices.Configuration
+namespace Project.DvbIpTv.UiServices.Configuration.Cache
 {
     public class CacheManager
     {
@@ -30,14 +30,10 @@ namespace Project.DvbIpTv.UiServices.Configuration
             Array.Copy(invalidFileChars, 0, DocNameOffendingChars, 2, invalidFileChars.Length);
         } // constructor
 
-        public void SaveXml<T>(string documentType, string name, int version, T xmlTree)
+        public void SaveXml<T>(string documentType, string name, int version, T xmlTree) where T: class
         {
             var path = Path.Combine(BaseDirectory, GetSafeDocName(documentType, name, ".xml"));
-            var serializer = new XmlSerializer(typeof(T));
-            using (FileStream output = new FileStream(path, FileMode.Create, FileAccess.ReadWrite, FileShare.None))
-            {
-                serializer.Serialize(output, xmlTree);
-            } // using output
+            SerializationUtils.SaveToXml(xmlTree, path, Encoding.UTF8);
         } // SaveXml
 
         public T LoadXml<T>(string documentType, string name) where T : class
@@ -50,11 +46,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                     return null;
                 } // if
 
-                var serializer = new XmlSerializer(typeof(T));
-                using (FileStream input = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
-                {
-                    return serializer.Deserialize(input) as T;
-                } // using input
+                return SerializationUtils.LoadFromXml<T>(path);
             }
             catch
             {
@@ -73,13 +65,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                     return null;
                 } // if
 
-                var serializer = new XmlSerializer(typeof(T));
-                var document = (T)null;
-                using (FileStream input = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
-                {
-                    document = serializer.Deserialize(input) as T;
-                } // using input
-
+                var document = SerializationUtils.LoadFromXml<T>(path);
                 if (document == null) return null;
 
                 var dateC = File.GetCreationTime(path);

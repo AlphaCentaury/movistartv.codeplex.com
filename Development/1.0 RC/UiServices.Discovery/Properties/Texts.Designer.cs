@@ -88,7 +88,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not provided: {0}.
+        ///   Looks up a localized string similar to (Nameless) {0}.
         /// </summary>
         internal static string FormatProviderUnknownDisplayName {
             get {
