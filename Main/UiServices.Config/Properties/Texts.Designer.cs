@@ -79,15 +79,6 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No configuration is available..
-        /// </summary>
-        internal static string AppConfigValidationNull {
-            get {
-                return ResourceManager.GetString("AppConfigValidationNull", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Duplicated domain name &apos;{0}&apos; in &apos;logos/services/domain-mappings.xml&apos;.
         /// </summary>
         internal static string ExceptionLogosDomainMappingsDuplicatedDomain {
@@ -186,6 +177,45 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         internal static string LoadConfigValidationCaption {
             get {
                 return ResourceManager.GetString("LoadConfigValidationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load the content provider data.
+        /// </summary>
+        internal static string LoadContentProviderDataExceptionCaption {
+            get {
+                return ResourceManager.GetString("LoadContentProviderDataExceptionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The content provider information file &apos;{0}&apos; is invalid or has severe errors.
+        ///{1}
+        ///
+        ///Please verify the XML syntax of the file and correct the detected errors..
+        /// </summary>
+        internal static string LoadContentProviderDataValidation {
+            get {
+                return ResourceManager.GetString("LoadContentProviderDataValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content provider data verification failure.
+        /// </summary>
+        internal static string LoadContentProviderDataValidationCaption {
+            get {
+                return ResourceManager.GetString("LoadContentProviderDataValidationCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See exception details (below) for detailed error information..
+        /// </summary>
+        internal static string LoadContentProviderDataValidationException {
+            get {
+                return ResourceManager.GetString("LoadContentProviderDataValidationException", resourceCulture);
             }
         }
         

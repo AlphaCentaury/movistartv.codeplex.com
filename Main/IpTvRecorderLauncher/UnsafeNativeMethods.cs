@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Project.DvbIpTv.RecorderLauncher
 {
-    public partial class UnsafeNativeMethods
+    internal partial class UnsafeNativeMethods
     {
         /// <remarks>Win32: JOBOBJECTINFOCLASS</remarks>
         public enum JobObjectInfoClass

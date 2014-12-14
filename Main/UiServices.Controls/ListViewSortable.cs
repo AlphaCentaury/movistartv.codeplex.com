@@ -26,9 +26,19 @@ namespace Project.DvbIpTv.UiServices.Controls
             : base()
         {
             SelfSorting = true;
+            IsDoubleBuffered = true;
             CurrentSortColumn = -1;
             HeaderCustomTextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
         } // constructor
+
+        public event EventHandler AfterSorting;
+
+        public bool IsDoubleBuffered
+        {
+            get { return base.DoubleBuffered; }
+            set { base.DoubleBuffered = value; }
+        } // IsDoubleBuffered
+
 
         [DefaultValue(false)]
         public bool HeaderUsesCustomFont
@@ -103,31 +113,50 @@ namespace Project.DvbIpTv.UiServices.Controls
             private set;
         } // CurrentSortIsDescending
 
+        /// <summary>
+        /// Sorts the list
+        /// </summary>
+        /// <param name="columnIndex">Column to sort</param>
+        /// <param name="sortAscending">null = toggle current column sort order (ascending->descending; descending->ascending); true = sort ascending; false = sort descending</param>
         public void Sort(int columnIndex, bool? sortAscending)
         {
             bool ascending;
 
-            ascending = true;
-            if (columnIndex == CurrentSortColumn)
+            if (columnIndex < 0)
             {
-                if (sortAscending == null)
+                CurrentSortColumn = -1;
+                CurrentSortIsDescending = false;
+                this.ListViewItemSorter = null;
+            }
+            else
+            {
+                if (!sortAscending.HasValue)
                 {
-                    sortAscending = CurrentSortIsDescending;
+                    ascending = true;
+                    if (columnIndex == CurrentSortColumn)
+                    {
+                        ascending = CurrentSortIsDescending;
+                    } // if
                 }
                 else
                 {
                     ascending = sortAscending.Value;
                 } // if-else
-            } // if-else
 
-            CurrentSortColumn = columnIndex;
-            CurrentSortIsDescending = !ascending;
+                CurrentSortColumn = columnIndex;
+                CurrentSortIsDescending = !ascending;
+
+                this.ListViewItemSorter = new ListViewColumnItemComparer(CurrentSortColumn, CurrentSortIsDescending);
+            } // if-else
 
             // force redraw to update the "arrow" on the header
             Visible = false;
             Visible = true;
 
-            this.ListViewItemSorter = new ListViewColumnItemComparer(CurrentSortColumn, CurrentSortIsDescending);
+            if (AfterSorting != null)
+            {
+                AfterSorting(this, EventArgs.Empty);
+            } // if
         } // Sort
 
         protected override void OnColumnClick(ColumnClickEventArgs e)

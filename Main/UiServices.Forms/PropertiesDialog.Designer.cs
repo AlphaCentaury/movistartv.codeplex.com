@@ -1,6 +1,11 @@
-﻿namespace Project.DvbIpTv.ChannelList
+﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+// v1.0 RC 0: Moved from ChannelList > PropertiesDlg.Designer.cs
+
+namespace Project.DvbIpTv.UiServices.Forms
 {
-    partial class PropertiesDlg
+    partial class PropertiesDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +34,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ColumnHeader Property;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PropertiesDlg));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PropertiesDialog));
             System.Windows.Forms.ColumnHeader Value;
-            this.listViewProperties = new System.Windows.Forms.ListView();
+            this.listViewProperties = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
             this.labelDescription = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
-            this.pictureBoxEx1 = new Project.DvbIpTv.ChannelList.Controls.PictureBoxEx();
+            this.pictureBoxEx1 = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
             Property = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Value = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEx1)).BeginInit();
@@ -55,9 +60,13 @@
             Property,
             Value});
             this.listViewProperties.GridLines = true;
+            this.listViewProperties.HeaderCustomFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewProperties.HeaderCustomForeColor = System.Drawing.Color.Empty;
             this.listViewProperties.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewProperties.HeaderUsesCustomFont = true;
             this.listViewProperties.MultiSelect = false;
             this.listViewProperties.Name = "listViewProperties";
+            this.listViewProperties.OwnerDraw = true;
             this.listViewProperties.UseCompatibleStateImageBehavior = false;
             this.listViewProperties.View = System.Windows.Forms.View.Details;
             // 
@@ -72,6 +81,7 @@
             // 
             resources.ApplyResources(this.buttonOk, "buttonOk");
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.SharedResources.ActionOk_16x16;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
@@ -81,7 +91,7 @@
             this.pictureBoxEx1.Name = "pictureBoxEx1";
             this.pictureBoxEx1.TabStop = false;
             // 
-            // PropertiesDlg
+            // PropertiesDialog
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,12 +101,12 @@
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.listViewProperties);
             this.MinimizeBox = false;
-            this.Name = "PropertiesDlg";
+            this.Name = "PropertiesDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Load += new System.EventHandler(this.PropertiesDlg_Load);
-            this.Shown += new System.EventHandler(this.PropertiesDlg_Shown);
+            this.Load += new System.EventHandler(this.PropertiesDialog_Load);
+            this.Shown += new System.EventHandler(this.PropertiesDialog_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEx1)).EndInit();
             this.ResumeLayout(false);
 
@@ -104,9 +114,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listViewProperties;
+        private Project.DvbIpTv.UiServices.Controls.ListViewSortable listViewProperties;
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Button buttonOk;
-        private Controls.PictureBoxEx pictureBoxEx1;
+        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxEx1;
     }
 }

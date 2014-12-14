@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using System.Text;
 
 namespace Project.DvbIpTv.ChannelList.ShellLink
@@ -198,6 +199,7 @@ namespace Project.DvbIpTv.ChannelList.ShellLink
             set;
         } // IsFolderShortcut
 
+        [PermissionSet(SecurityAction.LinkDemand, Name = "FullTrust")]
         public string CreateShortcut(string shortcutPath)
         {
             UnsafeNativeMethods.IShellLinkW shortcut;

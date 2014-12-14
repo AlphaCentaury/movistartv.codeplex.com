@@ -85,9 +85,11 @@ namespace DvbIpTypes.Schema2006
     [Serializable()]
     [DebuggerStepThrough()]
     [DesignerCategory("code")]
-    [XmlType(TypeName = "IPService", Namespace = "urn:dvb:ipisdns:2006")]
+    [XmlType(TypeName = "IPService", Namespace = IpService.XmlNamespace)]
     public partial class IpService // IPService
     {
+        public const string XmlNamespace = "urn:dvb:ipisdns:2006";
+
         public ServiceLocation ServiceLocation
         {
             get;

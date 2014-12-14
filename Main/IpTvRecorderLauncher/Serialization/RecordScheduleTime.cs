@@ -96,7 +96,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
         public override void SetDefaultValues()
         {
             var now = DateTime.Now;
-            StartDate = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute + 1, 0);
+            StartDate = new DateTime(now.Year, now.Month, now.Day, now.Hour, now.Minute, 0) + new TimeSpan(0, 1, 0);
             SafetyMargin = DefaultSafetyMargin;
         } // SetDefaultValues
 
@@ -104,14 +104,10 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
         {
             if (!pastTime) return;
 
+            builder.AppendLine();
             var format = (ExpiryDate.HasValue) ? Properties.SerializationTexts.VerbalizeStartExpiryDate : Properties.SerializationTexts.VerbalizeStartDate;
             builder.AppendFormat(format, StartDate, ExpiryDate);
         } // VerbalizeStartExpiryDate
-
-        public override RecordScheduleKind Kind
-        {
-            get { throw new NotImplementedException(); }
-        } // Kind
 
         public override DateTime GetStartDateTime()
         {

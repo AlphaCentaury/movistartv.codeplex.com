@@ -23,12 +23,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             {
                 user = new UserConfig()
                 {
-                    ContentProvider = new ContentProviderConfig()
-                    {
-                        Name = "MovistarTV",
-                        RootMulticastAddress = "239.0.2.129",
-                        RootMulticastPort = 3937
-                    },
                     PreferredLanguages = new string[]
                     {
                         "spa",

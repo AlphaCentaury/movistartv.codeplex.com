@@ -1,6 +1,9 @@
 ﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+// v1.0 RC 0: Moved from ChannelList > PropertiesDlg.cs
+
+using Project.DvbIpTv.UiServices.Forms.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,58 +12,42 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Property = System.Collections.Generic.KeyValuePair<string, string>;
 
-namespace Project.DvbIpTv.ChannelList
+namespace Project.DvbIpTv.UiServices.Forms
 {
-    public partial class PropertiesDlg : Form
+    public partial class PropertiesDialog : Form
     {
-        public class Property
-        {
-            public string Name { get; set;}
-            public string Value { get; set; }
-
-            public Property()
-            {
-                // no op
-            } // constructor
-
-            public Property(string name, string value)
-            {
-                Name = name;
-                Value = value;
-            } // constructor
-        } // class Property
-
         public IEnumerable<Property> Properties { get; set; }
         public string Caption { get; set; }
         public string Description { get; set; }
         public Image Logo { get; set; }
 
-        public PropertiesDlg()
+        public PropertiesDialog()
         {
             InitializeComponent();
-        }
+        } // constructor
 
-        private void PropertiesDlg_Load(object sender, EventArgs e)
+        private void PropertiesDialog_Load(object sender, EventArgs e)
         {
             this.Text = Caption;
-            this.labelDescription.Text = (Description ?? "Properties of selected item");
+            this.labelDescription.Text = (Description ?? Texts.PropertiesDlgCaptionDefault);
             this.pictureBoxEx1.Image = Logo;
-        }
+        } // PropertiesDialog_Load
 
-        private void PropertiesDlg_Shown(object sender, EventArgs e)
+        private void PropertiesDialog_Shown(object sender, EventArgs e)
         {
             foreach (var property in Properties)
             {
-                AddProperty(property.Name, property.Value);
+                AddProperty(property.Key, property.Value);
             } // foreach
-        } // PropertiesDlg_Shown
+        } // PropertiesDialog_Shown
 
         private void AddProperty(string name, string value)
         {
             ListViewItem item;
 
-            item = listViewProperties.Items.Add(name ?? "<unknown>");
+            item = listViewProperties.Items.Add(name ?? Texts.PropertiesDlgNameNull);
             item.UseItemStyleForSubItems = false;
             if (value != null)
             {
@@ -68,7 +55,7 @@ namespace Project.DvbIpTv.ChannelList
             }
             else
             {
-                item.SubItems.Add("<not specified>");
+                item.SubItems.Add(Texts.PropertiesDlgValueNull);
                 item.SubItems[1].BackColor = Color.LightYellow;
             } // if-else
         } // AddProperty

@@ -20,20 +20,14 @@ namespace Project.DvbIpTv.ChannelList
         public MulticastScannerOptionsDialog()
         {
             InitializeComponent();
-        }
+        } // constructor
 
-        public enum ScanWhat
+        public enum ScanWhatList
         {
             AllServices,
             ActiveServices,
             DeadServices
-        } // ScanWhat
-
-        public enum ScanAction
-        {
-            DisableDead,
-            DeleteDead,
-        } // ScanAction
+        } // ScanWhatList
 
         /// <summary>
         /// Timeout, in milliseconds
@@ -44,17 +38,17 @@ namespace Project.DvbIpTv.ChannelList
             private set;
         } // Timeout
 
-        public ScanWhat What
+        public ScanWhatList ScanList
         {
             get;
             private set;
-        } // What
+        } // ScanList
 
-        public ScanAction Action
+        public MulticastScannerDialog.ScanDeadAction DeadAction
         {
             get;
             private set;
-        } // Action
+        } // DeadAction
 
         private void MulticastScannerOptionsDialog_Load(object sender, EventArgs e)
         {
@@ -66,15 +60,15 @@ namespace Project.DvbIpTv.ChannelList
             Timeout = (int)(numericTimeout.Value * 1000);
 
             // What
-            if (radioScanAll.Checked) What = ScanWhat.AllServices;
-            else if (radioScanActive.Checked) What = ScanWhat.ActiveServices;
-            else if (radioScanDead.Checked) What = ScanWhat.DeadServices;
-            else What = ScanWhat.AllServices;
+            if (radioScanAll.Checked) ScanList = ScanWhatList.AllServices;
+            else if (radioScanActive.Checked) ScanList = ScanWhatList.ActiveServices;
+            else if (radioScanDead.Checked) ScanList = ScanWhatList.DeadServices;
+            else ScanList = ScanWhatList.AllServices;
 
             // Action
-            if (radioActionDisable.Checked) Action = ScanAction.DisableDead;
-            else if (radioActionDelete.Checked) Action = ScanAction.DeleteDead;
-            else Action = ScanAction.DisableDead;
+            if (radioActionDisable.Checked) DeadAction = MulticastScannerDialog.ScanDeadAction.Disable;
+            else if (radioActionDelete.Checked) DeadAction = MulticastScannerDialog.ScanDeadAction.Delete;
+            else DeadAction = MulticastScannerDialog.ScanDeadAction.Disable;
         } // buttonStart_Click
     } // AskMulticastScannerDlg
 } // namespace

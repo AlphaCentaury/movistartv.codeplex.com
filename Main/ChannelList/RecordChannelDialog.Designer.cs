@@ -1,4 +1,7 @@
-﻿namespace Project.DvbIpTv.ChannelList
+﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+namespace Project.DvbIpTv.ChannelList
 {
     partial class RecordChannelDialog
     {
@@ -77,7 +80,7 @@
             this.comboSchedulerFolder = new System.Windows.Forms.ComboBox();
             this.labelSchedulerFolder = new System.Windows.Forms.Label();
             this.labelChannelNumber = new System.Windows.Forms.Label();
-            this.pictureChannelLogo = new Project.DvbIpTv.ChannelList.Controls.PictureBoxEx();
+            this.pictureChannelLogo = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
             this.selectFolder = new Project.DvbIpTv.UiServices.Controls.SelectFolderDialog();
             ColumnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ColumnLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -118,6 +121,7 @@
             // buttonOk
             // 
             resources.ApplyResources(this.buttonOk, "buttonOk");
+            this.buttonOk.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionOk_16x16;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
@@ -127,6 +131,7 @@
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.CausesValidation = false;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionCancel_16x16;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -143,20 +148,20 @@
             // 
             // tabPageSchedule
             // 
-            resources.ApplyResources(this.tabPageSchedule, "tabPageSchedule");
             this.tabPageSchedule.Controls.Add(this.dateTimeExpiryDate);
             this.tabPageSchedule.Controls.Add(this.checkBoxExpiryDate);
             this.tabPageSchedule.Controls.Add(this.labelStartMarginSufix);
             this.tabPageSchedule.Controls.Add(this.numericStartMargin);
             this.tabPageSchedule.Controls.Add(this.checkBoxStartMargin);
             this.tabPageSchedule.Controls.Add(this.recordingSchedule);
+            resources.ApplyResources(this.tabPageSchedule, "tabPageSchedule");
             this.tabPageSchedule.Name = "tabPageSchedule";
             this.tabPageSchedule.UseVisualStyleBackColor = true;
             // 
             // dateTimeExpiryDate
             // 
-            resources.ApplyResources(this.dateTimeExpiryDate, "dateTimeExpiryDate");
             this.dateTimeExpiryDate.CausesValidation = false;
+            resources.ApplyResources(this.dateTimeExpiryDate, "dateTimeExpiryDate");
             this.dateTimeExpiryDate.Name = "dateTimeExpiryDate";
             // 
             // checkBoxExpiryDate
@@ -197,18 +202,19 @@
             // 
             // tabPageLength
             // 
-            resources.ApplyResources(this.tabPageLength, "tabPageLength");
             this.tabPageLength.Controls.Add(this.recordingTime);
             this.tabPageLength.Controls.Add(this.labelEndMarginSufix);
             this.tabPageLength.Controls.Add(this.numericEndMargin);
             this.tabPageLength.Controls.Add(this.checkBoxEndMargin);
+            resources.ApplyResources(this.tabPageLength, "tabPageLength");
             this.tabPageLength.Name = "tabPageLength";
             this.tabPageLength.UseVisualStyleBackColor = true;
             // 
             // recordingTime
             // 
-            resources.ApplyResources(this.recordingTime, "recordingTime");
+            this.recordingTime.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.recordingTime.CausesValidation = false;
+            resources.ApplyResources(this.recordingTime, "recordingTime");
             this.recordingTime.Name = "recordingTime";
             // 
             // labelEndMarginSufix
@@ -240,13 +246,13 @@
             // 
             // tabPageDescription
             // 
-            resources.ApplyResources(this.tabPageDescription, "tabPageDescription");
             this.tabPageDescription.Controls.Add(this.checkAppendRecordingDetails);
             this.tabPageDescription.Controls.Add(this.textTaskDescription);
             this.tabPageDescription.Controls.Add(this.labelTaskDescription);
             this.tabPageDescription.Controls.Add(this.checkAddTaskPrefix);
             this.tabPageDescription.Controls.Add(this.labelTaskName);
             this.tabPageDescription.Controls.Add(this.textTaskName);
+            resources.ApplyResources(this.tabPageDescription, "tabPageDescription");
             this.tabPageDescription.Name = "tabPageDescription";
             this.tabPageDescription.UseVisualStyleBackColor = true;
             // 
@@ -290,13 +296,13 @@
             // 
             // tabPageSave
             // 
-            resources.ApplyResources(this.tabPageSave, "tabPageSave");
             this.tabPageSave.Controls.Add(this.listViewLocations);
             this.tabPageSave.Controls.Add(this.buttonSelectFolder);
             this.tabPageSave.Controls.Add(this.comboFileExtension);
             this.tabPageSave.Controls.Add(this.textFilename);
             this.tabPageSave.Controls.Add(this.labelFilename);
             this.tabPageSave.Controls.Add(this.labelSaveLocation);
+            resources.ApplyResources(this.tabPageSave, "tabPageSave");
             this.tabPageSave.Name = "tabPageSave";
             this.tabPageSave.UseVisualStyleBackColor = true;
             // 
@@ -366,7 +372,6 @@
             // 
             // tabPageAdvanced
             // 
-            resources.ApplyResources(this.tabPageAdvanced, "tabPageAdvanced");
             this.tabPageAdvanced.Controls.Add(this.timeSpanSchedulerDeleteTaskAfter);
             this.tabPageAdvanced.Controls.Add(this.timeSpanSchedulerRetry);
             this.tabPageAdvanced.Controls.Add(this.comboSchedulerAlreadyRunning);
@@ -378,6 +383,7 @@
             this.tabPageAdvanced.Controls.Add(this.checkSchedulerASAP);
             this.tabPageAdvanced.Controls.Add(this.comboSchedulerFolder);
             this.tabPageAdvanced.Controls.Add(this.labelSchedulerFolder);
+            resources.ApplyResources(this.tabPageAdvanced, "tabPageAdvanced");
             this.tabPageAdvanced.Name = "tabPageAdvanced";
             this.tabPageAdvanced.UseVisualStyleBackColor = true;
             // 
@@ -397,7 +403,6 @@
             // 
             // comboSchedulerAlreadyRunning
             // 
-            resources.ApplyResources(this.comboSchedulerAlreadyRunning, "comboSchedulerAlreadyRunning");
             this.comboSchedulerAlreadyRunning.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSchedulerAlreadyRunning.FormattingEnabled = true;
             this.comboSchedulerAlreadyRunning.Items.AddRange(new object[] {
@@ -405,6 +410,7 @@
             resources.GetString("comboSchedulerAlreadyRunning.Items1"),
             resources.GetString("comboSchedulerAlreadyRunning.Items2"),
             resources.GetString("comboSchedulerAlreadyRunning.Items3")});
+            resources.ApplyResources(this.comboSchedulerAlreadyRunning, "comboSchedulerAlreadyRunning");
             this.comboSchedulerAlreadyRunning.Name = "comboSchedulerAlreadyRunning";
             // 
             // labelSchedulerConcurrent
@@ -467,8 +473,8 @@
             // 
             // pictureChannelLogo
             // 
-            resources.ApplyResources(this.pictureChannelLogo, "pictureChannelLogo");
             this.pictureChannelLogo.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.pictureChannelLogo, "pictureChannelLogo");
             this.pictureChannelLogo.Name = "pictureChannelLogo";
             this.pictureChannelLogo.TabStop = false;
             // 
@@ -527,7 +533,7 @@
 
         #endregion
 
-        private Controls.PictureBoxEx pictureChannelLogo;
+        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureChannelLogo;
         private System.Windows.Forms.Label labelChannelName;
         private System.Windows.Forms.Label labelChannelDescription;
         private System.Windows.Forms.Button buttonOk;

@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -20,6 +21,9 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.ChannelList
 {
+    //CA1301	Avoid duplicate accelerators	Define unique accelerators for the following controls in 'MulticastScannerDialog' that all currently use &C as an accelerator: MulticastScannerDialog.buttonRequestCancel, MulticastScannerDialog.buttonClose.	ChannelList	MulticastScannerDialog.cs	23
+    //This is OK. Both buttons are never active at the same time; in fact, one replaces the other when scan is completed (or cancelled)
+    [SuppressMessage("Microsoft.Globalization", "CA1301:AvoidDuplicateAccelerators")]
     public partial class MulticastScannerDialog : Form
     {
         private string FormatProgressPercentage;
@@ -29,11 +33,20 @@ namespace Project.DvbIpTv.ChannelList
         private bool AllowFormToClose;
         private DateTime StartTime;
 
+        #region Inner classes
+
+        public enum ScanDeadAction
+        {
+            Disable,
+            Delete,
+        } // ScanDeadAction
+
         public class ChannelScanResultEventArgs: EventArgs
         {
-            public string ServiceKey;
             public bool IsDead;
             public bool IsSkipped;
+            public UiBroadcastService Service;
+            public ScanDeadAction DeadAction;
         } // class ChannelScanResultEventArgs
 
         private enum ProgressReportKind
@@ -47,7 +60,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private class Stats
         {
-            public int Active, Dead, Skipped;
+            public int Active, Dead, Skipped, Error;
             public int Count, Total;
         } // class Stats
 
@@ -62,11 +75,28 @@ namespace Project.DvbIpTv.ChannelList
             } // ShallowClone
         } // ProgressData
 
-        public UiBroadcastDiscovery BroadcastDiscovery
+        #endregion
+
+        public MulticastScannerDialog()
+        {
+            InitializeComponent();
+            Timeout = 5000;
+        } // constructor
+
+        public event EventHandler<ChannelScanResultEventArgs> ChannelScanResult;
+        public event EventHandler<RunWorkerCompletedEventArgs> ScanCompleted;
+
+        public ScanDeadAction DeadAction
         {
             get;
             set;
-        } // BroadcastDiscovery
+        } // DeadAction
+
+        public IEnumerable<UiBroadcastService> BroadcastServices
+        {
+            get;
+            set;
+        } // BroadcastServices
 
         /// <remarks>In milliseconds</remarks>
         public int Timeout
@@ -75,13 +105,17 @@ namespace Project.DvbIpTv.ChannelList
             set;
         } // Timeout
 
-        public event EventHandler<ChannelScanResultEventArgs> ChannelScanResult;
-
-        public MulticastScannerDialog()
+        public bool ScanInProgress
         {
-            InitializeComponent();
-            Timeout = 5000;
-        } // constructor
+            get;
+            private set;
+        } // ScanInProgress
+
+        private int BroadcastServicesCount
+        {
+            get;
+            set;
+        } // BroadcastServicesCount
 
         #region Form events
 
@@ -91,7 +125,8 @@ namespace Project.DvbIpTv.ChannelList
             FormatScanningProgress = labelScanning.Text;
             FormatEllapsedTime = labelEllapsedTime.Text;
 
-            DisplayStats(new Stats() { Total = BroadcastDiscovery.Services.Count });
+            BroadcastServicesCount = BroadcastServices.Count();
+            DisplayStats(new Stats() { Total = BroadcastServicesCount });
             labelEllapsedTime.Text = null;
             labelServiceName.Text = null;
             labelServiceUrl.Text = null;
@@ -126,6 +161,12 @@ namespace Project.DvbIpTv.ChannelList
             CancelScan();
         } // buttonRequestCancel_Click
 
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            AllowFormToClose = true;
+            Close();
+        } // buttonClose_Click
+
         private void timerEllapsed_Tick(object sender, EventArgs e)
         {
             DisplayEllapsedTime();
@@ -150,13 +191,14 @@ namespace Project.DvbIpTv.ChannelList
             {
                 listViewStats.Items[0].SubItems[1].Text = stats.Active.ToString("N0");
                 listViewStats.Items[1].SubItems[1].Text = stats.Dead.ToString("N0");
-                listViewStats.Items[2].SubItems[1].Text = stats.Skipped.ToString("N0");
+                listViewStats.Items[2].SubItems[1].Text = stats.Error.ToString("N0");
                 listViewStats.Items[3].SubItems[1].Text = stats.Skipped.ToString("N0");
-                listViewStats.Items[4].SubItems[1].Text = (stats.Count - 1).ToString("N0");
+                listViewStats.Items[4].SubItems[1].Text = stats.Count.ToString("N0");
             } // if-else
 
-            labelProgressPercentage.Text = string.Format(FormatProgressPercentage, ((double)stats.Count) / ((double)stats.Total));
-            progressBar.Value = (stats.Count * 1000) / stats.Total;
+            var progress = (stats.Total > 0) ? ((double)stats.Count) / ((double)stats.Total) : 1;
+            labelProgressPercentage.Text = string.Format(FormatProgressPercentage, progress);
+            progressBar.Value = (int) (progress * 1000);
             labelScanning.Text = string.Format(FormatScanningProgress, stats.Count, stats.Total);
         } // DisplayStats
 
@@ -180,6 +222,7 @@ namespace Project.DvbIpTv.ChannelList
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
             Worker.DoWork += Worker_DoWork;
+            ScanInProgress = true;
             Worker.RunWorkerAsync();
         } // StartScan
 
@@ -215,6 +258,18 @@ namespace Project.DvbIpTv.ChannelList
             } // if-else
 
             AllowFormToClose = true;
+            ScanInProgress = false;
+
+            // replace cancel button with close button
+            buttonRequestCancel.Visible = false;
+            buttonClose.Location = buttonRequestCancel.Location;
+            buttonClose.Size = buttonRequestCancel.Size;
+            buttonClose.Visible = true;
+
+            if (ScanCompleted != null)
+            {
+                ScanCompleted(this, e);
+            } // if
         } // Worker_RunWorkerCompleted
 
         private void Worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -250,7 +305,8 @@ namespace Project.DvbIpTv.ChannelList
                             {
                                 IsDead = progress.Service.IsDead,
                                 IsSkipped = false,
-                                ServiceKey = progress.Service.Key,
+                                Service = progress.Service,
+                                DeadAction = this.DeadAction
                             });
                     } // if
                     break;
@@ -261,7 +317,8 @@ namespace Project.DvbIpTv.ChannelList
                             {
                                 IsDead = progress.Service.IsDead,
                                 IsSkipped = true,
-                                ServiceKey = progress.Service.Key,
+                                Service = progress.Service,
+                                DeadAction = this.DeadAction
                             });
                     } // if
                     break;
@@ -284,19 +341,25 @@ namespace Project.DvbIpTv.ChannelList
             ProgressData progress;
             Socket s;
             byte[] buffer;
+            IEnumerable<UiBroadcastService> services;
 
+            System.Threading.Thread.CurrentThread.Name = "MulticastScannerDialog BackgroundWorker";
             Worker.ReportProgress((int)ProgressReportKind.Started);
 
             buffer = new byte[DvbStpSimpleClient.UdpMaxDatagramSize];
-            progress = new ProgressData() { Total = BroadcastDiscovery.Services.Count };
-            foreach (var service in BroadcastDiscovery.Services)
+            progress = new ProgressData() { Total = BroadcastServicesCount };
+
+            // cache services enumerable if dead action is delete
+            services = (DeadAction != ScanDeadAction.Delete) ? BroadcastServices : BroadcastServices.ToList();
+
+            foreach (var service in services)
             {
                 if (Worker.CancellationPending) break;
 
-                progress.Count++;
                 progress.Service = service;
                 progress.Logo = SafeLoadLogo(service.Logo);
                 Worker.ReportProgress((int)ProgressReportKind.Progress, progress.ShallowClone());
+                progress.Count++;
 
                 if ((service.Data.ServiceLocation == null) || (service.Data.ServiceLocation.Multicast == null))
                 {
@@ -329,17 +392,15 @@ namespace Project.DvbIpTv.ChannelList
                     }
                     else
                     {
-                        // re-throw
-                        throw;
+                        progress.Error++;
+                        service.IsDead = true;
                     } // if
                 } // try-catch
-
                 s.Close();
 
                 Worker.ReportProgress((int)ProgressReportKind.ChannelScanned, progress.ShallowClone());
             } // foreach
 
-            progress.Count = BroadcastDiscovery.Services.Count;
             Worker.ReportProgress((int)ProgressReportKind.Ended, progress.ShallowClone());
             e.Cancel = Worker.CancellationPending;
         } // Worker_DoWork
@@ -347,7 +408,7 @@ namespace Project.DvbIpTv.ChannelList
         private Image SafeLoadLogo(ServiceLogo logo)
         {
             return logo.GetImage(LogoSize.Size64, true);
-        }  // SafeLoadLogo
+        } // SafeLoadLogo
 
         #endregion
     } // class

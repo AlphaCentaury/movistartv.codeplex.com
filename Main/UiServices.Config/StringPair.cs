@@ -12,7 +12,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
     [Serializable]
     public class StringPair
     {
-        private int hashCode;
+        private int? hashCode;
         private string item1, item2;
 
         public StringPair()
@@ -22,7 +22,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
         public StringPair(string item1, string item2)
         {
-            SetPair(item1, item2);
+            this.item1 = item1;
+            this.item2 = item2;
         } // constructor
 
         [XmlIgnore]
@@ -62,7 +63,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                     case 0: return Item1;
                     case 1: return Item2;
                     default:
-                        throw new IndexOutOfRangeException();
+                        throw new ArgumentOutOfRangeException();
                 } // switch
             } // get
             set
@@ -72,7 +73,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                     case 0: Item1 = value; break;
                     case 1: Item2 = value; break;
                     default:
-                        throw new IndexOutOfRangeException();
+                        throw new ArgumentOutOfRangeException();
                 } // switch
             } // set
         } // this[int]
@@ -86,7 +87,12 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
         public override int GetHashCode()
         {
-            return hashCode;
+            if (!hashCode.HasValue)
+            {
+                CalcHashCode();
+            } // if
+
+            return hashCode.Value;
         } // GetHashCode
 
         public override string ToString()

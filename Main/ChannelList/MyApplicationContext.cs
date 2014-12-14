@@ -105,6 +105,10 @@ namespace Project.DvbIpTv.ChannelList
                 result = MyApplication.LoadAppUiConfig();
                 if (!result.IsOk) return result;
 
+                DisplayProgress(Properties.Texts.MyAppCtxLoadingContentProviderConfig, true);
+                result = AppUiConfiguration.Current.LoadContentProviderData();
+                if (result.IsError) return result;
+
                 DisplayProgress(Properties.Texts.MyAppCtxLoadingUserConfig, true);
                 result = AppUiConfiguration.Current.LoadUserConfiguration();
 

@@ -1,4 +1,7 @@
-﻿namespace Project.DvbIpTv.ChannelList
+﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+namespace Project.DvbIpTv.ChannelList
 {
     partial class MulticastScannerOptionsDialog
     {
@@ -42,7 +45,7 @@
             this.radioActionDelete = new System.Windows.Forms.RadioButton();
             this.radioActionDisable = new System.Windows.Forms.RadioButton();
             this.labelInfo = new System.Windows.Forms.Label();
-            this.pictureIcon = new Project.DvbIpTv.ChannelList.Controls.PictureBoxEx();
+            this.pictureIcon = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.numericTimeout)).BeginInit();
             this.groupScanWhat.SuspendLayout();
             this.groupActionScan.SuspendLayout();
@@ -74,13 +77,13 @@
             0,
             0});
             this.numericTimeout.Minimum = new decimal(new int[] {
-            1,
+            250,
             0,
             0,
-            0});
+            196608});
             this.numericTimeout.Name = "numericTimeout";
             this.numericTimeout.Value = new decimal(new int[] {
-            5,
+            3,
             0,
             0,
             0});
@@ -89,6 +92,7 @@
             // 
             resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionCancel_16x16;
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;
             // 
@@ -96,6 +100,7 @@
             // 
             resources.ApplyResources(this.buttonStart, "buttonStart");
             this.buttonStart.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonStart.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ActionRun_16x16;
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
@@ -165,8 +170,10 @@
             // 
             // MulticastScannerOptionsDialog
             // 
+            this.AcceptButton = this.buttonStart;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonRequestCancel;
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.groupActionScan);
             this.Controls.Add(this.groupScanWhat);
@@ -196,7 +203,7 @@
 
         #endregion
 
-        private Controls.PictureBoxEx pictureIcon;
+        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureIcon;
         private System.Windows.Forms.Label labelCaption;
         private System.Windows.Forms.Label labelScanTimeout;
         private System.Windows.Forms.NumericUpDown numericTimeout;

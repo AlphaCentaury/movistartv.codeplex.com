@@ -61,6 +61,42 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”).
+        /// </summary>
+        internal static string AppCaption {
+            get {
+                return ResourceManager.GetString("AppCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DVB-IPTV: Movistar TV channel/services list.
+        /// </summary>
+        internal static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stable (release candidate).
+        /// </summary>
+        internal static string AppState {
+            get {
+                return ResourceManager.GetString("AppState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.0 RC “Wolf 424”.
+        /// </summary>
+        internal static string AppVersion {
+            get {
+                return ResourceManager.GetString("AppVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to obtain the list of TV channels/services.
         /// </summary>
         internal static string BroadcastListUnableRefresh {
@@ -106,11 +142,75 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV DVB-IPTV channel/services list (beta 1.0.2 “Wolf 424”).
+        ///   Looks up a localized string similar to The verification of available TV channels and services is in progress.
+        ///The verification has to be canceled before you can perform the requested action..
         /// </summary>
-        internal static string ChannelListFormCaption {
+        internal static string ChannelFormActiveScan {
             get {
-                return ResourceManager.GetString("ChannelListFormCaption", resourceCulture);
+                return ResourceManager.GetString("ChannelFormActiveScan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Services verification is in progress.
+        /// </summary>
+        internal static string ChannelFormActiveScanCaption {
+            get {
+                return ResourceManager.GetString("ChannelFormActiveScanCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The channel list can be outdated. It is over {0} days old..
+        /// </summary>
+        internal static string ChannelListAgeObsolete {
+            get {
+                return ResourceManager.GetString("ChannelListAgeObsolete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The channel list is {0} days old..
+        /// </summary>
+        internal static string ChannelListAgeOld {
+            get {
+                return ResourceManager.GetString("ChannelListAgeOld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The channel list has been obtained from the cache, but it is empty..
+        /// </summary>
+        internal static string ChannelListCacheEmpty {
+            get {
+                return ResourceManager.GetString("ChannelListCacheEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No cached version of the channel list exists. You have to refresh the list..
+        /// </summary>
+        internal static string ChannelListNoCache {
+            get {
+                return ResourceManager.GetString("ChannelListNoCache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The list has been successfully refreshed, but it is empty..
+        /// </summary>
+        internal static string ChannelListRefreshEmpty {
+            get {
+                return ResourceManager.GetString("ChannelListRefreshEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The channel list has been successfully refreshed..
+        /// </summary>
+        internal static string ChannelListRefreshSuccess {
+            get {
+                return ResourceManager.GetString("ChannelListRefreshSuccess", resourceCulture);
             }
         }
         
@@ -227,7 +327,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to “Dead”.
+        ///   Looks up a localized string similar to Unavailable.
         /// </summary>
         internal static string MulticastScannerDlgDead {
             get {
@@ -335,6 +435,15 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading content provider data....
+        /// </summary>
+        internal static string MyAppCtxLoadingContentProviderConfig {
+            get {
+                return ResourceManager.GetString("MyAppCtxLoadingContentProviderConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading user configuration and preferences....
         /// </summary>
         internal static string MyAppCtxLoadingUserConfig {
@@ -413,6 +522,36 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string NotSelectedServiceProvider {
             get {
                 return ResourceManager.GetString("NotSelectedServiceProvider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to open browser for URL &apos;{0}&apos;.
+        ///
+        ///{1}.
+        /// </summary>
+        internal static string OpenUrlError {
+            get {
+                return ResourceManager.GetString("OpenUrlError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected error while contacting with the Windows Task Manager to create the recording task.
+        ///The recording task has not been created..
+        /// </summary>
+        internal static string RecordHelpTaskCreationException {
+            get {
+                return ResourceManager.GetString("RecordHelpTaskCreationException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to run the &apos;Right now&apos; recording task and no recording action will take place..
+        /// </summary>
+        internal static string RecordHelpTaskRunException {
+            get {
+                return ResourceManager.GetString("RecordHelpTaskRunException", resourceCulture);
             }
         }
         

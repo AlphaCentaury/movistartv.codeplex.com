@@ -611,6 +611,11 @@ namespace Project.DvbIpTv.ChannelList
             // TODO: no UI yet!
             //Task.AdvancedSettings.ExecutionTimeLimit.Enabled = checkSchedulerExecutionLimit.Checked;
             //Task.AdvancedSettings.ExecutionTimeLimit.Time = timeSpanSchedulerExecutionLimit.Value;
+            Task.AdvancedSettings.ExecutionTimeLimit.Enabled = true; // use default time limit
+
+            // Wake up computer
+            // TODO: no UI yet!
+            Task.AdvancedSettings.WakeComputer = true;
 
             // Multiple instances
             switch (comboSchedulerAlreadyRunning.SelectedIndex)

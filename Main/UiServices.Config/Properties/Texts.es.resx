@@ -123,9 +123,6 @@
   <data name="AppConfigValidationLogosPath" xml:space="preserve">
     <value>No se puede encontrar la carpeta de 'logotipos' en '{0}'.</value>
   </data>
-  <data name="AppConfigValidationNull" xml:space="preserve">
-    <value>Ninguna configuración está disponible.</value>
-  </data>
   <data name="ExceptionLogosDomainMappingsDuplicatedDomain" xml:space="preserve">
     <value>El nombre de dominio (domain name) '{0}' está duplicado en 'logos/services/domain-mappings.xml'</value>
   </data>
@@ -211,5 +208,19 @@ Verifique la sintáxis XML del archivo y solucione los errores detectados.</valu
   </data>
   <data name="UserConfigValidationValueType" xml:space="preserve">
     <value>El valor '{2}' especificado en la etiqueta &lt;{0}&gt; no es un/una {1} válido.</value>
+  </data>
+  <data name="LoadContentProviderDataExceptionCaption" xml:space="preserve">
+    <value>Imposible cargar la información del proveedor de contenidos</value>
+  </data>
+  <data name="LoadContentProviderDataValidation" xml:space="preserve">
+    <value>El archivo de datos del proveedor de contenidos '{0}' no es válido o contiene errores graves.
+{1}
+Verifique la sintáxis XML del archivo y corrija los errores detectados.</value>
+  </data>
+  <data name="LoadContentProviderDataValidationCaption" xml:space="preserve">
+    <value>Error al validar la información del proveedor de contenidos</value>
+  </data>
+  <data name="LoadContentProviderDataValidationException" xml:space="preserve">
+    <value>Consulte los detalles de la excepción (más abajo) para obtener información detallada del problema.</value>
   </data>
 </root>

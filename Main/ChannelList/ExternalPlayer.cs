@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Windows.Forms;
 
@@ -56,9 +57,10 @@ namespace Project.DvbIpTv.ChannelList
             } // if-else
         } // Launch
 
+        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         private static void LaunchShortcut(PlayerConfig player, UiBroadcastService service, string[] arguments)
         {
-            var shortcutPath = Path.Combine(AppUiConfiguration.Current.CachePath, service.FullServiceName);
+            var shortcutPath = Path.Combine(AppUiConfiguration.Current.Folders.Cache, service.FullServiceName);
             var shortcut = new ShellLink.ShellLink();
             shortcut.TargetPath = player.Path;
             shortcut.Arguments = ArgumentsManager.JoinArguments(arguments);
@@ -78,6 +80,7 @@ namespace Project.DvbIpTv.ChannelList
             } // using process
         } // LaunchShortcut
 
+        [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         private static void LaunchProcess(PlayerConfig player, string[] arguments)
         {
             var start = new ProcessStartInfo()

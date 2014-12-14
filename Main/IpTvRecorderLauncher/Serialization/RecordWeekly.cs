@@ -68,59 +68,62 @@ namespace Project.DvbIpTv.RecorderLauncher.Serialization
                 format = (WeekDays == AllWeekDays) ? Properties.SerializationTexts.VerbalizeRecordWeeklyEveryWeeksEveryday : Properties.SerializationTexts.VerbalizeRecordWeeklyEveryWeeks;
             } // if-else
 
-            builder.AppendFormat(format, RecurEveryWeeks, StartDate, SafetyMarginTimeSpan.TotalMinutes);
-
-            if (WeekDays != AllWeekDays)
-            {
-                List<string> days;
-                var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
-                var info = culture.DateTimeFormat;
-                var dayNames = info.DayNames;
-
-                days = new List<string>(6);
-                for (int index = 0, day = (int)info.FirstDayOfWeek; index < dayNames.Length; index++)
-                {
-                    var dayEnum = (DayOfWeek)day;
-                    bool add;
-
-                    if ((dayEnum == DayOfWeek.Sunday) && ((WeekDays & RecordWeekDays.Sunday) != 0)) add = true;
-                    else if ((dayEnum == DayOfWeek.Monday) && ((WeekDays & RecordWeekDays.Monday) != 0)) add = true;
-                    else if ((dayEnum == DayOfWeek.Tuesday) && ((WeekDays & RecordWeekDays.Tuesday) != 0)) add = true;
-                    else if ((dayEnum == DayOfWeek.Wednesday) && ((WeekDays & RecordWeekDays.Wednesday) != 0)) add = true;
-                    else if ((dayEnum == DayOfWeek.Thursday) && ((WeekDays & RecordWeekDays.Thursday) != 0)) add = true;
-                    else if ((dayEnum == DayOfWeek.Friday) && ((WeekDays & RecordWeekDays.Friday) != 0)) add = true;
-                    else if ((dayEnum == DayOfWeek.Saturday) && ((WeekDays & RecordWeekDays.Saturday) != 0)) add = true;
-                    else add = false;
-
-                    if (add)
-                    {
-                        days.Add(dayNames[day]);
-                    } // if
-                    day = (day + 1) % 7;
-                } // for
-
-                builder.Append(pastTime ? Properties.SerializationTexts.VerbalizeRecordWeeklyDaysPast : Properties.SerializationTexts.VerbalizeRecordWeeklyDays);
-                builder.Append(' ');
-                for (int index = 0; index < days.Count; index++)
-                {
-                    if (index != 0)
-                    {
-                        if (index == (days.Count - 1))
-                        {
-                            builder.Append(Properties.SerializationTexts.VerbalizeRecordWeeklyDaysSeparatorFinal);
-                        }
-                        else
-                        {
-                            builder.Append(Properties.SerializationTexts.VerbalizeRecordWeeklyDaysSeparator);
-                        } // if-else
-                    } // if
-                    builder.Append(days[index]);
-                } // for
-                builder.Append(".");
-            } // if
-            builder.AppendLine();
-
+            var weekdays = VerbalizaRecordingDays(pastTime);
+            builder.AppendFormat(format, RecurEveryWeeks, StartDate, SafetyMarginTimeSpan.TotalMinutes, weekdays);
             VerbalizeStartExpiryDate(pastTime, builder);
         } // Verbalize
+
+        private string VerbalizaRecordingDays(bool pastTime)
+        {
+            StringBuilder buffer;
+
+            if (WeekDays == AllWeekDays) return null;
+
+            buffer = new StringBuilder();
+            var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+            var info = culture.DateTimeFormat;
+            var dayNames = info.DayNames;
+            var days = new List<string>(6);
+
+            for (int index = 0, day = (int)info.FirstDayOfWeek; index < dayNames.Length; index++)
+            {
+                var dayEnum = (DayOfWeek)day;
+                bool add;
+
+                if ((dayEnum == DayOfWeek.Sunday) && ((WeekDays & RecordWeekDays.Sunday) != 0)) add = true;
+                else if ((dayEnum == DayOfWeek.Monday) && ((WeekDays & RecordWeekDays.Monday) != 0)) add = true;
+                else if ((dayEnum == DayOfWeek.Tuesday) && ((WeekDays & RecordWeekDays.Tuesday) != 0)) add = true;
+                else if ((dayEnum == DayOfWeek.Wednesday) && ((WeekDays & RecordWeekDays.Wednesday) != 0)) add = true;
+                else if ((dayEnum == DayOfWeek.Thursday) && ((WeekDays & RecordWeekDays.Thursday) != 0)) add = true;
+                else if ((dayEnum == DayOfWeek.Friday) && ((WeekDays & RecordWeekDays.Friday) != 0)) add = true;
+                else if ((dayEnum == DayOfWeek.Saturday) && ((WeekDays & RecordWeekDays.Saturday) != 0)) add = true;
+                else add = false;
+
+                if (add)
+                {
+                    days.Add(dayNames[day]);
+                } // if
+                day = (day + 1) % 7;
+            } // for
+
+            buffer.Append(pastTime ? Properties.SerializationTexts.VerbalizeRecordWeeklyDaysPast : Properties.SerializationTexts.VerbalizeRecordWeeklyDays);
+            for (int index = 0; index < days.Count; index++)
+            {
+                if (index != 0)
+                {
+                    if (index == (days.Count - 1))
+                    {
+                        buffer.Append(Properties.SerializationTexts.VerbalizeRecordWeeklyDaysSeparatorFinal);
+                    }
+                    else
+                    {
+                        buffer.Append(Properties.SerializationTexts.VerbalizeRecordWeeklyDaysSeparator);
+                    } // if-else
+                } // if
+                buffer.Append(days[index]);
+            } // for
+
+            return buffer.ToString();
+        } // VerbalizaRecordingDays
     } // class RecordWeekly
 } // namespace

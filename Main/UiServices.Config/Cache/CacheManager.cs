@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Project.DvbIpTv.UiServices.Configuration
+namespace Project.DvbIpTv.UiServices.Configuration.Cache
 {
     public class CacheManager
     {
@@ -30,30 +30,55 @@ namespace Project.DvbIpTv.UiServices.Configuration
             Array.Copy(invalidFileChars, 0, DocNameOffendingChars, 2, invalidFileChars.Length);
         } // constructor
 
-        public void SaveXml<T>(string docType, string docName, int version, T xmlTree)
+        public void SaveXml<T>(string documentType, string name, int version, T xmlTree) where T: class
         {
-            var path = Path.Combine(BaseDirectory, GetSafeDocName(docType, docName, ".xml"));
-            var serializer = new XmlSerializer(typeof(T));
-            using (FileStream output = new FileStream(path, FileMode.Create, FileAccess.ReadWrite, FileShare.None))
-            {
-                serializer.Serialize(output, xmlTree);
-            } // using output
+            var path = Path.Combine(BaseDirectory, GetSafeDocName(documentType, name, ".xml"));
+            SerializationUtils.SaveToXml(xmlTree, path, Encoding.UTF8);
         } // SaveXml
 
-        public T LoadXml<T>(string docType, string docName) where T:class
+        public T LoadXml<T>(string documentType, string name) where T : class
         {
-            var path = Path.Combine(BaseDirectory, GetSafeDocName(docType, docName, ".xml"));
-            if (!File.Exists(path))
+            try
             {
-                return null;
-            } // if
+                var path = Path.Combine(BaseDirectory, GetSafeDocName(documentType, name, ".xml"));
+                if (!File.Exists(path))
+                {
+                    return null;
+                } // if
 
-            var serializer = new XmlSerializer(typeof(T));
-            using (FileStream input = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+                return SerializationUtils.LoadFromXml<T>(path);
+            }
+            catch
             {
-                return serializer.Deserialize(input) as T;
-            } // using input
+                // supress exception; behave as if document is not in the cache
+                return null;
+            } // try-catch
         } // LoadXml
+
+        public CachedXmlDocument<T> LoadXmlDocument<T>(string documentType, string name) where T : class
+        {
+            try
+            {
+                var path = Path.Combine(BaseDirectory, GetSafeDocName(documentType, name, ".xml"));
+                if (!File.Exists(path))
+                {
+                    return null;
+                } // if
+
+                var document = SerializationUtils.LoadFromXml<T>(path);
+                if (document == null) return null;
+
+                var dateC = File.GetCreationTime(path);
+                var dateW = File.GetLastWriteTime(path);
+
+                return new CachedXmlDocument<T>(document, documentType, name, new Version(), (dateC > dateW) ? dateC : dateW);
+            }
+            catch
+            {
+                // supress exception; behave as if document is not in the cache
+                return null;
+            } // try-catch
+        } // LoadXmlDocument<T>
 
         private string GetSafeDocName(string docType, string docName, string extension)
         {

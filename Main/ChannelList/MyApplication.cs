@@ -29,7 +29,6 @@ namespace Project.DvbIpTv.ChannelList
             var myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var configBasePath = Path.Combine(myDocumentsPath, Properties.Settings.Default.UserDataPath);
             var myPath = Application.StartupPath;
-            var userConfigXmlPath = Path.Combine(configBasePath, "user-config.xml");
 
 #if DEBUG
             var recorderLauncher = myPath.EndsWith(Properties.Settings.Default.DevelopmentLocationPath, StringComparison.OrdinalIgnoreCase) ? Properties.Settings.Default.RecorderLauncherDevelopment : Properties.Settings.Default.RecorderLauncher;
@@ -47,7 +46,7 @@ namespace Project.DvbIpTv.ChannelList
                 };
             } // if
 
-            result = AppUiConfiguration.Load(configBasePath, userConfigXmlPath);
+            result = AppUiConfiguration.Load(configBasePath);
             if (!result.IsOk) return result;
 
             return InitializationResult.Ok;
@@ -119,8 +118,8 @@ namespace Project.DvbIpTv.ChannelList
         {
             while (ex != null)
             {
-                ex.Data.Add("AdvancedInformation.Exception.Type", ex.GetType().FullName);
-                ex.Data.Add("AdvancedInformation.Exception.Assembly", ex.GetType().Assembly.ToString());
+                ex.Data["AdvancedInformation.Exception.Type"] = ex.GetType().FullName;
+                ex.Data["AdvancedInformation.Exception.Assembly"] = ex.GetType().Assembly.ToString();
                 ex = ex.InnerException;
             } // while
         } // AddExceptionAdvancedInformation
