@@ -26,14 +26,11 @@ namespace Project.DvbIpTv.ChannelList
         {
             InitializationResult result;
 
-            var myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            var configBasePath = Path.Combine(myDocumentsPath, Properties.Settings.Default.UserDataPath);
             var myPath = Application.StartupPath;
-
 #if DEBUG
             var recorderLauncher = myPath.EndsWith(Properties.Settings.Default.DevelopmentLocationPath, StringComparison.OrdinalIgnoreCase) ? Properties.Settings.Default.RecorderLauncherDevelopment : Properties.Settings.Default.RecorderLauncher;
 #else
-                var recorderLauncher = Properties.Settings.Default.RecorderLauncher;
+            var recorderLauncher = Properties.Settings.Default.RecorderLauncher;
 #endif // DEBUG
 
             RecorderLauncherPath = Path.Combine(myPath, recorderLauncher);
@@ -46,7 +43,7 @@ namespace Project.DvbIpTv.ChannelList
                 };
             } // if
 
-            result = AppUiConfiguration.Load(configBasePath);
+            result = AppUiConfiguration.Load(null);
             if (!result.IsOk) return result;
 
             return InitializationResult.Ok;

@@ -222,4 +222,19 @@ Please verify the XML syntax of the file and correct the detected errors.</value
   <data name="LoadContentProviderDataValidationException" xml:space="preserve">
     <value>See exception details (below) for detailed error information.</value>
   </data>
+  <data name="AppConfigRegistryCaption" xml:space="preserve">
+    <value>Application not correctly installed</value>
+  </data>
+  <data name="AppConfigRegistryMissingKey" xml:space="preserve">
+    <value>Unable to find or open 'HKCU\{0}'.</value>
+  </data>
+  <data name="AppConfigRegistryMissingValue" xml:space="preserve">
+    <value>The value '{1}' is missing under 'HKCU\{0}'.</value>
+  </data>
+  <data name="AppConfigRegistryText" xml:space="preserve">
+    <value>There is a problem accessing application configuration from the Windows Registry:
+{0}
+
+Please install the application using the official installer or repair the installation.</value>
+  </data>
 </root>

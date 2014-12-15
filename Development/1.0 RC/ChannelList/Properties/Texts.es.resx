@@ -295,6 +295,10 @@ La tarea de grabación no ha sido creada.</value>
   <data name="RecordTaskNameSuggestedNameFormat" xml:space="preserve">
     <value>{0} [{1:yyyy\-MM\-dd} {2:HH\-mm\-ss}]</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SolutionLicense" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\solution-license_es.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="SPListUnableRefresh" xml:space="preserve">
     <value>No ha sido posible obtener la lista de proveedores de servicios</value>
   </data>

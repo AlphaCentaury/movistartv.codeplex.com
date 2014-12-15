@@ -7,6 +7,12 @@ namespace Project.DvbIpTv.UiServices.Configuration
 {
     public class AppUiConfigurationFolders
     {
+        public string Install
+        {
+            get;
+            internal protected set;
+        } // Install
+
         public string Base
         {
             get;

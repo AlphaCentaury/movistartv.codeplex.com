@@ -291,6 +291,10 @@ The recording task has not been created.</value>
   <data name="RecordTaskNameSuggestedNameFormat" xml:space="preserve">
     <value>{0} [{1:yyyy\-MM\-dd} {2:HH\-mm\-ss}]</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SolutionLicense" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\solution-license.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="SPListUnableRefresh" xml:space="preserve">
     <value>Unable to obtain the list of service providers</value>
   </data>

@@ -223,4 +223,19 @@ Verifique la sintáxis XML del archivo y corrija los errores detectados.</value>
   <data name="LoadContentProviderDataValidationException" xml:space="preserve">
     <value>Consulte los detalles de la excepción (más abajo) para obtener información detallada del problema.</value>
   </data>
+  <data name="AppConfigRegistryCaption" xml:space="preserve">
+    <value>La aplicación no está instalada correctamente</value>
+  </data>
+  <data name="AppConfigRegistryMissingKey" xml:space="preserve">
+    <value>No se puede localizar o abrir 'HKCU\{0}'.</value>
+  </data>
+  <data name="AppConfigRegistryMissingValue" xml:space="preserve">
+    <value>El valor '{1}' no existe bajo la clave 'HKCU\{0}'.</value>
+  </data>
+  <data name="AppConfigRegistryText" xml:space="preserve">
+    <value>Se ha producido un error al acceder a la configuración de la aplicación en el Registro de Windows:
+{0}
+
+Por favor, instale la aplicación utilizando el instalador oficial o repare la instalación.</value>
+  </data>
 </root>

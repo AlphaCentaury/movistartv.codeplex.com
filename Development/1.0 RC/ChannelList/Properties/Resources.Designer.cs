@@ -171,19 +171,6 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to --------------------------------------------------------------------------------
-        ///Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
-        ///--------------------------------------------------------------------------------
-        ///
-        ///AVISO IMPORTANTE: El presente software NO ESTÁ SOPORTADO NI RESPALDADO por Movistar ni por Telefónica. Telefónica de España no tiene responsabilidad alguna si hay canales (incluso si están contratados) que no pueden verse en el PC. NO DEBE LLAMARSE NUNCA al 1002 o al 1004 si  [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string License {
-            get {
-                return ResourceManager.GetString("License", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ListBullets_16x16 {

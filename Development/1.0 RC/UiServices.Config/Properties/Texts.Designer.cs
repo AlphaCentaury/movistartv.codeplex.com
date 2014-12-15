@@ -61,6 +61,45 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application not correctly installed.
+        /// </summary>
+        internal static string AppConfigRegistryCaption {
+            get {
+                return ResourceManager.GetString("AppConfigRegistryCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to find or open &apos;HKCU\{0}&apos;..
+        /// </summary>
+        internal static string AppConfigRegistryMissingKey {
+            get {
+                return ResourceManager.GetString("AppConfigRegistryMissingKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value &apos;{1}&apos; is missing under &apos;HKCU\{0}&apos;..
+        /// </summary>
+        internal static string AppConfigRegistryMissingValue {
+            get {
+                return ResourceManager.GetString("AppConfigRegistryMissingValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is a problem accessing application configuration from the Windows Registry:
+        ///{0}
+        ///
+        ///Please install the application using the official installer or repair the installation..
+        /// </summary>
+        internal static string AppConfigRegistryText {
+            get {
+                return ResourceManager.GetString("AppConfigRegistryText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to find the &apos;base&apos; folder at &apos;{0}&apos;..
         /// </summary>
         internal static string AppConfigValidationBasePath {

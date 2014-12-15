@@ -1,8 +1,10 @@
 ﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Microsoft.Win32;
 using Project.DvbIpTv.UiServices.Configuration.Cache;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
+using Project.DvbIpTv.UiServices.Configuration.Properties;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.ContentProvider;
 using System;
@@ -16,31 +18,32 @@ namespace Project.DvbIpTv.UiServices.Configuration
 {
     public class AppUiConfiguration
     {
+        public AppUiConfiguration()
+        {
+            Folders = new AppUiConfigurationFolders();
+        } // constructor
+
         public static AppUiConfiguration Current
         {
             get;
             private set;
         } // Current
 
-        public static InitializationResult Load(string configBasePath)
+        public static InitializationResult Load(string overrideBasePath)
         {
             AppUiConfiguration config;
             InitializationResult initResult;
 
             config = new AppUiConfiguration();
 
-            config.Folders = new AppUiConfigurationFolders();
-            config.Folders.Base = configBasePath;
+            initResult = config.LoadRegistrySettings(overrideBasePath);
+            if (initResult.IsError) return initResult;
 
             // Cultures
             config.Cultures = GetUiCultures();
 
             // Record tasks
             config.Folders.RecordTasks =  Path.Combine(config.Folders.Base, "RecordTasks");
-            if (!Directory.Exists(config.Folders.RecordTasks))
-            {
-                Directory.CreateDirectory(config.Folders.RecordTasks);
-            } // if
 
             // Cache
             config.Folders.Cache = Path.Combine(config.Folders.Base, "Cache");
@@ -71,6 +74,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
             if (!initResult.IsOk) return initResult;
 
             // Initialize managers and providers
+            if (!Directory.Exists(config.Folders.RecordTasks))
+            {
+                Directory.CreateDirectory(config.Folders.RecordTasks);
+            } // if
+
             config.Cache = new CacheManager(config.Folders.Cache);
 
             config.ProviderLogoMappings = new ProviderLogoMappings(
@@ -139,7 +147,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
             protected set;
         } // User
 
-        internal static IList<string> GetUiCultures()
+        protected static IList<string> GetUiCultures()
         {
             var culture = CultureInfo.CurrentUICulture;
             var tempList = new List<string>();
@@ -156,6 +164,62 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
             return cultureList.AsReadOnly();
         } // GetUiCultures
+
+        protected InitializationResult LoadRegistrySettings(string overrideBasePath)
+        {
+            var result = LoadRegistrySettingsInternal(overrideBasePath);
+            if (result != null)
+            {
+                return new InitializationResult()
+                {
+                    Caption = Texts.AppConfigRegistryCaption,
+                    Message = string.Format(Texts.AppConfigRegistryText, result)
+                };
+            }
+            else
+            {
+                return InitializationResult.Ok;
+            } // if-else
+        } // LoadRegistrySettings
+
+        private string LoadRegistrySettingsInternal(string overrideBasePath)
+        {
+            string fullKeyPath;
+
+            using (var hkcu = Registry.CurrentUser)
+            {
+                fullKeyPath = InvariantTexts.RegistryKey_Root;
+                using (var root = hkcu.OpenSubKey(InvariantTexts.RegistryKey_Root))
+                {
+                    if (root == null) return string.Format(Texts.AppConfigRegistryMissingKey, fullKeyPath);
+
+                    var isInstalled = root.GetValue(InvariantTexts.RegistryValue_Installed);
+                    if (isInstalled == null) return string.Format(Texts.AppConfigRegistryMissingValue, fullKeyPath, InvariantTexts.RegistryValue_Installed);
+
+                    fullKeyPath = InvariantTexts.RegistryKey_Root + "\\" + InvariantTexts.RegistryKey_Folders;
+                    using (var folders = root.OpenSubKey(InvariantTexts.RegistryKey_Folders))
+                    {
+                        if (folders == null) return string.Format(Texts.AppConfigRegistryMissingKey, fullKeyPath);
+
+                        var baseFolder = folders.GetValue(InvariantTexts.RegistryValue_Folders_Base);
+                        if (baseFolder == null) return string.Format(Texts.AppConfigRegistryMissingValue, fullKeyPath, InvariantTexts.RegistryValue_Folders_Base);
+
+                        Folders.Base = overrideBasePath ?? baseFolder as string;
+
+#if DEBUG
+                        var codeBase = System.Reflection.Assembly.GetEntryAssembly().CodeBase;
+                        var installFolder = Path.GetDirectoryName(codeBase);
+#else
+                        var installFolder = folders.GetValue(InvariantTexts.RegistryValue_Folders_Install);
+                        if (installFolder == null) return string.Format(Texts.AppConfigRegistryMissingValue, fullKeyPath, InvariantTexts.RegistryValue_Folders_Install);
+#endif
+                        Folders.Install = installFolder as string;
+                    } // using folders
+                } // using root
+            } // using hkcu
+
+            return null;
+        } // LoadRegistrySettingsInternal
 
         protected InitializationResult Validate()
         {

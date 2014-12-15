@@ -52,18 +52,6 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DvbIpTv-MovistarTV")]
-        public string UserDataPath {
-            get {
-                return ((string)(this["UserDataPath"]));
-            }
-            set {
-                this["UserDataPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string ForceUiCulture {
             get {
