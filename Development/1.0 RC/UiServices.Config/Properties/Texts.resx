@@ -232,7 +232,7 @@ Please verify the XML syntax of the file and correct the detected errors.</value
     <value>The value '{1}' is missing under 'HKCU\{0}'.</value>
   </data>
   <data name="AppConfigRegistryText" xml:space="preserve">
-    <value>There is a problem accessing application configuration from the Windows Registry:
+    <value>There is a problem accessing the application configuration from the Windows Registry:
 {0}
 
 Please install the application using the official installer or repair the installation.</value>

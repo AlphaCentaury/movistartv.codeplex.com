@@ -123,8 +123,16 @@
 {0}</value>
   </data>
   <data name="ConfigurationCreateOk" xml:space="preserve">
-    <value>Configuration file successfully created.
+    <value>Configuration file(s) successfully created.
 First-time configuration process is finished and the application is now ready to be used.</value>
+  </data>
+  <data name="ConfirmUserCancel" xml:space="preserve">
+    <value>Are you sure you want to cancel the configuration of the application?</value>
+  </data>
+  <data name="DownloadEmbInfo" xml:space="preserve">
+    <value>The Microsoft download page has multiple individual downloads. Make sure to select and install the following file:
+- 'ENU\x64\SQLServer2005_EMB.msi' if runnning 64bit Windows
+- 'ENU\x86\SQLServer2005_EMB.msi' in any other case</value>
   </data>
   <data name="DownloadUrlEmb" xml:space="preserve">
     <value>http://www.microsoft.com/en-us/download/details.aspx?id=20101</value>
@@ -143,6 +151,15 @@ Please verify the value of the 'ForceUICulture' program argument.
 No se ha podido cambiar el idioma de la aplicación.
 El identificador de idioma ("cultura") puede no ser válido o no ser reconocido por el sistema.
 Verifique el valor del argumento 'ForceUICulture' pasado al programa.</value>
+  </data>
+  <data name="FirewallException" xml:space="preserve">
+    <value>Unable to execute the firewall configuration program.</value>
+  </data>
+  <data name="FirewallOk" xml:space="preserve">
+    <value>The firewall configuration has been successfully modified.</value>
+  </data>
+  <data name="FirewallUserCancel" xml:space="preserve">
+    <value>Windows Firewall configuration change has ben cancelled.</value>
   </data>
   <data name="IsEmbInstalledException" xml:space="preserve">
     <value>Unable to determine if the Microsoft Exception Message Box component is installed.
@@ -181,8 +198,22 @@ Currently installed version is {1}.</value>
 
 {0}</value>
   </data>
+  <data name="IsVlcInstalledNotInstalled" xml:space="preserve">
+    <value>VLC executable file not found at '{0}'.</value>
+  </data>
   <data name="IsVlcInstalledOk" xml:space="preserve">
-    <value>Installation of the VLC player has been verified.</value>
+    <value>Installation of the VLC player (version {0}) and its library file (version {1}) has been verified.</value>
+  </data>
+  <data name="IsVlcInstalledVersion" xml:space="preserve">
+    <value>VLC player version {0} (or greater) is not installed on this machine.
+Currently installed version is {1}.</value>
+  </data>
+  <data name="IsVlcLibInstalledNotInstalled" xml:space="preserve">
+    <value>VLC library file not found at '{0}'.</value>
+  </data>
+  <data name="IsVlcLibInstalledVersion" xml:space="preserve">
+    <value>VLC library version {0} (or greater) is not installed on this machine.
+Currently installed version is {1}.</value>
   </data>
   <data name="OpenFileVlcFilter" xml:space="preserve">
     <value>VLC player|vlc.exe|Programs|*.exe</value>
@@ -196,16 +227,10 @@ Currently installed version is {1}.</value>
 {1}</value>
   </data>
   <data name="OverwriteXmlConfigFile" xml:space="preserve">
-    <value>The 'user-config.xml' file already exists at the selected location.
+    <value>The 'user-config.xml' file already exists.
 If you overwrite the file all custom configurations will be lost.
 
 Do you want to overwrite the existing file?</value>
-  </data>
-  <data name="SaveFileXmlFilter" xml:space="preserve">
-    <value>Configuration|user-config.xml</value>
-  </data>
-  <data name="SaveFileXmlTitle" xml:space="preserve">
-    <value>Select where to create the configuration file</value>
   </data>
   <data name="SaveLocationMoviesFolder" xml:space="preserve">
     <value>Movies</value>
@@ -224,5 +249,25 @@ Do you want to overwrite the existing file?</value>
   </data>
   <data name="TaskSchedulerFolderDvbIpTv" xml:space="preserve">
     <value>DVB-IPTV folder</value>
+  </data>
+  <data name="TestVlcInstallationException" xml:space="preserve">
+    <value>Unable to determine if the VLC player is properly installed.
+
+{0}</value>
+  </data>
+  <data name="TestVlcInstallationOk" xml:space="preserve">
+    <value>VLC player has been successfully launched.</value>
+  </data>
+  <data name="WizardResultAborted" xml:space="preserve">
+    <value>Can not perform the initial configuration of the application.
+
+The application is not properly configured and will not run.
+To properly configure the application at a later time, please run this wizard again.</value>
+  </data>
+  <data name="WizardResultUserCancel" xml:space="preserve">
+    <value>The first-time configuration of the application has been cancelled.
+
+The application is not properly configured and will not run.
+To properly configure the application at a later time, please run this wizard again.</value>
   </data>
 </root>

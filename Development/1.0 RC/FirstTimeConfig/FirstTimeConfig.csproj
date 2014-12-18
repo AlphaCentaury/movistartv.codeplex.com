@@ -17,7 +17,7 @@
     <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -37,6 +37,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\install.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -60,6 +63,12 @@
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration.cs" />
+    <Compile Include="FirewallForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirewallForm.Designer.cs">
+      <DependentUpon>FirewallForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Installation.cs" />
     <Compile Include="KnownFolders.cs" />
     <Compile Include="Program.cs" />
@@ -69,11 +78,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
+    <Compile Include="WindowsFirewall.cs" />
+    <Compile Include="WizardTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="ConfigForm.es.resx">
       <DependentUpon>ConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigForm.resx">
       <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirewallForm.es.resx">
+      <DependentUpon>FirewallForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirewallForm.resx">
+      <DependentUpon>FirewallForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -102,6 +121,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt" />
+    <Content Include="Resources\ActionBack_Medium_16.png" />
+    <Content Include="Resources\ActionForward_Medium_16.png" />
+    <None Include="Resources\Exclamation_48x48.png" />
+    <None Include="Resources\Firewall_48x48.png" />
+    <Content Include="Resources\Warning_48x48.png" />
+    <None Include="Resources\WizardEnd.png" />
+    <None Include="Resources\ActionRun_16x16.png" />
+    <None Include="Resources\ActionOk_16x16.png" />
+    <Content Include="Resources\Error_16x16.png" />
+    <None Include="Resources\Settings_16x616.png" />
+    <Content Include="Resources\firewall.ico" />
+    <Content Include="Resources\Shield_16x16.png" />
+    <Content Include="Resources\Shield_32x32.png" />
+    <Content Include="Resources\Success_48x48.png" />
+    <Content Include="Resources\Sucess_16x16.png" />
+    <None Include="Resources\ActionCancel_16x16.png" />
     <None Include="Resources\openfolderHS.png" />
     <None Include="Resources\AttachFileHS.png" />
     <None Include="Resources\ApproveReject_16x16.png" />
@@ -116,6 +151,17 @@
       <Project>{745a4961-d7a0-4a2e-bb58-849ed0690271}</Project>
       <Name>UiServices.Controls</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="NetFwTypeLib">
+      <Guid>{58FBCF7C-E7A9-467C-80B3-FC65E8FCCA08}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

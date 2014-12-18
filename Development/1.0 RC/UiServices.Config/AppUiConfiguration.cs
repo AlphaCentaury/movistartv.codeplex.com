@@ -93,6 +93,18 @@ namespace Project.DvbIpTv.UiServices.Configuration
             return InitializationResult.Ok;
         } // Load
 
+        public static AppUiConfiguration LoadRegistryAppConfiguration(out InitializationResult initializationResult)
+        {
+            AppUiConfiguration config;
+
+            config = new AppUiConfiguration();
+
+            initializationResult = config.LoadRegistrySettings(null);
+            if (initializationResult.IsError) return null;
+
+            return config;
+        } // LoadRegistryAppConfiguration
+
         public AppUiConfigurationFolders Folders
         {
             get;
@@ -167,19 +179,31 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
         protected InitializationResult LoadRegistrySettings(string overrideBasePath)
         {
-            var result = LoadRegistrySettingsInternal(overrideBasePath);
-            if (result != null)
+            try
+            {
+                var result = LoadRegistrySettingsInternal(overrideBasePath);
+                if (result != null)
+                {
+                    return new InitializationResult()
+                    {
+                        Caption = Texts.AppConfigRegistryCaption,
+                        Message = string.Format(Texts.AppConfigRegistryText, result)
+                    };
+                }
+                else
+                {
+                    return InitializationResult.Ok;
+                } // if-else
+            }
+            catch (Exception ex)
             {
                 return new InitializationResult()
                 {
                     Caption = Texts.AppConfigRegistryCaption,
-                    Message = string.Format(Texts.AppConfigRegistryText, result)
+                    Message = string.Format(Texts.AppConfigRegistryText, ex.Message),
+                    InnerException = ex
                 };
-            }
-            else
-            {
-                return InitializationResult.Ok;
-            } // if-else
+            } // try-catch
         } // LoadRegistrySettings
 
         private string LoadRegistrySettingsInternal(string overrideBasePath)
@@ -207,8 +231,9 @@ namespace Project.DvbIpTv.UiServices.Configuration
                         Folders.Base = overrideBasePath ?? baseFolder as string;
 
 #if DEBUG
-                        var codeBase = System.Reflection.Assembly.GetEntryAssembly().CodeBase;
-                        var installFolder = Path.GetDirectoryName(codeBase);
+                        //var location = System.Reflection.Assembly.GetEntryAssembly().Location;
+                        //var installFolder = Path.GetDirectoryName(location);
+                        string installFolder = null;
 #else
                         var installFolder = folders.GetValue(InvariantTexts.RegistryValue_Folders_Install);
                         if (installFolder == null) return string.Format(Texts.AppConfigRegistryMissingValue, fullKeyPath, InvariantTexts.RegistryValue_Folders_Install);

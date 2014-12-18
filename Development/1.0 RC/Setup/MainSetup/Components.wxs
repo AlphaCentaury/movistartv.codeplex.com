@@ -12,10 +12,6 @@
       </Component>
 
       <Component Id="ProgramStartMenuFolder" Guid="*" Directory="ProgramStartMenuFolder">
-        <RemoveFile Id="Purge_ProgramStartMenuFolder" Name="*.*" On="uninstall" />
-        <RemoveFolder Id="Remove_DvbIpTvStartMenuFolder" On="uninstall" Directory="DvbIpTvStartMenuFolder" />
-        <RemoveFolder Id="Remove_ProgramStartMenuFolder" On="uninstall" />
-        
         <RegistryKey Root='HKCU' Key='Software\movistartv.codeplex.com\DVBIPTV\v1.0' ForceDeleteOnUninstall='yes'>
           <RegistryValue Type='string' Name='Installed' Value='1' KeyPath='yes' />
           <RegistryKey Key='Folders'>
@@ -63,9 +59,15 @@
   </Fragment>
 
   <Fragment>
+    <Icon Id='FirstTimeConfig.ico' SourceFile='$(var.FirstTimeConfig.ProjectDir)\Resources\install.ico' />
     <ComponentGroup Id="FirstTimeConfigComponents" Directory="INSTALLFOLDER">
       <Component Id="FirstTimeConfig">
-        <File Id="FirstTimeConfig.exe" Source="$(var.FirstTimeConfig.TargetDir)FirstTimeConfig.exe" />
+        <File Id="FirstTimeConfig.exe" Source="$(var.FirstTimeConfig.TargetDir)FirstTimeConfig.exe" KeyPath="yes">
+          <Shortcut Id='FirstTimeConfig.exe.lnk' Directory='ToolsStartMenuFolder' Name='!(loc.FirstTimeConfig.exe.lnk)' Icon='FirstTimeConfig.ico' IconIndex='0' WorkingDirectory='INSTALLFOLDER' Advertise='yes' />
+        </File>
+      </Component>
+      <Component Id ="FirstTimeConfigFiles">
+        <File Id="Interop.NetFwTypeLib.dll" Source="$(var.FirstTimeConfig.TargetDir)Interop.NetFwTypeLib.dll" />
         <File Id="FirstTimeConfig.pdb" Source="$(var.FirstTimeConfig.TargetDir)FirstTimeConfig.pdb" />
       </Component>
     </ComponentGroup>

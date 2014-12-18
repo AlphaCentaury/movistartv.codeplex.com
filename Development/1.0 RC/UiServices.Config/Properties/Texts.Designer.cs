@@ -88,7 +88,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is a problem accessing application configuration from the Windows Registry:
+        ///   Looks up a localized string similar to There is a problem accessing the application configuration from the Windows Registry:
         ///{0}
         ///
         ///Please install the application using the official installer or repair the installation..

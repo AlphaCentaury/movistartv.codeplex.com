@@ -10,5 +10,7 @@
   <String Id="FileLicenseAgreement">License agreement</String>
   <String Id="DvbIpTvStartMenuFolder">DVB-IPTV decoder</String>
   <String Id="ProgramStartMenuFolder">Movistar TV v1.0 “Wolf 424”</String>
+  <String Id="ToolsStartMenuFolder">Tools</String>
   <String Id="ChannelList.exe.lnk">Channel list</String>
+  <String Id="FirstTimeConfig.exe.lnk">First-time configuration wizard</String>
 </WixLocalization>
