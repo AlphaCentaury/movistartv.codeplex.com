@@ -13,41 +13,83 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
     static class Program
     {
         private const string ForceUiCultureArgument = "/forceuiculture:";
+        private const string FirewallArgument = "/firewall";
+        private const string FirewallDecoderArgument = "/decoder:";
+        private const string FirewallVlcArgument = "/vlc:";
+
+        internal static bool RunFirewallConfiguration;
+        internal static string FirewallBinPath;
+        internal static string FirewallVlcPath;
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] arguments)
+        static int Main(string[] arguments)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ForceUiCulture(arguments);
+            ProcessArguments(arguments);
 
-            using (var dlg = new ConfigForm())
+            if (!RunFirewallConfiguration)
             {
-                dlg.ShowDialog();
-            } // using dlg
+                using (var dlg = new ConfigForm())
+                {
+                    dlg.ShowDialog();
+
+                    return (dlg.DialogResult == DialogResult.OK) ? 0 : -1;
+                } // using dlg
+            }
+            else
+            {
+                using (var dlg = new FirewallForm())
+                {
+                    dlg.ShowDialog();
+                    return (dlg.DialogResult == DialogResult.OK) ? 0 : (dlg.DialogResult == DialogResult.Cancel)? 1 : -1;
+                } // using dlg
+            } // if-else
         } // Main
 
-        static void ForceUiCulture(string[] arguments)
+        static void ProcessArguments(string[] arguments)
         {
             if ((arguments == null) || (arguments.Length == 0)) return;
 
             var culture = (string)null;
             foreach (var argument in arguments)
             {
-                if (!argument.ToLowerInvariant().StartsWith(ForceUiCultureArgument)) continue;
-                culture = argument.Substring(ForceUiCultureArgument.Length);
-                break;
+                var argumentLower = argument.ToLowerInvariant();
+
+                if (argumentLower.StartsWith(ForceUiCultureArgument))
+                {
+                    culture = argument.Substring(ForceUiCultureArgument.Length);
+                    continue;
+                } // if
+                
+                if (argumentLower.StartsWith(FirewallArgument))
+                {
+                    RunFirewallConfiguration = true;
+                    continue;
+                } // if
+
+                if (argumentLower.StartsWith(FirewallDecoderArgument))
+                {
+                    FirewallBinPath = argument.Substring(FirewallDecoderArgument.Length);
+                    continue;
+                } // if
+
+                if (argumentLower.StartsWith(FirewallVlcArgument))
+                {
+                    FirewallVlcPath = argument.Substring(FirewallVlcArgument.Length);
+                    continue;
+                } // if
             } // foreach
 
             if (culture != null)
             {
                 ForceUiCulture(culture);
             } // if
-        } // ForceUiCulture
+        } // ProcessArguments
 
         static void ForceUiCulture(string culture)
         {

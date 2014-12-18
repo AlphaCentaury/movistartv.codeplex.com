@@ -77,6 +77,14 @@ namespace Project.DvbIpTv.ChannelList
             } // if
         }  // ChannelListForm_Load
 
+        private void ChannelListForm_Shown(object sender, EventArgs e)
+        {
+            if (SelectedServiceProvider == null)
+            {
+                SafeCall(SelectProvider);
+            } // if
+        } // ChannelListForm_Shown
+
         private void ChannelListForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // can't close the form if a services scan is in progress; the user must manually cancel it first
@@ -150,7 +158,11 @@ namespace Project.DvbIpTv.ChannelList
         {
             // can't select a new provider if a services scan is in progress; the user must manually cancel it first
             if (IsScanActive()) return;
+            SelectProvider();
+        } // menuItemProviderSelect_Click
 
+        private void SelectProvider()
+        {
             using (var dialog = new SelectProviderDialog())
             {
                 dialog.SelectedServiceProvider = SelectedServiceProvider;
@@ -159,7 +171,7 @@ namespace Project.DvbIpTv.ChannelList
                 SelectedServiceProvider = dialog.SelectedServiceProvider;
                 ServiceProviderChanged();
             } // dialog
-        } // menuItemProviderSelect_Click
+        } // SelectProvider
 
         private void menuItemProviderDetails_Click_Implementation(object sender, EventArgs e)
         {

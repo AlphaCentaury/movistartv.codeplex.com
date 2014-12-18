@@ -72,12 +72,32 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configuration file successfully created.
+        ///   Looks up a localized string similar to Configuration file(s) successfully created.
         ///First-time configuration process is finished and the application is now ready to be used..
         /// </summary>
         internal static string ConfigurationCreateOk {
             get {
                 return ResourceManager.GetString("ConfigurationCreateOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to cancel the configuration of the application?.
+        /// </summary>
+        internal static string ConfirmUserCancel {
+            get {
+                return ResourceManager.GetString("ConfirmUserCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Microsoft download page has multiple individual downloads. Make sure to select and install the following file:
+        ///- &apos;ENU\x64\SQLServer2005_EMB.msi&apos; if runnning 64bit Windows
+        ///- &apos;ENU\x86\SQLServer2005_EMB.msi&apos; in any other case.
+        /// </summary>
+        internal static string DownloadEmbInfo {
+            get {
+                return ResourceManager.GetString("DownloadEmbInfo", resourceCulture);
             }
         }
         
@@ -120,6 +140,33 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         internal static string ExceptionForceUiCulture {
             get {
                 return ResourceManager.GetString("ExceptionForceUiCulture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to execute the firewall configuration program..
+        /// </summary>
+        internal static string FirewallException {
+            get {
+                return ResourceManager.GetString("FirewallException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The firewall configuration has been successfully modified..
+        /// </summary>
+        internal static string FirewallOk {
+            get {
+                return ResourceManager.GetString("FirewallOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Firewall configuration change has ben cancelled..
+        /// </summary>
+        internal static string FirewallUserCancel {
+            get {
+                return ResourceManager.GetString("FirewallUserCancel", resourceCulture);
             }
         }
         
@@ -221,11 +268,49 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Installation of the VLC player has been verified..
+        ///   Looks up a localized string similar to VLC executable file not found at &apos;{0}&apos;..
+        /// </summary>
+        internal static string IsVlcInstalledNotInstalled {
+            get {
+                return ResourceManager.GetString("IsVlcInstalledNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installation of the VLC player (version {0}) and its library file (version {1}) has been verified..
         /// </summary>
         internal static string IsVlcInstalledOk {
             get {
                 return ResourceManager.GetString("IsVlcInstalledOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VLC player version {0} (or greater) is not installed on this machine.
+        ///Currently installed version is {1}..
+        /// </summary>
+        internal static string IsVlcInstalledVersion {
+            get {
+                return ResourceManager.GetString("IsVlcInstalledVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VLC library file not found at &apos;{0}&apos;..
+        /// </summary>
+        internal static string IsVlcLibInstalledNotInstalled {
+            get {
+                return ResourceManager.GetString("IsVlcLibInstalledNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VLC library version {0} (or greater) is not installed on this machine.
+        ///Currently installed version is {1}..
+        /// </summary>
+        internal static string IsVlcLibInstalledVersion {
+            get {
+                return ResourceManager.GetString("IsVlcLibInstalledVersion", resourceCulture);
             }
         }
         
@@ -259,7 +344,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &apos;user-config.xml&apos; file already exists at the selected location.
+        ///   Looks up a localized string similar to The &apos;user-config.xml&apos; file already exists.
         ///If you overwrite the file all custom configurations will be lost.
         ///
         ///Do you want to overwrite the existing file?.
@@ -267,24 +352,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         internal static string OverwriteXmlConfigFile {
             get {
                 return ResourceManager.GetString("OverwriteXmlConfigFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configuration|user-config.xml.
-        /// </summary>
-        internal static string SaveFileXmlFilter {
-            get {
-                return ResourceManager.GetString("SaveFileXmlFilter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select where to create the configuration file.
-        /// </summary>
-        internal static string SaveFileXmlTitle {
-            get {
-                return ResourceManager.GetString("SaveFileXmlTitle", resourceCulture);
             }
         }
         
@@ -339,6 +406,50 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         internal static string TaskSchedulerFolderDvbIpTv {
             get {
                 return ResourceManager.GetString("TaskSchedulerFolderDvbIpTv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to determine if the VLC player is properly installed.
+        ///
+        ///{0}.
+        /// </summary>
+        internal static string TestVlcInstallationException {
+            get {
+                return ResourceManager.GetString("TestVlcInstallationException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VLC player has been successfully launched..
+        /// </summary>
+        internal static string TestVlcInstallationOk {
+            get {
+                return ResourceManager.GetString("TestVlcInstallationOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not perform the initial configuration of the application.
+        ///
+        ///The application is not properly configured and will not run.
+        ///To properly configure the application at a later time, please run this wizard again..
+        /// </summary>
+        internal static string WizardResultAborted {
+            get {
+                return ResourceManager.GetString("WizardResultAborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The first-time configuration of the application has been cancelled.
+        ///
+        ///The application is not properly configured and will not run.
+        ///To properly configure the application at a later time, please run this wizard again..
+        /// </summary>
+        internal static string WizardResultUserCancel {
+            get {
+                return ResourceManager.GetString("WizardResultUserCancel", resourceCulture);
             }
         }
     }

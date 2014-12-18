@@ -565,6 +565,17 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+        ///
+        ///This Software, either in binary or source code form, is licensed unde [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SolutionLicense {
+            get {
+                return ResourceManager.GetString("SolutionLicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to obtain the list of service providers.
         /// </summary>
         internal static string SPListUnableRefresh {

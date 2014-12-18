@@ -90,6 +90,11 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                     } // Record
                 }; // user
 
+                foreach (var location in user.Record.SaveLocations)
+                {
+                    Directory.CreateDirectory(location.Path);
+                } // foreach
+
                 user.Save(xmlConfigPath);
                 message = Properties.Texts.ConfigurationCreateOk;
                 return true;

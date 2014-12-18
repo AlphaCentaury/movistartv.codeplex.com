@@ -115,6 +115,51 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Folders.
+        /// </summary>
+        internal static string RegistryKey_Folders {
+            get {
+                return ResourceManager.GetString("RegistryKey_Folders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Software\movistartv.codeplex.com\DVBIPTV\v1.0.
+        /// </summary>
+        internal static string RegistryKey_Root {
+            get {
+                return ResourceManager.GetString("RegistryKey_Root", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base.
+        /// </summary>
+        internal static string RegistryValue_Folders_Base {
+            get {
+                return ResourceManager.GetString("RegistryValue_Folders_Base", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install.
+        /// </summary>
+        internal static string RegistryValue_Folders_Install {
+            get {
+                return ResourceManager.GetString("RegistryValue_Folders_Install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installed.
+        /// </summary>
+        internal static string RegistryValue_Installed {
+            get {
+                return ResourceManager.GetString("RegistryValue_Installed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;any&gt;.
         /// </summary>
         internal static string ServiceNameAny {

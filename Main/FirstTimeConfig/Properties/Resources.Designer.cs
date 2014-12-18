@@ -63,6 +63,56 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ActionBack_Medium_16 {
+            get {
+                object obj = ResourceManager.GetObject("ActionBack_Medium_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ActionCancel_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ActionCancel_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ActionForward_Medium_16 {
+            get {
+                object obj = ResourceManager.GetObject("ActionForward_Medium_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ActionOk_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ActionOk_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ActionRun_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("ActionRun_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ApproveReject_16x16 {
             get {
                 object obj = ResourceManager.GetObject("ApproveReject_16x16", resourceCulture);
@@ -77,6 +127,73 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
             get {
                 object obj = ResourceManager.GetObject("AttachFileHS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9.0.242.
+        /// </summary>
+        internal static string EmbComponentTargetVersion {
+            get {
+                return ResourceManager.GetString("EmbComponentTargetVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Error_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Error_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exclamation_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("Exclamation_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Firewall_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("Firewall_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon FirewallIcon {
+            get {
+                object obj = ResourceManager.GetObject("FirewallIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ChannelList.exe.
+        /// </summary>
+        internal static string FirewallProgramList {
+            get {
+                return ResourceManager.GetString("FirewallProgramList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DVB-IPTV v1.0 &apos;Wolf 424&apos;: {0}.
+        /// </summary>
+        internal static string FirewallRulePrefix {
+            get {
+                return ResourceManager.GetString("FirewallRulePrefix", resourceCulture);
             }
         }
         
@@ -96,6 +213,111 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         internal static System.Drawing.Bitmap openfolderHS {
             get {
                 object obj = ResourceManager.GetObject("openfolderHS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Settings_16x616 {
+            get {
+                object obj = ResourceManager.GetObject("Settings_16x616", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shield_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Shield_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Success_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("Success_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ChannelList.exe.
+        /// </summary>
+        internal static string SuccessExecuteProgram {
+            get {
+                return ResourceManager.GetString("SuccessExecuteProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sucess_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Sucess_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to VideoLAN\VLC\vlc.exe.
+        /// </summary>
+        internal static string VlcDefaultLocation {
+            get {
+                return ResourceManager.GetString("VlcDefaultLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2.1.5.
+        /// </summary>
+        internal static string VlcExeTargetVersion {
+            get {
+                return ResourceManager.GetString("VlcExeTargetVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to libvlc.dll.
+        /// </summary>
+        internal static string VlcLibFilename {
+            get {
+                return ResourceManager.GetString("VlcLibFilename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2.1.2.
+        /// </summary>
+        internal static string VlcLibTargetVersion {
+            get {
+                return ResourceManager.GetString("VlcLibTargetVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Warning_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("Warning_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WizardEnd {
+            get {
+                object obj = ResourceManager.GetObject("WizardEnd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

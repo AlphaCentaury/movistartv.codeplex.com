@@ -405,6 +405,7 @@ namespace Project.DvbIpTv.ChannelList
             this.Name = "ChannelListForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChannelListForm_FormClosing);
             this.Load += new System.EventHandler(this.ChannelListForm_Load);
+            this.Shown += new System.EventHandler(this.ChannelListForm_Shown);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).EndInit();

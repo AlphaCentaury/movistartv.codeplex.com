@@ -123,8 +123,16 @@
 {0}</value>
   </data>
   <data name="ConfigurationCreateOk" xml:space="preserve">
-    <value>El archivo de configuración se ha creado satisfactoriamente.
+    <value>Los archivos de configuración se ha creado satisfactoriamente.
 El proceso de configuración inicial ha finalizado y la aplicación ya está lista para poder utilizarse.</value>
+  </data>
+  <data name="ConfirmUserCancel" xml:space="preserve">
+    <value>¿Está seguro de que desea cancelar la configuración de la aplicación?</value>
+  </data>
+  <data name="DownloadEmbInfo" xml:space="preserve">
+    <value>La página de descargas de Microsoft ofrece múltiples descargas. Asegurese de seleccionar e instalar el siguiente archivo:
+- 'ESN\x64\SQLServer2005_EMB.msi' si se está ejecutando Windows de 64 bits
+- 'ESN\x86\SQLServer2005_EMB.msi' en cualquier otro caso</value>
   </data>
   <data name="DownloadUrlEmb" xml:space="preserve">
     <value>http://www.microsoft.com/es-es/download/details.aspx?id=20101</value>
@@ -143,6 +151,15 @@ Verifique el valor del argumento 'ForceUICulture' pasado al programa.
 Unable to change the application UI language.
 The language ("culture") id may not be valid or not recognized by the system.
 Please verify the value of the 'ForceUICulture' program argument.</value>
+  </data>
+  <data name="FirewallException" xml:space="preserve">
+    <value>Se ha producido un error al ejecutar el programa de configuración del cortafuegos.</value>
+  </data>
+  <data name="FirewallOk" xml:space="preserve">
+    <value>Se ha realizado correctamente la configuración del cortafuegos.</value>
+  </data>
+  <data name="FirewallUserCancel" xml:space="preserve">
+    <value>Se ha cancelado la modificación de la configuración del cortafuegos.</value>
   </data>
   <data name="IsEmbInstalledException" xml:space="preserve">
     <value>No ha sido posible determinar si el componente Microsoft Exception Message Box se enecuentra instalado.
@@ -176,8 +193,27 @@ La versión actualmente instalada es {1}.</value>
   <data name="IsNetInstalledOk" xml:space="preserve">
     <value>Se ha verificado la instalación de .NET Framework v3.5 Service Pack 1 (o superior).</value>
   </data>
+  <data name="IsVlcInstalledException" xml:space="preserve">
+    <value>No es posible determinar si el reproductor VLC está correctamente instalado.
+
+{0}</value>
+  </data>
+  <data name="IsVlcInstalledNotInstalled" xml:space="preserve">
+    <value>El archivo de programa de VLC no se ha localizado en '{0}'.</value>
+  </data>
   <data name="IsVlcInstalledOk" xml:space="preserve">
-    <value>Se ha verificado la instalación del reproductor VLC.</value>
+    <value>Se ha verificado la instalación del reproductor VLC (versión {0}) y de su archivo de librería (versión {1}).</value>
+  </data>
+  <data name="IsVlcInstalledVersion" xml:space="preserve">
+    <value>El reproductor VLC versión {0} (o superior) no está instalado en esta máquina.
+La versión actualmente instalada es {1}.</value>
+  </data>
+  <data name="IsVlcLibInstalledNotInstalled" xml:space="preserve">
+    <value>El archivo de la librería VLC no se ha localizado en '{0}'.</value>
+  </data>
+  <data name="IsVlcLibInstalledVersion" xml:space="preserve">
+    <value>La librería VLC versión {0} (o superior) no está instalado en esta máquina.
+La versión actualmente instalada es {1}.</value>
   </data>
   <data name="OpenFileVlcFilter" xml:space="preserve">
     <value>Reproductor VLC|vlc.exe|Programas|*.exe</value>
@@ -190,16 +226,10 @@ La versión actualmente instalada es {1}.</value>
 {1}</value>
   </data>
   <data name="OverwriteXmlConfigFile" xml:space="preserve">
-    <value>El archivo 'user-config.xml' ya existe en la ubicación indicada.
+    <value>El archivo 'user-config.xml' ya existe.
 Si sobreescribe el archivo se perderá cualquier configuración personalizada.
 
 ¿Desea sobreescribir el archivo?</value>
-  </data>
-  <data name="SaveFileXmlFilter" xml:space="preserve">
-    <value>Configuración|user-config.xml</value>
-  </data>
-  <data name="SaveFileXmlTitle" xml:space="preserve">
-    <value>Seleccione dónde crear el archivo de configuración</value>
   </data>
   <data name="SaveLocationMoviesFolder" xml:space="preserve">
     <value>Películas</value>
@@ -218,5 +248,25 @@ Si sobreescribe el archivo se perderá cualquier configuración personalizada.
   </data>
   <data name="TaskSchedulerFolderDvbIpTv" xml:space="preserve">
     <value>Carpeta DVB-IPTV</value>
+  </data>
+  <data name="TestVlcInstallationException" xml:space="preserve">
+    <value>No es posible determinar si el reproductor VLC está correctamente instalado.
+
+{0}</value>
+  </data>
+  <data name="TestVlcInstallationOk" xml:space="preserve">
+    <value>Se ha abierto correctamente el reproductor VLC.</value>
+  </data>
+  <data name="WizardResultAborted" xml:space="preserve">
+    <value>No es posible realizar la configuración inicial de la aplicación.
+
+La aplicación no está configurada adecuadamente y no se podrá ejecutar.
+Para configurar adecuadamente la aplicación mas tarde, ejecute el asistente de nuevo.</value>
+  </data>
+  <data name="WizardResultUserCancel" xml:space="preserve">
+    <value>Se ha cancelado la configuración inicial de la aplicación.
+
+La aplicación no está configurada adecuadamente y no se podrá ejecutar.
+Para configurar adecuadamente la aplicación mas tarde, ejecute el asistente de nuevo.</value>
   </data>
 </root>

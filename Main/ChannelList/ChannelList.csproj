@@ -92,6 +92,11 @@
       <DependentUpon>ChannelListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MyApplicationContext.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RecordChannelDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,11 +124,6 @@
     </Compile>
     <Compile Include="MulticastScannerOptionsDialog.Designer.cs">
       <DependentUpon>MulticastScannerOptionsDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SelectProviderDialog.cs">
       <SubType>Form</SubType>
@@ -207,7 +207,6 @@
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="license.rtf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -230,11 +229,15 @@
     <None Include="Resources\Settings_16x616.png" />
     <None Include="Resources\RightArrowShort_Green_16x16.png" />
     <None Include="Resources\Record_16x16.png" />
-    <Content Include="license.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\Help_16x16.png" />
     <None Include="Resources\ActionCancel_16x16.png" />
+    <Content Include="..\solution-license.txt">
+      <Link>Resources\solution-license.txt</Link>
+    </Content>
+    <Content Include="..\solution-license_es.txt">
+      <Link>Resources\solution-license_es.txt</Link>
+    </Content>
+    <Content Include="license.txt" />
     <Content Include="Resources\ActionOk_16x16.png" />
     <None Include="Resources\ActionRun_16x16.png" />
     <Content Include="Resources\Close_16x16.png" />
