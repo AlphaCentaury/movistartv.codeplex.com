@@ -78,6 +78,7 @@
       <Mapping serviceName="777" logo="syfy" />
       <Mapping serviceName="778" logo="baby_tv" />
       <Mapping serviceName="779" logo="unitel_classica" />
+      <Mapping serviceName="821" logo="movistar_generico" remarks="Series CU" />
       <Mapping serviceName="844" logo="13tv" />
       <Mapping serviceName="845" logo="fox_news" />
       <Mapping serviceName="846" logo="aljazeera" />
@@ -89,12 +90,14 @@
       <Mapping serviceName="861" logo="tvrecord" />
       <Mapping serviceName="862" logo="telefe" />
       <Mapping serviceName="863" logo="tvcaracol" />
+      <Mapping serviceName="864" logo="movistar_generico" remarks="Deportes CU" />
       <Mapping serviceName="865" logo="tvcolombia" />
       <Mapping serviceName="870" logo="cubavision" />
       <Mapping serviceName="871" logo="tvazteca" />
       <Mapping serviceName="872" logo="estrellas" />
       <Mapping serviceName="874" logo="phoenix-cne" />
       <Mapping serviceName="875" logo="infonews" />
+      <Mapping serviceName="877" logo="movistar_generico" remarks="Generalista CU" />
       <Mapping serviceName="884" logo="energy" />
       <Mapping serviceName="886" logo="ltc" />
       <Mapping serviceName="891" logo="telesur" />
@@ -113,19 +116,26 @@
       <Mapping serviceName="999" logo="hd_fox" />
       <Mapping serviceName="1019" logo="panda" />
       <Mapping serviceName="1039" logo="sundance" />
-      <Mapping serviceName="1040" logo="canal-del-mes" />
+      <Mapping serviceName="1040" logo="movistar_series" />
       <Mapping serviceName="1061" logo="cplus_ligacampeones" />
+      <Mapping serviceName="1063" logo="cplus_liga" remarks="C+ Liga Multi" />
       <Mapping serviceName="1081" logo="cplus_1" />
       <Mapping serviceName="1214" logo="hd_movistar_generico" />
       <Mapping serviceName="1221" logo="paramountchannel" />
       <Mapping serviceName="1243" logo="hd_cplus_ligacampeones" />
+      <Mapping serviceName="1281" logo="cplus_liga_bar" />
       <Mapping serviceName="1283" logo="hd_movistar_futbol" />
       <Mapping serviceName="1284" logo="hd_cplus_1" />
       <Mapping serviceName="1343" logo="gol_2_internacional" />
       <Mapping serviceName="1363" logo="hd_movistar_generico" />
+      <Mapping serviceName="1403" logo="cplus_ligacampeones_bar" />
+      <Mapping serviceName="1504" logo="cplus_1_bar" />
       <Mapping serviceName="1563" logo="natgeo_wild" />
       <Mapping serviceName="1597" logo="cplus_ligacampeones" />
       <Mapping serviceName="1603" logo="cplus_liga" />
+      <Mapping serviceName="1604" logo="cplus_1_bar" />
+      <Mapping serviceName="1605" logo="cplus_liga_bar" />
+      <Mapping serviceName="1606" logo="cplus_ligacampeones_bar" />
       <Mapping serviceName="1607" logo="hd_fox" />
       <Mapping serviceName="1608" logo="hd_axn" />
       <Mapping serviceName="1609" logo="hd_tnt" />
@@ -216,7 +226,14 @@
       <Mapping serviceName="2261" logo="hd_movistar_motogp" />
       <Mapping serviceName="2267" logo="movistar_futbol" />
       <Mapping serviceName="2268" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2269" logo="autonomico_vasco_sat" />
+      <Mapping serviceName="2271" logo="autonomico_cataluna_sat" />
+      <Mapping serviceName="2273" logo="autonomico_galicia_europa" />
+      <Mapping serviceName="2275" logo="autonomico_andalucia_sat" />
+      <Mapping serviceName="2277" logo="movistar_generico" remarks="Canal Distribuidores" />
       <Mapping serviceName="2278" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2279" logo="mezzo" />
+      <Mapping serviceName="2280" logo="hd_mezzo" />
       <Mapping serviceName="2281" logo="movistar_futbol" />
       <Mapping serviceName="2282" logo="hd_movistar_futbol" />
       <Mapping serviceName="2283" logo="movistar_futbol" />
@@ -233,13 +250,60 @@
       <Mapping serviceName="2306" logo="hd_movistar_generico" />
       <Mapping serviceName="2307" logo="hd_movistar_generico" />
       <Mapping serviceName="2343" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2383" logo="hd_movistar_series" />
+      <Mapping serviceName="2423" logo="hd_cplus_1_bar" />
+      <Mapping serviceName="2443" logo="hd_cplus_1_bar" />
+      <Mapping serviceName="2463" logo="orbe21" />
       <Mapping serviceName="2464" logo="hd_movistar_generico" />
+      <Mapping serviceName="2465" logo="hd_cplus_1" />
       <Mapping serviceName="2466" logo="movistar_generico" />
       <Mapping serviceName="2467" logo="hd_movistar_generico" />
+      <Mapping serviceName="2483" logo="cplus_1" />
+      <Mapping serviceName="2503" logo="movistar_generico" remarks="Canal Invitado" />
+    </Domain>
+    <Domain name="dem_1.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="56" logo="autonomico_cataluna" />
+      <Mapping serviceName="57" logo="autonomico_cataluna_2" />
+      <Mapping serviceName="930" logo="autonomico_cataluna_8tv" />
+    </Domain>
+    <Domain name="dem_4.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="981" logo="autonomico_castilla-leon" />
+    </Domain>
+    <Domain name="dem_10.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="677" logo="autonomico_baleares" />
+    </Domain>
+    <Domain name="dem_12.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="782" logo="autonomico_murcia" />
+    </Domain>
+    <Domain name="dem_13.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="843" logo="autonomico_asturias" />
+    </Domain>
+    <Domain name="dem_15.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="437" logo="autonomico_andalucia" />
+      <Mapping serviceName="438" logo="autonomico_andalucia_2" />
     </Domain>
     <Domain name="dem_19.imagenio.es" redirectDomain="imagenio.es">
       <Mapping serviceName="58" logo="autonomico_madrid" />
       <Mapping serviceName="59" logo="autonomico_madrid_2" />
+    </Domain>
+    <Domain name="dem_24.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="477" logo="autonomico_galicia" />
+    </Domain>
+    <Domain name="dem_32.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="899" logo="autonomico_extremadura" />
+    </Domain>
+    <Domain name="dem_34.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="780" logo="autonomico_aragon" />
+    </Domain>
+    <Domain name="dem_36.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="297" logo="autonomico_vasco" />
+      <Mapping serviceName="298" logo="autonomico_vasco_2" />
+    </Domain>
+    <Domain name="dem_37.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="497" logo="autonomico_canarias" />
+    </Domain>
+    <Domain name="dem_38.imagenio.es" redirectDomain="imagenio.es">
+      <Mapping serviceName="539" logo="autonomico_castilla-mancha" />
     </Domain>
   </Package>
 </Logos-Services>
