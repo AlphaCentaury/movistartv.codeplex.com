@@ -12,7 +12,7 @@
       </Component>
 
       <Component Id="ProgramStartMenuFolder" Guid="*" Directory="ProgramStartMenuFolder">
-        <RegistryKey Root='HKCU' Key='Software\movistartv.codeplex.com\DVBIPTV\v1.0' ForceDeleteOnUninstall='yes'>
+        <RegistryKey Root='HKCU' Key='Software\movistartv.codeplex.com\DVBIPTV\v1.1' ForceDeleteOnUninstall='yes'>
           <RegistryValue Type='string' Name='Installed' Value='1' KeyPath='yes' />
           <RegistryKey Key='Folders'>
             <RegistryValue Type='string' Name='Base' Value='[BaseFolder]' />

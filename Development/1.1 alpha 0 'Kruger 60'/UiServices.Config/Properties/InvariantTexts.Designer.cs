@@ -124,7 +124,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Software\movistartv.codeplex.com\DVBIPTV\v1.0.
+        ///   Looks up a localized string similar to Software\movistartv.codeplex.com\DVBIPTV\v1.1.
         /// </summary>
         internal static string RegistryKey_Root {
             get {

@@ -1,3 +1,5 @@
+Movistar TV DVB-IPTV decoder version 1.1 Alpha 0 “Kruger 60”
+
 NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
 
 This Software, either in binary or source code form, is licensed under the terms of the Microsoft Reciprocal License (Ms-RL) except when noted in "EXCEPTIONS".

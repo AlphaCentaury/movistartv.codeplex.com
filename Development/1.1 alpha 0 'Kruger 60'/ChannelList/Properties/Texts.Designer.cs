@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”).
+        ///   Looks up a localized string similar to Movistar TV channel/services list - DVB-IPTV (1.1 Alpha 0 “Kruger 60”).
         /// </summary>
         internal static string AppCaption {
             get {
@@ -79,7 +79,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stable (release candidate).
+        ///   Looks up a localized string similar to Alpha (experimental).
         /// </summary>
         internal static string AppState {
             get {
@@ -88,7 +88,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.0 RC “Wolf 424”.
+        ///   Looks up a localized string similar to 1.1 Alpha 0 “Kruger 60”.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -565,9 +565,11 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+        ///   Looks up a localized string similar to Movistar TV DVB-IPTV decoder version 1.1 Alpha 0 “Kruger 60”
         ///
-        ///This Software, either in binary or source code form, is licensed unde [rest of string was truncated]&quot;;.
+        ///NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+        ///
+        ///This  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SolutionLicense {
             get {
