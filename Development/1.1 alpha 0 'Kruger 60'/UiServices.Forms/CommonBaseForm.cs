@@ -13,15 +13,35 @@ namespace Project.DvbIpTv.UiServices.Forms
     {
         #region Helper methods
 
+        public event EventHandler<CommonBaseFormExceptionThrownEventArgs> ExceptionThrown;
+
+        protected void HandleException(Exception ex)
+        {
+            OnExceptionThrown(this, new CommonBaseFormExceptionThrownEventArgs(ex));
+        } // HandleException
+
+        protected void HandleException(string message, Exception ex)
+        {
+            OnExceptionThrown(this, new CommonBaseFormExceptionThrownEventArgs(message, ex));
+        } // HandleException
+
         /// <summary>
         /// Handles a caught exception, by displaying a (rather ugly) MessageBox. Descendants are encouraged to provide their own implementation.
         /// </summary>
-        /// <param name="ex">Caught exception</param>
+        /// <param name="e">Caught exception information</param>
         /// <remarks>Descendants who override this method should not call base.HandleException</remarks>
-        protected virtual void HandleException(Exception ex)
+        protected virtual void OnExceptionThrown(object sender, CommonBaseFormExceptionThrownEventArgs e)
         {
-            MessageBox.Show(this, Properties.Texts.UncaughtExceptionCaption, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-        } // HandleException
+            if (ExceptionThrown != null)
+            {
+                ExceptionThrown(this, e);
+            }
+            else
+            {
+                var boxMessage = (e.Message == null) ? e.Exception.Message : e.Message + "\r\n" + e.Exception.Message;
+                MessageBox.Show(this, Properties.Texts.UncaughtExceptionCaption, boxMessage, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            } // if-else
+        } // OnExceptionThrown
 
         protected void SafeDispose(IDisposable disposable)
         {

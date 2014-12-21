@@ -2,6 +2,7 @@
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Discovery;
+using Project.DvbIpTv.UiServices.DvbStpClient;
 using Project.DvbIpTv.UiServices.Forms;
 using System;
 using System.Collections.Generic;
@@ -26,10 +27,10 @@ namespace Project.DvbIpTv.ChannelList
 
         #region CommonBaseForm implementation
 
-        protected override void HandleException(Exception ex)
+        protected override void OnExceptionThrown(object sender, CommonBaseFormExceptionThrownEventArgs e)
         {
-            MyApplication.HandleException(this, ex);
-        } // HandleException
+            MyApplication.HandleException(sender as IWin32Window, e.Message, e.Exception);
+        } // OnExceptionThrown
 
         #endregion
 
@@ -152,6 +153,7 @@ namespace Project.DvbIpTv.ChannelList
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.SPListUnableRefresh,
+                        HandleException = MyApplication.HandleException
                     };
                     download.ShowDialog(this);
                     if (!download.IsOk) return false;
@@ -159,7 +161,7 @@ namespace Project.DvbIpTv.ChannelList
                     discovery = download.Response.DeserializedPayloadData as ServiceProviderDiscoveryXml;
                     AppUiConfiguration.Current.Cache.SaveXml("ProviderDiscovery", baseIpAddress, download.Response.Version, discovery);
                 } // if
-                
+
                 ProvidersDiscovery = new UiProviderDiscovery(discovery);
                 FillServiceProviderList();
 
@@ -207,7 +209,7 @@ namespace Project.DvbIpTv.ChannelList
             listItems = new ListViewItem[ProvidersDiscovery.Providers.Count()];
             index = 0;
             selectedItem = null;
-            
+
             foreach (var provider in ProvidersDiscovery.Providers)
             {
                 var item = new ListViewItem(provider.DisplayName);
@@ -219,7 +221,7 @@ namespace Project.DvbIpTv.ChannelList
                 {
                     selectedItem = item;
                 } // if
-                
+
                 listItems[index++] = item;
             } // foreach
             listViewServiceProviders.Items.AddRange(listItems);

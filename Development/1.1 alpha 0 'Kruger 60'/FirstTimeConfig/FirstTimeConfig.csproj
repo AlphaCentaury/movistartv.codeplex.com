@@ -143,6 +143,10 @@
     <None Include="Resources\install.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Services.Record.Serialization\Services.Record.Serialization.csproj">
+      <Project>{074c14ed-c574-46d2-b9dc-c1b5f65d9a69}</Project>
+      <Name>Services.Record.Serialization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UiServices.Config\UiServices.Config.csproj">
       <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
       <Name>UiServices.Config</Name>

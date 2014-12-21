@@ -63,7 +63,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SerializationTexts.resx</DependentUpon>
     </Compile>
-    <Compile Include="Serialization\RecordRecorder.cs" />
     <Compile Include="UnsafeNativeMethods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,23 +71,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Serialization\RecordAction.cs" />
-    <Compile Include="Serialization\RecordAdvancedSettings.cs" />
-    <Compile Include="Serialization\RecordChannel.cs" />
-    <Compile Include="Serialization\RecordDaily.cs" />
-    <Compile Include="Serialization\RecordDescription.cs" />
-    <Compile Include="Serialization\RecordDuration.cs" />
-    <Compile Include="Serialization\RecordMonthly.cs" />
-    <Compile Include="Serialization\RecordMultipleInstances.cs" />
-    <Compile Include="Serialization\RecordOneTime.cs" />
-    <Compile Include="Serialization\RecordRightNow.cs" />
-    <Compile Include="Serialization\RecordSchedule.cs" />
-    <Compile Include="Serialization\RecordScheduleKind.cs" />
-    <Compile Include="Serialization\RecordScheduleTime.cs" />
-    <Compile Include="Serialization\RecordTask.cs" />
-    <Compile Include="Serialization\RecordWeekDays.cs" />
-    <Compile Include="Serialization\RecordWeekly.cs" />
-    <Compile Include="Serialization\RecordYearMonths.cs" />
     <Compile Include="Properties\Texts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +98,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Services.Record.Serialization\Services.Record.Serialization.csproj">
+      <Project>{074c14ed-c574-46d2-b9dc-c1b5f65d9a69}</Project>
+      <Name>Services.Record.Serialization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

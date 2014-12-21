@@ -2,12 +2,15 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using DvbIpTypes.Schema2006;
+using Project.DvbIpTv.ChannelList.Properties;
 using Project.DvbIpTv.DvbStp.Client;
-using Project.DvbIpTv.RecorderLauncher.Serialization;
+using Project.DvbIpTv.Services.Record;
+using Project.DvbIpTv.Services.Record.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
+using Project.DvbIpTv.UiServices.DvbStpClient;
 using Project.DvbIpTv.UiServices.Forms;
 using Project.DvbIpTv.UiServices.Forms.Startup;
 using System;
@@ -60,9 +63,9 @@ namespace Project.DvbIpTv.ChannelList
 
         #region CommonBaseForm implementation
 
-        protected override void HandleException(Exception ex)
+        protected override void OnExceptionThrown(object sender, CommonBaseFormExceptionThrownEventArgs e)
         {
-            MyApplication.HandleException(this, ex);
+            MyApplication.HandleException(sender as IWin32Window, e.Message, e.Exception);
         } // HandleException
 
         #endregion
@@ -132,6 +135,14 @@ namespace Project.DvbIpTv.ChannelList
         {
             using (var box = new AboutBox())
             {
+                box.ExceptionThrown += OnExceptionThrown;
+                box.ApplicationData = new AboutBoxApplicationData()
+                {
+                    Name = Texts.AppName,
+                    Version  = Texts.AppVersion,
+                    Status = Texts.AppStatus,
+                    LicenseText = Texts.SolutionLicense
+                };
                 box.ShowDialog(this);
             } // using box
         } // menuItemDvbAbout_Click_Implementation
@@ -325,13 +336,16 @@ namespace Project.DvbIpTv.ChannelList
                     break;
             } // switch
 
-            MulticastScanner = new MulticastScannerDialog();
+            MulticastScanner = new MulticastScannerDialog()
+            {
+                Timeout = timeout,
+                DeadAction = action,
+                BroadcastServices = whatList,
+            };
             MulticastScanner.ChannelScanResult += MulticastScanner_ChannelScanResult;
             MulticastScanner.Disposed += MulticastScanner_Disposed;
             MulticastScanner.ScanCompleted += MulticastScanner_ScanCompleted;
-            MulticastScanner.Timeout = timeout;
-            MulticastScanner.DeadAction = action;
-            MulticastScanner.BroadcastServices = whatList;
+            MulticastScanner.ExceptionThrown += OnExceptionThrown;
             MulticastScanner.Show(this);
         }  // menuItemChannelVerify_Click_Implementation
 
@@ -415,6 +429,7 @@ namespace Project.DvbIpTv.ChannelList
 
             using (var dlg = new RecordChannelDialog())
             {
+                dlg.ExceptionThrown += OnExceptionThrown;
                 dlg.Task = RecordTask.CreateWithDefaultValues(new RecordChannel()
                     {
                         LogicalNumber = "---",
@@ -430,9 +445,16 @@ namespace Project.DvbIpTv.ChannelList
                 if (dlg.DialogResult != DialogResult.OK) return;
             } // using dlg
 
-            RecordHelper helper = new RecordHelper();
-            helper.Record(this, task);
+            var scheduler = new Scheduler(ExceptionHandler,
+                AppUiConfiguration.Current.Folders.RecordTasks,
+                MyApplication.RecorderLauncherPath);
+            scheduler.CreateTask(task);
         } // buttonRecordChannel_Click
+
+        private void ExceptionHandler(string message, Exception ex)
+        {
+            MyApplication.HandleException(this, message, ex);
+        } // ExceptionHandler
 
         #endregion
 
@@ -525,6 +547,7 @@ namespace Project.DvbIpTv.ChannelList
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.BroadcastListUnableRefresh,
+                        HandleException = MyApplication.HandleException
                     };
                     download.ShowDialog(this);
                     if (!download.IsOk) return false;

@@ -114,6 +114,11 @@
     <Compile Include="SelectFolderDialog.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Properties\SharedResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SharedResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="TimeSpanUpDown.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,21 +176,27 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SharedResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SharedResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="TimeSpanUpDown.resx">
       <DependentUpon>TimeSpanUpDown.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\IpTvRecorderLauncher\IpTvRecorderLauncher.csproj">
-      <Project>{dda7264e-c003-4e3a-b657-27ee2543f101}</Project>
-      <Name>IpTvRecorderLauncher</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="License.txt" />
+    <None Include="Resources\ActionRun_16x16.png" />
+    <None Include="Resources\ActionClose_16x16.png" />
+    <None Include="Resources\ActionCancel_16x16.png" />
+    <None Include="Resources\ActionOk_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Services.Record.Serialization\Services.Record.Serialization.csproj">
+      <Project>{074c14ed-c574-46d2-b9dc-c1b5f65d9a69}</Project>
+      <Name>Services.Record.Serialization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

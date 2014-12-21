@@ -47,9 +47,39 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>AssemblySolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AboutBoxApplicationData.cs" />
+    <Compile Include="Properties\MulticastScanner.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MulticastScanner.resx</DependentUpon>
+    </Compile>
+    <Compile Include="MulticastScannerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MulticastScannerDialog.Designer.cs">
+      <DependentUpon>MulticastScannerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MulticastScannerOptionsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MulticastScannerOptionsDialog.Designer.cs">
+      <DependentUpon>MulticastScannerOptionsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AboutBox.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AboutBox.resx</DependentUpon>
+    </Compile>
     <Compile Include="CommonBaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CommonBaseFormExceptionThrownEventArgs.cs" />
     <Compile Include="PropertiesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,10 +92,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\SharedResources.Designer.cs">
+    <Compile Include="RecordChannelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordChannelDialog.Designer.cs">
+      <DependentUpon>RecordChannelDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Record.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SharedResources.resx</DependentUpon>
+      <DependentUpon>Record.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup\ISplashScreenAwareForm.cs" />
     <Compile Include="Startup\SplashApplicationContext.cs" />
@@ -82,6 +118,36 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBox.es.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\MulticastScanner.es.resx" />
+    <EmbeddedResource Include="Properties\MulticastScanner.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MulticastScanner.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MulticastScannerDialog.es.resx">
+      <DependentUpon>MulticastScannerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MulticastScannerDialog.resx">
+      <DependentUpon>MulticastScannerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MulticastScannerOptionsDialog.es.resx">
+      <DependentUpon>MulticastScannerOptionsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MulticastScannerOptionsDialog.resx">
+      <DependentUpon>MulticastScannerOptionsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\AboutBox.es.resx" />
+    <EmbeddedResource Include="Properties\AboutBox.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AboutBox.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PropertiesDialog.es.resx">
       <DependentUpon>PropertiesDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,10 +159,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\SharedResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>SharedResources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="RecordChannelDialog.es.resx">
+      <DependentUpon>RecordChannelDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecordChannelDialog.resx">
+      <DependentUpon>RecordChannelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Record.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Record.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Record.es.resx" />
     <EmbeddedResource Include="Startup\SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,15 +184,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt" />
-    <None Include="Resources\ActionClose_16x16.png" />
-    <None Include="Resources\ActionRun_16x16.png" />
-    <None Include="Resources\ActionOk_16x16.png" />
-    <None Include="Resources\ActionCancel_16x16.png" />
+    <None Include="Resources\128-scan-tv.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DvbIpTypes\DvbIpTypes.csproj">
+      <Project>{5b7c318b-372f-4265-8337-125e4a098532}</Project>
+      <Name>DvbIpTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services.Record.Serialization\Services.Record.Serialization.csproj">
+      <Project>{074c14ed-c574-46d2-b9dc-c1b5f65d9a69}</Project>
+      <Name>Services.Record.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UiServices.Config\UiServices.Config.csproj">
+      <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
+      <Name>UiServices.Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UiServices.Controls\UiServices.Controls.csproj">
       <Project>{745a4961-d7a0-4a2e-bb58-849ed0690271}</Project>
       <Name>UiServices.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UiServices.Discovery\UiServices.Discovery.csproj">
+      <Project>{7e5e21b9-4bd6-4fb3-9055-9b09cc479c6c}</Project>
+      <Name>UiServices.Discovery</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

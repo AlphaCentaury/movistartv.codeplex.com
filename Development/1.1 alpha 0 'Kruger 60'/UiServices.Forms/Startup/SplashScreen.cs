@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
         public SplashScreen()
         {
             InitializeComponent();
+            this.Text = Path.GetFileName(Application.ExecutablePath);
         }  // constructor
     } // class SplashScreen
 } // namespace
