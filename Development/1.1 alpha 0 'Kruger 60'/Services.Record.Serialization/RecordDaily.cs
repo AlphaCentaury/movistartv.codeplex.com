@@ -41,11 +41,11 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
             if (RecurEveryDays > 1)
             {
-                format = Properties.SerializationTexts.VerbalizeRecordDaily;
+                format = Properties.Texts.VerbalizeRecordDaily;
             }
             else
             {
-                format = Properties.SerializationTexts.VerbalizeRecordDailyEveryday;
+                format = Properties.Texts.VerbalizeRecordDailyEveryday;
             } // if-else
             builder.AppendFormat(format, RecurEveryDays, StartDate, SafetyMarginTimeSpan.TotalMinutes);
             VerbalizeStartExpiryDate(pastTime, builder);

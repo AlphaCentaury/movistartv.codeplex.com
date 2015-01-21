@@ -91,7 +91,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             // buttonRequestCancel
             // 
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.ActionCancel_16x16;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
             resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;

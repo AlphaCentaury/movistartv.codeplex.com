@@ -62,6 +62,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.ExceptionMessageBox.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.2.2.26203, Culture=neutral, PublicKeyToken=0d013ddd5178a2ae, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Third-party\TaskScheduler\2.2.2\v2.0\Microsoft.Win32.TaskScheduler.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -109,6 +113,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChannelListForm.es-ES.resx">
+      <DependentUpon>ChannelListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChannelListForm.es.resx">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +162,7 @@
     <None Include="Resources\128-scan-tv.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\WebBrowser_16x16.png" />
     <None Include="Resources\RefreshBlue_16x16.png" />
     <None Include="Resources\Properties_16x16.png" />
     <None Include="Resources\Settings_16x616.png" />
@@ -176,6 +184,8 @@
     <None Include="Resources\Error_24x24.png" />
     <None Include="Resources\Exception_24x24.png" />
     <None Include="Resources\Info_24x24.png" />
+    <None Include="Resources\DownloadWebSettings_16x16.png" />
+    <None Include="Resources\DownloadWeb_16x16.png" />
     <Content Include="Resources\IPTV.ico" />
     <None Include="Resources\Splash.png" />
     <None Include="Resources\SortAZ_16x16.png" />
@@ -241,6 +251,10 @@
     <ProjectReference Include="..\UiServices.Forms\UiServices.Forms.csproj">
       <Project>{90f750b3-64db-493f-96a6-e68de5ea60a1}</Project>
       <Name>UiServices.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UiServices.Record\UiServices.Record.csproj">
+      <Project>{971b720e-2ae8-4ea4-b5ce-7a1af11c3743}</Project>
+      <Name>UiServices.Record</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

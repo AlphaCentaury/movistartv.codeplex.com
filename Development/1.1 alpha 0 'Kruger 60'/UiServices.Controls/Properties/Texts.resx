@@ -117,43 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="RecordingTimeDateTimeSpanMaxValue" xml:space="preserve">
-    <value>Total recording time can not exceed {0:N0} days.
-Select an earlier date/time to limit the total recording time to less than {0:N0} days.</value>
-  </data>
-  <data name="RecordingTimeInvalidDateTime" xml:space="preserve">
-    <value>The end date/time can not be earlier than the recording start time.</value>
-  </data>
-  <data name="RecordingTimeInvalidTimeSpan" xml:space="preserve">
-    <value>Recording time must be at least 60 seconds (1 minute).</value>
-  </data>
-  <data name="RecordingTimeValidationCaption" xml:space="preserve">
-    <value>Recording time: a value is not valid or allowed</value>
-  </data>
-  <data name="RecordTimeQuickSettings" xml:space="preserve">
-    <value>15 minutes ~ 00:15:00
-30 minutes ~ 00:30:00
-45 minutes ~ 00:45:00
-60 minutes (1 hour) ~ 01:00:00
-90 minutes ~ 01:30:00
-120 minutes (2 hours) ~ 02:00:00
-150 minutes ~ 02:30:00
-180 minutes (3 hours) ~ 03:00:00
-4 hours ~ 04:00:00
-5 hours ~ 05:00:00</value>
-    <comment>Text after ~ is INVARIANT</comment>
-  </data>
   <data name="InputInvalidChar" xml:space="preserve">
     <value>The following characters are not allowed:</value>
   </data>
   <data name="InputInvalidCharCaption" xml:space="preserve">
     <value>Invalid input: character not allowed</value>
-  </data>
-  <data name="RecordingScheduleValidationCaption" xml:space="preserve">
-    <value>Schedule: a value is not valid or allowed</value>
-  </data>
-  <data name="WeeklyScheduleNoDays" xml:space="preserve">
-    <value>At least a day must be selected for a weekly schedule.</value>
   </data>
   <data name="TimeSpanDaysShortLabel" xml:space="preserve">
     <value>d</value>
@@ -166,5 +134,8 @@ Select an earlier date/time to limit the total recording time to less than {0:N0
   </data>
   <data name="TimeSpanSecondsShortLabel" xml:space="preserve">
     <value>s</value>
+  </data>
+  <data name="UncaughtExceptionCaption" xml:space="preserve">
+    <value>Unexpected exception in program</value>
   </data>
 </root>

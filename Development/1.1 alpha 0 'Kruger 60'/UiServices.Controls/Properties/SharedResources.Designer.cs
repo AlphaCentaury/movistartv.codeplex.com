@@ -63,9 +63,9 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ActionCancel_16x16 {
+        public static System.Drawing.Bitmap Action_Cancel_16x16 {
             get {
-                object obj = ResourceManager.GetObject("ActionCancel_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("Action_Cancel_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ActionClose_16x16 {
+        public static System.Drawing.Bitmap Action_Close_16x16 {
             get {
-                object obj = ResourceManager.GetObject("ActionClose_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("Action_Close_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ActionOk_16x16 {
+        public static System.Drawing.Bitmap Action_Delete_16x16 {
             get {
-                object obj = ResourceManager.GetObject("ActionOk_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("Action_Delete_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,10 +93,110 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap ActionRun_16x16 {
+        public static System.Drawing.Bitmap Action_Edit_16x16 {
             get {
-                object obj = ResourceManager.GetObject("ActionRun_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("Action_Edit_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Action_EditTask_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_EditTask_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Ok_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Ok_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Repair_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Repair_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Action_Run_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Run_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WaitClock_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("WaitClock_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WaitClock_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("WaitClock_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WaitClock_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("WaitClock_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WaitClock_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("WaitClock_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WaitClock_64x64 {
+            get {
+                object obj = ResourceManager.GetObject("WaitClock_64x64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon WaitClock_Icon {
+            get {
+                object obj = ResourceManager.GetObject("WaitClock_Icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Forms.Startup
@@ -111,7 +112,7 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
             worker.WorkerSupportsCancellation = true;
             worker.DoWork += Worker_DoWork;
             worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-            worker.RunWorkerAsync();
+            worker.RunWorkerAsync(Thread.CurrentThread);
         } // SplashScreen_Shown
 
         private void SplashScreen_FormClosing(object sender, FormClosingEventArgs e)
@@ -280,7 +281,18 @@ namespace Project.DvbIpTv.UiServices.Forms.Startup
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            System.Threading.Thread.CurrentThread.Name = "SplashAplicationContext BackgroundWorker";
+            // set worker thread name (for debugging pourposes)
+            var currentThread = Thread.CurrentThread;
+            currentThread.Name = "SplashAplicationContext BackgroundWorker";
+
+            // inherit parent thead culture settings
+            var parentThread = e.Argument as Thread;
+            if (parentThread != null)
+            {
+                currentThread.CurrentCulture = parentThread.CurrentCulture; // matches regular application Culture; set again just-in-case
+                currentThread.CurrentUICulture = parentThread.CurrentUICulture; // UICulture not inherited from spwawning thread
+            } // if
+
             e.Result = DoBackgroundWork();
         } // Worker_DoWork
 

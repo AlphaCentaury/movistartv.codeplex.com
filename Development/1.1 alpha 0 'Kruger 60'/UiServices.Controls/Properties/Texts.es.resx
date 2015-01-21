@@ -123,38 +123,6 @@
   <data name="InputInvalidCharCaption" xml:space="preserve">
     <value>Entrada incorrecta: caracter no admitido</value>
   </data>
-  <data name="RecordingTimeDateTimeSpanMaxValue" xml:space="preserve">
-    <value>La longitud total de la grabación no puede ser superior a {0:N0} días.
-Seleccione una fecha/hora anterior para limitar la longitud total de la grabación a {0:N0} días como máximo.</value>
-  </data>
-  <data name="RecordingTimeInvalidDateTime" xml:space="preserve">
-    <value>La fecha/hora de finalización no puede ser anterior a la hora de inicio de grabación.</value>
-  </data>
-  <data name="RecordingTimeInvalidTimeSpan" xml:space="preserve">
-    <value>El tiempo de grabación debe ser de al menos 60 segundos (1 minuto).</value>
-  </data>
-  <data name="RecordingTimeValidationCaption" xml:space="preserve">
-    <value>Error al validar los datos de tiempo de grabación</value>
-  </data>
-  <data name="RecordTimeQuickSettings" xml:space="preserve">
-    <value>15 minutos ~ 00:15:00
-30 minutos ~ 00:30:00
-45 minutos ~ 00:45:00
-60 minutos (1 hora) ~ 01:00:00
-90 minutos ~ 01:30:00
-120 minutos (2 horas) ~ 02:00:00
-150 minutos ~ 02:30:00
-180 minutos (3 horas) ~ 03:00:00
-4 horas ~ 04:00:00
-5 horas ~ 05:00:00</value>
-    <comment>Text after ~ is INVARIANT</comment>
-  </data>
-  <data name="RecordingScheduleValidationCaption" xml:space="preserve">
-    <value>Error al validar la programación</value>
-  </data>
-  <data name="WeeklyScheduleNoDays" xml:space="preserve">
-    <value>Debe especificarse al menos un día para una programación semanal.</value>
-  </data>
   <data name="TimeSpanDaysShortLabel" xml:space="preserve">
     <value>d</value>
   </data>
@@ -166,5 +134,8 @@ Seleccione una fecha/hora anterior para limitar la longitud total de la grabaci�
   </data>
   <data name="TimeSpanSecondsShortLabel" xml:space="preserve">
     <value>s</value>
+  </data>
+  <data name="UncaughtExceptionCaption" xml:space="preserve">
+    <value>Excepción inesperada en el programa</value>
   </data>
 </root>

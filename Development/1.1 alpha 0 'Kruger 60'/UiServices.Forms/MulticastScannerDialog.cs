@@ -2,6 +2,7 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Project.DvbIpTv.UiServices.Configuration.Logos;
+using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.Forms.Properties;
 using System;
@@ -12,6 +13,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Forms
@@ -219,7 +221,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
             Worker.DoWork += Worker_DoWork;
             ScanInProgress = true;
-            Worker.RunWorkerAsync();
+            Worker.RunWorkerAsync(Thread.CurrentThread);
         } // StartScan
 
         private void CancelScan()
@@ -339,7 +341,18 @@ namespace Project.DvbIpTv.UiServices.Forms
             byte[] buffer;
             IEnumerable<UiBroadcastService> services;
 
-            System.Threading.Thread.CurrentThread.Name = "MulticastScannerDialog BackgroundWorker";
+            // set worker thread name (for debugging pourposes)
+            var currentThread = Thread.CurrentThread;
+            currentThread.Name = "MulticastScannerDialog BackgroundWorker";
+
+            // inherit parent thead culture settings
+            var parentThread = e.Argument as Thread;
+            if (parentThread != null)
+            {
+                currentThread.CurrentCulture = parentThread.CurrentCulture; // matches regular application Culture; set again just-in-case
+                currentThread.CurrentUICulture = parentThread.CurrentUICulture; // UICulture not inherited from spwawning thread
+            } // if
+          
             Worker.ReportProgress((int)ProgressReportKind.Started);
 
             buffer = new byte[UdpMaxDatagramSize];

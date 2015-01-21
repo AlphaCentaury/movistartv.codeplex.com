@@ -69,6 +69,70 @@
       <RefProjectOutputGroups>Content</RefProjectOutputGroups>
       <RefTargetDir>LogosFolder</RefTargetDir>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services.Record.Serialization\Services.Record.Serialization.csproj">
+      <Name>Services.Record.Serialization</Name>
+      <Project>{074c14ed-c574-46d2-b9dc-c1b5f65d9a69}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services.Record\Services.Record.csproj">
+      <Name>Services.Record</Name>
+      <Project>{a4172cdd-c8fd-4c91-9aaf-54a948f26273}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UiServices.Config\UiServices.Config.csproj">
+      <Name>UiServices.Config</Name>
+      <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UiServices.Controls\UiServices.Controls.csproj">
+      <Name>UiServices.Controls</Name>
+      <Project>{745a4961-d7a0-4a2e-bb58-849ed0690271}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UiServices.Discovery\UiServices.Discovery.csproj">
+      <Name>UiServices.Discovery</Name>
+      <Project>{7e5e21b9-4bd6-4fb3-9055-9b09cc479c6c}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UiServices.DvbStpClient\UiServices.DvbStpClient.csproj">
+      <Name>UiServices.DvbStpClient</Name>
+      <Project>{ba481e42-f570-4d2c-94d4-21c4cce27762}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UiServices.Forms\UiServices.Forms.csproj">
+      <Name>UiServices.Forms</Name>
+      <Project>{90f750b3-64db-493f-96a6-e68de5ea60a1}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UiServices.Record\UiServices.Record.csproj">
+      <Name>UiServices.Record</Name>
+      <Project>{971b720e-2ae8-4ea4-b5ce-7a1af11c3743}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixUtilExtension">

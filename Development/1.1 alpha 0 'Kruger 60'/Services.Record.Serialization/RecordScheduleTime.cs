@@ -105,7 +105,7 @@ namespace Project.DvbIpTv.Services.Record.Serialization
             if (!pastTime) return;
 
             builder.AppendLine();
-            var format = (ExpiryDate.HasValue) ? Properties.SerializationTexts.VerbalizeStartExpiryDate : Properties.SerializationTexts.VerbalizeStartDate;
+            var format = (ExpiryDate.HasValue) ? Properties.Texts.VerbalizeStartExpiryDate : Properties.Texts.VerbalizeStartDate;
             builder.AppendFormat(format, StartDate, ExpiryDate);
         } // VerbalizeStartExpiryDate
 

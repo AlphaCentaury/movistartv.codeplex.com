@@ -231,7 +231,7 @@ namespace Project.DvbIpTv.UiServices.Controls
             else
             {
                 HorizontalAlignment textAlign = e.Header.TextAlign;
-                format = (textAlign == HorizontalAlignment.Left) ? TextFormatFlags.Default : ((textAlign == HorizontalAlignment.Center) ? TextFormatFlags.HorizontalCenter : TextFormatFlags.Right);
+                format = (textAlign == HorizontalAlignment.Left) ? TextFormatFlags.Left : ((textAlign == HorizontalAlignment.Center) ? TextFormatFlags.HorizontalCenter : TextFormatFlags.Right);
                 format |= TextFormatFlags.WordEllipsis;
                 format |= TextFormatFlags.VerticalCenter;
                 format |= TextFormatFlags.SingleLine;
@@ -245,8 +245,7 @@ namespace Project.DvbIpTv.UiServices.Controls
             style = (CurrentSortIsDescending) ? VisualStyleElement.Header.SortArrow.SortedUp : VisualStyleElement.Header.SortArrow.SortedDown;
             renderer = new VisualStyleRenderer(style);
             arrowSize = renderer.GetPartSize(e.Graphics, ThemeSizeType.Draw);
-            bounds = e.Bounds;
-            bounds.Inflate(-(arrowSize.Width + 3), 0);
+            bounds = new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width - arrowSize.Width - 3, e.Bounds.Height); // -3 = give extra right space
 
             // render text
             TextRenderer.DrawText(e.Graphics, e.Header.Text, font, bounds, foreColor, format);
@@ -255,7 +254,7 @@ namespace Project.DvbIpTv.UiServices.Controls
             if (e.ColumnIndex == CurrentSortColumn)
             {
                 renderer.DrawBackground(e.Graphics,
-                    new Rectangle(e.Bounds.Left + e.Bounds.Width - arrowSize.Width - 3, // give extra right space
+                    new Rectangle(e.Bounds.Left + bounds.Width,
                         e.Bounds.Top,
                         arrowSize.Width,
                         e.Bounds.Height));

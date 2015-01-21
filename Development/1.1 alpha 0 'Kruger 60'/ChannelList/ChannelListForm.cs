@@ -3,7 +3,6 @@
 
 using DvbIpTypes.Schema2006;
 using Project.DvbIpTv.ChannelList.Properties;
-using Project.DvbIpTv.DvbStp.Client;
 using Project.DvbIpTv.Services.Record;
 using Project.DvbIpTv.Services.Record.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
@@ -13,19 +12,15 @@ using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.DvbStpClient;
 using Project.DvbIpTv.UiServices.Forms;
 using Project.DvbIpTv.UiServices.Forms.Startup;
+using Project.DvbIpTv.UiServices.Record;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
-using Property = System.Collections.Generic.KeyValuePair<string, string>;
+using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -94,11 +89,6 @@ namespace Project.DvbIpTv.ChannelList
             e.Cancel = IsScanActive();
         } // ChannelListForm_FormClosing
 
-        private void menuItemDvbAbout_Click(object sender, EventArgs e)
-        {
-            SafeCall(menuItemDvbAbout_Click_Implementation, sender, e);
-        } // menuItemDvbAbout_Click
-
         private void menuItemDvbExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -130,22 +120,6 @@ namespace Project.DvbIpTv.ChannelList
                 FormLoadCompleted(this, e);
             } // if
         } // ChannelListForm_Load_Implementation
-
-        private void menuItemDvbAbout_Click_Implementation(object sender, EventArgs e)
-        {
-            using (var box = new AboutBox())
-            {
-                box.ExceptionThrown += OnExceptionThrown;
-                box.ApplicationData = new AboutBoxApplicationData()
-                {
-                    Name = Texts.AppName,
-                    Version  = Texts.AppVersion,
-                    Status = Texts.AppStatus,
-                    LicenseText = Texts.SolutionLicense
-                };
-                box.ShowDialog(this);
-            } // using box
-        } // menuItemDvbAbout_Click_Implementation
 
         #endregion
 
@@ -423,6 +397,34 @@ namespace Project.DvbIpTv.ChannelList
             AppUiConfiguration.Current.Cache.SaveXml("UiBroadcastDiscovery", SelectedServiceProvider.Key, 0, BroadcastDiscovery);
         } // MulticastScanner_ScanCompleted
 
+        #endregion
+
+        #region Recordings menu event handlers
+
+        private void menuItemRecordingsRecord_Click(object sender, EventArgs e)
+        {
+            SafeCall(buttonRecordChannel_Click_Implementation, sender, e);
+        } // menuItemRecordingsRecord_Click
+
+        private void menuItemRecordingsManage_Click(object sender, EventArgs e)
+        {
+            SafeCall(menuItemRecordingsManage_Click_Implementation, sender, e);
+        } // menuItemRecordingsManage_Click
+
+        private void menuItemRecordingsRepair_Click(object sender, EventArgs e)
+        {
+            SafeCall(menuItemRecordingsRepair_Click_Implementation, sender, e);
+        } // menuItemRecordingsRepair_Click
+
+        private void menuItemRecordingsImport_Click(object sender, EventArgs e)
+        {
+            SafeCall(menuItemRecordingsImport_Click_Implementation, sender, e);
+        } // menuItemRecordingsImport_Click
+
+        #endregion
+
+        #region Recordings menu event handlers implementation
+
         private void buttonRecordChannel_Click_Implementation(object sender, EventArgs e)
         {
             RecordTask task;
@@ -431,14 +433,14 @@ namespace Project.DvbIpTv.ChannelList
             {
                 dlg.ExceptionThrown += OnExceptionThrown;
                 dlg.Task = RecordTask.CreateWithDefaultValues(new RecordChannel()
-                    {
-                        LogicalNumber = "---",
-                        Name = SelectedBroadcastService.DisplayName,
-                        Description = SelectedBroadcastService.DisplayDescription,
-                        LogoKey = SelectedBroadcastService.Logo.Key,
-                        ServiceName = SelectedBroadcastService.FullServiceName,
-                        ChannelUrl = SelectedBroadcastService.LocationUrl,
-                    });
+                {
+                    LogicalNumber = "---",
+                    Name = SelectedBroadcastService.DisplayName,
+                    Description = SelectedBroadcastService.DisplayDescription,
+                    LogoKey = SelectedBroadcastService.Logo.Key,
+                    ServiceName = SelectedBroadcastService.FullServiceName,
+                    ChannelUrl = SelectedBroadcastService.LocationUrl,
+                });
                 dlg.IsNewTask = true;
                 dlg.ShowDialog(this);
                 task = dlg.Task;
@@ -449,12 +451,75 @@ namespace Project.DvbIpTv.ChannelList
                 AppUiConfiguration.Current.Folders.RecordTasks,
                 MyApplication.RecorderLauncherPath);
             scheduler.CreateTask(task);
-        } // buttonRecordChannel_Click
+        } // buttonRecordChannel_Click_Implementation
 
-        private void ExceptionHandler(string message, Exception ex)
+        private void menuItemRecordingsManage_Click_Implementation(object sender, EventArgs e)
         {
-            MyApplication.HandleException(this, message, ex);
-        } // ExceptionHandler
+            using (var dlg = new RecordTasksDialog())
+            {
+                dlg.RecordTaskFolder = AppUiConfiguration.Current.Folders.RecordTasks;
+                dlg.SchedulerFolders = GetTaskSchedulerFolders(AppUiConfiguration.Current.User.Record.TaskSchedulerFolders);
+                dlg.ShowDialog(this);
+            } // using
+        } // menuItemRecordingsManage_Click_Implementation
+
+        private IEnumerable<string> GetTaskSchedulerFolders(RecordTaskSchedulerFolder[] schedulerFolders)
+        {
+            var q = from folder in schedulerFolders
+                    select folder.Path;
+
+            return (new string[] { "\\" }).Concat(q);
+        } // GetTaskSchedulerFolders
+
+        private void menuItemRecordingsRepair_Click_Implementation(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemRecordingsRepair_Click_Implementation
+
+        private void menuItemRecordingsImport_Click_Implementation(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemRecordingsImport_Click_Implementation
+
+        #endregion
+
+        #region Help menu
+
+        private void menuItemHelpDocumentation_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemHelpDocumentation_Click
+
+        private void menuItemHelpHomePage_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemHelpHomePage_Click
+
+        private void menuItemHelpCheckUpdates_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemHelpCheckUpdates_Click
+
+        private void menuItemHelpAbout_Click(object sender, EventArgs e)
+        {
+            SafeCall(menuItemHelpAbout_Click_Implementation, sender, e);
+        } // menuItemHelpAbout_Click
+
+        private void menuItemHelpAbout_Click_Implementation(object sender, EventArgs e)
+        {
+            using (var box = new AboutBox())
+            {
+                box.ExceptionThrown += OnExceptionThrown;
+                box.ApplicationData = new AboutBoxApplicationData()
+                {
+                    Name = Texts.AppName,
+                    Version = Texts.AppVersion,
+                    Status = Texts.AppStatus,
+                    LicenseText = Texts.SolutionLicense
+                };
+                box.ShowDialog(this);
+            } // using box
+        } // menuItemHelpAbout_Click_Implementation
 
         #endregion
 
@@ -646,7 +711,7 @@ namespace Project.DvbIpTv.ChannelList
             {
                 item.ForeColor = SystemColors.GrayText;
                 item.Font = (CurrentChannelListView != View.Tile) ? null : ChannelListTileDisabledFont;
-                item.UseItemStyleForSubItems = (CurrentChannelListView != View.Tile)? true : false;
+                item.UseItemStyleForSubItems = (CurrentChannelListView != View.Tile) ? true : false;
                 item.ImageKey = GetDisabledChannelLogoKey(service.Logo);
             } // if-else
         } // PrivateEnableChannelListItem
@@ -677,6 +742,7 @@ namespace Project.DvbIpTv.ChannelList
             menuItemChannelVerify.Enabled = (broadcastDiscovery != null);
             menuItemChannelDetails.Enabled = (broadcastDiscovery != null);
             listViewChannels.Enabled = (broadcastDiscovery != null);
+            menuItemRecordingsRecord.Enabled = (broadcastDiscovery != null);
             buttonRecordChannel.Enabled = (broadcastDiscovery != null);
             buttonDisplayChannel.Enabled = (broadcastDiscovery != null);
 
@@ -688,6 +754,7 @@ namespace Project.DvbIpTv.ChannelList
             var selectedItem = (listViewChannels.SelectedItems.Count > 0) ? listViewChannels.SelectedItems[0] : null;
 
             menuItemChannelDetails.Enabled = (selectedItem != null);
+            menuItemRecordingsRecord.Enabled = (selectedItem != null);
             buttonRecordChannel.Enabled = (selectedItem != null);
             buttonDisplayChannel.Enabled = (selectedItem != null);
 
@@ -896,6 +963,11 @@ namespace Project.DvbIpTv.ChannelList
 
         #region Auxiliary methods: common
 
+        private void ExceptionHandler(string message, Exception ex)
+        {
+            MyApplication.HandleException(this, message, ex);
+        } // ExceptionHandler
+
         private void Notify(Image icon, string text, int dismissTime)
         {
             timerDismissNotification.Enabled = false;
@@ -928,6 +1000,20 @@ namespace Project.DvbIpTv.ChannelList
                 timerDismissNotification.Enabled = false;
             } // try-catch
         } // timerDismissNotification_Tick
+
+        private void SetFullscreenMode(bool fullScreen)
+        {
+            if (fullScreen)
+            {
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            } // if-else
+        } // SetFullscreenMode
 
         #endregion
     } // class ChannelListForm

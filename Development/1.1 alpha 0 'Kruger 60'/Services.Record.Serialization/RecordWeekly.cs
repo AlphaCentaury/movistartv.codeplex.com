@@ -61,11 +61,11 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
             if (RecurEveryWeeks < 2)
             {
-                format = (WeekDays == AllWeekDays) ? Properties.SerializationTexts.VerbalizeRecordWeeklyEveryday : Properties.SerializationTexts.VerbalizeRecordWeekly;
+                format = (WeekDays == AllWeekDays) ? Properties.Texts.VerbalizeRecordWeeklyEveryday : Properties.Texts.VerbalizeRecordWeekly;
             }
             else
             {
-                format = (WeekDays == AllWeekDays) ? Properties.SerializationTexts.VerbalizeRecordWeeklyEveryWeeksEveryday : Properties.SerializationTexts.VerbalizeRecordWeeklyEveryWeeks;
+                format = (WeekDays == AllWeekDays) ? Properties.Texts.VerbalizeRecordWeeklyEveryWeeksEveryday : Properties.Texts.VerbalizeRecordWeeklyEveryWeeks;
             } // if-else
 
             var weekdays = VerbalizaRecordingDays(pastTime);
@@ -106,18 +106,18 @@ namespace Project.DvbIpTv.Services.Record.Serialization
                 day = (day + 1) % 7;
             } // for
 
-            buffer.Append(pastTime ? Properties.SerializationTexts.VerbalizeRecordWeeklyDaysPast : Properties.SerializationTexts.VerbalizeRecordWeeklyDays);
+            buffer.Append(pastTime ? Properties.Texts.VerbalizeRecordWeeklyDaysPast : Properties.Texts.VerbalizeRecordWeeklyDays);
             for (int index = 0; index < days.Count; index++)
             {
                 if (index != 0)
                 {
                     if (index == (days.Count - 1))
                     {
-                        buffer.Append(Properties.SerializationTexts.VerbalizeRecordWeeklyDaysSeparatorFinal);
+                        buffer.Append(Properties.Texts.VerbalizeRecordWeeklyDaysSeparatorFinal);
                     }
                     else
                     {
-                        buffer.Append(Properties.SerializationTexts.VerbalizeRecordWeeklyDaysSeparator);
+                        buffer.Append(Properties.Texts.VerbalizeRecordWeeklyDaysSeparator);
                     } // if-else
                 } // if
                 buffer.Append(days[index]);

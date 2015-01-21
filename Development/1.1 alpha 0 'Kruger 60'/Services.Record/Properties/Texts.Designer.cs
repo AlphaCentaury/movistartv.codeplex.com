@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.Services.Services.Record.Properties {
+namespace Project.DvbIpTv.Services.Record.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.Services.Services.Record.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.Services.Services.Record.Properties.Texts", typeof(Texts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.Services.Record.Properties.Texts", typeof(Texts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,15 @@ namespace Project.DvbIpTv.Services.Services.Record.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The folder does not exists..
+        /// </summary>
+        internal static string FolderNotFoundException {
+            get {
+                return ResourceManager.GetString("FolderNotFoundException", resourceCulture);
             }
         }
         

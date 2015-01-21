@@ -87,6 +87,24 @@ namespace Project.DvbIpTv.Services.Record.Serialization
             return task;
         } // CreateWithDefaultValues
 
+        public static RecordTask FromXmlFile(string filename)
+        {
+            var serializer = new XmlSerializer(typeof(RecordTask));
+            using (var input = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
+            {
+                return serializer.Deserialize(input) as RecordTask;
+            } // FromXml
+        } // FromXml
+
+        public static RecordTask FromXml(string xml)
+        {
+            var serializer = new XmlSerializer(typeof(RecordTask));
+            using (var input = new StringReader(xml))
+            {
+                return serializer.Deserialize(input) as RecordTask;
+            } // using input
+        } // FromXml
+
         public string ToXml()
         {
             var buffer = new StringBuilder();
@@ -140,14 +158,14 @@ namespace Project.DvbIpTv.Services.Record.Serialization
         {
             if ((withBasicDescription) || (withFullDescription))
             {
-                var taskFormat = withFullDescription ? Properties.SerializationTexts.BuildDescriptionTaskDescription : Properties.SerializationTexts.BuildDescriptionTaskName;
+                var taskFormat = withFullDescription ? Properties.Texts.BuildDescriptionTaskDescription : Properties.Texts.BuildDescriptionTaskName;
                 buffer.AppendFormat(taskFormat, Description.Name, Description.Description);
                 buffer.AppendLine();
             } // if
 
             if (withChannel)
             {
-                buffer.AppendFormat(Properties.SerializationTexts.BuildDescriptionChannel,
+                buffer.AppendFormat(Properties.Texts.BuildDescriptionChannel,
                     Channel.LogicalNumber, Channel.Name,
                     Channel.ChannelUrl,
                     Channel.ServiceName);
@@ -156,14 +174,14 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
             if (withSchedule)
             {
-                buffer.AppendLine(Properties.SerializationTexts.BuildDescriptionScheduleHeader);
+                buffer.AppendLine(Properties.Texts.BuildDescriptionScheduleHeader);
                 Schedule.Verbalize(pastTime, buffer);
                 buffer.AppendLine();
             } // if withSchedule
 
             if (withDuration)
             {
-                buffer.AppendLine(Properties.SerializationTexts.BuildDescriptionDurationHeader);
+                buffer.AppendLine(Properties.Texts.BuildDescriptionDurationHeader);
                 var scheduleTime = Schedule as RecordScheduleTime;
                 var startSafetyMargin = (scheduleTime != null) ? scheduleTime.SafetyMarginTimeSpan : TimeSpan.Zero;
                 var endSafetyMargin = Duration.SafetyMarginTimeSpan;
@@ -171,7 +189,7 @@ namespace Project.DvbIpTv.Services.Record.Serialization
                 var totalRecordTime = startSafetyMargin + recordDuration + endSafetyMargin;
                 if (overrideTotalRecordTime.HasValue) totalRecordTime = overrideTotalRecordTime.Value;
 
-                var formatDuration = pastTime ? Properties.SerializationTexts.BuildDescriptionDurationPast : Properties.SerializationTexts.BuildDescriptionDuration;
+                var formatDuration = pastTime ? Properties.Texts.BuildDescriptionDurationPast : Properties.Texts.BuildDescriptionDuration;
                 buffer.AppendFormat(formatDuration,
                     recordDuration, (int)endSafetyMargin.TotalMinutes,
                     totalRecordTime);
@@ -185,11 +203,11 @@ namespace Project.DvbIpTv.Services.Record.Serialization
                     var endDate = startDate + totalRecordTime;
                     if (startDate.Day == endDate.Day)
                     {
-                        format = pastTime ? Properties.SerializationTexts.BuildDescriptionDurationEndsSameDay : Properties.SerializationTexts.BuildDescriptionDurationEndsToday;
+                        format = pastTime ? Properties.Texts.BuildDescriptionDurationEndsSameDay : Properties.Texts.BuildDescriptionDurationEndsToday;
                     }
                     else
                     {
-                        format = pastTime ? Properties.SerializationTexts.BuildDescriptionDurationEndsNextDay : Properties.SerializationTexts.BuildDescriptionDurationEndsTomorrow;
+                        format = pastTime ? Properties.Texts.BuildDescriptionDurationEndsNextDay : Properties.Texts.BuildDescriptionDurationEndsTomorrow;
                     } // if-else
                     buffer.AppendFormat(format, endDate);
                     buffer.AppendLine();

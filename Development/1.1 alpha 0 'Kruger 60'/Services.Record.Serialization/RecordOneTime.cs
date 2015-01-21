@@ -20,7 +20,7 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
         public override void Verbalize(bool pastTime, StringBuilder builder)
         {
-            builder.AppendFormat(pastTime? Properties.SerializationTexts.VerbalizeRecordOneTimePast : Properties.SerializationTexts.VerbalizeRecordOneTime,
+            builder.AppendFormat(pastTime? Properties.Texts.VerbalizeRecordOneTimePast : Properties.Texts.VerbalizeRecordOneTime,
                 StartDate, StartDate, SafetyMarginTimeSpan.TotalMinutes);
         } // Verbalize
     } // class RecordOneTime

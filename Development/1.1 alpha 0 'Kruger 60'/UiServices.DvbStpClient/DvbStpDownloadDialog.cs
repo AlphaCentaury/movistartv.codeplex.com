@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.DvbStpClient
@@ -123,7 +124,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             Worker.ProgressChanged += Worker_ProgressChanged;
             Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
             Worker.DoWork += Worker_DoWork;
-            Worker.RunWorkerAsync();
+            Worker.RunWorkerAsync(Thread.CurrentThread);
         } // StartDownload
 
         private void CancelDownload()
@@ -230,7 +231,17 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             DvbStpSimpleClient stpClient;
             byte[] payload;
 
-            System.Threading.Thread.CurrentThread.Name = "DvbStpDownloadDialog BackgroundWorker";
+            // set worker thread name (for debugging pourposes)
+            var currentThread = Thread.CurrentThread;
+            currentThread.Name = "DvbStpDownloadDialog BackgroundWorker";
+
+            // inherit parent thead culture settings
+            var parentThread = e.Argument as Thread;
+            if (parentThread != null)
+            {
+                currentThread.CurrentCulture = parentThread.CurrentCulture; // matches regular application Culture; set again just-in-case
+                currentThread.CurrentUICulture = parentThread.CurrentUICulture; // UICulture not inherited from spwawning thread
+            } // if
 
             stpClient = new DvbStpSimpleClient(Request.MulticastAddress, Request.MulticastPort);
             CancelDownloadRequest = stpClient.CancelRequest;

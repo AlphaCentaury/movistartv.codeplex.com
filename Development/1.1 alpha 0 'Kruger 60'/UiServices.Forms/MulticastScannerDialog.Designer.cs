@@ -96,7 +96,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.ActionCancel_16x16;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;
             this.buttonRequestCancel.Click += new System.EventHandler(this.buttonRequestCancel_Click);
@@ -150,7 +150,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             resources.ApplyResources(this.buttonClose, "buttonClose");
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonClose.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.ActionOk_16x16;
+            this.buttonClose.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Ok_16x16;
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);

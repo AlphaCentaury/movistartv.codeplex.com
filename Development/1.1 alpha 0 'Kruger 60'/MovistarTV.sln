@@ -41,9 +41,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiServices.DvbStpClient", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Record", "Services.Record\Services.Record.csproj", "{A4172CDD-C8FD-4C91-9AAF-54A948F26273}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiServices.Record", "UiServices.Record\UiServices.Record.csproj", "{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 15
+		SccNumberOfProjects = 16
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs30
 		SccLocalPath0 = .
@@ -90,6 +92,9 @@ Global
 		SccProjectUniqueName14 = Services.Record\\Services.Record.csproj
 		SccProjectName14 = Services.Record
 		SccLocalPath14 = Services.Record
+		SccProjectUniqueName15 = UiServices.Record\\UiServices.Record.csproj
+		SccProjectName15 = UiServices.Record
+		SccLocalPath15 = UiServices.Record
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -309,6 +314,21 @@ Global
 		{A4172CDD-C8FD-4C91-9AAF-54A948F26273}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A4172CDD-C8FD-4C91-9AAF-54A948F26273}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A4172CDD-C8FD-4C91-9AAF-54A948F26273}.Release|x86.ActiveCfg = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release + Setup|Any CPU.ActiveCfg = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release + Setup|Any CPU.Build.0 = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release + Setup|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release + Setup|Mixed Platforms.Build.0 = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release + Setup|x86.ActiveCfg = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

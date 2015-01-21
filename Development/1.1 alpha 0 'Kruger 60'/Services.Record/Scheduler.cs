@@ -10,7 +10,8 @@ using System.Globalization;
 using Project.DvbIpTv.Services.Record.Serialization;
 using System.Reflection;
 using System.IO;
-using Project.DvbIpTv.Services.Services.Record.Properties;
+using Project.DvbIpTv.Services.Record.Properties;
+using System.Text.RegularExpressions;
 
 namespace Project.DvbIpTv.Services.Record
 {
@@ -38,6 +39,34 @@ namespace Project.DvbIpTv.Services.Record
             RecordTasksFolder = recordTasksFolder;
             RecorderLauncherPath = recorderLauncherPath;
         } // constructor
+
+        public static bool IsRecordSchedulerTask(Task schedulerTask, out RecordTask recordTask)
+        {
+            recordTask = null;
+
+            if (string.IsNullOrEmpty(schedulerTask.Definition.RegistrationInfo.Documentation)) return false;
+            if (string.IsNullOrEmpty(schedulerTask.Definition.Data)) return false;
+
+            if (!schedulerTask.Definition.RegistrationInfo.Documentation.StartsWith(Resources.DefinitionRegistrationInfo_Documentation_Begins, StringComparison.InvariantCultureIgnoreCase))
+            {
+                // try v1 documentation format
+                if (!schedulerTask.Definition.RegistrationInfo.Documentation.StartsWith(Resources.DefinitionRegistrationInfo_DocumentationV1_Begins, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return false;
+                } // if
+            } // if
+
+            try
+            {
+                recordTask = RecordTask.FromXml(schedulerTask.Definition.Data);
+                return true;
+            }
+            catch
+            {
+                // ignore, but return a null RecordTask
+                return true;
+            } // try-catch
+        } // IsRecordSchedulerTask
 
         public bool CreateTask(RecordTask record)
         {
@@ -364,8 +393,8 @@ namespace Project.DvbIpTv.Services.Record
         private static void SetAdditionalData(TaskDefinition definition, RecordTask record, string xmlFile)
         {
             definition.RegistrationInfo.Author = string.Format("{0} {1}", Assembly.GetEntryAssembly().GetName().Name, SolutionVersion.ProductVersion);
-            definition.RegistrationInfo.Source = "Application";
-            definition.RegistrationInfo.Documentation = string.Format("Task Id: {0}\r\nTask file: {1}", record.TaskId, xmlFile);
+            definition.RegistrationInfo.Source = Resources.DefinitionRegistrationInfo_Source;
+            definition.RegistrationInfo.Documentation = string.Format(Resources.DefinitionRegistrationInfo_Documentation, record.TaskId, xmlFile);
             definition.RegistrationInfo.Date = DateTime.Now;
             definition.Data = record.ToXml();
         } // SetAdditionalData

@@ -47,10 +47,21 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="BackgroundWorkerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackgroundWorkerDialog.Designer.cs">
+      <DependentUpon>BackgroundWorkerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackgroundWorkerOptions.cs" />
+    <Compile Include="CommonBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonBaseFormExceptionThrownEventArgs.cs" />
     <Compile Include="FilenameTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="IRecordingScheduleFragment.cs" />
+    <Compile Include="IBackgroundWorkerDialog.cs" />
     <Compile Include="ListViewColumnItemComparer.cs" />
     <Compile Include="ListViewSortable.cs">
       <SubType>Component</SubType>
@@ -63,48 +74,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="RecordingDuration.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RecordingDuration.Designer.cs">
-      <DependentUpon>RecordingDuration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RecordingSchedule.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RecordingSchedule.Designer.cs">
-      <DependentUpon>RecordingSchedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RecordingDailyScheduleFragment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RecordingDailyScheduleFragment.Designer.cs">
-      <DependentUpon>RecordingDailyScheduleFragment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RecordingMonthlyScheduleFragment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RecordingMonthlyScheduleFragment.Designer.cs">
-      <DependentUpon>RecordingMonthlyScheduleFragment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RecordingOneTimeScheduleFragment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RecordingOneTimeScheduleFragment.Designer.cs">
-      <DependentUpon>RecordingOneTimeScheduleFragment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RecordingRightNowScheduleFragment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RecordingRightNowScheduleFragment.Designer.cs">
-      <DependentUpon>RecordingRightNowScheduleFragment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RecordingWeeklyScheduleFragment.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RecordingWeeklyScheduleFragment.Designer.cs">
-      <DependentUpon>RecordingWeeklyScheduleFragment.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Texts.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,49 +96,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BackgroundWorkerDialog.es.resx">
+      <DependentUpon>BackgroundWorkerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackgroundWorkerDialog.resx">
+      <DependentUpon>BackgroundWorkerDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingDuration.es.resx">
-      <DependentUpon>RecordingDuration.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingDuration.resx">
-      <DependentUpon>RecordingDuration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingSchedule.es.resx">
-      <DependentUpon>RecordingSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingSchedule.resx">
-      <DependentUpon>RecordingSchedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingDailyScheduleFragment.es.resx">
-      <DependentUpon>RecordingDailyScheduleFragment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingDailyScheduleFragment.resx">
-      <DependentUpon>RecordingDailyScheduleFragment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingMonthlyScheduleFragment.resx">
-      <DependentUpon>RecordingMonthlyScheduleFragment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingOneTimeScheduleFragment.es.resx">
-      <DependentUpon>RecordingOneTimeScheduleFragment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingOneTimeScheduleFragment.resx">
-      <DependentUpon>RecordingOneTimeScheduleFragment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingRightNowScheduleFragment.es.resx">
-      <DependentUpon>RecordingRightNowScheduleFragment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingRightNowScheduleFragment.resx">
-      <DependentUpon>RecordingRightNowScheduleFragment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingWeeklyScheduleFragment.es.resx">
-      <DependentUpon>RecordingWeeklyScheduleFragment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordingWeeklyScheduleFragment.resx">
-      <DependentUpon>RecordingWeeklyScheduleFragment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Texts.es.resx" />
     <EmbeddedResource Include="Properties\Texts.resx">
@@ -179,6 +114,7 @@
     <EmbeddedResource Include="Properties\SharedResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SharedResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TimeSpanUpDown.resx">
       <DependentUpon>TimeSpanUpDown.cs</DependentUpon>
@@ -187,10 +123,20 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="License.txt" />
-    <None Include="Resources\ActionRun_16x16.png" />
-    <None Include="Resources\ActionClose_16x16.png" />
-    <None Include="Resources\ActionCancel_16x16.png" />
-    <None Include="Resources\ActionOk_16x16.png" />
+    <Content Include="Resources\Action_Delete_16x16.png" />
+    <None Include="Resources\Action_Repair_16x16.png" />
+    <None Include="Resources\WaitClock_16x16.png" />
+    <None Include="Resources\WaitClock_24x24.png" />
+    <None Include="Resources\WaitClock_32x32.png" />
+    <None Include="Resources\WaitClock_48x48.png" />
+    <None Include="Resources\WaitClock_64x64.png" />
+    <None Include="Resources\WaitClock_Icon.ico" />
+    <None Include="Resources\Action_EditTask_16x16.png" />
+    <None Include="Resources\Action_Edit_16x16.png" />
+    <None Include="Resources\Action_Run_16x16.png" />
+    <None Include="Resources\Action_Close_16x16.png" />
+    <None Include="Resources\Action_Cancel_16x16.png" />
+    <None Include="Resources\Action_Ok_16x16.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Services.Record.Serialization\Services.Record.Serialization.csproj">

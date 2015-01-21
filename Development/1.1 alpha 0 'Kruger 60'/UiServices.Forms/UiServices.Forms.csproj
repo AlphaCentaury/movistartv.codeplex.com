@@ -54,6 +54,12 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="AboutBoxApplicationData.cs" />
+    <Compile Include="NotImplementedBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotImplementedBox.Designer.cs">
+      <DependentUpon>NotImplementedBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\MulticastScanner.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,10 +82,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AboutBox.resx</DependentUpon>
     </Compile>
-    <Compile Include="CommonBaseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CommonBaseFormExceptionThrownEventArgs.cs" />
     <Compile Include="PropertiesDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,17 +93,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="RecordChannelDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RecordChannelDialog.Designer.cs">
-      <DependentUpon>RecordChannelDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Record.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Record.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup\ISplashScreenAwareForm.cs" />
     <Compile Include="Startup\SplashApplicationContext.cs" />
@@ -123,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotImplementedBox.resx">
+      <DependentUpon>NotImplementedBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\MulticastScanner.es.resx" />
     <EmbeddedResource Include="Properties\MulticastScanner.resx">
@@ -159,17 +153,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecordChannelDialog.es.resx">
-      <DependentUpon>RecordChannelDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecordChannelDialog.resx">
-      <DependentUpon>RecordChannelDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Record.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Record.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Record.es.resx" />
     <EmbeddedResource Include="Startup\SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>

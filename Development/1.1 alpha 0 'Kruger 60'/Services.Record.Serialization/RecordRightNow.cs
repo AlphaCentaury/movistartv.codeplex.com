@@ -25,7 +25,7 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
         public override void Verbalize(bool pastTime, StringBuilder builder)
         {
-            builder.AppendFormat(pastTime? Properties.SerializationTexts.VerbalizeRecordRightNowPast : Properties.SerializationTexts.VerbalizeRecordRightNow);
+            builder.AppendFormat(pastTime? Properties.Texts.VerbalizeRecordRightNowPast : Properties.Texts.VerbalizeRecordRightNow);
         } // Verbalize
 
         public override DateTime GetStartDateTime()

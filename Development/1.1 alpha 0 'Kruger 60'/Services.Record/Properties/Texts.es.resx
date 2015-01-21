@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FolderNotFoundException" xml:space="preserve">
+    <value>La carpeta especificada no existe.</value>
+  </data>
   <data name="TaskCreationException" xml:space="preserve">
     <value>Se ha producido un error al ponerse en contacto con el Programador de Tareas de Windows para crear la tarea de grabación.
 La tarea de grabación no ha sido creada.</value>

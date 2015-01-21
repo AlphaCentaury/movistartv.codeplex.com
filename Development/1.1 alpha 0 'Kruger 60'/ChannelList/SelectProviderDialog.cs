@@ -1,6 +1,7 @@
 ﻿using DvbIpTypes.Schema2006;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
+using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.DvbStpClient;
 using Project.DvbIpTv.UiServices.Forms;
