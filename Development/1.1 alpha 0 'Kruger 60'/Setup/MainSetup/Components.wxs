@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+-->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
     <ComponentGroup Id="CommonComponents">
@@ -15,6 +19,10 @@
         <File Id='license.rtf' Source='$(var.SolutionDir)solution-license.rtf' Name='!(loc.FileLicenseAgreement).rtf' />
       </Component>
 
+      <Component Id="CommonAssemblies_DB_RecordTasks" Directory="RecordTasksFolder">
+        <File Id="RecordTasks.mdb" Source="$(var.SolutionDir)DB\RecordTasks.mdb" />
+      </Component>
+        
       <Component Id="CommonAssemblies_pdb" Directory="INSTALLFOLDER" Guid="{51CCD544-2EF5-4DB9-BCEE-98291E703F05}">
         <File Id="Services.Record.pdb" Source="$(var.Services.Record.TargetDir)Services.Record.pdb" />
         <File Id="Services.Record.Serialization.pdb" Source="$(var.Services.Record.Serialization.TargetDir)Services.Record.Serialization.pdb" />

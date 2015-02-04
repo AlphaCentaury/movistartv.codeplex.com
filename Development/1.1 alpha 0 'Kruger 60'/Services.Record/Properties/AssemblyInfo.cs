@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using System.Reflection;
@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Services.Record")]
 [assembly: AssemblyDescription("Project.DvbIpTv.Services.Record")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCopyright("Copyright © 2014, AlphaCentaury and contributors")]
+[assembly: AssemblyCopyright(SolutionVersion.DefaultCopyright)]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

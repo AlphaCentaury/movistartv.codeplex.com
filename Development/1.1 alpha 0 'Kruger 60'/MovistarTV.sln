@@ -43,6 +43,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.Record", "Services
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiServices.Record", "UiServices.Record\UiServices.Record.csproj", "{971B720E-2AE8-4EA4-B5CE-7A1AF11C3743}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{21AADDF8-BB39-4D0F-A6EF-EFD64AB3BC16}"
+	ProjectSection(SolutionItems) = preProject
+		DB\RecordTasks.mdb = DB\RecordTasks.mdb
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 16
@@ -334,6 +339,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{21AADDF8-BB39-4D0F-A6EF-EFD64AB3BC16} = {227520B6-B11F-45B8-84B2-8FDF27A2492C}
 		{F3FC11C7-8850-4874-9CF3-8BA4DE43959A} = {B1F1A4A8-719B-4863-BEE0-EC79E7F06DEB}
 	EndGlobalSection
 EndGlobal

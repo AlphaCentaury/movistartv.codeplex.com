@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+-->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-  <Product Id="{12250F78-069A-4378-8063-EB67F9228670}" Name="!(loc.ProductName)" Language="!(loc.LANGUAGE)" Codepage="Windows-1252" Version="1.1.0.0" Manufacturer="http://movistartv.codeplex.com"  UpgradeCode="{5F17FC29-2428-4B6A-B0DD-27734B3AE4B4}">
+  <Product Id="{12250F78-069A-4378-8063-EB67F9228670}" Name="!(loc.ProductName)" Language="!(loc.LANGUAGE)" Codepage="Windows-1252" Version="1.5.0.0" Manufacturer="http://movistartv.codeplex.com"  UpgradeCode="{5F17FC29-2428-4B6A-B0DD-27734B3AE4B4}">
     <Package Id="*" InstallerVersion="300" Compressed="yes" InstallScope="perUser"
       Description="!(loc.PackageDescription)" Languages="!(loc.LANGUAGE)" Manufacturer="http://movistartv.codeplex.com" />
 
@@ -53,7 +57,7 @@
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="PersonalFolder">
         <Directory Id="DvbFolder" Name="DVB-IPTV">
-          <Directory Id="BaseFolder" Name="MovistarTV (v1.1 Kruger-60)">
+          <Directory Id="BaseFolder" Name="MovistarTV (v1.5 Kruger-60)">
             <Directory Id="INSTALLFOLDER" Name="bin">
               <Directory Id="InstallFolder_es" Name="es" />
             </Directory>

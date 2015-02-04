@@ -151,6 +151,7 @@
   <ItemGroup>
     <Content Include="bannrbmp.bmp" />
     <Content Include="dlgbmp.bmp" />
+    <Content Include="License.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="texts_en-US.wxl" />

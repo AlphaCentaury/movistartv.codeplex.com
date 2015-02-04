@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using System;
@@ -386,6 +386,30 @@ namespace Project.DvbIpTv.Services.Record
             fullFilename = Path.Combine(RecordTasksFolder, filename);
 
             record.ToXml(fullFilename);
+
+            // TODO: v1.5 work in progress
+            using (var memory = new MemoryStream())
+            {
+                record.ToXml(memory);
+                var cnString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""C:\Users\Developer\Documents\DVB-IPTV\MovistarTV (v1.1 Kruger-60)\RecordTasks\RecordTasks.mdb""";
+                using (System.Data.OleDb.OleDbConnection cn = new System.Data.OleDb.OleDbConnection(cnString))
+                {
+                    cn.Open();
+                    using (System.Data.OleDb.OleDbCommand cmd = new System.Data.OleDb.OleDbCommand())
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.CommandText = "INSERT INTO [Tasks] (TaskId, TaskName, SchedulerName, SchedulerFolder, XmlData) VALUES (?, ?, ?, ?, ?)";
+                        cmd.Parameters.Add("@TaskId", System.Data.OleDb.OleDbType.Guid).Value = record.TaskId;
+                        cmd.Parameters.Add("@TaskName", System.Data.OleDb.OleDbType.BSTR, 200).Value = record.Description.Name;
+                        cmd.Parameters.Add("@SchedulerName", System.Data.OleDb.OleDbType.BSTR, 255).Value = record.Description.TaskSchedulerName;
+                        cmd.Parameters.Add("@SchedulerFolder", System.Data.OleDb.OleDbType.BSTR, 255).Value = record.AdvancedSettings.TaskSchedulerFolder;
+                        cmd.Parameters.Add("@XmlData", System.Data.OleDb.OleDbType.Binary).Value = memory.ToArray();
+                        cmd.Connection = cn;
+                        cn.BeginTransaction();
+                        cmd.ExecuteNonQuery();
+                    } // using cmd
+                } // using cn
+            } // using memory
 
             return fullFilename;
         } // SaveXmlData
