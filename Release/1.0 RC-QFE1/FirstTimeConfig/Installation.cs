@@ -80,24 +80,28 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         {
             try
             {
-#pragma warning disable 618 // CS0618: 'member' is obsolete (Assembly.LoadWithPartialName)
-                // Assembly.Load() is not an alternative to LoadWithPartialName in this case
-                // We don't know the assembly version. In fact, where trying to QUERY the version of the installed assembly
-                var assembly = Assembly.LoadWithPartialName("Microsoft.ExceptionMessageBox");
-                if (assembly == null) { message = Properties.Texts.IsEmbInstalledNotInstalled; return false; }
-#pragma warning restore 618
+                // Solve bug per work item 1757
+                Assembly assembly;
 
-                var targetVersion = new Version(Resources.EmbComponentTargetVersion);
-                var version = assembly.GetName().Version;
-
-                if ((version.Major < targetVersion.Major) || (version.Minor < targetVersion.Minor) ||
-                    (version.Build < targetVersion.Build) || (version.Revision < version.Revision))
+                assembly = null;
+                try
                 {
-                    message = string.Format(Properties.Texts.IsEmbInstalledWrongVersion, targetVersion, version);
+                    assembly = Assembly.Load(@"Microsoft.ExceptionMessageBox, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91");
+                }
+                catch
+                {
+                    // ignore
+                } // try-catch
+
+                if (assembly == null)
+                {
+                    message = Properties.Texts.IsEmbInstalledNotInstalled;
                     return false;
                 } // if
 
+                var version = assembly.GetName().Version;
                 message = string.Format(Texts.IsEmbInstalledOk, version);
+
                 return true;
             }
             catch (Exception ex)
