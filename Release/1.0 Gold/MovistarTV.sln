@@ -35,9 +35,11 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "MainSetup", "Setup\MainSetu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logos", "Logos\Logos.csproj", "{65DD367D-A89D-4F89-9231-2009EF0B31AF}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "RCtoGold10Patch", "Setup\RCtoGold10Patch\RCtoGold10Patch.wixproj", "{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}"
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 12
+		SccNumberOfProjects = 13
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs30
 		SccLocalPath0 = .
@@ -75,6 +77,10 @@ Global
 		SccProjectUniqueName11 = Logos\\Logos.csproj
 		SccProjectName11 = Logos
 		SccLocalPath11 = Logos
+		SccProjectUniqueName12 = Setup\\RCtoGold10Patch\\RCtoGold10Patch.wixproj
+		SccProjectTopLevelParentUniqueName12 = MovistarTV.sln
+		SccProjectName12 = Setup/RCtoGold10Patch
+		SccLocalPath12 = Setup\\RCtoGold10Patch
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -249,11 +255,24 @@ Global
 		{65DD367D-A89D-4F89-9231-2009EF0B31AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{65DD367D-A89D-4F89-9231-2009EF0B31AF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{65DD367D-A89D-4F89-9231-2009EF0B31AF}.Release|x86.ActiveCfg = Release|Any CPU
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Debug|x86.ActiveCfg = Debug|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Debug|x86.Build.0 = Debug|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Release + Setup|Any CPU.ActiveCfg = Release|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Release + Setup|Mixed Platforms.ActiveCfg = Release|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Release + Setup|x86.ActiveCfg = Release|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Release + Setup|x86.Build.0 = Release|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Release|Any CPU.ActiveCfg = Release|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Release|x86.ActiveCfg = Release|x86
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F3FC11C7-8850-4874-9CF3-8BA4DE43959A} = {B1F1A4A8-719B-4863-BEE0-EC79E7F06DEB}
+		{C18BA7DC-4978-4EE7-B9E5-2039302FDEAC} = {B1F1A4A8-719B-4863-BEE0-EC79E7F06DEB}
 	EndGlobalSection
 EndGlobal
