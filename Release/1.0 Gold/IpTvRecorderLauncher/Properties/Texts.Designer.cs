@@ -520,7 +520,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to IPTV Recorder launcher utility
         ///Version {0}
-        ///(C) 2014. All rights reserved..
+        ///Copyright (C) 2014-2015, Codeplex user AlphaCentaury and its contributors. All rights reserved..
         /// </summary>
         internal static string StartLogo {
             get {

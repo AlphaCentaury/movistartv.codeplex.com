@@ -86,7 +86,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 assembly = null;
                 try
                 {
-                    assembly = Assembly.Load(@"Microsoft.ExceptionMessageBox, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91");
+                    assembly = Assembly.Load(Resources.EmbComponentAssemblyName);
                 }
                 catch
                 {

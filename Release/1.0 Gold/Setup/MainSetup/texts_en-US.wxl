@@ -3,8 +3,8 @@
   <String Id="LANGUAGE">1033</String>
   <String Id="DowngradeErrorMessage">A new version of [ProductName] is already installed.</String>
   <String Id="NetFramework20">This application requires .NET Framework 2.0. Please install the .NET Framework then run this installer again.</String>
-  <String Id="ProductName">Movistar TV Decoder 1.0 RC “Wolf 424”</String>
-  <String Id="PackageDescription">Movistar TV DVB-IPTV Decoder 1.0 “Wolf 424” Release Candidate</String>
+  <String Id="ProductName">Movistar TV Decoder 1.0 “Wolf 424”</String>
+  <String Id="PackageDescription">Movistar TV DVB-IPTV Decoder 1.0 “Wolf 424”</String>
   <String Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT">Launch First-time configuration helper</String>
   <String Id="SourceFileLicenseAgreement">solution-license</String>
   <String Id="FileLicenseAgreement">License agreement</String>

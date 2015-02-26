@@ -27,4 +27,4 @@ using System.Runtime.InteropServices;
 //      Minor Version 
 //      Build Number
 //      Revision
-[assembly: AssemblyVersion("1.0.2000.001")]
+[assembly: AssemblyVersion(SolutionVersion.DefaultAssemblyVersion)]

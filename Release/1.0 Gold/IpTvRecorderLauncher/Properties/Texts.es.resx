@@ -163,7 +163,7 @@ Detalles de la excepción: {1}</value>
   <data name="StartLogo" xml:space="preserve">
     <value>Utilidad de ejecución de grabación IPTV
 Versión {0}
-(C) 2014. Todos los derechos reservados.</value>
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury and its contributors. Todos los derechos reservados.</value>
   </data>
   <data name="LogErrorTooLate" xml:space="preserve">
     <value>¡DEMASIADO TARDE! ¡Lo sentimos!</value>

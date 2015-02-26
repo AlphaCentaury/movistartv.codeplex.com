@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”).
+        ///   Looks up a localized string similar to Movistar TV channel/services list - DVB-IPTV (1.0 “Wolf 424”).
         /// </summary>
         internal static string AppCaption {
             get {
@@ -79,7 +79,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stable (release candidate).
+        ///   Looks up a localized string similar to Stable (gold release).
         /// </summary>
         internal static string AppState {
             get {
@@ -88,7 +88,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.0 RC “Wolf 424”.
+        ///   Looks up a localized string similar to 1.0 “Wolf 424”.
         /// </summary>
         internal static string AppVersion {
             get {

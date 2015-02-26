@@ -7,7 +7,7 @@ Este software, ya sea en forma de código binario o fuente, está sujeta a los tér
 Todos los demás derechos están reservados por el/los autor(es) del software.
 
 --------------------------------------------------------------------------------
-Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury and its contributors
 --------------------------------------------------------------------------------
 
 *****************************************************************************

@@ -181,7 +181,7 @@ Options and switches can be specified with '/' or with '-'</value>
   <data name="StartLogo" xml:space="preserve">
     <value>IPTV Recorder launcher utility
 Version {0}
-(C) 2014. All rights reserved.</value>
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury and its contributors. All rights reserved.</value>
   </data>
   <data name="DisplayWarningRecordingLate" xml:space="preserve">
     <value>Warning: RECORDING LATE, beyond the safety margin of {0} minutes</value>

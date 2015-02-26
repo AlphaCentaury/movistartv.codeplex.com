@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-  <Product Id="aa41b721-8657-4ec7-9fd1-9f27dbda4ad0" Name="!(loc.ProductName)" Language="!(loc.LANGUAGE)" Codepage="Windows-1252" Version="1.0.20000.0" Manufacturer="http://movistartv.codeplex.com"  UpgradeCode="afd3b1aa-d204-42bf-b831-becb33b2ace1">
+  <Product Id="aa41b721-8657-4ec7-9fd1-9f27dbda4ad0" Name="!(loc.ProductName)" Language="!(loc.LANGUAGE)" Codepage="Windows-1252" Version="1.0.30000.0" Manufacturer="http://movistartv.codeplex.com"  UpgradeCode="afd3b1aa-d204-42bf-b831-becb33b2ace1">
     <Package Id="*" InstallerVersion="300" Compressed="yes" InstallScope="perUser"
       Description="!(loc.PackageDescription)" Languages="!(loc.LANGUAGE)" Manufacturer="http://movistartv.codeplex.com" />
 

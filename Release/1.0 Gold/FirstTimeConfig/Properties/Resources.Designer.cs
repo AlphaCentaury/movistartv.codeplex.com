@@ -131,11 +131,11 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 9.0.242.
+        ///   Looks up a localized string similar to Microsoft.ExceptionMessageBox, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91.
         /// </summary>
-        internal static string EmbComponentTargetVersion {
+        internal static string EmbComponentAssemblyName {
             get {
-                return ResourceManager.GetString("EmbComponentTargetVersion", resourceCulture);
+                return ResourceManager.GetString("EmbComponentAssemblyName", resourceCulture);
             }
         }
         
