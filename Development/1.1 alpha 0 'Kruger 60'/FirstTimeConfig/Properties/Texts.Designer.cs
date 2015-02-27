@@ -200,16 +200,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microsoft Exception Message Box component v{0} (or greater) is not installed on this machine.
-        ///Currently installed version is {1}..
-        /// </summary>
-        internal static string IsEmbInstalledWrongVersion {
-            get {
-                return ResourceManager.GetString("IsEmbInstalledWrongVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unable to determine the installed version of the .NET Framework.
         ///
         ///{0}.

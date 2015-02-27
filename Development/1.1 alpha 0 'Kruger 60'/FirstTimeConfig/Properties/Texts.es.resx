@@ -167,14 +167,10 @@ Please verify the value of the 'ForceUICulture' program argument.</value>
 {0}</value>
   </data>
   <data name="IsEmbInstalledNotInstalled" xml:space="preserve">
-    <value>El component Microsoft Exception Message Box no está instalado en esta máquina.</value>
+    <value>El componente Microsoft Exception Message Box no está instalado en esta máquina.</value>
   </data>
   <data name="IsEmbInstalledOk" xml:space="preserve">
     <value>Se ha verificado la instalación del component Microsoft Exception Message Box (v{0}).</value>
-  </data>
-  <data name="IsEmbInstalledWrongVersion" xml:space="preserve">
-    <value>El component Microsoft Exception Message Box v{0} (o superior) no está instalado en esta máquina.
-La versión actualmente instalada es {1}.</value>
   </data>
   <data name="IsNetInstalledException" xml:space="preserve">
     <value>No ha sido posible determinar la versión instalada del .NET Framework.
