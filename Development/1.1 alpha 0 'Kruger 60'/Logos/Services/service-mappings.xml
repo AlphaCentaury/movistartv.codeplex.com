@@ -52,6 +52,7 @@
       <Mapping serviceName="341" logo="solmusica" />
       <Mapping serviceName="342" logo="cnni" />
       <Mapping serviceName="457" logo="tnt" />
+      <Mapping serviceName="566" logo="telefonica_empleados" remarks="Canal T" />
       <Mapping serviceName="577" logo="comedycentral" />
       <Mapping serviceName="578" logo="boing" />
       <Mapping serviceName="579" logo="nickelodeon" />
@@ -123,11 +124,17 @@
       <Mapping serviceName="1214" logo="hd_movistar_generico" />
       <Mapping serviceName="1221" logo="paramountchannel" />
       <Mapping serviceName="1243" logo="hd_cplus_ligacampeones" />
+      <Mapping serviceName="1263" logo="movistar_futbol" remarks="Europa League 6" />
+      <Mapping serviceName="1276" logo="cplus_ligacampeones_2" />
+      <Mapping serviceName="1277" logo="movistar_futbol" remarks="Europa League 2" />
+      <Mapping serviceName="1278" logo="movistar_futbol" remarks="Europa League 3" />
+      <Mapping serviceName="1279" logo="movistar_futbol" remarks="Europa League 4" />
+      <Mapping serviceName="1280" logo="movistar_futbol" remarks="Europa League 5" />
       <Mapping serviceName="1281" logo="cplus_liga_bar" />
       <Mapping serviceName="1283" logo="hd_movistar_futbol" />
       <Mapping serviceName="1284" logo="hd_cplus_1" />
       <Mapping serviceName="1343" logo="gol_2_internacional" />
-      <Mapping serviceName="1363" logo="hd_movistar_generico" />
+      <Mapping serviceName="1363" logo="hd_movistar_generico" remarks="Series HD Pruebas" />
       <Mapping serviceName="1403" logo="cplus_ligacampeones_bar" />
       <Mapping serviceName="1504" logo="cplus_1_bar" />
       <Mapping serviceName="1563" logo="natgeo_wild" />
@@ -149,6 +156,7 @@
       <Mapping serviceName="1617" logo="hd_viajar" />
       <Mapping serviceName="1618" logo="hd_odisea" />
       <Mapping serviceName="1619" logo="hd_natgeo_wild" />
+      <Mapping serviceName="1620" logo="hd_cplus_ligacampeones_2" />
       <Mapping serviceName="1621" logo="hd_cplus_ligacampeones" />
       <Mapping serviceName="1622" logo="hd_cplus_liga" />
       <Mapping serviceName="1623" logo="hd_eurosport" />
@@ -231,35 +239,42 @@
       <Mapping serviceName="2273" logo="autonomico_galicia_europa" />
       <Mapping serviceName="2275" logo="autonomico_andalucia_sat" />
       <Mapping serviceName="2277" logo="movistar_generico" remarks="Canal Distribuidores" />
-      <Mapping serviceName="2278" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2278" logo="hd_movistar_futbol" remarks="Qualifier 6 HD" />
       <Mapping serviceName="2279" logo="mezzo" />
       <Mapping serviceName="2280" logo="hd_mezzo" />
-      <Mapping serviceName="2281" logo="movistar_futbol" />
-      <Mapping serviceName="2282" logo="hd_movistar_futbol" />
-      <Mapping serviceName="2283" logo="movistar_futbol" />
-      <Mapping serviceName="2284" logo="hd_movistar_futbol" />
-      <Mapping serviceName="2285" logo="movistar_futbol" />
-      <Mapping serviceName="2286" logo="hd_movistar_futbol" />
-      <Mapping serviceName="2287" logo="movistar_futbol" />
-      <Mapping serviceName="2288" logo="hd_movistar_futbol" />
-      <Mapping serviceName="2289" logo="movistar_futbol" />
-      <Mapping serviceName="2290" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2281" logo="movistar_futbol" remarks="Qualifier 8" />
+      <Mapping serviceName="2282" logo="hd_movistar_futbol" remarks="Qualifier 8 HD" />
+      <Mapping serviceName="2283" logo="movistar_futbol" remarks="Qualifier 9" />
+      <Mapping serviceName="2284" logo="hd_movistar_futbol" remarks="Qualifier 9 HD" />
+      <Mapping serviceName="2285" logo="movistar_futbol" remarks="Qualifier 10" />
+      <Mapping serviceName="2286" logo="hd_movistar_futbol" remarks="Qualifier 10 HD" />
+      <Mapping serviceName="2287" logo="movistar_futbol" remarks="Qualifier 11" />
+      <Mapping serviceName="2288" logo="hd_movistar_futbol" remarks="Qualifier 11 HD" />
+      <Mapping serviceName="2289" logo="movistar_futbol" remarks="Qualifier 12" />
+      <Mapping serviceName="2290" logo="hd_movistar_futbol" remarks="Qualifier 12 HD" />
       <Mapping serviceName="2303" logo="hd_movistar_generico" />
       <Mapping serviceName="2304" logo="hd_movistar_generico" />
       <Mapping serviceName="2305" logo="hd_movistar_generico" />
       <Mapping serviceName="2306" logo="hd_movistar_generico" />
       <Mapping serviceName="2307" logo="hd_movistar_generico" />
-      <Mapping serviceName="2343" logo="hd_movistar_futbol" />
+      <Mapping serviceName="2343" logo="hd_movistar_futbol" remarks="Pruebas Movistar Fútbol HD" />
       <Mapping serviceName="2383" logo="hd_movistar_series" />
       <Mapping serviceName="2423" logo="hd_cplus_1_bar" />
       <Mapping serviceName="2443" logo="hd_cplus_1_bar" />
       <Mapping serviceName="2463" logo="orbe21" />
-      <Mapping serviceName="2464" logo="hd_movistar_generico" />
+      <Mapping serviceName="2464" logo="hd_movistar_generico" remarks="Pruebas DRM HD" />
       <Mapping serviceName="2465" logo="hd_cplus_1" />
-      <Mapping serviceName="2466" logo="movistar_generico" />
-      <Mapping serviceName="2467" logo="hd_movistar_generico" />
+      <Mapping serviceName="2466" logo="movistar_generico" remarks="Pruebas DRM SD" />
+      <Mapping serviceName="2467" logo="hd_movistar_generico" remarks="Pruebas HD" />
       <Mapping serviceName="2483" logo="cplus_1" />
       <Mapping serviceName="2503" logo="movistar_generico" remarks="Canal Invitado" />
+      <Mapping serviceName="2523" logo="hd_antena3" />
+      <Mapping serviceName="2525" logo="hd_lasexta" />
+      <Mapping serviceName="2527" logo="hd_autonomico_cataluna" />
+      <Mapping serviceName="2532" logo="nickelodeon_jr" />
+      <Mapping serviceName="2533" logo="mtv_spain" />
+      <Mapping serviceName="2545" logo="hd_tve_1" />
+      <Mapping serviceName="2546" logo="hd_tve_teledeporte" />
     </Domain>
     <Domain name="dem_1.imagenio.es" redirectDomain="imagenio.es">
       <Mapping serviceName="56" logo="autonomico_cataluna" />
