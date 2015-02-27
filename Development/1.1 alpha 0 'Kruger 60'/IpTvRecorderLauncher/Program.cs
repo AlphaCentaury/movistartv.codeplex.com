@@ -10,13 +10,16 @@ namespace Project.DvbIpTv.RecorderLauncher
     {
         private static bool PressAnyKey;
         private static bool NoLogo;
-        private static string TaskXmlFilename;
+        private static Guid TaskId;
+        private static string DbFile;
+        private static string LogFolder;
         private static ProgramMode Mode;
 
         enum ProgramMode
         {
-            Record = 0,
-            Help = 10,
+            None = 0,
+            Record = 10,
+            Help = -1,
         } // ProgramMode
 
         public enum Result
@@ -88,7 +91,7 @@ namespace Project.DvbIpTv.RecorderLauncher
                 case ProgramMode.Record:
                     PressAnyKey = false;
                     var launcher = new Launcher();
-                    return launcher.Run(TaskXmlFilename);
+                    return launcher.Run(TaskId, DbFile, LogFolder);
 
                 default:
                     return Result.Arguments;
@@ -97,7 +100,9 @@ namespace Project.DvbIpTv.RecorderLauncher
 
         static bool ProcessArguments(string[] args)
         {
-            int skip;
+            IDictionary<string, string> arguments;
+            string argName;
+            string argValue;
 
             if ((args == null) || (args.Length == 0))
             {
@@ -106,43 +111,109 @@ namespace Project.DvbIpTv.RecorderLauncher
                 return false;
             } // if
 
-            var arg1 = args[0].Trim();
-            if (arg1 == "")
-            {
-                DisplayLogo();
-                Console.WriteLine(Properties.Texts.ErrorNoArguments);
-                return false;
-            } // if
+            arguments = new Dictionary<string, string>(args.Length, StringComparer.InvariantCultureIgnoreCase);
 
-            skip = 0;
-            if (!arg1.StartsWith("/") && !arg1.StartsWith("-"))
+            foreach (var arg in args)
             {
-                skip = 1;
-                Mode = ProgramMode.Record;
-                TaskXmlFilename = arg1;
-            } // if
-
-            foreach (var arg in args.Skip(skip))
-            {
-                var partialArg = arg.Substring(1, (arg.Length <= 10) ? (arg.Length - 1) : 10).ToLower();
                 if ((arg[0] == '/') || (arg[0] == '-'))
                 {
-                    if (partialArg.StartsWith("nologo"))
+                    if (arg.Length < 2) // argument name expected
                     {
-                        NoLogo = true;
-                        continue;
+                        DisplayLogo();
+                        Console.WriteLine(Properties.Texts.InvalidArgumentFormat);
+                        return false;
                     } // if
+
+                    var partialArg = arg.Substring(1, 1).ToLower();
                     if ((partialArg.StartsWith("h")) || (partialArg.StartsWith("?")))
                     {
                         Mode = ProgramMode.Help;
-                        continue;
+                        break;
                     } // if
+
+                    argValue = null;
+                    var pos = arg.IndexOf(':');
+                    if (pos == 0) // argument name expected
+                    {
+                        DisplayLogo();
+                        Console.WriteLine(Properties.Texts.InvalidArgumentFormat);
+                        return false;
+                    }
+                    else if (pos > 0)
+                    {
+                        argName = arg.Substring(1, pos - 1);
+                        argValue = arg.Substring(pos + 1);
+                    }
+                    else
+                    {
+                        argName = arg;
+                    } // if-else
+
+                    arguments[argName] = argValue;
                 }
                 else
                 {
+                    DisplayLogo();
+                    Console.WriteLine(Properties.Texts.InvalidArgumentFormat);
                     return false;
                 } // if-else
             } // foreach arg
+
+            return ProcessArguments(arguments);
+        } // ProcessArguments
+
+        static bool ProcessArguments(IDictionary<string, string> arguments)
+        {
+            string value;
+
+            if (arguments.TryGetValue("nologo", out value))
+            {
+                NoLogo = true;
+            } // if
+
+            if (arguments.TryGetValue("TaskId", out value))
+            {
+                TaskId = new Guid(value);
+            } // if
+
+            if (arguments.TryGetValue("Database", out value))
+            {
+                DbFile = value;
+            } // if
+
+            if (arguments.TryGetValue("LogFolder", out value))
+            {
+                LogFolder = value;
+            } // if
+
+            if (arguments.TryGetValue("Action", out value))
+            {
+                if (string.Compare(value, "Record", true) == 0)
+                {
+                    Mode = ProgramMode.Record;
+                }
+                else
+                {
+                    // Unknown action
+                    Mode = ProgramMode.None;
+                } // if-else
+            } // if
+
+            // TODO: display error message if arguments validation fails
+
+            // validate general arguments
+            if (!string.IsNullOrEmpty(LogFolder))
+            {
+                if (!System.IO.Directory.Exists(LogFolder)) return false;
+            } // if
+
+            // validate record mode arguments
+            if (Mode == ProgramMode.Record)
+            {
+                if (TaskId == Guid.Empty) return false;
+                if (string.IsNullOrEmpty(DbFile)) return false;
+                if (!System.IO.File.Exists(DbFile)) return false;
+            } // if
 
             return true;
         } // ProcessArguments
@@ -154,7 +225,17 @@ namespace Project.DvbIpTv.RecorderLauncher
 
         static void DisplayLogo()
         {
-            Console.WriteLine(Properties.Texts.StartLogo, Assembly.GetEntryAssembly().GetName().Version);
+            string copyright;
+
+            // get copyright text
+            object[] attributes = Assembly.GetEntryAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+            if (attributes.Length == 0)
+            {
+                copyright = "Copyright (C) http://movistartv.codeplex.com";
+            }
+            copyright = ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+
+            Console.WriteLine(Properties.Texts.StartLogo, Assembly.GetEntryAssembly().GetName().Version, copyright);
             Console.WriteLine();
         } // DisplayLogo
 

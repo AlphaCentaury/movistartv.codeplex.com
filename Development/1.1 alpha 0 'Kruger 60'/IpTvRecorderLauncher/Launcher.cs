@@ -25,11 +25,15 @@ namespace Project.DvbIpTv.RecorderLauncher
         private bool RecordingTimeExceeded;
         private bool RecordingTimeExceededDisplayed;
 
-        public Program.Result Run(string taskXmlFilename)
+        public Program.Result Run(Guid taskId, string dbFile, string logFolder)
         {
-            Logger.Start(Path.ChangeExtension(taskXmlFilename, Properties.Resources.ExtensionLogFile), Logger.Level.Verbose);
+            var logFilename = Path.Combine(logFolder, string.Format("{0}{1}", taskId, Properties.Resources.ExtensionLogFile));
+            if (logFolder != null)
+            {
+                Logger.Start(logFilename, Logger.Level.Verbose);
+            } // if
 
-            var task = LoadRecordTask(taskXmlFilename);
+            var task = LoadRecordTask(taskId, dbFile);
             if (task == null) return Program.Result.XmlFile;
 
             CreateWindowsJob();
@@ -37,23 +41,19 @@ namespace Project.DvbIpTv.RecorderLauncher
             return LaunchRecorderProgram(task);
         } // Run
 
-        private static RecordTask LoadRecordTask(string taskXmlFilename)
+        private static RecordTask LoadRecordTask(Guid taskId, string dbFile)
         {
             RecordTask task;
 
             try
             {
-                Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLoadingXml, taskXmlFilename);
+                Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLoadingXml, taskId, dbFile);
                 Console.Write(Properties.Texts.DisplayLoadingXml);
 
-                using (var input = new FileStream(taskXmlFilename, FileMode.Open, FileAccess.Read, FileShare.Read))
-                {
-                    var serializer = new XmlSerializer(typeof(RecordTask));
-                    task = serializer.Deserialize(input) as RecordTask;
-                } // using input
+                task = RecordTaskSerialization.LoadFromDatabase(taskId, dbFile);
 
                 Console.WriteLine(Properties.Texts.DisplayActionOk);
-                Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLoadingXmlOk, taskXmlFilename);
+                Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLoadingXmlOk);
 
                 return task;
             }
@@ -76,7 +76,7 @@ namespace Project.DvbIpTv.RecorderLauncher
 
             var assembly = Assembly.GetEntryAssembly();
             var exePath = Path.GetDirectoryName(assembly.CodeBase);
-            if (exePath.EndsWith(Properties.Resources.PathUnderDevelopmentEnvironment))
+            if (exePath.EndsWith(Properties.Resources.PathUnderDevelopmentEnvironment, StringComparison.InvariantCultureIgnoreCase))
             {
                 Logger.Log(Logger.Level.Warning, Properties.Texts.LogWarningDevelopmentWindowsJob);
                 return;
@@ -148,6 +148,8 @@ namespace Project.DvbIpTv.RecorderLauncher
             var scheduledStartTime = task.Schedule.GetStartDateTime();
             var scheduledTotalTime = task.Schedule.GetSafetyMargin() + task.Duration.Length + task.Duration.SafetyMarginTimeSpan;
             var now = DateTime.Now;
+            // var scheduledDateTime = new DateTime(scheduledStartTime.Year, scheduledStartTime.Month, scheduledStartTime.Day, scheduledStartTime.Hour, scheduledStartTime.Minute, scheduledStartTime.Second);
+            // TODO: determine most probable launch date; we need to account for HUGE delays between scheduled run time and real run time
             var scheduledDateTime = new DateTime(now.Year, now.Month, now.Day, scheduledStartTime.Hour, scheduledStartTime.Minute, scheduledStartTime.Second);
             var gap = now - scheduledDateTime;
 

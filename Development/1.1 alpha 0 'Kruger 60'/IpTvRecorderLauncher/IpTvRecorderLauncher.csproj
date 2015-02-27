@@ -56,7 +56,6 @@
     </Compile>
     <Compile Include="InternalExtensions.cs" />
     <Compile Include="Launcher.cs" />
-    <Compile Include="ArgumentsManager.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\SerializationTexts.Designer.cs">
       <AutoGen>True</AutoGen>

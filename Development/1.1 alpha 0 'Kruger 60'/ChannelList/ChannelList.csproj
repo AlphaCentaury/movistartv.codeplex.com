@@ -59,8 +59,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ExceptionMessageBox, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.ExceptionMessageBox.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\90\SDK\Assemblies\Microsoft.ExceptionMessageBox.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.2.2.26203, Culture=neutral, PublicKeyToken=0d013ddd5178a2ae, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -121,6 +120,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChannelListForm.resx">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\InvariantTexts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -137,6 +137,7 @@
     <EmbeddedResource Include="Properties\Texts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectProviderDialog.es.resx">
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
@@ -219,10 +220,6 @@
     <ProjectReference Include="..\DvbStpClient\DvbStpClient.csproj">
       <Project>{8ad3c34b-a1d3-4385-a8a9-c429bd9a37d3}</Project>
       <Name>DvbStpClient</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IpTvRecorderLauncher\IpTvRecorderLauncher.csproj">
-      <Project>{dda7264e-c003-4e3a-b657-27ee2543f101}</Project>
-      <Name>IpTvRecorderLauncher</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services.Record.Serialization\Services.Record.Serialization.csproj">
       <Project>{074c14ed-c574-46d2-b9dc-c1b5f65d9a69}</Project>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppCaption" xml:space="preserve">
-    <value>Listado de canales y/o servicios Movistar TV - DVB-IPTV (1.1 Alpha 0 “Kruger 60”)</value>
+    <value>Listado de canales y/o servicios Movistar TV - DVB-IPTV (1.5 Alpha 0 “Kruger 60”)</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>DVB-IPTV: Listado de canales y/o servicios Movistar TV</value>
@@ -127,7 +127,7 @@
     <value>Alpha (experimental)</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>1.1 Alpha 0 “Kruger 60”</value>
+    <value>1.5 Alpha 0 “Kruger 60”</value>
   </data>
   <data name="BroadcastListUnableRefresh" xml:space="preserve">
     <value>No ha sido posible obtener la lista de canales de TV o servicios</value>
@@ -235,5 +235,8 @@ Verifique la sintáxis XML del archivo y corrija los errores detectados.</value>
   </data>
   <data name="UserCancelListRefresh" xml:space="preserve">
     <value>La actualización de la lista ha sido cancelada por el usuario.</value>
+  </data>
+  <data name="SchedulerCreateTaskOk" xml:space="preserve">
+    <value>Se ha creado correctamente la tarea de grabación.</value>
   </data>
 </root>

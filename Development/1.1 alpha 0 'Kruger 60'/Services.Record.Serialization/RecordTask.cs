@@ -87,55 +87,6 @@ namespace Project.DvbIpTv.Services.Record.Serialization
             return task;
         } // CreateWithDefaultValues
 
-        public static RecordTask FromXmlFile(string filename)
-        {
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            using (var input = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                return serializer.Deserialize(input) as RecordTask;
-            } // FromXml
-        } // FromXml
-
-        public static RecordTask FromXml(string xml)
-        {
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            using (var input = new StringReader(xml))
-            {
-                return serializer.Deserialize(input) as RecordTask;
-            } // using input
-        } // FromXml
-
-        public string ToXml()
-        {
-            var buffer = new StringBuilder();
-            using (var writer = XmlWriter.Create(buffer, new XmlWriterSettings() { Indent = true }))
-            {
-                ToXml(writer);
-
-                return buffer.ToString();
-            } // using
-        } // ToXml
-
-        public void ToXml(string filename)
-        {
-            using (FileStream output = new FileStream(filename, FileMode.Create, FileAccess.ReadWrite, FileShare.None))
-            {
-                ToXml(output);
-            } // using
-        } // ToXml
-
-        public void ToXml(Stream stream)
-        {
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            serializer.Serialize(stream, this);
-        } // ToXml
-
-        public void ToXml(XmlWriter writer)
-        {
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            serializer.Serialize(writer, this);
-        } // ToXml
-
         public string BuildDescription(bool pastTime)
         {
             return BuildDescription(pastTime, true, false, true, true, true);

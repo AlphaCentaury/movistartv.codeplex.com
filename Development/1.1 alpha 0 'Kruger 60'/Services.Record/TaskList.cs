@@ -112,7 +112,7 @@ namespace Project.DvbIpTv.Services.Record
                 {
                     task = new TaskData();
                     task.XmlFilePath = file;
-                    task.Task = RecordTask.FromXmlFile(file);
+                    task.Task = RecordTaskSerialization.LoadFromXmlFile(file);
                     task.SchedulerName = task.Task.Description.TaskSchedulerName;
                     task.SchedulerPath = task.Task.AdvancedSettings.TaskSchedulerFolder;
                     task.Status = TaskStatus.WindowsTaskMissing;

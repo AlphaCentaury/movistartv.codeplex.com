@@ -341,11 +341,19 @@ namespace Project.DvbIpTv.UiServices.Record
         private void textTaskName_Validating(object sender, CancelEventArgs e)
         {
             var text = textTaskName.Text.Trim();
+            
             e.Cancel = (text.Length == 0);
-
             if (e.Cancel)
             {
                 ControlValidationFailed(Properties.RecordChannel.EmptyTaskName, sender as Control);
+                return;
+            } // if
+
+            e.Cancel = (text.Length > RecordTaskSerialization.MaxTaskNameLength);
+            if (e.Cancel)
+            {
+                ControlValidationFailed(string.Format(Properties.RecordChannel.TooLongTaskName, RecordTaskSerialization.MaxTaskNameLength), sender as Control);
+                return;
             } // if
         } // textTaskName_Validating
 

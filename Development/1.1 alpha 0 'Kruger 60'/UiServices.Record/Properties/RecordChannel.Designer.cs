@@ -144,5 +144,14 @@ namespace Project.DvbIpTv.UiServices.Record.Properties {
                 return ResourceManager.GetString("TaskSchedulerRootFolder", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The name of the task is too long. Maximum name length is {0}..
+        /// </summary>
+        internal static string TooLongTaskName {
+            get {
+                return ResourceManager.GetString("TooLongTaskName", resourceCulture);
+            }
+        }
     }
 }

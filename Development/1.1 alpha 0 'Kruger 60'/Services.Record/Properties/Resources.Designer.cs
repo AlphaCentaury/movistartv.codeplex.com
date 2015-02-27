@@ -62,8 +62,8 @@ namespace Project.DvbIpTv.Services.Record.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to 1DCDA40A-A9D5-4CF3-B3C5-971B8811F127: DVB-IPTV Record Task
-        ///Task Id: {0}
-        ///Task file: {1}.
+        ///TaskId: {0}
+        ///Database: {1}.
         /// </summary>
         internal static string DefinitionRegistrationInfo_Documentation {
             get {
@@ -105,6 +105,15 @@ namespace Project.DvbIpTv.Services.Record.Properties {
         internal static string DefinitionRegistrationInfo_Source {
             get {
                 return ResourceManager.GetString("DefinitionRegistrationInfo_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RecordTasks.sdf.
+        /// </summary>
+        internal static string RecordTasksDatabaseFile {
+            get {
+                return ResourceManager.GetString("RecordTasksDatabaseFile", resourceCulture);
             }
         }
     }

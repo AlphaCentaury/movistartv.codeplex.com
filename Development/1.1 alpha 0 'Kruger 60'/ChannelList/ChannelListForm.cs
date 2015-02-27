@@ -450,7 +450,11 @@ namespace Project.DvbIpTv.ChannelList
             var scheduler = new Scheduler(ExceptionHandler,
                 AppUiConfiguration.Current.Folders.RecordTasks,
                 MyApplication.RecorderLauncherPath);
-            scheduler.CreateTask(task);
+
+            if (scheduler.CreateTask(task))
+            {
+                MessageBox.Show(this, Texts.SchedulerCreateTaskOk, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } // if
         } // buttonRecordChannel_Click_Implementation
 
         private void menuItemRecordingsManage_Click_Implementation(object sender, EventArgs e)

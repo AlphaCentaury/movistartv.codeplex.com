@@ -45,7 +45,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiServices.Record", "UiServ
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{21AADDF8-BB39-4D0F-A6EF-EFD64AB3BC16}"
 	ProjectSection(SolutionItems) = preProject
-		DB\RecordTasks.mdb = DB\RecordTasks.mdb
+		DB\RecordTasks.sdf = DB\RecordTasks.sdf
 	EndProjectSection
 EndProject
 Global

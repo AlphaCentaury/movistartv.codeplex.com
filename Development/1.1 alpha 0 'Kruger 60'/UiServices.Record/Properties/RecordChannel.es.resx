@@ -148,4 +148,7 @@ Por favor seleccione una ubicación o seleccione una carpeta.</value>
   <data name="TaskSchedulerRootFolder" xml:space="preserve">
     <value>&lt;En ninguna carpeta&gt;</value>
   </data>
+  <data name="TooLongTaskName" xml:space="preserve">
+    <value>El nombre de la tarea de demasiado largo. La longitud máxima es de {0} caracteres.</value>
+  </data>
 </root>

@@ -20,6 +20,8 @@ namespace Project.DvbIpTv.Services.Record
         private Action<string, Exception> ExceptionHandler;
         private string RecordTasksFolder;
         private string RecorderLauncherPath;
+        private string DbFile;
+        private string LogFolder;
 
         private TimeSpan StartSafetyMargin;
         private TimeSpan EndSafetyMargin;
@@ -38,6 +40,8 @@ namespace Project.DvbIpTv.Services.Record
             ExceptionHandler = exceptionHandler;
             RecordTasksFolder = recordTasksFolder;
             RecorderLauncherPath = recorderLauncherPath;
+            DbFile = Path.Combine(recordTasksFolder, Resources.RecordTasksDatabaseFile);
+            LogFolder = recordTasksFolder;
         } // constructor
 
         public static bool IsRecordSchedulerTask(Task schedulerTask, out RecordTask recordTask)
@@ -58,7 +62,7 @@ namespace Project.DvbIpTv.Services.Record
 
             try
             {
-                recordTask = RecordTask.FromXml(schedulerTask.Definition.Data);
+                recordTask = RecordTaskSerialization.LoadFromXmlString(schedulerTask.Definition.Data);
                 return true;
             }
             catch
@@ -73,7 +77,7 @@ namespace Project.DvbIpTv.Services.Record
             TaskService taskScheduler;
             TaskDefinition definition;
             Task task;
-            string xmlFile;
+            bool isOk;
 
             TaskFolder = null;
             TaskName = null;
@@ -81,7 +85,7 @@ namespace Project.DvbIpTv.Services.Record
             taskScheduler = null;
             definition = null;
             task = null;
-            xmlFile = null;
+            isOk = false;
 
             try
             {
@@ -109,17 +113,17 @@ namespace Project.DvbIpTv.Services.Record
                 SetAdvancedSettings(definition.Settings, record.AdvancedSettings, record.Schedule.Kind == RecordScheduleKind.RightNow);
 
                 // Save xml data
-                xmlFile = SaveXmlData(record);
+                SaveXmlData(record);
 
                 // Aditional task data
-                SetAdditionalData(definition, record, xmlFile);
+                SetAdditionalData(definition, record, DbFile);
 
                 // Action
-                SetAction(definition, record, xmlFile);
+                SetAction(definition, record, DbFile, LogFolder);
 
                 // Register task
                 task = TaskFolder.RegisterTaskDefinition(TaskName, definition);
-                xmlFile = null;
+                isOk = true;
 
                 // Run task right now?
                 if (record.Schedule.Kind == RecordScheduleKind.RightNow)
@@ -144,10 +148,9 @@ namespace Project.DvbIpTv.Services.Record
             }
             finally
             {
-                if (xmlFile != null)
+                if (!isOk)
                 {
-                    File.Delete(xmlFile);
-                    xmlFile = null;
+                    RecordTaskSerialization.TryDeleteFromDatabase(record.TaskId, DbFile);
                 } // if
                 if (task != null)
                 {
@@ -376,59 +379,34 @@ namespace Project.DvbIpTv.Services.Record
             } // if
         } // SetAdvancedSettings
 
-        private string SaveXmlData(RecordTask record)
+        private void SaveXmlData(RecordTask record)
         {
-            string filename, fullFilename;
-            string format;
-            
-            format = string.IsNullOrEmpty(record.Description.Name)? "Job {1:P}.xml" : "{0} {1:P}.xml";
-            filename = string.Format(format, record.Description.Name, record.TaskId);
-            fullFilename = Path.Combine(RecordTasksFolder, filename);
-
-            record.ToXml(fullFilename);
-
-            // TODO: v1.5 work in progress
-            using (var memory = new MemoryStream())
-            {
-                record.ToXml(memory);
-                var cnString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=""C:\Users\Developer\Documents\DVB-IPTV\MovistarTV (v1.1 Kruger-60)\RecordTasks\RecordTasks.mdb""";
-                using (System.Data.OleDb.OleDbConnection cn = new System.Data.OleDb.OleDbConnection(cnString))
-                {
-                    cn.Open();
-                    using (System.Data.OleDb.OleDbCommand cmd = new System.Data.OleDb.OleDbCommand())
-                    {
-                        cmd.CommandType = System.Data.CommandType.Text;
-                        cmd.CommandText = "INSERT INTO [Tasks] (TaskId, TaskName, SchedulerName, SchedulerFolder, XmlData) VALUES (?, ?, ?, ?, ?)";
-                        cmd.Parameters.Add("@TaskId", System.Data.OleDb.OleDbType.Guid).Value = record.TaskId;
-                        cmd.Parameters.Add("@TaskName", System.Data.OleDb.OleDbType.BSTR, 200).Value = record.Description.Name;
-                        cmd.Parameters.Add("@SchedulerName", System.Data.OleDb.OleDbType.BSTR, 255).Value = record.Description.TaskSchedulerName;
-                        cmd.Parameters.Add("@SchedulerFolder", System.Data.OleDb.OleDbType.BSTR, 255).Value = record.AdvancedSettings.TaskSchedulerFolder;
-                        cmd.Parameters.Add("@XmlData", System.Data.OleDb.OleDbType.Binary).Value = memory.ToArray();
-                        cmd.Connection = cn;
-                        cn.BeginTransaction();
-                        cmd.ExecuteNonQuery();
-                    } // using cmd
-                } // using cn
-            } // using memory
-
-            return fullFilename;
+            RecordTaskSerialization.SaveToDatabase(record, DbFile);
         } // SaveXmlData
 
-        private static void SetAdditionalData(TaskDefinition definition, RecordTask record, string xmlFile)
+        private static void SetAdditionalData(TaskDefinition definition, RecordTask record, string dbFile)
         {
             definition.RegistrationInfo.Author = string.Format("{0} {1}", Assembly.GetEntryAssembly().GetName().Name, SolutionVersion.ProductVersion);
             definition.RegistrationInfo.Source = Resources.DefinitionRegistrationInfo_Source;
-            definition.RegistrationInfo.Documentation = string.Format(Resources.DefinitionRegistrationInfo_Documentation, record.TaskId, xmlFile);
+            definition.RegistrationInfo.Documentation = string.Format(Resources.DefinitionRegistrationInfo_Documentation, record.TaskId, dbFile);
             definition.RegistrationInfo.Date = DateTime.Now;
-            definition.Data = record.ToXml();
+            definition.Data = RecordTaskSerialization.SaveToXmlString(record);
         } // SetAdditionalData
 
-        private void SetAction(TaskDefinition definition, RecordTask record, string xmlFile)
+        private void SetAction(TaskDefinition definition, RecordTask record, string dbFile, string logFolder)
         {
+            var arguments = new string[]
+            {
+                "/Action:Record",
+                string.Format("/TaskId:{0}", record.TaskId),
+                string.Format("/Database:{0}", dbFile),
+                string.Format("/LogFolder:{0}", logFolder)
+            };
+
             var action = new ExecAction()
             {
                 Path = RecorderLauncherPath,
-                Arguments = string.Format("\"{0}\"", xmlFile),
+                Arguments = ArgumentsManager.JoinArguments(arguments),
                 WorkingDirectory = record.Action.SaveLocationPath,
             };
             definition.Actions.Add(action);
