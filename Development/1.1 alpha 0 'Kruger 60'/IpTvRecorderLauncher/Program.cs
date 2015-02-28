@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.DvbIpTv.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -100,10 +101,6 @@ namespace Project.DvbIpTv.RecorderLauncher
 
         static bool ProcessArguments(string[] args)
         {
-            IDictionary<string, string> arguments;
-            string argName;
-            string argValue;
-
             if ((args == null) || (args.Length == 0))
             {
                 DisplayLogo();
@@ -111,53 +108,18 @@ namespace Project.DvbIpTv.RecorderLauncher
                 return false;
             } // if
 
-            arguments = new Dictionary<string, string>(args.Length, StringComparer.InvariantCultureIgnoreCase);
-
-            foreach (var arg in args)
+            var parser = new CommandLineArguments()
             {
-                if ((arg[0] == '/') || (arg[0] == '-'))
-                {
-                    if (arg.Length < 2) // argument name expected
-                    {
-                        DisplayLogo();
-                        Console.WriteLine(Properties.Texts.InvalidArgumentFormat);
-                        return false;
-                    } // if
+                SpecialHelpArgument = true
+            };
 
-                    var partialArg = arg.Substring(1, 1).ToLower();
-                    if ((partialArg.StartsWith("h")) || (partialArg.StartsWith("?")))
-                    {
-                        Mode = ProgramMode.Help;
-                        break;
-                    } // if
-
-                    argValue = null;
-                    var pos = arg.IndexOf(':');
-                    if (pos == 0) // argument name expected
-                    {
-                        DisplayLogo();
-                        Console.WriteLine(Properties.Texts.InvalidArgumentFormat);
-                        return false;
-                    }
-                    else if (pos > 0)
-                    {
-                        argName = arg.Substring(1, pos - 1);
-                        argValue = arg.Substring(pos + 1);
-                    }
-                    else
-                    {
-                        argName = arg;
-                    } // if-else
-
-                    arguments[argName] = argValue;
-                }
-                else
-                {
-                    DisplayLogo();
-                    Console.WriteLine(Properties.Texts.InvalidArgumentFormat);
-                    return false;
-                } // if-else
-            } // foreach arg
+            var arguments = parser.Parse(args);
+            if (!parser.IsOk)
+            {
+                DisplayLogo();
+                Console.WriteLine(Properties.Texts.InvalidArgumentFormat);
+                return false;
+            } // if
 
             return ProcessArguments(arguments);
         } // ProcessArguments

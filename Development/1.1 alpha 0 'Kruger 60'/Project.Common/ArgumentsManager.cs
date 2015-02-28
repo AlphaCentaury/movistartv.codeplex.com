@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.Services.Record.Serialization
+namespace Project.DvbIpTv.Common
 {
     public class ArgumentsManager
     {
@@ -44,7 +44,7 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
             var result = new Dictionary<string, string>(keys.Length, caseSensitive ? StringComparer.CurrentCulture : StringComparer.CurrentCultureIgnoreCase);
 
-            for (int keyIndex = 0, valueIndex=0; (keyIndex < keys.Length) && (valueIndex < values.Length); keyIndex++, valueIndex++)
+            for (int keyIndex = 0, valueIndex = 0; (keyIndex < keys.Length) && (valueIndex < values.Length); keyIndex++, valueIndex++)
             {
                 result.Add(keys[keyIndex], values[valueIndex]);
             } // for
@@ -54,10 +54,10 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
         public static string JoinArguments(string[] arguments)
         {
-            if ((arguments == null) || (arguments.Length ==0)) return null;
+            if ((arguments == null) || (arguments.Length == 0)) return null;
 
             var length = 0;
-            foreach(var argument in arguments)
+            foreach (var argument in arguments)
             {
                 length += argument.Length;
                 length += 3; // open quote, close quote, space

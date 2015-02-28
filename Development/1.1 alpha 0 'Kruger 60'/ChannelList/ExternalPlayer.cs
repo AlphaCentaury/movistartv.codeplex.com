@@ -1,4 +1,4 @@
-﻿using Project.DvbIpTv.Services.Record.Serialization;
+﻿using Project.DvbIpTv.Common;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using Project.DvbIpTv.UiServices.Discovery;

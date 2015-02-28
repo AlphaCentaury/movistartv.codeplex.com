@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project.DvbIpTv.Common;
+using Project.DvbIpTv.Services.SqlServerCE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlServerCe;
@@ -10,118 +12,87 @@ using System.Xml.Serialization;
 
 namespace Project.DvbIpTv.Services.Record.Serialization
 {
-    public class RecordTaskSerialization
+    public static class RecordTaskSerialization
     {
         public const int MaxTaskNameLength = 128;
 
         #region Load methods
 
-        public static RecordTask LoadFromDatabase(Guid taskId, string dbFile)
+        public static RecordTask LoadFromDatabase(string dbFile, Guid taskId)
         {
-            byte[] data;
-
-            using (var cn = GetDbConnection(dbFile))
-            {
-                using (var cmd = GetDbLoadCommand(cn, taskId))
-                {
-                    using (var reader = cmd.ExecuteReader(CommandBehavior.SingleResult | CommandBehavior.SingleRow))
-                    {
-                        int index = reader.GetOrdinal("XmlData");
-                        reader.Read();
-                        var value = reader.GetValue(index);
-                        data = (byte[])value;
-                    } // using
-                } // using
-            } // using
-
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            using (var memory = new MemoryStream(data))
-            {
-                return serializer.Deserialize(memory) as RecordTask;
-            } // using
+            return DbServices.LoadFromDatabase<RecordTask>(dbFile, GetDbLoadCommand(taskId), "XmlData");
         } // LoadFromDatabase
 
-        public static RecordTask LoadFromXmlString(string xml)
+        public static RecordTask LoadFromDatabase(SqlCeConnection cn, Guid taskId)
         {
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            using (var input = new StringReader(xml))
-            {
-                return serializer.Deserialize(input) as RecordTask;
-            } // using input
-        } // LoadFromXml
+            return DbServices.LoadFromDatabase<RecordTask>(cn, GetDbLoadCommand(taskId), "XmlData");
+        } // LoadFromDatabase
 
         public static RecordTask LoadFromXmlFile(string filename)
         {
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            using (var input = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                return serializer.Deserialize(input) as RecordTask;
-            } // using input
+            return XmlSerialization.Deserialize<RecordTask>(filename);
+        } // LoadFromXmlFile
+
+        public static RecordTask LoadFromXmlString(string xmlText)
+        {
+            return XmlSerialization.DeserializeXmlText<RecordTask>(xmlText);
         } // LoadFromXmlFile
 
         #endregion
 
         #region Save methods
 
-        public static void SaveToDatabase(RecordTask task, string dbFile)
+        public static void SaveToDatabase(this RecordTask task, string dbFile)
         {
-            using (var cn = GetDbConnection(dbFile))
-            {
-                using (var cmd = GetDbSaveCommand(cn,
-                    task.TaskId,
-                    task.Description.Name,
-                    task.Description.TaskSchedulerName,
-                    task.AdvancedSettings.TaskSchedulerFolder,
-                    SaveToXmlBinary(task)))
-                {
-                    cmd.ExecuteNonQuery();
-                } // using cmd
-            } // using cn
+            var saveCmd = GetDbSaveCommand(task.TaskId,
+                task.Description.Name,
+                task.Description.TaskSchedulerName,
+                task.AdvancedSettings.TaskSchedulerFolder,
+                null);
+
+            DbServices.SaveToDatabase(dbFile, saveCmd, "@XmlData", task);
         } // SaveToDatabase
 
-        public static byte[] SaveToXmlBinary(RecordTask task)
+        public static void SaveTo(this RecordTask task, SqlCeConnection cn)
         {
-            using (var memory = new MemoryStream())
-            {
-                SaveToXmlStream(task, memory);
-                return memory.ToArray();
-            } // using memory
-        } // SaveToXmlBinary
+            var saveCmd = GetDbSaveCommand(task.TaskId,
+                task.Description.Name,
+                task.Description.TaskSchedulerName,
+                task.AdvancedSettings.TaskSchedulerFolder,
+                null);
 
-        public static string SaveToXmlString(RecordTask task)
+            DbServices.SaveToDatabase(cn, saveCmd, "@XmlData", task);
+        } // SaveTo
+
+        public static void SaveToXmlFile(this RecordTask task, string filename)
+        {
+            XmlSerialization.Serialize(filename, task);
+        } // SaveToXmlFile
+
+        public static void SaveTo(this RecordTask task, Stream stream)
+        {
+            XmlSerialization.Serialize(stream, task);
+        } // SaveTo
+
+        public static string SaveAsString(this RecordTask task)
         {
             var buffer = new StringBuilder();
-            SaveToXmlString(task, buffer);
+            task.SaveTo(buffer);
             return buffer.ToString();
-        } // SaveToXmlString
+        } // SaveAsString
 
-        public static void SaveToXmlString(RecordTask task, StringBuilder buffer)
+        public static void SaveTo(this RecordTask task, StringBuilder buffer)
         {
             using (var writer = XmlWriter.Create(buffer, new XmlWriterSettings() { Indent = true }))
             {
-                SaveToXmlWriter(task, writer);
+                task.SaveTo(writer);
             } // using
-        } // SaveToXmlString
+        } // SaveTo
 
-        public static void SaveToXmlFile(RecordTask task, string filename)
+        public static void SaveTo(this RecordTask task, XmlWriter writer)
         {
-            using (FileStream output = new FileStream(filename, FileMode.Create, FileAccess.ReadWrite, FileShare.None))
-            {
-                SaveToXmlStream(task, output);
-            } // using
-        } // SaveToXmlFile
-
-        public static void SaveToXmlStream(RecordTask task, Stream stream)
-        {
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            serializer.Serialize(stream, task);
-        } // SaveToXmlStream
-
-        public static void SaveToXmlWriter(RecordTask task, XmlWriter writer)
-        {
-            var serializer = new XmlSerializer(typeof(RecordTask));
-            serializer.Serialize(writer, task);
-        } // SaveToXmlWriter
+            XmlSerialization.Serialize(writer, task);
+        } // SaveTo
 
         #endregion
 
@@ -162,26 +133,25 @@ namespace Project.DvbIpTv.Services.Record.Serialization
             return cn;
         } // GetDbConnection
 
-        private static SqlCeCommand GetDbLoadCommand(SqlCeConnection cn)
+        private static SqlCeCommand GetDbLoadCommand()
         {
             var cmd = new SqlCeCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT [XmlData] FROM [Tasks] WHERE [TaskId] = ?";
             cmd.Parameters.Add("@TaskId", SqlDbType.UniqueIdentifier);
-            cmd.Connection = cn;
 
             return cmd;
         } // GetDbLoadCommand
 
-        private static SqlCeCommand GetDbLoadCommand(SqlCeConnection cn, Guid taskId)
+        private static SqlCeCommand GetDbLoadCommand(Guid taskId)
         {
-            var cmd = GetDbLoadCommand(cn);
+            var cmd = GetDbLoadCommand();
             cmd.Parameters["@TaskId"].Value = taskId;
 
             return cmd;
         } // GetDbLoadCommand
 
-        private static SqlCeCommand GetDbSaveCommand(SqlCeConnection cn)
+        private static SqlCeCommand GetDbSaveCommand()
         {
             var cmd = new SqlCeCommand();
             cmd.CommandType = CommandType.Text;
@@ -191,19 +161,18 @@ namespace Project.DvbIpTv.Services.Record.Serialization
             cmd.Parameters.Add("@SchedulerName", SqlDbType.NVarChar, 150);
             cmd.Parameters.Add("@SchedulerFolder", SqlDbType.NVarChar, 128);
             cmd.Parameters.Add("@XmlData", SqlDbType.Image);
-            cmd.Connection = cn;
 
             return cmd;
         } // GetDbSaveCommand
 
-        private static SqlCeCommand GetDbSaveCommand(SqlCeConnection cn, Guid taskId, string taskName, string schedulerName, string schedulerFolder, byte[] xmlData)
+        private static SqlCeCommand GetDbSaveCommand(Guid taskId, string taskName, string schedulerName, string schedulerFolder, byte[] xmlData)
         {
-            var cmd = GetDbSaveCommand(cn);
+            var cmd = GetDbSaveCommand();
             cmd.Parameters["@TaskId"].Value = taskId;
             cmd.Parameters["@TaskName"].Value = taskName;
             cmd.Parameters["@SchedulerName"].Value = schedulerName;
             cmd.Parameters["@SchedulerFolder"].Value = schedulerFolder;
-            cmd.Parameters["@XmlData"].Value = xmlData;
+            if (xmlData != null) cmd.Parameters["@XmlData"].Value = xmlData;
 
             return cmd;
         } // GetDbLoadCommand

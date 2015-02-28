@@ -39,6 +39,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="License.txt" />
     <Content Include="Providers\DVB-IPTV%40128.png" />
     <Content Include="Providers\DVB-IPTV%40256.png" />
     <Content Include="Providers\DVB-IPTV%4032.png" />

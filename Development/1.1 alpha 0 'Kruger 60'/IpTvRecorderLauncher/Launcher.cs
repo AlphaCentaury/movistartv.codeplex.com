@@ -2,6 +2,7 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Microsoft.Win32.SafeHandles;
+using Project.DvbIpTv.Common;
 using Project.DvbIpTv.Services.Record.Serialization;
 using System;
 using System.Collections.Generic;
@@ -50,7 +51,7 @@ namespace Project.DvbIpTv.RecorderLauncher
                 Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLoadingXml, taskId, dbFile);
                 Console.Write(Properties.Texts.DisplayLoadingXml);
 
-                task = RecordTaskSerialization.LoadFromDatabase(taskId, dbFile);
+                task = RecordTaskSerialization.LoadFromDatabase(dbFile, taskId);
 
                 Console.WriteLine(Properties.Texts.DisplayActionOk);
                 Logger.Log(Logger.Level.Info, Properties.Texts.LogInfoLoadingXmlOk);

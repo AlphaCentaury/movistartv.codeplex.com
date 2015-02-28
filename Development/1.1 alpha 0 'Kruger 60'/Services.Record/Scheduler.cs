@@ -12,6 +12,7 @@ using System.Reflection;
 using System.IO;
 using Project.DvbIpTv.Services.Record.Properties;
 using System.Text.RegularExpressions;
+using Project.DvbIpTv.Common;
 
 namespace Project.DvbIpTv.Services.Record
 {
@@ -381,7 +382,7 @@ namespace Project.DvbIpTv.Services.Record
 
         private void SaveXmlData(RecordTask record)
         {
-            RecordTaskSerialization.SaveToDatabase(record, DbFile);
+            record.SaveToDatabase(DbFile);
         } // SaveXmlData
 
         private static void SetAdditionalData(TaskDefinition definition, RecordTask record, string dbFile)
@@ -390,7 +391,7 @@ namespace Project.DvbIpTv.Services.Record
             definition.RegistrationInfo.Source = Resources.DefinitionRegistrationInfo_Source;
             definition.RegistrationInfo.Documentation = string.Format(Resources.DefinitionRegistrationInfo_Documentation, record.TaskId, dbFile);
             definition.RegistrationInfo.Date = DateTime.Now;
-            definition.Data = RecordTaskSerialization.SaveToXmlString(record);
+            definition.Data = record.SaveAsString();
         } // SetAdditionalData
 
         private void SetAction(TaskDefinition definition, RecordTask record, string dbFile, string logFolder)
