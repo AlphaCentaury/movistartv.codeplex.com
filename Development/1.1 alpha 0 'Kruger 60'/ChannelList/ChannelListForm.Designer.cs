@@ -46,21 +46,44 @@ namespace Project.DvbIpTv.ChannelList
             this.imageListChannels = new System.Windows.Forms.ImageList(this.components);
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.menuItemDvbIpTv = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemProvider = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbRecent9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorDvb1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemDvbProvider = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemProviderSelect = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemProviderDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemPackages = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbPackages = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemPackagesSelect = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemPackagesManage = new System.Windows.Forms.ToolStripMenuItem();
-            this.separatorItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.separatorDvb1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorDvb2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemDvbSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemDvbExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorDvb3 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemDvbExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannel = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemChannelRefreshList = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemChannelVerify = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites0 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavorites9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelFavoritesSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemChannelFavoritesEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.separatorChannel1 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemChannelListView = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemChannelListViewTile = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemChannelListViewDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelListSort = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelListSortName = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelListSortDescription = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +91,12 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemChannelListSortLocation = new System.Windows.Forms.ToolStripMenuItem();
             this.separatorChannelSort1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemChannelListSortNone = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelListView = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelListViewTile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelListViewDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.separatorChannel2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemChannelRefreshList = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelVerify = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemRecordings = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemRecordingsRecord = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,33 +104,62 @@ namespace Project.DvbIpTv.ChannelList
             this.separatorRecordings1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemRecordingsRepair = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemRecordingsImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEpg = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEpgNow = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEpgToday = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEpgTomorrow = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorEpg1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemEpgRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemHelpDocumentation = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemHelpHomePage = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemHelpReportIssue = new System.Windows.Forms.ToolStripMenuItem();
             this.separatorHelp1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemHelpCheckUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureProviderLogo = new System.Windows.Forms.PictureBox();
             this.labelProviderName = new System.Windows.Forms.Label();
             this.labelProviderDescription = new System.Windows.Forms.Label();
             this.radioListViewDetails = new System.Windows.Forms.RadioButton();
             this.radioListViewTile = new System.Windows.Forms.RadioButton();
             this.labelListChannelsView = new System.Windows.Forms.Label();
-            this.buttonRecordChannel = new System.Windows.Forms.Button();
-            this.buttonDisplayChannel = new System.Windows.Forms.Button();
             this.listViewChannels = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
-            this.pictureNotificationIcon = new System.Windows.Forms.PictureBox();
+            this.contextMenuList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuListShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListRecord = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListShowWith = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuListSort = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListSortChannel = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListSortDescription = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListSortType = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListSortLocation = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListSortSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuListSortNone = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListMode = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListModeTile = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListModeDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuListCopy = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListCopyURL = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListCopyRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListCopyAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListProperties = new System.Windows.Forms.ToolStripMenuItem();
             this.labelNotification = new System.Windows.Forms.Label();
             this.timerDismissNotification = new System.Windows.Forms.Timer(this.components);
             this.labelPackageLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureNotificationIcon = new System.Windows.Forms.PictureBox();
+            this.buttonRecordChannel = new System.Windows.Forms.Button();
+            this.buttonDisplayChannel = new System.Windows.Forms.Button();
+            this.pictureProviderLogo = new System.Windows.Forms.PictureBox();
             Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ServiceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStripMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).BeginInit();
+            this.contextMenuList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureNotificationIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // Name
@@ -135,134 +192,320 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // menuStripMain
             // 
+            resources.ApplyResources(this.menuStripMain, "menuStripMain");
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemDvbIpTv,
             this.menuItemChannel,
             this.menuItemRecordings,
+            this.menuItemEpg,
             this.menuItemHelp});
-            resources.ApplyResources(this.menuStripMain, "menuStripMain");
             this.menuStripMain.Name = "menuStripMain";
             // 
             // menuItemDvbIpTv
             // 
-            this.menuItemDvbIpTv.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemProvider,
-            this.menuItemPackages,
-            this.separatorItem1,
-            this.separatorDvb1});
-            this.menuItemDvbIpTv.Name = "menuItemDvbIpTv";
             resources.ApplyResources(this.menuItemDvbIpTv, "menuItemDvbIpTv");
+            this.menuItemDvbIpTv.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemDvbRecent,
+            this.separatorDvb1,
+            this.menuItemDvbProvider,
+            this.menuItemDvbPackages,
+            this.separatorDvb2,
+            this.menuItemDvbSettings,
+            this.menuItemDvbExport,
+            this.separatorDvb3,
+            this.menuItemDvbExit});
+            this.menuItemDvbIpTv.Name = "menuItemDvbIpTv";
             // 
-            // menuItemProvider
+            // menuItemDvbRecent
             // 
-            this.menuItemProvider.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemProviderSelect,
-            this.menuItemProviderDetails});
-            this.menuItemProvider.Name = "menuItemProvider";
-            resources.ApplyResources(this.menuItemProvider, "menuItemProvider");
+            resources.ApplyResources(this.menuItemDvbRecent, "menuItemDvbRecent");
+            this.menuItemDvbRecent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemDvbRecent0,
+            this.menuItemDvbRecent1,
+            this.menuItemDvbRecent2,
+            this.menuItemDvbRecent3,
+            this.menuItemDvbRecent4,
+            this.menuItemDvbRecent5,
+            this.menuItemDvbRecent6,
+            this.menuItemDvbRecent7,
+            this.menuItemDvbRecent8,
+            this.menuItemDvbRecent9});
+            this.menuItemDvbRecent.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_History_MD_16x16;
+            this.menuItemDvbRecent.Name = "menuItemDvbRecent";
+            this.menuItemDvbRecent.DropDownOpening += new System.EventHandler(this.menuItemDvbRecent_DropDownOpening);
             // 
-            // menuItemProviderSelect
+            // menuItemDvbRecent0
             // 
-            this.menuItemProviderSelect.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
-            this.menuItemProviderSelect.Name = "menuItemProviderSelect";
-            resources.ApplyResources(this.menuItemProviderSelect, "menuItemProviderSelect");
-            this.menuItemProviderSelect.Click += new System.EventHandler(this.menuItemProviderSelect_Click);
+            resources.ApplyResources(this.menuItemDvbRecent0, "menuItemDvbRecent0");
+            this.menuItemDvbRecent0.Name = "menuItemDvbRecent0";
+            this.menuItemDvbRecent0.Tag = "0";
+            this.menuItemDvbRecent0.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
             // 
-            // menuItemProviderDetails
+            // menuItemDvbRecent1
             // 
-            this.menuItemProviderDetails.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Properties_16x16;
-            this.menuItemProviderDetails.Name = "menuItemProviderDetails";
-            resources.ApplyResources(this.menuItemProviderDetails, "menuItemProviderDetails");
-            this.menuItemProviderDetails.Click += new System.EventHandler(this.menuItemProviderDetails_Click);
+            resources.ApplyResources(this.menuItemDvbRecent1, "menuItemDvbRecent1");
+            this.menuItemDvbRecent1.Name = "menuItemDvbRecent1";
+            this.menuItemDvbRecent1.Tag = "1";
+            this.menuItemDvbRecent1.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
             // 
-            // menuItemPackages
+            // menuItemDvbRecent2
             // 
-            this.menuItemPackages.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemPackagesSelect,
-            this.menuItemPackagesManage});
-            this.menuItemPackages.Name = "menuItemPackages";
-            resources.ApplyResources(this.menuItemPackages, "menuItemPackages");
+            resources.ApplyResources(this.menuItemDvbRecent2, "menuItemDvbRecent2");
+            this.menuItemDvbRecent2.Name = "menuItemDvbRecent2";
+            this.menuItemDvbRecent2.Tag = "2";
+            this.menuItemDvbRecent2.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
             // 
-            // menuItemPackagesSelect
+            // menuItemDvbRecent3
             // 
-            this.menuItemPackagesSelect.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
-            this.menuItemPackagesSelect.Name = "menuItemPackagesSelect";
-            resources.ApplyResources(this.menuItemPackagesSelect, "menuItemPackagesSelect");
+            resources.ApplyResources(this.menuItemDvbRecent3, "menuItemDvbRecent3");
+            this.menuItemDvbRecent3.Name = "menuItemDvbRecent3";
+            this.menuItemDvbRecent3.Tag = "3";
+            this.menuItemDvbRecent3.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
             // 
-            // menuItemPackagesManage
+            // menuItemDvbRecent4
             // 
-            this.menuItemPackagesManage.Name = "menuItemPackagesManage";
-            resources.ApplyResources(this.menuItemPackagesManage, "menuItemPackagesManage");
+            resources.ApplyResources(this.menuItemDvbRecent4, "menuItemDvbRecent4");
+            this.menuItemDvbRecent4.Name = "menuItemDvbRecent4";
+            this.menuItemDvbRecent4.Tag = "4";
+            this.menuItemDvbRecent4.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
             // 
-            // separatorItem1
+            // menuItemDvbRecent5
             // 
-            this.separatorItem1.Name = "separatorItem1";
-            resources.ApplyResources(this.separatorItem1, "separatorItem1");
+            resources.ApplyResources(this.menuItemDvbRecent5, "menuItemDvbRecent5");
+            this.menuItemDvbRecent5.Name = "menuItemDvbRecent5";
+            this.menuItemDvbRecent5.Tag = "5";
+            this.menuItemDvbRecent5.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
+            // 
+            // menuItemDvbRecent6
+            // 
+            resources.ApplyResources(this.menuItemDvbRecent6, "menuItemDvbRecent6");
+            this.menuItemDvbRecent6.Name = "menuItemDvbRecent6";
+            this.menuItemDvbRecent6.Tag = "6";
+            this.menuItemDvbRecent6.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
+            // 
+            // menuItemDvbRecent7
+            // 
+            resources.ApplyResources(this.menuItemDvbRecent7, "menuItemDvbRecent7");
+            this.menuItemDvbRecent7.Name = "menuItemDvbRecent7";
+            this.menuItemDvbRecent7.Tag = "7";
+            this.menuItemDvbRecent7.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
+            // 
+            // menuItemDvbRecent8
+            // 
+            resources.ApplyResources(this.menuItemDvbRecent8, "menuItemDvbRecent8");
+            this.menuItemDvbRecent8.Name = "menuItemDvbRecent8";
+            this.menuItemDvbRecent8.Tag = "8";
+            this.menuItemDvbRecent8.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
+            // 
+            // menuItemDvbRecent9
+            // 
+            resources.ApplyResources(this.menuItemDvbRecent9, "menuItemDvbRecent9");
+            this.menuItemDvbRecent9.Name = "menuItemDvbRecent9";
+            this.menuItemDvbRecent9.Tag = "9";
+            this.menuItemDvbRecent9.Click += new System.EventHandler(this.menuItemDvbRecent_Click);
             // 
             // separatorDvb1
             // 
             resources.ApplyResources(this.separatorDvb1, "separatorDvb1");
             this.separatorDvb1.Name = "separatorDvb1";
-            this.separatorDvb1.Click += new System.EventHandler(this.menuItemDvbExit_Click);
+            // 
+            // menuItemDvbProvider
+            // 
+            resources.ApplyResources(this.menuItemDvbProvider, "menuItemDvbProvider");
+            this.menuItemDvbProvider.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemProviderSelect,
+            this.menuItemProviderDetails});
+            this.menuItemDvbProvider.Name = "menuItemDvbProvider";
+            // 
+            // menuItemProviderSelect
+            // 
+            resources.ApplyResources(this.menuItemProviderSelect, "menuItemProviderSelect");
+            this.menuItemProviderSelect.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
+            this.menuItemProviderSelect.Name = "menuItemProviderSelect";
+            this.menuItemProviderSelect.Click += new System.EventHandler(this.menuItemProviderSelect_Click);
+            // 
+            // menuItemProviderDetails
+            // 
+            resources.ApplyResources(this.menuItemProviderDetails, "menuItemProviderDetails");
+            this.menuItemProviderDetails.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Properties_16x16;
+            this.menuItemProviderDetails.Name = "menuItemProviderDetails";
+            this.menuItemProviderDetails.Click += new System.EventHandler(this.menuItemProviderDetails_Click);
+            // 
+            // menuItemDvbPackages
+            // 
+            resources.ApplyResources(this.menuItemDvbPackages, "menuItemDvbPackages");
+            this.menuItemDvbPackages.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemPackagesSelect,
+            this.menuItemPackagesManage});
+            this.menuItemDvbPackages.Name = "menuItemDvbPackages";
+            // 
+            // menuItemPackagesSelect
+            // 
+            resources.ApplyResources(this.menuItemPackagesSelect, "menuItemPackagesSelect");
+            this.menuItemPackagesSelect.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
+            this.menuItemPackagesSelect.Name = "menuItemPackagesSelect";
+            this.menuItemPackagesSelect.Click += new System.EventHandler(this.menuItemPackagesSelect_Click);
+            // 
+            // menuItemPackagesManage
+            // 
+            resources.ApplyResources(this.menuItemPackagesManage, "menuItemPackagesManage");
+            this.menuItemPackagesManage.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Edit_16x16;
+            this.menuItemPackagesManage.Name = "menuItemPackagesManage";
+            this.menuItemPackagesManage.Click += new System.EventHandler(this.menuItemPackagesManage_Click);
+            // 
+            // separatorDvb2
+            // 
+            resources.ApplyResources(this.separatorDvb2, "separatorDvb2");
+            this.separatorDvb2.Name = "separatorDvb2";
+            // 
+            // menuItemDvbSettings
+            // 
+            resources.ApplyResources(this.menuItemDvbSettings, "menuItemDvbSettings");
+            this.menuItemDvbSettings.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Settings_16x16;
+            this.menuItemDvbSettings.Name = "menuItemDvbSettings";
+            // 
+            // menuItemDvbExport
+            // 
+            resources.ApplyResources(this.menuItemDvbExport, "menuItemDvbExport");
+            this.menuItemDvbExport.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Export_Data;
+            this.menuItemDvbExport.Name = "menuItemDvbExport";
+            this.menuItemDvbExport.Click += new System.EventHandler(this.menuItemDvbExport_Click);
+            // 
+            // separatorDvb3
+            // 
+            resources.ApplyResources(this.separatorDvb3, "separatorDvb3");
+            this.separatorDvb3.Name = "separatorDvb3";
+            // 
+            // menuItemDvbExit
+            // 
+            resources.ApplyResources(this.menuItemDvbExit, "menuItemDvbExit");
+            this.menuItemDvbExit.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Close_16x16;
+            this.menuItemDvbExit.Name = "menuItemDvbExit";
+            this.menuItemDvbExit.Click += new System.EventHandler(this.menuItemDvbExit_Click);
             // 
             // menuItemChannel
             // 
+            resources.ApplyResources(this.menuItemChannel, "menuItemChannel");
             this.menuItemChannel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemChannelFavorites,
+            this.separatorChannel1,
+            this.menuItemChannelListSort,
+            this.menuItemChannelListView,
+            this.separatorChannel2,
             this.menuItemChannelRefreshList,
             this.menuItemChannelVerify,
-            this.separatorChannel1,
-            this.menuItemChannelListView,
-            this.menuItemChannelListSort,
-            this.separatorChannel2,
             this.menuItemChannelDetails});
             this.menuItemChannel.Name = "menuItemChannel";
-            resources.ApplyResources(this.menuItemChannel, "menuItemChannel");
             // 
-            // menuItemChannelRefreshList
+            // menuItemChannelFavorites
             // 
-            this.menuItemChannelRefreshList.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.RefreshBlue_16x16;
-            this.menuItemChannelRefreshList.Name = "menuItemChannelRefreshList";
-            resources.ApplyResources(this.menuItemChannelRefreshList, "menuItemChannelRefreshList");
-            this.menuItemChannelRefreshList.Click += new System.EventHandler(this.menuItemChannelRefreshList_Click);
+            resources.ApplyResources(this.menuItemChannelFavorites, "menuItemChannelFavorites");
+            this.menuItemChannelFavorites.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemChannelFavorites0,
+            this.menuItemChannelFavorites1,
+            this.menuItemChannelFavorites2,
+            this.menuItemChannelFavorites3,
+            this.menuItemChannelFavorites4,
+            this.menuItemChannelFavorites5,
+            this.menuItemChannelFavorites6,
+            this.menuItemChannelFavorites7,
+            this.menuItemChannelFavorites8,
+            this.menuItemChannelFavorites9,
+            this.menuItemChannelFavoritesSeparator1,
+            this.menuItemChannelFavoritesEdit});
+            this.menuItemChannelFavorites.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Favorites_16x16;
+            this.menuItemChannelFavorites.Name = "menuItemChannelFavorites";
             // 
-            // menuItemChannelVerify
+            // menuItemChannelFavorites0
             // 
-            this.menuItemChannelVerify.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Settings_16x616;
-            this.menuItemChannelVerify.Name = "menuItemChannelVerify";
-            resources.ApplyResources(this.menuItemChannelVerify, "menuItemChannelVerify");
-            this.menuItemChannelVerify.Click += new System.EventHandler(this.menuItemChannelVerify_Click);
+            resources.ApplyResources(this.menuItemChannelFavorites0, "menuItemChannelFavorites0");
+            this.menuItemChannelFavorites0.Name = "menuItemChannelFavorites0";
+            this.menuItemChannelFavorites0.Tag = "0";
+            this.menuItemChannelFavorites0.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites1
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites1, "menuItemChannelFavorites1");
+            this.menuItemChannelFavorites1.Name = "menuItemChannelFavorites1";
+            this.menuItemChannelFavorites1.Tag = "1";
+            this.menuItemChannelFavorites1.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites2
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites2, "menuItemChannelFavorites2");
+            this.menuItemChannelFavorites2.Name = "menuItemChannelFavorites2";
+            this.menuItemChannelFavorites2.Tag = "2";
+            this.menuItemChannelFavorites2.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites3
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites3, "menuItemChannelFavorites3");
+            this.menuItemChannelFavorites3.Name = "menuItemChannelFavorites3";
+            this.menuItemChannelFavorites3.Tag = "3";
+            this.menuItemChannelFavorites3.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites4
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites4, "menuItemChannelFavorites4");
+            this.menuItemChannelFavorites4.Name = "menuItemChannelFavorites4";
+            this.menuItemChannelFavorites4.Tag = "4";
+            this.menuItemChannelFavorites4.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites5
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites5, "menuItemChannelFavorites5");
+            this.menuItemChannelFavorites5.Name = "menuItemChannelFavorites5";
+            this.menuItemChannelFavorites5.Tag = "5";
+            this.menuItemChannelFavorites5.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites6
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites6, "menuItemChannelFavorites6");
+            this.menuItemChannelFavorites6.Name = "menuItemChannelFavorites6";
+            this.menuItemChannelFavorites6.Tag = "6";
+            this.menuItemChannelFavorites6.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites7
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites7, "menuItemChannelFavorites7");
+            this.menuItemChannelFavorites7.Name = "menuItemChannelFavorites7";
+            this.menuItemChannelFavorites7.Tag = "7";
+            this.menuItemChannelFavorites7.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites8
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites8, "menuItemChannelFavorites8");
+            this.menuItemChannelFavorites8.Name = "menuItemChannelFavorites8";
+            this.menuItemChannelFavorites8.Tag = "8";
+            this.menuItemChannelFavorites8.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavorites9
+            // 
+            resources.ApplyResources(this.menuItemChannelFavorites9, "menuItemChannelFavorites9");
+            this.menuItemChannelFavorites9.Name = "menuItemChannelFavorites9";
+            this.menuItemChannelFavorites9.Tag = "9";
+            this.menuItemChannelFavorites9.Click += new System.EventHandler(this.menuItemChannelFavorites_Click);
+            // 
+            // menuItemChannelFavoritesSeparator1
+            // 
+            resources.ApplyResources(this.menuItemChannelFavoritesSeparator1, "menuItemChannelFavoritesSeparator1");
+            this.menuItemChannelFavoritesSeparator1.Name = "menuItemChannelFavoritesSeparator1";
+            // 
+            // menuItemChannelFavoritesEdit
+            // 
+            resources.ApplyResources(this.menuItemChannelFavoritesEdit, "menuItemChannelFavoritesEdit");
+            this.menuItemChannelFavoritesEdit.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
+            this.menuItemChannelFavoritesEdit.Name = "menuItemChannelFavoritesEdit";
+            this.menuItemChannelFavoritesEdit.Click += new System.EventHandler(this.menuItemChannelFavoritesEdit_Click);
             // 
             // separatorChannel1
             // 
-            this.separatorChannel1.Name = "separatorChannel1";
             resources.ApplyResources(this.separatorChannel1, "separatorChannel1");
-            // 
-            // menuItemChannelListView
-            // 
-            this.menuItemChannelListView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemChannelListViewTile,
-            this.menuItemChannelListViewDetails});
-            this.menuItemChannelListView.Name = "menuItemChannelListView";
-            resources.ApplyResources(this.menuItemChannelListView, "menuItemChannelListView");
-            // 
-            // menuItemChannelListViewTile
-            // 
-            this.menuItemChannelListViewTile.Checked = true;
-            this.menuItemChannelListViewTile.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.menuItemChannelListViewTile.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ViewThumbnails_16x16;
-            this.menuItemChannelListViewTile.Name = "menuItemChannelListViewTile";
-            resources.ApplyResources(this.menuItemChannelListViewTile, "menuItemChannelListViewTile");
-            this.menuItemChannelListViewTile.Click += new System.EventHandler(this.menuItemChannelListViewTile_Click);
-            // 
-            // menuItemChannelListViewDetails
-            // 
-            this.menuItemChannelListViewDetails.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
-            this.menuItemChannelListViewDetails.Name = "menuItemChannelListViewDetails";
-            resources.ApplyResources(this.menuItemChannelListViewDetails, "menuItemChannelListViewDetails");
-            this.menuItemChannelListViewDetails.Click += new System.EventHandler(this.menuItemChannelListViewDetails_Click);
+            this.separatorChannel1.Name = "separatorChannel1";
             // 
             // menuItemChannelListSort
             // 
+            resources.ApplyResources(this.menuItemChannelListSort, "menuItemChannelListSort");
             this.menuItemChannelListSort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemChannelListSortName,
             this.menuItemChannelListSortDescription,
@@ -272,57 +515,95 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemChannelListSortNone});
             this.menuItemChannelListSort.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.SortAZ_16x16;
             this.menuItemChannelListSort.Name = "menuItemChannelListSort";
-            resources.ApplyResources(this.menuItemChannelListSort, "menuItemChannelListSort");
             // 
             // menuItemChannelListSortName
             // 
-            this.menuItemChannelListSortName.Name = "menuItemChannelListSortName";
             resources.ApplyResources(this.menuItemChannelListSortName, "menuItemChannelListSortName");
+            this.menuItemChannelListSortName.Name = "menuItemChannelListSortName";
             this.menuItemChannelListSortName.Click += new System.EventHandler(this.menuItemChannelListSortName_Click);
             // 
             // menuItemChannelListSortDescription
             // 
-            this.menuItemChannelListSortDescription.Name = "menuItemChannelListSortDescription";
             resources.ApplyResources(this.menuItemChannelListSortDescription, "menuItemChannelListSortDescription");
+            this.menuItemChannelListSortDescription.Name = "menuItemChannelListSortDescription";
             this.menuItemChannelListSortDescription.Click += new System.EventHandler(this.menuItemChannelListSortDescription_Click);
             // 
             // menuItemChannelListSortType
             // 
-            this.menuItemChannelListSortType.Name = "menuItemChannelListSortType";
             resources.ApplyResources(this.menuItemChannelListSortType, "menuItemChannelListSortType");
+            this.menuItemChannelListSortType.Name = "menuItemChannelListSortType";
             this.menuItemChannelListSortType.Click += new System.EventHandler(this.menuItemChannelListSortType_Click);
             // 
             // menuItemChannelListSortLocation
             // 
-            this.menuItemChannelListSortLocation.Name = "menuItemChannelListSortLocation";
             resources.ApplyResources(this.menuItemChannelListSortLocation, "menuItemChannelListSortLocation");
+            this.menuItemChannelListSortLocation.Name = "menuItemChannelListSortLocation";
             this.menuItemChannelListSortLocation.Click += new System.EventHandler(this.menuItemChannelListSortLocation_Click);
             // 
             // separatorChannelSort1
             // 
-            this.separatorChannelSort1.Name = "separatorChannelSort1";
             resources.ApplyResources(this.separatorChannelSort1, "separatorChannelSort1");
+            this.separatorChannelSort1.Name = "separatorChannelSort1";
             // 
             // menuItemChannelListSortNone
             // 
-            this.menuItemChannelListSortNone.Name = "menuItemChannelListSortNone";
             resources.ApplyResources(this.menuItemChannelListSortNone, "menuItemChannelListSortNone");
+            this.menuItemChannelListSortNone.Name = "menuItemChannelListSortNone";
             this.menuItemChannelListSortNone.Click += new System.EventHandler(this.menuItemChannelListSortNone_Click);
+            // 
+            // menuItemChannelListView
+            // 
+            resources.ApplyResources(this.menuItemChannelListView, "menuItemChannelListView");
+            this.menuItemChannelListView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemChannelListViewTile,
+            this.menuItemChannelListViewDetails});
+            this.menuItemChannelListView.Name = "menuItemChannelListView";
+            // 
+            // menuItemChannelListViewTile
+            // 
+            resources.ApplyResources(this.menuItemChannelListViewTile, "menuItemChannelListViewTile");
+            this.menuItemChannelListViewTile.Checked = true;
+            this.menuItemChannelListViewTile.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.menuItemChannelListViewTile.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ViewThumbnails_16x16;
+            this.menuItemChannelListViewTile.Name = "menuItemChannelListViewTile";
+            this.menuItemChannelListViewTile.Click += new System.EventHandler(this.menuItemChannelListViewTile_Click);
+            // 
+            // menuItemChannelListViewDetails
+            // 
+            resources.ApplyResources(this.menuItemChannelListViewDetails, "menuItemChannelListViewDetails");
+            this.menuItemChannelListViewDetails.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
+            this.menuItemChannelListViewDetails.Name = "menuItemChannelListViewDetails";
+            this.menuItemChannelListViewDetails.Click += new System.EventHandler(this.menuItemChannelListViewDetails_Click);
             // 
             // separatorChannel2
             // 
-            this.separatorChannel2.Name = "separatorChannel2";
             resources.ApplyResources(this.separatorChannel2, "separatorChannel2");
+            this.separatorChannel2.Name = "separatorChannel2";
+            // 
+            // menuItemChannelRefreshList
+            // 
+            resources.ApplyResources(this.menuItemChannelRefreshList, "menuItemChannelRefreshList");
+            this.menuItemChannelRefreshList.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Refresh_Blue_16x16;
+            this.menuItemChannelRefreshList.Name = "menuItemChannelRefreshList";
+            this.menuItemChannelRefreshList.Click += new System.EventHandler(this.menuItemChannelRefreshList_Click);
+            // 
+            // menuItemChannelVerify
+            // 
+            resources.ApplyResources(this.menuItemChannelVerify, "menuItemChannelVerify");
+            this.menuItemChannelVerify.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Settings_16x616;
+            this.menuItemChannelVerify.Name = "menuItemChannelVerify";
+            this.menuItemChannelVerify.Click += new System.EventHandler(this.menuItemChannelVerify_Click);
             // 
             // menuItemChannelDetails
             // 
-            this.menuItemChannelDetails.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Properties_16x16;
-            this.menuItemChannelDetails.Name = "menuItemChannelDetails";
             resources.ApplyResources(this.menuItemChannelDetails, "menuItemChannelDetails");
+            this.menuItemChannelDetails.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Properties_16x16;
+            this.menuItemChannelDetails.Name = "menuItemChannelDetails";
             this.menuItemChannelDetails.Click += new System.EventHandler(this.menuItemChannelDetails_Click);
             // 
             // menuItemRecordings
             // 
+            resources.ApplyResources(this.menuItemRecordings, "menuItemRecordings");
             this.menuItemRecordings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemRecordingsRecord,
             this.menuItemRecordingsManage,
@@ -330,88 +611,133 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemRecordingsRepair,
             this.menuItemRecordingsImport});
             this.menuItemRecordings.Name = "menuItemRecordings";
-            resources.ApplyResources(this.menuItemRecordings, "menuItemRecordings");
             // 
             // menuItemRecordingsRecord
             // 
+            resources.ApplyResources(this.menuItemRecordingsRecord, "menuItemRecordingsRecord");
             this.menuItemRecordingsRecord.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Record_16x16;
             this.menuItemRecordingsRecord.Name = "menuItemRecordingsRecord";
-            resources.ApplyResources(this.menuItemRecordingsRecord, "menuItemRecordingsRecord");
             this.menuItemRecordingsRecord.Click += new System.EventHandler(this.menuItemRecordingsRecord_Click);
             // 
             // menuItemRecordingsManage
             // 
-            this.menuItemRecordingsManage.Name = "menuItemRecordingsManage";
             resources.ApplyResources(this.menuItemRecordingsManage, "menuItemRecordingsManage");
+            this.menuItemRecordingsManage.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Edit_16x16;
+            this.menuItemRecordingsManage.Name = "menuItemRecordingsManage";
             this.menuItemRecordingsManage.Click += new System.EventHandler(this.menuItemRecordingsManage_Click);
             // 
             // separatorRecordings1
             // 
-            this.separatorRecordings1.Name = "separatorRecordings1";
             resources.ApplyResources(this.separatorRecordings1, "separatorRecordings1");
+            this.separatorRecordings1.Name = "separatorRecordings1";
             // 
             // menuItemRecordingsRepair
             // 
-            this.menuItemRecordingsRepair.Name = "menuItemRecordingsRepair";
             resources.ApplyResources(this.menuItemRecordingsRepair, "menuItemRecordingsRepair");
+            this.menuItemRecordingsRepair.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Repair_16x16;
+            this.menuItemRecordingsRepair.Name = "menuItemRecordingsRepair";
             this.menuItemRecordingsRepair.Click += new System.EventHandler(this.menuItemRecordingsRepair_Click);
             // 
             // menuItemRecordingsImport
             // 
-            this.menuItemRecordingsImport.Name = "menuItemRecordingsImport";
             resources.ApplyResources(this.menuItemRecordingsImport, "menuItemRecordingsImport");
+            this.menuItemRecordingsImport.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Import_16x16;
+            this.menuItemRecordingsImport.Name = "menuItemRecordingsImport";
             this.menuItemRecordingsImport.Click += new System.EventHandler(this.menuItemRecordingsImport_Click);
+            // 
+            // menuItemEpg
+            // 
+            resources.ApplyResources(this.menuItemEpg, "menuItemEpg");
+            this.menuItemEpg.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemEpgNow,
+            this.menuItemEpgToday,
+            this.menuItemEpgTomorrow,
+            this.separatorEpg1,
+            this.menuItemEpgRefresh});
+            this.menuItemEpg.Name = "menuItemEpg";
+            // 
+            // menuItemEpgNow
+            // 
+            resources.ApplyResources(this.menuItemEpgNow, "menuItemEpgNow");
+            this.menuItemEpgNow.Name = "menuItemEpgNow";
+            this.menuItemEpgNow.Click += new System.EventHandler(this.menuItemEpgNow_Click);
+            // 
+            // menuItemEpgToday
+            // 
+            resources.ApplyResources(this.menuItemEpgToday, "menuItemEpgToday");
+            this.menuItemEpgToday.Name = "menuItemEpgToday";
+            this.menuItemEpgToday.Click += new System.EventHandler(this.menuItemEpgToday_Click);
+            // 
+            // menuItemEpgTomorrow
+            // 
+            resources.ApplyResources(this.menuItemEpgTomorrow, "menuItemEpgTomorrow");
+            this.menuItemEpgTomorrow.Name = "menuItemEpgTomorrow";
+            this.menuItemEpgTomorrow.Click += new System.EventHandler(this.menuItemEpgTomorrow_Click);
+            // 
+            // separatorEpg1
+            // 
+            resources.ApplyResources(this.separatorEpg1, "separatorEpg1");
+            this.separatorEpg1.Name = "separatorEpg1";
+            // 
+            // menuItemEpgRefresh
+            // 
+            resources.ApplyResources(this.menuItemEpgRefresh, "menuItemEpgRefresh");
+            this.menuItemEpgRefresh.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.RefreshBlue_16x16;
+            this.menuItemEpgRefresh.Name = "menuItemEpgRefresh";
+            this.menuItemEpgRefresh.Click += new System.EventHandler(this.menuItemEpgRefresh_Click);
             // 
             // menuItemHelp
             // 
+            resources.ApplyResources(this.menuItemHelp, "menuItemHelp");
             this.menuItemHelp.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.menuItemHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemHelpDocumentation,
             this.menuItemHelpHomePage,
+            this.menuItemHelpReportIssue,
             this.separatorHelp1,
             this.menuItemHelpCheckUpdates,
             this.menuItemHelpAbout});
             this.menuItemHelp.Name = "menuItemHelp";
-            resources.ApplyResources(this.menuItemHelp, "menuItemHelp");
             // 
             // menuItemHelpDocumentation
             // 
+            resources.ApplyResources(this.menuItemHelpDocumentation, "menuItemHelpDocumentation");
             this.menuItemHelpDocumentation.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Help_16x16;
             this.menuItemHelpDocumentation.Name = "menuItemHelpDocumentation";
-            resources.ApplyResources(this.menuItemHelpDocumentation, "menuItemHelpDocumentation");
             this.menuItemHelpDocumentation.Click += new System.EventHandler(this.menuItemHelpDocumentation_Click);
             // 
             // menuItemHelpHomePage
             // 
+            resources.ApplyResources(this.menuItemHelpHomePage, "menuItemHelpHomePage");
             this.menuItemHelpHomePage.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.WebBrowser_16x16;
             this.menuItemHelpHomePage.Name = "menuItemHelpHomePage";
-            resources.ApplyResources(this.menuItemHelpHomePage, "menuItemHelpHomePage");
             this.menuItemHelpHomePage.Click += new System.EventHandler(this.menuItemHelpHomePage_Click);
+            // 
+            // menuItemHelpReportIssue
+            // 
+            resources.ApplyResources(this.menuItemHelpReportIssue, "menuItemHelpReportIssue");
+            this.menuItemHelpReportIssue.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_ReportError_16x16;
+            this.menuItemHelpReportIssue.Name = "menuItemHelpReportIssue";
+            this.menuItemHelpReportIssue.Click += new System.EventHandler(this.menuItemHelpReportIssue_Click);
             // 
             // separatorHelp1
             // 
-            this.separatorHelp1.Name = "separatorHelp1";
             resources.ApplyResources(this.separatorHelp1, "separatorHelp1");
+            this.separatorHelp1.Name = "separatorHelp1";
             // 
             // menuItemHelpCheckUpdates
             // 
+            resources.ApplyResources(this.menuItemHelpCheckUpdates, "menuItemHelpCheckUpdates");
             this.menuItemHelpCheckUpdates.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.DownloadWebSettings_16x16;
             this.menuItemHelpCheckUpdates.Name = "menuItemHelpCheckUpdates";
-            resources.ApplyResources(this.menuItemHelpCheckUpdates, "menuItemHelpCheckUpdates");
             this.menuItemHelpCheckUpdates.Click += new System.EventHandler(this.menuItemHelpCheckUpdates_Click);
             // 
             // menuItemHelpAbout
             // 
-            this.menuItemHelpAbout.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Properties_16x16;
-            this.menuItemHelpAbout.Name = "menuItemHelpAbout";
             resources.ApplyResources(this.menuItemHelpAbout, "menuItemHelpAbout");
+            this.menuItemHelpAbout.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Properties_16x16;
+            this.menuItemHelpAbout.Name = "menuItemHelpAbout";
             this.menuItemHelpAbout.Click += new System.EventHandler(this.menuItemHelpAbout_Click);
-            // 
-            // pictureProviderLogo
-            // 
-            resources.ApplyResources(this.pictureProviderLogo, "pictureProviderLogo");
-            this.pictureProviderLogo.Name = "pictureProviderLogo";
-            this.pictureProviderLogo.TabStop = false;
             // 
             // labelProviderName
             // 
@@ -447,32 +773,17 @@ namespace Project.DvbIpTv.ChannelList
             resources.ApplyResources(this.labelListChannelsView, "labelListChannelsView");
             this.labelListChannelsView.Name = "labelListChannelsView";
             // 
-            // buttonRecordChannel
-            // 
-            resources.ApplyResources(this.buttonRecordChannel, "buttonRecordChannel");
-            this.buttonRecordChannel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Record_16x16;
-            this.buttonRecordChannel.Name = "buttonRecordChannel";
-            this.buttonRecordChannel.UseVisualStyleBackColor = true;
-            this.buttonRecordChannel.Click += new System.EventHandler(this.buttonRecordChannel_Click);
-            // 
-            // buttonDisplayChannel
-            // 
-            resources.ApplyResources(this.buttonDisplayChannel, "buttonDisplayChannel");
-            this.buttonDisplayChannel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.RightArrowShort_Green_16x16;
-            this.buttonDisplayChannel.Name = "buttonDisplayChannel";
-            this.buttonDisplayChannel.UseVisualStyleBackColor = true;
-            this.buttonDisplayChannel.Click += new System.EventHandler(this.buttonDisplayChannel_Click);
-            // 
             // listViewChannels
             // 
-            this.listViewChannels.AllowColumnReorder = true;
             resources.ApplyResources(this.listViewChannels, "listViewChannels");
+            this.listViewChannels.AllowColumnReorder = true;
             this.listViewChannels.CausesValidation = false;
             this.listViewChannels.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             Name,
             Description,
             ServiceType,
             Location});
+            this.listViewChannels.ContextMenuStrip = this.contextMenuList;
             this.listViewChannels.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listViewChannels.FullRowSelect = true;
             this.listViewChannels.GridLines = true;
@@ -495,11 +806,156 @@ namespace Project.DvbIpTv.ChannelList
             this.listViewChannels.SelectedIndexChanged += new System.EventHandler(this.listViewChannels_SelectedIndexChanged);
             this.listViewChannels.DoubleClick += new System.EventHandler(this.listViewChannels_DoubleClick);
             // 
-            // pictureNotificationIcon
+            // contextMenuList
             // 
-            resources.ApplyResources(this.pictureNotificationIcon, "pictureNotificationIcon");
-            this.pictureNotificationIcon.Name = "pictureNotificationIcon";
-            this.pictureNotificationIcon.TabStop = false;
+            resources.ApplyResources(this.contextMenuList, "contextMenuList");
+            this.contextMenuList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuListShow,
+            this.contextMenuListRecord,
+            this.contextMenuListShowWith,
+            this.toolStripSeparator1,
+            this.contextMenuListSort,
+            this.contextMenuListMode,
+            this.toolStripSeparator2,
+            this.contextMenuListCopy,
+            this.contextMenuListProperties});
+            this.contextMenuList.Name = "contextMenuList";
+            this.contextMenuList.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuList_Opening);
+            // 
+            // contextMenuListShow
+            // 
+            resources.ApplyResources(this.contextMenuListShow, "contextMenuListShow");
+            this.contextMenuListShow.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.RightArrowShort_Green_16x16;
+            this.contextMenuListShow.Name = "contextMenuListShow";
+            this.contextMenuListShow.Click += new System.EventHandler(this.buttonDisplayChannel_Click);
+            // 
+            // contextMenuListRecord
+            // 
+            resources.ApplyResources(this.contextMenuListRecord, "contextMenuListRecord");
+            this.contextMenuListRecord.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Record_16x16;
+            this.contextMenuListRecord.Name = "contextMenuListRecord";
+            this.contextMenuListRecord.Click += new System.EventHandler(this.menuItemRecordingsRecord_Click);
+            // 
+            // contextMenuListShowWith
+            // 
+            resources.ApplyResources(this.contextMenuListShowWith, "contextMenuListShowWith");
+            this.contextMenuListShowWith.Name = "contextMenuListShowWith";
+            this.contextMenuListShowWith.Click += new System.EventHandler(this.contextMenuListShowWith_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            // 
+            // contextMenuListSort
+            // 
+            resources.ApplyResources(this.contextMenuListSort, "contextMenuListSort");
+            this.contextMenuListSort.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuListSortChannel,
+            this.contextMenuListSortDescription,
+            this.contextMenuListSortType,
+            this.contextMenuListSortLocation,
+            this.contextMenuListSortSeparator1,
+            this.contextMenuListSortNone});
+            this.contextMenuListSort.Name = "contextMenuListSort";
+            this.contextMenuListSort.DropDownOpening += new System.EventHandler(this.contextMenuListSort_DropDownOpening);
+            // 
+            // contextMenuListSortChannel
+            // 
+            resources.ApplyResources(this.contextMenuListSortChannel, "contextMenuListSortChannel");
+            this.contextMenuListSortChannel.Name = "contextMenuListSortChannel";
+            this.contextMenuListSortChannel.Click += new System.EventHandler(this.menuItemChannelListSortName_Click);
+            // 
+            // contextMenuListSortDescription
+            // 
+            resources.ApplyResources(this.contextMenuListSortDescription, "contextMenuListSortDescription");
+            this.contextMenuListSortDescription.Name = "contextMenuListSortDescription";
+            this.contextMenuListSortDescription.Click += new System.EventHandler(this.menuItemChannelListSortDescription_Click);
+            // 
+            // contextMenuListSortType
+            // 
+            resources.ApplyResources(this.contextMenuListSortType, "contextMenuListSortType");
+            this.contextMenuListSortType.Name = "contextMenuListSortType";
+            this.contextMenuListSortType.Click += new System.EventHandler(this.menuItemChannelListSortType_Click);
+            // 
+            // contextMenuListSortLocation
+            // 
+            resources.ApplyResources(this.contextMenuListSortLocation, "contextMenuListSortLocation");
+            this.contextMenuListSortLocation.Name = "contextMenuListSortLocation";
+            this.contextMenuListSortLocation.Click += new System.EventHandler(this.menuItemChannelListSortLocation_Click);
+            // 
+            // contextMenuListSortSeparator1
+            // 
+            resources.ApplyResources(this.contextMenuListSortSeparator1, "contextMenuListSortSeparator1");
+            this.contextMenuListSortSeparator1.Name = "contextMenuListSortSeparator1";
+            // 
+            // contextMenuListSortNone
+            // 
+            resources.ApplyResources(this.contextMenuListSortNone, "contextMenuListSortNone");
+            this.contextMenuListSortNone.Name = "contextMenuListSortNone";
+            this.contextMenuListSortNone.Click += new System.EventHandler(this.menuItemChannelListSortNone_Click);
+            // 
+            // contextMenuListMode
+            // 
+            resources.ApplyResources(this.contextMenuListMode, "contextMenuListMode");
+            this.contextMenuListMode.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuListModeTile,
+            this.contextMenuListModeDetails});
+            this.contextMenuListMode.Name = "contextMenuListMode";
+            this.contextMenuListMode.DropDownOpening += new System.EventHandler(this.contextMenuListMode_DropDownOpening);
+            // 
+            // contextMenuListModeTile
+            // 
+            resources.ApplyResources(this.contextMenuListModeTile, "contextMenuListModeTile");
+            this.contextMenuListModeTile.Name = "contextMenuListModeTile";
+            this.contextMenuListModeTile.Click += new System.EventHandler(this.menuItemChannelListViewTile_Click);
+            // 
+            // contextMenuListModeDetails
+            // 
+            resources.ApplyResources(this.contextMenuListModeDetails, "contextMenuListModeDetails");
+            this.contextMenuListModeDetails.Name = "contextMenuListModeDetails";
+            this.contextMenuListModeDetails.Click += new System.EventHandler(this.menuItemChannelListViewDetails_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            // 
+            // contextMenuListCopy
+            // 
+            resources.ApplyResources(this.contextMenuListCopy, "contextMenuListCopy");
+            this.contextMenuListCopy.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuListCopyURL,
+            this.contextMenuListCopyRow,
+            this.contextMenuListCopyAll});
+            this.contextMenuListCopy.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Copy_Clip_16x16;
+            this.contextMenuListCopy.Name = "contextMenuListCopy";
+            this.contextMenuListCopy.DropDownOpening += new System.EventHandler(this.contextMenuListCopy_DropDownOpening);
+            // 
+            // contextMenuListCopyURL
+            // 
+            resources.ApplyResources(this.contextMenuListCopyURL, "contextMenuListCopyURL");
+            this.contextMenuListCopyURL.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Hyperlink_16x16;
+            this.contextMenuListCopyURL.Name = "contextMenuListCopyURL";
+            // 
+            // contextMenuListCopyRow
+            // 
+            resources.ApplyResources(this.contextMenuListCopyRow, "contextMenuListCopyRow");
+            this.contextMenuListCopyRow.Name = "contextMenuListCopyRow";
+            this.contextMenuListCopyRow.Click += new System.EventHandler(this.contextMenuListCopyRow_Click);
+            // 
+            // contextMenuListCopyAll
+            // 
+            resources.ApplyResources(this.contextMenuListCopyAll, "contextMenuListCopyAll");
+            this.contextMenuListCopyAll.Image = global::Project.DvbIpTv.ChannelList.Resource_CommonUi.Action_Copy_Table;
+            this.contextMenuListCopyAll.Name = "contextMenuListCopyAll";
+            this.contextMenuListCopyAll.Click += new System.EventHandler(this.contextMenuListCopyAll_Click);
+            // 
+            // contextMenuListProperties
+            // 
+            resources.ApplyResources(this.contextMenuListProperties, "contextMenuListProperties");
+            this.contextMenuListProperties.Name = "contextMenuListProperties";
+            this.contextMenuListProperties.Click += new System.EventHandler(this.menuItemChannelDetails_Click);
             // 
             // labelNotification
             // 
@@ -519,6 +975,34 @@ namespace Project.DvbIpTv.ChannelList
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            // 
+            // pictureNotificationIcon
+            // 
+            resources.ApplyResources(this.pictureNotificationIcon, "pictureNotificationIcon");
+            this.pictureNotificationIcon.Name = "pictureNotificationIcon";
+            this.pictureNotificationIcon.TabStop = false;
+            // 
+            // buttonRecordChannel
+            // 
+            resources.ApplyResources(this.buttonRecordChannel, "buttonRecordChannel");
+            this.buttonRecordChannel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Record_16x16;
+            this.buttonRecordChannel.Name = "buttonRecordChannel";
+            this.buttonRecordChannel.UseVisualStyleBackColor = true;
+            this.buttonRecordChannel.Click += new System.EventHandler(this.buttonRecordChannel_Click);
+            // 
+            // buttonDisplayChannel
+            // 
+            resources.ApplyResources(this.buttonDisplayChannel, "buttonDisplayChannel");
+            this.buttonDisplayChannel.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.RightArrowShort_Green_16x16;
+            this.buttonDisplayChannel.Name = "buttonDisplayChannel";
+            this.buttonDisplayChannel.UseVisualStyleBackColor = true;
+            this.buttonDisplayChannel.Click += new System.EventHandler(this.buttonDisplayChannel_Click);
+            // 
+            // pictureProviderLogo
+            // 
+            resources.ApplyResources(this.pictureProviderLogo, "pictureProviderLogo");
+            this.pictureProviderLogo.Name = "pictureProviderLogo";
+            this.pictureProviderLogo.TabStop = false;
             // 
             // ChannelListForm
             // 
@@ -544,8 +1028,9 @@ namespace Project.DvbIpTv.ChannelList
             this.Shown += new System.EventHandler(this.ChannelListForm_Shown);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).EndInit();
+            this.contextMenuList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureNotificationIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,7 +1042,7 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ImageList imageListChannels;
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem menuItemDvbIpTv;
-        private System.Windows.Forms.ToolStripMenuItem separatorDvb1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbExit;
         private System.Windows.Forms.ToolStripMenuItem menuItemChannel;
         private System.Windows.Forms.ToolStripMenuItem menuItemChannelRefreshList;
         private System.Windows.Forms.ToolStripMenuItem menuItemChannelVerify;
@@ -594,18 +1079,74 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ToolStripMenuItem menuItemHelpCheckUpdates;
         private System.Windows.Forms.ToolStripMenuItem menuItemHelpAbout;
         private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsRecord;
-        private System.Windows.Forms.ToolStripMenuItem menuItemProvider;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbProvider;
         private System.Windows.Forms.ToolStripMenuItem menuItemProviderSelect;
         private System.Windows.Forms.ToolStripMenuItem menuItemProviderDetails;
-        private System.Windows.Forms.ToolStripSeparator separatorItem1;
+        private System.Windows.Forms.ToolStripSeparator separatorDvb1;
         private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsManage;
         private System.Windows.Forms.ToolStripSeparator separatorRecordings1;
         private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsRepair;
         private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsImport;
         private System.Windows.Forms.Label labelPackageLabel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem menuItemPackages;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbPackages;
         private System.Windows.Forms.ToolStripMenuItem menuItemPackagesSelect;
         private System.Windows.Forms.ToolStripMenuItem menuItemPackagesManage;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEpg;
+        private System.Windows.Forms.ToolStripSeparator separatorEpg1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEpgRefresh;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent0;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent2;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent3;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent4;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent5;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent6;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent7;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent8;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbRecent9;
+        private System.Windows.Forms.ToolStripSeparator separatorDvb2;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites0;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites2;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites3;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites4;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites5;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites6;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites7;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites8;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavorites9;
+        private System.Windows.Forms.ToolStripSeparator menuItemChannelFavoritesSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavoritesEdit;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEpgNow;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEpgToday;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEpgTomorrow;
+        private System.Windows.Forms.ContextMenuStrip contextMenuList;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListSort;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListMode;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListCopy;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyRow;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyAll;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListProperties;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListSortChannel;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListSortDescription;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListSortType;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListSortLocation;
+        private System.Windows.Forms.ToolStripSeparator contextMenuListSortSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListSortNone;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListModeTile;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListModeDetails;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListShow;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListRecord;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListShowWith;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyURL;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbExport;
+        private System.Windows.Forms.ToolStripSeparator separatorDvb3;
+        private System.Windows.Forms.ToolStripMenuItem menuItemHelpReportIssue;
+        private System.Windows.Forms.ToolStripMenuItem menuItemDvbSettings;
     }
 }

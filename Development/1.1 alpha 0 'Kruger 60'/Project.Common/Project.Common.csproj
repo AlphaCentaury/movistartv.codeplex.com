@@ -53,8 +53,8 @@
     <Compile Include="ArgumentsManager.cs" />
     <Compile Include="CommandLineArguments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XmlSerialization.cs" />
-    <Compile Include="XmlTextReaderTrimExtraWhitespace.cs" />
+    <Compile Include="Serialization\XmlSerialization.cs" />
+    <Compile Include="Serialization\XmlTextReaderTrimExtraWhitespace.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt" />

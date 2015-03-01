@@ -50,6 +50,7 @@
     <Compile Include="EPGService.cs" />
     <Compile Include="EPGValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\EPGSerialization.cs" />
     <Compile Include="TvAnytime\Common.cs" />
     <Compile Include="TvAnytime\TVAName.cs" />
     <Compile Include="TvAnytime\Mpeg7Name.cs" />
@@ -69,9 +70,7 @@
       <Name>DvbIpTypes</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Serialization\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="License.txt" />
   </ItemGroup>

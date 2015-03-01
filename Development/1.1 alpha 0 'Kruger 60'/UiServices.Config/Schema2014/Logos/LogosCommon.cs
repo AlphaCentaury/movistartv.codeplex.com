@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +18,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Logos
 
         public static ServiceMappingsXml ParseServiceMappingsXml(string filename)
         {
-            var xmlMappings = SerializationUtils.LoadFromXml<ServiceMappingsXml>(filename);
+            var xmlMappings = XmlSerialization.Deserialize<ServiceMappingsXml>(filename, true);
             xmlMappings.BasePath = System.IO.Path.GetDirectoryName(filename);
 
             return xmlMappings;
@@ -25,7 +26,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Logos
 
         public static DomainMappingsXml ParseDomainMappingsXml(string filename)
         {
-            var xmlMappings = SerializationUtils.LoadFromXml<DomainMappingsXml>(filename);
+            var xmlMappings = XmlSerialization.Deserialize<DomainMappingsXml>(filename, true);
             xmlMappings.BasePath = System.IO.Path.GetDirectoryName(filename);
 
             return xmlMappings;
@@ -33,7 +34,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Logos
 
         public static ProviderMappingsXml ParseProviderMappingsXml(string filename)
         {
-            var xmlMappings = SerializationUtils.LoadFromXml<ProviderMappingsXml>(filename);
+            var xmlMappings = XmlSerialization.Deserialize<ProviderMappingsXml>(filename, true);
             xmlMappings.BasePath = System.IO.Path.GetDirectoryName(filename);
 
             return xmlMappings;

@@ -129,6 +129,10 @@
   <data name="HelperUserCancelledCaption" xml:space="preserve">
     <value>Request cancelled</value>
   </data>
+  <data name="ParsePayloadException" xml:space="preserve">
+    <value>The received data can't be successfully parsed and extracted.
+Payload Id: 0x{0:X2}. Data type: {1}.</value>
+  </data>
   <data name="UnableCancelDownloadCaption" xml:space="preserve">
     <value>Unable to cancel</value>
   </data>

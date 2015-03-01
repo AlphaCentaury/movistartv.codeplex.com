@@ -123,7 +123,10 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="License.txt" />
+    <Content Include="Resources\Action_Copy_Clip_16x16.png" />
     <Content Include="Resources\Action_Delete_16x16.png" />
+    <None Include="Resources\Action_Properties_16x16.png" />
+    <None Include="Resources\Action_Refresh_Blue_16x16.png" />
     <None Include="Resources\Action_Repair_16x16.png" />
     <None Include="Resources\WaitClock_16x16.png" />
     <None Include="Resources\WaitClock_24x24.png" />

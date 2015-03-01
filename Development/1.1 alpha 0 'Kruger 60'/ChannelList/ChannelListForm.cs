@@ -21,6 +21,7 @@ using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
+using System.Text;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -89,11 +90,6 @@ namespace Project.DvbIpTv.ChannelList
             e.Cancel = IsScanActive();
         } // ChannelListForm_FormClosing
 
-        private void menuItemDvbExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        } // menuItemDvbExit_Click
-
         #endregion
 
         #region Form event handlers implementation
@@ -110,6 +106,8 @@ namespace Project.DvbIpTv.ChannelList
             ChannelListViewChanged(View.Tile);
             listViewChannels.Sort(0, true);
 
+            SetupContextMenuList();
+
             // load from cache, if available
             SelectedServiceProvider = SelectProviderDialog.GetLastUserSelectedProvider();
             ServiceProviderChanged();
@@ -123,28 +121,53 @@ namespace Project.DvbIpTv.ChannelList
 
         #endregion
 
-        #region Provider-related event handlers
+        #region 'DVB-IPTV' menu event handlers
+
+        private void menuItemDvbRecent_DropDownOpening(object sender, EventArgs e)
+        {
+            // update recent list
+        }  // menuItemDvbRecent_DropDownOpening
+
+        private void menuItemDvbRecent_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        }  // menuItemDvbRecent_Click
+
+        private void menuItemDvbExport_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemDvbExport_Click
+
+        private void menuItemDvbExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        } // menuItemDvbExit_Click
+
+        #endregion
+
+        #region 'Provider' menu event handlers
 
         private void menuItemProviderSelect_Click(object sender, EventArgs e)
         {
-            SafeCall(menuItemProviderSelect_Click_Implementation, sender, e);
+            SafeCall(Implementation_menuItemProviderSelect_Click, sender, e);
         } // menuItemProviderSelect_Click
 
         private void menuItemProviderDetails_Click(object sender, EventArgs e)
         {
-            SafeCall(menuItemProviderDetails_Click_Implementation, sender, e);
+            SafeCall(Implementation_menuItemProviderDetails_Click, sender, e);
         } // menuItemProviderDetails_Click
 
         #endregion
 
-        #region Provider-related event handlers implementation
+        #region 'Provider' menu event handlers implementation
 
-        private void menuItemProviderSelect_Click_Implementation(object sender, EventArgs e)
+        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+        private void Implementation_menuItemProviderSelect_Click(object sender, EventArgs e)
         {
             // can't select a new provider if a services scan is in progress; the user must manually cancel it first
             if (IsScanActive()) return;
             SelectProvider();
-        } // menuItemProviderSelect_Click
+        } // Implementation_menuItemProviderSelect_Click
 
         private void SelectProvider()
         {
@@ -158,7 +181,7 @@ namespace Project.DvbIpTv.ChannelList
             } // dialog
         } // SelectProvider
 
-        private void menuItemProviderDetails_Click_Implementation(object sender, EventArgs e)
+        private void Implementation_menuItemProviderDetails_Click(object sender, EventArgs e)
         {
             if (SelectedServiceProvider == null) return;
 
@@ -172,7 +195,35 @@ namespace Project.DvbIpTv.ChannelList
             {
                 dlg.ShowDialog(this);
             } // using
-        } // buttonProviderDetails_Click
+        } // Implementation_menuItemProviderDetails_Click
+
+        #endregion
+
+        #region 'Package' menu event handlers
+
+        private void menuItemPackagesSelect_Click(object sender, EventArgs e)
+        {
+            SafeCall(Implementation_menuItemPackagesSelect_Click, sender, e);
+        } // menuItemPackagesSelect_Click
+
+        private void menuItemPackagesManage_Click(object sender, EventArgs e)
+        {
+            SafeCall(Implementation_menuItemPackagesManage_Click, sender, e);
+        } // menuItemPackagesManage_Click
+
+        #endregion
+
+        #region 'Package' menu event handlers implementation
+
+        private void Implementation_menuItemPackagesSelect_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // Implementation_menuItemPackagesSelect_Click
+
+        private void Implementation_menuItemPackagesManage_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // Implementation_menuItemPackagesManage_Click
 
         #endregion
 
@@ -399,7 +450,7 @@ namespace Project.DvbIpTv.ChannelList
 
         #endregion
 
-        #region Recordings menu event handlers
+        #region 'Recordings' menu event handlers
 
         private void menuItemRecordingsRecord_Click(object sender, EventArgs e)
         {
@@ -423,7 +474,7 @@ namespace Project.DvbIpTv.ChannelList
 
         #endregion
 
-        #region Recordings menu event handlers implementation
+        #region 'Recordings' menu event handlers implementation
 
         private void buttonRecordChannel_Click_Implementation(object sender, EventArgs e)
         {
@@ -487,29 +538,70 @@ namespace Project.DvbIpTv.ChannelList
 
         #endregion
 
-        #region Help menu
+        #region 'EPG' menu event handlers
+
+
+
+        #endregion
+
+        #region 'EPG' menu event handlers implementation
+
+
+
+        #endregion
+
+        #region 'Help' menu event handlers
 
         private void menuItemHelpDocumentation_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            SafeCall(Implementation_menuItemHelpDocumentation_Click, sender, e);
         } // menuItemHelpDocumentation_Click
 
         private void menuItemHelpHomePage_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            SafeCall(Implementation_menuItemHelpHomePage_Click, sender, e);
         } // menuItemHelpHomePage_Click
+
+        private void menuItemHelpReportIssue_Click(object sender, EventArgs e)
+        {
+            SafeCall(Implementation_menuItemHelpReportIssue_Click, sender, e);
+        } // menuItemHelpReportIssue_Click
 
         private void menuItemHelpCheckUpdates_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            SafeCall(Implementation_menuItemHelpCheckUpdates_Click, sender, e);
         } // menuItemHelpCheckUpdates_Click
 
         private void menuItemHelpAbout_Click(object sender, EventArgs e)
         {
-            SafeCall(menuItemHelpAbout_Click_Implementation, sender, e);
+            SafeCall(Implementation_menuItemHelpAbout_Click, sender, e);
         } // menuItemHelpAbout_Click
 
-        private void menuItemHelpAbout_Click_Implementation(object sender, EventArgs e)
+        #endregion
+
+        #region 'Help' menu event handlers
+
+        private void Implementation_menuItemHelpDocumentation_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // Implementation_menuItemHelpDocumentation_Click
+
+        private void Implementation_menuItemHelpHomePage_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // Implementation_menuItemHelpHomePage_Click
+
+        private void Implementation_menuItemHelpReportIssue_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // Implementation_menuItemHelpReportIssue_Click
+
+        private void Implementation_menuItemHelpCheckUpdates_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // Implementation_menuItemHelpCheckUpdates_Click
+
+        private void Implementation_menuItemHelpAbout_Click(object sender, EventArgs e)
         {
             using (var box = new AboutBox())
             {
@@ -607,7 +699,7 @@ namespace Project.DvbIpTv.ChannelList
                         Request = new DvbStpDownloadRequest()
                         {
                             PayloadId = 0x02,
-                            SegmentId = 0x00,
+                            SegmentId = null, // accept any segment
                             MulticastAddress = IPAddress.Parse(SelectedServiceProvider.Offering.Push[0].Address),
                             MulticastPort = SelectedServiceProvider.Offering.Push[0].Port,
                             Description = Properties.Texts.BroadcastObtainingList,
@@ -1005,20 +1097,162 @@ namespace Project.DvbIpTv.ChannelList
             } // try-catch
         } // timerDismissNotification_Tick
 
-        private void SetFullscreenMode(bool fullScreen)
+        #endregion
+
+        #region WORK IN PROGRESS - EXPERIMENTS
+
+        private void SetFullscreenMode(bool fullScreen, bool topMost)
         {
             if (fullScreen)
             {
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                this.FormBorderStyle = FormBorderStyle.None;
                 this.WindowState = FormWindowState.Maximized;
+                this.TopMost = topMost;
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+                this.TopMost = false;
             } // if-else
         } // SetFullscreenMode
 
+
+        private void menuItemChannelFavorites_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        }  // menuItemChannelFavorites_Click
+
+        private void menuItemChannelFavoritesEdit_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        }  // menuItemChannelFavoritesEdit_Click
+
+        private void menuItemEpgNow_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemEpgNow_Click
+
+        private void menuItemEpgToday_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemEpgToday_Click
+
+        private void menuItemEpgTomorrow_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // menuItemEpgTomorrow_Click
+
+        private void menuItemEpgRefresh_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        }  // menuItemEpgRefresh_Click
+
+        private void SetupContextMenuList()
+        {
+            contextMenuListShowWith.Enabled = false;
+
+            contextMenuListSort.Text = menuItemChannelListSort.Text;
+            contextMenuListSort.Image = menuItemChannelListSort.Image;
+            //contextMenuListSortNumber.Text = menuItemChannelListSortNumber.Text;
+            contextMenuListSortChannel.Text = menuItemChannelListSortName.Text;
+            contextMenuListSortDescription.Text = menuItemChannelListSortDescription.Text;
+            contextMenuListSortType.Text = menuItemChannelListSortType.Text;
+            contextMenuListSortLocation.Text = menuItemChannelListSortLocation.Text;
+            contextMenuListSortNone.Text = menuItemChannelListSortNone.Text;
+
+            contextMenuListMode.Text = menuItemChannelListView.Text;
+            contextMenuListMode.Image = menuItemChannelListView.Image;
+            contextMenuListModeTile.Text = menuItemChannelListViewTile.Text;
+            contextMenuListModeTile.Image = menuItemChannelListViewTile.Image;
+            contextMenuListModeDetails.Text = menuItemChannelListViewDetails.Text;
+            contextMenuListModeDetails.Image = menuItemChannelListViewDetails.Image;
+
+            contextMenuListProperties.Text = menuItemChannelDetails.Text;
+            contextMenuListProperties.Image = menuItemChannelDetails.Image;
+        } // SetupContextMenuList
+
+        private void contextMenuList_Opening(object sender, CancelEventArgs e)
+        {
+            // sync Properties context item with main menu counterpart
+            contextMenuListShow.Enabled = buttonDisplayChannel.Enabled;
+            contextMenuListRecord.Enabled = menuItemRecordingsRecord.Enabled;
+            //contextMenuListShowWith.Enabled = contextMenuListShow.Enabled;
+            contextMenuListProperties.Enabled = menuItemChannelDetails.Enabled;
+        } // contextMenuList_Opening
+
+        private void contextMenuListShowWith_Click(object sender, EventArgs e)
+        {
+            NotImplementedBox.ShowBox(this);
+        } // contextMenuListShowWith_Click
+
+        private void contextMenuListSort_DropDownOpening(object sender, EventArgs e)
+        {
+            // sync Sort context items with main menu counterparts
+            //SyncSortContextItem(contextMenuListSortNumber, menuItemChannelListSortNumber);
+            SyncSortContextItem(contextMenuListSortChannel, menuItemChannelListSortName);
+            SyncSortContextItem(contextMenuListSortDescription, menuItemChannelListSortDescription);
+            SyncSortContextItem(contextMenuListSortType, menuItemChannelListSortType);
+            SyncSortContextItem(contextMenuListSortLocation, menuItemChannelListSortLocation);
+            SyncSortContextItem(contextMenuListSortNone, menuItemChannelListSortNone);
+        } // contextMenuListSort_DropDownOpening
+
+        private void SyncSortContextItem(ToolStripMenuItem context, ToolStripMenuItem main)
+        {
+            context.Image = main.Image;
+            context.Checked = main.Checked;
+            context.Enabled = main.Enabled;
+        } // SyncContextMenuListSortItem
+
+        private void contextMenuListMode_DropDownOpening(object sender, EventArgs e)
+        {
+            // sync Mode context items with main menu counterparts
+            contextMenuListModeTile.Checked = menuItemChannelListViewTile.Checked;
+            contextMenuListModeDetails.Checked = menuItemChannelListViewDetails.Checked;
+        } // contextMenuListMode_DropDownOpening
+
+        private void contextMenuListCopy_DropDownOpening(object sender, EventArgs e)
+        {
+            contextMenuListCopyRow.Enabled = contextMenuListShow.Enabled;
+            contextMenuListCopyAll.Enabled = (listViewChannels.Items.Count > 0);
+        }
+
         #endregion
+
+        private void contextMenuListCopyRow_Click(object sender, EventArgs e)
+        {
+            StringBuilder buffer;
+
+            var selectedRow = (listViewChannels.SelectedItems.Count > 0) ? listViewChannels.SelectedItems[0] : null;
+            if (selectedRow == null) return;
+
+            buffer = new StringBuilder();
+            for (int index = 0; index < selectedRow.SubItems.Count; index++)
+            {
+                if (index != 0) buffer.Append("\t");
+                buffer.Append(selectedRow.SubItems[index].Text);
+            } // for index
+
+            Clipboard.SetText(buffer.ToString(), TextDataFormat.UnicodeText);
+        } // contextMenuListCopyRow_Click
+
+        private void contextMenuListCopyAll_Click(object sender, EventArgs e)
+        {
+            StringBuilder buffer;
+
+            buffer = new StringBuilder();
+
+            foreach (ListViewItem selectedRow in listViewChannels.Items)
+            {
+                for (int index = 0; index < selectedRow.SubItems.Count; index++)
+                {
+                    if (index != 0) buffer.Append("\t");
+                    buffer.Append(selectedRow.SubItems[index].Text);
+                } // for index
+                buffer.AppendLine();
+            } // foreach item
+
+            Clipboard.SetText(buffer.ToString(), TextDataFormat.UnicodeText);
+        }  // contextMenuListCopyAll_Click
     } // class ChannelListForm
 } // namespace

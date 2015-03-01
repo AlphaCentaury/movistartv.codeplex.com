@@ -4,119 +4,89 @@ Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include Strings.wxi ?>
   <Fragment>
-    <ComponentGroup Id="CommonComponents">
-      <Component Id="CommonAssemblies" Directory="INSTALLFOLDER" Guid="{72CEE070-2C88-4D12-864B-5D39BBFC40A8}">
-        <File Id="Services.Record.dll" Source="$(var.Services.Record.TargetDir)Services.Record.dll" />
-        <File Id="Services.Record.Serialization.dll" Source="$(var.Services.Record.Serialization.TargetDir)Services.Record.Serialization.dll" />
-        <File Id="UiServices.Config.dll" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.dll" />
-        <File Id="UiServices.Controls.dll" Source="$(var.UiServices.Controls.TargetDir)UiServices.Controls.dll" />
-        <File Id="UiServices.Discovery.dll" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.dll" />
-        <File Id="UiServices.DvbStpClient.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.dll" />
-        <File Id="UiServices.Forms.dll" Source="$(var.UiServices.Forms.TargetDir)UiServices.Forms.dll" />
-        <File Id="UiServices.Record.dll" Source="$(var.UiServices.Record.TargetDir)UiServices.Record.dll" />
-        <File Id='license.txt' Source='$(var.SolutionDir)!(loc.SourceFileLicenseAgreement).txt' Name='!(loc.FileLicenseAgreement).txt' />
-        <File Id='license.rtf' Source='$(var.SolutionDir)!(loc.SourceFileLicenseAgreement).rtf' Name='!(loc.FileLicenseAgreement).rtf' />
-      </Component>
-
-      <Component Id="CommonAssemblies_DB_RecordTasks" Directory="RecordTasksFolder">
-        <File Id="RecordTasks.mdb" Source="$(var.SolutionDir)DB\RecordTasks.mdb" />
-      </Component>
-        
-      <Component Id="CommonAssemblies_pdb" Directory="INSTALLFOLDER" Guid="{51CCD544-2EF5-4DB9-BCEE-98291E703F05}">
-        <File Id="Services.Record.pdb" Source="$(var.Services.Record.TargetDir)Services.Record.pdb" />
-        <File Id="Services.Record.Serialization.pdb" Source="$(var.Services.Record.Serialization.TargetDir)Services.Record.Serialization.pdb" />
-        <File Id="UiServices.Config.pdb" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.pdb" />
-        <File Id="UiServices.Controls.pdb" Source="$(var.UiServices.Controls.TargetDir)UiServices.Controls.pdb" />
-        <File Id="UiServices.Discovery.pdb" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.pdb" />
-        <File Id="UiServices.DvbStpClient.pdb" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.pdb" />
-        <File Id="UiServices.Forms.pdb" Source="$(var.UiServices.Forms.TargetDir)UiServices.Forms.pdb" />
-        <File Id="UiServices.Record.pdb" Source="$(var.UiServices.Record.TargetDir)UiServices.Record.pdb" />
-      </Component>
-
-      <Component Id="ProgramStartMenuFolder" Guid="*" Directory="ProgramStartMenuFolder">
-        <RegistryKey Root='HKCU' Key='Software\movistartv.codeplex.com\DVBIPTV\v1.5' ForceDeleteOnUninstall='yes'>
+    <Icon Id='ChannelList.ico' SourceFile='$(var.ChannelList.ProjectDir)\Resources\IPTV.ico' />
+    <Icon Id='FirstTimeConfig.ico' SourceFile='$(var.FirstTimeConfig.ProjectDir)\Resources\install.ico' />
+    
+    <ComponentGroup Id="RegistryConfiguration">
+      <Component Id="RegistryConfiguration_Install" Guid="*" Directory="ProgramStartMenuFolder">
+        <RegistryKey Root='HKCU' Key='$(var.BaseRegistryKey)' ForceDeleteOnUninstall='yes'>
           <RegistryValue Type='string' Name='Installed' Value='1' KeyPath='yes' />
           <RegistryKey Key='Folders'>
             <RegistryValue Type='string' Name='Base' Value='[BaseFolder]' />
             <RegistryValue Type='string' Name='Install' Value='[INSTALLFOLDER]' />
           </RegistryKey>
+          <RegistryKey Key='Features'>
+          </RegistryKey>
         </RegistryKey>
       </Component>
     </ComponentGroup>
 
-    <ComponentGroup Id="CommonComponents_Localized">
-      <Component Id="CommonAssemblies_es" Directory="InstallFolder_es" Guid="{EED712C9-8D72-4848-8315-0C8BA0BD9E9E}">
-        <File Id="Services.Record.dll_es" Source="$(var.Services.Record.TargetDir)es\Services.Record.resources.dll" />
-        <File Id="Services.Record.Serialization.dll_es" Source="$(var.Services.Record.Serialization.TargetDir)es\Services.Record.Serialization.resources.dll" />
-        <File Id="UiServices.Config.dll_es" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Config.resources.dll" />
-        <File Id="UiServices.Controls.dll_es" Source="$(var.UiServices.Controls.TargetDir)es\UiServices.Controls.resources.dll" />
-        <File Id="UiServices.Discovery.dll_es" Source="$(var.UiServices.Discovery.TargetDir)es\UiServices.Discovery.resources.dll" />
-        <File Id="UiServices.DvbStpClient.dll_es" Source="$(var.UiServices.DvbStpClient.TargetDir)es\UiServices.DvbStpClient.resources.dll" />
-        <File Id="UiServices.Forms.dll_es" Source="$(var.UiServices.Forms.TargetDir)es\UiServices.Forms.resources.dll" />
-        <File Id="UiServices.Record.dll_es" Source="$(var.UiServices.Record.TargetDir)es\UiServices.Record.resources.dll" />
+    <ComponentGroup Id="CommonComponents">
+      <Component Id="CommonAssemblies" Directory="INSTALLFOLDER" Guid="{1494991C-6027-4713-9976-6F00201F1368}">
+        <File Id="DvbIpTypes.dll" Source="$(var.DvbIpTypes.TargetDir)DvbIpTypes.dll" />
+        <File Id="DvbStpClient.dll" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.dll" />
+        <File Id="Project.Common.dll" Source="$(var.Project.Common.TargetDir)Project.Common.dll" />
+        <File Id="Services.SqlServerCE.dll" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.dll" />
+        <File Id="UiServices.Config.dll" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.dll" />
+        <File Id="UiServices.Controls.dll" Source="$(var.UiServices.Controls.TargetDir)UiServices.Controls.dll" />
+        <File Id="UiServices.Discovery.dll" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.dll" />
+        <File Id="UiServices.DvbStpClient.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.dll" />
+        <File Id="UiServices.Forms.dll" Source="$(var.UiServices.Forms.TargetDir)UiServices.Forms.dll" />
+        <File Id='license.txt' Source='$(var.SolutionDir)!(loc.SourceFileLicenseAgreement).txt' Name='!(loc.FileLicenseAgreement).txt' />
+        <File Id='license.rtf' Source='$(var.SolutionDir)!(loc.SourceFileLicenseAgreement).rtf' Name='!(loc.FileLicenseAgreement).rtf' />
+      </Component>
+
+      <Component Id="CommonAssemblies.PDB" Directory="INSTALLFOLDER" Guid="{EC84B538-A651-492F-8E90-5D8A0FBF8D14}">
+        <File Id="DvbIpTypes.pdb" Source="$(var.DvbIpTypes.TargetDir)DvbIpTypes.pdb" />
+        <File Id="DvbStpClient.pdb" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.pdb" />
+        <File Id="Project.Common.pdb" Source="$(var.Project.Common.TargetDir)Project.Common.pdb" />
+        <File Id="Services.SqlServerCE.pdb" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.pdb" />
+        <File Id="UiServices.Config.pdb" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.pdb" />
+        <File Id="UiServices.Controls.pdb" Source="$(var.UiServices.Controls.TargetDir)UiServices.Controls.pdb" />
+        <File Id="UiServices.Discovery.pdb" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.pdb" />
+        <File Id="UiServices.DvbStpClient.pdb" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.pdb" />
+        <File Id="UiServices.Forms.pdb" Source="$(var.UiServices.Forms.TargetDir)UiServices.Forms.pdb" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="CommonComponents.Localized">
+      <Component Id="CommonAssemblies.es" Directory="InstallFolder.es" Guid="{08AE1848-F8D0-4FA4-98C1-1204E0D007DC}">
+        <!--
+        <File Id="DvbIpTypes.es.dll" Source="$(var.DvbIpTypes.TargetDir)es\DvbIpTypes.resources.dll" />
+        <File Id="DvbStpClient.es.dll" Source="$(var.DvbStpClient.TargetDir)es\DvbStpClient.resources.dll" />
+        <File Id="Project.Common.es.dll" Source="$(var.Project.Common.TargetDir)es\Project.Common.resources.dll" />
+        <File Id="Services.SqlServerCE.es.dll" Source="$(var.Services.SqlServerCE.TargetDir)es\Services.SqlServerCE.resources.dll" />
+        -->
+        <File Id="UiServices.Config.es.dll" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Config.resources.dll" />
+        <File Id="UiServices.Controls.es.dll" Source="$(var.UiServices.Controls.TargetDir)es\UiServices.Controls.resources.dll" />
+        <File Id="UiServices.Discovery.es.dll" Source="$(var.UiServices.Discovery.TargetDir)es\UiServices.Discovery.resources.dll" />
+        <File Id="UiServices.DvbStpClient.es.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)es\UiServices.DvbStpClient.resources.dll" />
+        <File Id="UiServices.Forms.es.dll" Source="$(var.UiServices.Forms.TargetDir)es\UiServices.Forms.resources.dll" />
       </Component>
     </ComponentGroup>
   </Fragment>
 
   <Fragment>
-    <Icon Id='ChannelList.ico' SourceFile='$(var.ChannelList.ProjectDir)\Resources\IPTV.ico' />
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <Component Id="ChannelList">
         <File Id="ChannelList.exe" Source="$(var.ChannelList.TargetDir)ChannelList.exe" KeyPath="yes">
-          <Shortcut Id='ChannelList.exe.lnk' Directory='ProgramStartMenuFolder' Name='!(loc.ChannelList.exe.lnk)' Icon='ChannelList.ico' IconIndex='0' WorkingDirectory='INSTALLFOLDER' Advertise='yes' />
+          <Shortcut Id='ChannelList.exe.lnk'
+                    Directory='ProgramStartMenuFolder'
+                    Name='!(loc.ChannelList.exe.lnk)'
+                    Icon='ChannelList.ico' IconIndex='0'
+                    WorkingDirectory='INSTALLFOLDER'
+                    Advertise='yes' />
         </File>
         <File Id='ChannelList.exe.config' Source='$(var.ChannelList.TargetDir)ChannelList.exe.config' />
         <File Id='ChannelList.pdb' Source='$(var.ChannelList.TargetDir)ChannelList.pdb' />
       </Component>
-      <Component Id="ChannelList_Assemblies" Guid="{46026EBD-0655-48F5-9CEA-72C1CC391770}">
-        <File Id="DvbIpTypes.dll" Source="$(var.ChannelList.TargetDir)DvbIpTypes.dll" />
-        <File Id="DvbIpTypes.pdb" Source="$(var.ChannelList.TargetDir)DvbIpTypes.pdb" />
-        <File Id="DvbStpClient.dll" Source="$(var.ChannelList.TargetDir)DvbStpClient.dll" />
-        <File Id="DvbStpClient.pdb" Source="$(var.ChannelList.TargetDir)DvbStpClient.pdb" />
-        <File Id="Microsoft.Win32.TaskScheduler.dll" Source="$(var.ChannelList.TargetDir)Microsoft.Win32.TaskScheduler.dll" />
-      </Component>
     </ComponentGroup>
 
-    <ComponentGroup Id="ProductComponents_Localized">
-      <Component Id="ChannelList_es" Directory="InstallFolder_es">
-        <File Id="ChannelList.exe_es" Source="$(var.ChannelList.TargetDir)es\ChannelList.resources.dll" />
-      </Component>
-    </ComponentGroup>
-  </Fragment>
-
-  <Fragment>
-    <Icon Id='FirstTimeConfig.ico' SourceFile='$(var.FirstTimeConfig.ProjectDir)\Resources\install.ico' />
-    <ComponentGroup Id="FirstTimeConfigComponents" Directory="INSTALLFOLDER">
-      <Component Id="FirstTimeConfig">
-        <File Id="FirstTimeConfig.exe" Source="$(var.FirstTimeConfig.TargetDir)FirstTimeConfig.exe" KeyPath="yes">
-          <Shortcut Id='FirstTimeConfig.exe.lnk' Directory='ToolsStartMenuFolder' Name='!(loc.FirstTimeConfig.exe.lnk)' Icon='FirstTimeConfig.ico' IconIndex='0' WorkingDirectory='INSTALLFOLDER' Advertise='yes' />
-        </File>
-      </Component>
-      <Component Id ="FirstTimeConfigFiles">
-        <File Id="Interop.NetFwTypeLib.dll" Source="$(var.FirstTimeConfig.TargetDir)Interop.NetFwTypeLib.dll" />
-        <File Id="FirstTimeConfig.pdb" Source="$(var.FirstTimeConfig.TargetDir)FirstTimeConfig.pdb" />
-      </Component>
-    </ComponentGroup>
-
-    <ComponentGroup Id="FirstTimeConfigComponents_Localized">
-      <Component Id="FirstTimeConfig_es" Directory="InstallFolder_es">
-        <File Id="FirstTimeConfig.exe_es" Source="$(var.FirstTimeConfig.TargetDir)es\FirstTimeConfig.resources.dll" />
-      </Component>
-    </ComponentGroup>
-  </Fragment>
-
-  <Fragment>
-    <ComponentGroup Id="IpTvRecorderLauncherComponents" Directory="INSTALLFOLDER">
-      <Component Id="IpTvRecorderLauncher">
-        <File Id="IpTvRecorderLauncher.exe" Source="$(var.IpTvRecorderLauncher.TargetDir)IpTvRecorderLauncher.exe" />
-        <File Id="IpTvRecorderLauncher.pdb" Source="$(var.IpTvRecorderLauncher.TargetDir)IpTvRecorderLauncher.pdb" />
-      </Component>
-    </ComponentGroup>
-
-    <ComponentGroup Id="IpTvRecorderLauncherComponents_Localized">
-      <Component Id="IpTvRecorderLauncher_es" Directory="InstallFolder_es">
-        <File Id="IpTvRecorderLauncher.exe_es" Source="$(var.IpTvRecorderLauncher.TargetDir)es\IpTvRecorderLauncher.resources.dll" />
+    <ComponentGroup Id="ProductComponents.Localized">
+      <Component Id="ChannelList.es" Directory="InstallFolder.es">
+        <File Id="ChannelList.es.exe" Source="$(var.ChannelList.TargetDir)es\ChannelList.resources.dll" />
       </Component>
     </ComponentGroup>
   </Fragment>

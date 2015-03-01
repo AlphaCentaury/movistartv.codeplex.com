@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+-->
+<Include>
+  <?define Manufacturer = "http://movistartv.codeplex.com" ?>
+  <?define Version = "1.5.0.0" ?>
+  <?define BaseRegistryKey = "Software\movistartv.codeplex.com\DVBIPTV\v1.5" ?>
+</Include>

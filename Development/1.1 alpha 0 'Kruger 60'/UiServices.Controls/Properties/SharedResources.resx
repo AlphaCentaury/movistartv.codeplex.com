@@ -124,6 +124,9 @@
   <data name="Action_Close_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Action_Close_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Action_Copy_Clip_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\action_copy_clip_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Action_Delete_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Action_Delete_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,6 +138,12 @@
   </data>
   <data name="Action_Ok_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\Action_Ok_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Action_Properties_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\action_properties_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Action_Refresh_Blue_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\action_refresh_blue_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Action_Repair_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Action_Repair_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

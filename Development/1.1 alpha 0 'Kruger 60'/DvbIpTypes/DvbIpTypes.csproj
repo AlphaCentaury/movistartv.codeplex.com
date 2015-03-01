@@ -45,7 +45,6 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="PayloadParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schema2006\Extensions.cs" />
     <Compile Include="Schema2006\BroadcastDiscovery.cs" />

@@ -47,7 +47,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
             {
                 try
                 {
-                    mappings.Add(mp.DomainName.ToLowerInvariant(), mp.LogoFile.Trim());
+                    mappings.Add(mp.DomainName.ToLowerInvariant(), mp.LogoFile);
                 }
                 catch (ArgumentException ex) // duplicated key (domain name)
                 {

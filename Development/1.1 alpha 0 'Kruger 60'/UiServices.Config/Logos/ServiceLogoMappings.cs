@@ -52,7 +52,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
                     mappings.Add(mp.DomainName.ToLowerInvariant(), new ReplacementDomain
                         {
                             IsMandatory = mp.Mandatory,
-                            Replacement = mp.ReplacementDomain.Trim().ToLowerInvariant(),
+                            Replacement = mp.ReplacementDomain.ToLowerInvariant(),
                         });
                 }
                 catch (ArgumentException ex) // duplicated key (domain name)
@@ -99,7 +99,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
                 {
                     try
                     {
-                        domainMappings.Logos.Add(mp.Name.ToLowerInvariant(), mp.Logo.Trim());
+                        domainMappings.Logos.Add(mp.Name.ToLowerInvariant(), mp.Logo);
                     }
                     catch (ArgumentException ex) // duplicated key (domain service name)
                     {

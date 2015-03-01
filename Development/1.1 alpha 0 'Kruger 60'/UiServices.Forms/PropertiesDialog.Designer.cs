@@ -33,15 +33,23 @@ namespace Project.DvbIpTv.UiServices.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ColumnHeader Property;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PropertiesDialog));
             System.Windows.Forms.ColumnHeader Value;
-            this.listViewProperties = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
             this.labelDescription = new System.Windows.Forms.Label();
+            this.contextMenuList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuListCopyValue = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListCopyName = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuListCopyRow = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuListCopyAll = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonOk = new System.Windows.Forms.Button();
             this.pictureBoxEx1 = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.listViewProperties = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
             Property = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Value = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEx1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,23 +61,6 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             resources.ApplyResources(Value, "Value");
             // 
-            // listViewProperties
-            // 
-            resources.ApplyResources(this.listViewProperties, "listViewProperties");
-            this.listViewProperties.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            Property,
-            Value});
-            this.listViewProperties.GridLines = true;
-            this.listViewProperties.HeaderCustomFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewProperties.HeaderCustomForeColor = System.Drawing.Color.Empty;
-            this.listViewProperties.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listViewProperties.HeaderUsesCustomFont = true;
-            this.listViewProperties.MultiSelect = false;
-            this.listViewProperties.Name = "listViewProperties";
-            this.listViewProperties.OwnerDraw = true;
-            this.listViewProperties.UseCompatibleStateImageBehavior = false;
-            this.listViewProperties.View = System.Windows.Forms.View.Details;
-            // 
             // labelDescription
             // 
             resources.ApplyResources(this.labelDescription, "labelDescription");
@@ -77,11 +68,53 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.UseMnemonic = false;
             // 
+            // contextMenuList
+            // 
+            resources.ApplyResources(this.contextMenuList, "contextMenuList");
+            this.contextMenuList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuListCopyValue,
+            this.contextMenuListCopyName,
+            this.contextMenuListCopyRow,
+            this.toolStripSeparator1,
+            this.contextMenuListCopyAll});
+            this.contextMenuList.Name = "contextMenu";
+            this.contextMenuList.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuList_Opening);
+            // 
+            // contextMenuListCopyValue
+            // 
+            resources.ApplyResources(this.contextMenuListCopyValue, "contextMenuListCopyValue");
+            this.contextMenuListCopyValue.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Copy_Clip_16x16;
+            this.contextMenuListCopyValue.Name = "contextMenuListCopyValue";
+            this.contextMenuListCopyValue.Click += new System.EventHandler(this.contextMenuListCopyValue_Click);
+            // 
+            // contextMenuListCopyName
+            // 
+            resources.ApplyResources(this.contextMenuListCopyName, "contextMenuListCopyName");
+            this.contextMenuListCopyName.Name = "contextMenuListCopyName";
+            this.contextMenuListCopyName.Click += new System.EventHandler(this.contextMenuListCopyName_Click);
+            // 
+            // contextMenuListCopyRow
+            // 
+            resources.ApplyResources(this.contextMenuListCopyRow, "contextMenuListCopyRow");
+            this.contextMenuListCopyRow.Name = "contextMenuListCopyRow";
+            this.contextMenuListCopyRow.Click += new System.EventHandler(this.contextMenuListCopyRow_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            // 
+            // contextMenuListCopyAll
+            // 
+            resources.ApplyResources(this.contextMenuListCopyAll, "contextMenuListCopyAll");
+            this.contextMenuListCopyAll.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Copy_Table;
+            this.contextMenuListCopyAll.Name = "contextMenuListCopyAll";
+            this.contextMenuListCopyAll.Click += new System.EventHandler(this.contextMenuListCopyAll_Click);
+            // 
             // buttonOk
             // 
             resources.ApplyResources(this.buttonOk, "buttonOk");
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Ok_16x16;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
@@ -90,6 +123,26 @@ namespace Project.DvbIpTv.UiServices.Forms
             resources.ApplyResources(this.pictureBoxEx1, "pictureBoxEx1");
             this.pictureBoxEx1.Name = "pictureBoxEx1";
             this.pictureBoxEx1.TabStop = false;
+            // 
+            // listViewProperties
+            // 
+            resources.ApplyResources(this.listViewProperties, "listViewProperties");
+            this.listViewProperties.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            Property,
+            Value});
+            this.listViewProperties.ContextMenuStrip = this.contextMenuList;
+            this.listViewProperties.FullRowSelect = true;
+            this.listViewProperties.GridLines = true;
+            this.listViewProperties.HeaderCustomFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewProperties.HeaderCustomForeColor = System.Drawing.Color.Empty;
+            this.listViewProperties.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewProperties.HeaderUsesCustomFont = true;
+            this.listViewProperties.IsDoubleBuffered = true;
+            this.listViewProperties.MultiSelect = false;
+            this.listViewProperties.Name = "listViewProperties";
+            this.listViewProperties.OwnerDraw = true;
+            this.listViewProperties.UseCompatibleStateImageBehavior = false;
+            this.listViewProperties.View = System.Windows.Forms.View.Details;
             // 
             // PropertiesDialog
             // 
@@ -107,6 +160,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Load += new System.EventHandler(this.PropertiesDialog_Load);
             this.Shown += new System.EventHandler(this.PropertiesDialog_Shown);
+            this.contextMenuList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEx1)).EndInit();
             this.ResumeLayout(false);
 
@@ -118,5 +172,11 @@ namespace Project.DvbIpTv.UiServices.Forms
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Button buttonOk;
         private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxEx1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuList;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyValue;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyName;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyRow;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyAll;
     }
 }

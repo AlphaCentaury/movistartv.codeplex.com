@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 
-namespace Project.DvbIpTv.Common
+namespace Project.DvbIpTv.Common.Serialization
 {
     public class XmlTextReaderTrimExtraWhitespace : XmlTextReader
     {

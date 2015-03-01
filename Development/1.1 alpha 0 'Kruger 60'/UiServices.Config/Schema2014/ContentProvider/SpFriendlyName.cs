@@ -10,8 +10,6 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.ContentProvider
     [XmlType(Namespace=SerializationCommon.XmlNamespace, AnonymousType=true)]
     public class SpFriendlyName
     {
-        private string fieldValue;
-
         [XmlAttribute("domainName")]
         public string Domain
         {
@@ -22,8 +20,8 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.ContentProvider
         [XmlText]
         public string Name
         {
-            get { return fieldValue; }
-            set { fieldValue = (value != null) ? value.Trim() : null; }
+            get;
+            set;
         } // Name
     } // class SpFriendlyName
 } // namespace

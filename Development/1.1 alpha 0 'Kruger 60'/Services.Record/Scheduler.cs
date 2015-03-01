@@ -302,7 +302,7 @@ namespace Project.DvbIpTv.Services.Record
             TaskName = GetUniqueTaskName(task, "DVB-IPTV");
             task.Description.TaskSchedulerName = TaskName;
 
-            userDescription = task.Description.Description.Trim();
+            userDescription = task.Description.Description;
             if (!task.Description.AddDetails)
             {
                 if (userDescription.Length > 0)
@@ -434,7 +434,7 @@ namespace Project.DvbIpTv.Services.Record
             string format;
             string description;
 
-            description = task.Description.Name.Trim();
+            description = task.Description.Name;
             if (task.Description.AddPrefix)
             {
                 format = (description.Length > 0) ? "{2} ~ {0} {1:P}" : "{2} {1:P}";

@@ -97,6 +97,16 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The received data can&apos;t be successfully parsed and extracted.
+        ///Payload Id: 0x{0:X2}. Data type: {1}..
+        /// </summary>
+        internal static string ParsePayloadException {
+            get {
+                return ResourceManager.GetString("ParsePayloadException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to cancel.
         /// </summary>
         internal static string UnableCancelDownloadCaption {

@@ -145,7 +145,7 @@ namespace Project.DvbIpTv.ChannelList
                         Request = new DvbStpDownloadRequest()
                         {
                             PayloadId = 0x01,
-                            SegmentId = 0x00,
+                            SegmentId = null, // accept any segment
                             MulticastAddress = IPAddress.Parse(baseIpAddress),
                             MulticastPort = basePort,
                             Description = Properties.Texts.SPObtainingList,

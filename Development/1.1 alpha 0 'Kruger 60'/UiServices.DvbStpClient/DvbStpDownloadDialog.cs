@@ -1,7 +1,6 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using DvbIpTypes;
 using Project.DvbIpTv.DvbStp.Client;
 using System;
 using System.Collections.Generic;
@@ -258,7 +257,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
                 if ((Request.PayloadDataType != null) && (payload != null))
                 {
                     Worker.ReportProgress(int.MaxValue);
-                    Response.DeserializedPayloadData = PayloadParser.Parse(Request.PayloadDataType, payload, Request.PayloadId);
+                    Response.DeserializedPayloadData = DvbStpDownloadResponse.ParsePayload(Request.PayloadDataType, payload, Request.PayloadId, !Request.AllowExtraWhitespace);
                 } // if
             }
             finally

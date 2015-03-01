@@ -29,7 +29,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             set;
         } // PayloadId
 
-        public short SegmentId
+        public short? SegmentId
         {
             get;
             set;
@@ -65,5 +65,11 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             get;
             set;
         } // PayloadDataType
+
+        public bool AllowExtraWhitespace
+        {
+            get;
+            set;
+        } // AllowExtraWhitespace
     } // class DownloadDlgRequestData
 } // namespace

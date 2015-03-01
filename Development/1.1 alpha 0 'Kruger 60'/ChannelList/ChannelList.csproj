@@ -92,6 +92,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ExternalPlayer.cs" />
+    <Compile Include="Resource.CommonUi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.CommonUi.resx</DependentUpon>
+    </Compile>
     <Compile Include="SelectProviderDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,11 +117,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChannelListForm.es-ES.resx">
-      <DependentUpon>ChannelListForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ChannelListForm.es.resx">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ChannelListForm.resx">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
@@ -125,6 +128,7 @@
     <EmbeddedResource Include="Properties\InvariantTexts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>InvariantTexts.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,6 +142,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.CommonUi.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.CommonUi.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectProviderDialog.es.resx">
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
@@ -160,9 +168,6 @@
     <None Include="Resources\InternetDownload.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\128-scan-tv.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\WebBrowser_16x16.png" />
     <None Include="Resources\RefreshBlue_16x16.png" />
     <None Include="Resources\Properties_16x16.png" />
@@ -170,7 +175,6 @@
     <None Include="Resources\RightArrowShort_Green_16x16.png" />
     <None Include="Resources\Record_16x16.png" />
     <None Include="Resources\Help_16x16.png" />
-    <None Include="Resources\ActionCancel_16x16.png" />
     <Content Include="..\solution-license.txt">
       <Link>Resources\solution-license.txt</Link>
     </Content>
@@ -178,15 +182,34 @@
       <Link>Resources\solution-license_es.txt</Link>
     </Content>
     <Content Include="license.txt" />
-    <Content Include="Resources\ActionOk_16x16.png" />
-    <None Include="Resources\ActionRun_16x16.png" />
-    <Content Include="Resources\Close_16x16.png" />
     <None Include="Resources\HighPriority_24x24.png" />
     <None Include="Resources\Error_24x24.png" />
     <None Include="Resources\Exception_24x24.png" />
     <None Include="Resources\Info_24x24.png" />
     <None Include="Resources\DownloadWebSettings_16x16.png" />
     <None Include="Resources\DownloadWeb_16x16.png" />
+    <None Include="Resources\Action_Cancel_16x16.png" />
+    <None Include="Resources\Action_Close_16x16.png" />
+    <Content Include="Resources\Action_Copy_Clip_16x16.png" />
+    <Content Include="Resources\Action_Copy_Table.png" />
+    <Content Include="Resources\Action_Delete_16x16.png" />
+    <None Include="Resources\Action_Edit_16x16.png" />
+    <None Include="Resources\Action_EditTask_16x16.png" />
+    <None Include="Resources\Action_Ok_16x16.png" />
+    <None Include="Resources\Action_Properties_16x16.png" />
+    <None Include="Resources\Action_Refresh_Blue_16x16.png" />
+    <None Include="Resources\Action_Repair_16x16.png" />
+    <None Include="Resources\Action_Run_16x16.png" />
+    <None Include="Resources\Action_Favorites_16x16.png" />
+    <None Include="Resources\Action_Hyperlink_16x16.png" />
+    <Content Include="Resources\Action_Export_Data.png" />
+    <Content Include="Resources\Action_Export_List_16x16.png" />
+    <Content Include="Resources\Action_History_MD_16x16.png" />
+    <Content Include="Resources\Action_Import_16x16.png" />
+    <Content Include="Resources\Action_Link_16x16.png" />
+    <Content Include="Resources\Action_ReportError_16x16.png" />
+    <Content Include="Resources\Action_Save_16x16.png" />
+    <Content Include="Resources\Action_Settings_16x16.png" />
     <Content Include="Resources\IPTV.ico" />
     <None Include="Resources\Splash.png" />
     <None Include="Resources\SortAZ_16x16.png" />
