@@ -51,7 +51,7 @@ namespace Project.DvbIpTv.Common.Serialization
             } // for
 
             var endIndex = input.Length;
-            for (int i = input.Length - 1; i >= 0; i--)
+            for (int i = input.Length - 1; i >= startIndex; i--)
             {
                 if (!char.IsWhiteSpace(input[i]))
                 {
@@ -66,10 +66,10 @@ namespace Project.DvbIpTv.Common.Serialization
                 var c = input[i];
                 var isWhitespace = char.IsWhiteSpace(c);
                 if (isWhitespace) c = ' ';
-                if ((i == 0) || !isWhitespace || (isWhitespace && !char.IsWhiteSpace(input[i - 1])))
+                if ((i == startIndex) || !isWhitespace || (isWhitespace && !char.IsWhiteSpace(input[i - 1])))
                 {
-                    buffer.Append(isWhitespace ? ' ' : c);
-                }
+                    buffer.Append(c);
+                } // if
             } // for
 
             return buffer.ToString();

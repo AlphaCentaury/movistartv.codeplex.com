@@ -8,30 +8,33 @@ using System.Text;
 
 namespace Project.DvbIpTv.DvbStp.Client
 {
-    public class DvbStpSimpleClientSectionReceivedEventArgs: EventArgs
+    public partial class DvbStpSimpleClient
     {
-        public int DatagramCount;
-        public byte PayloadId;
-        public byte SegmentIdNetworkHi;
-        public byte SegmentIdNetworkLo;
-        public byte SegmentVersion;
-    } // class DvbStpSimpleClientSectionReceivedEventArgs
+        public class SectionReceivedEventArgs : EventArgs
+        {
+            public int DatagramCount;
+            public byte PayloadId;
+            public byte SegmentIdNetworkHi;
+            public byte SegmentIdNetworkLo;
+            public byte SegmentVersion;
+        } // class SectionReceivedEventArgs
 
-    public class DvbStpSimpleClientPayloadSectionReceivedEventArgs : EventArgs
-    {
-        public byte PayloadId;
-        public short SegmentId;
-        public byte SegmentVersion;
-        public short SectionNumber;
-        public int SectionCount;
-        public int SectionsReceived;
-    } // class DvbStpSimpleClientPayloadSectionReceivedEventArgs
+        public class PayloadSectionReceivedEventArgs : EventArgs
+        {
+            public byte PayloadId;
+            public short SegmentId;
+            public byte SegmentVersion;
+            public short SectionNumber;
+            public int SectionCount;
+            public int SectionsReceived;
+        } // class PayloadSectionReceivedEventArgs
 
-    public class DvbStpSimpleClientDownloadRestartedEventArgs : EventArgs
-    {
-        public byte PayloadId;
-        public short SegmentId;
-        public int OldVersion;
-        public int NewVersion;
-    } // class DvbStpSimpleClientDownloadRestartedEventArgs
+        public class DownloadRestartedEventArgs : EventArgs
+        {
+            public byte PayloadId;
+            public short SegmentId;
+            public int OldVersion;
+            public int NewVersion;
+        } // class DownloadRestartedEventArgs
+    } // partial class DvbStpSimpleClient
 } // namespace

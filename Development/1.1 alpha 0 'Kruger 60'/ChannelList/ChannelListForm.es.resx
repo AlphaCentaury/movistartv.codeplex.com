@@ -130,12 +130,6 @@
     <value>Ubicación</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="menuItemDvbRecent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
-  </data>
-  <data name="menuItemDvbRecent.Text" xml:space="preserve">
-    <value>Canales &amp;recientes</value>
-  </data>
   <data name="menuItemDvbRecent0.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
@@ -606,6 +600,12 @@
         RNaHYpmZfwgz3xfKzAMPPV+Cwh6xMZjnMLPYH8E20AFcYeMg+i+RMFobFN861AAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="menuItemDvbRecent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 22</value>
+  </data>
+  <data name="menuItemDvbRecent.Text" xml:space="preserve">
+    <value>Canales &amp;recientes</value>
+  </data>
   <data name="separatorDvb1.Size" type="System.Drawing.Size, System.Drawing">
     <value>191, 6</value>
   </data>
@@ -644,18 +644,6 @@
   </data>
   <data name="menuItemDvbExit.Text" xml:space="preserve">
     <value>&amp;Salir</value>
-  </data>
-  <data name="menuItemChannel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 20</value>
-  </data>
-  <data name="menuItemChannel.Text" xml:space="preserve">
-    <value>&amp;Canal</value>
-  </data>
-  <data name="menuItemChannelFavorites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 22</value>
-  </data>
-  <data name="menuItemChannelFavorites.Text" xml:space="preserve">
-    <value>&amp;Favoritos</value>
   </data>
   <data name="menuItemChannelFavorites0.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -940,14 +928,14 @@
   <data name="menuItemChannelFavoritesEdit.Text" xml:space="preserve">
     <value>Editar la lista...</value>
   </data>
-  <data name="separatorChannel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
-  </data>
-  <data name="menuItemChannelListSort.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menuItemChannelFavorites.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 22</value>
   </data>
-  <data name="menuItemChannelListSort.Text" xml:space="preserve">
-    <value>&amp;Ordenar por</value>
+  <data name="menuItemChannelFavorites.Text" xml:space="preserve">
+    <value>&amp;Favoritos</value>
+  </data>
+  <data name="separatorChannel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 6</value>
   </data>
   <data name="menuItemChannelListSortName.Size" type="System.Drawing.Size, System.Drawing">
     <value>204, 22</value>
@@ -982,11 +970,11 @@
   <data name="menuItemChannelListSortNone.Text" xml:space="preserve">
     <value>Sin ordenar</value>
   </data>
-  <data name="menuItemChannelListView.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menuItemChannelListSort.Size" type="System.Drawing.Size, System.Drawing">
     <value>264, 22</value>
   </data>
-  <data name="menuItemChannelListView.Text" xml:space="preserve">
-    <value>&amp;Modo de la lista</value>
+  <data name="menuItemChannelListSort.Text" xml:space="preserve">
+    <value>&amp;Ordenar por</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuItemChannelListViewTile.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -1003,6 +991,12 @@
   </data>
   <data name="menuItemChannelListViewDetails.Text" xml:space="preserve">
     <value>Detallado</value>
+  </data>
+  <data name="menuItemChannelListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 22</value>
+  </data>
+  <data name="menuItemChannelListView.Text" xml:space="preserve">
+    <value>&amp;Modo de la lista</value>
   </data>
   <data name="separatorChannel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>261, 6</value>
@@ -1025,11 +1019,11 @@
   <data name="menuItemChannelDetails.Text" xml:space="preserve">
     <value>Ver &amp;detalles técnicos...</value>
   </data>
-  <data name="menuItemRecordings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 20</value>
+  <data name="menuItemChannel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 20</value>
   </data>
-  <data name="menuItemRecordings.Text" xml:space="preserve">
-    <value>&amp;Grabaciones</value>
+  <data name="menuItemChannel.Text" xml:space="preserve">
+    <value>&amp;Canal</value>
   </data>
   <data name="menuItemRecordingsRecord.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 22</value>
@@ -1058,11 +1052,11 @@
   <data name="menuItemRecordingsImport.Text" xml:space="preserve">
     <value>&amp;Importar...</value>
   </data>
-  <data name="menuItemEpg.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 20</value>
+  <data name="menuItemRecordings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 20</value>
   </data>
-  <data name="menuItemEpg.Text" xml:space="preserve">
-    <value>Guía &amp;programas</value>
+  <data name="menuItemRecordings.Text" xml:space="preserve">
+    <value>&amp;Grabaciones</value>
   </data>
   <data name="menuItemEpgNow.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 22</value>
@@ -1085,17 +1079,32 @@
   <data name="separatorEpg1.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 6</value>
   </data>
+  <data name="menuItemEpgPrevious.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="menuItemEpgPrevious.Text" xml:space="preserve">
+    <value>A&amp;nterior programa</value>
+  </data>
+  <data name="menuItemEpgNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="menuItemEpgNext.Text" xml:space="preserve">
+    <value>&amp;Siguiente programa</value>
+  </data>
+  <data name="separatorEpg2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 6</value>
+  </data>
   <data name="menuItemEpgRefresh.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 22</value>
   </data>
   <data name="menuItemEpgRefresh.Text" xml:space="preserve">
     <value>A&amp;ctualizar...</value>
   </data>
-  <data name="menuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+  <data name="menuItemEpg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 20</value>
   </data>
-  <data name="menuItemHelp.Text" xml:space="preserve">
-    <value>Ay&amp;uda</value>
+  <data name="menuItemEpg.Text" xml:space="preserve">
+    <value>Guía &amp;programas</value>
   </data>
   <data name="menuItemHelpDocumentation.Size" type="System.Drawing.Size, System.Drawing">
     <value>228, 22</value>
@@ -1129,6 +1138,12 @@
   </data>
   <data name="menuItemHelpAbout.Text" xml:space="preserve">
     <value>&amp;Acerca de...</value>
+  </data>
+  <data name="menuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="menuItemHelp.Text" xml:space="preserve">
+    <value>Ay&amp;uda</value>
   </data>
   <data name="labelProviderName.Size" type="System.Drawing.Size, System.Drawing">
     <value>436, 15</value>
@@ -1178,23 +1193,26 @@
   <data name="contextMenuListShowWith.Text" xml:space="preserve">
     <value>Ver con &amp;reproductor...</value>
   </data>
-  <data name="contextMenuListCopy.Text" xml:space="preserve">
-    <value>&amp;Copiar</value>
-  </data>
   <data name="contextMenuListCopyURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>216, 22</value>
+  </data>
+  <data name="contextMenuListCopyURL.Text" xml:space="preserve">
+    <value>Copiar la URL de ubicación</value>
   </data>
   <data name="contextMenuListCopyRow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>216, 22</value>
   </data>
   <data name="contextMenuListCopyRow.Text" xml:space="preserve">
     <value>Copiar datos del canal</value>
   </data>
   <data name="contextMenuListCopyAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>216, 22</value>
   </data>
   <data name="contextMenuListCopyAll.Text" xml:space="preserve">
     <value>Copiar todos los canales</value>
+  </data>
+  <data name="contextMenuListCopy.Text" xml:space="preserve">
+    <value>&amp;Copiar</value>
   </data>
   <data name="labelPackageLabel.Text" xml:space="preserve">
     <value>Paquete:</value>
@@ -1209,10 +1227,7 @@
     <value>Gra&amp;bar...</value>
   </data>
   <data name="buttonDisplayChannel.Text" xml:space="preserve">
-    <value>&amp;Ver canal de TV</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
+    <value>&amp;Ver canal...</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Lista de canales - DVB-IPTV</value>

@@ -82,6 +82,12 @@ namespace Project.DvbIpTv.DvbStp.Client
             } // 
         } // ExplorerMulticastStream
 
+        protected override void ProcessReceivedData()
+        {
+            // our implementation (at least for now) is not using ReceiveData(), so there's no need for this function
+            throw new NotImplementedException();
+        } // ProcessReceivedData
+
         private void InitRun()
         {
             StartSectionNumber = Header.SectionNumber;

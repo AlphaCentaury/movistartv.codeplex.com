@@ -66,6 +66,27 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } // FullServiceName
 
         [XmlIgnore]
+        public TextualIdentifier ReplacementService
+        {
+            get
+            {
+                var si = Data.ServiceInformation;
+                if (si == null) return null;
+
+                var replacements = si.ReplacementService;
+                if ((replacements == null) || (replacements.Length == 0)) return null;
+
+                var q = from r in replacements
+                        let ti = r.Item as TextualIdentifier
+                        where ti != null
+                        select ti;
+                var replacement = q.FirstOrDefault();
+
+                return replacement;
+            } // get
+        } // ReplacementServiceName
+
+        [XmlIgnore]
         public string DisplayName
         {
             get

@@ -55,7 +55,7 @@ namespace Project.DvbIpTv.DvbStp.Client
 
             if (!Versions.TryGetValue(header.SegmentVersion, out assembler))
             {
-                assembler = new SegmentAssembler(PayloadId, SegmentId, header.SegmentVersion, header.LastSectionNumber);
+                assembler = new SegmentAssembler(new DvbStpSegmentIdentity(header), header.LastSectionNumber);
                 Versions[header.SegmentVersion] = assembler;
                 OnSegmentStarted(header);
             } // if
@@ -119,7 +119,7 @@ namespace Project.DvbIpTv.DvbStp.Client
             } // if
 
             // discard data
-            assembler.NewVersionReset(assembler.SegmentVersion, assembler.LastSectionNumber);
+            assembler.Reset();
         } // OnSegmentReceived
     } // VersionStorage
 } // namespace

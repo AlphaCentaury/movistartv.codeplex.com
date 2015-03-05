@@ -45,6 +45,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiServices.Record", "UiServ
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{21AADDF8-BB39-4D0F-A6EF-EFD64AB3BC16}"
 	ProjectSection(SolutionItems) = preProject
+		DB\EPG.sdf = DB\EPG.sdf
 		DB\RecordTasks.sdf = DB\RecordTasks.sdf
 	EndProjectSection
 EndProject
@@ -60,9 +61,45 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleEPGLoader", "Interna
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services.SqlServerCE", "Services.SqlServerCE\Services.SqlServerCE.csproj", "{3A053F34-4EDF-4071-B966-923255A0AE14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiServices.EPG", "UiServices.EPG\UiServices.EPG.csproj", "{004C3829-FED4-4084-B23B-871193AFA8C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common.UI", "Common.UI", "{1A7A0EC8-D85A-4674-8DF7-89FF64D0A158}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{4B6AC9D7-14AF-4C52-9154-59F4B4A3EC0E}"
+	ProjectSection(SolutionItems) = preProject
+		Common.UI\Resources\Action_Back_16x16.png = Common.UI\Resources\Action_Back_16x16.png
+		Common.UI\Resources\Action_Cancel_16x16.png = Common.UI\Resources\Action_Cancel_16x16.png
+		Common.UI\Resources\Action_Close_16x16.png = Common.UI\Resources\Action_Close_16x16.png
+		Common.UI\Resources\Action_Copy_Clip_16x16.png = Common.UI\Resources\Action_Copy_Clip_16x16.png
+		Common.UI\Resources\Action_Copy_Table.png = Common.UI\Resources\Action_Copy_Table.png
+		Common.UI\Resources\Action_Delete_16x16.png = Common.UI\Resources\Action_Delete_16x16.png
+		Common.UI\Resources\Action_Edit_16x16.png = Common.UI\Resources\Action_Edit_16x16.png
+		Common.UI\Resources\Action_EditTask_16x16.png = Common.UI\Resources\Action_EditTask_16x16.png
+		Common.UI\Resources\Action_Export_Data.png = Common.UI\Resources\Action_Export_Data.png
+		Common.UI\Resources\Action_Export_List_16x16.png = Common.UI\Resources\Action_Export_List_16x16.png
+		Common.UI\Resources\Action_Favorites_16x16.png = Common.UI\Resources\Action_Favorites_16x16.png
+		Common.UI\Resources\Action_Forward_16x16.png = Common.UI\Resources\Action_Forward_16x16.png
+		Common.UI\Resources\Action_FullView_16x16.png = Common.UI\Resources\Action_FullView_16x16.png
+		Common.UI\Resources\Action_Go_16x16.png = Common.UI\Resources\Action_Go_16x16.png
+		Common.UI\Resources\Action_History_MD_16x16.png = Common.UI\Resources\Action_History_MD_16x16.png
+		Common.UI\Resources\Action_Hyperlink_16x16.png = Common.UI\Resources\Action_Hyperlink_16x16.png
+		Common.UI\Resources\Action_Import_16x16.png = Common.UI\Resources\Action_Import_16x16.png
+		Common.UI\Resources\Action_Link_16x16.png = Common.UI\Resources\Action_Link_16x16.png
+		Common.UI\Resources\Action_NextRecord_16x16.png = Common.UI\Resources\Action_NextRecord_16x16.png
+		Common.UI\Resources\Action_Ok_16x16.png = Common.UI\Resources\Action_Ok_16x16.png
+		Common.UI\Resources\Action_PreviousRecord_16x16.png = Common.UI\Resources\Action_PreviousRecord_16x16.png
+		Common.UI\Resources\Action_Properties_16x16.png = Common.UI\Resources\Action_Properties_16x16.png
+		Common.UI\Resources\Action_Refresh_Blue_16x16.png = Common.UI\Resources\Action_Refresh_Blue_16x16.png
+		Common.UI\Resources\Action_Repair_16x16.png = Common.UI\Resources\Action_Repair_16x16.png
+		Common.UI\Resources\Action_ReportError_16x16.png = Common.UI\Resources\Action_ReportError_16x16.png
+		Common.UI\Resources\Action_Run_16x16.png = Common.UI\Resources\Action_Run_16x16.png
+		Common.UI\Resources\Action_Save_16x16.png = Common.UI\Resources\Action_Save_16x16.png
+		Common.UI\Resources\Action_Settings_16x16.png = Common.UI\Resources\Action_Settings_16x16.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 21
+		SccNumberOfProjects = 22
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs30
 		SccLocalPath0 = .
@@ -129,6 +166,9 @@ Global
 		SccProjectUniqueName20 = Services.SqlServerCE\\Services.SqlServerCE.csproj
 		SccProjectName20 = Services.SqlServerCE
 		SccLocalPath20 = Services.SqlServerCE
+		SccProjectUniqueName21 = UiServices.EPG\\UiServices.EPG.csproj
+		SccProjectName21 = UiServices.EPG
+		SccLocalPath21 = UiServices.EPG
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -438,14 +478,31 @@ Global
 		{3A053F34-4EDF-4071-B966-923255A0AE14}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3A053F34-4EDF-4071-B966-923255A0AE14}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3A053F34-4EDF-4071-B966-923255A0AE14}.Release|x86.ActiveCfg = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release + Setup|Any CPU.ActiveCfg = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release + Setup|Any CPU.Build.0 = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release + Setup|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release + Setup|Mixed Platforms.Build.0 = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release + Setup|x86.ActiveCfg = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{004C3829-FED4-4084-B23B-871193AFA8C7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{21AADDF8-BB39-4D0F-A6EF-EFD64AB3BC16} = {227520B6-B11F-45B8-84B2-8FDF27A2492C}
+		{1A7A0EC8-D85A-4674-8DF7-89FF64D0A158} = {227520B6-B11F-45B8-84B2-8FDF27A2492C}
 		{F3FC11C7-8850-4874-9CF3-8BA4DE43959A} = {B1F1A4A8-719B-4863-BEE0-EC79E7F06DEB}
 		{0BA7DA0C-3C45-4834-9927-C8CB5B49DD7B} = {C1DAEFDD-689E-4324-A05D-66FA30B574B5}
 		{3935C593-1E31-42EC-8C9F-23F8D548C112} = {C1DAEFDD-689E-4324-A05D-66FA30B574B5}
+		{4B6AC9D7-14AF-4C52-9154-59F4B4A3EC0E} = {1A7A0EC8-D85A-4674-8DF7-89FF64D0A158}
 	EndGlobalSection
 EndGlobal

@@ -118,15 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="menuItemDvbExport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+  <data name="menuItemChannelFavorites9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        xo4FAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;separatorRecordings1.Name" xml:space="preserve">
+    <value>separatorRecordings1</value>
   </data>
   <data name="&gt;&gt;buttonRecordChannel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="menuItemHelpDocumentation.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F1</value>
+  <data name="menuItemChannelFavorites6.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+7</value>
   </data>
   <data name="imageListChannelsLarge.ImageSize" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -134,21 +162,14 @@
   <data name="menuItemChannelFavorites8.Text" xml:space="preserve">
     <value>Favorites[8]</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="radioListViewTile.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="radioListViewDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>565, 43</value>
-  </data>
-  <data name="labelProviderName.Text" xml:space="preserve">
-    <value>(SP Name)</value>
   </data>
   <data name="menuItemHelpDocumentation.Text" xml:space="preserve">
     <value>&amp;Documentation</value>
   </data>
-  <data name="menuItemEpgToday.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;contextMenuListCopyAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="menuItemChannelRefreshList.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 22</value>
@@ -159,11 +180,43 @@
   <data name="menuItemDvbRecent.Text" xml:space="preserve">
     <value>Recent channels</value>
   </data>
+  <data name="&gt;&gt;contextMenuListSortDescription.Name" xml:space="preserve">
+    <value>contextMenuListSortDescription</value>
+  </data>
   <data name="menuItemChannelListSortName.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 22</value>
   </data>
-  <data name="menuItemHelpDocumentation.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="menuItemDvbRecent4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        YII=
+</value>
   </data>
   <data name="&gt;&gt;menuItemRecordingsImport.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -171,17 +224,75 @@
   <data name="menuItemPackagesManage.Text" xml:space="preserve">
     <value>Manage packages...</value>
   </data>
-  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>724, 24</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>724, 422</value>
   </data>
   <data name="&gt;&gt;pictureProviderLogo.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;contextMenuListCopyRow.Type" xml:space="preserve">
+  <data name="&gt;&gt;menuItemDvbRecent6.Name" xml:space="preserve">
+    <value>menuItemDvbRecent6</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Description.Width" type="System.Int32, mscorlib">
+    <value>250</value>
+  </data>
+  <data name="menuItemEpgNow.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F6</value>
+  </data>
+  <data name="menuItemPackagesManage.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="menuItemRecordings.Text" xml:space="preserve">
+    <value>&amp;Recordings</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListCopyAll.Name" xml:space="preserve">
+    <value>contextMenuListCopyAll</value>
+  </data>
+  <data name="menuItemChannelFavoritesEdit.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="menuItemDvbIpTv.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="menuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="menuItemHelpCheckUpdates.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="menuItemDvbRecent7.Text" xml:space="preserve">
+    <value>Recent[7]</value>
+  </data>
+  <data name="menuItemChannelFavorites.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 22</value>
+  </data>
+  <data name="&gt;&gt;pictureProviderLogo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="menuItemHelpCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListSortType.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;contextMenuListSortDescription.Name" xml:space="preserve">
-    <value>contextMenuListSortDescription</value>
+  <data name="menuItemChannelFavoritesSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 6</value>
+  </data>
+  <data name="&gt;&gt;separatorChannel1.Name" xml:space="preserve">
+    <value>separatorChannel1</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavoritesEdit.Name" xml:space="preserve">
+    <value>menuItemChannelFavoritesEdit</value>
+  </data>
+  <data name="&gt;&gt;epgMiniBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="menuItemDvbProvider.Text" xml:space="preserve">
+    <value>&amp;Provider</value>
   </data>
   <data name="menuItemDvbRecent9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -274,66 +385,6 @@
         RNaHYpmZfwgz3xfKzAMPPV+Cwh6xMZjnMLPYH8E20AFcYeMg+i+RMFobFN861AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="menuItemPackagesManage.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="menuItemRecordings.Text" xml:space="preserve">
-    <value>&amp;Recordings</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListCopyAll.Name" xml:space="preserve">
-    <value>contextMenuListCopyAll</value>
-  </data>
-  <data name="menuItemChannelFavoritesEdit.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="menuItemDvbIpTv.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 20</value>
-  </data>
-  <data name="menuItemEpgTomorrow.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="menuItemChannelVerify.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="menuItemHelpCheckUpdates.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="menuItemDvbRecent7.Text" xml:space="preserve">
-    <value>Recent[7]</value>
-  </data>
-  <data name="menuItemChannelFavorites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="&gt;&gt;pictureProviderLogo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="menuItemHelpCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemChannelFavoritesSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 6</value>
-  </data>
-  <data name="contextMenuListSortChannel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="buttonRecordChannel.Text" xml:space="preserve">
-    <value>Rec&amp;ord...</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites4.Name" xml:space="preserve">
-    <value>menuItemChannelFavorites4</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListProperties.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="contextMenuListModeTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 22</value>
-  </data>
   <data name="menuItemChannelListSort.Text" xml:space="preserve">
     <value>&amp;Sort list by</value>
   </data>
@@ -386,8 +437,11 @@
   <data name="&gt;&gt;menuItemDvbExport.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelNotification.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuItemEpgPrevious.Name" xml:space="preserve">
+    <value>menuItemEpgPrevious</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="menuItemDvbRecent3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -420,20 +474,26 @@
         p9fu7oypm/Grecl8rxzBeWbxwDgwmf4BqkecP1ifu+AAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="&gt;&gt;menuItemChannelFavorites4.Name" xml:space="preserve">
+    <value>menuItemChannelFavorites4</value>
+  </data>
   <data name="radioListViewTile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="contextMenuListShowWith.Text" xml:space="preserve">
-    <value>&amp;Show with player...</value>
+  <data name="contextMenuListModeTile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 22</value>
   </data>
   <data name="menuItemChannel.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 20</value>
   </data>
+  <data name="&gt;&gt;menuItemRecordingsRepair.Name" xml:space="preserve">
+    <value>menuItemRecordingsRepair</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent3.Name" xml:space="preserve">
+    <value>menuItemDvbRecent3</value>
+  </data>
   <data name="&gt;&gt;menuStripMain.Name" xml:space="preserve">
     <value>menuStripMain</value>
-  </data>
-  <data name="&gt;&gt;buttonRecordChannel.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="&gt;&gt;menuItemChannelFavorites8.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -441,32 +501,41 @@
   <data name="&gt;&gt;menuItemEpgToday.Name" xml:space="preserve">
     <value>menuItemEpgToday</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbRecent2.Name" xml:space="preserve">
-    <value>menuItemDvbRecent2</value>
+  <data name="labelNotification.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="menuItemChannelFavorites3.Text" xml:space="preserve">
     <value>Favorites[3]</value>
   </data>
-  <data name="menuItemChannelListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
+  <data name="&gt;&gt;menuItemChannelVerify.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="contextMenuListModeTile.Text" xml:space="preserve">
+    <value>Tile</value>
   </data>
   <data name="&gt;&gt;labelPackageLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="menuItemChannelVerify.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 22</value>
+  </data>
   <data name="&gt;&gt;separatorDvb1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbSettings.Name" xml:space="preserve">
+    <value>menuItemDvbSettings</value>
   </data>
   <data name="labelListChannelsView.Location" type="System.Drawing.Point, System.Drawing">
     <value>456, 45</value>
   </data>
-  <data name="&gt;&gt;listViewChannels.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;imageListChannelsLarge.Name" xml:space="preserve">
+    <value>imageListChannelsLarge</value>
   </data>
   <data name="buttonRecordChannel.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 25</value>
   </data>
-  <data name="separatorChannel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 6</value>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
   </data>
   <data name="menuItemChannelFavorites2.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+3</value>
@@ -480,11 +549,20 @@
   <data name="separatorHelp1.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 6</value>
   </data>
+  <data name="&gt;&gt;menuItemChannelFavorites7.Name" xml:space="preserve">
+    <value>menuItemChannelFavorites7</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelListSortLocation.Name" xml:space="preserve">
+    <value>menuItemChannelListSortLocation</value>
+  </data>
   <data name="&gt;&gt;buttonDisplayChannel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;contextMenuListRecord.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemChannelFavorites6.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="menuItemPackagesManage.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 22</value>
@@ -501,23 +579,23 @@
   <data name="&gt;&gt;separatorChannel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="menuItemRecordingsImport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
+  </data>
   <data name="contextMenuListSortDescription.Text" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="buttonRecordChannel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="&gt;&gt;menuItemHelpDocumentation.Name" xml:space="preserve">
-    <value>menuItemHelpDocumentation</value>
+  <data name="Location.Width" type="System.Int32, mscorlib">
+    <value>150</value>
   </data>
   <data name="Name.Width" type="System.Int32, mscorlib">
     <value>175</value>
   </data>
   <data name="Description.Text" xml:space="preserve">
     <value>Channel description</value>
-  </data>
-  <data name="pictureNotificationIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
   </data>
   <data name="menuItemRecordingsRepair.Text" xml:space="preserve">
     <value>Repair &amp;tasks...</value>
@@ -528,11 +606,14 @@
   <data name="contextMenuListCopy.Text" xml:space="preserve">
     <value>&amp;Copy</value>
   </data>
+  <data name="&gt;&gt;contextMenuListSortLocation.Name" xml:space="preserve">
+    <value>contextMenuListSortLocation</value>
+  </data>
   <data name="menuItemDvbRecent4.Text" xml:space="preserve">
     <value>Recent[4]</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
+  <data name="menuItemChannelFavorites1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="menuItemDvbPackages.Text" xml:space="preserve">
     <value>P&amp;ackage</value>
@@ -546,33 +627,8 @@
   <data name="menuItemHelpReportIssue.Text" xml:space="preserve">
     <value>Report an issue...</value>
   </data>
-  <data name="menuItemChannelFavorites9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        xo4FAAAAAElFTkSuQmCC
-</value>
+  <data name="&gt;&gt;menuItemDvbRecent0.Name" xml:space="preserve">
+    <value>menuItemDvbRecent0</value>
   </data>
   <data name="&gt;&gt;separatorDvb1.Name" xml:space="preserve">
     <value>separatorDvb1</value>
@@ -580,8 +636,8 @@
   <data name="menuItemChannelFavorites8.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 22</value>
   </data>
-  <data name="labelNotification.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="labelProviderDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 44</value>
   </data>
   <data name="&gt;&gt;menuItemDvbRecent5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -595,8 +651,8 @@
   <data name="&gt;&gt;buttonDisplayChannel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbRecent.Name" xml:space="preserve">
-    <value>menuItemDvbRecent</value>
+  <data name="menuItemRecordingsManage.Text" xml:space="preserve">
+    <value>&amp;Manage recordings...</value>
   </data>
   <data name="&gt;&gt;contextMenuListRecord.Name" xml:space="preserve">
     <value>contextMenuListRecord</value>
@@ -604,23 +660,23 @@
   <data name="&gt;&gt;menuItemChannelFavorites4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemChannelFavorites5.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelProviderDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;menuItemChannelFavorites1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="menuItemDvbExit.ShortcutKeyDisplayString" xml:space="preserve">
     <value>Alt+F4</value>
   </data>
+  <data name="&gt;&gt;contextMenuListSortSeparator1.Name" xml:space="preserve">
+    <value>contextMenuListSortSeparator1</value>
+  </data>
+  <data name="&gt;&gt;menuItemHelpDocumentation.Name" xml:space="preserve">
+    <value>menuItemHelpDocumentation</value>
+  </data>
   <data name="menuItemChannelFavorites3.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelVerify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelProviderName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 27</value>
   </data>
   <data name="menuItemProviderSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 22</value>
@@ -628,8 +684,8 @@
   <data name="buttonRecordChannel.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="Description.Width" type="System.Int32, mscorlib">
-    <value>250</value>
+  <data name="&gt;&gt;contextMenuListCopyURL.Name" xml:space="preserve">
+    <value>contextMenuListCopyURL</value>
   </data>
   <data name="menuItemDvbExit.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -658,14 +714,23 @@
   <data name="menuItemChannelListSortDescription.Text" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="labelProviderName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 27</value>
+  <data name="menuItemDvbExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
   </data>
   <data name="menuItemRecordings.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 20</value>
   </data>
+  <data name="&gt;&gt;separatorEpg1.Name" xml:space="preserve">
+    <value>separatorEpg1</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelListSortDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="menuItemChannelFavoritesEdit.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 22</value>
+  </data>
+  <data name="&gt;&gt;menuItemPackagesManage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="labelNotification.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -676,87 +741,66 @@
   <data name="menuItemChannelListSortNone.Text" xml:space="preserve">
     <value>None</value>
   </data>
-  <data name="pictureNotificationIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="contextMenuListSortChannel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
   </data>
   <data name="menuItemChannelRefreshList.Text" xml:space="preserve">
     <value>&amp;Refresh list...</value>
   </data>
-  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="menuItemChannelFavorites7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        xo4FAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpgPrevious.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Description.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;radioListViewTile.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuItemEpgNow.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;separatorDvb3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemChannelDetails.Name" xml:space="preserve">
     <value>menuItemChannelDetails</value>
   </data>
-  <data name="&gt;&gt;separatorHelp1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuItemDvbExit.Name" xml:space="preserve">
+    <value>menuItemDvbExit</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="menuItemDvbRecent6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+  <data name="&gt;&gt;menuItemDvbPackages.Name" xml:space="preserve">
+    <value>menuItemDvbPackages</value>
   </data>
-  <data name="contextMenuListSortLocation.Text" xml:space="preserve">
-    <value>Location</value>
-  </data>
-  <data name="menuItemDvbRecent1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAe
-        vAAAHrwB7kRN9wAAACx0RVh0Q3JlYXRpb24gVGltZQBtacOpIDggb2N0IDIwMTQgMjI6MDQ6NDkgKzAx
-        MDDQjsTuAAAAB3RJTUUH3goIFAcBSI1KTAAACalJREFUWEftl3d01eUdhz8JAVkFBQHB01apVhwFpWpr
-        sa1a66iLOurqsAfwtJ5qtY6CipIQlgxFZYaE5F4yIXsvMkgICQlkkJBNbhJCGIkgJKzkvn3em9hTWtvT
-        //pP7znPee+9J/l9n3zX7xf9/6VTZwbo6ZVMHxjpbIfkauG7Bulco9TXxveWVi+ZDm+Zw0PkbvORaR8q
-        d/swz2naffjOfu8NXnIfFucgTZdiY3zFJQIF2VJrDVRIXfVSZ63U3eCtLxuGqbd5pPpcY+RuHYfMRCSu
-        IugU3l8NUwg0mc8TOcfDWBgFlwFSrYMinXDqUom/C6SkSjXlUnWp1LBfaqn2VnvVcB2pHqvjtZP0Rf01
-        Ot04TWcPzVBf6+3qb72LjMwi6I8RuBvuIsgdcCvcBFPBio0jSyM5ydARgpPdf8yEJ3hCMoGrpX0lUsVe
-        L1XtHaa6srFqLJ+ilsrvqq16po7U/ASRhxF5EpEXdLb5d7rYMgeRuYjMQeAlgrwIT8MjcC9YoRvhm3AF
-        DEeAEg0KWHT8pJRbCAVSUYG3inaPUFnxBFWUfEcHSmeqdt/PEHkKkd+r/cBriCxAxA+R5Yis0rnmNZRm
-        NWlegYQ/Qd6D12EuPAM/h9vhOphAb4zgRGIwE8rZS/pzpcydXsrOH6m8XZNUWDBNxbtnqWzPE4jMQeRt
-        1e1bisg6RIIRiVRnTZxO1CXpZEOKzjQl69yheF10bScjDkTWE2QZvANz4HGwJboekLCZsP1gBZJTpPh0
-        KSnrMqVkTVBGzjRl5/5EefnPqKDgVUQWI7IBkUgdKEtT7f4CNZWX6VBFldqqauiRWnXVHtSp+ir1NJXp
-        /KEC9bvSyEgEIusItgj+ALPhB2B743L6gp5oR8CRJIUneysqbYxi0qcqIfNHSsl+GpE/a2feR2TEocLC
-        VJUUFWtfcY3KS1rokc6nOw6dTO85dbb8XO+5ladP9Iw+Xtet7rpOfdnYwsRU60JLISIJBAtAxJdzHjwM
-        M/g8mZMsMBnaFC8FJwxTaNIkRGZoe+qjik1/RYmZy5Wa7VRmThYiFcrf5aI0XSou7In7ouui+eeX2+0e
-        01l3XscOnlF3/TH6o5H+KKZR4ynLehr1rwR8Dpictms5v0E/eEvrd3hpY/QoBcZdo5CEuxH5tSJSFmpH
-        WqDiMjIoTaVSdx5WZu5pRC4+UVPdPxjS+Ha0mVcOu0x//8BXAV+ecKu1sp9GPUejdtGo9YjsQiSMRl1K
-        0HkEv59zGjAVriHS6khvfbb9cm2InqbNMQ8qKO4VORJWKywpRpEppYpOa1V8xhlE+siIe3VLqyfYIpfL
-        qCDPqGiXefvwwHdHLpw37BBDo7rVXn1WnQeP0KjlOtWQQH+spT9eozfsiN6CiF1YPtKKsCFaHXGlPomc
-        rs+3z0bkbQXEbtbW+Cw5E2sVltytqNSLiklzKy7dKDHLjN1ZYMiIUdZOo9xcE3TsqEegoqfH0B+GiTFq
-        quiTq6pbh6sPUpZ0ddVtYKO+qd6mJ3Th0HREJlCaodJip4+WbJuoj8K+j8ivtDZqoT7f4aAshdoS60Kk
-        BxE3/WEUmWq0A2LTDJNjlJxh5tXWe4Lb15zmRqPSIqPKEqOasn7V7T+p5op6tVZlqaNmk47VvkVZZjO2
-        09moV6qvhQz4OYZqkWOS/J13aFno81oZ5qs1EeH6NKpE63Z0aFPMOW2Jc9OoRs4ko7BEo3CISjYfN7cM
-        hjYm5UQX2aAkuwuN9u4x2l/Sr6rSk6rZV6f68kw1V25Q24G/IPIYIrfoZP04+oMe8HP4yNcxEW6HF7TE
-        6avloRFaGV6qjyM79en2CzSqoT8MpTEKBGe8yTvaNRjamCBXO9nINEqnJDlIFFCiot0XEDnO2FYhkqSD
-        +9aqofxPOlT5IItsGo1q7zFMgb9zCIEnwEx4Fj5EKoyylGhFaIdWhZ9HxJARQ494SG49MhjamJeKK8kK
-        2dmRQn9kGKVlGxaZm0XWi0ib9uwuYZFFIbKMjTqHRXYP/TFVrgOj1VHtZQW8CToOpsMvYQEEQwH94dLS
-        bb1aHuYmI0YrQ82s6JzB0MY8kEG9NyG1laxsoyzb6Y/4DDeL7DyL7ISy8w6yyLJYZFtUXLSAe8yz3Ozu
-        VHXZ1aqvGK7GMhbR4hAvgo2BG+AX8AZshCyooz9OcvYhauTvMBsrGj3Bu88ychtjjHdQvBnuTDZjItPM
-        sCgmJSL5PBu1m0XWxNjuRiTSs1Hzd/2R/niIjXoTG3U8t30fSmIFnJKvcwRBroF74WVYBXGwDzq0KKRX
-        C4P7tTDIFLUf8wh83auy+1QfO6SLiWlikRWzyOLYH5+xyN5ibJ9RTv4PtavgW/THKJXu8UIEAV8rsG0Y
-        52SC3QnPw0KwZciBWrJwTB8E9+q9oL5C11G79txfR/HRrh5tjq5VcPxubUuKZZGtZ5G9S1l+g8i9Stt5
-        g7Jyxyk334f+kNLSEFjhsJNg++AKuBkegVdhDeyAQqjThyEdZOELJE5r/pYeLdhyRu9vOSXfrSe0xHFY
-        H4U26OOIMpo0i9GNUFD8WjkS57PIfssiux+RmxGZpOTs4UrPEBMjlfHop5VRA2Xwc4wikC3D3fAi2GZc
-        DzGQRxbKkagjE816f2sLIs16N7Ce91VatLUEiWymJoaJCWBilrHI3tDm2OdZZPexyG6hLJMRGck29eKO
-        O/AM4jqOwFoE/EMGFpKfHUfn9wj4EMwBW4rPIBQSkciiH/IQyUckFzLISgKEa1HwZhp1BTtkPht1Lted
-        zSKbRTamKSBuEotspMJSvBWZKMVGSIGRUiMPJfJFwBeBxU4v+TlHE+jbcAc8ClbiHVgKn8JmCPKwyBEA
-        62AVQr7wJnJzmZSn2Kj3Mba3kY1rycZ4rY++TJuivRRog0MAAja4RyCEB1FPFsLIgm1Gx3i4DmxD2kw8
-        B3YyXgcrM3+Qt8D2yjx4AR6HexCaSSavk/+2q8jGaFa7jz7ZLn3OX0wCFZvPUzdPx5cI2Cwsow/8w8mC
-        Y8RAKRxTYQbYnngAHoMn4SmwC8t+fhB+ClbWNvC1MAnG6EPHMM+OWcYftjpcWoOEf6C0n/8R/kXAspJH
-        c1sKfzsR7AU/psLPMYWLWZEbwW7KW+G2wfc24PVgS3YV2CmyjTwUvBCQPgjierA6jpHjH55d/Jf1bwU8
-        Egh4eoJ+sBey2RjYknZVT+CzvWnZ05bpcs7Rgz9DUM9Kt78rLQkdyKi93strpBjG7b8SsHxVDnsRz5IK
-        8aZBh9Af3DWdNpAPQe0NbDCglbY/99V7ft+TTU57vVD2/X8U+J++pL8Bh/sjDL4CXaoAAAAASUVORK5C
-        YII=
-</value>
-  </data>
-  <data name="&gt;&gt;separatorDvb3.Name" xml:space="preserve">
-    <value>separatorDvb3</value>
+  <data name="radioListViewTile.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="separatorDvb2.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 6</value>
@@ -766,9 +810,6 @@
   </data>
   <data name="menuItemChannelFavorites7.Text" xml:space="preserve">
     <value>Favorites[7]</value>
-  </data>
-  <data name="menuItemChannelDetails.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F12</value>
   </data>
   <data name="listViewChannels.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 66</value>
@@ -785,29 +826,20 @@
   <data name="radioListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 17</value>
   </data>
-  <data name="menuItemRecordingsImport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
+  <data name="menuItemHelpReportIssue.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="menuItemChannelFavorites0.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="labelProviderDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;menuItemRecordingsImport.Name" xml:space="preserve">
-    <value>menuItemRecordingsImport</value>
+  <data name="&gt;&gt;separatorChannel2.Name" xml:space="preserve">
+    <value>separatorChannel2</value>
   </data>
   <data name="Name.Text" xml:space="preserve">
     <value>Channel name</value>
   </data>
-  <data name="menuItemChannelFavorites2.Text" xml:space="preserve">
-    <value>Favorites[2]</value>
-  </data>
-  <data name="contextMenuListRecord.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="menuItemEpgNow.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F6</value>
+  <data name="menuItemChannelFavorites9.Text" xml:space="preserve">
+    <value>Favorites[9]</value>
   </data>
   <data name="&gt;&gt;contextMenuListMode.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -840,6 +872,9 @@
         xo4FAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="&gt;&gt;contextMenuListShow.Name" xml:space="preserve">
+    <value>contextMenuListShow</value>
+  </data>
   <data name="&gt;&gt;menuItemDvbRecent4.Name" xml:space="preserve">
     <value>menuItemDvbRecent4</value>
   </data>
@@ -849,14 +884,20 @@
   <data name="&gt;&gt;menuItemChannelListViewDetails.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbRecent6.Name" xml:space="preserve">
-    <value>menuItemDvbRecent6</value>
+  <data name="&gt;&gt;menuItemChannelListViewTile.Name" xml:space="preserve">
+    <value>menuItemChannelListViewTile</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelFavorites9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="menuItemChannelFavorites0.Text" xml:space="preserve">
+    <value>Favorites[0]</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.CommonBaseForm, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="menuItemEpgNext.Text" xml:space="preserve">
+    <value>&amp;Next program</value>
+  </data>
+  <data name="&gt;&gt;menuItemRecordings.Name" xml:space="preserve">
+    <value>menuItemRecordings</value>
+  </data>
+  <data name="menuItemChannelListViewTile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
   </data>
   <data name="&gt;&gt;Location.Name" xml:space="preserve">
     <value>Location</value>
@@ -864,8 +905,8 @@
   <data name="&gt;&gt;menuItemHelpCheckUpdates.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;contextMenuListSortLocation.Name" xml:space="preserve">
-    <value>contextMenuListSortLocation</value>
+  <data name="&gt;&gt;menuItemChannelListViewTile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemDvbExit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -873,23 +914,45 @@
   <data name="&gt;&gt;menuItemChannelListSortNone.Name" xml:space="preserve">
     <value>menuItemChannelListSortNone</value>
   </data>
-  <data name="menuItemDvbProvider.Text" xml:space="preserve">
-    <value>&amp;Provider</value>
-  </data>
   <data name="&gt;&gt;menuItemChannelFavorites0.Name" xml:space="preserve">
     <value>menuItemChannelFavorites0</value>
+  </data>
+  <data name="menuItemChannelFavorites1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        xo4FAAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="labelProviderDescription.Text" xml:space="preserve">
     <value>(SP description)</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbRecent5.Name" xml:space="preserve">
-    <value>menuItemDvbRecent5</value>
+  <data name="&gt;&gt;buttonDisplayChannel.Name" xml:space="preserve">
+    <value>buttonDisplayChannel</value>
   </data>
   <data name="menuItemDvbRecent.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbExport.Name" xml:space="preserve">
-    <value>menuItemDvbExport</value>
   </data>
   <data name="labelListChannelsView.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopRight</value>
@@ -897,14 +960,14 @@
   <data name="pictureProviderLogo.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 27</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbRecent7.Name" xml:space="preserve">
-    <value>menuItemDvbRecent7</value>
+  <data name="&gt;&gt;labelNotification.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="menuItemChannelVerify.Text" xml:space="preserve">
-    <value>Verify &amp;availability...</value>
+  <data name="&gt;&gt;menuItemDvbProvider.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemEpgTomorrow.Name" xml:space="preserve">
-    <value>menuItemEpgTomorrow</value>
+  <data name="menuItemDvbRecent8.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="menuItemChannelDetails.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 22</value>
@@ -952,20 +1015,26 @@
         APu4dBsEyNbjiLuU5OL9oJk5j+3/zAD+DFIJkyPj5/amAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="menuItemDvbRecent5.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;contextMenuListSortChannel.Name" xml:space="preserve">
+    <value>contextMenuListSortChannel</value>
+  </data>
+  <data name="menuItemChannelListSortType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
   </data>
   <data name="menuItemChannelFavorites1.Text" xml:space="preserve">
     <value>Favorites[1]</value>
   </data>
-  <data name="&gt;&gt;labelListChannelsView.Name" xml:space="preserve">
-    <value>labelListChannelsView</value>
+  <data name="&gt;&gt;menuItemDvbSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonRecordChannel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>481, 385</value>
+  <data name="menuItemChannelFavorites5.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+6</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent.Name" xml:space="preserve">
+    <value>menuItemDvbRecent</value>
   </data>
   <data name="buttonDisplayChannel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 385</value>
+    <value>612, 386</value>
   </data>
   <data name="contextMenuListCopyAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
@@ -973,8 +1042,8 @@
   <data name="&gt;&gt;labelListChannelsView.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="labelProviderDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 44</value>
+  <data name="menuItemHelpHomePage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
   </data>
   <data name="menuItemChannelListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 22</value>
@@ -1010,8 +1079,11 @@
         xo4FAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;menuItemEpgNow.Name" xml:space="preserve">
-    <value>menuItemEpgNow</value>
+  <data name="&gt;&gt;imageListChannels.Name" xml:space="preserve">
+    <value>imageListChannels</value>
+  </data>
+  <data name="contextMenuListSort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 22</value>
   </data>
   <data name="pictureProviderLogo.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 32</value>
@@ -1050,9 +1122,6 @@
         xo4FAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="contextMenuListMode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
   <data name="menuItemDvbRecent4.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 22</value>
   </data>
@@ -1062,11 +1131,11 @@
   <data name="&gt;&gt;menuItemChannelFavorites2.Name" xml:space="preserve">
     <value>menuItemChannelFavorites2</value>
   </data>
-  <data name="menuItemChannelListSortDescription.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+2</value>
+  <data name="&gt;&gt;menuItemChannelFavorites8.Name" xml:space="preserve">
+    <value>menuItemChannelFavorites8</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelFavoritesEdit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuItemProviderDetails.Name" xml:space="preserve">
+    <value>menuItemProviderDetails</value>
   </data>
   <data name="menuItemChannelListSort.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 22</value>
@@ -1074,8 +1143,8 @@
   <data name="radioListViewDetails.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;menuItemRecordingsRepair.Name" xml:space="preserve">
-    <value>menuItemRecordingsRepair</value>
+  <data name="menuItemChannelFavorites2.Text" xml:space="preserve">
+    <value>Favorites[2]</value>
   </data>
   <data name="menuItemDvbRecent8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1176,6 +1245,9 @@
   <data name="menuItemChannelListSortDescription.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 22</value>
   </data>
+  <data name="&gt;&gt;menuItemChannelListSortNone.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -1188,17 +1260,14 @@
   <data name="&gt;&gt;listViewChannels.Name" xml:space="preserve">
     <value>listViewChannels</value>
   </data>
-  <data name="&gt;&gt;menuItemHelpReportIssue.Name" xml:space="preserve">
-    <value>menuItemHelpReportIssue</value>
+  <data name="labelNotification.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;contextMenuListCopy.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="contextMenuListCopyRow.Text" xml:space="preserve">
     <value>Copy channel data</value>
-  </data>
-  <data name="&gt;&gt;labelProviderDescription.Name" xml:space="preserve">
-    <value>labelProviderDescription</value>
   </data>
   <data name="contextMenuListShowWith.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 22</value>
@@ -1231,8 +1300,8 @@
         xo4FAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;labelProviderDescription.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;epgMiniBar.Name" xml:space="preserve">
+    <value>epgMiniBar</value>
   </data>
   <data name="&gt;&gt;menuItemEpgTomorrow.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1255,20 +1324,17 @@
   <data name="&gt;&gt;menuItemChannelFavorites6.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuItemChannelFavorites0.Text" xml:space="preserve">
-    <value>Favorites[0]</value>
+  <data name="&gt;&gt;labelPackageLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="menuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>Project.DvbIpTv.UiServices.Controls.CommonBaseForm, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="contextMenuListModeDetails.Text" xml:space="preserve">
     <value>Details</value>
   </data>
   <data name="menuItemDvbExit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Black</value>
-  </data>
-  <data name="pictureNotificationIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 386</value>
   </data>
   <data name="labelPackageLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 13</value>
@@ -1279,14 +1345,20 @@
   <data name="menuItemProviderDetails.Text" xml:space="preserve">
     <value>Show technical details...</value>
   </data>
+  <data name="&gt;&gt;separatorEpg1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="menuItemChannelListViewTile.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+T</value>
   </data>
-  <data name="&gt;&gt;contextMenuListModeTile.Name" xml:space="preserve">
-    <value>contextMenuListModeTile</value>
+  <data name="epgMiniBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>594, 57</value>
   </data>
   <data name="menuItemChannelListView.Text" xml:space="preserve">
     <value>List &amp;view</value>
+  </data>
+  <data name="buttonRecordChannel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="labelNotification.Size" type="System.Drawing.Size, System.Drawing">
     <value>433, 24</value>
@@ -1294,8 +1366,28 @@
   <data name="menuItemChannelFavorites7.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 22</value>
   </data>
-  <data name="contextMenuListModeTile.Text" xml:space="preserve">
-    <value>Tile</value>
+  <data name="menuItemDvbRecent2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAAd0SU1FB98CGRcaEMyeEGUAAAPOSURBVFhH7ZNtbFNlFMef+zzt7avDmSlEcUt0
+        ZBAILy74GjbAtivEjG1uCpQE9uLYZFuyLQUzpuKYM7FZ2Btr7719G223ZAviB5TwASWZGKMQMgRi9ANR
+        JirZpmBhHRv3ep7bpx0xxk9ojOkvOWl7znme//+ce4tSpEiR4r8IKV2LNx9rwO4fD5EzJ1oeqr0h6L74
+        6gD+4O0i3PCAnlvI+u4/lhWadde6yMXbIpZjElYm3PwV8GOUqgwHp1kOalGxQnMAIU7Ljt0faiz6slsC
+        ngEBZTouJFe9aCyLVzXmKQ//A8sr0CefbeOPQ4GP1xF6Pt9avLOyur24pLSSpZDFZtu6s6KyfVclREVV
+        +zbHjpacnGXPsPI8ix/WZd8SSJRerhqAuPy+4VOYkmMtqMZq3E5NJXpugwlfFX+QlVFHZ+8nwciQ0ujc
+        62cp1ON2nw2GB5WByHwEwuG5/A0b2WCMoTpzb/JiCJjwzlPZxtWszMDcNy7DKK1Tg9Mip8REfAMKJghO
+        Cg3/HAgPKVtKSprVdoS0/iOh34PhiFK7p65zXV5emVuQrgxEIorrUNdp1hPnumfB+aQ4xIdNxn5WohAI
+        dRNPLzHkgrlZ2hcDAzMCktcvxc8h/SMLvaHhuwGYtl/yXurqO3y6p999BgzINHJylubR87trX++iGxF8
+        /ov0d5JJ8cExOhW9+KagnViUzi96s5Ds+aUHj4FgNCrgnz5uJr4MM878aK9Jor0xiVPugAHLMu6FJ1c8
+        uwEMyH64PAATB0LhZICBOa1Wm0F19rXsjwRhAx0u10lVOMGxpjRRNQDPta/c1Pj5W9qj9EVLbIQG/f6b
+        m1yvt5ttUUE7NSMhZVZCUZ5DaZbC7fW+yIjiDw1OPpG9ZM3izMzVjU6nhxrwDRwZZzK86A9cpY9kq8PR
+        ynJxlmfpl09LJDberbvgrV7gTIoLWIHp1U8aNDfezV/w1aQ5Z0QkH60jnfT87qYWjx8MdHb3jaoXAvv2
+        tw5RMbfk/a5wS3Fd27vvHQdDMhia4nX6R1nbPK1FuoodeWbLpMf0bXLye8QTBuiWqgvSN3/ZZhLhmIGe
+        dfX6PgsMjij1jc0e+psCwl/Tt56unD73QCgie4MD11auWrWetfwVOt2vh8nVew38eQNgYK7WZnqVHVDZ
+        aC96xbLppfLHMrNWshSy2gscVru93AZhKSjYtSY31wpp+o/5ezQclzHaSoZBWE4IJ8Qn+sj3L68lNtb6
+        z9JgI46bHjypbkPAd0+9QULwb0xn5X+HdDN+/Nw7mpHX8kkpS6VIkSLF/w2E/gDuigD6FZTLsQAAAABJ
+        RU5ErkJggg==
+</value>
   </data>
   <data name="menuItemChannelFavorites6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1325,9 +1417,6 @@
         xo4FAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="menuItemDvbRecent1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
   <data name="&gt;&gt;menuStripMain.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -1337,31 +1426,8 @@
   <data name="contextMenuListSort.Text" xml:space="preserve">
     <value>(Placeholder for sort)</value>
   </data>
-  <data name="menuItemDvbRecent2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAAd0SU1FB98CGRcaEMyeEGUAAAPOSURBVFhH7ZNtbFNlFMef+zzt7avDmSlEcUt0
-        ZBAILy74GjbAtivEjG1uCpQE9uLYZFuyLQUzpuKYM7FZ2Btr7719G223ZAviB5TwASWZGKMQMgRi9ANR
-        JirZpmBhHRv3ep7bpx0xxk9ojOkvOWl7znme//+ce4tSpEiR4r8IKV2LNx9rwO4fD5EzJ1oeqr0h6L74
-        6gD+4O0i3PCAnlvI+u4/lhWadde6yMXbIpZjElYm3PwV8GOUqgwHp1kOalGxQnMAIU7Ljt0faiz6slsC
-        ngEBZTouJFe9aCyLVzXmKQ//A8sr0CefbeOPQ4GP1xF6Pt9avLOyur24pLSSpZDFZtu6s6KyfVclREVV
-        +zbHjpacnGXPsPI8ix/WZd8SSJRerhqAuPy+4VOYkmMtqMZq3E5NJXpugwlfFX+QlVFHZ+8nwciQ0ujc
-        62cp1ON2nw2GB5WByHwEwuG5/A0b2WCMoTpzb/JiCJjwzlPZxtWszMDcNy7DKK1Tg9Mip8REfAMKJghO
-        Cg3/HAgPKVtKSprVdoS0/iOh34PhiFK7p65zXV5emVuQrgxEIorrUNdp1hPnumfB+aQ4xIdNxn5WohAI
-        dRNPLzHkgrlZ2hcDAzMCktcvxc8h/SMLvaHhuwGYtl/yXurqO3y6p999BgzINHJylubR87trX++iGxF8
-        /ov0d5JJ8cExOhW9+KagnViUzi96s5Ds+aUHj4FgNCrgnz5uJr4MM878aK9Jor0xiVPugAHLMu6FJ1c8
-        uwEMyH64PAATB0LhZICBOa1Wm0F19rXsjwRhAx0u10lVOMGxpjRRNQDPta/c1Pj5W9qj9EVLbIQG/f6b
-        m1yvt5ttUUE7NSMhZVZCUZ5DaZbC7fW+yIjiDw1OPpG9ZM3izMzVjU6nhxrwDRwZZzK86A9cpY9kq8PR
-        ynJxlmfpl09LJDberbvgrV7gTIoLWIHp1U8aNDfezV/w1aQ5Z0QkH60jnfT87qYWjx8MdHb3jaoXAvv2
-        tw5RMbfk/a5wS3Fd27vvHQdDMhia4nX6R1nbPK1FuoodeWbLpMf0bXLye8QTBuiWqgvSN3/ZZhLhmIGe
-        dfX6PgsMjij1jc0e+psCwl/Tt56unD73QCgie4MD11auWrWetfwVOt2vh8nVew38eQNgYK7WZnqVHVDZ
-        aC96xbLppfLHMrNWshSy2gscVru93AZhKSjYtSY31wpp+o/5ezQclzHaSoZBWE4IJ8Qn+sj3L68lNtb6
-        z9JgI46bHjypbkPAd0+9QULwb0xn5X+HdDN+/Nw7mpHX8kkpS6VIkSLF/w2E/gDuigD6FZTLsQAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites8.Name" xml:space="preserve">
-    <value>menuItemChannelFavorites8</value>
+  <data name="&gt;&gt;buttonRecordChannel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -1371,6 +1437,9 @@
   </data>
   <data name="&gt;&gt;labelNotification.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuItemRecordingsImport.Name" xml:space="preserve">
+    <value>menuItemRecordingsImport</value>
   </data>
   <data name="menuItemChannel.Text" xml:space="preserve">
     <value>&amp;Channel</value>
@@ -1384,14 +1453,11 @@
   <data name="menuItemDvbRecent4.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="buttonDisplayChannel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 25</value>
+  <data name="menuItemDvbRecent1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
   </data>
-  <data name="menuItemPackagesSelect.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="menuItemChannelFavorites0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
+  <data name="&gt;&gt;labelListChannelsView.Name" xml:space="preserve">
+    <value>labelListChannelsView</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>(All channels and services)</value>
@@ -1408,8 +1474,11 @@
   <data name="menuItemChannelFavorites5.Text" xml:space="preserve">
     <value>Favorites[5]</value>
   </data>
-  <data name="&gt;&gt;menuItemEpgRefresh.Name" xml:space="preserve">
-    <value>menuItemEpgRefresh</value>
+  <data name="menuItemEpgNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 22</value>
+  </data>
+  <data name="menuItemDvbRecent5.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="menuItemDvbRecent2.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 22</value>
@@ -1417,8 +1486,11 @@
   <data name="contextMenuListSortNone.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 22</value>
   </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  <data name="&gt;&gt;menuItemDvbProvider.Name" xml:space="preserve">
+    <value>menuItemDvbProvider</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListShowWith.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="menuItemEpgRefresh.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1426,20 +1498,20 @@
   <data name="menuItemChannelListSortType.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+3</value>
   </data>
-  <data name="&gt;&gt;contextMenuListCopyURL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;separatorChannelSort1.Name" xml:space="preserve">
+    <value>separatorChannelSort1</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListModeTile.Name" xml:space="preserve">
+    <value>contextMenuListModeTile</value>
+  </data>
+  <data name="menuItemHelpDocumentation.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;separatorRecordings1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="menuItemDvbSettings.Text" xml:space="preserve">
     <value>Settings...</value>
-  </data>
-  <data name="&gt;&gt;labelProviderName.Name" xml:space="preserve">
-    <value>labelProviderName</value>
-  </data>
-  <data name="&gt;&gt;labelPackageLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="menuItemChannelListSortType.Text" xml:space="preserve">
     <value>Type</value>
@@ -1453,14 +1525,14 @@
   <data name="&gt;&gt;contextMenuListSortNone.Name" xml:space="preserve">
     <value>contextMenuListSortNone</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbProvider.Name" xml:space="preserve">
-    <value>menuItemDvbProvider</value>
+  <data name="menuItemHelpDocumentation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
   </data>
   <data name="menuItemDvbRecent5.Text" xml:space="preserve">
     <value>Recent[5]</value>
   </data>
-  <data name="&gt;&gt;buttonDisplayChannel.Name" xml:space="preserve">
-    <value>buttonDisplayChannel</value>
+  <data name="menuItemChannelFavorites1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
   </data>
   <data name="menuItemHelpHomePage.Text" xml:space="preserve">
     <value>Project &amp;home page</value>
@@ -1474,72 +1546,35 @@
   <data name="menuItemDvbRecent8.Text" xml:space="preserve">
     <value>Recent[8]</value>
   </data>
-  <data name="&gt;&gt;labelPackageLabel.Name" xml:space="preserve">
-    <value>labelPackageLabel</value>
+  <data name="menuItemChannelFavorites2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="labelNotification.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="radioListViewDetails.Text" xml:space="preserve">
-    <value>&amp;Details</value>
-  </data>
   <data name="contextMenuListSortChannel.Text" xml:space="preserve">
     <value>Channel name</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;labelPackageLabel.Name" xml:space="preserve">
+    <value>labelPackageLabel</value>
   </data>
   <data name="contextMenuListProperties.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 22</value>
   </data>
-  <data name="&gt;&gt;separatorChannel2.Name" xml:space="preserve">
-    <value>separatorChannel2</value>
-  </data>
-  <data name="pictureNotificationIcon.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="menuItemRecordingsRepair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
   </data>
   <data name="menuItemChannelListSortName.Text" xml:space="preserve">
     <value>Channel name</value>
   </data>
-  <data name="menuItemChannelFavorites9.Text" xml:space="preserve">
-    <value>Favorites[9]</value>
-  </data>
   <data name="labelListChannelsView.Text" xml:space="preserve">
     <value>List view:</value>
   </data>
-  <data name="menuItemHelpHomePage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+  <data name="&gt;&gt;menuItemHelpHomePage.Name" xml:space="preserve">
+    <value>menuItemHelpHomePage</value>
   </data>
-  <data name="menuItemChannelFavorites1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        xo4FAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites9.Name" xml:space="preserve">
-    <value>menuItemChannelFavorites9</value>
+  <data name="&gt;&gt;epgMiniBar.Type" xml:space="preserve">
+    <value>Project.DvbIpTv.UiServices.EPG.EpgMiniBar, UiServices.EPG, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;menuItemChannelListSortDescription.Name" xml:space="preserve">
     <value>menuItemChannelListSortDescription</value>
@@ -1547,11 +1582,63 @@
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>215, 6</value>
   </data>
-  <data name="&gt;&gt;contextMenuListSortChannel.Name" xml:space="preserve">
-    <value>contextMenuListSortChannel</value>
+  <data name="menuItemHelpCheckUpdates.Text" xml:space="preserve">
+    <value>Check for &amp;updates...</value>
   </data>
-  <data name="&gt;&gt;menuItemPackagesManage.Type" xml:space="preserve">
+  <data name="menuStripMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>724, 24</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavoritesEdit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbRecent1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        YII=
+</value>
   </data>
   <data name="labelProviderDescription.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1566,7 +1653,7 @@
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="listViewChannels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 314</value>
+    <value>700, 282</value>
   </data>
   <data name="menuItemDvbRecent2.Text" xml:space="preserve">
     <value>Recent[2]</value>
@@ -1577,17 +1664,23 @@
   <data name="labelListChannelsView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;menuItemChannelListView.Name" xml:space="preserve">
     <value>menuItemChannelListView</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;menuItemProviderDetails.Name" xml:space="preserve">
-    <value>menuItemProviderDetails</value>
+  <data name="&gt;&gt;separatorEpg2.Name" xml:space="preserve">
+    <value>separatorEpg2</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelListSort.Name" xml:space="preserve">
-    <value>menuItemChannelListSort</value>
+  <data name="contextMenuList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 170</value>
+  </data>
+  <data name="labelNotification.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;labelListChannelsView.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1601,12 +1694,6 @@
   <data name="buttonRecordChannel.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
-  <data name="menuItemChannelFavorites8.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="contextMenuListSortType.Text" xml:space="preserve">
-    <value>Type</value>
-  </data>
   <data name="&gt;&gt;menuItemPackagesManage.Name" xml:space="preserve">
     <value>menuItemPackagesManage</value>
   </data>
@@ -1619,11 +1706,17 @@
   <data name="menuItemProviderDetails.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 22</value>
   </data>
+  <data name="menuItemChannelFavorites5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="&gt;&gt;menuItemHelp.Name" xml:space="preserve">
+    <value>menuItemHelp</value>
+  </data>
   <data name="contextMenuListCopyURL.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbRecent8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelNotification.Text" xml:space="preserve">
+    <value>(Notification area)</value>
   </data>
   <data name="menuItemRecordingsRecord.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 22</value>
@@ -1631,23 +1724,26 @@
   <data name="&gt;&gt;contextMenuListCopyRow.Name" xml:space="preserve">
     <value>contextMenuListCopyRow</value>
   </data>
-  <data name="&gt;&gt;menuItemRecordingsRecord.Name" xml:space="preserve">
-    <value>menuItemRecordingsRecord</value>
+  <data name="&gt;&gt;epgMiniBar.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;labelProviderName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="menuItemHelpAbout.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+F1</value>
   </data>
-  <data name="&gt;&gt;imageListChannelsLarge.Name" xml:space="preserve">
-    <value>imageListChannelsLarge</value>
+  <data name="menuItemEpgTomorrow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 22</value>
   </data>
   <data name="menuItemEpgToday.Text" xml:space="preserve">
-    <value>Today...</value>
+    <value>&amp;Today...</value>
   </data>
   <data name="menuItemChannelListSortNone.Size" type="System.Drawing.Size, System.Drawing">
     <value>187, 22</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbSettings.Name" xml:space="preserve">
-    <value>menuItemDvbSettings</value>
+  <data name="&gt;&gt;labelProviderName.Name" xml:space="preserve">
+    <value>labelProviderName</value>
   </data>
   <data name="&gt;&gt;imageListChannels.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1658,8 +1754,8 @@
   <data name="menuItemPackagesSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>178, 22</value>
   </data>
-  <data name="contextMenuListRecord.Text" xml:space="preserve">
-    <value>&amp;Record channel</value>
+  <data name="&gt;&gt;menuItemDvbRecent8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="labelProviderName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1682,11 +1778,507 @@
   <data name="&gt;&gt;menuItemChannelVerify.Name" xml:space="preserve">
     <value>menuItemChannelVerify</value>
   </data>
-  <data name="&gt;&gt;Name.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>517, 27</value>
   </data>
-  <data name="menuItemRecordingsManage.Text" xml:space="preserve">
-    <value>&amp;Manage recordings...</value>
+  <data name="contextMenuListShowWith.Text" xml:space="preserve">
+    <value>&amp;Show with player...</value>
+  </data>
+  <data name="menuItemEpgNext.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+Right</value>
+  </data>
+  <data name="menuItemPackagesSelect.Text" xml:space="preserve">
+    <value>Select package...</value>
+  </data>
+  <data name="&gt;&gt;menuItemHelpReportIssue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemHelpAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemProviderSelect.Text" xml:space="preserve">
+    <value>Select provider...</value>
+  </data>
+  <data name="&gt;&gt;labelProviderDescription.Name" xml:space="preserve">
+    <value>labelProviderDescription</value>
+  </data>
+  <data name="menuItemChannelListViewDetails.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+D</value>
+  </data>
+  <data name="menuItemEpgTomorrow.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Shift+F7</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemChannelListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 22</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListProperties.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbExport.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="radioListViewDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;labelProviderName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="pictureNotificationIcon.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pictureNotificationIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;labelNotification.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbRecent6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        RK5CYII=
+</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListMode.Name" xml:space="preserve">
+    <value>contextMenuListMode</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbRecent0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="&gt;&gt;menuItemPackagesSelect.Name" xml:space="preserve">
+    <value>menuItemPackagesSelect</value>
+  </data>
+  <data name="pictureNotificationIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="menuItemChannelDetails.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F12</value>
+  </data>
+  <data name="radioListViewDetails.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavorites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbRecent7.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureNotificationIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbRecent9.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="menuItemEpgPrevious.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 22</value>
+  </data>
+  <data name="labelProviderName.Text" xml:space="preserve">
+    <value>(SP Name)</value>
+  </data>
+  <data name="&gt;&gt;radioListViewDetails.Name" xml:space="preserve">
+    <value>radioListViewDetails</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbPackages.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemHelpDocumentation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpgRefresh.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemHelpDocumentation.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F1</value>
+  </data>
+  <data name="menuItemChannelFavorites4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="separatorRecordings1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 6</value>
+  </data>
+  <data name="&gt;&gt;menuItemRecordingsRecord.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavorites5.Name" xml:space="preserve">
+    <value>menuItemChannelFavorites5</value>
+  </data>
+  <data name="contextMenuListSortDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="menuItemDvbRecent5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavorites.Name" xml:space="preserve">
+    <value>menuItemChannelFavorites</value>
+  </data>
+  <data name="pictureNotificationIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="menuItemDvbRecent8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpg.Name" xml:space="preserve">
+    <value>menuItemEpg</value>
+  </data>
+  <data name="contextMenuListSortLocation.Text" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ChannelListForm</value>
+  </data>
+  <data name="labelListChannelsView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="menuItemChannelListSortLocation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListSortType.Name" xml:space="preserve">
+    <value>contextMenuListSortType</value>
+  </data>
+  <data name="pictureProviderLogo.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;separatorDvb2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbRecent6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="&gt;&gt;labelProviderDescription.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuItemPackagesSelect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioListViewDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listViewChannels.Type" xml:space="preserve">
+    <value>Project.DvbIpTv.UiServices.Controls.ListViewSortable, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavorites0.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemEpgPrevious.Text" xml:space="preserve">
+    <value>&amp;Previous program</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpgNow.Name" xml:space="preserve">
+    <value>menuItemEpgNow</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavorites3.Name" xml:space="preserve">
+    <value>menuItemChannelFavorites3</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListCopyRow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListSortDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioListViewTile.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemEpgNow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 22</value>
+  </data>
+  <data name="menuItemDvbIpTv.Text" xml:space="preserve">
+    <value>DVB-&amp;IPTV</value>
+  </data>
+  <data name="epgMiniBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 354</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelProviderName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListSortNone.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavorites9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemRecordingsRepair.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelListSortType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="contextMenuListMode.Text" xml:space="preserve">
+    <value>(Placeholder for mode)</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="radioListViewDetails.Text" xml:space="preserve">
+    <value>&amp;Details</value>
+  </data>
+  <data name="labelProviderDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 15</value>
+  </data>
+  <data name="&gt;&gt;ServiceType.Name" xml:space="preserve">
+    <value>ServiceType</value>
+  </data>
+  <data name="&gt;&gt;listViewChannels.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;imageListChannelsLarge.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemChannelListSortLocation.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+4</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemProviderSelect.Name" xml:space="preserve">
+    <value>menuItemProviderSelect</value>
+  </data>
+  <data name="contextMenuListSortType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 22</value>
+  </data>
+  <data name="&gt;&gt;labelPackageLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Location.Text" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="menuItemDvbRecent5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAAd0SU1FB98CGgALBflGzYUAAAQzSURBVFhH7VTtb1NVGO9kGvEPMH7ZTBA1RNnW
+        161sfe/GRIQEhEEI0YzBFoQAq6wwNncHI8s0uJeOuba3vadvczA311scW1vFgYQFBR3SORbJtkZNQI0j
+        Ecnieh+fc+mQgfGLfPBDf8mTc3LPc57f7zwvV5JCCimk8L/Bkr3PyVQRtVWJpgjnWWVhlTU7rLBmhWXW
+        rCG5NWdIIX6jZ9Qnq122Jnn10SC3XV1p5IsSaII+aBY0/QbBHCwWKoZ3CUWnXsX1LUHbbxT0vFmgPoag
+        qTd59dFA3b7CYuRXCsZQEeh4MxQE9cBedUP3xEk4MdEDbMwN2qARDHhGffS8qQ+vpS3NWLaYdZIGu9PV
+        crzTXnI3mkRyrKVtfaeTbZ03h8v9/rGW1t0Gkykj6bIQeSjAwBcK+lAhaIIGeD28CeK34rDz7G6Y/G0S
+        CkPFkN+vR3EmMKCPjjeKAtYWrn+BcIHbbs6TaG5ts96NJklzciTEEo/AejwJFxpLvLj3JpyEjBsNhodF
+        YAksNL1aJChAoshUBJouvwfnfjwPf8zehlOTA4CpF8XpQibQ8npRwL491asJ8c+5iG+u6mD1ahpLKpMv
+        dnKecSoAhVw4VMeUdLIuHxXgQqs/0rCL+i2Aqj3Xgq8TKAF9deyXMdh/4QCM//odlH62HT6+HgT7VRby
+        gzokN0IBrxMFtDV3HOCIX3AR7xySfYLmd7rJSSS/QwV0OJ1NNL7eZF6C5L+jn+Dw+WvptwVQ2lQWTdAo
+        0BRfufktWM5XiSJGfrqIJZiC8uGdEJ+ZhnVDG5FcD/m8tk/ymCSNcF3+pABBTPlCS1RVH9pK47/y2pqX
+        UMAdNOFwY+NekfR+KEQBBtrtcPnG13Dky6Piq6UfKeHgSA0MTA2CI8aKzZiPAlbwmr5nlz3/hIfrukQ8
+        AWA5z+gHrKvMQTzbMAM9SQGzGzZvVtD4NfWHS2n60WbfrKjQiqT3Y17ABmy+qVvTYhlGb1yBTZEt0DPR
+        C83ftMGZ+OfwzsX6ewK0q1Y+7SVdN2kG7CxnS4aS2DnSmRQwY9lv1VpraotZbD76elxHnsnMfCrp+jeU
+        tlwLjplAx6/72gkcQRfYRo/D8A/noP86D/u+eBtiP8fEKZgvQXnlHqWPdM8SEhCYhqM7aJzH0xctwj44
+        i2RAS4BGe+FPnAK6/750W5lcJHwQKlueRRekTWiEVQNrYXomDoFrH4JrjANuzHNvJKlA2oQabMK6liad
+        j+s+zXGBgS1b38ihcTIyMp9EAV4kG6SG+9NYkt4OB1ttMpv/+R9AgRmopGMovhDHcN1gidgHjZeaoPGr
+        d6HsTDn+B3ACUKA+ZKbj2CtJT0/Dq/P2IP7t7GEsrX1RrfxUXaeI5jLSqILJjsiY5eEc5uVwtrhmRaRM
+        TlTOyKNKRhHNY5b7pRuTV1NIIYUUUvgPkEj+AsfZlR3W3/MiAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListSort.Name" xml:space="preserve">
+    <value>contextMenuListSort</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListModeTile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="&gt;&gt;radioListViewDetails.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="menuStripMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="buttonDisplayChannel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 25</value>
+  </data>
+  <data name="labelPackageLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="menuItemDvbRecent6.Text" xml:space="preserve">
+    <value>Recent[6]</value>
+  </data>
+  <data name="&gt;&gt;radioListViewTile.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="contextMenuListProperties.Text" xml:space="preserve">
+    <value>(Placeholder for properties)</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavoritesSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelListSort.Name" xml:space="preserve">
+    <value>menuItemChannelListSort</value>
+  </data>
+  <data name="menuItemChannelFavorites5.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="contextMenuListCopyAll.Text" xml:space="preserve">
+    <value>Copy all channels</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbExport.Name" xml:space="preserve">
+    <value>menuItemDvbExport</value>
+  </data>
+  <data name="menuItemDvbRecent6.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="menuItemChannelFavorites9.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannel.Name" xml:space="preserve">
+    <value>menuItemChannel</value>
+  </data>
+  <data name="&gt;&gt;separatorDvb3.Name" xml:space="preserve">
+    <value>separatorDvb3</value>
+  </data>
+  <data name="&gt;&gt;separatorChannelSort1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelPackageLabel.Text" xml:space="preserve">
+    <value>Package:</value>
+  </data>
+  <data name="&gt;&gt;labelProviderName.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent2.Name" xml:space="preserve">
+    <value>menuItemDvbRecent2</value>
+  </data>
+  <data name="menuItemChannelDetails.Text" xml:space="preserve">
+    <value>Show technical &amp;details...</value>
+  </data>
+  <data name="menuItemChannelFavorites0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbIpTv.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menuItemDvbRecent1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="menuItemDvbRecent3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="&gt;&gt;contextMenuList.Name" xml:space="preserve">
+    <value>contextMenuList</value>
+  </data>
+  <data name="menuItemDvbRecent3.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;buttonRecordChannel.Name" xml:space="preserve">
+    <value>buttonRecordChannel</value>
+  </data>
+  <data name="&gt;&gt;separatorHelp1.Name" xml:space="preserve">
+    <value>separatorHelp1</value>
+  </data>
+  <data name="&gt;&gt;separatorEpg2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ServiceType.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="&gt;&gt;separatorDvb2.Name" xml:space="preserve">
+    <value>separatorDvb2</value>
+  </data>
+  <data name="labelPackageLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="menuItemChannelFavorites8.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="menuItemDvbRecent2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="buttonRecordChannel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>612, 354</value>
+  </data>
+  <data name="imageListChannels.ImageSize" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="radioListViewTile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpgToday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="separatorEpg2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 6</value>
+  </data>
+  <data name="menuItemHelpHomePage.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelNotification.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 386</value>
+  </data>
+  <data name="&gt;&gt;contextMenuListShowWith.Name" xml:space="preserve">
+    <value>contextMenuListShowWith</value>
+  </data>
+  <data name="&gt;&gt;radioListViewDetails.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="menuItemDvbRecent9.Text" xml:space="preserve">
+    <value>Recent[9]</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpgNext.Name" xml:space="preserve">
+    <value>menuItemEpgNext</value>
+  </data>
+  <data name="menuItemPackagesSelect.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelListSort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent1.Name" xml:space="preserve">
+    <value>menuItemDvbRecent1</value>
+  </data>
+  <data name="&gt;&gt;menuItemProviderSelect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpgNext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="contextMenuListCopy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 22</value>
+  </data>
+  <data name="&gt;&gt;menuItemDvbRecent8.Name" xml:space="preserve">
+    <value>menuItemDvbRecent8</value>
   </data>
   <data name="menuItemDvbRecent0.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1735,511 +2327,11 @@
         KwkrzSiCsLYh//H3eD0I4h+0KWLo4tl2IgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="menuItemPackagesSelect.Text" xml:space="preserve">
-    <value>Select package...</value>
-  </data>
-  <data name="&gt;&gt;menuItemHelpReportIssue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemHelpAbout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemProviderSelect.Text" xml:space="preserve">
-    <value>Select provider...</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemChannelListViewDetails.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+D</value>
-  </data>
-  <data name="menuItemEpgTomorrow.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Shift+F7</value>
-  </data>
-  <data name="menuItemChannelFavorites5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
-  </data>
-  <data name="menuItemDvbExport.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="radioListViewDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="menuItemChannelFavorites7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        xo4FAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;labelProviderName.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="menuItemChannelListSortName.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+1</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbRecent6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="radioListViewTile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="labelNotification.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbRecent.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemDvbRecent0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="&gt;&gt;menuItemRecordings.Name" xml:space="preserve">
-    <value>menuItemRecordings</value>
-  </data>
-  <data name="labelListChannelsView.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="pictureNotificationIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 27</value>
-  </data>
-  <data name="radioListViewDetails.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="menuItemDvbRecent7.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pictureNotificationIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="labelListChannelsView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonRecordChannel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="Location.Width" type="System.Int32, mscorlib">
-    <value>150</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbPackages.Name" xml:space="preserve">
-    <value>menuItemDvbPackages</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Name" xml:space="preserve">
-    <value>radioListViewDetails</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbPackages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemChannelListSortType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="&gt;&gt;menuItemHelpDocumentation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemEpgRefresh.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Description.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListCopyAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="separatorRecordings1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 6</value>
-  </data>
-  <data name="&gt;&gt;menuItemRecordingsRecord.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites5.Name" xml:space="preserve">
-    <value>menuItemChannelFavorites5</value>
-  </data>
-  <data name="contextMenuListSortDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="menuItemDvbRecent5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites.Name" xml:space="preserve">
-    <value>menuItemChannelFavorites</value>
-  </data>
-  <data name="pictureNotificationIcon.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="menuItemDvbRecent8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="&gt;&gt;menuItemEpg.Name" xml:space="preserve">
-    <value>menuItemEpg</value>
-  </data>
-  <data name="menuItemDvbRecent9.Text" xml:space="preserve">
-    <value>Recent[9]</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ChannelListForm</value>
-  </data>
-  <data name="labelListChannelsView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
-  </data>
-  <data name="menuItemChannelListSortLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortType.Name" xml:space="preserve">
-    <value>contextMenuListSortType</value>
-  </data>
-  <data name="pictureProviderLogo.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;separatorDvb2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="labelNotification.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;menuItemPackagesSelect.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listViewChannels.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.ListViewSortable, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="menuItemRecordingsManage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbProvider.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites3.Name" xml:space="preserve">
-    <value>menuItemChannelFavorites3</value>
-  </data>
   <data name="menuItemChannelFavoritesEdit.Text" xml:space="preserve">
     <value>Edit list...</value>
   </data>
-  <data name="&gt;&gt;contextMenuListSortDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbRecent2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemEpgNow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 22</value>
-  </data>
-  <data name="menuItemDvbIpTv.Text" xml:space="preserve">
-    <value>DVB-&amp;IPTV</value>
-  </data>
-  <data name="menuItemRecordingsRepair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 22</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="labelProviderName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 15</value>
-  </data>
-  <data name="menuItemDvbRecent8.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="contextMenuListCopyURL.Text" xml:space="preserve">
-    <value>Copy location URL</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortNone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortLocation.Name" xml:space="preserve">
-    <value>menuItemChannelListSortLocation</value>
-  </data>
-  <data name="&gt;&gt;menuItemRecordingsRepair.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="contextMenuListMode.Text" xml:space="preserve">
-    <value>(Placeholder for mode)</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbRecent3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListShowWith.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="labelProviderDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 15</value>
-  </data>
-  <data name="&gt;&gt;ServiceType.Name" xml:space="preserve">
-    <value>ServiceType</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemChannelListSortLocation.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+4</value>
-  </data>
-  <data name="&gt;&gt;menuItemProviderSelect.Name" xml:space="preserve">
-    <value>menuItemProviderSelect</value>
-  </data>
-  <data name="contextMenuListSortType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="menuItemEpgToday.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F7</value>
-  </data>
-  <data name="menuItemChannelFavorites6.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+7</value>
-  </data>
-  <data name="&gt;&gt;separatorEpg1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemDvbRecent5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAAd0SU1FB98CGgALBflGzYUAAAQzSURBVFhH7VTtb1NVGO9kGvEPMH7ZTBA1RNnW
-        161sfe/GRIQEhEEI0YzBFoQAq6wwNncHI8s0uJeOuba3vadvczA311scW1vFgYQFBR3SORbJtkZNQI0j
-        Ecnieh+fc+mQgfGLfPBDf8mTc3LPc57f7zwvV5JCCimk8L/Bkr3PyVQRtVWJpgjnWWVhlTU7rLBmhWXW
-        rCG5NWdIIX6jZ9Qnq122Jnn10SC3XV1p5IsSaII+aBY0/QbBHCwWKoZ3CUWnXsX1LUHbbxT0vFmgPoag
-        qTd59dFA3b7CYuRXCsZQEeh4MxQE9cBedUP3xEk4MdEDbMwN2qARDHhGffS8qQ+vpS3NWLaYdZIGu9PV
-        crzTXnI3mkRyrKVtfaeTbZ03h8v9/rGW1t0Gkykj6bIQeSjAwBcK+lAhaIIGeD28CeK34rDz7G6Y/G0S
-        CkPFkN+vR3EmMKCPjjeKAtYWrn+BcIHbbs6TaG5ts96NJklzciTEEo/AejwJFxpLvLj3JpyEjBsNhodF
-        YAksNL1aJChAoshUBJouvwfnfjwPf8zehlOTA4CpF8XpQibQ8npRwL491asJ8c+5iG+u6mD1ahpLKpMv
-        dnKecSoAhVw4VMeUdLIuHxXgQqs/0rCL+i2Aqj3Xgq8TKAF9deyXMdh/4QCM//odlH62HT6+HgT7VRby
-        gzokN0IBrxMFtDV3HOCIX3AR7xySfYLmd7rJSSS/QwV0OJ1NNL7eZF6C5L+jn+Dw+WvptwVQ2lQWTdAo
-        0BRfufktWM5XiSJGfrqIJZiC8uGdEJ+ZhnVDG5FcD/m8tk/ymCSNcF3+pABBTPlCS1RVH9pK47/y2pqX
-        UMAdNOFwY+NekfR+KEQBBtrtcPnG13Dky6Piq6UfKeHgSA0MTA2CI8aKzZiPAlbwmr5nlz3/hIfrukQ8
-        AWA5z+gHrKvMQTzbMAM9SQGzGzZvVtD4NfWHS2n60WbfrKjQiqT3Y17ABmy+qVvTYhlGb1yBTZEt0DPR
-        C83ftMGZ+OfwzsX6ewK0q1Y+7SVdN2kG7CxnS4aS2DnSmRQwY9lv1VpraotZbD76elxHnsnMfCrp+jeU
-        tlwLjplAx6/72gkcQRfYRo/D8A/noP86D/u+eBtiP8fEKZgvQXnlHqWPdM8SEhCYhqM7aJzH0xctwj44
-        i2RAS4BGe+FPnAK6/750W5lcJHwQKlueRRekTWiEVQNrYXomDoFrH4JrjANuzHNvJKlA2oQabMK6liad
-        j+s+zXGBgS1b38ihcTIyMp9EAV4kG6SG+9NYkt4OB1ttMpv/+R9AgRmopGMovhDHcN1gidgHjZeaoPGr
-        d6HsTDn+B3ACUKA+ZKbj2CtJT0/Dq/P2IP7t7GEsrX1RrfxUXaeI5jLSqILJjsiY5eEc5uVwtrhmRaRM
-        TlTOyKNKRhHNY5b7pRuTV1NIIYUUUvgPkEj+AsfZlR3W3/MiAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListModeTile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemHelpHomePage.Name" xml:space="preserve">
-    <value>menuItemHelpHomePage</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;separatorRecordings1.Name" xml:space="preserve">
-    <value>separatorRecordings1</value>
-  </data>
-  <data name="menuItemDvbPackages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="menuItemDvbRecent6.Text" xml:space="preserve">
-    <value>Recent[6]</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="menuItemChannelFavorites1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavoritesSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemRecordingsManage.Name" xml:space="preserve">
-    <value>menuItemRecordingsManage</value>
-  </data>
-  <data name="&gt;&gt;labelPackageLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="contextMenuListCopyAll.Text" xml:space="preserve">
-    <value>Copy all channels</value>
-  </data>
-  <data name="menuItemEpgTomorrow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 22</value>
-  </data>
-  <data name="menuItemDvbRecent6.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="menuItemChannelFavorites9.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannel.Name" xml:space="preserve">
-    <value>menuItemChannel</value>
-  </data>
-  <data name="&gt;&gt;separatorChannelSort1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="labelPackageLabel.Text" xml:space="preserve">
-    <value>Package:</value>
-  </data>
-  <data name="&gt;&gt;labelProviderName.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbExit.Name" xml:space="preserve">
-    <value>menuItemDvbExit</value>
-  </data>
-  <data name="menuItemChannelDetails.Text" xml:space="preserve">
-    <value>Show technical &amp;details...</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbIpTv.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemProviderDetails.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuItemHelpCheckUpdates.Text" xml:space="preserve">
-    <value>Check for &amp;updates...</value>
-  </data>
-  <data name="menuItemDvbRecent3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="&gt;&gt;contextMenuList.Name" xml:space="preserve">
-    <value>contextMenuList</value>
-  </data>
-  <data name="menuItemDvbRecent3.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;imageListChannels.Name" xml:space="preserve">
-    <value>imageListChannels</value>
-  </data>
-  <data name="&gt;&gt;separatorHelp1.Name" xml:space="preserve">
-    <value>separatorHelp1</value>
-  </data>
-  <data name="ServiceType.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="&gt;&gt;separatorDvb2.Name" xml:space="preserve">
-    <value>separatorDvb2</value>
-  </data>
-  <data name="labelPackageLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListCopyURL.Name" xml:space="preserve">
-    <value>contextMenuListCopyURL</value>
-  </data>
-  <data name="menuItemDvbRecent2.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelRefreshList.Name" xml:space="preserve">
-    <value>menuItemChannelRefreshList</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortNone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="contextMenuListSort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="menuItemChannelFavorites6.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="labelNotification.Location" type="System.Drawing.Point, System.Drawing">
-    <value>42, 386</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListShowWith.Name" xml:space="preserve">
-    <value>contextMenuListShowWith</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;separatorChannel1.Name" xml:space="preserve">
-    <value>separatorChannel1</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelFavorites0.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="contextMenuListProperties.Text" xml:space="preserve">
-    <value>(Placeholder for properties)</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbRecent1.Name" xml:space="preserve">
-    <value>menuItemDvbRecent1</value>
-  </data>
-  <data name="&gt;&gt;menuItemProviderSelect.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="contextMenuListShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="contextMenuListCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbRecent8.Name" xml:space="preserve">
-    <value>menuItemDvbRecent8</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbRecent3.Name" xml:space="preserve">
-    <value>menuItemDvbRecent3</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelDetails.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="buttonDisplayChannel.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
-  </data>
-  <data name="menuItemDvbRecent6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        RK5CYII=
-</value>
   </data>
   <data name="menuItemEpgToday.Size" type="System.Drawing.Size, System.Drawing">
     <value>256, 22</value>
@@ -2247,56 +2339,53 @@
   <data name="separatorDvb1.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 6</value>
   </data>
-  <data name="&gt;&gt;contextMenuListShow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="epgMiniBar.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;menuItemHelpReportIssue.Name" xml:space="preserve">
+    <value>menuItemHelpReportIssue</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelListSort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="contextMenuListCopyURL.Text" xml:space="preserve">
+    <value>Copy location URL</value>
   </data>
   <data name="menuItemHelpAbout.Text" xml:space="preserve">
     <value>&amp;About...</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
   <data name="labelProviderDescription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="menuItemChannelFavorites1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
   </data>
   <data name="&gt;&gt;menuItemDvbRecent9.Name" xml:space="preserve">
     <value>menuItemDvbRecent9</value>
   </data>
-  <data name="menuItemHelpHomePage.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="menuItemDvbRecent3.Text" xml:space="preserve">
+    <value>Recent[3]</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelFavorites7.Name" xml:space="preserve">
-    <value>menuItemChannelFavorites7</value>
-  </data>
-  <data name="&gt;&gt;labelProviderName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuItemRecordingsManage.Name" xml:space="preserve">
+    <value>menuItemRecordingsManage</value>
   </data>
   <data name="&gt;&gt;contextMenuListModeDetails.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuItemDvbRecent1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="menuItemChannelFavorites6.Text" xml:space="preserve">
+    <value>Favorites[6]</value>
   </data>
-  <data name="&gt;&gt;separatorEpg1.Name" xml:space="preserve">
-    <value>separatorEpg1</value>
+  <data name="labelProviderName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>400, 15</value>
   </data>
   <data name="buttonDisplayChannel.Text" xml:space="preserve">
-    <value>&amp;Show TV channel</value>
+    <value>&amp;Show...</value>
   </data>
-  <data name="imageListChannels.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>32, 32</value>
+  <data name="radioListViewTile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>517, 43</value>
   </data>
   <data name="menuItemEpgTomorrow.Text" xml:space="preserve">
-    <value>Tomorrow / other days...</value>
-  </data>
-  <data name="labelProviderName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>T&amp;omorrow / other days...</value>
   </data>
   <data name="&gt;&gt;menuItemDvbRecent7.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2304,38 +2393,26 @@
   <data name="contextMenuListSortNone.Text" xml:space="preserve">
     <value>None</value>
   </data>
-  <data name="menuItemHelpDocumentation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+  <data name="menuItemEpgPrevious.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+Left</value>
   </data>
   <data name="&gt;&gt;menuItemChannelFavorites2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbRecent0.Name" xml:space="preserve">
-    <value>menuItemDvbRecent0</value>
+  <data name="contextMenuListRecord.Text" xml:space="preserve">
+    <value>&amp;Record channel</value>
   </data>
-  <data name="&gt;&gt;contextMenuListSortSeparator1.Name" xml:space="preserve">
-    <value>contextMenuListSortSeparator1</value>
+  <data name="pictureNotificationIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
   </data>
   <data name="&gt;&gt;separatorChannel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="contextMenuList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 170</value>
-  </data>
-  <data name="menuItemDvbRecent3.Text" xml:space="preserve">
-    <value>Recent[3]</value>
-  </data>
-  <data name="&gt;&gt;labelNotification.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="menuItemDvbSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+  <data name="radioListViewTile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 17</value>
   </data>
   <data name="separatorChannelSort1.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 6</value>
-  </data>
-  <data name="menuItemDvbRecent7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
   </data>
   <data name="contextMenuListShow.Text" xml:space="preserve">
     <value>Show &amp;TV channel</value>
@@ -2343,47 +2420,44 @@
   <data name="contextMenuListCopyRow.Size" type="System.Drawing.Size, System.Drawing">
     <value>173, 22</value>
   </data>
-  <data name="&gt;&gt;contextMenuListMode.Name" xml:space="preserve">
-    <value>contextMenuListMode</value>
-  </data>
-  <data name="menuItemDvbRecent9.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="menuItemChannelListSortName.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+1</value>
   </data>
   <data name="menuItemChannelFavorites1.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+2</value>
   </data>
+  <data name="&gt;&gt;Name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="labelPackageLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopRight</value>
   </data>
-  <data name="&gt;&gt;buttonRecordChannel.Name" xml:space="preserve">
-    <value>buttonRecordChannel</value>
+  <data name="contextMenuListShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 22</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuStripMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemDvbRecent9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="menuItemEpgToday.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F7</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelFavoritesEdit.Name" xml:space="preserve">
-    <value>menuItemChannelFavoritesEdit</value>
+  <data name="menuItemDvbPackages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
   </data>
-  <data name="menuItemChannelListViewTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListShow.Name" xml:space="preserve">
-    <value>contextMenuListShow</value>
+  <data name="contextMenuListMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 22</value>
   </data>
   <data name="&gt;&gt;menuItemChannelFavorites1.Name" xml:space="preserve">
     <value>menuItemChannelFavorites1</value>
   </data>
-  <data name="&gt;&gt;menuItemEpgNow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuItemRecordingsRecord.Name" xml:space="preserve">
+    <value>menuItemRecordingsRecord</value>
   </data>
   <data name="menuItemDvbRecent0.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>724, 422</value>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="menuItemChannelListSortLocation.Text" xml:space="preserve">
     <value>Location</value>
@@ -2391,23 +2465,26 @@
   <data name="&gt;&gt;labelProviderDescription.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="&gt;&gt;menuItemDvbRecent5.Name" xml:space="preserve">
+    <value>menuItemDvbRecent5</value>
+  </data>
   <data name="menuItemChannelFavorites8.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+9</value>
   </data>
-  <data name="labelPackageLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="menuItemHelpReportIssue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
   </data>
-  <data name="&gt;&gt;separatorDvb3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="menuItemChannelListSortDescription.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+2</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelListViewTile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ServiceType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureNotificationIcon.Name" xml:space="preserve">
     <value>pictureNotificationIcon</value>
   </data>
-  <data name="&gt;&gt;contextMenuListSort.Name" xml:space="preserve">
-    <value>contextMenuListSort</value>
+  <data name="pictureNotificationIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
   </data>
   <data name="&gt;&gt;menuItemChannel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2418,23 +2495,17 @@
   <data name="&gt;&gt;menuItemDvbRecent4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Location.Text" xml:space="preserve">
-    <value>Location</value>
-  </data>
   <data name="ServiceType.Text" xml:space="preserve">
     <value>Type</value>
   </data>
-  <data name="radioListViewTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 17</value>
+  <data name="&gt;&gt;menuItemChannelRefreshList.Name" xml:space="preserve">
+    <value>menuItemChannelRefreshList</value>
   </data>
-  <data name="menuItemChannelFavorites6.Text" xml:space="preserve">
-    <value>Favorites[6]</value>
+  <data name="buttonRecordChannel.Text" xml:space="preserve">
+    <value>Rec&amp;ord...</value>
   </data>
-  <data name="menuItemChannelFavorites4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 22</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListViewTile.Name" xml:space="preserve">
-    <value>menuItemChannelListViewTile</value>
+  <data name="menuItemRecordingsManage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2445,19 +2516,16 @@
   <data name="&gt;&gt;contextMenuListSortLocation.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelNotification.Text" xml:space="preserve">
-    <value>(Notification area)</value>
+  <data name="contextMenuListSortType.Text" xml:space="preserve">
+    <value>Type</value>
   </data>
   <data name="menuItemDvbRecent0.Text" xml:space="preserve">
     <value>Recent[0]</value>
   </data>
-  <data name="menuItemHelpAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+  <data name="menuItemChannelVerify.Text" xml:space="preserve">
+    <value>Verify &amp;availability...</value>
   </data>
-  <data name="&gt;&gt;imageListChannelsLarge.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemDvbSettings.Type" xml:space="preserve">
+  <data name="&gt;&gt;contextMenuListShow.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureProviderLogo.ZOrder" xml:space="preserve">
@@ -2465,9 +2533,6 @@
   </data>
   <data name="&gt;&gt;menuItemChannelFavorites7.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pictureNotificationIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
   </data>
   <data name="&gt;&gt;contextMenuListSortChannel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2515,14 +2580,20 @@
   <data name="labelProviderName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;menuItemEpgToday.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelListChannelsView.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="labelProviderDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;pictureNotificationIcon.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
-    <value>toolStripSeparator2</value>
+  <data name="contextMenuListRecord.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 22</value>
+  </data>
+  <data name="&gt;&gt;separatorHelp1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;timerDismissNotification.Name" xml:space="preserve">
     <value>timerDismissNotification</value>
@@ -2530,17 +2601,20 @@
   <data name="&gt;&gt;menuItemChannelListViewDetails.Name" xml:space="preserve">
     <value>menuItemChannelListViewDetails</value>
   </data>
+  <data name="&gt;&gt;menuItemEpgRefresh.Name" xml:space="preserve">
+    <value>menuItemEpgRefresh</value>
+  </data>
   <data name="pictureProviderLogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="listViewChannels.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;menuItemEpg.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="pictureNotificationIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 386</value>
   </data>
-  <data name="menuItemChannelFavorites2.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;menuItemProviderDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemHelp.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2551,20 +2625,20 @@
   <data name="&gt;&gt;labelNotification.Name" xml:space="preserve">
     <value>labelNotification</value>
   </data>
+  <data name="&gt;&gt;menuItemEpgTomorrow.Name" xml:space="preserve">
+    <value>menuItemEpgTomorrow</value>
+  </data>
   <data name="&gt;&gt;menuItemChannelFavoritesSeparator1.Name" xml:space="preserve">
     <value>menuItemChannelFavoritesSeparator1</value>
   </data>
-  <data name="menuItemHelpReportIssue.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="menuItemChannelFavorites9.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+0</value>
+  <data name="&gt;&gt;menuItemChannelListSortName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemRecordings.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;separatorChannelSort1.Name" xml:space="preserve">
-    <value>separatorChannelSort1</value>
+  <data name="menuItemChannelFavorites9.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+0</value>
   </data>
   <data name="&gt;&gt;menuItemChannelListSortType.Name" xml:space="preserve">
     <value>menuItemChannelListSortType</value>
@@ -2590,68 +2664,45 @@
   <data name="contextMenuListSortSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 6</value>
   </data>
-  <data name="menuItemHelpReportIssue.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menuItemHelpAbout.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 22</value>
   </data>
-  <data name="&gt;&gt;menuItemPackagesSelect.Name" xml:space="preserve">
-    <value>menuItemPackagesSelect</value>
+  <data name="&gt;&gt;menuItemEpgNow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ServiceType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuItemDvbRecent7.Name" xml:space="preserve">
+    <value>menuItemDvbRecent7</value>
   </data>
-  <data name="menuItemChannelFavorites5.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+6</value>
+  <data name="labelListChannelsView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="menuItemDvbRecent4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        YII=
-</value>
+  <data name="menuItemDvbRecent7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 22</value>
+  </data>
+  <data name="separatorChannel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 6</value>
   </data>
   <data name="labelProviderName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;menuItemHelp.Name" xml:space="preserve">
-    <value>menuItemHelp</value>
+  <data name="labelProviderDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
-  <data name="radioListViewTile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 43</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;menuItemChannelFavorites9.Name" xml:space="preserve">
+    <value>menuItemChannelFavorites9</value>
   </data>
   <data name="&gt;&gt;contextMenuList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;contextMenuListCopyURL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="listViewChannels.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Name.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
@@ -2661,14 +2712,14 @@
   <metadata name="contextMenuList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>673, 17</value>
   </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="imageListChannelsLarge.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="imageListChannels.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>200, 17</value>
   </metadata>
-  <metadata name="imageListChannelsLarge.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="Location.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
   </metadata>
   <metadata name="timerDismissNotification.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>488, 17</value>
@@ -2676,10 +2727,10 @@
   <metadata name="ServiceType.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <metadata name="Location.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
   <metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>353, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>es</value>
   </metadata>
 </root>

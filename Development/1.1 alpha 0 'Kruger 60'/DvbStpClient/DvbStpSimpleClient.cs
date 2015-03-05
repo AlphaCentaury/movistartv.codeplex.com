@@ -9,15 +9,16 @@ using System.Text;
 
 namespace Project.DvbIpTv.DvbStp.Client
 {
-    public sealed class DvbStpSimpleClient : DvbStpBaseClient
+    public sealed partial class DvbStpSimpleClient : DvbStpBaseClient
     {
-        private DateTime StartTime;
+        private byte ExpectedPayloadId;
+        private byte[] ExpectedSegmentId;
         private SegmentAssembler SegmentData;
 
         public DvbStpSimpleClient(IPAddress ip, int port)
             : base(ip, port)
         {
-            MaxCycleTime = 30000; // milliseconds
+            OperationTimeout = 30000; // milliseconds
             MaxDowloadRestartCount = 5;
         } // constructor
 
@@ -33,14 +34,8 @@ namespace Project.DvbIpTv.DvbStp.Client
 
         public byte SegmentVersion
         {
-            get { return (SegmentData != null) ? SegmentData.SegmentVersion : (byte)0; }
+            get { return (SegmentData != null) ? SegmentData.SegmentIdentity.Version : (byte)0; }
         } // SegmentVersion
-
-        public int MaxCycleTime
-        {
-            get;
-            set;
-        } // MaxCycleTime
 
         public int DowloadRestartCount
         {
@@ -54,79 +49,21 @@ namespace Project.DvbIpTv.DvbStp.Client
             private set;
         } // MaxDowloadRestartCount
 
-        public event EventHandler<DvbStpSimpleClientSectionReceivedEventArgs> SectionReceived;
-        public event EventHandler<DvbStpSimpleClientPayloadSectionReceivedEventArgs> PayloadSectionReceived;
-        public event EventHandler<DvbStpSimpleClientPayloadSectionReceivedEventArgs> DownloadStarted;
-        public event EventHandler<DvbStpSimpleClientPayloadSectionReceivedEventArgs> DownloadCompleted;
-        public event EventHandler<DvbStpSimpleClientDownloadRestartedEventArgs> DownloadRestarted;
+        public event EventHandler<SectionReceivedEventArgs> SectionReceived;
+        public event EventHandler<PayloadSectionReceivedEventArgs> PayloadSectionReceived;
+        public event EventHandler<PayloadSectionReceivedEventArgs> DownloadStarted;
+        public event EventHandler<PayloadSectionReceivedEventArgs> DownloadCompleted;
+        public event EventHandler<DownloadRestartedEventArgs> DownloadRestarted;
 
         public byte[] GetPayload(byte payloadId, short? segmentId)
         {
-            byte[] expectedSegmentId;
-            byte receivedPayloadId;
-            byte receivedSegmentIdNetworkHi;
-            byte receivedSegmentIdNetworkLo;
-
             try
             {
-                CancelRequested = false;
-                expectedSegmentId = segmentId.HasValue ? BitConverter.GetBytes(IPAddress.HostToNetworkOrder(segmentId.Value)) : null;
+                ExpectedPayloadId = payloadId;
+                ExpectedSegmentId = segmentId.HasValue ? BitConverter.GetBytes(IPAddress.HostToNetworkOrder(segmentId.Value)) : null;
                 Clean();
 
-                Connect();
-                StartTime = DateTime.Now;
-                while (!CancelRequested)
-                {
-                    CheckTimeout();
-                    Receive(false);
-                    if (Header.Version != 0) continue;
-
-                    // extract basic section information
-                    receivedPayloadId = DatagramData[4];
-                    receivedSegmentIdNetworkLo = DatagramData[5];
-                    receivedSegmentIdNetworkHi = DatagramData[6];
-
-                    // notify reception of section
-                    if (SectionReceived != null) OnSectionReceived(receivedPayloadId, receivedSegmentIdNetworkLo, receivedSegmentIdNetworkHi);
-
-                    // quick filtering of payloadId & segment
-                    if (receivedPayloadId != payloadId) continue;
-                    if (expectedSegmentId == null)
-                    {
-                        // accept first segment received and then igonre other segments
-                        expectedSegmentId = new byte[]
-                        {
-                            receivedSegmentIdNetworkLo,
-                            receivedSegmentIdNetworkHi
-                        };
-                    }
-                    else
-                    {
-                        if (receivedSegmentIdNetworkLo != expectedSegmentId[0]) continue;
-                        if (receivedSegmentIdNetworkHi != expectedSegmentId[1]) continue;
-                    } // if-else
-
-                    // requested payloadId & segmentId found!
-                    DecodeHeader(true);
-
-                    // have we just received a "first" section of the payload?
-                    if (SegmentData == null)
-                    {
-                        InitSectionData();
-                    } // if
-
-                    // store data
-                    StoreSectionData();
-
-                    // notify reception of a requested section
-                    if (PayloadSectionReceived != null) OnPayloadSectionReceived();
-
-                    // got all sections?
-                    if (SegmentData.IsSegmentComplete)
-                    {
-                        break;
-                    } // if
-                } // while
+                ReceiveData();
 
                 if (CancelRequested) return null;
                 if (DownloadCompleted != null) OnDownloadCompleted();
@@ -145,10 +82,52 @@ namespace Project.DvbIpTv.DvbStp.Client
             Clean();
         } // Close
 
+        protected override bool FilterSection()
+        {
+            // notify reception of section
+            if (SectionReceived != null) OnSectionReceived();
+
+            // quick filtering of payloadId & segment
+            if (Header.PayloadId != ExpectedPayloadId) return true;
+            if (ExpectedSegmentId == null)
+            {
+                // accept first segment received as the one we're looking for and then ignore remaining segments
+                ExpectedSegmentId = new byte[]
+                        {
+                            Header.SegmentIdNetworkLo,
+                            Header.SegmentIdNetworkHi
+                        };
+            }
+            else
+            {
+                if (Header.SegmentIdNetworkLo != ExpectedSegmentId[0]) return true;
+                if (Header.SegmentIdNetworkHi != ExpectedSegmentId[1]) return true;
+            } // if-else
+
+            // accept this section data
+            return false;
+        } // FilterSection
+
+        protected override void ProcessReceivedData()
+        {
+            // have we just received a "first" section of the payload?
+            if (SegmentData == null)
+            {
+                InitSectionData();
+            } // if
+
+            // store data
+            StoreSectionData();
+
+            // notify reception of a requested section
+            if (PayloadSectionReceived != null) OnPayloadSectionReceived();
+        } // ProcessReceivedData
+
         private void InitSectionData()
         {
-            SegmentData = new SegmentAssembler(Header.PayloadId, Header.SegmentId, Header.SegmentVersion, Header.LastSectionNumber);
-            StartTime = DateTime.Now; // reset timeout
+            // initialize segment data storage
+            SegmentData = new SegmentAssembler(new DvbStpSegmentIdentity(Header), Header.LastSectionNumber);
+            ResetTimeout();
 
             // notify start of download
             if (DownloadStarted != null)
@@ -157,57 +136,56 @@ namespace Project.DvbIpTv.DvbStp.Client
             } // if
         } // InitSectionData
 
+        private void RestartSectionData()
+        {
+            // increment restart count
+            DowloadRestartCount++;
+
+            // avoid infinite restart loops
+            if (DowloadRestartCount > MaxDowloadRestartCount)
+            {
+                throw new TimeoutException();
+            } // if
+
+            // notify of download restart
+            if (DownloadRestarted != null) OnDowloadRestarted();
+
+            // start over
+            SegmentData = new SegmentAssembler(new DvbStpSegmentIdentity(Header), Header.LastSectionNumber);
+            ResetTimeout();
+        } // RestartSectionData
+
         private void StoreSectionData()
         {
             // reset timeout
-            StartTime = DateTime.Now;
+            ResetTimeout();
 
             // version change?
             if (Header.SegmentVersion != SegmentVersion)
             {
-                // increment restart count
-                DowloadRestartCount++;
-
-                // avoid infinite restart loops
-                if (DowloadRestartCount > MaxDowloadRestartCount)
-                {
-                    throw new TimeoutException();
-                } // if
-
-                // notify of download restart
-                if (DownloadRestarted != null) OnDowloadRestarted();
-
-                // start over
-                SegmentData.NewVersionReset(Header.SegmentVersion, Header.LastSectionNumber);
+                RestartSectionData();
             } // if
 
             SegmentData.AddSectionData(Header.SectionNumber, DatagramData, Header.PayloadOffset, Header.PayloadSize);
+            EndReceptionLoop = SegmentData.IsSegmentComplete;
         } // StoreSectionData
-
-        private void CheckTimeout()
-        {
-            TimeSpan elapsed;
-
-            elapsed = DateTime.Now - StartTime;
-            if (elapsed.TotalMilliseconds > MaxCycleTime) throw new TimeoutException();
-        } // CheckTimeout
 
         private void Clean()
         {
             SegmentData = null;
         } // Clean
 
-        private void OnSectionReceived(byte receivedPayloadId, byte receivedSegmentIdNetworkLo, byte receivedSegmentIdNetworkHi)
+        private void OnSectionReceived()
         {
-            DvbStpSimpleClientSectionReceivedEventArgs e;
+            SectionReceivedEventArgs e;
 
-            e = new DvbStpSimpleClientSectionReceivedEventArgs()
+            e = new SectionReceivedEventArgs()
             {
                 DatagramCount = this.DatagramCount,
-                PayloadId = receivedPayloadId,
-                SegmentIdNetworkLo = receivedSegmentIdNetworkLo,
-                SegmentIdNetworkHi = receivedSegmentIdNetworkHi,
-                SegmentVersion = DatagramData[7]
+                PayloadId = Header.PayloadId,
+                SegmentIdNetworkLo = Header.SegmentIdNetworkLo,
+                SegmentIdNetworkHi = Header.SegmentIdNetworkHi,
+                SegmentVersion = Header.SegmentVersion
             };
 
             SectionReceived(this, e);
@@ -218,9 +196,9 @@ namespace Project.DvbIpTv.DvbStp.Client
             PayloadSectionReceived(this, GetPayloadSectionReceivedEventArgs());
         } // OnPayloadSectionReceived
 
-        private DvbStpSimpleClientPayloadSectionReceivedEventArgs GetPayloadSectionReceivedEventArgs()
+        private PayloadSectionReceivedEventArgs GetPayloadSectionReceivedEventArgs()
         {
-            return new DvbStpSimpleClientPayloadSectionReceivedEventArgs()
+            return new PayloadSectionReceivedEventArgs()
             {
                 PayloadId = Header.PayloadId,
                 SegmentId = Header.SegmentId,
@@ -243,9 +221,9 @@ namespace Project.DvbIpTv.DvbStp.Client
 
         private void OnDowloadRestarted()
         {
-            DvbStpSimpleClientDownloadRestartedEventArgs e;
+            DownloadRestartedEventArgs e;
 
-            e = new DvbStpSimpleClientDownloadRestartedEventArgs()
+            e = new DownloadRestartedEventArgs()
             {
                 PayloadId = Header.PayloadId,
                 SegmentId = Header.SegmentId,

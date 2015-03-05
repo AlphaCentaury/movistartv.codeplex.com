@@ -17,6 +17,8 @@ namespace Project.DvbIpTv.DvbStp.Client
         public int TotalSegmentSize;
         public byte PayloadId;
         public short SegmentId;
+        public byte SegmentIdNetworkLo;
+        public byte SegmentIdNetworkHi;
         public byte SegmentVersion;
         public short SectionNumber;
         public short LastSectionNumber;

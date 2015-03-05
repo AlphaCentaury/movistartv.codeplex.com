@@ -14,21 +14,24 @@ namespace Project.DvbIpTv.Services.SqlServerCE
 {
     public class DbServices
     {
-        public static T LoadFromDatabase<T>(string dbFile, SqlCeCommand loadCommand, string xmlDataColumnName) where T : class
+        public static T Load<T>(string dbFile, SqlCeCommand loadCommand, string xmlDataColumnName) where T : class
         {
-            using (var cn = GetDbConnection(dbFile))
+            using (var cn = GetConnection(dbFile))
             {
-                return LoadFromDatabase<T>(cn, loadCommand, xmlDataColumnName);
-            } // using cn
-        } // LoadFromDatabase
+                var result = Load<T>(cn, loadCommand, xmlDataColumnName);
+                cn.Close();
 
-        public static T LoadFromDatabase<T>(SqlCeConnection cn, SqlCeCommand loadCommand, string xmlDataColumnName) where T : class
+                return result;
+            } // using cn
+        } // Load<T>
+
+        public static T Load<T>(SqlCeConnection cn, SqlCeCommand loadCommand, string xmlDataColumnName) where T : class
         {
             byte[] data;
 
             using (var cmd = loadCommand)
             {
-                loadCommand.Connection = cn;
+                if (cn != null) loadCommand.Connection = cn;
                 using (var reader = cmd.ExecuteReader(CommandBehavior.SingleResult | CommandBehavior.SingleRow))
                 {
                     int index = reader.GetOrdinal(xmlDataColumnName);
@@ -42,73 +45,214 @@ namespace Project.DvbIpTv.Services.SqlServerCE
             {
                 return XmlSerialization.Deserialize<T>(memory);
             } // using
-        } // LoadFromDatabase
+        } // Load<T>
 
-        public static int SaveToDatabase<T>(string dbFile, SqlCeCommand saveCommand, string xmlDataParameterName, T obj) where T : class
+        public static T LoadData<T>(SqlCeDataReader reader, int dataIndex, int dataAltIdex) where T : class
         {
-            using (var cn = GetDbConnection(dbFile))
+            if (!reader.IsDBNull(0))
             {
-                return SaveToDatabase<T>(cn, saveCommand, xmlDataParameterName, obj);
-            } // using cn
-        } // SaveToDatabase<T>
+                var data = reader.GetSqlBinary(dataIndex).Value;
+                return XmlSerialization.Deserialize<T>(data);
+            }
+            else if (!reader.IsDBNull(1))
+            {
+                var data = reader.GetSqlBinary(dataAltIdex).Value;
+                return XmlSerialization.Deserialize<T>(data);
+            }
+            else
+            {
+                return null;
+            } // if-else
+        } // LoadData<T>
 
-        public static int SaveToDatabase<T>(SqlCeConnection cn, SqlCeCommand saveCommand, string xmlDataParameterName, T obj) where T : class
+        public static int Save<T>(string dbFile, SqlCeCommand saveCommand, string xmlDataParameterName, T obj, bool disposeCommand = true) where T : class
+        {
+            using (var cn = GetConnection(dbFile))
+            {
+                var result = Save<T>(cn, saveCommand, xmlDataParameterName, obj, disposeCommand);
+                cn.Close();
+
+                return result;
+            } // using cn
+        } // Save<T>
+
+        /// <summary>
+        /// Serializes an object as XML data and stores it in the given database
+        /// </summary>
+        /// <typeparam name="T">Type of the object to save</typeparam>
+        /// <param name="cn">The connection to the database</param>
+        /// <param name="saveCommand">The command to excute a save action</param>
+        /// <param name="xmlDataParameterName">Name of the parameter to store the data</param>
+        /// <param name="obj">The object to save as XML data</param>
+        /// <param name="disposeCommand">Indicates if the command is to be disposed after its execution or not</param>
+        /// <returns>Number of rows affected</returns>
+        public static int Save<T>(SqlCeConnection cn, SqlCeCommand saveCommand, string xmlDataParameterName, T obj, bool disposeCommand = true) where T : class
         {
             byte[] data;
 
-            using (var memory = new MemoryStream())
+            if (obj == null)
             {
-                XmlSerialization.Serialize<T>(memory, obj);
-                data = memory.ToArray();
-            } // using memory
-
-            using (var cmd = saveCommand)
+                data = null;
+            }
+            else
             {
-                saveCommand.Connection = cn;
-                saveCommand.Parameters[xmlDataParameterName].Value = data;
+                using (var memory = new MemoryStream())
+                {
+                    XmlSerialization.Serialize<T>(memory, obj);
+                    data = memory.ToArray();
+                } // using memory
+            } // if-else
 
-                return cmd.ExecuteNonQuery();
-            } // using cmd
-        } // SaveToDatabase<T>
+            if (cn != null) saveCommand.Connection = cn;
+            saveCommand.Parameters[xmlDataParameterName].Value = ((object)data) ?? DBNull.Value;
 
-        public static int SaveToDatabase<T1, T2>(string dbFile, SqlCeCommand saveCommand, string xmlData1ParameterName, T1 obj1, string xmlData2ParameterName, T2 obj2)
+            if (disposeCommand)
+            {
+                using (var cmd = saveCommand)
+                {
+                    return cmd.ExecuteNonQuery();
+                } // using cmd
+            }
+            else
+            {
+                return saveCommand.ExecuteNonQuery();
+            } // if-ele
+        } // Save<T>
+
+        /// <summary>
+        /// Serializes an object as XML data and stores it in the given database
+        /// </summary>
+        /// <typeparam name="T">Type of the object to save</typeparam>
+        /// <param name="cn">The connection to the database</param>
+        /// <param name="saveCommand">The command to excute a save action</param>
+        /// <param name="xmlDataParameterName">Name of the parameter to store the data</param>
+        /// <param name="xmlDataAlternativeParameterName">Name of the parameter to alternatively store the data</param>
+        /// <param name="obj">The object to save as XML data</param>
+        /// <param name="disposeCommand">Indicates if the command is to be disposed after its execution or not</param>
+        /// <returns>Number of rows affected</returns>
+        /// <remarks>
+        /// This method allows to overcome a SQL Server CE 4.0 limitation/problem/issue.
+        /// Two columns are required. One must be a varbinary/binary and the second one an image.
+        /// If the serialized XML data fits in the first column, data is stored there; otherwise its stored in
+        /// the image column, and the other column is set to DBNull.
+        /// This allows to minimize database size, as image columns use at least one page (4096 bytes),
+        /// even for storing a single byte of information, as CE trims only at the page level.
+        /// </remarks>
+        public static int Save<T>(SqlCeConnection cn, SqlCeCommand saveCommand, string xmlDataParameterName, string xmlDataAlternativeParameterName, T obj, bool disposeCommand = true) where T : class
+        {
+            byte[] data;
+
+            if (obj == null)
+            {
+                data = null;
+            }
+            else
+            {
+                using (var memory = new MemoryStream())
+                {
+                    XmlSerialization.Serialize<T>(memory, obj);
+                    data = memory.ToArray();
+                } // using memory
+            } // if-else
+
+            if (cn != null) saveCommand.Connection = cn;
+            if (data == null)
+            {
+                saveCommand.Parameters[xmlDataParameterName].Value = DBNull.Value;
+                saveCommand.Parameters[xmlDataAlternativeParameterName].Value = DBNull.Value;
+            }
+            else
+            {
+                var dataParam = saveCommand.Parameters[xmlDataParameterName];
+                if (data.Length <= dataParam.Size)
+                {
+                    dataParam.Value = data;
+                    saveCommand.Parameters[xmlDataAlternativeParameterName].Value = DBNull.Value;
+                }
+                else
+                {
+                    dataParam.Value = DBNull.Value;
+                    saveCommand.Parameters[xmlDataAlternativeParameterName].Value = data;
+                } // if-else
+            } // if-else
+
+            if (disposeCommand)
+            {
+                using (var cmd = saveCommand)
+                {
+                    return cmd.ExecuteNonQuery();
+                } // using cmd
+            }
+            else
+            {
+                return saveCommand.ExecuteNonQuery();
+            } // if-ele
+        } // Save<T>
+
+        public static int Save<T1, T2>(string dbFile, SqlCeCommand saveCommand, string xmlData1ParameterName, T1 obj1, string xmlData2ParameterName, T2 obj2, bool disposeCommand = true)
             where T1 : class
             where T2 : class
         {
-            using (var cn = GetDbConnection(dbFile))
+            using (var cn = GetConnection(dbFile))
             {
-                return SaveToDatabase<T1, T2>(cn, saveCommand, xmlData1ParameterName, obj1, xmlData2ParameterName, obj2);
-            } // using cn
-        } // SaveToDatabase<T1, T2>
+                var result = Save<T1, T2>(cn, saveCommand, xmlData1ParameterName, obj1, xmlData2ParameterName, obj2, disposeCommand);
+                cn.Close();
 
-        public static int SaveToDatabase<T1, T2>(SqlCeConnection cn, SqlCeCommand saveCommand, string xmlData1ParameterName, T1 obj1, string xmlData2ParameterName, T2 obj2)
+                return result;
+            } // using cn
+        } // Save<T1, T2>
+
+        public static int Save<T1, T2>(SqlCeConnection cn, SqlCeCommand saveCommand, string xmlData1ParameterName, T1 obj1, string xmlData2ParameterName, T2 obj2, bool disposeCommand = true)
             where T1 : class
             where T2 : class
         {
             byte[] data1, data2;
 
-            using (var memory = new MemoryStream())
+            if (obj1 == null)
             {
-                XmlSerialization.Serialize<T1>(memory, obj1);
-                data1 = memory.ToArray();
-            } // using memory
-            using (var memory = new MemoryStream())
+                data1 = null;
+            }
+            else
             {
-                XmlSerialization.Serialize<T2>(memory, obj2);
-                data2 = memory.ToArray();
-            } // using memory
+                using (var memory = new MemoryStream())
+                {
+                    XmlSerialization.Serialize<T1>(memory, obj1);
+                    data1 = memory.ToArray();
+                } // using memory
+            } // if
 
-            using (var cmd = saveCommand)
+            if (obj2 == null)
             {
-                saveCommand.Connection = cn;
-                saveCommand.Parameters[xmlData1ParameterName].Value = data1;
-                saveCommand.Parameters[xmlData2ParameterName].Value = data2;
+                data2 = null;
+            }
+            else
+            {
+                using (var memory = new MemoryStream())
+                {
+                    XmlSerialization.Serialize<T2>(memory, obj2);
+                    data2 = memory.ToArray();
+                } // using memory
+            } // if-else
 
-                return cmd.ExecuteNonQuery();
-            } // using cmd
-        } // SaveToDatabase<T1,T2>
+            if (cn != null) saveCommand.Connection = cn;
+            saveCommand.Parameters[xmlData1ParameterName].Value = ((object)data1) ?? DBNull.Value;
+            saveCommand.Parameters[xmlData2ParameterName].Value = ((object)data2) ?? DBNull.Value;
 
-        public static SqlCeConnection GetDbConnection(string dbFile)
+            if (disposeCommand)
+            {
+                using (var cmd = saveCommand)
+                {
+
+                    return cmd.ExecuteNonQuery();
+                } // using cmd
+            }
+            else
+            {
+                return saveCommand.ExecuteNonQuery();
+            } // if-else
+        } // Save<T1,T2>
+
+        public static SqlCeConnection GetConnection(string dbFile)
         {
             SqlCeConnectionStringBuilder builder;
 
@@ -120,6 +264,24 @@ namespace Project.DvbIpTv.Services.SqlServerCE
             cn.Open();
 
             return cn;
-        } // GetDbConnection
+        } // GetConnection
+
+        public static int Execute(string dbFile, SqlCeCommand cmd)
+        {
+            using (var cn = GetConnection(dbFile))
+            {
+                var result = Execute(cn, cmd);
+                cn.Close();
+
+                return result;
+            } // using cn
+        } // Execute
+
+        public static int Execute(SqlCeConnection cn, SqlCeCommand cmd)
+        {
+            if (cn != null) cmd.Connection = cn;
+
+            return cmd.ExecuteNonQuery();
+        } // Execute
     } // class DbServices
 } // namespace

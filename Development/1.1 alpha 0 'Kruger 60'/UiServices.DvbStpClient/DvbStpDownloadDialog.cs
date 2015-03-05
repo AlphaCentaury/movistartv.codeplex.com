@@ -195,11 +195,11 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
         private void DisplaySectionReception(ProgressChangedEventArgs e)
         {
-            DvbStpSimpleClientPayloadSectionReceivedEventArgs sectionReceivedArgs;
+            DvbStpSimpleClient.PayloadSectionReceivedEventArgs sectionReceivedArgs;
 
             if (progressBar.Style == ProgressBarStyle.Marquee) progressBar.Style = ProgressBarStyle.Continuous;
 
-            sectionReceivedArgs = e.UserState as DvbStpSimpleClientPayloadSectionReceivedEventArgs;
+            sectionReceivedArgs = e.UserState as DvbStpSimpleClient.PayloadSectionReceivedEventArgs;
             labelProgressPct.Text = string.Format(FormatProgressPercentage, e.ProgressPercentage / 1000.0);
             labelSectionProgress.Text = string.Format(FormatSectionProgress, sectionReceivedArgs.SectionsReceived, sectionReceivedArgs.SectionCount);
             progressBar.Value = e.ProgressPercentage / 10;
@@ -246,7 +246,6 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             CancelDownloadRequest = stpClient.CancelRequest;
             try
             {
-                stpClient.MaxCycleTime *= 2;
                 stpClient.SectionReceived += StpClient_SectionReceived;
                 stpClient.PayloadSectionReceived += StpClient_PayloadSectionReceived;
 
@@ -267,12 +266,12 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             } // finally
         } // Worker_DoWork
 
-        void StpClient_SectionReceived(object sender, DvbStpSimpleClientSectionReceivedEventArgs e)
+        void StpClient_SectionReceived(object sender, DvbStpSimpleClient.SectionReceivedEventArgs e)
         {
             Worker.ReportProgress(-1, e);
         } // StpClient_SectionReceived
 
-        void StpClient_PayloadSectionReceived(object sender, DvbStpSimpleClientPayloadSectionReceivedEventArgs e)
+        void StpClient_PayloadSectionReceived(object sender, DvbStpSimpleClient.PayloadSectionReceivedEventArgs e)
         {
             Worker.ReportProgress((e.SectionsReceived * 1000) / e.SectionCount, e);
         } // StpClient_PayloadSectionReceived

@@ -10,6 +10,7 @@ using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.DvbStpClient;
+using Project.DvbIpTv.UiServices.EPG;
 using Project.DvbIpTv.UiServices.Forms;
 using Project.DvbIpTv.UiServices.Forms.Startup;
 using Project.DvbIpTv.UiServices.Record;
@@ -22,6 +23,7 @@ using System.Net;
 using System.Windows.Forms;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using System.Text;
+using System.IO;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -857,12 +859,15 @@ namespace Project.DvbIpTv.ChannelList
             if (selectedItem == null)
             {
                 SelectedBroadcastService = null;
+                ShowEpgMiniBar(false);
                 return;
             } // if
 
             SelectedBroadcastService = listViewChannels.SelectedItems[0].Tag as UiBroadcastService;
             Properties.Settings.Default.LastSelectedService = SelectedBroadcastService.Key;
             Properties.Settings.Default.Save();
+
+            ShowEpgMiniBar(true);
         } // BroadcastServiceChanged
 
         private void UpdateSortMenuStatus()
@@ -1130,7 +1135,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemEpgNow_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            ShowEpgNowThenForm();
         } // menuItemEpgNow_Click
 
         private void menuItemEpgToday_Click(object sender, EventArgs e)
@@ -1215,9 +1220,18 @@ namespace Project.DvbIpTv.ChannelList
         {
             contextMenuListCopyRow.Enabled = contextMenuListShow.Enabled;
             contextMenuListCopyAll.Enabled = (listViewChannels.Items.Count > 0);
-        }
+        } // contextMenuListCopy_DropDownOpening
 
         #endregion
+
+        private void contextMenuListCopyURL_Click(object sender, EventArgs e)
+        {
+            var selectedRow = (listViewChannels.SelectedItems.Count > 0) ? listViewChannels.SelectedItems[0] : null;
+            if (selectedRow == null) return;
+
+            var service = (UiBroadcastService)selectedRow.Tag;
+            Clipboard.SetText(service.LocationUrl, TextDataFormat.UnicodeText);
+        } // contextMenuListCopyURL_Click
 
         private void contextMenuListCopyRow_Click(object sender, EventArgs e)
         {
@@ -1253,6 +1267,64 @@ namespace Project.DvbIpTv.ChannelList
             } // foreach item
 
             Clipboard.SetText(buffer.ToString(), TextDataFormat.UnicodeText);
-        }  // contextMenuListCopyAll_Click
+        } // contextMenuListCopyAll_Click
+
+        private void ShowEpgMiniBar(bool display)
+        {
+            // TODO: enable/disable EPG menu items
+
+            epgMiniBar.Visible = display;
+            menuItemEpgNow.Enabled = display;
+            menuItemEpgToday.Enabled = false; // display;
+            menuItemEpgTomorrow.Enabled = false; // display;
+            menuItemEpgPrevious.Enabled = false;
+            menuItemEpgNext.Enabled = false;
+
+            if (!display) return;
+
+            // TODO: get dbFile from config
+            var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
+
+            // TODO: do NOT assume .imagenio.es
+            var fullServiceName = SelectedBroadcastService.ServiceName + ".imagenio.es";
+            var replacement = SelectedBroadcastService.ReplacementService;
+            var fullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
+
+            // display mini bar
+            epgMiniBar.DetailsButtonEnabled = false; // TODO: to be implemented
+            epgMiniBar.DisplayEpgEvents(imageListChannelsLarge.Images[SelectedBroadcastService.Logo.Key], fullServiceName, fullAlternateServiceName, DateTime.Now, dbFile);
+        }  // ShowEpgMiniBar
+
+        private void ShowEpgNowThenForm()
+        {
+                FormEpgNowThen.ShowEpgEvents(imageListChannelsLarge.Images[SelectedBroadcastService.Logo.Key],
+                    SelectedBroadcastService.DisplayName,
+                    epgMiniBar.GetEpgEvents(), this, epgMiniBar.ReferenceTime);
+        } // ShowEpgNowThenForm
+
+
+        private void epgMiniBar_ButtonClicked(object sender, EpgMiniBarButtonClickedEventArgs e)
+        {
+            if (e.Button == EpgMiniBar.Button.FullView)
+            {
+                ShowEpgNowThenForm();
+            } // if
+        }
+
+        private void epgMiniBar_NavigationButtonsChanged(object sender, EpgMiniBarNavigationButtonsChangedEventArgs e)
+        {
+            menuItemEpgPrevious.Enabled = e.IsBackEnabled;
+            menuItemEpgNext.Enabled = e.IsForwardEnabled;
+        }
+
+        private void menuItemEpgPrevious_Click(object sender, EventArgs e)
+        {
+            epgMiniBar.GoBack();
+        }
+
+        private void menuItemEpgNext_Click(object sender, EventArgs e)
+        {
+            epgMiniBar.GoForward();
+        }
     } // class ChannelListForm
 } // namespace

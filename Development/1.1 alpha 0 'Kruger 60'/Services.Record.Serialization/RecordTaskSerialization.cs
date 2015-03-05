@@ -23,13 +23,13 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
         public static RecordTask LoadFromDatabase(string dbFile, Guid taskId)
         {
-            return DbServices.LoadFromDatabase<RecordTask>(dbFile, GetDbLoadCommand(taskId), "XmlData");
-        } // LoadFromDatabase
+            return DbServices.Load<RecordTask>(dbFile, GetDbLoadCommand(taskId), "XmlData");
+        } // Load
 
         public static RecordTask LoadFromDatabase(SqlCeConnection cn, Guid taskId)
         {
-            return DbServices.LoadFromDatabase<RecordTask>(cn, GetDbLoadCommand(taskId), "XmlData");
-        } // LoadFromDatabase
+            return DbServices.Load<RecordTask>(cn, GetDbLoadCommand(taskId), "XmlData");
+        } // Load
 
         public static RecordTask LoadFromXmlFile(string filename)
         {
@@ -47,24 +47,14 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
         public static void SaveToDatabase(this RecordTask task, string dbFile)
         {
-            var saveCmd = GetDbSaveCommand(task.TaskId,
-                task.Description.Name,
-                task.Description.TaskSchedulerName,
-                task.AdvancedSettings.TaskSchedulerFolder,
-                null);
-
-            DbServices.SaveToDatabase(dbFile, saveCmd, "@XmlData", task);
-        } // SaveToDatabase
+            var saveCmd = GetDbSaveCommand(task);
+            DbServices.Save(dbFile, saveCmd, "@XmlData", task);
+        } // Save
 
         public static void SaveTo(this RecordTask task, SqlCeConnection cn)
         {
-            var saveCmd = GetDbSaveCommand(task.TaskId,
-                task.Description.Name,
-                task.Description.TaskSchedulerName,
-                task.AdvancedSettings.TaskSchedulerFolder,
-                null);
-
-            DbServices.SaveToDatabase(cn, saveCmd, "@XmlData", task);
+            var saveCmd = GetDbSaveCommand(task);
+            DbServices.Save(cn, saveCmd, "@XmlData", task);
         } // SaveTo
 
         public static void SaveToXmlFile(this RecordTask task, string filename)
@@ -122,20 +112,6 @@ namespace Project.DvbIpTv.Services.Record.Serialization
 
         #endregion
 
-        private static SqlCeConnection GetDbConnection(string dbFile)
-        {
-            SqlCeConnectionStringBuilder builder;
-
-            builder = new SqlCeConnectionStringBuilder();
-            builder.DataSource = dbFile;
-            builder.Password = "movistartv.codeplex.com";
-
-            var cn = new SqlCeConnection(builder.ConnectionString);
-            cn.Open();
-
-            return cn;
-        } // GetDbConnection
-
         private static SqlCeCommand GetDbLoadCommand()
         {
             var cmd = new SqlCeCommand();
@@ -168,14 +144,13 @@ namespace Project.DvbIpTv.Services.Record.Serialization
             return cmd;
         } // GetDbSaveCommand
 
-        private static SqlCeCommand GetDbSaveCommand(Guid taskId, string taskName, string schedulerName, string schedulerFolder, byte[] xmlData)
+        private static SqlCeCommand GetDbSaveCommand(RecordTask task)
         {
             var cmd = GetDbSaveCommand();
-            cmd.Parameters["@TaskId"].Value = taskId;
-            cmd.Parameters["@TaskName"].Value = taskName;
-            cmd.Parameters["@SchedulerName"].Value = schedulerName;
-            cmd.Parameters["@SchedulerFolder"].Value = schedulerFolder;
-            if (xmlData != null) cmd.Parameters["@XmlData"].Value = xmlData;
+            cmd.Parameters["@TaskId"].Value = task.TaskId;
+            cmd.Parameters["@TaskName"].Value = task.Description.Name;
+            cmd.Parameters["@SchedulerName"].Value = task.Description.TaskSchedulerName;
+            cmd.Parameters["@SchedulerFolder"].Value = task.AdvancedSettings.TaskSchedulerFolder;
 
             return cmd;
         } // GetDbLoadCommand

@@ -79,7 +79,7 @@ namespace Project.DvbIpTv.ChannelList
             // buttonProviderDetails
             // 
             resources.ApplyResources(this.buttonProviderDetails, "buttonProviderDetails");
-            this.buttonProviderDetails.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Properties_16x16;
+            this.buttonProviderDetails.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Properties_16x16;
             this.buttonProviderDetails.Name = "buttonProviderDetails";
             this.buttonProviderDetails.UseVisualStyleBackColor = true;
             this.buttonProviderDetails.Click += new System.EventHandler(this.buttonProviderDetails_Click);
@@ -87,7 +87,7 @@ namespace Project.DvbIpTv.ChannelList
             // buttonRefreshServiceProviderList
             // 
             resources.ApplyResources(this.buttonRefreshServiceProviderList, "buttonRefreshServiceProviderList");
-            this.buttonRefreshServiceProviderList.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.RefreshBlue_16x16;
+            this.buttonRefreshServiceProviderList.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Refresh_Blue_16x16;
             this.buttonRefreshServiceProviderList.Name = "buttonRefreshServiceProviderList";
             this.buttonRefreshServiceProviderList.UseVisualStyleBackColor = true;
             this.buttonRefreshServiceProviderList.Click += new System.EventHandler(this.buttonRefreshServiceProviderList_Click);
@@ -96,7 +96,7 @@ namespace Project.DvbIpTv.ChannelList
             // 
             resources.ApplyResources(this.buttonOk, "buttonOk");
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Ok_16x16;
+            this.buttonOk.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Ok_16x16;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
@@ -104,7 +104,7 @@ namespace Project.DvbIpTv.ChannelList
             // 
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
+            this.buttonCancel.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Cancel_16x16;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 

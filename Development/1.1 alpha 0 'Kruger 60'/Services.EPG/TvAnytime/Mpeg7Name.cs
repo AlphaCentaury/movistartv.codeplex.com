@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Project.DvbIpTvServices.EPG.TvAnytime
+namespace Project.DvbIpTv.Services.EPG.TvAnytime
 {
     [Serializable()]
     [DebuggerStepThrough()]

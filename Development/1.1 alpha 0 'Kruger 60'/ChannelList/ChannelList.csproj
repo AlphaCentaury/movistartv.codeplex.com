@@ -67,6 +67,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -92,10 +96,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ExternalPlayer.cs" />
-    <Compile Include="Resource.CommonUi.Designer.cs">
+    <Compile Include="CommonUiResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.CommonUi.resx</DependentUpon>
+      <DependentUpon>CommonUiResources.resx</DependentUpon>
     </Compile>
     <Compile Include="SelectProviderDialog.cs">
       <SubType>Form</SubType>
@@ -143,9 +147,10 @@
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resource.CommonUi.resx">
+    <EmbeddedResource Include="CommonUiResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.CommonUi.Designer.cs</LastGenOutput>
+      <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectProviderDialog.es.resx">
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
@@ -186,30 +191,8 @@
     <None Include="Resources\Error_24x24.png" />
     <None Include="Resources\Exception_24x24.png" />
     <None Include="Resources\Info_24x24.png" />
-    <None Include="Resources\DownloadWebSettings_16x16.png" />
     <None Include="Resources\DownloadWeb_16x16.png" />
-    <None Include="Resources\Action_Cancel_16x16.png" />
-    <None Include="Resources\Action_Close_16x16.png" />
-    <Content Include="Resources\Action_Copy_Clip_16x16.png" />
-    <Content Include="Resources\Action_Copy_Table.png" />
-    <Content Include="Resources\Action_Delete_16x16.png" />
-    <None Include="Resources\Action_Edit_16x16.png" />
-    <None Include="Resources\Action_EditTask_16x16.png" />
-    <None Include="Resources\Action_Ok_16x16.png" />
-    <None Include="Resources\Action_Properties_16x16.png" />
-    <None Include="Resources\Action_Refresh_Blue_16x16.png" />
-    <None Include="Resources\Action_Repair_16x16.png" />
-    <None Include="Resources\Action_Run_16x16.png" />
-    <None Include="Resources\Action_Favorites_16x16.png" />
-    <None Include="Resources\Action_Hyperlink_16x16.png" />
-    <Content Include="Resources\Action_Export_Data.png" />
-    <Content Include="Resources\Action_Export_List_16x16.png" />
-    <Content Include="Resources\Action_History_MD_16x16.png" />
-    <Content Include="Resources\Action_Import_16x16.png" />
-    <Content Include="Resources\Action_Link_16x16.png" />
-    <Content Include="Resources\Action_ReportError_16x16.png" />
-    <Content Include="Resources\Action_Save_16x16.png" />
-    <Content Include="Resources\Action_Settings_16x16.png" />
+    <None Include="Resources\DownloadWebSettings_16x16.png" />
     <Content Include="Resources\IPTV.ico" />
     <None Include="Resources\Splash.png" />
     <None Include="Resources\SortAZ_16x16.png" />
@@ -260,6 +243,10 @@
       <Project>{a4172cdd-c8fd-4c91-9aaf-54a948f26273}</Project>
       <Name>Services.Record</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Services.SqlServerCE\Services.SqlServerCE.csproj">
+      <Project>{3a053f34-4edf-4071-b966-923255a0ae14}</Project>
+      <Name>Services.SqlServerCE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UiServices.Config\UiServices.Config.csproj">
       <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
       <Name>UiServices.Config</Name>
@@ -275,6 +262,10 @@
     <ProjectReference Include="..\UiServices.DvbStpClient\UiServices.DvbStpClient.csproj">
       <Project>{ba481e42-f570-4d2c-94d4-21c4cce27762}</Project>
       <Name>UiServices.DvbStpClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UiServices.EPG\UiServices.EPG.csproj">
+      <Project>{004c3829-fed4-4084-b23b-871193afa8c7}</Project>
+      <Name>UiServices.EPG</Name>
     </ProjectReference>
     <ProjectReference Include="..\UiServices.Forms\UiServices.Forms.csproj">
       <Project>{90f750b3-64db-493f-96a6-e68de5ea60a1}</Project>

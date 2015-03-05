@@ -64,6 +64,14 @@ namespace Project.DvbIpTv.Common.Serialization
             return serializer.Deserialize(input) as T;
         } // Deserialize<T>
 
+        public static T Deserialize<T>(byte[] data) where T : class
+        {
+            using (var input = new MemoryStream(data))
+            {
+                return Deserialize<T>(input);
+            } // using
+        } // Deserialize<T>
+
         private static object Deserialize(Stream input, Type type)
         {
             var serializer = new XmlSerializer(type);
@@ -134,5 +142,15 @@ namespace Project.DvbIpTv.Common.Serialization
                 return serializer.Deserialize(reader);
             } // using reader
         } // Deserialize
+
+        public static T Deserialize<T>(byte[] data, bool trimExtraWhitespace) where T : class
+        {
+            if (!trimExtraWhitespace) return Deserialize<T>(data);
+
+            using (var input = new MemoryStream(data))
+            {
+                return Deserialize<T>(input, trimExtraWhitespace);
+            } // using
+        } // Deserialize<T>
     } // class XmlSerialization
 } // namespace

@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.DvbStp.Client
             {
                 ReceivedSections = assembler.ReceivedSections;
                 RemainingSections = assembler.RemainingSections;
-                ReceivedBytes = assembler.GetReceivedBytes();
+                ReceivedBytes = assembler.ReceivedBytes;
                 RemainingBytes = header.TotalSegmentSize - ReceivedBytes;
             } // constructor
 
@@ -72,29 +72,15 @@ namespace Project.DvbIpTv.DvbStp.Client
         {
             public SegmentReceivedEventArgs(SegmentAssembler assembler)
             {
-                PayloadId = assembler.PayloadId;
-                SegmentId = assembler.SegmentId;
-                SegmentVersion = assembler.SegmentVersion;
+                SegmentIdentity = assembler.SegmentIdentity;
                 SectionCount = assembler.ReceivedSections;
             } // constructor
 
-            public byte PayloadId
+            public DvbStpSegmentIdentity SegmentIdentity
             {
                 get;
                 private set;
-            } // PayloadId
-
-            public short SegmentId
-            {
-                get;
-                private set;
-            } // SegmentId
-
-            public byte SegmentVersion
-            {
-                get;
-                private set;
-            } // SegmentVersion
+            } // SegmentIdentity
 
             public int SectionCount
             {
