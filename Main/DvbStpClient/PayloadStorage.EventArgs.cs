@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using System;
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.DvbStp.Client
             {
                 ReceivedSections = assembler.ReceivedSections;
                 RemainingSections = assembler.RemainingSections;
-                ReceivedBytes = assembler.GetReceivedBytes();
+                ReceivedBytes = assembler.ReceivedBytes;
                 RemainingBytes = header.TotalSegmentSize - ReceivedBytes;
             } // constructor
 
@@ -72,29 +72,15 @@ namespace Project.DvbIpTv.DvbStp.Client
         {
             public SegmentReceivedEventArgs(SegmentAssembler assembler)
             {
-                PayloadId = assembler.PayloadId;
-                SegmentId = assembler.SegmentId;
-                SegmentVersion = assembler.SegmentVersion;
+                SegmentIdentity = assembler.SegmentIdentity;
                 SectionCount = assembler.ReceivedSections;
             } // constructor
 
-            public byte PayloadId
+            public DvbStpSegmentIdentity SegmentIdentity
             {
                 get;
                 private set;
-            } // PayloadId
-
-            public short SegmentId
-            {
-                get;
-                private set;
-            } // SegmentId
-
-            public byte SegmentVersion
-            {
-                get;
-                private set;
-            } // SegmentVersion
+            } // SegmentIdentity
 
             public int SectionCount
             {

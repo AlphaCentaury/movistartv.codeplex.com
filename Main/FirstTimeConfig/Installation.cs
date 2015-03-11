@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Microsoft.Win32;
@@ -80,24 +80,17 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         {
             try
             {
-#pragma warning disable 618 // CS0618: 'member' is obsolete (Assembly.LoadWithPartialName)
-                // Assembly.Load() is not an alternative to LoadWithPartialName in this case
-                // We don't know the assembly version. In fact, where trying to QUERY the version of the installed assembly
-                var assembly = Assembly.LoadWithPartialName("Microsoft.ExceptionMessageBox");
-                if (assembly == null) { message = Properties.Texts.IsEmbInstalledNotInstalled; return false; }
-#pragma warning restore 618
+                Version assemblyVersion, fileVersion;
 
-                var targetVersion = new Version(Resources.EmbComponentTargetVersion);
-                var version = assembly.GetName().Version;
+                var found = IsAssemblyInstalled(Resources.EmbComponentAssemblyName, out assemblyVersion, out fileVersion);
 
-                if ((version.Major < targetVersion.Major) || (version.Minor < targetVersion.Minor) ||
-                    (version.Build < targetVersion.Build) || (version.Revision < version.Revision))
+                if (!found)
                 {
-                    message = string.Format(Properties.Texts.IsEmbInstalledWrongVersion, targetVersion, version);
+                    message = Properties.Texts.IsEmbInstalledNotInstalled;
                     return false;
                 } // if
 
-                message = string.Format(Texts.IsEmbInstalledOk, version);
+                message = string.Format(Texts.IsEmbInstalledOk, fileVersion);
                 return true;
             }
             catch (Exception ex)
@@ -106,6 +99,30 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 return false;
             } // try-catch
         }  // IsEmbNotInstalled
+
+        public static bool IsSqlCeInstalled(out string message)
+        {
+            try
+            {
+                Version assemblyVersion, fileVersion;
+
+                var found = IsAssemblyInstalled(Resources.SqlCeComponentAssemblyName, out assemblyVersion, out fileVersion);
+
+                if (!found)
+                {
+                    message = Properties.Texts.IsSqlCeInstalledNotInstalled;
+                    return false;
+                } // if
+
+                message = string.Format(Texts.IsSqlCeInstalledOk, fileVersion);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                message = string.Format(Texts.IsSqlCeInstalledException, ex.ToString());
+                return false;
+            } // try-catch
+        }  // IsSqlCeInstalled
 
         public static bool IsVlcInstalled(out string message, ref string path)
         {
@@ -125,10 +142,9 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                     return false;
                 } // if
 
-
                 // check VLC.exe file version
                 var vlcVersion = FileVersionInfo.GetVersionInfo(path);
-                var vlcFileVersion = new Version(vlcVersion.FileMajorPart, vlcVersion.FileMinorPart, vlcVersion.FileBuildPart);
+                var vlcFileVersion = new Version(vlcVersion.FileMajorPart, vlcVersion.FileMinorPart, vlcVersion.FileBuildPart, vlcVersion.FilePrivatePart);
                 var expectedVersion = new Version(Resources.VlcExeTargetVersion);
                 if (vlcFileVersion < expectedVersion)
                 {
@@ -146,7 +162,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
                 // check VLC.exe file version
                 var vlcLibVersion = FileVersionInfo.GetVersionInfo(vlcLibPath);
-                var vlcLibFileVersion = new Version(vlcLibVersion.FileMajorPart, vlcLibVersion.FileMinorPart, vlcLibVersion.FileBuildPart);
+                var vlcLibFileVersion = new Version(vlcLibVersion.FileMajorPart, vlcLibVersion.FileMinorPart, vlcLibVersion.FileBuildPart, vlcLibVersion.FilePrivatePart);
                 var expectedVlcLibVersion = new Version(Resources.VlcLibTargetVersion);
                 if (vlcLibFileVersion < expectedVlcLibVersion)
                 {
@@ -420,6 +436,44 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             {
                 return ex.ToString();
             } // try-catch
-        } // Launc
+        } // Launch
+
+        private static bool IsAssemblyInstalled(string assemblyName, out Version assemblyVersion, out Version fileVersion)
+        {
+            AppDomain domain;
+            string location;
+            
+            assemblyVersion = new Version();
+            fileVersion = new Version();
+            domain = null;
+            location = null;
+
+            try
+            {
+                domain = AppDomain.CreateDomain("AssemblyLoadTest");
+                try
+                {
+                    var assembly = domain.Load(assemblyName);
+                    assemblyVersion = assembly.GetName().Version;
+                    location = assembly.Location;
+                }
+                catch
+                {
+                    return false;
+                } // try-finally
+
+                var fileVersionInfo = FileVersionInfo.GetVersionInfo(location);
+                fileVersion = new Version(fileVersionInfo.FileMajorPart, fileVersionInfo.FileMinorPart, fileVersionInfo.FileBuildPart, fileVersionInfo.FilePrivatePart);
+
+                return true;
+            }
+            finally
+            {
+                if (domain != null)
+                {
+                    AppDomain.Unload(domain);
+                } // if
+            } // try-catch
+        } // IsAssemblyInstalled
     } // class Installation
 } // namespace

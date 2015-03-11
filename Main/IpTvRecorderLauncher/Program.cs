@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.DvbIpTv.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -10,13 +11,16 @@ namespace Project.DvbIpTv.RecorderLauncher
     {
         private static bool PressAnyKey;
         private static bool NoLogo;
-        private static string TaskXmlFilename;
+        private static Guid TaskId;
+        private static string DbFile;
+        private static string LogFolder;
         private static ProgramMode Mode;
 
         enum ProgramMode
         {
-            Record = 0,
-            Help = 10,
+            None = 0,
+            Record = 10,
+            Help = -1,
         } // ProgramMode
 
         public enum Result
@@ -88,7 +92,7 @@ namespace Project.DvbIpTv.RecorderLauncher
                 case ProgramMode.Record:
                     PressAnyKey = false;
                     var launcher = new Launcher();
-                    return launcher.Run(TaskXmlFilename);
+                    return launcher.Run(TaskId, DbFile, LogFolder);
 
                 default:
                     return Result.Arguments;
@@ -97,8 +101,6 @@ namespace Project.DvbIpTv.RecorderLauncher
 
         static bool ProcessArguments(string[] args)
         {
-            int skip;
-
             if ((args == null) || (args.Length == 0))
             {
                 DisplayLogo();
@@ -106,43 +108,74 @@ namespace Project.DvbIpTv.RecorderLauncher
                 return false;
             } // if
 
-            var arg1 = args[0].Trim();
-            if (arg1 == "")
+            var parser = new CommandLineArguments()
+            {
+                SpecialHelpArgument = true
+            };
+
+            var arguments = parser.Parse(args);
+            if (!parser.IsOk)
             {
                 DisplayLogo();
-                Console.WriteLine(Properties.Texts.ErrorNoArguments);
+                Console.WriteLine(Properties.Texts.InvalidArgumentFormat);
                 return false;
             } // if
 
-            skip = 0;
-            if (!arg1.StartsWith("/") && !arg1.StartsWith("-"))
+            return ProcessArguments(arguments);
+        } // ProcessArguments
+
+        static bool ProcessArguments(IDictionary<string, string> arguments)
+        {
+            string value;
+
+            if (arguments.TryGetValue("nologo", out value))
             {
-                skip = 1;
-                Mode = ProgramMode.Record;
-                TaskXmlFilename = arg1;
+                NoLogo = true;
             } // if
 
-            foreach (var arg in args.Skip(skip))
+            if (arguments.TryGetValue("TaskId", out value))
             {
-                var partialArg = arg.Substring(1, (arg.Length <= 10) ? (arg.Length - 1) : 10).ToLower();
-                if ((arg[0] == '/') || (arg[0] == '-'))
+                TaskId = new Guid(value);
+            } // if
+
+            if (arguments.TryGetValue("Database", out value))
+            {
+                DbFile = value;
+            } // if
+
+            if (arguments.TryGetValue("LogFolder", out value))
+            {
+                LogFolder = value;
+            } // if
+
+            if (arguments.TryGetValue("Action", out value))
+            {
+                if (string.Compare(value, "Record", true) == 0)
                 {
-                    if (partialArg.StartsWith("nologo"))
-                    {
-                        NoLogo = true;
-                        continue;
-                    } // if
-                    if ((partialArg.StartsWith("h")) || (partialArg.StartsWith("?")))
-                    {
-                        Mode = ProgramMode.Help;
-                        continue;
-                    } // if
+                    Mode = ProgramMode.Record;
                 }
                 else
                 {
-                    return false;
+                    // Unknown action
+                    Mode = ProgramMode.None;
                 } // if-else
-            } // foreach arg
+            } // if
+
+            // TODO: display error message if arguments validation fails
+
+            // validate general arguments
+            if (!string.IsNullOrEmpty(LogFolder))
+            {
+                if (!System.IO.Directory.Exists(LogFolder)) return false;
+            } // if
+
+            // validate record mode arguments
+            if (Mode == ProgramMode.Record)
+            {
+                if (TaskId == Guid.Empty) return false;
+                if (string.IsNullOrEmpty(DbFile)) return false;
+                if (!System.IO.File.Exists(DbFile)) return false;
+            } // if
 
             return true;
         } // ProcessArguments
@@ -154,7 +187,17 @@ namespace Project.DvbIpTv.RecorderLauncher
 
         static void DisplayLogo()
         {
-            Console.WriteLine(Properties.Texts.StartLogo, Assembly.GetEntryAssembly().GetName().Version);
+            string copyright;
+
+            // get copyright text
+            object[] attributes = Assembly.GetEntryAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+            if (attributes.Length == 0)
+            {
+                copyright = "Copyright (C) http://movistartv.codeplex.com";
+            }
+            copyright = ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+
+            Console.WriteLine(Properties.Texts.StartLogo, Assembly.GetEntryAssembly().GetName().Version, copyright);
             Console.WriteLine();
         } // DisplayLogo
 

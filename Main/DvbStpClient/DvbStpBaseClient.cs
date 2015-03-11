@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using System;
@@ -12,7 +12,7 @@ using System.Text;
 
 namespace Project.DvbIpTv.DvbStp.Client
 {
-    public class DvbStpBaseClient
+    public abstract class DvbStpBaseClient
     {
         public const int UdpMaxDatagramSize = 65535;
         protected const int DefaultHeaderLength = 12;
@@ -20,11 +20,11 @@ namespace Project.DvbIpTv.DvbStp.Client
 
         private byte[] TempBytesBuffer;
 
-        public IPAddress MulticastIP
+        public IPAddress MulticastIpAddress
         {
             get;
             protected set;
-        } // MulticastIP
+        } // MulticastIpAddress
 
         public int MulticastPort
         {
@@ -50,6 +50,24 @@ namespace Project.DvbIpTv.DvbStp.Client
             protected set;
         } // CancelRequested
 
+        public DateTime StartTime
+        {
+            get;
+            private set;
+        } // StartTime
+
+        public DateTime TimeoutStartTime
+        {
+            get;
+            private set;
+        } // TimeoutStartTime
+
+        public int OperationTimeout // in milliseconds
+        {
+            get;
+            set;
+        } // OperationTimeout
+
         protected Socket Socket
         {
             get;
@@ -74,9 +92,10 @@ namespace Project.DvbIpTv.DvbStp.Client
             private set;
         } // ReceivedBytes
 
+
         public DvbStpBaseClient(IPAddress ip, int port)
         {
-            MulticastIP = ip;
+            MulticastIpAddress = ip;
             MulticastPort = port;
             ReceiveDatagramTimeout = 5000;
         } // constructor
@@ -96,6 +115,48 @@ namespace Project.DvbIpTv.DvbStp.Client
             CancelRequested = true;
         } // CancelRequest
 
+        protected void ReceiveData()
+        {
+            CancelRequested = false;
+            Connect();
+
+            while (!CancelRequested)
+            {
+                Receive(false);
+                if (Header.Version != 0) continue;
+
+                // filter received section
+                if (FilterSection()) continue;
+
+                // requested payloadId & segmentId found!
+                DecodeHeader(true);
+
+                // process data
+                ProcessReceivedData();
+
+                // got all expected data?
+                if (EndReceptionLoop)
+                {
+                    break;
+                } // if
+
+                CheckTimeout();
+            } // while
+        } // ReceiveData
+
+        protected virtual bool FilterSection()
+        {
+            return false;
+        } // FilterSection
+
+        protected abstract void ProcessReceivedData();
+
+        protected bool EndReceptionLoop
+        {
+            get;
+            set;
+        } // EndReceptionLoop
+
         protected virtual void Connect()
         {
             Socket s;
@@ -110,10 +171,11 @@ namespace Project.DvbIpTv.DvbStp.Client
             s.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             s.ReceiveTimeout = ReceiveDatagramTimeout;
             s.Bind(new IPEndPoint(IPAddress.Any, MulticastPort));
-            multicastData = new MulticastOption(MulticastIP, IPAddress.Any);
+            multicastData = new MulticastOption(MulticastIpAddress, IPAddress.Any);
             s.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership, multicastData);
 
             Socket = s;
+            StartTimeout();
         } // Connect
 
         protected void Receive(bool decodeHeader)
@@ -123,14 +185,29 @@ namespace Project.DvbIpTv.DvbStp.Client
 
             if (ReceivedBytes < DefaultHeaderLength) throw new InvalidDataException("ReceivedBytes < DefaultHeaderLength");
 
-            Header = new DvbStpHeader();
-            Header.Version = (byte)(DatagramData[0] & DvbStpHeaderMasks.Version);
+            DecodeBasicHeader();
 
             if ((decodeHeader) && (Header.Version == 0))
             {
                 DecodeHeader(true);
             } // if
         } // Receive
+
+        protected void DecodeBasicHeader()
+        {
+            Header = new DvbStpHeader();
+            Header.Version = (byte)(DatagramData[0] & DvbStpHeaderMasks.Version);
+
+            // byte 4
+            Header.PayloadId = DatagramData[4];
+
+            // byte 5-6
+            Header.SegmentIdNetworkLo = DatagramData[5];
+            Header.SegmentIdNetworkHi = DatagramData[6];
+
+            // byte 7
+            Header.SegmentVersion = DatagramData[7];
+        } // DecodeBasicHeader
 
         protected void DecodeHeader(bool fullDecode)
         {
@@ -159,14 +236,16 @@ namespace Project.DvbIpTv.DvbStp.Client
             Header.TotalSegmentSize = IPAddress.NetworkToHostOrder(networkInt);
 
             // byte 4
-            Header.PayloadId = RawHeader[4];
+            // Computed at reception: Header.PayloadId = RawHeader[4];
 
             // byte 5-6
+            // Computed at reception: Header.SegmentIdNetworkLo = DatagramData[5];
+            // Computed at reception: Header.SegmentIdNetworkHi = DatagramData[6];
             networkShort = BitConverter.ToInt16(RawHeader, 5);
             Header.SegmentId = IPAddress.NetworkToHostOrder(networkShort);
 
             // byte 7
-            Header.SegmentVersion = RawHeader[7];
+            // Computed at reception: Header.SegmentVersion = RawHeader[7];
 
             // byte 8-9
             TempBytesBuffer[1] = RawHeader[8];
@@ -225,5 +304,30 @@ namespace Project.DvbIpTv.DvbStp.Client
             Header.PayloadOffset = DefaultHeaderLength + (Header.HasServiceProviderId ? 4 : 0) + Header.PrivateHeaderLength;
             Header.PayloadSize = ReceivedBytes - Header.PayloadOffset - (Header.HasCRC ? 4 : 0);
         } // PartialDecodeHeader
+
+        #region Timeout handling
+
+        private void StartTimeout()
+        {
+            StartTime = DateTime.Now;
+            TimeoutStartTime = StartTime;
+        } // StartTimeout
+
+        protected void ResetTimeout()
+        {
+            TimeoutStartTime = DateTime.Now;
+        } // ResetTimeout
+
+        protected void CheckTimeout()
+        {
+            TimeSpan elapsed;
+
+            if (OperationTimeout <= 0) return;
+
+            elapsed = DateTime.Now - TimeoutStartTime;
+            if (elapsed.TotalMilliseconds > OperationTimeout) throw new TimeoutException();
+        } // CheckTimeout
+
+        #endregion
     } // class DvbStpBaseClient
 } // namespace

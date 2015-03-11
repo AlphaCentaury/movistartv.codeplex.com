@@ -134,11 +134,19 @@ First-time configuration process is finished and the application is now ready to
 - 'ENU\x64\SQLServer2005_EMB.msi' if runnning 64bit Windows
 - 'ENU\x86\SQLServer2005_EMB.msi' in any other case</value>
   </data>
+  <data name="DownloadSqlCeInfo" xml:space="preserve">
+    <value>The Microsoft download page has multiple individual downloads. Make sure to select and install the following file:
+- 'ENU\SSCERuntime_x64-ENU.exe' if runnning 64bit Windows
+- 'ENU\SSCERuntime_x86-ENU.exe' in any other case</value>
+  </data>
   <data name="DownloadUrlEmb" xml:space="preserve">
     <value>http://www.microsoft.com/en-us/download/details.aspx?id=20101</value>
   </data>
   <data name="DownloadUrlNet" xml:space="preserve">
     <value>http://www.microsoft.com/en-us/download/details.aspx?id=22</value>
+  </data>
+  <data name="DownloadUrlSqlCe" xml:space="preserve">
+    <value>http://www.microsoft.com/en-us/download/details.aspx?id=30709</value>
   </data>
   <data name="DownloadUrlVlc" xml:space="preserve">
     <value>http://www.videolan.org/vlc/index.html</value>
@@ -162,22 +170,18 @@ Verifique el valor del argumento 'ForceUICulture' pasado al programa.</value>
     <value>Windows Firewall configuration change has ben cancelled.</value>
   </data>
   <data name="IsEmbInstalledException" xml:space="preserve">
-    <value>Unable to determine if the Microsoft Exception Message Box component is installed.
+    <value>Unable to determine if the Microsoft® Exception Message Box component is installed.
 
 {0}</value>
   </data>
   <data name="IsEmbInstalledNotInstalled" xml:space="preserve">
-    <value>Microsoft Exception Message Box component is not installed on this machine.</value>
+    <value>Microsoft® Exception Message Box component is not installed on this machine.</value>
   </data>
   <data name="IsEmbInstalledOk" xml:space="preserve">
-    <value>Installation of the Microsoft Exception Message Box component (v{0}) has been verified.</value>
-  </data>
-  <data name="IsEmbInstalledWrongVersion" xml:space="preserve">
-    <value>Microsoft Exception Message Box component v{0} (or greater) is not installed on this machine.
-Currently installed version is {1}.</value>
+    <value>Installation of the Microsoft® Exception Message Box component (v{0}) has been verified.</value>
   </data>
   <data name="IsNetInstalledException" xml:space="preserve">
-    <value>Unable to determine the installed version of the .NET Framework.
+    <value>Unable to determine the installed version of Microsoft® .NET Framework.
 
 {0}</value>
   </data>
@@ -188,10 +192,21 @@ Currently installed version is {1}.</value>
     <value>.NET Framework v3.5 '{0}' registry value not found.</value>
   </data>
   <data name="IsNetInstalledNotInstalled" xml:space="preserve">
-    <value>.NET Framework v3.5 is not installed on this machine.</value>
+    <value>Microsoft® .NET Framework v3.5 is not installed on this machine.</value>
   </data>
   <data name="IsNetInstalledOk" xml:space="preserve">
-    <value>Installation of .NET Framework v3.5 Service Pack 1 (or greater) has been verified.</value>
+    <value>Installation of Microsoft® .NET Framework v3.5 Service Pack 1 (or greater) has been verified.</value>
+  </data>
+  <data name="IsSqlCeInstalledException" xml:space="preserve">
+    <value>Unable to determine if the Microsoft® SQL Server® Compact 4.0 SP1 is installed.
+
+{0}</value>
+  </data>
+  <data name="IsSqlCeInstalledNotInstalled" xml:space="preserve">
+    <value>Microsoft® SQL Server® Compact 4.0 SP1 is not installed on this machine.</value>
+  </data>
+  <data name="IsSqlCeInstalledOk" xml:space="preserve">
+    <value>Installation of Microsoft® SQL Server® Compact Edition 4.0 SP1 (v{0}) has been verified.</value>
   </data>
   <data name="IsVlcInstalledException" xml:space="preserve">
     <value>Unable to determine if the VLC player is properly installed.

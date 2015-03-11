@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppCaption" xml:space="preserve">
-    <value>Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”)</value>
+    <value>Movistar TV channel/services list - DVB-IPTV (1.5 Alpha 0 “Kruger 60”)</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>DVB-IPTV: Movistar TV channel/services list</value>
   </data>
-  <data name="AppState" xml:space="preserve">
-    <value>Stable (release candidate)</value>
+  <data name="AppStatus" xml:space="preserve">
+    <value>Alpha (experimental)</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>1.0 RC “Wolf 424”</value>
+    <value>1.5 Alpha 0 “Kruger 60”</value>
   </data>
   <data name="BroadcastListUnableRefresh" xml:space="preserve">
     <value>Unable to obtain the list of TV channels/services</value>
@@ -140,9 +140,6 @@
   </data>
   <data name="BroadcastServiceProperties" xml:space="preserve">
     <value>Properties of the TV channel/service</value>
-  </data>
-  <data name="CancellingDownloadOperation" xml:space="preserve">
-    <value>Please wait. Canceling download...</value>
   </data>
   <data name="ChannelFormActiveScan" xml:space="preserve">
     <value>The verification of available TV channels and services is in progress.
@@ -169,69 +166,8 @@ The verification has to be canceled before you can perform the requested action.
   <data name="ChannelListRefreshSuccess" xml:space="preserve">
     <value>The channel list has been successfully refreshed.</value>
   </data>
-  <data name="CompletedDownloadDataReception" xml:space="preserve">
-    <value>Data reception is complete</value>
-  </data>
-  <data name="DialogRecordChannelEmptyFileExtension" xml:space="preserve">
-    <value>The extension of the file of the recording can not be empty.
-Please specify a file extension.</value>
-  </data>
-  <data name="DialogRecordChannelEmptyFileName" xml:space="preserve">
-    <value>The name of the file of the recording can not be empty.
-Please specify a name.</value>
-  </data>
-  <data name="DialogRecordChannelEmptyTaskName" xml:space="preserve">
-    <value>The name of the task can not be empty.
-Please specify a name.</value>
-  </data>
-  <data name="DialogRecordChannelNoSaveLocation" xml:space="preserve">
-    <value>A save location has not been selected.
-Please select one or browse for a folder.</value>
-  </data>
-  <data name="DialogRecordSaveCustomLocation" xml:space="preserve">
-    <value>&lt;Custom location&gt;</value>
-  </data>
-  <data name="DialogRecordSaveDefaultLocation" xml:space="preserve">
-    <value>&lt;Default&gt;</value>
-  </data>
-  <data name="DialogRecordSaveMissingLocation" xml:space="preserve">
-    <value>&lt;Missing location&gt;</value>
-  </data>
-  <data name="DvbStpDownloadHelperExceptionCaption" xml:space="preserve">
-    <value>An error has ocurred while fetching data</value>
-  </data>
-  <data name="DvbStpDownloadHelperUserCancelledCaption" xml:space="preserve">
-    <value>Request cancelled</value>
-  </data>
   <data name="ExternalPlayerShortcutDescription" xml:space="preserve">
     <value>Launches {0} player to view DVB-IPTV channel '{1}'</value>
-  </data>
-  <data name="MulticastScannerDlgActive" xml:space="preserve">
-    <value>Active</value>
-  </data>
-  <data name="MulticastScannerDlgDead" xml:space="preserve">
-    <value>Unavailable</value>
-  </data>
-  <data name="MulticastScannerDlgError" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="MulticastScannerDlgSkipped" xml:space="preserve">
-    <value>Skipped</value>
-  </data>
-  <data name="MulticastScannerDlgTotal" xml:space="preserve">
-    <value>Total</value>
-  </data>
-  <data name="MulticastServiceScanningCancelled" xml:space="preserve">
-    <value>Scan has been cancelled by the user</value>
-  </data>
-  <data name="MulticastServiceScanningCancelling" xml:space="preserve">
-    <value>Please wait. Canceling scan...</value>
-  </data>
-  <data name="MulticastServiceScanningCompleted" xml:space="preserve">
-    <value>Scan is complete</value>
-  </data>
-  <data name="MulticastServiceScanningError" xml:space="preserve">
-    <value>An error has occurred during the scan and has been aborted</value>
   </data>
   <data name="MyAppCtxExceptionCaption" xml:space="preserve">
     <value>Unable to start the application</value>
@@ -281,16 +217,6 @@ The application will now end.</value>
 
 {1}</value>
   </data>
-  <data name="RecordHelpTaskCreationException" xml:space="preserve">
-    <value>Unexpected error while contacting with the Windows Task Manager to create the recording task.
-The recording task has not been created.</value>
-  </data>
-  <data name="RecordHelpTaskRunException" xml:space="preserve">
-    <value>Unable to run the 'Right now' recording task and no recording action will take place.</value>
-  </data>
-  <data name="RecordTaskNameSuggestedNameFormat" xml:space="preserve">
-    <value>{0} [{1:yyyy\-MM\-dd} {2:HH\-mm\-ss}]</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="SolutionLicense" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\solution-license.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -307,18 +233,10 @@ The recording task has not been created.</value>
   <data name="SPProperties" xml:space="preserve">
     <value>Properties of the service provider</value>
   </data>
-  <data name="TaskSchedulerRootFolder" xml:space="preserve">
-    <value>&lt;No folder&gt;</value>
-  </data>
-  <data name="UnableCancelDownloadCaption" xml:space="preserve">
-    <value>Unable to cancel</value>
-  </data>
-  <data name="UnableCancelDownloadMessage" xml:space="preserve">
-    <value>Unable to cancel right now. Please try again in a few seconds.
-
-The operation has been scheduled and cannot be cancelled until it has started.</value>
-  </data>
   <data name="UserCancelListRefresh" xml:space="preserve">
     <value>The refreshing of the list has been cancelled by the user.</value>
+  </data>
+  <data name="SchedulerCreateTaskOk" xml:space="preserve">
+    <value>The recording task has been sucessfully created.</value>
   </data>
 </root>

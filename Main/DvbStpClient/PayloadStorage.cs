@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using System;
@@ -10,7 +10,7 @@ namespace Project.DvbIpTv.DvbStp.Client
 {
     public partial class PayloadStorage
     {
-        private Dictionary<string, VersionStorage> Sections;
+        private Dictionary<int, VersionStorage> Sections;
 
         internal static byte[] EmptyData = new byte[0];
 
@@ -27,16 +27,18 @@ namespace Project.DvbIpTv.DvbStp.Client
 
         public PayloadStorage(bool saveData)
         {
-            Sections = new Dictionary<string, VersionStorage>();
+            Sections = new Dictionary<int, VersionStorage>();
             SaveData = saveData;
         } // constructor
 
         public bool AddSection(DvbStpHeader header, byte[] data, bool isRawData)
         {
             VersionStorage versions;
-            string key;
 
-            key = string.Format("p{0:X2}s{1:X4}", header.PayloadId, header.SegmentId);
+            var p = (int)header.PayloadId;
+            var s = (int)header.SegmentId;
+            var key = ((p << 16) | s);
+
             if (!Sections.TryGetValue(key, out versions))
             {
                 versions = CreateNewVersions(header);

@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 namespace Project.DvbIpTv.Tools.FirstTimeConfig
@@ -51,6 +51,10 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.linkLabelPrerequisiteVlc = new System.Windows.Forms.LinkLabel();
             this.labelVlc = new System.Windows.Forms.Label();
             this.groupPrerequisites = new System.Windows.Forms.GroupBox();
+            this.pictureBoxSqlCeOk = new System.Windows.Forms.PictureBox();
+            this.buttonVerifySqlCe = new System.Windows.Forms.Button();
+            this.linkLabelPrerequisiteSqlCe = new System.Windows.Forms.LinkLabel();
+            this.labelSqlCe = new System.Windows.Forms.Label();
             this.pictureBoxEmbOk = new System.Windows.Forms.PictureBox();
             this.pictureBoxNetOk = new System.Windows.Forms.PictureBox();
             this.buttonVerifyEmb = new System.Windows.Forms.Button();
@@ -60,14 +64,14 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.linkLabelPrerequisiteNet = new System.Windows.Forms.LinkLabel();
             this.labelNet = new System.Windows.Forms.Label();
             this.wizardPage2 = new System.Windows.Forms.TabPage();
+            this.labelCreatingConfig = new System.Windows.Forms.Label();
+            this.buttonConfig = new System.Windows.Forms.Button();
             this.groupFirewall = new System.Windows.Forms.GroupBox();
             this.buttonFirewall = new System.Windows.Forms.Button();
             this.labelFirewallWarning = new System.Windows.Forms.Label();
             this.checkBoxFirewallVlc = new System.Windows.Forms.CheckBox();
             this.checkBoxFirewallDecoder = new System.Windows.Forms.CheckBox();
             this.groupBasicConfig = new System.Windows.Forms.GroupBox();
-            this.labelCreatingConfig = new System.Windows.Forms.Label();
-            this.buttonConfig = new System.Windows.Forms.Button();
             this.textSaveSubFolder = new System.Windows.Forms.TextBox();
             this.labelSaveSubFolder = new System.Windows.Forms.Label();
             this.buttonBrowseSave = new System.Windows.Forms.Button();
@@ -83,6 +87,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.groupVlc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVlcOk)).BeginInit();
             this.groupPrerequisites.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSqlCeOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEmbOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNetOk)).BeginInit();
             this.wizardPage2.SuspendLayout();
@@ -239,6 +244,10 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             // 
             // groupPrerequisites
             // 
+            this.groupPrerequisites.Controls.Add(this.pictureBoxSqlCeOk);
+            this.groupPrerequisites.Controls.Add(this.buttonVerifySqlCe);
+            this.groupPrerequisites.Controls.Add(this.linkLabelPrerequisiteSqlCe);
+            this.groupPrerequisites.Controls.Add(this.labelSqlCe);
             this.groupPrerequisites.Controls.Add(this.pictureBoxEmbOk);
             this.groupPrerequisites.Controls.Add(this.pictureBoxNetOk);
             this.groupPrerequisites.Controls.Add(this.buttonVerifyEmb);
@@ -250,6 +259,33 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             resources.ApplyResources(this.groupPrerequisites, "groupPrerequisites");
             this.groupPrerequisites.Name = "groupPrerequisites";
             this.groupPrerequisites.TabStop = false;
+            // 
+            // pictureBoxSqlCeOk
+            // 
+            this.pictureBoxSqlCeOk.Image = global::Project.DvbIpTv.Tools.FirstTimeConfig.Properties.Resources.Error_16x16;
+            resources.ApplyResources(this.pictureBoxSqlCeOk, "pictureBoxSqlCeOk");
+            this.pictureBoxSqlCeOk.Name = "pictureBoxSqlCeOk";
+            this.pictureBoxSqlCeOk.TabStop = false;
+            // 
+            // buttonVerifySqlCe
+            // 
+            this.buttonVerifySqlCe.Image = global::Project.DvbIpTv.Tools.FirstTimeConfig.Properties.Resources.ApproveReject_16x16;
+            resources.ApplyResources(this.buttonVerifySqlCe, "buttonVerifySqlCe");
+            this.buttonVerifySqlCe.Name = "buttonVerifySqlCe";
+            this.buttonVerifySqlCe.UseVisualStyleBackColor = true;
+            this.buttonVerifySqlCe.Click += new System.EventHandler(this.buttonVerifySqlCe_Click);
+            // 
+            // linkLabelPrerequisiteSqlCe
+            // 
+            resources.ApplyResources(this.linkLabelPrerequisiteSqlCe, "linkLabelPrerequisiteSqlCe");
+            this.linkLabelPrerequisiteSqlCe.Name = "linkLabelPrerequisiteSqlCe";
+            this.linkLabelPrerequisiteSqlCe.TabStop = true;
+            this.linkLabelPrerequisiteSqlCe.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelPrerequisiteSqlCe_LinkClicked);
+            // 
+            // labelSqlCe
+            // 
+            resources.ApplyResources(this.labelSqlCe, "labelSqlCe");
+            this.labelSqlCe.Name = "labelSqlCe";
             // 
             // pictureBoxEmbOk
             // 
@@ -307,11 +343,25 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             // 
             // wizardPage2
             // 
+            this.wizardPage2.Controls.Add(this.labelCreatingConfig);
+            this.wizardPage2.Controls.Add(this.buttonConfig);
             this.wizardPage2.Controls.Add(this.groupFirewall);
             this.wizardPage2.Controls.Add(this.groupBasicConfig);
             resources.ApplyResources(this.wizardPage2, "wizardPage2");
             this.wizardPage2.Name = "wizardPage2";
             this.wizardPage2.UseVisualStyleBackColor = true;
+            // 
+            // labelCreatingConfig
+            // 
+            resources.ApplyResources(this.labelCreatingConfig, "labelCreatingConfig");
+            this.labelCreatingConfig.Name = "labelCreatingConfig";
+            // 
+            // buttonConfig
+            // 
+            resources.ApplyResources(this.buttonConfig, "buttonConfig");
+            this.buttonConfig.Name = "buttonConfig";
+            this.buttonConfig.UseVisualStyleBackColor = true;
+            this.buttonConfig.Click += new System.EventHandler(this.buttonConfig_Click);
             // 
             // groupFirewall
             // 
@@ -352,8 +402,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             // 
             // groupBasicConfig
             // 
-            this.groupBasicConfig.Controls.Add(this.labelCreatingConfig);
-            this.groupBasicConfig.Controls.Add(this.buttonConfig);
             this.groupBasicConfig.Controls.Add(this.textSaveSubFolder);
             this.groupBasicConfig.Controls.Add(this.labelSaveSubFolder);
             this.groupBasicConfig.Controls.Add(this.buttonBrowseSave);
@@ -362,18 +410,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             resources.ApplyResources(this.groupBasicConfig, "groupBasicConfig");
             this.groupBasicConfig.Name = "groupBasicConfig";
             this.groupBasicConfig.TabStop = false;
-            // 
-            // labelCreatingConfig
-            // 
-            resources.ApplyResources(this.labelCreatingConfig, "labelCreatingConfig");
-            this.labelCreatingConfig.Name = "labelCreatingConfig";
-            // 
-            // buttonConfig
-            // 
-            resources.ApplyResources(this.buttonConfig, "buttonConfig");
-            this.buttonConfig.Name = "buttonConfig";
-            this.buttonConfig.UseVisualStyleBackColor = true;
-            this.buttonConfig.Click += new System.EventHandler(this.buttonConfig_Click);
             // 
             // textSaveSubFolder
             // 
@@ -463,9 +499,11 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVlcOk)).EndInit();
             this.groupPrerequisites.ResumeLayout(false);
             this.groupPrerequisites.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSqlCeOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEmbOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNetOk)).EndInit();
             this.wizardPage2.ResumeLayout(false);
+            this.wizardPage2.PerformLayout();
             this.groupFirewall.ResumeLayout(false);
             this.groupFirewall.PerformLayout();
             this.groupBasicConfig.ResumeLayout(false);
@@ -518,12 +556,16 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         private System.Windows.Forms.Label labelFirewallWarning;
         private System.Windows.Forms.CheckBox checkBoxFirewallVlc;
         private System.Windows.Forms.CheckBox checkBoxFirewallDecoder;
-        private System.Windows.Forms.Button buttonConfig;
-        private System.Windows.Forms.Label labelCreatingConfig;
         private System.Windows.Forms.CheckBox checkBoxLaunchProgram;
         private System.Windows.Forms.Label labelWizardResult;
         private System.Windows.Forms.PictureBox pictureBoxWizardResult;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label labelHowToClose;
+        private System.Windows.Forms.PictureBox pictureBoxSqlCeOk;
+        private System.Windows.Forms.Button buttonVerifySqlCe;
+        private System.Windows.Forms.LinkLabel linkLabelPrerequisiteSqlCe;
+        private System.Windows.Forms.Label labelSqlCe;
+        private System.Windows.Forms.Label labelCreatingConfig;
+        private System.Windows.Forms.Button buttonConfig;
     }
 }

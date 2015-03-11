@@ -9,16 +9,20 @@ Todos los demás derechos están reservados por el/los autor(es) del software.
 Aviso: Las traducciones al Español de este archivo se proporcionan únicamente a modo informativo y no tienen caracter vinculante o validez legal alguna.
 
 --------------------------------------------------------------------------------
-Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury and its contributors
 --------------------------------------------------------------------------------
 
-NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services.
+DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
 
 This Software, either in binary or source code form, is licensed under the terms of the Microsoft Reciprocal License (Ms-RL) except when noted in "EXCEPTIONS".
 All other rights are reserved by the author(s) of the software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement.
-In no event shall the authors or the copyright holders be liable for any claim, damages or other liability, whether in action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+All trademarks, service marks, trade names, product names and logos are the property of their respective owners, including in some instances Grupo Telefónica.
+Its use in the context of this product does not constitute endorsement nor support by their respective owners.
 
 Note: Spanish translations in this file are provided solely for informative purposes and have no binding or legal value whatsoever.
 

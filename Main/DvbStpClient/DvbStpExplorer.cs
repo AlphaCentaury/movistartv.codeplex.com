@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using System;
@@ -81,6 +81,12 @@ namespace Project.DvbIpTv.DvbStp.Client
                 Close();
             } // 
         } // ExplorerMulticastStream
+
+        protected override void ProcessReceivedData()
+        {
+            // our implementation (at least for now) is not using ReceiveData(), so there's no need for this function
+            throw new NotImplementedException();
+        } // ProcessReceivedData
 
         private void InitRun()
         {

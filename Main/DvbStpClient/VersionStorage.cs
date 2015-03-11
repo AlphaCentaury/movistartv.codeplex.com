@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using System;
@@ -55,7 +55,7 @@ namespace Project.DvbIpTv.DvbStp.Client
 
             if (!Versions.TryGetValue(header.SegmentVersion, out assembler))
             {
-                assembler = new SegmentAssembler(PayloadId, SegmentId, header.SegmentVersion, header.LastSectionNumber);
+                assembler = new SegmentAssembler(new DvbStpSegmentIdentity(header), header.LastSectionNumber);
                 Versions[header.SegmentVersion] = assembler;
                 OnSegmentStarted(header);
             } // if
@@ -119,7 +119,7 @@ namespace Project.DvbIpTv.DvbStp.Client
             } // if
 
             // discard data
-            assembler.NewVersionReset(assembler.SegmentVersion, assembler.LastSectionNumber);
+            assembler.Reset();
         } // OnSegmentReceived
     } // VersionStorage
 } // namespace

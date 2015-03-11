@@ -1,6 +1,7 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,12 +40,12 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
 
         public static UserConfig Load(string xmlFilePath)
         {
-            return SerializationUtils.LoadFromXml<UserConfig>(xmlFilePath);
+            return XmlSerialization.Deserialize<UserConfig>(xmlFilePath, true);
         } // Load
 
         public void Save(string xmlFilePath)
         {
-            SerializationUtils.SaveToXml(this, xmlFilePath, Encoding.UTF8);
+            XmlSerialization.Serialize(xmlFilePath, Encoding.UTF8, this);
         } // Save
 
         internal string Validate()

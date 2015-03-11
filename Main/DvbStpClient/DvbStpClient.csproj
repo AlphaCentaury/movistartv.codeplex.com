@@ -46,6 +46,7 @@
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
     <Compile Include="DvbStpExplorer.cs" />
+    <Compile Include="DvbStpSegmentIdentity.cs" />
     <Compile Include="PayloadStorage.cs" />
     <Compile Include="VersionStorage.cs" />
     <Compile Include="DvbStpExplorerEventArgs.cs" />
@@ -54,7 +55,7 @@
     <Compile Include="DvbStpSimpleClient.cs" />
     <Compile Include="DvbStpSimpleClientEventArgs.cs" />
     <Compile Include="DvbStpHeader.cs" />
-    <Compile Include="PayloadSegmentAssembler.cs" />
+    <Compile Include="SegmentAssembler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

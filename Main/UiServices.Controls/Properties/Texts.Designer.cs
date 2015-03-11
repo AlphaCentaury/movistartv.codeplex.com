@@ -79,70 +79,6 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Schedule: a value is not valid or allowed.
-        /// </summary>
-        internal static string RecordingScheduleValidationCaption {
-            get {
-                return ResourceManager.GetString("RecordingScheduleValidationCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total recording time can not exceed {0:N0} days.
-        ///Select an earlier date/time to limit the total recording time to less than {0:N0} days..
-        /// </summary>
-        internal static string RecordingTimeDateTimeSpanMaxValue {
-            get {
-                return ResourceManager.GetString("RecordingTimeDateTimeSpanMaxValue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The end date/time can not be earlier than the recording start time..
-        /// </summary>
-        internal static string RecordingTimeInvalidDateTime {
-            get {
-                return ResourceManager.GetString("RecordingTimeInvalidDateTime", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Recording time must be at least 60 seconds (1 minute)..
-        /// </summary>
-        internal static string RecordingTimeInvalidTimeSpan {
-            get {
-                return ResourceManager.GetString("RecordingTimeInvalidTimeSpan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Recording time: a value is not valid or allowed.
-        /// </summary>
-        internal static string RecordingTimeValidationCaption {
-            get {
-                return ResourceManager.GetString("RecordingTimeValidationCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 15 minutes ~ 00:15:00
-        ///30 minutes ~ 00:30:00
-        ///45 minutes ~ 00:45:00
-        ///60 minutes (1 hour) ~ 01:00:00
-        ///90 minutes ~ 01:30:00
-        ///120 minutes (2 hours) ~ 02:00:00
-        ///150 minutes ~ 02:30:00
-        ///180 minutes (3 hours) ~ 03:00:00
-        ///4 hours ~ 04:00:00
-        ///5 hours ~ 05:00:00.
-        /// </summary>
-        internal static string RecordTimeQuickSettings {
-            get {
-                return ResourceManager.GetString("RecordTimeQuickSettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to d.
         /// </summary>
         internal static string TimeSpanDaysShortLabel {
@@ -179,11 +115,11 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At least a day must be selected for a weekly schedule..
+        ///   Looks up a localized string similar to Unexpected exception in program.
         /// </summary>
-        internal static string WeeklyScheduleNoDays {
+        internal static string UncaughtExceptionCaption {
             get {
-                return ResourceManager.GetString("WeeklyScheduleNoDays", resourceCulture);
+                return ResourceManager.GetString("UncaughtExceptionCaption", resourceCulture);
             }
         }
     }

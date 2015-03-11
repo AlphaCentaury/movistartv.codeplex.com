@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+-->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
-  <Product Id="aa41b721-8657-4ec7-9fd1-9f27dbda4ad0" Name="!(loc.ProductName)" Language="!(loc.LANGUAGE)" Codepage="Windows-1252" Version="1.0.20000.0" Manufacturer="http://movistartv.codeplex.com"  UpgradeCode="afd3b1aa-d204-42bf-b831-becb33b2ace1">
+  <?include Strings.wxi ?>
+  <Product Id="$(var.ProductId)" Name="!(loc.ProductName)" Language="!(loc.LANGUAGE)" Codepage="Windows-1252" Version="$(var.Version)" Manufacturer="$(var.Manufacturer)"  UpgradeCode="$(var.UpgradeCode)">
     <Package Id="*" InstallerVersion="300" Compressed="yes" InstallScope="perUser"
       Description="!(loc.PackageDescription)" Languages="!(loc.LANGUAGE)" Manufacturer="http://movistartv.codeplex.com" />
 
-    <PropertyRef Id="NETFRAMEWORK20"/>
-
-    <Condition Message="!(loc.NetFramework20)">
-      <![CDATA[Installed OR NETFRAMEWORK20]]>
+    <!-- Ensure .NET Framework 3.5 SP1 is installed -->
+    <PropertyRef Id="NETFRAMEWORK35"/>
+    <PropertyRef Id="NETFRAMEWORK35_SP_LEVEL"/>
+    <Condition Message="!(loc.NetFrameworkNotPresent)">
+      <![CDATA[Installed OR (NETFRAMEWORK35_SP_LEVEL and NOT NETFRAMEWORK35_SP_LEVEL = "#0")]]>
     </Condition>
 
     <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeErrorMessage)" />
     <MediaTemplate EmbedCab="yes" />
 
-    <Feature Id="ProductFeature" Title="MainSetup" Level="1">
-      <ComponentGroupRef Id="Folders" />
-      <ComponentGroupRef Id="CommonComponents" />
-      <ComponentGroupRef Id="CommonComponents_Localized" />
-      <ComponentGroupRef Id="ProductComponents" />
-      <ComponentGroupRef Id="ProductComponents_Localized" />
-      <ComponentGroupRef Id="FirstTimeConfigComponents" />
-      <ComponentGroupRef Id="FirstTimeConfigComponents_Localized" />
-      <ComponentGroupRef Id="IpTvRecorderLauncherComponents" />
-      <ComponentGroupRef Id="IpTvRecorderLauncherComponents_Localized" />
-      <ComponentGroupRef Id="ContentProviderComponents" />
-      <ComponentGroupRef Id="Logos.Content" />
+    <Feature Id="ProductFeature" Title="!(loc.ProductName)" Level="1" Absent="disallow" Display="expand">
+      <Feature Id="Base" Title="Archivos comunes" Absent="disallow">
+        <ComponentGroupRef Id="RegistryConfiguration" />
+        <ComponentGroupRef Id="CommonComponents" />
+        <ComponentGroupRef Id="CommonComponents.Localization" />
+        <ComponentGroupRef Id="ProductComponents" />
+        <ComponentGroupRef Id="ProductComponents.Localization" />
+        <ComponentGroupRef Id="ContentProviderComponents" />
+        <ComponentGroupRef Id="Logos.Content" />
+        <ComponentGroupRef Id="UninstallFolders" />
+      </Feature>
+      <Feature Id="Features" Display="expand" Title="Aditional features">
+        <FeatureRef Id="Feature.Record" />
+        <FeatureRef Id="Feature.EPG" />
+      </Feature>
+      <FeatureRef Id="Feature.Tools" />
     </Feature>
 
     <UIRef Id='WixUI_Minimal'/>
+    <!--<UIRef Id='WixUI_FeatureTree'/>-->
     <WixVariable Id='WixUIBannerBmp' Value='bannrbmp.bmp'/>
     <WixVariable Id='WixUIDialogBmp' Value='dlgbmp.bmp'/>
     <!-- ATENCION: WixVariable no permite utilizar !(loc.xxx); por tanto, el nombre del archivo de licencia va a "piñon fijo"; hay que buscar la forma de solucionar esto; cuando se crea un instalador para otro idioma es necesario modificar manualmente el nombre del archivo para que se incluya el acuerdo de licencia en el idioma correcto -->
@@ -53,13 +64,16 @@
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="PersonalFolder">
         <Directory Id="DvbFolder" Name="DVB-IPTV">
-          <Directory Id="BaseFolder" Name="MovistarTV (v1.0 Wolf-424)">
+          <Directory Id="BaseFolder" Name="MovistarTV (v1.5 Kruger-60)">
             <Directory Id="INSTALLFOLDER" Name="bin">
-              <Directory Id="InstallFolder_es" Name="es" />
+              <Directory Id="InstallFolder.es" Name="es" />
             </Directory>
             <Directory Id="CacheFolder" Name="Cache" />
             <Directory Id="LogosFolder" Name="Logos" />
             <Directory Id="RecordTasksFolder" Name="RecordTasks" />
+            <Directory Id="ToolsFolder" Name="Tools">
+              <Directory Id="ToolsFolder.es" Name="es" />
+            </Directory>
           </Directory>
         </Directory>
       </Directory>
@@ -73,11 +87,11 @@
       </Directory>
     </Directory>
 
-    <ComponentGroup Id="Folders">
-      <Component Id="Folders" Directory="BaseFolder" Guid="E36DB31D-61D4-41C2-977A-391DCEFA00AF">
+    <ComponentGroup Id="UninstallFolders">
+      <Component Id="Folders" Directory="BaseFolder" Guid="$(var.Guid.Component.Folders)">
         <RemoveFile Id="Purge_BaseFolder" Name="*.*" On="uninstall" />
         <RemoveFile Id="Purge_INSTALLFOLDER" Name="*.*" On="uninstall" Directory="INSTALLFOLDER" />
-        <RemoveFile Id="Purge_InstallFolder_es" Name="*.*" On="uninstall" Directory="InstallFolder_es"/>
+        <RemoveFile Id="Purge_InstallFolder.es" Name="*.*" On="uninstall" Directory="InstallFolder.es"/>
         <RemoveFile Id="Purge_CacheFolder" Name="*.*" On="uninstall" Directory="CacheFolder" />
         <RemoveFile Id="Purge_LogosFolder" Name="*.*" On="uninstall" Directory="LogosFolder"/>
         <RemoveFile Id="Purge_RecordTasksFolder" Name="*.*" On="uninstall" Directory="RecordTasksFolder"/>
@@ -85,7 +99,7 @@
         <RemoveFolder Id="Remove_DvbFolder" On="uninstall" Directory="DvbFolder" />
         <RemoveFolder Id="Remove_BaseFolder" On="uninstall" Directory="BaseFolder"/>
         <RemoveFolder Id="Remove_INSTALLFOLDER" On="uninstall" Directory="INSTALLFOLDER"/>
-        <RemoveFolder Id="Remove_InstallFolder_es" On="uninstall" Directory="InstallFolder_es"/>
+        <RemoveFolder Id="Remove_InstallFolder.es" On="uninstall" Directory="InstallFolder.es"/>
         <RemoveFolder Id="Remove_CacheFolder" On="uninstall" Directory="CacheFolder" />
         <RemoveFolder Id="Remove_LogosFolder" On="uninstall" Directory="LogosFolder"/>
         <RemoveFolder Id="Remove_RecordTasksFolder" On="uninstall" Directory="RecordTasksFolder"/>

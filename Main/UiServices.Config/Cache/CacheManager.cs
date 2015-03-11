@@ -1,6 +1,7 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,7 +34,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Cache
         public void SaveXml<T>(string documentType, string name, int version, T xmlTree) where T: class
         {
             var path = Path.Combine(BaseDirectory, GetSafeDocName(documentType, name, ".xml"));
-            SerializationUtils.SaveToXml(xmlTree, path, Encoding.UTF8);
+            XmlSerialization.Serialize(path, Encoding.UTF8, xmlTree);
         } // SaveXml
 
         public T LoadXml<T>(string documentType, string name) where T : class
@@ -46,7 +47,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Cache
                     return null;
                 } // if
 
-                return SerializationUtils.LoadFromXml<T>(path);
+                return XmlSerialization.Deserialize<T>(path, false);
             }
             catch
             {
@@ -65,7 +66,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Cache
                     return null;
                 } // if
 
-                var document = SerializationUtils.LoadFromXml<T>(path);
+                var document =  XmlSerialization.Deserialize<T>(path, false);
                 if (document == null) return null;
 
                 var dateC = File.GetCreationTime(path);

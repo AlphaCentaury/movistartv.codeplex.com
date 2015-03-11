@@ -160,8 +160,8 @@
   <data name="Shield_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Shield_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EmbComponentTargetVersion" xml:space="preserve">
-    <value>9.0.242</value>
+  <data name="EmbComponentAssemblyName" xml:space="preserve">
+    <value>Microsoft.ExceptionMessageBox, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</value>
   </data>
   <data name="WizardEnd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WizardEnd.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -191,13 +191,23 @@
     <value>..\Resources\Firewall_48x48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FirewallRulePrefix" xml:space="preserve">
-    <value>DVB-IPTV v1.0 'Wolf 424': {0}</value>
+    <value>DVB-IPTV v1.5 'Kruger 60': {0}</value>
   </data>
   <data name="FirewallProgramList" xml:space="preserve">
-    <value>ChannelList.exe</value>
+    <value>ChannelList.exe
+ConsoleEPGLoader.exe</value>
     <comment>One program per line</comment>
   </data>
   <data name="SuccessExecuteProgram" xml:space="preserve">
     <value>ChannelList.exe</value>
+  </data>
+  <data name="EmbTargetFileVersion" xml:space="preserve">
+    <value>9.0.1399.0</value>
+  </data>
+  <data name="SqlCeComponentAssemblyName" xml:space="preserve">
+    <value>System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</value>
+  </data>
+  <data name="SqlCeTargetFileVersion" xml:space="preserve">
+    <value>4.0.8876.1</value>
   </data>
 </root>

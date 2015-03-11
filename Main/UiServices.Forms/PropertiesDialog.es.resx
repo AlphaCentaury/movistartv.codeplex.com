@@ -126,6 +126,45 @@
   <data name="labelDescription.Text" xml:space="preserve">
     <value>(Descripción)</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="contextMenuListCopyValue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="contextMenuListCopyValue.Text" xml:space="preserve">
+    <value>Copiar &amp;valor</value>
+  </data>
+  <data name="contextMenuListCopyName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="contextMenuListCopyName.Text" xml:space="preserve">
+    <value>Copiar &amp;nombre</value>
+  </data>
+  <data name="contextMenuListCopyRow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="contextMenuListCopyRow.Text" xml:space="preserve">
+    <value>Copiar &amp;fila</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 6</value>
+  </data>
+  <data name="contextMenuListCopyAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="contextMenuListCopyAll.Text" xml:space="preserve">
+    <value>Copiar &amp;todo</value>
+  </data>
+  <data name="contextMenuList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 98</value>
+  </data>
+  <data name="buttonOk.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vwAADr8BOAVTJAAAAAd0SU1FB98BCxQxD4gQu2QAAAB+SURBVDhPYxgB4MPPTwJA/B6I/yPhBqg0YQBS
+        XHe467+Kl/Z/vRRzkGaQYQJQafwApBCkAaQRZADIIJCBUGnCAKSYaNtBioEY5keYYuJtB0piOJdkv4Ns
+        QNZEtO0wALIBZBNMI0m2wwDIJpgrSLIdBkA2QW0EaSTN9qEIGBgADBTL2TUR0y4AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="buttonOk.Text" xml:space="preserve">
     <value>&amp;Aceptar</value>
   </data>

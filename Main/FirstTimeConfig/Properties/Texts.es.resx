@@ -134,11 +134,19 @@ El proceso de configuración inicial ha finalizado y la aplicación ya está lis
 - 'ESN\x64\SQLServer2005_EMB.msi' si se está ejecutando Windows de 64 bits
 - 'ESN\x86\SQLServer2005_EMB.msi' en cualquier otro caso</value>
   </data>
+  <data name="DownloadSqlCeInfo" xml:space="preserve">
+    <value>La página de descargas de Microsoft ofrece múltiples descargas. Asegurese de seleccionar e instalar el siguiente archivo:
+- 'ESN\SSCERuntime_x64-ESN.exe' si se está ejecutando Windows de 64 bits
+- 'ESN\SSCERuntime_x86-ESN.exe' en cualquier otro caso</value>
+  </data>
   <data name="DownloadUrlEmb" xml:space="preserve">
     <value>http://www.microsoft.com/es-es/download/details.aspx?id=20101</value>
   </data>
   <data name="DownloadUrlNet" xml:space="preserve">
     <value>http://www.microsoft.com/es-es/download/details.aspx?id=22</value>
+  </data>
+  <data name="DownloadUrlSqlCe" xml:space="preserve">
+    <value>http://www.microsoft.com/es-ES/download/details.aspx?id=30709</value>
   </data>
   <data name="DownloadUrlVlc" xml:space="preserve">
     <value>http://www.videolan.org/vlc/index.es.html</value>
@@ -162,22 +170,18 @@ Please verify the value of the 'ForceUICulture' program argument.</value>
     <value>Se ha cancelado la modificación de la configuración del cortafuegos.</value>
   </data>
   <data name="IsEmbInstalledException" xml:space="preserve">
-    <value>No ha sido posible determinar si el componente Microsoft Exception Message Box se enecuentra instalado.
+    <value>No ha sido posible determinar si el componente Microsoft® Exception Message Box se encuentra instalado.
 
 {0}</value>
   </data>
   <data name="IsEmbInstalledNotInstalled" xml:space="preserve">
-    <value>El component Microsoft Exception Message Box no está instalado en esta máquina.</value>
+    <value>El componente Microsoft® Exception Message Box no está instalado en este equipo.</value>
   </data>
   <data name="IsEmbInstalledOk" xml:space="preserve">
-    <value>Se ha verificado la instalación del component Microsoft Exception Message Box (v{0}).</value>
-  </data>
-  <data name="IsEmbInstalledWrongVersion" xml:space="preserve">
-    <value>El component Microsoft Exception Message Box v{0} (o superior) no está instalado en esta máquina.
-La versión actualmente instalada es {1}.</value>
+    <value>Se ha verificado la instalación del component Microsoft® Exception Message Box (v{0}).</value>
   </data>
   <data name="IsNetInstalledException" xml:space="preserve">
-    <value>No ha sido posible determinar la versión instalada del .NET Framework.
+    <value>No ha sido posible determinar la versión instalada de Microsoft® .NET Framework.
 
 {0}</value>
   </data>
@@ -191,7 +195,18 @@ La versión actualmente instalada es {1}.</value>
     <value>.NET Framework v3.5 no está instalado en esta máquina.</value>
   </data>
   <data name="IsNetInstalledOk" xml:space="preserve">
-    <value>Se ha verificado la instalación de .NET Framework v3.5 Service Pack 1 (o superior).</value>
+    <value>Se ha verificado la instalación de Microsoft® .NET Framework v3.5 Service Pack 1 (o superior).</value>
+  </data>
+  <data name="IsSqlCeInstalledException" xml:space="preserve">
+    <value>No ha sido posible determinar si Microsoft® SQL Server® Compact 4.0 SP1 se encuentra instalado.
+
+{0}</value>
+  </data>
+  <data name="IsSqlCeInstalledNotInstalled" xml:space="preserve">
+    <value>Microsoft® SQL Server® Compact 4.0 SP1 no está instalado en este equipo.</value>
+  </data>
+  <data name="IsSqlCeInstalledOk" xml:space="preserve">
+    <value>Se ha verificado la instalación de Microsoft® SQL Server® Compact 4.0 SP1 (v{0}).</value>
   </data>
   <data name="IsVlcInstalledException" xml:space="preserve">
     <value>No es posible determinar si el reproductor VLC está correctamente instalado.
@@ -205,7 +220,7 @@ La versión actualmente instalada es {1}.</value>
     <value>Se ha verificado la instalación del reproductor VLC (versión {0}) y de su archivo de librería (versión {1}).</value>
   </data>
   <data name="IsVlcInstalledVersion" xml:space="preserve">
-    <value>El reproductor VLC versión {0} (o superior) no está instalado en esta máquina.
+    <value>El reproductor VLC versión {0} (o superior) no está instalado en este equipo.
 La versión actualmente instalada es {1}.</value>
   </data>
   <data name="IsVlcLibInstalledNotInstalled" xml:space="preserve">

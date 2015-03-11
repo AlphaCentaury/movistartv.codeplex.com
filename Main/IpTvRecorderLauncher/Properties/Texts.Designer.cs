@@ -88,7 +88,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ERROR: Unable to load the XML recording task configuration file..
+        ///   Looks up a localized string similar to ERROR: Unable to load the recording task configuration data..
         /// </summary>
         internal static string DisplayErrorLoadTaskFile {
             get {
@@ -124,7 +124,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loading XML....
+        ///   Looks up a localized string similar to Loading record task from database....
         /// </summary>
         internal static string DisplayLoadingXml {
             get {
@@ -242,20 +242,21 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Info: Loading XML task file....
-        /// </summary>
-        internal static string InfoLoadingTaskFile {
-            get {
-                return ResourceManager.GetString("InfoLoadingTaskFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         internal static string InfoOk {
             get {
                 return ResourceManager.GetString("InfoOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERROR: Invalid argument format.
+        ///Use /HELP for more information..
+        /// </summary>
+        internal static string InvalidArgumentFormat {
+            get {
+                return ResourceManager.GetString("InvalidArgumentFormat", resourceCulture);
             }
         }
         
@@ -369,8 +370,8 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loading XML file
-        ///{0}.
+        ///   Looks up a localized string similar to Loading configuration data for task {0} from database
+        ///{1}.
         /// </summary>
         internal static string LogInfoLoadingXml {
             get {
@@ -379,7 +380,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to XML file loaded.
+        ///   Looks up a localized string similar to Task configuration data loaded.
         /// </summary>
         internal static string LogInfoLoadingXmlOk {
             get {
@@ -520,7 +521,7 @@ namespace Project.DvbIpTv.RecorderLauncher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to IPTV Recorder launcher utility
         ///Version {0}
-        ///(C) 2014. All rights reserved..
+        ///{1}. All rights reserved..
         /// </summary>
         internal static string StartLogo {
             get {

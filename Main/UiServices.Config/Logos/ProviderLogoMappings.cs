@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Logos;
@@ -47,7 +47,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
             {
                 try
                 {
-                    mappings.Add(mp.DomainName.ToLowerInvariant(), mp.LogoFile.Trim());
+                    mappings.Add(mp.DomainName.ToLowerInvariant(), mp.LogoFile);
                 }
                 catch (ArgumentException ex) // duplicated key (domain name)
                 {

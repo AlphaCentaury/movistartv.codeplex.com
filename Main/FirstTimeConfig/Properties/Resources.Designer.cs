@@ -131,11 +131,20 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 9.0.242.
+        ///   Looks up a localized string similar to Microsoft.ExceptionMessageBox, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91.
         /// </summary>
-        internal static string EmbComponentTargetVersion {
+        internal static string EmbComponentAssemblyName {
             get {
-                return ResourceManager.GetString("EmbComponentTargetVersion", resourceCulture);
+                return ResourceManager.GetString("EmbComponentAssemblyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9.0.1399.0.
+        /// </summary>
+        internal static string EmbTargetFileVersion {
+            get {
+                return ResourceManager.GetString("EmbTargetFileVersion", resourceCulture);
             }
         }
         
@@ -180,7 +189,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ChannelList.exe.
+        ///   Looks up a localized string similar to ChannelList.exe
+        ///ConsoleEPGLoader.exe.
         /// </summary>
         internal static string FirewallProgramList {
             get {
@@ -189,7 +199,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DVB-IPTV v1.0 &apos;Wolf 424&apos;: {0}.
+        ///   Looks up a localized string similar to DVB-IPTV v1.5 &apos;Kruger 60&apos;: {0}.
         /// </summary>
         internal static string FirewallRulePrefix {
             get {
@@ -234,6 +244,24 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
             get {
                 object obj = ResourceManager.GetObject("Shield_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91.
+        /// </summary>
+        internal static string SqlCeComponentAssemblyName {
+            get {
+                return ResourceManager.GetString("SqlCeComponentAssemblyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4.0.8876.1.
+        /// </summary>
+        internal static string SqlCeTargetFileVersion {
+            get {
+                return ResourceManager.GetString("SqlCeTargetFileVersion", resourceCulture);
             }
         }
         

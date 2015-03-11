@@ -121,21 +121,17 @@
     <value> correcto</value>
   </data>
   <data name="DisplayErrorLoadTaskFile" xml:space="preserve">
-    <value>ERROR: No se puede cargar el archivo XML con la configuración de la tarea de grabación.</value>
+    <value>ERROR: No se pueden cargar los datos de configuración de la tarea de grabación.</value>
   </data>
   <data name="DisplayExceptionFormat" xml:space="preserve">
     <value>EXCEPCIÓN: {1}</value>
   </data>
   <data name="DisplayLoadingXml" xml:space="preserve">
-    <value>Leyendo XML...</value>
+    <value>Leyendo tarea de grabación de la base de datos...</value>
   </data>
   <data name="ErrorNoArguments" xml:space="preserve">
     <value>ERROR: No se han especificado argumentos.
-Debe proporcionarse el archivo XML con la descripción de la tarea de grabación.
 Especifique /HELP como argumento para obtener más información.</value>
-  </data>
-  <data name="InfoLoadingTaskFile" xml:space="preserve">
-    <value>Info: Leyendo el archivo XML de la tarea...</value>
   </data>
   <data name="InfoOk" xml:space="preserve">
     <value>correcto</value>
@@ -148,11 +144,11 @@ Especifique /HELP como argumento para obtener más información.</value>
 Detalles de la excepción: {1}</value>
   </data>
   <data name="LogInfoLoadingXml" xml:space="preserve">
-    <value>Cargando archivo XML
-{0}</value>
+    <value>Cargando datos de configuración de la tarea {0} desde la base de datos
+{1}</value>
   </data>
   <data name="LogInfoLoadingXmlOk" xml:space="preserve">
-    <value>Archivo XML leído</value>
+    <value>Datos de configuración de la tarea cargados</value>
   </data>
   <data name="PressAnyKeyEnd" xml:space="preserve">
     <value>Pulse cualquier tecla para finalizar...</value>
@@ -163,7 +159,7 @@ Detalles de la excepción: {1}</value>
   <data name="StartLogo" xml:space="preserve">
     <value>Utilidad de ejecución de grabación IPTV
 Versión {0}
-(C) 2014. Todos los derechos reservados.</value>
+{1}. Todos los derechos reservados.</value>
   </data>
   <data name="LogErrorTooLate" xml:space="preserve">
     <value>¡DEMASIADO TARDE! ¡Lo sentimos!</value>
@@ -286,5 +282,9 @@ Las opciones y los selectores se pueden especificar con '/' o con '-'</value>
   </data>
   <data name="DisplayDurationEndsTomorrow" xml:space="preserve">
     <value>La grabación finalizará manaña a las {0:T}.</value>
+  </data>
+  <data name="InvalidArgumentFormat" xml:space="preserve">
+    <value>ERROR: Formato de argumento incorrecto.
+Especifique /HELP como argumento para obtener más información.</value>
   </data>
 </root>

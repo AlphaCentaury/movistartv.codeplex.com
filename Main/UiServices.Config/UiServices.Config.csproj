@@ -95,7 +95,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
-    <Compile Include="SerializationUtils.cs" />
     <Compile Include="StringPair.cs" />
     <Compile Include="UiContentProvider.cs" />
     <Compile Include="UiContentProviderFriendlyNames.cs" />
@@ -137,6 +136,12 @@
   <ItemGroup>
     <Content Include="License.txt" />
     <Content Include="Resources\BrokenFile_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

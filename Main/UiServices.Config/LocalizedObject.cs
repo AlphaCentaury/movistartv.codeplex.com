@@ -19,8 +19,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
             } // get
             set
             {
-                var trimmedValue = (value != null) ? value.Trim() : null;
-                fieldCultureName = (string.IsNullOrEmpty(trimmedValue)) ? "<default>" : trimmedValue.ToLowerInvariant();
+                fieldCultureName = (string.IsNullOrEmpty(value)) ? "<default>" : value.ToLowerInvariant();
             } // 
         } // CultureName
 

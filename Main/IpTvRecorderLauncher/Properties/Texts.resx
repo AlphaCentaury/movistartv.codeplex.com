@@ -121,20 +121,17 @@
     <value> ok</value>
   </data>
   <data name="DisplayErrorLoadTaskFile" xml:space="preserve">
-    <value>ERROR: Unable to load the XML recording task configuration file.</value>
+    <value>ERROR: Unable to load the recording task configuration data.</value>
   </data>
   <data name="DisplayExceptionFormat" xml:space="preserve">
     <value>EXCEPTION: {1}</value>
   </data>
   <data name="DisplayLoadingXml" xml:space="preserve">
-    <value>Loading XML...</value>
+    <value>Loading record task from database...</value>
   </data>
   <data name="ErrorNoArguments" xml:space="preserve">
     <value>ERROR: No arguments have been specified.
 Use /HELP for more information.</value>
-  </data>
-  <data name="InfoLoadingTaskFile" xml:space="preserve">
-    <value>Info: Loading XML task file...</value>
   </data>
   <data name="InfoOk" xml:space="preserve">
     <value>OK</value>
@@ -153,11 +150,11 @@ Exception details: {1}</value>
     <value>Windows Job created</value>
   </data>
   <data name="LogInfoLoadingXml" xml:space="preserve">
-    <value>Loading XML file
-{0}</value>
+    <value>Loading configuration data for task {0} from database
+{1}</value>
   </data>
   <data name="LogInfoLoadingXmlOk" xml:space="preserve">
-    <value>XML file loaded</value>
+    <value>Task configuration data loaded</value>
   </data>
   <data name="PressAnyKeyEnd" xml:space="preserve">
     <value>Press any key to exit...</value>
@@ -181,7 +178,7 @@ Options and switches can be specified with '/' or with '-'</value>
   <data name="StartLogo" xml:space="preserve">
     <value>IPTV Recorder launcher utility
 Version {0}
-(C) 2014. All rights reserved.</value>
+{1}. All rights reserved.</value>
   </data>
   <data name="DisplayWarningRecordingLate" xml:space="preserve">
     <value>Warning: RECORDING LATE, beyond the safety margin of {0} minutes</value>
@@ -285,5 +282,9 @@ Real record time: {3}</value>
   </data>
   <data name="DisplayDurationEndsTomorrow" xml:space="preserve">
     <value>The recording ends tomorrow at {0:T}.</value>
+  </data>
+  <data name="InvalidArgumentFormat" xml:space="preserve">
+    <value>ERROR: Invalid argument format.
+Use /HELP for more information.</value>
   </data>
 </root>

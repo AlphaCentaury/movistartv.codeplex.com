@@ -1,4 +1,7 @@
-NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+Movistar TV DVB-IPTV decoder version 1.5 Alpha 0 “Kruger 60”
+
+NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services.
+DO NOT EVER CALL 1002 nor 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
 
 This Software, either in binary or source code form, is licensed under the terms of the Microsoft Reciprocal License (Ms-RL) except when noted in "EXCEPTIONS".
 All other rights are reserved by the author(s) of the software.
@@ -6,8 +9,11 @@ All other rights are reserved by the author(s) of the software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non-infringement.
 In no event shall the authors or the copyright holders be liable for any claim, damages or other liability, whether in action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
 
+All trademarks, service marks, trade names, product names and logos are the property of their respective owners, including in some instances Grupo Telefónica.
+Its use in the context of this product does not constitute endorsement nor support by their respective owners.
+
 --------------------------------------------------------------------------------
-Copyright (C) 2014, Codeplex user AlphaCentaury and its contributors
+Copyright (C) 2014-2015, Codeplex user AlphaCentaury and its contributors
 --------------------------------------------------------------------------------
 
 *****************************************************************************
@@ -41,12 +47,21 @@ A "contributor" is any person that distributes its contribution under this licen
 ** EXCEPTIONS                                                              **
 *****************************************************************************
 
->> "Microsoft Exception Message Box"
+>> "Microsoft® Exception Message Box"
 
+EULA is provided with the installation program.
 The exception message box is a programmatic interface that you can use in your applications for any tasks for which MessageBox may be used. The exception message box is a supported managed assembly designed to elegantly handle managed code exceptions. It provides significantly more control over the messaging experience and gives your users the options to save error message content for later reference and to get help on messages.
 
 http://www.microsoft.com/en-us/download/details.aspx?id=20101 (Feature Pack for Microsoft SQL Server 2005 SP4)
-x86: SQLServer2005_EMB.msi; x64: SQLServer2005_EMB_x64.msi
+x86: ENU\x86\SQLServer2005_EMB.msi; x64: ENU\x64\SQLServer2005_EMB.msi
+
+>> "Microsoft® SQL Server Compact® 4.0 SP1"
+
+EULA is provided with the installation program.
+Microsoft® SQL Server Compact® 4.0 is a free, embedded database that software developers can use for building Windows desktop applications. SQL Server Compact 4.0 has a small footprint and supports private deployment of its binaries within the application folder.
+
+http://www.microsoft.com/en-us/download/details.aspx?id=30709 (Microsoft® SQL Server® Compact 4.0 SP1)
+x86: ENU\SSCERuntime_x86-ENU.exe; x64: ENU\SSCERuntime_x64-ENU.exe.msi
 
 >> "Task Scheduler Managed Wrapper"
 

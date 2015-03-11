@@ -102,6 +102,17 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Microsoft download page has multiple individual downloads. Make sure to select and install the following file:
+        ///- &apos;ENU\SSCERuntime_x64-ENU.exe&apos; if runnning 64bit Windows
+        ///- &apos;ENU\SSCERuntime_x86-ENU.exe&apos; in any other case.
+        /// </summary>
+        internal static string DownloadSqlCeInfo {
+            get {
+                return ResourceManager.GetString("DownloadSqlCeInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to http://www.microsoft.com/en-us/download/details.aspx?id=20101.
         /// </summary>
         internal static string DownloadUrlEmb {
@@ -116,6 +127,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         internal static string DownloadUrlNet {
             get {
                 return ResourceManager.GetString("DownloadUrlNet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.microsoft.com/en-us/download/details.aspx?id=30709.
+        /// </summary>
+        internal static string DownloadUrlSqlCe {
+            get {
+                return ResourceManager.GetString("DownloadUrlSqlCe", resourceCulture);
             }
         }
         
@@ -171,7 +191,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to determine if the Microsoft Exception Message Box component is installed.
+        ///   Looks up a localized string similar to Unable to determine if the Microsoft® Exception Message Box component is installed.
         ///
         ///{0}.
         /// </summary>
@@ -182,7 +202,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microsoft Exception Message Box component is not installed on this machine..
+        ///   Looks up a localized string similar to Microsoft® Exception Message Box component is not installed on this machine..
         /// </summary>
         internal static string IsEmbInstalledNotInstalled {
             get {
@@ -191,7 +211,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Installation of the Microsoft Exception Message Box component (v{0}) has been verified..
+        ///   Looks up a localized string similar to Installation of the Microsoft® Exception Message Box component (v{0}) has been verified..
         /// </summary>
         internal static string IsEmbInstalledOk {
             get {
@@ -200,17 +220,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microsoft Exception Message Box component v{0} (or greater) is not installed on this machine.
-        ///Currently installed version is {1}..
-        /// </summary>
-        internal static string IsEmbInstalledWrongVersion {
-            get {
-                return ResourceManager.GetString("IsEmbInstalledWrongVersion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to determine the installed version of the .NET Framework.
+        ///   Looks up a localized string similar to Unable to determine the installed version of Microsoft® .NET Framework.
         ///
         ///{0}.
         /// </summary>
@@ -239,7 +249,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .NET Framework v3.5 is not installed on this machine..
+        ///   Looks up a localized string similar to Microsoft® .NET Framework v3.5 is not installed on this machine..
         /// </summary>
         internal static string IsNetInstalledNotInstalled {
             get {
@@ -248,11 +258,40 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Installation of .NET Framework v3.5 Service Pack 1 (or greater) has been verified..
+        ///   Looks up a localized string similar to Installation of Microsoft® .NET Framework v3.5 Service Pack 1 (or greater) has been verified..
         /// </summary>
         internal static string IsNetInstalledOk {
             get {
                 return ResourceManager.GetString("IsNetInstalledOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to determine if the Microsoft® SQL Server® Compact 4.0 SP1 is installed.
+        ///
+        ///{0}.
+        /// </summary>
+        internal static string IsSqlCeInstalledException {
+            get {
+                return ResourceManager.GetString("IsSqlCeInstalledException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microsoft® SQL Server® Compact 4.0 SP1 is not installed on this machine..
+        /// </summary>
+        internal static string IsSqlCeInstalledNotInstalled {
+            get {
+                return ResourceManager.GetString("IsSqlCeInstalledNotInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installation of Microsoft® SQL Server® Compact Edition 4.0 SP1 (v{0}) has been verified..
+        /// </summary>
+        internal static string IsSqlCeInstalledOk {
+            get {
+                return ResourceManager.GetString("IsSqlCeInstalledOk", resourceCulture);
             }
         }
         

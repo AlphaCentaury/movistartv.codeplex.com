@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 // v1.0 RC 0: Moved from ChannelList > PropertiesDlg.cs
@@ -58,6 +58,55 @@ namespace Project.DvbIpTv.UiServices.Forms
                 item.SubItems.Add(Texts.PropertiesDlgValueNull);
                 item.SubItems[1].BackColor = Color.LightYellow;
             } // if-else
-        } // AddProperty
+        }  // AddProperty
+
+        #region List context menu
+
+        private void contextMenuList_Opening(object sender, CancelEventArgs e)
+        {
+            var selection = (listViewProperties.SelectedItems.Count > 0);
+            contextMenuListCopyValue.Enabled = selection;
+            contextMenuListCopyName.Enabled = selection;
+            contextMenuListCopyRow.Enabled = selection;
+        } // contextMenuList_Opening
+
+        private void contextMenuListCopyValue_Click(object sender, EventArgs e)
+        {
+            var selectedRow = (listViewProperties.SelectedItems.Count > 0) ? listViewProperties.SelectedItems[0] : null;
+            if (selectedRow == null) return;
+
+            Clipboard.SetText(selectedRow.SubItems[1].Text, TextDataFormat.UnicodeText);
+        } // contextMenuListCopyValue_Click
+
+        private void contextMenuListCopyName_Click(object sender, EventArgs e)
+        {
+            var selectedRow = (listViewProperties.SelectedItems.Count > 0) ? listViewProperties.SelectedItems[0] : null;
+            if (selectedRow == null) return;
+
+            Clipboard.SetText(selectedRow.SubItems[0].Text, TextDataFormat.UnicodeText);
+        } // contextMenuListCopyName_Click
+
+        private void contextMenuListCopyRow_Click(object sender, EventArgs e)
+        {
+            var selectedRow = (listViewProperties.SelectedItems.Count > 0) ? listViewProperties.SelectedItems[0] : null;
+            if (selectedRow == null) return;
+
+            Clipboard.SetText(string.Format("{0}\t{1}", selectedRow.SubItems[0].Text, selectedRow.SubItems[1].Text), TextDataFormat.UnicodeText);
+        } // contextMenuListCopyRow_Click
+
+        private void contextMenuListCopyAll_Click(object sender, EventArgs e)
+        {
+            StringBuilder buffer;
+
+            buffer = new StringBuilder();
+            foreach (ListViewItem item in listViewProperties.Items)
+            {
+                buffer.AppendFormat("{0}\t{1}\r\n", item.SubItems[0].Text, item.SubItems[1].Text);
+            } // foreach item
+
+            Clipboard.SetText(buffer.ToString(), TextDataFormat.UnicodeText);
+        } // contextMenuListCopyAll_Click
+
+        #endregion
     } // class PropertiesDlg
 } // namespace

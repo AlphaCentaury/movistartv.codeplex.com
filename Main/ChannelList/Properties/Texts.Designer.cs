@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV channel/services list - DVB-IPTV (1.0 RC “Wolf 424”).
+        ///   Looks up a localized string similar to Movistar TV channel/services list - DVB-IPTV (1.5 Alpha 0 “Kruger 60”).
         /// </summary>
         internal static string AppCaption {
             get {
@@ -79,16 +79,16 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stable (release candidate).
+        ///   Looks up a localized string similar to Alpha (experimental).
         /// </summary>
-        internal static string AppState {
+        internal static string AppStatus {
             get {
-                return ResourceManager.GetString("AppState", resourceCulture);
+                return ResourceManager.GetString("AppStatus", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.0 RC “Wolf 424”.
+        ///   Looks up a localized string similar to 1.5 Alpha 0 “Kruger 60”.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -129,15 +129,6 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string BroadcastServiceProperties {
             get {
                 return ResourceManager.GetString("BroadcastServiceProperties", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please wait. Canceling download....
-        /// </summary>
-        internal static string CancellingDownloadOperation {
-            get {
-                return ResourceManager.GetString("CancellingDownloadOperation", resourceCulture);
             }
         }
         
@@ -215,186 +206,11 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data reception is complete.
-        /// </summary>
-        internal static string CompletedDownloadDataReception {
-            get {
-                return ResourceManager.GetString("CompletedDownloadDataReception", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The extension of the file of the recording can not be empty.
-        ///Please specify a file extension..
-        /// </summary>
-        internal static string DialogRecordChannelEmptyFileExtension {
-            get {
-                return ResourceManager.GetString("DialogRecordChannelEmptyFileExtension", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The name of the file of the recording can not be empty.
-        ///Please specify a name..
-        /// </summary>
-        internal static string DialogRecordChannelEmptyFileName {
-            get {
-                return ResourceManager.GetString("DialogRecordChannelEmptyFileName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The name of the task can not be empty.
-        ///Please specify a name..
-        /// </summary>
-        internal static string DialogRecordChannelEmptyTaskName {
-            get {
-                return ResourceManager.GetString("DialogRecordChannelEmptyTaskName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A save location has not been selected.
-        ///Please select one or browse for a folder..
-        /// </summary>
-        internal static string DialogRecordChannelNoSaveLocation {
-            get {
-                return ResourceManager.GetString("DialogRecordChannelNoSaveLocation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;Custom location&gt;.
-        /// </summary>
-        internal static string DialogRecordSaveCustomLocation {
-            get {
-                return ResourceManager.GetString("DialogRecordSaveCustomLocation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;Default&gt;.
-        /// </summary>
-        internal static string DialogRecordSaveDefaultLocation {
-            get {
-                return ResourceManager.GetString("DialogRecordSaveDefaultLocation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;Missing location&gt;.
-        /// </summary>
-        internal static string DialogRecordSaveMissingLocation {
-            get {
-                return ResourceManager.GetString("DialogRecordSaveMissingLocation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to An error has ocurred while fetching data.
-        /// </summary>
-        internal static string DvbStpDownloadHelperExceptionCaption {
-            get {
-                return ResourceManager.GetString("DvbStpDownloadHelperExceptionCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Request cancelled.
-        /// </summary>
-        internal static string DvbStpDownloadHelperUserCancelledCaption {
-            get {
-                return ResourceManager.GetString("DvbStpDownloadHelperUserCancelledCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Launches {0} player to view DVB-IPTV channel &apos;{1}&apos;.
         /// </summary>
         internal static string ExternalPlayerShortcutDescription {
             get {
                 return ResourceManager.GetString("ExternalPlayerShortcutDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Active.
-        /// </summary>
-        internal static string MulticastScannerDlgActive {
-            get {
-                return ResourceManager.GetString("MulticastScannerDlgActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unavailable.
-        /// </summary>
-        internal static string MulticastScannerDlgDead {
-            get {
-                return ResourceManager.GetString("MulticastScannerDlgDead", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error.
-        /// </summary>
-        internal static string MulticastScannerDlgError {
-            get {
-                return ResourceManager.GetString("MulticastScannerDlgError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Skipped.
-        /// </summary>
-        internal static string MulticastScannerDlgSkipped {
-            get {
-                return ResourceManager.GetString("MulticastScannerDlgSkipped", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total.
-        /// </summary>
-        internal static string MulticastScannerDlgTotal {
-            get {
-                return ResourceManager.GetString("MulticastScannerDlgTotal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Scan has been cancelled by the user.
-        /// </summary>
-        internal static string MulticastServiceScanningCancelled {
-            get {
-                return ResourceManager.GetString("MulticastServiceScanningCancelled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please wait. Canceling scan....
-        /// </summary>
-        internal static string MulticastServiceScanningCancelling {
-            get {
-                return ResourceManager.GetString("MulticastServiceScanningCancelling", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Scan is complete.
-        /// </summary>
-        internal static string MulticastServiceScanningCompleted {
-            get {
-                return ResourceManager.GetString("MulticastServiceScanningCompleted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to An error has occurred during the scan and has been aborted.
-        /// </summary>
-        internal static string MulticastServiceScanningError {
-            get {
-                return ResourceManager.GetString("MulticastServiceScanningError", resourceCulture);
             }
         }
         
@@ -537,37 +353,20 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unexpected error while contacting with the Windows Task Manager to create the recording task.
-        ///The recording task has not been created..
+        ///   Looks up a localized string similar to The recording task has been sucessfully created..
         /// </summary>
-        internal static string RecordHelpTaskCreationException {
+        internal static string SchedulerCreateTaskOk {
             get {
-                return ResourceManager.GetString("RecordHelpTaskCreationException", resourceCulture);
+                return ResourceManager.GetString("SchedulerCreateTaskOk", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to run the &apos;Right now&apos; recording task and no recording action will take place..
-        /// </summary>
-        internal static string RecordHelpTaskRunException {
-            get {
-                return ResourceManager.GetString("RecordHelpTaskRunException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0} [{1:yyyy\-MM\-dd} {2:HH\-mm\-ss}].
-        /// </summary>
-        internal static string RecordTaskNameSuggestedNameFormat {
-            get {
-                return ResourceManager.GetString("RecordTaskNameSuggestedNameFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+        ///   Looks up a localized string similar to Movistar TV DVB-IPTV decoder version 1.5 Alpha 0 “Kruger 60”
         ///
-        ///This Software, either in binary or source code form, is licensed unde [rest of string was truncated]&quot;;.
+        ///NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+        ///
+        ///This  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SolutionLicense {
             get {
@@ -608,35 +407,6 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string SPProperties {
             get {
                 return ResourceManager.GetString("SPProperties", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;No folder&gt;.
-        /// </summary>
-        internal static string TaskSchedulerRootFolder {
-            get {
-                return ResourceManager.GetString("TaskSchedulerRootFolder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to cancel.
-        /// </summary>
-        internal static string UnableCancelDownloadCaption {
-            get {
-                return ResourceManager.GetString("UnableCancelDownloadCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to cancel right now. Please try again in a few seconds.
-        ///
-        ///The operation has been scheduled and cannot be cancelled until it has started..
-        /// </summary>
-        internal static string UnableCancelDownloadMessage {
-            get {
-                return ResourceManager.GetString("UnableCancelDownloadMessage", resourceCulture);
             }
         }
         

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.DvbIpTv.Common.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.ContentProvider
 
         public static ContentProviderData Load(string xmlPath)
         {
-            return SerializationUtils.LoadFromXml<ContentProviderData>(xmlPath);
+            return XmlSerialization.Deserialize<ContentProviderData>(xmlPath,true);
         } // Load
 
         public string Validate()

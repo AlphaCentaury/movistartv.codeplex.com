@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using DvbIpTypes.Schema2006;
@@ -64,6 +64,27 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             get { return ServiceName + "." + DomainName; }
         } // FullServiceName
+
+        [XmlIgnore]
+        public TextualIdentifier ReplacementService
+        {
+            get
+            {
+                var si = Data.ServiceInformation;
+                if (si == null) return null;
+
+                var replacements = si.ReplacementService;
+                if ((replacements == null) || (replacements.Length == 0)) return null;
+
+                var q = from r in replacements
+                        let ti = r.Item as TextualIdentifier
+                        where ti != null
+                        select ti;
+                var replacement = q.FirstOrDefault();
+
+                return replacement;
+            } // get
+        } // ReplacementServiceName
 
         [XmlIgnore]
         public string DisplayName
