@@ -179,6 +179,7 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
             cmdText.Append("SELECT TOP 1 XmlEpgData, XmlEpgDataAlt " +
                 "FROM Events ");
 
+            start = start.ToUniversalTime();
             switch (offset)
             {
                 case SingleEventOffset.Before:
@@ -186,8 +187,7 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
                         "ORDER BY StartTime DESC");
                     break;
                 case SingleEventOffset.Now:
-                    cmdText.Append("WHERE ((StartTime <= ?) AND (ServiceDbId = ?)) " +
-                        "ORDER BY StartTime DESC");
+                    cmdText.Append("WHERE ((StartTime <= ?) AND (ServiceDbId = ?) AND (EndTime > ?))");
                     break;
                 case SingleEventOffset.After:
                     cmdText.Append("WHERE ((StartTime >= ?) AND (ServiceDbId = ?)) " +
@@ -200,6 +200,7 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
 
             cmd.Parameters.Add("@StartTime", System.Data.SqlDbType.DateTime).Value = start;
             cmd.Parameters.Add("@ServiceDbId", System.Data.SqlDbType.Int).Value = serviceDbId;
+            cmd.Parameters.Add("@EndTime", System.Data.SqlDbType.DateTime).Value = start;
 
             return cmd;
         } // GetSingleEventCommand
@@ -220,7 +221,7 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
                 }
                 else
                 {
-                    cmdText.Append("WHERE ((EndTime < ?) AND (ServiceDbId = ?)) ");
+                    cmdText.Append("WHERE ((StartTime < ?) AND (ServiceDbId = ?)) ");
                 } // if-else
             }
             else if (end == null)
@@ -229,18 +230,67 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
             }
             else
             {
-                cmdText.Append("WHERE ((StartTime >= ?) AND (EndTime < ?) AND (ServiceDbId = ?)) ");
+                cmdText.Append("WHERE ((StartTime >= ?) AND (StartTime < ?) AND (ServiceDbId = ?)) ");
             } // if-else
             cmdText.Append("ORDER BY StartTime ASC");
             cmd.CommandText = cmdText.ToString();
 
-            if (start != null) cmd.Parameters.Add("@StartTime", System.Data.SqlDbType.DateTime).Value = start;
-            if (end != null) cmd.Parameters.Add("@EndTime", System.Data.SqlDbType.DateTime).Value = end;
+            if (start != null) cmd.Parameters.Add("@StartTime", System.Data.SqlDbType.DateTime).Value = start.Value.ToUniversalTime();
+            if (end != null) cmd.Parameters.Add("@StartTime2", System.Data.SqlDbType.DateTime).Value = end.Value.ToUniversalTime();
             cmd.Parameters.Add("@ServiceDbId", System.Data.SqlDbType.Int).Value = serviceDbId;
 
             return cmd;
         } // GetFromDateRangeCommand
 
         #endregion
+
+        public class EpgStatus
+        {
+            public bool IsUpdating;
+            public bool IsUpdated;
+            public bool IsNew;
+            public bool IsError;
+            public DateTime Time;
+        } // class EpgStatus
+
+        public static EpgStatus GetStatus(string dbFile)
+        {
+            using (var cmd = new SqlCeCommand())
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT TOP 1 [Status], [Timestamp] FROM [Status] ORDER BY [Timestamp] DESC";
+                using (var reader = DbServices.ExecuteReader(dbFile, cmd, CommandBehavior.SingleResult | CommandBehavior.SingleRow))
+                {
+                    if (reader.Read())
+                    {
+                        var status = new EpgStatus()
+                        {
+                            Time = reader.GetDateTime(1)
+                        };
+                        switch (reader.GetInt32(0))
+                        {
+                            case -1:
+                                status.IsError = true; break;
+                            case 1:
+                                status.IsUpdated = true; break;
+                            default:
+                                status.IsUpdated = true; break;
+                        } // switch
+
+                        return status;
+                    }
+                    else
+                    {
+                        return new EpgStatus()
+                        {
+                            IsNew = true
+                        };
+                    } // if-else
+                } // using reader
+            } // using cmd
+
+
+            throw new NotImplementedException();
+        } // GetStatus
     } // static class EpgDbQuery
 } // namespace

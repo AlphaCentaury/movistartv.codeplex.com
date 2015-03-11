@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.UiServices.EPG {
+namespace Project.DvbIpTv.UiServices.EPG.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Project.DvbIpTv.UiServices.EPG {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CommonUiResources {
+    internal class Texts {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonUiResources() {
+        internal Texts() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.UiServices.EPG {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.EPG.CommonUiResources", typeof(CommonUiResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.EPG.Properties.Texts", typeof(Texts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,92 +61,65 @@ namespace Project.DvbIpTv.UiServices.EPG {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Loading EPG data....
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Back_16x16 {
+        internal static string EpgDataLoading {
             get {
-                object obj = ResourceManager.GetObject("Action_Back_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("EpgDataLoading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Genre not available.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Cancel_16x16 {
+        internal static string EpgNoGenre {
             get {
-                object obj = ResourceManager.GetObject("Action_Cancel_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("EpgNoGenre", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to EPG information is not available.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Close_16x16 {
+        internal static string EpgNoInformation {
             get {
-                object obj = ResourceManager.GetObject("Action_Close_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("EpgNoInformation", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Parental rating not available.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Forward_16x16 {
+        internal static string EpgNoParentalRating {
             get {
-                object obj = ResourceManager.GetObject("Action_Forward_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("EpgNoParentalRating", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Ended {0} ago.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_FullView_16x16 {
+        internal static string ProgramEnded {
             get {
-                object obj = ResourceManager.GetObject("Action_FullView_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ProgramEnded", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Started {0} ago.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Ok_16x16 {
+        internal static string ProgramStarted {
             get {
-                object obj = ResourceManager.GetObject("Action_Ok_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ProgramStarted", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Will start in {0}.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Play_LG_16x16 {
+        internal static string ProgramWillStart {
             get {
-                object obj = ResourceManager.GetObject("Action_Play_LG_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Properties_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Properties_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Record_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Record_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ProgramWillStart", resourceCulture);
             }
         }
     }

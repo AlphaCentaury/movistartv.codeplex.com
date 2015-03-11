@@ -194,10 +194,20 @@
     <value>DVB-IPTV v1.5 'Kruger 60': {0}</value>
   </data>
   <data name="FirewallProgramList" xml:space="preserve">
-    <value>ChannelList.exe</value>
+    <value>ChannelList.exe
+ConsoleEPGLoader.exe</value>
     <comment>One program per line</comment>
   </data>
   <data name="SuccessExecuteProgram" xml:space="preserve">
     <value>ChannelList.exe</value>
+  </data>
+  <data name="EmbTargetFileVersion" xml:space="preserve">
+    <value>9.0.1399.0</value>
+  </data>
+  <data name="SqlCeComponentAssemblyName" xml:space="preserve">
+    <value>System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</value>
+  </data>
+  <data name="SqlCeTargetFileVersion" xml:space="preserve">
+    <value>4.0.8876.1</value>
   </data>
 </root>

@@ -111,6 +111,12 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             Installation.OpenUrl(this, Properties.Texts.DownloadUrlEmb);
         } // linkLabelPrerequisiteEmb_LinkClicked
 
+        private void linkLabelPrerequisiteSqlCe_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show(this, Texts.DownloadSqlCeInfo, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Installation.OpenUrl(this, Properties.Texts.DownloadUrlSqlCe);
+        } // linkLabelPrerequisiteSqlCe_LinkClicked
+
         private void linkLabelPrerequisiteVlc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Installation.OpenUrl(this, Properties.Texts.DownloadUrlVlc);
@@ -126,13 +132,20 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             Page1_Step2(true);
         } // buttonVerifyEmb_Click
 
-        private void buttonVerifyVlc_Click(object sender, EventArgs e)
+        private void buttonVerifySqlCe_Click(object sender, EventArgs e)
         {
             Page1_Step3(true);
+        }  // buttonVerifySqlCe_Click
+
+        private void buttonVerifyVlc_Click(object sender, EventArgs e)
+        {
+            Page1_Step4(true);
         } // buttonVerifyVlc_Click
 
         private void buttonFindVlc_Click(object sender, EventArgs e)
         {
+            var oldValue = textBoxVlc.Text;
+
             if (!string.IsNullOrEmpty(textBoxVlc.Text))
             {
                 openFile.InitialDirectory = Path.GetDirectoryName(textBoxVlc.Text);
@@ -142,6 +155,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             if (openFile.ShowDialog(this) != DialogResult.OK) return;
 
             textBoxVlc.Text = openFile.FileName;
+            buttonVerifyVlc.Visible = (oldValue != textBoxVlc.Text);
             buttonVerifyVlc.Focus();
         } // buttonFindVlc_Click
 
@@ -164,6 +178,9 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
             buttonVerifyEmb.Visible = false;
             linkLabelPrerequisiteEmb.Visible = false;
+
+            buttonVerifySqlCe.Visible = false;
+            linkLabelPrerequisiteSqlCe.Visible = false;
 
             buttonVerifyVlc.Visible = false;
             linkLabelPrerequisiteVlc.Visible = false;
@@ -212,6 +229,29 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             buttonVerifyEmb.Visible = false;
             linkLabelPrerequisiteEmb.Visible = false;
 
+            buttonVerifySqlCe.Visible = true;
+            linkLabelPrerequisiteSqlCe.Visible = true;
+            linkLabelPrerequisiteSqlCe.Focus();
+
+            Page1_Step3(false);
+        } // Page1_Step2
+
+        private void Page1_Step3(bool withUi)
+        {
+            string message;
+
+            var installed = Installation.IsSqlCeInstalled(out message);
+            if (withUi)
+            {
+                MessageBox.Show(this, message, this.Text, MessageBoxButtons.OK,
+                    installed ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
+            } // if
+            if (!installed) return;
+
+            pictureBoxSqlCeOk.Image = Resources.Sucess_16x16;
+            buttonVerifySqlCe.Visible = false;
+            linkLabelPrerequisiteSqlCe.Visible = false;
+
             buttonVerifyVlc.Visible = true;
             linkLabelPrerequisiteVlc.Visible = true;
             linkLabelPrerequisiteVlc.Focus();
@@ -220,10 +260,10 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             buttonFindVlc.Enabled = true;
             buttonTestVlc.Enabled = false;
 
-            Page1_Step3(false);
-        } // Page1_Step2
+            Page1_Step4(false);
+        } // Page1_Step3
 
-        private void Page1_Step3(bool withUi)
+        private void Page1_Step4(bool withUi)
         {
             string message;
             string path;
@@ -249,20 +289,20 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             pictureBoxVlcOk.Image = Resources.Sucess_16x16;
             linkLabelPrerequisiteVlc.Visible = false;
             buttonVerifyVlc.Visible = false;
-            buttonFindVlc.Enabled = false;
+            //buttonFindVlc.Enabled = false;
             buttonTestVlc.Enabled = true;
             buttonTestVlc.Focus();
 
-            Page1_Step4(false);
-        } // Page1_Step3
+            Page1_Step5(false);
+        } // Page1_Step4
 
-        private void Page1_Step4(bool withUi)
+        private void Page1_Step5(bool withUi)
         {
             wizardControl.IsPageAllowed[wizardPage2.Name] = true;
             wizardControl.UpdateWizardButtons();
 
             Page2_Step0();
-        } // Page1_Step4
+        } // Page1_Step5
 
         #endregion
 
@@ -383,7 +423,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
             checkBoxLaunchProgram.Visible = success;
             buttonClose.DialogResult = success ? DialogResult.OK : DialogResult.Cancel;
-        }  // Page3_Step0
+        } // Page3_Step0
 
         #endregion
     } // class ConfigForm

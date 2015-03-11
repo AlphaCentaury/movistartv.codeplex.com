@@ -117,12 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MyAppHandleExceptionDefaultCaption" xml:space="preserve">
-    <value>An error has occurred while processing your request</value>
-  </data>
-  <data name="StartLogo" xml:space="preserve">
-    <value>TV-Anytime EPG download &amp; update utility
-Version {0}
-{1}. All rights reserved.</value>
-  </data>
 </root>

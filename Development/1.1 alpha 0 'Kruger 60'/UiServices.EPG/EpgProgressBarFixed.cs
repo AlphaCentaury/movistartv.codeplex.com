@@ -83,7 +83,7 @@ namespace Project.DvbIpTv.UiServices.EPG
             base.OnCreateControl();
             BarBase = Properties.Resources.ProgressBarBase;
             BarFilled = Properties.Resources.ProgressBarFilled;
-        }
+        } // OnCreateControl
 
         protected override Size DefaultSize
         {
@@ -95,8 +95,8 @@ namespace Project.DvbIpTv.UiServices.EPG
             base.Dispose(disposing);
             if (disposing)
             {
-                BarBase.Dispose();
-                BarFilled.Dispose();
+                if (BarBase != null) BarBase.Dispose();
+                if (BarFilled != null) BarFilled.Dispose();
                 BarBase = null;
                 BarFilled = null;
             } // if

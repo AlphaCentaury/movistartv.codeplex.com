@@ -56,6 +56,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CommonUiResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="EpgChannelPrograms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EpgChannelPrograms.Designer.cs">
+      <DependentUpon>EpgChannelPrograms.cs</DependentUpon>
+    </Compile>
     <Compile Include="EpgMiniBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,12 +84,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Texts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Texts.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CommonUiResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EpgChannelPrograms.resx">
+      <DependentUpon>EpgChannelPrograms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EpgMiniBar.es.resx">
       <DependentUpon>EpgMiniBar.cs</DependentUpon>
@@ -100,6 +114,11 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Texts.es.resx" />
+    <EmbeddedResource Include="Properties\Texts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Texts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

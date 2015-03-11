@@ -16,6 +16,36 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
     {
         #region Load methods
 
+        public static IList<EpgEvent> GetServiceEvents(string dbFile, string serviceId, string altServiceId, DateTime? start = null, DateTime? end = null)
+        {
+            using (var cn = DbServices.GetConnection(dbFile))
+            {
+                var result = GetServiceEvents(cn, serviceId, altServiceId, start, end);
+                cn.Close();
+
+                return result;
+            } // using cn
+        } // GetServiceEvents
+
+        public static IList<EpgEvent> GetServiceEvents(SqlCeConnection cn, string serviceId, string altServiceId, DateTime? start = null, DateTime? end = null)
+        {
+            var serviceDatabaseId = EpgDbQuery.GetDatabaseIdForServiceId(serviceId, cn);
+            var result = EpgDbQuery.GetDateRange(cn, serviceDatabaseId, start, end);
+            if (result.Count != 0)
+            {
+                return result;
+            } // if
+
+            // try alternative service
+            if (altServiceId != null)
+            {
+                var altServiceDatabaseId = EpgDbQuery.GetDatabaseIdForServiceId(altServiceId, cn);
+                result = EpgDbQuery.GetDateRange(cn, altServiceDatabaseId, start, end);
+            } // if
+
+            return result;
+        } // GetServiceEvents
+
         #endregion
 
         #region Save methods
@@ -75,18 +105,6 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
             DbServices.Save(cn, saveCmd, "@XmlEpgData", epgEvent);
         } // Save
 
-        public static void Save(this EpgEvent epgEvent, string dbFile, int serviceDbId, int version, TvAnytime.TvaScheduleEvent tvaEvent)
-        {
-            var saveCmd = GetDbSaveCommand(epgEvent, serviceDbId, version);
-            DbServices.Save(dbFile, saveCmd, "@XmlEpgData", epgEvent, "XmlTvaData", tvaEvent);
-        } // Save
-
-        public static void Save(this EpgEvent epgEvent, SqlCeConnection cn, int serviceDbId, int version, TvAnytime.TvaScheduleEvent tvaEvent)
-        {
-            var saveCmd = GetDbSaveCommand(epgEvent, serviceDbId, version);
-            DbServices.Save(cn, saveCmd, "@XmlEpgData", epgEvent);
-        } // Save
-
         #endregion
 
         #region Delete methods
@@ -94,6 +112,12 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
         public static int DeleteAllEvents(string dbFile)
         {
             var cmd = GetDeleteEventsCommand();
+            return DbServices.Execute(dbFile, cmd);
+        } // DeleteAllEvents
+
+        public static int DeleteAllEvents(string dbFile, DateTime? fromDate, DateTime? toDate)
+        {
+            var cmd = GetDeleteEventsCommand(null, fromDate, toDate);
             return DbServices.Execute(dbFile, cmd);
         } // DeleteAllEvents
 
@@ -151,8 +175,8 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
 
         private static void SetDbSaveCommandData(SqlCeCommand cmd, EpgEvent epgEvent)
         {
-            cmd.Parameters["@StartTime"].Value = epgEvent.StartTime;
-            cmd.Parameters["@EndTime"].Value = epgEvent.EndTime;
+            cmd.Parameters["@StartTime"].Value = epgEvent.StartTime.ToUniversalTime();
+            cmd.Parameters["@EndTime"].Value = epgEvent.EndTime.ToUniversalTime();
             cmd.Parameters["@DurationSeconds"].Value = epgEvent.Duration.TotalSeconds;
         } // SetDbSaveCommandData
 
@@ -182,20 +206,20 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
                 }
                 else
                 {
-                    cmdText.Append(" AND ([StartTime] < ?))");
-                    cmd.Parameters.Add("@StartTime", SqlDbType.DateTime).Value = toDate.Value;
+                    cmdText.Append(" AND ([EndTime] < ?))");
+                    cmd.Parameters.Add("@EndTime", SqlDbType.DateTime).Value = toDate.Value.ToUniversalTime();
                 } // if-else
             }
             else if (toDate == null)
             {
                 cmdText.Append(" AND ([StartTime] >= ?))");
-                cmd.Parameters.Add("@StartTime", SqlDbType.DateTime).Value = fromDate.Value;
+                cmd.Parameters.Add("@StartTime", SqlDbType.DateTime).Value = fromDate.Value.ToUniversalTime();
             }
             else
             {
                 cmdText.Append(" AND ([StartTime] >= ?) AND ([EndTime] < ?))");
-                cmd.Parameters.Add("@StartTime", SqlDbType.DateTime).Value = fromDate.Value;
-                cmd.Parameters.Add("@EndTime", SqlDbType.DateTime).Value = toDate.Value;
+                cmd.Parameters.Add("@StartTime", SqlDbType.DateTime).Value = fromDate.Value.ToUniversalTime();
+                cmd.Parameters.Add("@EndTime", SqlDbType.DateTime).Value = toDate.Value.ToUniversalTime();
             } // if-else
 
             cmd.CommandText = cmdText.ToString();

@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common;
 using Project.DvbIpTv.Common.Serialization;
 using Project.DvbIpTv.Services.EPG;
 using System;
@@ -16,22 +17,24 @@ namespace Project.DvbIpTv.UiServices.EPG
 {
     public partial class FormEpgNowThen : Form
     {
-        private static Image EpgLoadingProgramImage;
-        private static Image EpgNoProgramImage;
+        private Image EpgLoadingProgramImage;
+        private Image EpgNoProgramImage;
 
         public FormEpgNowThen()
         {
             InitializeComponent();
         } // constructor
 
+        private void DisposeForm(bool disposing)
+        {
+            if (!disposing) return;
+
+            if (EpgLoadingProgramImage != null) EpgLoadingProgramImage.Dispose();
+            if (EpgNoProgramImage != null) EpgNoProgramImage.Dispose();
+        } // DisposeForm
+
         public static void ShowEpgEvents(Image channelLogo, string channelName, EpgEvent[] epg, IWin32Window owner, DateTime referenceTime) 
         {
-            if (EpgLoadingProgramImage == null)
-            {
-                EpgLoadingProgramImage = Properties.Resources.EpgLoadingProgramImage;
-                EpgNoProgramImage = Properties.Resources.EpgNoProgramImage;
-            } // if
-
             using (var form = new FormEpgNowThen())
             {
                 form.DisplayData(channelLogo, channelName, epg, referenceTime);
@@ -41,6 +44,12 @@ namespace Project.DvbIpTv.UiServices.EPG
 
         private void FormBasicEpgData_Load(object sender, EventArgs e)
         {
+            EpgLoadingProgramImage = Properties.Resources.EpgLoadingProgramImage;
+            EpgNoProgramImage = Properties.Resources.EpgNoProgramImage;
+
+            pictureBoxBefore.ErrorImage = EpgNoProgramImage;
+            pictureBoxNow.ErrorImage = EpgNoProgramImage;
+            pictureBoxThen.ErrorImage = EpgNoProgramImage;
         } // FormBasicEpgData_Load
 
         private void pictureBox_LoadCompleted(object sender, AsyncCompletedEventArgs e)
@@ -68,40 +77,39 @@ namespace Project.DvbIpTv.UiServices.EPG
 
         private void DisplayData(EpgEvent epg, Label time, Label title, Label details, PictureBox picture, DateTime referenceTime)
         {
-            string timeFormat;
-
             time.Visible = (epg != null);
             details.Visible = (epg != null);
             picture.ImageLocation = null;
 
             if (epg == null)
             {
-                title.Text = "Información EPG no disponible";
+                title.Text = Properties.Texts.EpgNoInformation;
                 picture.Image = EpgNoProgramImage;
             }
             else
             {
-                if ((epg.StartTime.Day != referenceTime.Day) || (epg.StartTime.Month != referenceTime.Month) || (epg.StartTime.Year != referenceTime.Year))
-                {
-                    timeFormat = "{0:dd/MM/yyyy HH:mm:ss} hasta {1:HH:mm:ss} ({2:N0} minutos)";
-                }
-                else
-                {
-                    timeFormat = "{0:HH:mm:ss} hasta {1:HH:mm:ss} ({2:N0} minutos)";
-                } // if-else
-
                 title.Text = epg.Title;
-                time.Text = string.Format(timeFormat, epg.StartTime, epg.EndTime, epg.Duration.TotalMinutes);
-                details.Text = string.Format("{0} / {1}", (epg.Genre != null) ? epg.Genre.Description : "Género no disponible",
-                    (epg.ParentalRating != null)? epg.ParentalRating.Description : "Clasificación no disponible");
-
-                var cridUri = new Uri(epg.CRID);
-                var path = cridUri.LocalPath.Split('/');
-                var crid = path[2];
-                var baseCrid = crid.Substring(0, 4);
+                time.Text = string.Format("{0} ({1})", FormatString.DateTimeFromToMinutes(epg.LocalStartTime, epg.LocalEndTime, referenceTime),
+                    FormatString.TimeSpanTotalMinutes(epg.Duration, FormatString.Format.Extended));
+                details.Text = string.Format("{0} / {1}", (epg.Genre != null) ? epg.Genre.Description : Properties.Texts.EpgNoGenre,
+                    (epg.ParentalRating != null)? epg.ParentalRating.Description : Properties.Texts.EpgNoParentalRating);
 
                 picture.Image = EpgLoadingProgramImage;
-                picture.ImageLocation = string.Format("http://172.26.22.23:2001/appclient/incoming/covers/programmeImages/landscape/big/{0}/{1}.jpg", baseCrid, crid);
+
+                // TODO: clean-up code; avoid fixed URL; allow for bad CRIDs
+                try
+                {
+                    var cridUri = new Uri(epg.CRID);
+                    var path = cridUri.LocalPath.Split('/');
+                    var crid = path[2];
+                    var baseCrid = crid.Substring(0, 4);
+
+                    picture.ImageLocation = string.Format("http://172.26.22.23:2001/appclient/incoming/covers/programmeImages/landscape/big/{0}/{1}.jpg", baseCrid, crid);
+                }
+                catch
+                {
+                    // ignore
+                } // try-catch
             } // if-else
         }  // DisplayData
     }

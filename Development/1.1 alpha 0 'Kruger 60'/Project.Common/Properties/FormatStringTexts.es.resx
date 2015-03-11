@@ -117,12 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MyAppHandleExceptionDefaultCaption" xml:space="preserve">
-    <value>An error has occurred while processing your request</value>
+  <data name="DateTimeFromToMinutesDifferentStartDifferentEnd" xml:space="preserve">
+    <value>{0:d} {0:t} a {1:d} {1:t}</value>
   </data>
-  <data name="StartLogo" xml:space="preserve">
-    <value>TV-Anytime EPG download &amp; update utility
-Version {0}
-{1}. All rights reserved.</value>
+  <data name="DateTimeFromToMinutesDifferentStartEnd" xml:space="preserve">
+    <value>{0:d} {0:t} a {1:t}</value>
+  </data>
+  <data name="DateTimeFromToMinutesStartDifferentEnd" xml:space="preserve">
+    <value>{0:t} a {1:d} {1:t}</value>
+  </data>
+  <data name="DateTimeFromToMinutesStartEnd" xml:space="preserve">
+    <value>{0:t} a {1:t}</value>
+  </data>
+  <data name="TimeSpanTotalMinutesBasic" xml:space="preserve">
+    <value>{0:N0} minutos</value>
+  </data>
+  <data name="TimeSpanTotalMinutesCompact" xml:space="preserve">
+    <value>{0:N0}m</value>
+  </data>
+  <data name="TimeSpanTotalMinutesCompactDays" xml:space="preserve">
+    <value>{2:N0}d {1:N0}h {0:N0}m</value>
+  </data>
+  <data name="TimeSpanTotalMinutesCompactHours" xml:space="preserve">
+    <value>{1:N0}h {0:N0}m</value>
+  </data>
+  <data name="TimeSpanTotalMinutesExtended" xml:space="preserve">
+    <value>{0:N0} minutos</value>
+  </data>
+  <data name="TimeSpanTotalMinutesExtendedDays" xml:space="preserve">
+    <value>{2:N0} días, {1:N0} horas y {0:N0} minutos</value>
+  </data>
+  <data name="TimeSpanTotalMinutesExtendedHours" xml:space="preserve">
+    <value>{1:N0} horas y {0:N0} minutos</value>
   </data>
 </root>

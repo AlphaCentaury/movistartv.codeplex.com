@@ -22,14 +22,14 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Texts {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Texts() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.Internal.ConsoleEPGLoader.Properties.Texts", typeof(Texts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.Internal.ConsoleEPGLoader.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,22 +61,12 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error has occurred while processing your request.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static string MyAppHandleExceptionDefaultCaption {
+        internal static System.Drawing.Icon ConsoleEpgLoader {
             get {
-                return ResourceManager.GetString("MyAppHandleExceptionDefaultCaption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TV-Anytime EPG download &amp; update utility
-        ///Version {0}
-        ///{1}. All rights reserved..
-        /// </summary>
-        internal static string StartLogo {
-            get {
-                return ResourceManager.GetString("StartLogo", resourceCulture);
+                object obj = ResourceManager.GetObject("ConsoleEpgLoader", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

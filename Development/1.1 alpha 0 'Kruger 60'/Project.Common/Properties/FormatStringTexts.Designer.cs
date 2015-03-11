@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.UiServices.EPG {
+namespace Project.DvbIpTv.Common.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Project.DvbIpTv.UiServices.EPG {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CommonUiResources {
+    internal class FormatStringTexts {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonUiResources() {
+        internal FormatStringTexts() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.UiServices.EPG {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.EPG.CommonUiResources", typeof(CommonUiResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.Common.Properties.FormatStringTexts", typeof(FormatStringTexts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,92 +61,101 @@ namespace Project.DvbIpTv.UiServices.EPG {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {0:d} {0:t} to {1:d} {1:t}.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Back_16x16 {
+        internal static string DateTimeFromToMinutesDifferentStartDifferentEnd {
             get {
-                object obj = ResourceManager.GetObject("Action_Back_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("DateTimeFromToMinutesDifferentStartDifferentEnd", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {0:d} {0:t} to {1:t}.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Cancel_16x16 {
+        internal static string DateTimeFromToMinutesDifferentStartEnd {
             get {
-                object obj = ResourceManager.GetObject("Action_Cancel_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("DateTimeFromToMinutesDifferentStartEnd", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {0:t} to {1:d} {1:t}.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Close_16x16 {
+        internal static string DateTimeFromToMinutesStartDifferentEnd {
             get {
-                object obj = ResourceManager.GetObject("Action_Close_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("DateTimeFromToMinutesStartDifferentEnd", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {0:t} to {1:t}.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Forward_16x16 {
+        internal static string DateTimeFromToMinutesStartEnd {
             get {
-                object obj = ResourceManager.GetObject("Action_Forward_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("DateTimeFromToMinutesStartEnd", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {0:N0} minutes.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_FullView_16x16 {
+        internal static string TimeSpanTotalMinutesBasic {
             get {
-                object obj = ResourceManager.GetObject("Action_FullView_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("TimeSpanTotalMinutesBasic", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {0:N0}m.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Ok_16x16 {
+        internal static string TimeSpanTotalMinutesCompact {
             get {
-                object obj = ResourceManager.GetObject("Action_Ok_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("TimeSpanTotalMinutesCompact", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {2:N0}d {1:N0}h {0:N0}m.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Play_LG_16x16 {
+        internal static string TimeSpanTotalMinutesCompactDays {
             get {
-                object obj = ResourceManager.GetObject("Action_Play_LG_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("TimeSpanTotalMinutesCompactDays", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {1:N0}h {0:N0}m.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Properties_16x16 {
+        internal static string TimeSpanTotalMinutesCompactHours {
             get {
-                object obj = ResourceManager.GetObject("Action_Properties_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("TimeSpanTotalMinutesCompactHours", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {0:N0} minutes.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Record_16x16 {
+        internal static string TimeSpanTotalMinutesExtended {
             get {
-                object obj = ResourceManager.GetObject("Action_Record_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("TimeSpanTotalMinutesExtended", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {2:N0} days, {1:N0} hours, {0:N0} minutes.
+        /// </summary>
+        internal static string TimeSpanTotalMinutesExtendedDays {
+            get {
+                return ResourceManager.GetString("TimeSpanTotalMinutesExtendedDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {1:N0} hours, {0:N0} minutes.
+        /// </summary>
+        internal static string TimeSpanTotalMinutesExtendedHours {
+            get {
+                return ResourceManager.GetString("TimeSpanTotalMinutesExtendedHours", resourceCulture);
             }
         }
     }

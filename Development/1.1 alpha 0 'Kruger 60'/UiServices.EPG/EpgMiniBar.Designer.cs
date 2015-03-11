@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EpgMiniBar));
             this.labelProgramTitle = new System.Windows.Forms.Label();
             this.labelStartTime = new System.Windows.Forms.Label();
             this.labelEndTime = new System.Windows.Forms.Label();
             this.labelEllapsed = new System.Windows.Forms.Label();
-            this.timerAutoRefresh = new System.Windows.Forms.Timer();
-            this.timerLoadingData = new System.Windows.Forms.Timer();
-            this.toolTipControl = new System.Windows.Forms.ToolTip();
+            this.timerAutoRefresh = new System.Windows.Forms.Timer(this.components);
+            this.timerLoadingData = new System.Windows.Forms.Timer(this.components);
+            this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
             this.buttonDetails = new System.Windows.Forms.Button();
             this.buttonFullview = new System.Windows.Forms.Button();
             this.buttonForward = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.pictureChannelLogo = new System.Windows.Forms.PictureBox();
+            this.labelFromTo = new System.Windows.Forms.Label();
             this.epgProgressBar = new Project.DvbIpTv.UiServices.EPG.EpgProgressBarFixed();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +50,7 @@
             // labelProgramTitle
             // 
             resources.ApplyResources(this.labelProgramTitle, "labelProgramTitle");
+            this.labelProgramTitle.AutoEllipsis = true;
             this.labelProgramTitle.Name = "labelProgramTitle";
             // 
             // labelStartTime
@@ -68,10 +71,12 @@
             // timerAutoRefresh
             // 
             this.timerAutoRefresh.Interval = 60000;
+            this.timerAutoRefresh.Tick += new System.EventHandler(this.timerAutoRefresh_Tick);
             // 
             // timerLoadingData
             // 
-            this.timerLoadingData.Interval = 300;
+            this.timerLoadingData.Interval = 200;
+            this.timerLoadingData.Tick += new System.EventHandler(this.timerLoadingData_Tick);
             // 
             // toolTipControl
             // 
@@ -125,6 +130,11 @@
             this.pictureChannelLogo.Name = "pictureChannelLogo";
             this.pictureChannelLogo.TabStop = false;
             // 
+            // labelFromTo
+            // 
+            resources.ApplyResources(this.labelFromTo, "labelFromTo");
+            this.labelFromTo.Name = "labelFromTo";
+            // 
             // epgProgressBar
             // 
             resources.ApplyResources(this.epgProgressBar, "epgProgressBar");
@@ -145,6 +155,7 @@
             this.Controls.Add(this.labelProgramTitle);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.pictureChannelLogo);
+            this.Controls.Add(this.labelFromTo);
             this.Name = "EpgMiniBar";
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).EndInit();
             this.ResumeLayout(false);
@@ -167,5 +178,6 @@
         private System.Windows.Forms.Timer timerAutoRefresh;
         private System.Windows.Forms.Timer timerLoadingData;
         private System.Windows.Forms.ToolTip toolTipControl;
+        private System.Windows.Forms.Label labelFromTo;
     }
 }

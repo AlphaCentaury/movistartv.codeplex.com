@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common;
 using Project.DvbIpTv.Common.Serialization;
 using Project.DvbIpTv.DvbStp.Client;
 using Project.DvbIpTv.Services.EPG;
@@ -10,6 +11,7 @@ using Project.DvbIpTv.Services.SqlServerCE;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlServerCe;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -23,18 +25,30 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
         internal static AutoResetEvent MainEvent;
         internal static string DbFile;
         internal static string XmlFilesPath;
+        internal static Exception Exception;
 
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            DbFile = @"C:\Users\Developer\Documents\DVB-IPTV\MovistarTV (v1.5 Kruger-60)\Cache\EPG.sdf";
-            XmlFilesPath = System.IO.Path.GetDirectoryName(DbFile) + "\\EPG";
-            System.IO.Directory.CreateDirectory(XmlFilesPath);
-
             try
             {
+                var StartTime = DateTime.Now;
+
+                // Set console icon
+                using (var icon = Properties.Resources.ConsoleEpgLoader)
+                {
+                    UnsafeNativeMethods.SetConsoleIcon(icon.Handle);
+                } // using icon
+
+                Console.Title = "TV-Anytime EPG loader utility";
                 DisplayLogo();
 
-                //PrepareDatabase();
+                if (!ProcessArguments(args))
+                {
+                    return 1;
+                } // if
+
+                PrepareDatabase();
+                CompactDatabase();
 
                 ProcessEpgSource(new List<KeyValuePair<IPAddress, short>>()
                     {
@@ -51,19 +65,43 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
                 MainEvent = new AutoResetEvent(false);
                 MainEvent.WaitOne();
 
+                UpdateDbStatus(0);
                 CompactDatabase();
 
                 Console.WriteLine();
+                Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+                Console.WriteLine("Ellapsed time: {0}", FormatString.TimeSpanTotalMinutes(DateTime.Now - StartTime, FormatString.Format.Extended));
+                Console.WriteLine();
+
+                return 0;
             }
             catch (Exception ex)
             {
+                Exception = ex;
+            } // try-catch
+
+            if (Exception != null)
+            {
+                try
+                {
+                    UpdateDbStatus(-1);
+                }
+                catch
+                {
+                    // ignore
+                } // try-catch
+
                 Console.WriteLine();
                 Console.WriteLine("UNEXPECTED EXCEPTION!");
-                Console.WriteLine(ex.GetType().FullName);
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(Exception.GetType().FullName);
+                Console.WriteLine(Exception.Message);
                 Console.WriteLine();
-                MyApplication.HandleException(null, ex);
-            } // try-catch
+                MyApplication.HandleException(null, Exception);
+
+                return -1;
+            } // if
+
+            return 0;
         } // Main
 
         static void DisplayLogo()
@@ -82,11 +120,116 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
             Console.WriteLine();
         } // DisplayLogo
 
+        static bool ProcessArguments(string[] args)
+        {
+            if ((args == null) || (args.Length == 0))
+            {
+                DisplayLogo();
+                Console.WriteLine("ERROR: No arguments have been specified.");
+                return false;
+            } // if
+
+            var parser = new CommandLineArguments()
+            {
+                SpecialHelpArgument = true
+            };
+
+            var arguments = parser.Parse(args);
+            if (!parser.IsOk)
+            {
+                DisplayLogo();
+                Console.WriteLine("ERROR: Invalid argument format.");
+                return false;
+            } // if
+
+            return ProcessArguments(arguments);
+        } // ProcessArguments
+
+        static bool ProcessArguments(IDictionary<string, string> arguments)
+        {
+            string value;
+
+            if (arguments.TryGetValue("Database", out value))
+            {
+                if (!File.Exists(value))
+                {
+                    Console.WriteLine("Database file not found: {0}", value);
+                    return false;
+                } // if
+
+                DbFile = value;
+#if DEBUG
+                XmlFilesPath = System.IO.Path.GetDirectoryName(DbFile) + "\\EPG";
+                System.IO.Directory.CreateDirectory(XmlFilesPath);
+#else
+                XmlFilesPath = null;
+#endif
+            } // if
+
+            if (arguments.TryGetValue("ForceUiCulture", out value))
+            {
+                ForceUiCulture(value);
+            } // if
+
+            return true;
+        } // ProcessArguments
+
+        private static void ForceUiCulture(string culture)
+        {
+            if (culture == null) return;
+            culture = culture.Trim();
+            if (culture == string.Empty) return;
+
+            try
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(culture);
+            }
+            catch (Exception ex)
+            {
+                MyApplication.HandleException(null, string.Format("Invalid argument value for /ForceUiCulture:{0}", culture), ex);
+            } // try-catch
+        } // ForceUiCulture
+
         static void PrepareDatabase()
         {
-            Console.Write("Deleting existing EPG data...");
-            EpgDbSerialization.DeleteAllEvents(DbFile);
+            Console.Write("Conecting to database...");
+            if (EpgDbQuery.GetStatus(DbFile).IsNew)
+            {
+                var box = new Microsoft.SqlServer.MessageBox.ExceptionMessageBox()
+                {
+                    Caption = "Utilidad de descarga y actualización de EPG TV-Anytime",
+                    Text = "Se va a proceder a descargar la información de la guía electrónica de programas (EPG) por primera vez." +
+                    "La descarga de la EPG en la primera ejecución es un proceso muy lento (entre 10 y 15 minutos).\r\n\r\n" +
+                    "Durante el proceso de descarga la información de EPG o bien no estará disponible o será incompleta.\r\n" +
+                    "En las siguientes ejecuciones del programa, la información EPG se actualizará en segundo plano de manera automática (si han transcurrido más de 24 horas).",
+                    Beep = true,
+                    Symbol = Microsoft.SqlServer.MessageBox.ExceptionMessageBoxSymbol.Warning
+                };
+                box.Show(null);
+            } // if
+            UpdateDbStatus(1);
             Console.WriteLine(" ok");
+
+            Console.Write("Deleting old EPG data...");
+            EpgDbSerialization.DeleteAllEvents(DbFile, null, DateTime.Now - new TimeSpan(6, 0, 0));
+            Console.WriteLine(" ok");
+
+            if (XmlFilesPath != null)
+            {
+                Console.Write("Deleting old EPG XML data...");
+                foreach (var file in Directory.GetFiles(XmlFilesPath, "*.xml"))
+                {
+                    try
+                    {
+                        File.Delete(file);
+                    }
+                    catch
+                    {
+                         // ignore
+                    }
+                } // foreach
+                Console.WriteLine(" ok");
+            } // if
         } // PrepareDatabase
 
         static void CompactDatabase()
@@ -129,17 +272,25 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
 
                 ThreadPool.QueueUserWorkItem(delegate(object o)
                 {
-                    Log("=== Loading EPG data from {0}:{1} ===", address.Key, address.Value);
+                    try
+                    {
+                        Log("=== Loading EPG data from {0}:{1} ===", address.Key, address.Value);
 
-                    var client = new DvbStp.Client.DvbStpClient(address.Key, address.Value);
-                    client.DatagramReceived += Client_DatagramReceived;
-                    client.SegmentDataDownloaded += Client_SegmentDataDownloaded;
-                    client.SegmentReceived += Client_SegmentReceived;
+                        var client = new DvbStp.Client.DvbStpClient(address.Key, address.Value);
+                        client.OperationTimeout = (20 * 60) * 1000;
+                        client.DatagramReceived += Client_DatagramReceived;
+                        client.SegmentDataDownloaded += Client_SegmentDataDownloaded;
+                        client.SegmentReceived += Client_SegmentReceived;
 
-                    client.DownloadSegments(null);
+                        client.DownloadSegments(null);
 
-                    Log("=== EPG data from {0}:{1} downloaded ===", address.Key, address.Value);
-
+                        Log("=== EPG data from {0}:{1} downloaded ===", address.Key, address.Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        MyApplication.HandleException(null, "Unexpected error while downloading EPG data", ex);
+                        Exception = ex;
+                    } // try-catch
                     events[myIndex].Set();
                 });
             } // foreach
@@ -157,8 +308,7 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
         static void Client_DatagramReceived(DvbStpClient client, byte payloadId, byte segmentIdNetworkHi, byte segmentIdNetworkLo, byte segmentVersion, bool filtered)
         {
             progressCount = (progressCount + 1) % 25;
-
-            Console.Title = string.Format("Receiving EPG data {0}", new string('#', progressCount));
+            Console.Title = string.Format("TV-Anytime EPG loader utility - Receiving EPG data {0}", new string('#', progressCount));
         } // Client_DatagramReceived
 
         static void Client_SegmentDataDownloaded(DvbStpClient client, SegmentAssembler segmentData)
@@ -175,9 +325,12 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
         static void ProcessEpgPayload(IPAddress ipAddress, SegmentAssembler segmentData, string dbFile)
         {
             var data = segmentData.GetPayload();
-            var file = string.Format("{0}_{1}.xml", ipAddress.ToString().Replace('.', '-'), segmentData.SegmentIdentity);
 
-            System.IO.File.WriteAllBytes(System.IO.Path.Combine(XmlFilesPath, file), data);
+            if (XmlFilesPath != null)
+            {
+                var file = string.Format("{0}_{1}.xml", ipAddress.ToString().Replace('.', '-'), segmentData.SegmentIdentity);
+                System.IO.File.WriteAllBytes(System.IO.Path.Combine(XmlFilesPath, file), data);
+            } // if
 
             using (var cn = DbServices.GetConnection(dbFile))
             {
@@ -209,7 +362,7 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
             if (epgService.Events.Length == 0) return;
 
             var startTime = epgService.Events[0].StartTime;
-            var today = new DateTime(startTime.Year, startTime.Month, startTime.Day, 0, 0, 0);
+            var today = new DateTime(startTime.Year, startTime.Month, startTime.Day, 0, 0, 0).ToUniversalTime();
             var tomorrow = today + new TimeSpan(1, 0, 0, 0);
             EpgDbSerialization.DeleteEvents(cn, epgService.ServiceDatabaseId, today, tomorrow);
 
@@ -228,5 +381,17 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
         {
             Log(string.Format(text, args));
         } // Log
+
+        static void UpdateDbStatus(int status)
+        {
+            using (var cmd = new SqlCeCommand())
+            {
+                cmd.CommandText = "INSERT INTO [Status] ([Status], [Timestamp]) VALUES (?, ?)";
+                cmd.Parameters.Add("@Status", System.Data.SqlDbType.Int).Value = status;
+                cmd.Parameters.Add("@Timestamp", System.Data.SqlDbType.DateTime).Value = DateTime.UtcNow;
+                DbServices.Execute(DbFile, cmd);
+            } // using cmd
+        } // UpdateDbStatus
+
     } // class Program
 } // namespace

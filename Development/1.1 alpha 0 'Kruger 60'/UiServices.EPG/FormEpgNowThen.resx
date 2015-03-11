@@ -153,11 +153,14 @@
   <data name="&gt;&gt;labelBefore.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
+  <data name="labelBeforeTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelBeforeTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 82</value>
   </data>
   <data name="labelBeforeTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 13</value>
+    <value>384, 13</value>
   </data>
   <data name="labelBeforeTime.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -177,6 +180,9 @@
   <data name="&gt;&gt;labelBeforeTime.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
+  <data name="labelBeforeTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelBeforeTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
@@ -187,7 +193,7 @@
     <value>3, 5, 3, 5</value>
   </data>
   <data name="labelBeforeTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 16</value>
+    <value>384, 16</value>
   </data>
   <data name="labelBeforeTitle.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -207,11 +213,14 @@
   <data name="&gt;&gt;labelBeforeTitle.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
+  <data name="labelBeforeDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelBeforeDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 121</value>
   </data>
   <data name="labelBeforeDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 13</value>
+    <value>384, 13</value>
   </data>
   <data name="labelBeforeDetails.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -231,11 +240,14 @@
   <data name="&gt;&gt;labelBeforeDetails.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
+  <data name="labelNowDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelNowDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 217</value>
   </data>
   <data name="labelNowDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 13</value>
+    <value>384, 13</value>
   </data>
   <data name="labelNowDetails.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -255,6 +267,9 @@
   <data name="&gt;&gt;labelNowDetails.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="labelNowTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelNowTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
@@ -265,7 +280,7 @@
     <value>3, 5, 3, 5</value>
   </data>
   <data name="labelNowTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 16</value>
+    <value>384, 16</value>
   </data>
   <data name="labelNowTitle.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -285,11 +300,14 @@
   <data name="&gt;&gt;labelNowTitle.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="labelNowTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelNowTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 178</value>
   </data>
   <data name="labelNowTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 13</value>
+    <value>384, 13</value>
   </data>
   <data name="labelNowTime.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -342,11 +360,14 @@
   <data name="&gt;&gt;labelNow.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <data name="labelThenDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelThenDetails.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 313</value>
   </data>
   <data name="labelThenDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 13</value>
+    <value>384, 13</value>
   </data>
   <data name="labelThenDetails.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -366,6 +387,9 @@
   <data name="&gt;&gt;labelThenDetails.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="labelThenTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelThenTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
@@ -376,7 +400,7 @@
     <value>3, 5, 3, 5</value>
   </data>
   <data name="labelThenTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 16</value>
+    <value>384, 16</value>
   </data>
   <data name="labelThenTitle.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -396,11 +420,14 @@
   <data name="&gt;&gt;labelThenTitle.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="labelThenTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="labelThenTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 274</value>
   </data>
   <data name="labelThenTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 13</value>
+    <value>384, 13</value>
   </data>
   <data name="labelThenTime.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>

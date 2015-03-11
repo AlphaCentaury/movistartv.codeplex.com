@@ -5,7 +5,7 @@ All rights reserved, except those granted by the governing license of this softw
 -->
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   <?include Strings.wxi ?>
-  <Product Id="{12250F78-069A-4378-8063-EB67F9228670}" Name="!(loc.ProductName)" Language="!(loc.LANGUAGE)" Codepage="Windows-1252" Version="$(var.Version)" Manufacturer="$(var.Manufacturer)"  UpgradeCode="{5F17FC29-2428-4B6A-B0DD-27734B3AE4B4}">
+  <Product Id="$(var.ProductId)" Name="!(loc.ProductName)" Language="!(loc.LANGUAGE)" Codepage="Windows-1252" Version="$(var.Version)" Manufacturer="$(var.Manufacturer)"  UpgradeCode="$(var.UpgradeCode)">
     <Package Id="*" InstallerVersion="300" Compressed="yes" InstallScope="perUser"
       Description="!(loc.PackageDescription)" Languages="!(loc.LANGUAGE)" Manufacturer="http://movistartv.codeplex.com" />
 
@@ -23,9 +23,9 @@ All rights reserved, except those granted by the governing license of this softw
       <Feature Id="Base" Title="Archivos comunes" Absent="disallow">
         <ComponentGroupRef Id="RegistryConfiguration" />
         <ComponentGroupRef Id="CommonComponents" />
-        <ComponentGroupRef Id="CommonComponents.Localized" />
+        <ComponentGroupRef Id="CommonComponents.Localization" />
         <ComponentGroupRef Id="ProductComponents" />
-        <ComponentGroupRef Id="ProductComponents.Localized" />
+        <ComponentGroupRef Id="ProductComponents.Localization" />
         <ComponentGroupRef Id="ContentProviderComponents" />
         <ComponentGroupRef Id="Logos.Content" />
         <ComponentGroupRef Id="UninstallFolders" />
@@ -88,7 +88,7 @@ All rights reserved, except those granted by the governing license of this softw
     </Directory>
 
     <ComponentGroup Id="UninstallFolders">
-      <Component Id="Folders" Directory="BaseFolder" Guid="{2B5991EC-84E0-4E64-8AEF-68A470CECA2B}">
+      <Component Id="Folders" Directory="BaseFolder" Guid="$(var.Guid.Component.Folders)">
         <RemoveFile Id="Purge_BaseFolder" Name="*.*" On="uninstall" />
         <RemoveFile Id="Purge_INSTALLFOLDER" Name="*.*" On="uninstall" Directory="INSTALLFOLDER" />
         <RemoveFile Id="Purge_InstallFolder.es" Name="*.*" On="uninstall" Directory="InstallFolder.es"/>

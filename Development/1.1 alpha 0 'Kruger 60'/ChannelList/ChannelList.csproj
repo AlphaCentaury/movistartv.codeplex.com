@@ -246,6 +246,7 @@
     <ProjectReference Include="..\Services.SqlServerCE\Services.SqlServerCE.csproj">
       <Project>{3a053f34-4edf-4071-b966-923255a0ae14}</Project>
       <Name>Services.SqlServerCE</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\UiServices.Config\UiServices.Config.csproj">
       <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>

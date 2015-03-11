@@ -61,10 +61,22 @@ namespace Project.DvbIpTv.Services.EPG
         } // StartTime
 
         [XmlIgnore]
+        public DateTime LocalStartTime
+        {
+            get { return StartTime.ToLocalTime(); }
+        } // LocalStartTime
+
+        [XmlIgnore]
         public DateTime EndTime
         {
             get { return StartTime + Duration; }
         } // EndTime
+
+        [XmlIgnore]
+        public DateTime LocalEndTime
+        {
+            get { return EndTime.ToLocalTime(); }
+        } // LocalEndTime
 
         [XmlIgnore]
         public TimeSpan Duration

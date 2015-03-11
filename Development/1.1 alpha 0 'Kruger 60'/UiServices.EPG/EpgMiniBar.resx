@@ -156,23 +156,23 @@
   <data name="&gt;&gt;labelProgramTitle.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="labelStartTime.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="labelStartTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelStartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 31</value>
+    <value>57, 27</value>
   </data>
   <data name="labelStartTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
+    <value>55, 20</value>
   </data>
   <data name="labelStartTime.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="labelStartTime.Text" xml:space="preserve">
-    <value>99:99</value>
+    <value>99:99 MM</value>
+  </data>
+  <data name="labelStartTime.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
   </data>
   <data name="&gt;&gt;labelStartTime.Name" xml:space="preserve">
     <value>labelStartTime</value>
@@ -186,23 +186,23 @@
   <data name="&gt;&gt;labelStartTime.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="labelEndTime.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="labelEndTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>228, 31</value>
+    <value>249, 27</value>
   </data>
   <data name="labelEndTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
+    <value>55, 20</value>
   </data>
   <data name="labelEndTime.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="labelEndTime.Text" xml:space="preserve">
-    <value>99:99</value>
+    <value>99:99 MM</value>
+  </data>
+  <data name="labelEndTime.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;labelEndTime.Name" xml:space="preserve">
     <value>labelEndTime</value>
@@ -223,7 +223,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelEllapsed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>273, 31</value>
+    <value>310, 31</value>
   </data>
   <data name="labelEllapsed.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 13</value>
@@ -417,8 +417,41 @@
   <data name="&gt;&gt;pictureChannelLogo.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="labelFromTo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelFromTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 27</value>
+  </data>
+  <data name="labelFromTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 20</value>
+  </data>
+  <data name="labelFromTo.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="labelFromTo.Text" xml:space="preserve">
+    <value>From START time to END time details</value>
+  </data>
+  <data name="labelFromTo.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="labelFromTo.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;labelFromTo.Name" xml:space="preserve">
+    <value>labelFromTo</value>
+  </data>
+  <data name="&gt;&gt;labelFromTo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelFromTo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;labelFromTo.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="epgProgressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 27</value>
+    <value>118, 27</value>
   </data>
   <data name="epgProgressBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 20</value>

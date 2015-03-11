@@ -647,6 +647,9 @@ namespace Project.DvbIpTv.ChannelList
             menuItemProviderDetails.Enabled = true;
             menuItemChannelRefreshList.Enabled = true;
 
+            // TODO: clean-up
+            UpdateEpgData();
+
             SetBroadcastDiscovery(null);
             LoadBroadcastDiscovery(true);
         } // ServiceProviderChanged
@@ -720,6 +723,7 @@ namespace Project.DvbIpTv.ChannelList
                     AppUiConfiguration.Current.Cache.SaveXml("UiBroadcastDiscovery", SelectedServiceProvider.Key, uiDiscovery.Version, uiDiscovery);
                 } // if
 
+                ShowEpgMiniBar(false);
                 SetBroadcastDiscovery(uiDiscovery);
                 FillListViewChannels();
 
@@ -843,6 +847,7 @@ namespace Project.DvbIpTv.ChannelList
             menuItemRecordingsRecord.Enabled = (broadcastDiscovery != null);
             buttonRecordChannel.Enabled = (broadcastDiscovery != null);
             buttonDisplayChannel.Enabled = (broadcastDiscovery != null);
+            SelectedBroadcastService = null;
 
             BroadcastServiceChanged();
         } // SetBroadcastDiscovery
@@ -859,7 +864,8 @@ namespace Project.DvbIpTv.ChannelList
             if (selectedItem == null)
             {
                 SelectedBroadcastService = null;
-                ShowEpgMiniBar(false);
+                EnableEpgMenus(false);
+                epgMiniBar.ClearEpgEvents();
                 return;
             } // if
 
@@ -867,6 +873,7 @@ namespace Project.DvbIpTv.ChannelList
             Properties.Settings.Default.LastSelectedService = SelectedBroadcastService.Key;
             Properties.Settings.Default.Save();
 
+            EnableEpgMenus(true);
             ShowEpgMiniBar(true);
         } // BroadcastServiceChanged
 
@@ -1057,7 +1064,7 @@ namespace Project.DvbIpTv.ChannelList
             else
             {
                 Notify(null, null, 0);
-            }
+            } // if-else
         } // NotifyChannelListAge
 
         #endregion
@@ -1140,7 +1147,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemEpgToday_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            ShowEpgToday();
         } // menuItemEpgToday_Click
 
         private void menuItemEpgTomorrow_Click(object sender, EventArgs e)
@@ -1150,7 +1157,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemEpgRefresh_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            LaunchEpgLoader(false);
         }  // menuItemEpgRefresh_Click
 
         private void SetupContextMenuList()
@@ -1241,11 +1248,7 @@ namespace Project.DvbIpTv.ChannelList
             if (selectedRow == null) return;
 
             buffer = new StringBuilder();
-            for (int index = 0; index < selectedRow.SubItems.Count; index++)
-            {
-                if (index != 0) buffer.Append("\t");
-                buffer.Append(selectedRow.SubItems[index].Text);
-            } // for index
+            DumpBroadcastService(selectedRow.Tag as UiBroadcastService, buffer);
 
             Clipboard.SetText(buffer.ToString(), TextDataFormat.UnicodeText);
         } // contextMenuListCopyRow_Click
@@ -1258,28 +1261,57 @@ namespace Project.DvbIpTv.ChannelList
 
             foreach (ListViewItem selectedRow in listViewChannels.Items)
             {
-                for (int index = 0; index < selectedRow.SubItems.Count; index++)
-                {
-                    if (index != 0) buffer.Append("\t");
-                    buffer.Append(selectedRow.SubItems[index].Text);
-                } // for index
+                DumpBroadcastService(selectedRow.Tag as UiBroadcastService, buffer);
                 buffer.AppendLine();
             } // foreach item
 
             Clipboard.SetText(buffer.ToString(), TextDataFormat.UnicodeText);
         } // contextMenuListCopyAll_Click
 
-        private void ShowEpgMiniBar(bool display)
+        private void DumpBroadcastService(UiBroadcastService service, StringBuilder buffer)
+        {
+            buffer.Append(service.DisplayName);
+            buffer.Append("\t");
+            buffer.Append(service.DisplayDescription);
+            buffer.Append("\t");
+            buffer.Append(service.DisplayServiceType);
+            buffer.Append("\t");
+            buffer.Append(service.DisplayLocationUrl);
+            buffer.Append("\t");
+            buffer.Append(service.FullServiceName);
+            buffer.Append("\t");
+            var replacement = service.ReplacementService;
+            if (replacement != null)
+            {
+                if (string.IsNullOrEmpty(replacement.DomainName))
+                {
+                    buffer.Append(replacement.ServiceName);
+                    buffer.Append('.');
+                    buffer.Append(service.DomainName);
+                }
+                else
+                {
+                    buffer.Append(replacement.ServiceName);
+                    buffer.Append('.');
+                    buffer.Append(replacement.DomainName);
+                } // if-else
+            } // if
+        } // DumpBroadcastService
+
+        private void EnableEpgMenus(bool enable)
         {
             // TODO: enable/disable EPG menu items
-
-            epgMiniBar.Visible = display;
-            menuItemEpgNow.Enabled = display;
-            menuItemEpgToday.Enabled = false; // display;
-            menuItemEpgTomorrow.Enabled = false; // display;
+            menuItemEpgNow.Enabled = enable;
+            menuItemEpgToday.Enabled = enable;
+            menuItemEpgTomorrow.Enabled = false; // enable;
             menuItemEpgPrevious.Enabled = false;
             menuItemEpgNext.Enabled = false;
+            menuItemEpgRefresh.Enabled = SelectedServiceProvider != null;
+        } // EnableEpgMenus
 
+        private void ShowEpgMiniBar(bool display)
+        {
+            epgMiniBar.Visible = display;
             if (!display) return;
 
             // TODO: get dbFile from config
@@ -1326,5 +1358,79 @@ namespace Project.DvbIpTv.ChannelList
         {
             epgMiniBar.GoForward();
         }
+
+        private void UpdateEpgData()
+        {
+            var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
+            var status = Project.DvbIpTv.Services.EPG.Serialization.EpgDbQuery.GetStatus(dbFile);
+
+#if !DEBUG
+            if (status.IsNew)
+            {
+                LaunchEpgLoader(true);
+            }
+            else if (!status.IsError)
+            {
+                var update = (DateTime.Now - status.Time.ToLocalTime()).TotalDays >= 1;
+                if (update)
+                {
+                    LaunchEpgLoader(true);
+                } // if
+            } // if
+#endif
+        } // UpdateEgpData
+
+        private void LaunchEpgLoader(bool foreground)
+        {
+            //TODO: avoid fixed paths & code clean-up
+#if DEBUG
+            MessageBox.Show(this, "EPG updating is not available in DEBUG builds");
+#else
+            var updater = Path.Combine(AppUiConfiguration.Current.Folders.Install, "ConsoleEPGLoader");
+            if (!File.Exists(updater))
+            {
+                HandleException(new FileNotFoundException("Unable to find EPG loader/updater utility"));
+                return;
+            } // if
+            var args = string.Format("\"Database:{0}\"", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
+
+            var processInfo = new System.Diagnostics.ProcessStartInfo()
+            {
+                FileName = updater,
+                Arguments = args,
+                ErrorDialog = true,
+                ErrorDialogParentHandle = ((IWin32Window)this).Handle,
+                WindowStyle = foreground? System.Diagnostics.ProcessWindowStyle.Normal :  System.Diagnostics.ProcessWindowStyle.Minimized
+            };
+
+            using (var process = System.Diagnostics.Process.Start(processInfo))
+            {
+                // no op
+            } // using
+#endif
+        } // LaunchEpgLoader
+
+        private void ShowEpgToday()
+        {
+            if (SelectedBroadcastService == null) return;
+
+            using (var form = new EpgChannelPrograms())
+            {
+                // TODO: unify code with mini-bar code
+
+                // TODO: get dbFile from config
+                form.EpgDatabase = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
+
+                // TODO: do NOT assume .imagenio.es
+                form.FullServiceName = SelectedBroadcastService.ServiceName + ".imagenio.es";
+                var replacement = SelectedBroadcastService.ReplacementService;
+                form.FullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
+
+                form.ChannelLogo = imageListChannelsLarge.Images[SelectedBroadcastService.Logo.Key];
+                form.ChannelName = SelectedBroadcastService.DisplayName;
+
+                form.ShowDialog(this);
+            } // using form
+        } // ShowEpgToday
     } // class ChannelListForm
 } // namespace

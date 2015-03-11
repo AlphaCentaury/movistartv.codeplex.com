@@ -111,6 +111,40 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             } // try-catch
         }  // IsEmbNotInstalled
 
+        public static bool IsSqlCeInstalled(out string message)
+        {
+            try
+            {
+                Assembly assembly;
+
+                assembly = null;
+                try
+                {
+                    assembly = Assembly.Load(Resources.SqlCeComponentAssemblyName);
+                }
+                catch
+                {
+                    // ignore
+                } // try-catch
+
+                if (assembly == null)
+                {
+                    message = Properties.Texts.IsSqlCeInstalledNotInstalled;
+                    return false;
+                } // if
+
+                var version = assembly.GetName().Version;
+                message = string.Format(Texts.IsSqlCeInstalledOk, version);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                message = string.Format(Texts.IsSqlCeInstalledException, ex.ToString());
+                return false;
+            } // try-catch
+        }  // IsSqlCeInstalled
+
         public static bool IsVlcInstalled(out string message, ref string path)
         {
             try

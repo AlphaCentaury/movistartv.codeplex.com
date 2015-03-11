@@ -24,7 +24,7 @@ All rights reserved, except those granted by the governing license of this softw
     </ComponentGroup>
 
     <ComponentGroup Id="CommonComponents">
-      <Component Id="CommonAssemblies" Directory="INSTALLFOLDER" Guid="{1494991C-6027-4713-9976-6F00201F1368}">
+      <Component Id="CommonAssemblies" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.CommonAssemblies)">
         <File Id="DvbIpTypes.dll" Source="$(var.DvbIpTypes.TargetDir)DvbIpTypes.dll" />
         <File Id="DvbStpClient.dll" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.dll" />
         <File Id="Project.Common.dll" Source="$(var.Project.Common.TargetDir)Project.Common.dll" />
@@ -38,7 +38,7 @@ All rights reserved, except those granted by the governing license of this softw
         <File Id='license.rtf' Source='$(var.SolutionDir)!(loc.SourceFileLicenseAgreement).rtf' Name='!(loc.FileLicenseAgreement).rtf' />
       </Component>
 
-      <Component Id="CommonAssemblies.PDB" Directory="INSTALLFOLDER" Guid="{EC84B538-A651-492F-8E90-5D8A0FBF8D14}">
+      <Component Id="CommonAssemblies.PDB" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.CommonAssemblies.PDB)">
         <File Id="DvbIpTypes.pdb" Source="$(var.DvbIpTypes.TargetDir)DvbIpTypes.pdb" />
         <File Id="DvbStpClient.pdb" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.pdb" />
         <File Id="Project.Common.pdb" Source="$(var.Project.Common.TargetDir)Project.Common.pdb" />
@@ -51,12 +51,14 @@ All rights reserved, except those granted by the governing license of this softw
       </Component>
     </ComponentGroup>
 
-    <ComponentGroup Id="CommonComponents.Localized">
-      <Component Id="CommonAssemblies.es" Directory="InstallFolder.es" Guid="{08AE1848-F8D0-4FA4-98C1-1204E0D007DC}">
+    <ComponentGroup Id="CommonComponents.Localization">
+      <Component Id="CommonAssemblies.Localization.es" Directory="InstallFolder.es" Guid="$(var.Guid.Component.CommonAssemblies.Localization.es)">
         <!--
         <File Id="DvbIpTypes.es.dll" Source="$(var.DvbIpTypes.TargetDir)es\DvbIpTypes.resources.dll" />
         <File Id="DvbStpClient.es.dll" Source="$(var.DvbStpClient.TargetDir)es\DvbStpClient.resources.dll" />
+        -->
         <File Id="Project.Common.es.dll" Source="$(var.Project.Common.TargetDir)es\Project.Common.resources.dll" />
+        <!--
         <File Id="Services.SqlServerCE.es.dll" Source="$(var.Services.SqlServerCE.TargetDir)es\Services.SqlServerCE.resources.dll" />
         -->
         <File Id="UiServices.Config.es.dll" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Config.resources.dll" />
@@ -84,7 +86,7 @@ All rights reserved, except those granted by the governing license of this softw
       </Component>
     </ComponentGroup>
 
-    <ComponentGroup Id="ProductComponents.Localized">
+    <ComponentGroup Id="ProductComponents.Localization">
       <Component Id="ChannelList.es" Directory="InstallFolder.es">
         <File Id="ChannelList.es.exe" Source="$(var.ChannelList.TargetDir)es\ChannelList.resources.dll" />
       </Component>

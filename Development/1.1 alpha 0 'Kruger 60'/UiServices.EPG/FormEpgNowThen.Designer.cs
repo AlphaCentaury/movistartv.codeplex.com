@@ -13,6 +13,8 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
+            DisposeForm(disposing);
+
             if (disposing && (components != null))
             {
                 components.Dispose();
@@ -60,38 +62,38 @@
             // 
             // labelBeforeTime
             // 
-            this.labelBeforeTime.AutoEllipsis = true;
             resources.ApplyResources(this.labelBeforeTime, "labelBeforeTime");
+            this.labelBeforeTime.AutoEllipsis = true;
             this.labelBeforeTime.Name = "labelBeforeTime";
             // 
             // labelBeforeTitle
             // 
-            this.labelBeforeTitle.AutoEllipsis = true;
             resources.ApplyResources(this.labelBeforeTitle, "labelBeforeTitle");
+            this.labelBeforeTitle.AutoEllipsis = true;
             this.labelBeforeTitle.Name = "labelBeforeTitle";
             // 
             // labelBeforeDetails
             // 
-            this.labelBeforeDetails.AutoEllipsis = true;
             resources.ApplyResources(this.labelBeforeDetails, "labelBeforeDetails");
+            this.labelBeforeDetails.AutoEllipsis = true;
             this.labelBeforeDetails.Name = "labelBeforeDetails";
             // 
             // labelNowDetails
             // 
-            this.labelNowDetails.AutoEllipsis = true;
             resources.ApplyResources(this.labelNowDetails, "labelNowDetails");
+            this.labelNowDetails.AutoEllipsis = true;
             this.labelNowDetails.Name = "labelNowDetails";
             // 
             // labelNowTitle
             // 
-            this.labelNowTitle.AutoEllipsis = true;
             resources.ApplyResources(this.labelNowTitle, "labelNowTitle");
+            this.labelNowTitle.AutoEllipsis = true;
             this.labelNowTitle.Name = "labelNowTitle";
             // 
             // labelNowTime
             // 
-            this.labelNowTime.AutoEllipsis = true;
             resources.ApplyResources(this.labelNowTime, "labelNowTime");
+            this.labelNowTime.AutoEllipsis = true;
             this.labelNowTime.Name = "labelNowTime";
             // 
             // labelNow
@@ -101,20 +103,20 @@
             // 
             // labelThenDetails
             // 
-            this.labelThenDetails.AutoEllipsis = true;
             resources.ApplyResources(this.labelThenDetails, "labelThenDetails");
+            this.labelThenDetails.AutoEllipsis = true;
             this.labelThenDetails.Name = "labelThenDetails";
             // 
             // labelThenTitle
             // 
-            this.labelThenTitle.AutoEllipsis = true;
             resources.ApplyResources(this.labelThenTitle, "labelThenTitle");
+            this.labelThenTitle.AutoEllipsis = true;
             this.labelThenTitle.Name = "labelThenTitle";
             // 
             // labelThenTime
             // 
-            this.labelThenTime.AutoEllipsis = true;
             resources.ApplyResources(this.labelThenTime, "labelThenTime");
+            this.labelThenTime.AutoEllipsis = true;
             this.labelThenTime.Name = "labelThenTime";
             // 
             // labelThen

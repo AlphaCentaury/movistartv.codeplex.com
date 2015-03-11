@@ -179,6 +179,15 @@
   <data name="groupPrerequisites.Text" xml:space="preserve">
     <value>Descargar e instalar requisitos previos</value>
   </data>
+  <data name="buttonVerifySqlCe.Text" xml:space="preserve">
+    <value>Co&amp;mprobar...</value>
+  </data>
+  <data name="linkLabelPrerequisiteSqlCe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 13</value>
+  </data>
+  <data name="linkLabelPrerequisiteSqlCe.Text" xml:space="preserve">
+    <value>Descargar de microsoft.com</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonVerifyEmb.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -210,6 +219,18 @@
   <data name="labelNet.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="labelCreatingConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 13</value>
+  </data>
+  <data name="labelCreatingConfig.Text" xml:space="preserve">
+    <value>Creando los archivos de configuración de la aplicación y de preferencias de usuario...</value>
+  </data>
+  <data name="labelCreatingConfig.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="buttonConfig.Text" xml:space="preserve">
+    <value>Configurar la &amp;aplicación</value>
+  </data>
   <data name="groupFirewall.Text" xml:space="preserve">
     <value>Configuración del Cortafuegos de Windows (Windows Firewall)</value>
   </data>
@@ -240,18 +261,6 @@
   <data name="groupBasicConfig.Text" xml:space="preserve">
     <value>Información de configuración básica</value>
   </data>
-  <data name="labelCreatingConfig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>410, 13</value>
-  </data>
-  <data name="labelCreatingConfig.Text" xml:space="preserve">
-    <value>Creando los archivos de configuración de la aplicación y de preferencias de usuario...</value>
-  </data>
-  <data name="labelCreatingConfig.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="buttonConfig.Text" xml:space="preserve">
-    <value>Configurar la &amp;aplicación</value>
-  </data>
   <data name="textSaveSubFolder.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 64</value>
   </data>
@@ -281,6 +290,10 @@
   </data>
   <data name="checkBoxLaunchProgram.Text" xml:space="preserve">
     <value>&amp;Ejecutar el programa 'Listado de canales'</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Asistente de configuración inicial</value>

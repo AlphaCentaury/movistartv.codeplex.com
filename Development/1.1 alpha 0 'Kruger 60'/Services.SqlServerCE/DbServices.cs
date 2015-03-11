@@ -283,5 +283,19 @@ namespace Project.DvbIpTv.Services.SqlServerCE
 
             return cmd.ExecuteNonQuery();
         } // Execute
+
+        public static SqlCeDataReader ExecuteReader(string dbFile, SqlCeCommand cmd, CommandBehavior options = CommandBehavior.Default)
+        {
+            var cn = GetConnection(dbFile);
+            cmd.Connection = cn;
+            return cmd.ExecuteReader(CommandBehavior.CloseConnection | options);
+        } // ExecuteReader
+
+        public static SqlCeDataReader ExecuteReader(SqlCeConnection cn, SqlCeCommand cmd, CommandBehavior options = CommandBehavior.Default)
+        {
+            if (cn != null) cmd.Connection = cn;
+
+            return cmd.ExecuteReader(options);
+        } // ExecuteReader
     } // class DbServices
 } // namespace

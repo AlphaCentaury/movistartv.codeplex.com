@@ -140,6 +140,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 9.0.1399.0.
+        /// </summary>
+        internal static string EmbTargetFileVersion {
+            get {
+                return ResourceManager.GetString("EmbTargetFileVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Error_16x16 {
@@ -180,7 +189,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ChannelList.exe.
+        ///   Looks up a localized string similar to ChannelList.exe
+        ///ConsoleEPGLoader.exe.
         /// </summary>
         internal static string FirewallProgramList {
             get {
@@ -234,6 +244,24 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
             get {
                 object obj = ResourceManager.GetObject("Shield_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91.
+        /// </summary>
+        internal static string SqlCeComponentAssemblyName {
+            get {
+                return ResourceManager.GetString("SqlCeComponentAssemblyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4.0.8876.1.
+        /// </summary>
+        internal static string SqlCeTargetFileVersion {
+            get {
+                return ResourceManager.GetString("SqlCeTargetFileVersion", resourceCulture);
             }
         }
         
