@@ -19,6 +19,12 @@ namespace Project.DvbIpTv.UiServices.EPG
         private Image EpgNoProgramImage;
         private Font BoldListFont, ItalicListFont;
 
+        public int DaysDelta
+        {
+            get;
+            set;
+        } // DaysDelta
+
         public Image ChannelLogo
         {
             set { pictureChannelLogo.Image = value; }
@@ -67,18 +73,17 @@ namespace Project.DvbIpTv.UiServices.EPG
         {
             EpgLoadingProgramImage = Properties.Resources.EpgLoadingProgramImage;
             EpgNoProgramImage = Properties.Resources.EpgNoProgramImage;
-            
-            comboBoxDate.SelectedIndex = 0;
-            labelNowTime.Visible = false;
-            labelNowDetails.Visible = false;
-            labelNowTitle.Text = "Leyendo información de guía de programas";
-            pictureBoxNow.Image = EpgLoadingProgramImage;
-            pictureBoxNow.ErrorImage = EpgNoProgramImage;
 
             BoldListFont = new Font(listPrograms.Font, FontStyle.Bold);
             ItalicListFont = new Font(listPrograms.Font, FontStyle.Italic);
 
-            ThreadPool.QueueUserWorkItem(LoadEpg);
+            comboBoxDate.SelectedIndex = DaysDelta;
+        }
+
+        private void comboBoxDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DaysDelta = comboBoxDate.SelectedIndex;
+            StartLoadEpg();
         }
 
         private void listPrograms_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,10 +92,29 @@ namespace Project.DvbIpTv.UiServices.EPG
             DisplayData(epgEvent, labelNowTime, labelNowTitle, labelNowDetails, pictureBoxNow, DateTime.Now);
         } // listPrograms_SelectedIndexChanged
 
+        private void StartLoadEpg()
+        {
+            
+            labelNowTime.Visible = false;
+            labelNowDetails.Visible = false;
+            labelNowTitle.Text = "Leyendo información de guía de programas";
+            pictureBoxNow.Image = EpgLoadingProgramImage;
+            pictureBoxNow.ErrorImage = EpgNoProgramImage;
+
+            if (listPrograms.Items.Count > 0)
+            {
+                listPrograms.Items.Clear();
+            } // if
+
+            comboBoxDate.Enabled = false;
+
+            ThreadPool.QueueUserWorkItem(LoadEpg);
+        } // StartLoadEpg
+
         private void LoadEpg(object state)
         {
             var now = DateTime.Now;
-            var start = new DateTime(now.Year, now.Month, now.Day);
+            var start = new DateTime(now.Year, now.Month, now.Day).AddDays(DaysDelta);
             var end = start.AddDays(1);
             var epgEvents = EpgDbSerialization.GetServiceEvents(EpgDatabase, FullServiceName, FullAlternateServiceName, start, end);
             this.BeginInvoke(new Action<IList<EpgEvent>>(ShowEpg), epgEvents);
@@ -106,7 +130,6 @@ namespace Project.DvbIpTv.UiServices.EPG
             var now = DateTime.Now;
 
             listPrograms.BeginUpdate();
-            listPrograms.Items.Clear();
 
             foreach (var epgEvent in epgEvents)
             {
@@ -124,11 +147,12 @@ namespace Project.DvbIpTv.UiServices.EPG
                     item.Font = BoldListFont;
                     item.Tag = epgEvent;
                     item.SubItems.Add(epgEvent.Title);
+                    item.ToolTipText = epgEvent.Title;
                 } // if-else
                 listPrograms.Items.Add(item);
                 last = epgEvent;
 
-                if ((epgEvent.LocalStartTime <= now) && (epgEvent.LocalEndTime > now))
+                if ((select == null) && (epgEvent.LocalStartTime <= now) && (epgEvent.LocalEndTime > now))
                 {
                     select = item;
                 } // if
@@ -145,8 +169,9 @@ namespace Project.DvbIpTv.UiServices.EPG
 
             if (select != null)
             {
-                select.Selected = true;
+                select.Selected = (DaysDelta == 0);
                 select.EnsureVisible();
+                select.IndentCount = 3;
                 listPrograms.Focus();
             }
             else
@@ -159,6 +184,8 @@ namespace Project.DvbIpTv.UiServices.EPG
             } // if-else
 
             listPrograms.EndUpdate();
+
+            comboBoxDate.Enabled = true;
         } // ShowEpg
 
         private void DisplayData(EpgEvent epg, Label time, Label title, Label details, PictureBox picture, DateTime referenceTime)

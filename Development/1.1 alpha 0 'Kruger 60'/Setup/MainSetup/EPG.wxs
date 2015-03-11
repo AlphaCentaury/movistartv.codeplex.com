@@ -18,10 +18,12 @@
         <RegistryValue Root="HKCU" Key="$(var.BaseRegistryKey)\Features" Name="EPG"  Type="integer" Value="1" />
         <File Id="Services.EPG.dll" Source="$(var.Services.EPG.TargetDir)Services.EPG.dll" KeyPath="yes" />
         <File Id="UiServices.EPG.dll" Source="$(var.UiServices.EPG.TargetDir)UiServices.EPG.dll" />
+        <File Id="ConsoleEPGLoader.exe" Source="$(var.ConsoleEPGLoader.TargetDir)ConsoleEPGLoader.exe" />
       </Component>
       <Component Id="EPG.Assemblies.PDB" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.EPG.PDB)">
         <File Id="Services.EPG.pdb" Source="$(var.Services.EPG.TargetDir)Services.EPG.pdb" />
         <File Id="UiServices.EPG.pdb" Source="$(var.UiServices.EPG.TargetDir)UiServices.EPG.pdb" />
+        <File Id="ConsoleEPGLoader.pdb" Source="$(var.ConsoleEPGLoader.TargetDir)ConsoleEPGLoader.pdb" />
       </Component>
     </ComponentGroup>
 
@@ -29,6 +31,7 @@
       <Component Id="EPG.Assemblies.Localization.es" Directory="InstallFolder.es" Guid="$(var.Guid.Component.EPG.Assemblies.Localization.es)">
         <!--<File Id="Services.EPG.es.dll" Source="$(var.Services.EPG.TargetDir)es\Services.EPG.resources.dll" />-->
         <File Id="UiServices.EPG.es.dll" Source="$(var.UiServices.EPG.TargetDir)es\UiServices.EPG.resources.dll" />
+        <File Id="ConsoleEPGLoader.es.exe" Source="$(var.ConsoleEPGLoader.TargetDir)es\ConsoleEPGLoader.resources.dll" />
       </Component>
     </ComponentGroup>
 

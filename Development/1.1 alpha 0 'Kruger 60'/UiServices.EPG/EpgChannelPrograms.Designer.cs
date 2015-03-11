@@ -31,9 +31,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "--:--",
-            "No EPG data"}, -1);
             this.labelChannelName = new System.Windows.Forms.Label();
             this.comboBoxDate = new System.Windows.Forms.ComboBox();
             this.listPrograms = new System.Windows.Forms.ListView();
@@ -72,11 +69,14 @@
             this.comboBoxDate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDate.FormattingEnabled = true;
             this.comboBoxDate.Items.AddRange(new object[] {
-            "Hoy"});
+            "Hoy",
+            "Mañana",
+            "Pasado"});
             this.comboBoxDate.Location = new System.Drawing.Point(66, 39);
             this.comboBoxDate.Name = "comboBoxDate";
             this.comboBoxDate.Size = new System.Drawing.Size(198, 21);
             this.comboBoxDate.TabIndex = 20;
+            this.comboBoxDate.SelectedIndexChanged += new System.EventHandler(this.comboBoxDate_SelectedIndexChanged);
             // 
             // listPrograms
             // 
@@ -91,12 +91,11 @@
             this.listPrograms.GridLines = true;
             this.listPrograms.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listPrograms.HideSelection = false;
-            this.listPrograms.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.listPrograms.Location = new System.Drawing.Point(12, 66);
             this.listPrograms.MultiSelect = false;
             this.listPrograms.Name = "listPrograms";
             this.listPrograms.ShowGroups = false;
+            this.listPrograms.ShowItemToolTips = true;
             this.listPrograms.Size = new System.Drawing.Size(460, 149);
             this.listPrograms.TabIndex = 21;
             this.listPrograms.UseCompatibleStateImageBehavior = false;
@@ -253,7 +252,7 @@
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "EpgChannelPrograms";
+            this.Text = "EPG Channel programs";
             this.Load += new System.EventHandler(this.EpgChannelPrograms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).EndInit();

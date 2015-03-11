@@ -37,8 +37,8 @@ All rights reserved, except those granted by the governing license of this softw
       <FeatureRef Id="Feature.Tools" />
     </Feature>
 
-    <!--<UIRef Id='WixUI_Minimal'/>-->
-    <UIRef Id='WixUI_FeatureTree'/>
+    <UIRef Id='WixUI_Minimal'/>
+    <!--<UIRef Id='WixUI_FeatureTree'/>-->
     <WixVariable Id='WixUIBannerBmp' Value='bannrbmp.bmp'/>
     <WixVariable Id='WixUIDialogBmp' Value='dlgbmp.bmp'/>
     <!-- ATENCION: WixVariable no permite utilizar !(loc.xxx); por tanto, el nombre del archivo de licencia va a "piñon fijo"; hay que buscar la forma de solucionar esto; cuando se crea un instalador para otro idioma es necesario modificar manualmente el nombre del archivo para que se incluya el acuerdo de licencia en el idioma correcto -->

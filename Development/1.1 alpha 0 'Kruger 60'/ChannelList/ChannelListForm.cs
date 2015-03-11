@@ -1147,12 +1147,12 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemEpgToday_Click(object sender, EventArgs e)
         {
-            ShowEpgToday();
+            ShowEpgList(0);
         } // menuItemEpgToday_Click
 
         private void menuItemEpgTomorrow_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            ShowEpgList(1);
         } // menuItemEpgTomorrow_Click
 
         private void menuItemEpgRefresh_Click(object sender, EventArgs e)
@@ -1300,13 +1300,12 @@ namespace Project.DvbIpTv.ChannelList
 
         private void EnableEpgMenus(bool enable)
         {
-            // TODO: enable/disable EPG menu items
             menuItemEpgNow.Enabled = enable;
             menuItemEpgToday.Enabled = enable;
-            menuItemEpgTomorrow.Enabled = false; // enable;
+            menuItemEpgTomorrow.Enabled = enable;
             menuItemEpgPrevious.Enabled = false;
             menuItemEpgNext.Enabled = false;
-            menuItemEpgRefresh.Enabled = SelectedServiceProvider != null;
+            menuItemEpgRefresh.Enabled = (SelectedServiceProvider != null);
         } // EnableEpgMenus
 
         private void ShowEpgMiniBar(bool display)
@@ -1386,13 +1385,13 @@ namespace Project.DvbIpTv.ChannelList
 #if DEBUG
             MessageBox.Show(this, "EPG updating is not available in DEBUG builds");
 #else
-            var updater = Path.Combine(AppUiConfiguration.Current.Folders.Install, "ConsoleEPGLoader");
+            var updater = Path.Combine(AppUiConfiguration.Current.Folders.Install, "ConsoleEPGLoader.exe");
             if (!File.Exists(updater))
             {
-                HandleException(new FileNotFoundException("Unable to find EPG loader/updater utility"));
+                HandleException("Unable to find EPG loader/updater utility", new FileNotFoundException(updater));
                 return;
             } // if
-            var args = string.Format("\"Database:{0}\"", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
+            var args = string.Format("\"/Database:{0}\"", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
 
             var processInfo = new System.Diagnostics.ProcessStartInfo()
             {
@@ -1410,7 +1409,7 @@ namespace Project.DvbIpTv.ChannelList
 #endif
         } // LaunchEpgLoader
 
-        private void ShowEpgToday()
+        private void ShowEpgList(int daysDelta)
         {
             if (SelectedBroadcastService == null) return;
 
@@ -1426,11 +1425,12 @@ namespace Project.DvbIpTv.ChannelList
                 var replacement = SelectedBroadcastService.ReplacementService;
                 form.FullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
 
+                form.DaysDelta = daysDelta;
                 form.ChannelLogo = imageListChannelsLarge.Images[SelectedBroadcastService.Logo.Key];
                 form.ChannelName = SelectedBroadcastService.DisplayName;
 
                 form.ShowDialog(this);
             } // using form
-        } // ShowEpgToday
+        } // ShowEpgList
     } // class ChannelListForm
 } // namespace

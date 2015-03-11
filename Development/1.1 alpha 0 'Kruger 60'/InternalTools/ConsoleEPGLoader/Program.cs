@@ -198,7 +198,7 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
                 var box = new Microsoft.SqlServer.MessageBox.ExceptionMessageBox()
                 {
                     Caption = "Utilidad de descarga y actualización de EPG TV-Anytime",
-                    Text = "Se va a proceder a descargar la información de la guía electrónica de programas (EPG) por primera vez." +
+                    Text = "Se va a proceder a descargar la información de la guía electrónica de programas (EPG) por primera vez. " +
                     "La descarga de la EPG en la primera ejecución es un proceso muy lento (entre 10 y 15 minutos).\r\n\r\n" +
                     "Durante el proceso de descarga la información de EPG o bien no estará disponible o será incompleta.\r\n" +
                     "En las siguientes ejecuciones del programa, la información EPG se actualizará en segundo plano de manera automática (si han transcurrido más de 24 horas).",

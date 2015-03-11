@@ -78,30 +78,19 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         public static bool IsEmbInstalled(out string message)
         {
-            // 1.0 RC QFE1 fix (as per work item 1757)
             try
             {
-                Assembly assembly;
+                Version assemblyVersion, fileVersion;
 
-                assembly = null;
-                try
-                {
-                    assembly = Assembly.Load(Resources.EmbComponentAssemblyName);
-                }
-                catch
-                {
-                    // ignore
-                } // try-catch
+                var found = IsAssemblyInstalled(Resources.EmbComponentAssemblyName, out assemblyVersion, out fileVersion);
 
-                if (assembly == null)
+                if (!found)
                 {
                     message = Properties.Texts.IsEmbInstalledNotInstalled;
                     return false;
                 } // if
 
-                var version = assembly.GetName().Version;
-                message = string.Format(Texts.IsEmbInstalledOk, version);
-
+                message = string.Format(Texts.IsEmbInstalledOk, fileVersion);
                 return true;
             }
             catch (Exception ex)
@@ -115,27 +104,17 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         {
             try
             {
-                Assembly assembly;
+                Version assemblyVersion, fileVersion;
 
-                assembly = null;
-                try
-                {
-                    assembly = Assembly.Load(Resources.SqlCeComponentAssemblyName);
-                }
-                catch
-                {
-                    // ignore
-                } // try-catch
+                var found = IsAssemblyInstalled(Resources.SqlCeComponentAssemblyName, out assemblyVersion, out fileVersion);
 
-                if (assembly == null)
+                if (!found)
                 {
                     message = Properties.Texts.IsSqlCeInstalledNotInstalled;
                     return false;
                 } // if
 
-                var version = assembly.GetName().Version;
-                message = string.Format(Texts.IsSqlCeInstalledOk, version);
-
+                message = string.Format(Texts.IsSqlCeInstalledOk, fileVersion);
                 return true;
             }
             catch (Exception ex)
@@ -165,7 +144,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
                 // check VLC.exe file version
                 var vlcVersion = FileVersionInfo.GetVersionInfo(path);
-                var vlcFileVersion = new Version(vlcVersion.FileMajorPart, vlcVersion.FileMinorPart, vlcVersion.FileBuildPart);
+                var vlcFileVersion = new Version(vlcVersion.FileMajorPart, vlcVersion.FileMinorPart, vlcVersion.FileBuildPart, vlcVersion.FilePrivatePart);
                 var expectedVersion = new Version(Resources.VlcExeTargetVersion);
                 if (vlcFileVersion < expectedVersion)
                 {
@@ -183,7 +162,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
                 // check VLC.exe file version
                 var vlcLibVersion = FileVersionInfo.GetVersionInfo(vlcLibPath);
-                var vlcLibFileVersion = new Version(vlcLibVersion.FileMajorPart, vlcLibVersion.FileMinorPart, vlcLibVersion.FileBuildPart);
+                var vlcLibFileVersion = new Version(vlcLibVersion.FileMajorPart, vlcLibVersion.FileMinorPart, vlcLibVersion.FileBuildPart, vlcLibVersion.FilePrivatePart);
                 var expectedVlcLibVersion = new Version(Resources.VlcLibTargetVersion);
                 if (vlcLibFileVersion < expectedVlcLibVersion)
                 {
@@ -457,6 +436,44 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             {
                 return ex.ToString();
             } // try-catch
-        } // Launc
+        } // Launch
+
+        private static bool IsAssemblyInstalled(string assemblyName, out Version assemblyVersion, out Version fileVersion)
+        {
+            AppDomain domain;
+            string location;
+            
+            assemblyVersion = new Version();
+            fileVersion = new Version();
+            domain = null;
+            location = null;
+
+            try
+            {
+                domain = AppDomain.CreateDomain("AssemblyLoadTest");
+                try
+                {
+                    var assembly = domain.Load(assemblyName);
+                    assemblyVersion = assembly.GetName().Version;
+                    location = assembly.Location;
+                }
+                catch
+                {
+                    return false;
+                } // try-finally
+
+                var fileVersionInfo = FileVersionInfo.GetVersionInfo(location);
+                fileVersion = new Version(fileVersionInfo.FileMajorPart, fileVersionInfo.FileMinorPart, fileVersionInfo.FileBuildPart, fileVersionInfo.FilePrivatePart);
+
+                return true;
+            }
+            finally
+            {
+                if (domain != null)
+                {
+                    AppDomain.Unload(domain);
+                } // if
+            } // try-catch
+        } // IsAssemblyInstalled
     } // class Installation
 } // namespace

@@ -9,6 +9,7 @@ namespace Project.DvbIpTv.UiServices.Controls
     {
         public CommonBaseFormExceptionThrownEventArgs(Exception exception)
         {
+            Message = exception.Message;
             Exception = exception;
         } // constructor
 
