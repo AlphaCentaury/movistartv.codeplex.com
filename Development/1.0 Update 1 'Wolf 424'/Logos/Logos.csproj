@@ -39,6 +39,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="License.txt" />
     <Content Include="Providers\DVB-IPTV%40128.png" />
     <Content Include="Providers\DVB-IPTV%40256.png" />
     <Content Include="Providers\DVB-IPTV%4032.png" />
@@ -468,12 +469,6 @@
     <Content Include="Services\imagenio.es\bbc_world%4064.png" />
     <Content Include="Services\imagenio.es\bbc_world%4096.png" />
     <Content Include="Services\imagenio.es\bbc_world.ico" />
-    <Content Include="Services\imagenio.es\biography%40128.png" />
-    <Content Include="Services\imagenio.es\biography%4032.png" />
-    <Content Include="Services\imagenio.es\biography%4048.png" />
-    <Content Include="Services\imagenio.es\biography%4064.png" />
-    <Content Include="Services\imagenio.es\biography%4096.png" />
-    <Content Include="Services\imagenio.es\biography.ico" />
     <Content Include="Services\imagenio.es\bloomberg%40128.png" />
     <Content Include="Services\imagenio.es\bloomberg%40256.png" />
     <Content Include="Services\imagenio.es\bloomberg%4032.png" />
@@ -649,13 +644,6 @@
     <Content Include="Services\imagenio.es\disney_channel%4064.png" />
     <Content Include="Services\imagenio.es\disney_channel%4096.png" />
     <Content Include="Services\imagenio.es\disney_channel.ico" />
-    <Content Include="Services\imagenio.es\disney_cinemagic%40128.png" />
-    <Content Include="Services\imagenio.es\disney_cinemagic%40256.png" />
-    <Content Include="Services\imagenio.es\disney_cinemagic%4032.png" />
-    <Content Include="Services\imagenio.es\disney_cinemagic%4048.png" />
-    <Content Include="Services\imagenio.es\disney_cinemagic%4064.png" />
-    <Content Include="Services\imagenio.es\disney_cinemagic%4096.png" />
-    <Content Include="Services\imagenio.es\disney_cinemagic.ico" />
     <Content Include="Services\imagenio.es\disney_junior%40128.png" />
     <Content Include="Services\imagenio.es\disney_junior%40256.png" />
     <Content Include="Services\imagenio.es\disney_junior%4032.png" />
@@ -880,13 +868,6 @@
     <Content Include="Services\imagenio.es\hd_disney_channel%4064.png" />
     <Content Include="Services\imagenio.es\hd_disney_channel%4096.png" />
     <Content Include="Services\imagenio.es\hd_disney_channel.ico" />
-    <Content Include="Services\imagenio.es\hd_disney_cinemagic%40128.png" />
-    <Content Include="Services\imagenio.es\hd_disney_cinemagic%40256.png" />
-    <Content Include="Services\imagenio.es\hd_disney_cinemagic%4032.png" />
-    <Content Include="Services\imagenio.es\hd_disney_cinemagic%4048.png" />
-    <Content Include="Services\imagenio.es\hd_disney_cinemagic%4064.png" />
-    <Content Include="Services\imagenio.es\hd_disney_cinemagic%4096.png" />
-    <Content Include="Services\imagenio.es\hd_disney_cinemagic.ico" />
     <Content Include="Services\imagenio.es\hd_eurosport%40128.png" />
     <Content Include="Services\imagenio.es\hd_eurosport%40256.png" />
     <Content Include="Services\imagenio.es\hd_eurosport%4032.png" />
