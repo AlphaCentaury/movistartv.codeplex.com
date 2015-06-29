@@ -12,10 +12,10 @@ using System.Runtime.CompilerServices;
 
 internal static class SolutionVersion
 {
-    public const string DefaultAssemblyVersion = "1.5.0.0";
-    public const string AssemblyFileVersion = "1.5.0.0";
-    public const string AssemblyInformationalVersion = "1.5.0.0";
+    public const string DefaultAssemblyVersion = "1.5.10.0";
+    public const string AssemblyFileVersion = "1.5.10.0";
+    public const string AssemblyInformationalVersion = "1.5.10.0";
     public const string AssemblyProduct = "DVB-IPTV software decoder for Movistar TV" + " (v" + ProductVersion + ")";
-    public const string ProductVersion = "1.5 Alpha 0 \"Kruger 60\"";
+    public const string ProductVersion = "1.5 Alpha 1 \"Kruger 60\"";
     public const string DefaultCopyright = "Copyright © 2014-2015, AlphaCentaury and contributors";
 } // class SolutionVersion
