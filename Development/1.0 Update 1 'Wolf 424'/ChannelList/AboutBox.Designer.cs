@@ -89,6 +89,7 @@ namespace Project.DvbIpTv.ChannelList
             // textBoxDescription
             // 
             resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
+            this.textBoxDescription.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             // 

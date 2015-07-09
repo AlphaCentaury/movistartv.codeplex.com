@@ -8,13 +8,12 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyInformationalVersion(SolutionVersion.AssemblyInformationalVersion)]
 [assembly: AssemblyProduct(SolutionVersion.AssemblyProduct)]
 [assembly: AssemblyCompany("http://movistartv.codeplex.com")]
-[assembly: AssemblyTrademark("")]
 
 internal static class SolutionVersion
 {
-    public const string DefaultAssemblyVersion = "1.0.40010.0";
-    public const string AssemblyFileVersion = "1.0.40010.0";
-    public const string AssemblyInformationalVersion = "1.0.40010.0";
+    public const string DefaultAssemblyVersion = "1.0.40100.0";
+    public const string AssemblyFileVersion = "1.0.40100.0";
+    public const string AssemblyInformationalVersion = "1.0.40100.0";
     public const string AssemblyProduct = "movistar+ DVB-IPTV software decoder" + " (v" + ProductVersion + ")";
     public const string ProductVersion = "1.0 Update 1 \"Wolf 424\"";
 } // class SolutionVersion

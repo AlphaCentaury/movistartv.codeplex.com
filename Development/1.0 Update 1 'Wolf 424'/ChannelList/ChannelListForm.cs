@@ -120,8 +120,8 @@ namespace Project.DvbIpTv.ChannelList
             ChannelListTileDisabledFont = new Font(listViewChannels.Font, listViewChannels.Font.Style);
             ChannelListDetailsFont = new Font(listViewChannels.Font, listViewChannels.Font.Style);
             ChannelListDetailsNameItemFont = new Font("Tahoma", 11.0f, FontStyle.Bold);
-            ChannelListViewChanged(View.Tile);
-            listViewChannels.Sort(0, true);
+            ChannelListViewChanged(Properties.Settings.Default.LastSelectedListView);
+            ChannelListSortChanged(Properties.Settings.Default.LastSelectedListSortColumn, !Properties.Settings.Default.LastSelectedListSortIsDescending);
 
             // load from cache, if available
             SelectedServiceProvider = SelectProviderDialog.GetLastUserSelectedProvider();
@@ -226,12 +226,12 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemChannelListSortName_Click(object sender, EventArgs e)
         {
-            SafeCall<int, bool?>(listViewChannels.Sort, 0, null);
+            SafeCall<int, bool?>(ChannelListSortChanged, 0, null);
         } // menuItemChannelListSortName_Click
 
         private void menuItemChannelListSortDescription_Click(object sender, EventArgs e)
         {
-            SafeCall<int, bool?>(listViewChannels.Sort, 1, null);
+            SafeCall<int, bool?>(ChannelListSortChanged, 1, null);
         } // menuItemChannelListSortDescription_Click
 
         private void menuItemChannelListSortType_Click(object sender, EventArgs e)
@@ -241,7 +241,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemChannelListSortLocation_Click(object sender, EventArgs e)
         {
-            SafeCall<int, bool?>(listViewChannels.Sort, 3, null);
+            SafeCall<int, bool?>(ChannelListSortChanged, 3, null);
         } // menuItemChannelListSortLocation_Click
 
         private void menuItemChannelListSortNone_Click(object sender, EventArgs e)
@@ -350,17 +350,17 @@ namespace Project.DvbIpTv.ChannelList
         {
             if (CurrentChannelListView == View.Details)
             {
-                listViewChannels.Sort(2, null);
+                ChannelListSortChanged(2, null);
             }
             else
             {
-                listViewChannels.Sort(1, null);
+                ChannelListSortChanged(1, null);
             } // if-else
         } // menuItemChannelListSortType_Click_Implementation
 
         private void menuItemChannelListSortNone_Click_Implementation(object sender, EventArgs e)
         {
-            listViewChannels.Sort(-1, true);
+            ChannelListSortChanged(-1, true);
             FillListViewChannels();
         } // menuItemChannelListSortNone_Click_Implementation
 
@@ -403,15 +403,19 @@ namespace Project.DvbIpTv.ChannelList
             var service = e.Service;
             var item = listViewChannels.Items[service.Key];
 
-            if (e.DeadAction != MulticastScannerDialog.ScanDeadAction.Delete)
+            switch (e.DeadAction)
             {
-                EnableChannelListItem(service, item, !e.IsDead);
-            }
-            else if (e.IsDead)
-            {
-                listViewChannels.Items.Remove(item);
-                BroadcastDiscovery.Services.Remove(service);
-            } // if-else
+                case MulticastScannerDialog.ScanDeadAction.Disable:
+                    EnableChannelListItem(service, item, !e.IsDead);
+                    break;
+                case MulticastScannerDialog.ScanDeadAction.Delete:
+                    if (e.IsDead)
+                    {
+                        listViewChannels.Items.Remove(item);
+                        BroadcastDiscovery.Services.Remove(service);
+                    } // if-else   
+                    break;
+            } // switch
         }  // MulticastScanner_ChannelScanResult
 
         private void MulticastScanner_ScanCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -721,6 +725,10 @@ namespace Project.DvbIpTv.ChannelList
 
             ManualUpdateLock++;
 
+            // save user preference
+            Properties.Settings.Default.LastSelectedListView = newView;
+            Properties.Settings.Default.Save();
+
             // update menu items
             menuItemChannelListSortDescription.Enabled = (newView == View.Details);
             menuItemChannelListSortLocation.Enabled = (newView == View.Details);
@@ -785,7 +793,7 @@ namespace Project.DvbIpTv.ChannelList
             // sort new list
             if (newSortColumn >= 0)
             {
-                listViewChannels.Sort(newSortColumn, !sortIsDescending);
+                ChannelListSortChanged(newSortColumn, !sortIsDescending);
             } // if
 
             ManualUpdateLock--;
@@ -798,6 +806,17 @@ namespace Project.DvbIpTv.ChannelList
                 item.Selected = true;
             } // if
         } // ChannelListViewChanged
+
+        private void ChannelListSortChanged(int newSortColumn, bool? sortAscending)
+        {
+            // sort list
+            listViewChannels.Sort(newSortColumn, sortAscending);
+
+            // save sort preferences
+            Properties.Settings.Default.LastSelectedListSortColumn = listViewChannels.CurrentSortColumn;
+            Properties.Settings.Default.LastSelectedListSortIsDescending = listViewChannels.CurrentSortIsDescending;
+            Properties.Settings.Default.Save();
+        } // ChannelListSortChanged
 
         private void ShowTvChannel()
         {

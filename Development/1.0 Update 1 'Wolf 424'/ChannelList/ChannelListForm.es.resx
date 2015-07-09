@@ -130,19 +130,25 @@
     <value>Ubicación</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="menuItemDvbCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 22</value>
+  </data>
+  <data name="menuItemDvbCheckUpdates.Text" xml:space="preserve">
+    <value>Buscar actualizaciones...</value>
+  </data>
   <data name="menuItemDvbAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="menuItemDvbAbout.Text" xml:space="preserve">
     <value>Acerca de...</value>
   </data>
   <data name="separatorDvb1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 6</value>
+    <value>198, 6</value>
   </data>
   <data name="menuItemDvbExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGqSURBVDhPrZPJS0JRGMX9eywb1NLMNDWnsmFVqywbtQzJ
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGqSURBVDhPrZPJS0JRGMX9eywb1NLMNDWnsmFVqywbtQzJ
         7JXPgloU0iYICoSSoIHKVVCrFhVBw0qioqBNChXUJmoR1OL0Pq/ZKwRddODw3r33dw93+K7kXzTeZMdY
         ow2hBiv4egtGHWaM1JrA2Y0IWKvht+gxWFMFn7ESAwYNvHo10lPZ5O2ZKXzGT/FxdpjTxK1PhODRlrEQ
         Cng/2cfb5hJe1yI5TRzxvZVKFkBLf9mN4WkhnLeJ79EoWADt+3kriuQ0B7Go/W2xqE18d4WcBdChPUTn
@@ -153,7 +159,7 @@
 </value>
   </data>
   <data name="menuItemDvbExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="menuItemDvbExit.Text" xml:space="preserve">
     <value>Salir</value>
@@ -328,37 +334,10 @@
     <value>(Nombre del SP)</value>
   </data>
   <data name="labelProviderDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>436, 15</value>
+    <value>382, 15</value>
   </data>
   <data name="labelProviderDescription.Text" xml:space="preserve">
     <value>(Descripción del SP)</value>
-  </data>
-  <data name="radioListViewDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>642, 42</value>
-  </data>
-  <data name="radioListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
-  </data>
-  <data name="radioListViewDetails.Text" xml:space="preserve">
-    <value>&amp;Detallado</value>
-  </data>
-  <data name="radioListViewTile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>571, 42</value>
-  </data>
-  <data name="radioListViewTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 17</value>
-  </data>
-  <data name="radioListViewTile.Text" xml:space="preserve">
-    <value>&amp;Mosaico</value>
-  </data>
-  <data name="labelListChannelsView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>492, 44</value>
-  </data>
-  <data name="labelListChannelsView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 13</value>
-  </data>
-  <data name="labelListChannelsView.Text" xml:space="preserve">
-    <value>Modo de lista:</value>
   </data>
   <data name="buttonRecordChannel.Text" xml:space="preserve">
     <value>&amp;Grabar...</value>
@@ -381,10 +360,34 @@
   <data name="buttonDisplayChannel.Text" xml:space="preserve">
     <value>&amp;Ver canal de TV</value>
   </data>
+  <data name="radioListViewDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>204, 0</value>
+  </data>
+  <data name="radioListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="radioListViewDetails.Text" xml:space="preserve">
+    <value>&amp;Detallado</value>
+  </data>
+  <data name="radioListViewTile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>133, 0</value>
+  </data>
+  <data name="radioListViewTile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 17</value>
+  </data>
+  <data name="radioListViewTile.Text" xml:space="preserve">
+    <value>&amp;Mosaico</value>
+  </data>
+  <data name="labelListChannelsView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 2</value>
+  </data>
+  <data name="labelListChannelsView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 13</value>
+  </data>
+  <data name="labelListChannelsView.Text" xml:space="preserve">
+    <value>Modo de lista:</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Lista de canales - DVB-IPTV</value>
-  </data>
-  <data name="menuItemDvbCheckUpdates.Text" xml:space="preserve">
-    <value>Buscar actualizaciones...</value>
   </data>
 </root>
