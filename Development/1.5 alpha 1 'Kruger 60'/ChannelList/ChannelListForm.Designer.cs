@@ -725,23 +725,23 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // menuItemHelpDocumentation
             // 
-            resources.ApplyResources(this.menuItemHelpDocumentation, "menuItemHelpDocumentation");
             this.menuItemHelpDocumentation.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.Help_16x16;
             this.menuItemHelpDocumentation.Name = "menuItemHelpDocumentation";
+            resources.ApplyResources(this.menuItemHelpDocumentation, "menuItemHelpDocumentation");
             this.menuItemHelpDocumentation.Click += new System.EventHandler(this.menuItemHelpDocumentation_Click);
             // 
             // menuItemHelpHomePage
             // 
-            resources.ApplyResources(this.menuItemHelpHomePage, "menuItemHelpHomePage");
             this.menuItemHelpHomePage.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.WebBrowser_16x16;
             this.menuItemHelpHomePage.Name = "menuItemHelpHomePage";
+            resources.ApplyResources(this.menuItemHelpHomePage, "menuItemHelpHomePage");
             this.menuItemHelpHomePage.Click += new System.EventHandler(this.menuItemHelpHomePage_Click);
             // 
             // menuItemHelpReportIssue
             // 
-            resources.ApplyResources(this.menuItemHelpReportIssue, "menuItemHelpReportIssue");
             this.menuItemHelpReportIssue.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_ReportError_16x16;
             this.menuItemHelpReportIssue.Name = "menuItemHelpReportIssue";
+            resources.ApplyResources(this.menuItemHelpReportIssue, "menuItemHelpReportIssue");
             this.menuItemHelpReportIssue.Click += new System.EventHandler(this.menuItemHelpReportIssue_Click);
             // 
             // separatorHelp1
@@ -751,9 +751,9 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // menuItemHelpCheckUpdates
             // 
-            resources.ApplyResources(this.menuItemHelpCheckUpdates, "menuItemHelpCheckUpdates");
             this.menuItemHelpCheckUpdates.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.DownloadWebSettings_16x16;
             this.menuItemHelpCheckUpdates.Name = "menuItemHelpCheckUpdates";
+            resources.ApplyResources(this.menuItemHelpCheckUpdates, "menuItemHelpCheckUpdates");
             this.menuItemHelpCheckUpdates.Click += new System.EventHandler(this.menuItemHelpCheckUpdates_Click);
             // 
             // menuItemHelpAbout

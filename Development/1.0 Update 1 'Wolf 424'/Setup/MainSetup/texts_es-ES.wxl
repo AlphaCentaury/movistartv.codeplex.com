@@ -3,14 +3,14 @@
 	<String Id="LANGUAGE">3082</String>
   <String Id="DowngradeErrorMessage">Ya está instalada una nueva versión de [ProductName].</String>
   <String Id="NetFramework20">Esta aplicación requiere .NET Framework 2.0. Por favor, instale el .NET Framework y ejecute el instalador de nuevo.</String>
-  <String Id="ProductName">Decodificador Movistar TV 1.0 “Wolf 424”</String>
-  <String Id="PackageDescription">Decodificador DVB-IPTV para Movistar TV 1.0 “Wolf 424”</String>
+  <String Id="ProductName">Decodificador movistar+ 1.0 Update 1 “Wolf 424”</String>
+  <String Id="PackageDescription">Decodificador DVB-IPTV para movistar+ 1.0 “Wolf 424” Update 1</String>
   <String Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT">Ejecutar el Asistente de configuración inicial</String>
   <String Id="SourceFileLicenseAgreement">solution-license_es</String>
   <String Id="FileLicenseAgreement">Acuerdo de licencia</String>
   <String Id="DvbIpTvStartMenuFolder">Decodificador DVB-IPTV</String>
-  <String Id="ProgramStartMenuFolder">Movistar TV v1.0 “Wolf 424”</String>
+  <String Id="ProgramStartMenuFolder">movistar+ v1.0 “Wolf 424”</String>
   <String Id="ToolsStartMenuFolder">Utilidades</String>
-  <String Id="ChannelList.exe.lnk">Listado de canales</String>
+  <String Id="ChannelList.exe.lnk">Canales movistar+</String>
   <String Id="FirstTimeConfig.exe.lnk">Asistente de configuración inicial</String>
 </WixLocalization>

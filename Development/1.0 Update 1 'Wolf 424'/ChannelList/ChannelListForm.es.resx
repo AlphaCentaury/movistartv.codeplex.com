@@ -142,7 +142,7 @@
   <data name="menuItemDvbExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGqSURBVDhPrZPJS0JRGMX9eywb1NLMNDWnsmFVqywbtQzJ
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGqSURBVDhPrZPJS0JRGMX9eywb1NLMNDWnsmFVqywbtQzJ
         7JXPgloU0iYICoSSoIHKVVCrFhVBw0qioqBNChXUJmoR1OL0Pq/ZKwRddODw3r33dw93+K7kXzTeZMdY
         ow2hBiv4egtGHWaM1JrA2Y0IWKvht+gxWFMFn7ESAwYNvHo10lPZ5O2ZKXzGT/FxdpjTxK1PhODRlrEQ
         Cng/2cfb5hJe1yI5TRzxvZVKFkBLf9mN4WkhnLeJ79EoWADt+3kriuQ0B7Go/W2xqE18d4WcBdChPUTn
@@ -383,5 +383,8 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Lista de canales - DVB-IPTV</value>
+  </data>
+  <data name="menuItemDvbCheckUpdates.Text" xml:space="preserve">
+    <value>Buscar actualizaciones...</value>
   </data>
 </root>

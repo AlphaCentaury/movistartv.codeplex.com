@@ -7,14 +7,14 @@ All rights reserved, except those granted by the governing license of this softw
   <String Id="LANGUAGE">1033</String>
   <String Id="DowngradeErrorMessage">A new version of [ProductName] is already installed.</String>
   <String Id="NetFrameworkNotPresent">This application requires .NET Framework 3.5 SP1. Please install the .NET Framework then run this installer again.</String>
-  <String Id="ProductName">Movistar TV Decoder 1.5 Alpha 1 “Kruger 60”</String>
-  <String Id="PackageDescription">Movistar TV DVB-IPTV Decoder 1.5 “Kruger 60” Alpha 1</String>
+  <String Id="ProductName">movistar+ Decoder 1.5 Alpha 1 “Kruger 60”</String>
+  <String Id="PackageDescription">movistar+ DVB-IPTV Decoder 1.5 “Kruger 60” Alpha 1</String>
   <String Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT">Launch First-time configuration helper</String>
   <String Id="SourceFileLicenseAgreement">solution-license</String>
   <String Id="FileLicenseAgreement">License agreement</String>
-  <String Id="DvbIpTvStartMenuFolder">DVB-IPTV decoder</String>
-  <String Id="ProgramStartMenuFolder">Movistar TV v1.5 “Kruger 60”</String>
+  <String Id="DvbIpTvStartMenuFolder">DVB-IPTV</String>
+  <String Id="ProgramStartMenuFolder">movistar+ TV v1.5 “Kruger 60”</String>
   <String Id="ToolsStartMenuFolder">Tools</String>
-  <String Id="ChannelList.exe.lnk">Movistar TV Channels</String>
+  <String Id="ChannelList.exe.lnk">movistar+ channels</String>
   <String Id="FirstTimeConfig.exe.lnk">First-time configuration wizard</String>
 </WixLocalization>

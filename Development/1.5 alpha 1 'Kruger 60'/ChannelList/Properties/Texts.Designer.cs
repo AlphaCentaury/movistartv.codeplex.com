@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV channels/services - DVB-IPTV (1.5 Alpha 1 “Kruger 60”).
+        ///   Looks up a localized string similar to movistar+ channels/services - DVB-IPTV (1.5 Alpha 1 “Kruger 60”).
         /// </summary>
         internal static string AppCaption {
             get {
@@ -70,7 +70,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DVB-IPTV: Movistar TV channels/services.
+        ///   Looks up a localized string similar to DVB-IPTV: movistar+ channels/services.
         /// </summary>
         internal static string AppName {
             get {
@@ -362,12 +362,12 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV DVB-IPTV decoder version 1.5 Alpha 1 “Kruger 60”
+        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.5 Alpha 1 “Kruger 60”
         ///
         ///NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services.
         ///DO NOT EVER CALL 1002 nor 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
         ///
-        ///Thi [rest of string was truncated]&quot;;.
+        ///This  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SolutionLicense {
             get {

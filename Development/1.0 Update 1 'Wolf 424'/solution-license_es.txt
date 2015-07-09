@@ -1,3 +1,5 @@
+Decodificador DVB-IPTV para movistar+ versión 1.0 Update 1 “Wolf 424”
+
 AVISO IMPORTANTE: El presente software NO ESTÁ SOPORTADO NI RESPALDADO por Movistar ni por Telefónica. Telefónica de España no tiene responsabilidad alguna si hay canales (incluso si están contratados) que no pueden verse en el PC. NO DEBE LLAMARSE NUNCA al 1002 o al 1004 si desaparecen canales de la lista o no pueden verse o cualquier otra anomalía. Telefónica sólo proporcionará ayuda y soporte técnico para su decodificador físico y sólo para los servicios contratados.
 
 EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, expresa o implícita, incluyendo (pero no limitándose a) las garantías de comerciabilidad, idoneidad para un propósito particular y no infracción.
@@ -5,6 +7,9 @@ En ningún caso, los autores o titulares del Copyright serán responsables de ning
 
 Este software, ya sea en forma de código binario o fuente, está sujeta a los términos de la Licencia Recíproca de Microsoft "Microsoft Reciprocal License" (Ms-RL), excepto cuanto se indica en "EXCEPCIONES".
 Todos los demás derechos están reservados por el/los autor(es) del software.
+
+Se proporcionan los logotipos de la totalidad de canales de movistar+ en el momento de escribir el software. Estos logotipos son propiedad de los diferentes canales y sus compañías propietarias.
+Los logos se suministran de "buena fe", para poder identificar adecuadamente los diferentes canales, sin ánimo de infringir ningún derecho de copyright.
 
 --------------------------------------------------------------------------------
 Copyright (C) 2014-2015, Codeplex user AlphaCentaury and its contributors

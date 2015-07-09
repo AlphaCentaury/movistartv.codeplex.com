@@ -24,6 +24,7 @@ using System.Windows.Forms;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using System.Text;
 using System.IO;
+using System.Diagnostics;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -437,7 +438,7 @@ namespace Project.DvbIpTv.ChannelList
             {
                 EnableChannelListItem(service, item, !e.IsDead);
             }
-            else
+            else if (e.IsDead)
             {
                 listViewChannels.Items.Remove(item);
                 BroadcastDiscovery.Services.Remove(service);
@@ -585,22 +586,22 @@ namespace Project.DvbIpTv.ChannelList
 
         private void Implementation_menuItemHelpDocumentation_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            OpenUrl(Properties.InvariantTexts.UrlDocumentation);
         } // Implementation_menuItemHelpDocumentation_Click
 
         private void Implementation_menuItemHelpHomePage_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            OpenUrl(Properties.InvariantTexts.UrlHomePage);
         } // Implementation_menuItemHelpHomePage_Click
 
         private void Implementation_menuItemHelpReportIssue_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            OpenUrl(Properties.InvariantTexts.UrlReportIssue);
         } // Implementation_menuItemHelpReportIssue_Click
 
         private void Implementation_menuItemHelpCheckUpdates_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            OpenUrl(Properties.InvariantTexts.UrlCheckForUpdatesManual);
         } // Implementation_menuItemHelpCheckUpdates_Click
 
         private void Implementation_menuItemHelpAbout_Click(object sender, EventArgs e)
@@ -1108,6 +1109,28 @@ namespace Project.DvbIpTv.ChannelList
                 timerDismissNotification.Enabled = false;
             } // try-catch
         } // timerDismissNotification_Tick
+
+        private void OpenUrl(string url)
+        {
+            try
+            {
+                using (var process = new Process())
+                {
+                    process.StartInfo = new ProcessStartInfo()
+                    {
+                        FileName = url,
+                        UseShellExecute = true,
+                        ErrorDialog = true,
+                        ErrorDialogParentHandle = this.Handle,
+                    };
+                    process.Start();
+                } // using process
+            }
+            catch (Exception ex)
+            {
+                HandleException(string.Format(Properties.Texts.OpenUrlError, url), ex);
+            } // try-catch
+        } // OpenUrl
 
         #endregion
 

@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movistar TV channels/services - DVB-IPTV (1.0 “Wolf 424”).
+        ///   Looks up a localized string similar to movistar+ channels/services - DVB-IPTV (1.0 “Wolf 424”).
         /// </summary>
         internal static string AppCaption {
             get {
@@ -70,7 +70,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DVB-IPTV: Movistar TV channels/services.
+        ///   Looks up a localized string similar to DVB-IPTV: movistar+ channels/services.
         /// </summary>
         internal static string AppName {
             get {
@@ -565,9 +565,11 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.0 Update 1 “Wolf 424”
         ///
-        ///This Software, either in binary or source code form, is licensed unde [rest of string was truncated]&quot;;.
+        ///NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
+        ///
+        ///This So [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SolutionLicense {
             get {

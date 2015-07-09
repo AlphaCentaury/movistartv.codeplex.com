@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -91,6 +92,11 @@ namespace Project.DvbIpTv.ChannelList
             e.Cancel = IsScanActive();
         } // ChannelListForm_FormClosing
 
+        private void menuItemDvbCheckUpdates_Click(object sender, EventArgs e)
+        {
+            SafeCall(menuItemDvbCheckUpdates_Click_Implementation, sender, e);
+        } // menuItemDvbCheckUpdates_Click
+
         private void menuItemDvbAbout_Click(object sender, EventArgs e)
         {
             SafeCall(menuItemDvbAbout_Click_Implementation, sender, e);
@@ -127,6 +133,11 @@ namespace Project.DvbIpTv.ChannelList
                 FormLoadCompleted(this, e);
             } // if
         } // ChannelListForm_Load_Implementation
+
+        private void menuItemDvbCheckUpdates_Click_Implementation(object sender, EventArgs e)
+        {
+            AboutBox.OpenUrl(this, Properties.InvariantTexts.UrlCheckForUpdatesManual);
+        } // menuItemDvbCheckUpdates_Click_Implementation
 
         private void menuItemDvbAbout_Click_Implementation(object sender, EventArgs e)
         {
@@ -396,7 +407,7 @@ namespace Project.DvbIpTv.ChannelList
             {
                 EnableChannelListItem(service, item, !e.IsDead);
             }
-            else
+            else if (e.IsDead)
             {
                 listViewChannels.Items.Remove(item);
                 BroadcastDiscovery.Services.Remove(service);

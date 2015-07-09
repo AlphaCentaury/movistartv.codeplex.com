@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppCaption" xml:space="preserve">
-    <value>Movistar TV channels/services - DVB-IPTV (1.5 Alpha 1 “Kruger 60”)</value>
+    <value>movistar+ channels/services - DVB-IPTV (1.5 Alpha 1 “Kruger 60”)</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>DVB-IPTV: Movistar TV channels/services</value>
+    <value>DVB-IPTV: movistar+ channels/services</value>
   </data>
   <data name="AppStatus" xml:space="preserve">
     <value>Alpha (experimental)</value>

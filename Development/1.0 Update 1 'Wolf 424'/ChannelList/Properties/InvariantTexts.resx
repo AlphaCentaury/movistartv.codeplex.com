@@ -129,4 +129,7 @@ Verifique el valor de  la propiedad 'ForceUICulture' del archivo '.config'</valu
   <data name="SplashScreenDefaultStatus" xml:space="preserve">
     <value>http://movistartv.codeplex.com</value>
   </data>
+  <data name="UrlCheckForUpdatesManual" xml:space="preserve">
+    <value>http://movistartv.codeplex.com/wikipage?title=Update-v1.0.40010.0</value>
+  </data>
 </root>

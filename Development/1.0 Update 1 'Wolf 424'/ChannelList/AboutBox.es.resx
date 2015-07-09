@@ -238,7 +238,7 @@
   <data name="labelVersion.Text" xml:space="preserve">
     <value>Versión {0}</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="labelEULA.Text" xml:space="preserve">
     <value>Acuerdo de licencia de usuario final (ALUF):</value>
   </data>
   <data name="$this.Text" xml:space="preserve">

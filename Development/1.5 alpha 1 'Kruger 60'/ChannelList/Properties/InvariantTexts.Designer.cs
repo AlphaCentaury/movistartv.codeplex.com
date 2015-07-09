@@ -85,11 +85,38 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://movistartv.codeplex.com/wikipage?title=Update-v1.5.10.0.
+        ///   Looks up a localized string similar to http://movistartv.codeplex.com/wikipage?title=Update-v1.5.10.0.
         /// </summary>
         internal static string UrlCheckForUpdatesManual {
             get {
                 return ResourceManager.GetString("UrlCheckForUpdatesManual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://movistartv.codeplex.com/documentation.
+        /// </summary>
+        internal static string UrlDocumentation {
+            get {
+                return ResourceManager.GetString("UrlDocumentation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://movistartv.codeplex.com.
+        /// </summary>
+        internal static string UrlHomePage {
+            get {
+                return ResourceManager.GetString("UrlHomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://movistartv.codeplex.com/workitem/list/basic.
+        /// </summary>
+        internal static string UrlReportIssue {
+            get {
+                return ResourceManager.GetString("UrlReportIssue", resourceCulture);
             }
         }
     }

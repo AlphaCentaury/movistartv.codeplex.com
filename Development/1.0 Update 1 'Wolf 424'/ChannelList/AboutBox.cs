@@ -36,7 +36,7 @@ namespace Project.DvbIpTv.ChannelList
             OpenUrl(this, "http://movistartv.codeplex.com");
         } // linkLabelCodeplex_LinkClicked
 
-        private static void OpenUrl(Form parent, string url)
+        public static void OpenUrl(Form parent, string url)
         {
             try
             {
