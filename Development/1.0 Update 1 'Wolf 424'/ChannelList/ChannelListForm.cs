@@ -2,6 +2,7 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using DvbIpTypes.Schema2006;
+using Microsoft.SqlServer.MessageBox;
 using Project.DvbIpTv.DvbStp.Client;
 using Project.DvbIpTv.RecorderLauncher.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
@@ -120,8 +121,13 @@ namespace Project.DvbIpTv.ChannelList
             ChannelListTileDisabledFont = new Font(listViewChannels.Font, listViewChannels.Font.Style);
             ChannelListDetailsFont = new Font(listViewChannels.Font, listViewChannels.Font.Style);
             ChannelListDetailsNameItemFont = new Font("Tahoma", 11.0f, FontStyle.Bold);
-            ChannelListViewChanged(Properties.Settings.Default.LastSelectedListView);
-            ChannelListSortChanged(Properties.Settings.Default.LastSelectedListSortColumn, !Properties.Settings.Default.LastSelectedListSortIsDescending);
+
+            var lastView = Properties.Settings.Default.LastSelectedListView;
+            var lastSortColumn = Properties.Settings.Default.LastSelectedListSortColumn;
+            var lastSortIsAscensing = !Properties.Settings.Default.LastSelectedListSortIsDescending;
+
+            ChannelListViewChanged(lastView);
+            ChannelListSortChanged(lastSortColumn, lastSortIsAscensing);
 
             // load from cache, if available
             SelectedServiceProvider = SelectProviderDialog.GetLastUserSelectedProvider();
@@ -382,6 +388,11 @@ namespace Project.DvbIpTv.ChannelList
 
         private void listViewChannels_AfterSorting_Implementation(object sender, EventArgs e)
         {
+            // save sort preferences
+            Properties.Settings.Default.LastSelectedListSortColumn = listViewChannels.CurrentSortColumn;
+            Properties.Settings.Default.LastSelectedListSortIsDescending = listViewChannels.CurrentSortIsDescending;
+            Properties.Settings.Default.Save();
+            
             UpdateSortMenuStatus();
 
             // make sure the selected item remains visible after sorting
@@ -427,6 +438,22 @@ namespace Project.DvbIpTv.ChannelList
         private void buttonRecordChannel_Click_Implementation(object sender, EventArgs e)
         {
             RecordTask task;
+
+            if (SelectedBroadcastService == null) return;
+
+            if (SelectedBroadcastService.IsDead)
+            {
+                var box = new ExceptionMessageBox()
+                {
+                    Caption = this.Text,
+                    Text = string.Format(Properties.Texts.RecordDeadTvChannel, SelectedBroadcastService.DisplayName),
+                    Beep = true,
+                    Symbol = ExceptionMessageBoxSymbol.Question,
+                    Buttons = ExceptionMessageBoxButtons.YesNo,
+                    DefaultButton = ExceptionMessageBoxDefaultButton.Button2,
+                };
+                if (box.Show(this) != System.Windows.Forms.DialogResult.Yes) return;
+            } // if
 
             using (var dlg = new RecordChannelDialog())
             {
@@ -811,16 +838,25 @@ namespace Project.DvbIpTv.ChannelList
         {
             // sort list
             listViewChannels.Sort(newSortColumn, sortAscending);
-
-            // save sort preferences
-            Properties.Settings.Default.LastSelectedListSortColumn = listViewChannels.CurrentSortColumn;
-            Properties.Settings.Default.LastSelectedListSortIsDescending = listViewChannels.CurrentSortIsDescending;
-            Properties.Settings.Default.Save();
         } // ChannelListSortChanged
 
         private void ShowTvChannel()
         {
             if (SelectedBroadcastService == null) return;
+
+            if (SelectedBroadcastService.IsDead)
+            {
+                var box = new ExceptionMessageBox()
+                {
+                    Caption = this.Text,
+                    Text = string.Format(Properties.Texts.ShowDeadTvChannel, SelectedBroadcastService.DisplayName),
+                    Beep = true,
+                    Symbol = ExceptionMessageBoxSymbol.Question,
+                    Buttons = ExceptionMessageBoxButtons.YesNo,
+                    DefaultButton = ExceptionMessageBoxDefaultButton.Button2,
+                };
+                if (box.Show(this) != System.Windows.Forms.DialogResult.Yes) return;
+            } // if
 
             // TODO: player should be user-selectable
             var player = AppUiConfiguration.Current.User.Players[0];

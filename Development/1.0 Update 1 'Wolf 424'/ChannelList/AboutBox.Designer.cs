@@ -37,7 +37,7 @@ namespace Project.DvbIpTv.ChannelList
             this.labelVersion = new System.Windows.Forms.TextBox();
             this.labelCopyright = new System.Windows.Forms.TextBox();
             this.labelCompanyName = new System.Windows.Forms.TextBox();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.textBoxDescription = new System.Windows.Forms.RichTextBox();
             this.linkLabelCodeplex = new System.Windows.Forms.LinkLabel();
             this.labelEULA = new System.Windows.Forms.Label();
             this.labelAppName = new System.Windows.Forms.Label();
@@ -132,8 +132,6 @@ namespace Project.DvbIpTv.ChannelList
             this.Controls.Add(this.labelCompanyName);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.logoPictureBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutBox";
             this.ShowIcon = false;
@@ -153,7 +151,7 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.TextBox labelVersion;
         private System.Windows.Forms.TextBox labelCopyright;
         private System.Windows.Forms.TextBox labelCompanyName;
-        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.RichTextBox textBoxDescription;
         private System.Windows.Forms.LinkLabel linkLabelCodeplex;
         private System.Windows.Forms.Label labelEULA;
         private System.Windows.Forms.Label labelAppName;

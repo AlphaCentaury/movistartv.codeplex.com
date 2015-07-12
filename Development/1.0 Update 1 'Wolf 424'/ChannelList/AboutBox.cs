@@ -28,7 +28,7 @@ namespace Project.DvbIpTv.ChannelList
             labelVersion.Text = String.Format(labelVersion.Text, AssemblyVersion);
             labelCopyright.Text = AssemblyCopyright;
             labelCompanyName.Text = AssemblyCompany;
-            textBoxDescription.Text = Properties.Texts.SolutionLicense;
+            textBoxDescription.Rtf = Properties.Texts.SolutionLicenseRtf;
         } // AboutBox_Load
 
         private void linkLabelCodeplex_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

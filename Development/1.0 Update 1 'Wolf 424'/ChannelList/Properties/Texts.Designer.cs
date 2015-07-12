@@ -79,7 +79,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stable (updated).
+        ///   Looks up a localized string similar to Stable (update 1).
         /// </summary>
         internal static string AppState {
             get {
@@ -88,7 +88,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.0 Update 1 “Wolf 424”.
+        ///   Looks up a localized string similar to 1.0 “Wolf 424”.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -537,6 +537,17 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The selected TV channel has been marked as inactive and might not be available.
+        ///
+        ///Do you still want to record from {0}?.
+        /// </summary>
+        internal static string RecordDeadTvChannel {
+            get {
+                return ResourceManager.GetString("RecordDeadTvChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unexpected error while contacting with the Windows Task Manager to create the recording task.
         ///The recording task has not been created..
         /// </summary>
@@ -565,7 +576,18 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.0 Update 1 “Wolf 424”
+        ///   Looks up a localized string similar to The selected TV channel has been marked as inactive and might not be available.
+        ///
+        ///Do you still want to show {0}?.
+        /// </summary>
+        internal static string ShowDeadTvChannel {
+            get {
+                return ResourceManager.GetString("ShowDeadTvChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.0 “Wolf 424” Update 1
         ///
         ///NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services. DO NOT EVER CALL 1002 or 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
         ///
@@ -574,6 +596,18 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string SolutionLicense {
             get {
                 return ResourceManager.GetString("SolutionLicense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fnil\fcharset0 Segoe UI;}{\f1\fnil\fcharset2 Symbol;}}
+        ///{\colortbl ;\red0\green0\blue255;}
+        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\nowidctlpar\sa200\sl276\slmult1\qj\lang10\b\f0\fs20 movistar+ DVB-IPTV decoder version 1.0 \ldblquote Wolf 424\rdblquote  Update 1\ul\fs18\par
+        ///NOTICE:\ulnone\b0  \b\i This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telef\&apos;f3nica\b0\i0 . Telef\&apos;f3nica de Espa\&apos;f1a has no responsibility if there a [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SolutionLicenseRtf {
+            get {
+                return ResourceManager.GetString("SolutionLicenseRtf", resourceCulture);
             }
         }
         

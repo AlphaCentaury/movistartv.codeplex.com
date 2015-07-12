@@ -114,7 +114,7 @@ namespace Project.DvbIpTv.UiServices.Controls
             ManualUpdateOfValue = true;
             caretPos = this.SelectionStart;
             this.Text = newText;
-            this.SelectionStart = caretPos - 1;
+            this.SelectionStart = (caretPos <= 0) ? 0 : caretPos - 1;
             ManualUpdateOfValue = false;
 
             return true;

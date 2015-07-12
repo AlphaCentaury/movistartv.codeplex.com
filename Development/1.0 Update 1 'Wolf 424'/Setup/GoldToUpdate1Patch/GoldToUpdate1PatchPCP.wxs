@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <PatchCreation Id="b0c69cbf-bb6f-48a5-a119-1897de2534c9"
+                 CleanWorkingFolder="yes"
+                 OutputPath="DVB-IPTV_MovistarTV_1-0_Gold-to-Update1.pcp"
+                 WholeFilesOnly="no" 
+                 Codepage="1252">
+
+    <PatchInformation Description="Actualización de Decodificador Movistar TV 1.0 “Wolf 424” a DVB-IPTV movistar+ 1.0 actualización 1"
+                      Manufacturer="http://movistartv.codeplex.com"
+                      Comments="Paquete de actualización de Decodificador Movistar TV 1.0 “Wolf 424” a DVB-IPTV movistar+ 1.0 actualización 1" />
+
+    <PatchMetadata AllowRemoval="no"
+                   Description="Actualización de Decodificador Movistar TV 1.0 “Wolf 424” a DVB-IPTV movistar+ 1.0 actualización 1"
+                   ManufacturerName="http://movistartv.codeplex.com"
+                   TargetProductName="Decodificador Movistar TV 1.0 RC “Wolf 424”"
+                   MoreInfoURL="http://movistartv.codeplex.com/releases/view/612747"
+                   Classification="Service Pack"
+                   DisplayName="Actualización de v1.0 a v1.0 actualización 1">
+    </PatchMetadata>
+
+    <Family DiskId="5500"
+            MediaSrcProp="GoldToUpdate1"
+            Name="Gold2Up1"
+            SequenceStart="60000">
+      <UpgradeImage SourceFile="C:\Users\Developer\Documents\Visual Studio 2012\Projects\Codeplex\MovistarTV\Development\1.0 Update 1 'Wolf 424'\Setup\GoldToUpdate1Patch\source\Update1\DVB-IPTV_MovistarTV_1-0_Update-1.msi"
+                    Id="Update01">
+        <TargetImage SourceFile="C:\Users\Developer\Documents\Visual Studio 2012\Projects\Codeplex\MovistarTV\Development\1.0 Update 1 'Wolf 424'\Setup\GoldToUpdate1Patch\source\Gold\DVB-IPTV_MovistarTV_1-0_Gold.msi"
+                     Id="Gold"
+                     IgnoreMissingFiles="no"
+                     Order="1" />
+      </UpgradeImage>
+    </Family>
+
+    <PatchSequence PatchFamily="RCtoGoldPatchFamily"
+                   Sequence="1.0.40100.0"
+                   Supersede="yes" />
+  </PatchCreation>
+</Wix>

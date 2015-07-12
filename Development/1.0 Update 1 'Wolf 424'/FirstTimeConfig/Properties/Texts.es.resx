@@ -123,7 +123,7 @@
 {0}</value>
   </data>
   <data name="ConfigurationCreateOk" xml:space="preserve">
-    <value>Los archivos de configuración se ha creado satisfactoriamente.
+    <value>Los archivos de configuración han sido creados satisfactoriamente.
 El proceso de configuración inicial ha finalizado y la aplicación ya está lista para poder utilizarse.</value>
   </data>
   <data name="ConfirmUserCancel" xml:space="preserve">

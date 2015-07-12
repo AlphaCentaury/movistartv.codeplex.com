@@ -38,7 +38,14 @@ namespace Project.DvbIpTv.UiServices.Forms
                 } // if
                 labelAppName.Text = string.Format("{0}", ApplicationData.Name);
                 labelAppVersion.Text = string.Format("{0} - {1}", ApplicationData.Version, ApplicationData.Status);
-                textBoxDescription.Text = ApplicationData.LicenseText;
+                if (ApplicationData.LicenseTextRtf != null)
+                {
+                    textBoxDescription.Rtf = ApplicationData.LicenseTextRtf;
+                }
+                else
+                {
+                    textBoxDescription.Text = ApplicationData.LicenseText;
+                } // if-else
             }
             else
             {

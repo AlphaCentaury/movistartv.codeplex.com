@@ -1429,13 +1429,13 @@
     <value>174, 193</value>
   </data>
   <data name="checkBoxLaunchProgram.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 17</value>
+    <value>201, 17</value>
   </data>
   <data name="checkBoxLaunchProgram.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="checkBoxLaunchProgram.Text" xml:space="preserve">
-    <value>&amp;Launch 'Channel list' program</value>
+    <value>&amp;Launch 'movistar+ channels' program</value>
   </data>
   <data name="&gt;&gt;checkBoxLaunchProgram.Name" xml:space="preserve">
     <value>checkBoxLaunchProgram</value>
@@ -1556,13 +1556,37 @@
     <value>wizardControl</value>
   </data>
   <data name="&gt;&gt;wizardControl.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.Tools.FirstTimeConfig.WizardTabControl, FirstTimeConfig, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.Tools.FirstTimeConfig.WizardTabControl, FirstTimeConfig, Version=1.5.10.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;wizardControl.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;wizardControl.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="pictureWizardEnd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureWizardEnd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pictureWizardEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 333</value>
+  </data>
+  <data name="pictureWizardEnd.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;pictureWizardEnd.Name" xml:space="preserve">
+    <value>pictureWizardEnd</value>
+  </data>
+  <data name="&gt;&gt;pictureWizardEnd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureWizardEnd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureWizardEnd.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1583,7 +1607,7 @@
     <value>selectFolder</value>
   </data>
   <data name="&gt;&gt;selectFolder.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.SelectFolderDialog, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.SelectFolderDialog, UiServices.Controls, Version=1.5.10.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;openFile.Name" xml:space="preserve">
     <value>openFile</value>

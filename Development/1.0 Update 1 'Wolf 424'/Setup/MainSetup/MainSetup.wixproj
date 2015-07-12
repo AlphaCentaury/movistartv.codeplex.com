@@ -6,7 +6,7 @@
     <ProductVersion>3.9</ProductVersion>
     <ProjectGuid>f3fc11c7-8850-4874-9cf3-8ba4de43959a</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>DvbIpTv-MovistarTV</OutputName>
+    <OutputName>DVB-IPTV_MovistarTV_1-0_Update-1</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -22,14 +22,14 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>Debug</DefineConstants>
-    <Cultures>
-    </Cultures>
+    <Cultures>neutral</Cultures>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <SuppressIces>ICE38;ICE91</SuppressIces>
-    <Cultures>es-es;en-us;neutral</Cultures>
+    <SuppressIces>ICE38;ICE91;ICE64</SuppressIces>
+    <Cultures>
+    </Cultures>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Components.wxs" />
@@ -89,8 +89,8 @@
     <Content Include="dlgbmp.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="texts_en-US.wxl" />
-    <EmbeddedResource Include="texts_es-ES.wxl" />
+    <EmbeddedResource Include="texts_en-us.wxl" />
+    <EmbeddedResource Include="texts_es-es.wxl" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

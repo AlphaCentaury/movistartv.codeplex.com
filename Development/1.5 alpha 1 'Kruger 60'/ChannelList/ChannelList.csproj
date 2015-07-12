@@ -158,6 +158,12 @@
     <EmbeddedResource Include="SelectProviderDialog.resx">
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\solution-license.rtf">
+      <Link>Resources\solution-license.rtf</Link>
+    </None>
+    <None Include="..\solution-license_es.rtf">
+      <Link>Resources\solution-license_es.rtf</Link>
+    </None>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

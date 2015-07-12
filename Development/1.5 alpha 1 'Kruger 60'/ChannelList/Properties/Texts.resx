@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppCaption" xml:space="preserve">
-    <value>movistar+ channels/services - DVB-IPTV (1.5 Alpha 1 “Kruger 60”)</value>
+    <value>movistar+ channels/services - DVB-IPTV (1.5“Kruger 60” Alpha 1)</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>DVB-IPTV: movistar+ channels/services</value>
@@ -127,7 +127,7 @@
     <value>Alpha (experimental)</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>1.5 Alpha 1 “Kruger 60”</value>
+    <value>1.5 “Kruger 60” Alpha 1</value>
   </data>
   <data name="BroadcastListUnableRefresh" xml:space="preserve">
     <value>Unable to obtain the list of TV channels/services</value>
@@ -238,5 +238,18 @@ The application will now end.</value>
   </data>
   <data name="SchedulerCreateTaskOk" xml:space="preserve">
     <value>The recording task has been sucessfully created.</value>
+  </data>
+  <data name="SolutionLicenseRtf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\solution-license.rtf;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RecordDeadTvChannel" xml:space="preserve">
+    <value>The selected TV channel has been marked as inactive and might not be available.
+
+Do you still want to schedule a recording of {0}?</value>
+  </data>
+  <data name="ShowDeadTvChannel" xml:space="preserve">
+    <value>The selected TV channel has been marked as inactive and might not be available.
+
+Do you still want to show {0}?</value>
   </data>
 </root>

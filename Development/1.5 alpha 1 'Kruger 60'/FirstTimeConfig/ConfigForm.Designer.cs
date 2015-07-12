@@ -82,6 +82,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.checkBoxLaunchProgram = new System.Windows.Forms.CheckBox();
             this.labelWizardResult = new System.Windows.Forms.Label();
             this.pictureBoxWizardResult = new System.Windows.Forms.PictureBox();
+            this.pictureWizardEnd = new System.Windows.Forms.PictureBox();
             this.wizardControl.SuspendLayout();
             this.wizardPage1.SuspendLayout();
             this.groupVlc.SuspendLayout();
@@ -95,6 +96,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.groupBasicConfig.SuspendLayout();
             this.wizardPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWizardResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureWizardEnd)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -442,7 +444,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             // 
             // wizardPage3
             // 
-            this.wizardPage3.BackgroundImage = global::Project.DvbIpTv.Tools.FirstTimeConfig.Properties.Resources.WizardEnd;
             resources.ApplyResources(this.wizardPage3, "wizardPage3");
             this.wizardPage3.Controls.Add(this.labelHowToClose);
             this.wizardPage3.Controls.Add(this.checkBoxLaunchProgram);
@@ -475,6 +476,14 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.pictureBoxWizardResult.Name = "pictureBoxWizardResult";
             this.pictureBoxWizardResult.TabStop = false;
             // 
+            // pictureWizardEnd
+            // 
+            this.pictureWizardEnd.BackgroundImage = global::Project.DvbIpTv.Tools.FirstTimeConfig.Properties.Resources.WizardEndPattern;
+            this.pictureWizardEnd.Image = global::Project.DvbIpTv.Tools.FirstTimeConfig.Properties.Resources.WizardEnd;
+            resources.ApplyResources(this.pictureWizardEnd, "pictureWizardEnd");
+            this.pictureWizardEnd.Name = "pictureWizardEnd";
+            this.pictureWizardEnd.TabStop = false;
+            // 
             // ConfigForm
             // 
             this.AcceptButton = this.buttonClose;
@@ -486,6 +495,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.Controls.Add(this.buttonPreviousPage);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.wizardControl);
+            this.Controls.Add(this.pictureWizardEnd);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConfigForm";
@@ -511,6 +521,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.wizardPage3.ResumeLayout(false);
             this.wizardPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWizardResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureWizardEnd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -567,5 +578,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         private System.Windows.Forms.Label labelSqlCe;
         private System.Windows.Forms.Label labelCreatingConfig;
         private System.Windows.Forms.Button buttonConfig;
+        private System.Windows.Forms.PictureBox pictureWizardEnd;
     }
 }

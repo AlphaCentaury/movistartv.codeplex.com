@@ -4,9 +4,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>3.9</ProductVersion>
-    <ProjectGuid>c18ba7dc-4978-4ee7-b9e5-2039302fdeac</ProjectGuid>
+    <ProjectGuid>9f94b642-9e1b-43b1-8d28-f64168284a20</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>RCtoGold10Patch</OutputName>
+    <OutputName>GoldToUpdate1Patch</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -25,7 +25,7 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="RCtoGold10PCP.wxs" />
+    <Compile Include="GoldToUpdate1PatchPCP.wxs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="build.bat" />

@@ -124,10 +124,10 @@
     <value>DVB-IPTV: Canales y servicios movistar+</value>
   </data>
   <data name="AppState" xml:space="preserve">
-    <value>Estable (actualizada)</value>
+    <value>Estable (actualización 1)</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>1.0 Update 1 “Wolf 424”</value>
+    <value>1.0 “Wolf 424”</value>
   </data>
   <data name="BroadcastListUnableRefresh" xml:space="preserve">
     <value>No ha sido posible obtener la lista de canales de TV o servicios</value>
@@ -324,5 +324,18 @@ La operación de descarga ha sido programada y no puede ser cancelada hasta que 
   </data>
   <data name="UserCancelListRefresh" xml:space="preserve">
     <value>La actualización de la lista ha sido cancelada por el usuario.</value>
+  </data>
+  <data name="SolutionLicenseRtf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\solution-license_es.rtf;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RecordDeadTvChannel" xml:space="preserve">
+    <value>El canal de TV seleccionado ha sido marcado como inactivo y puede no estar disponible.
+
+¿Todavía desea programar una grabación para {0}?</value>
+  </data>
+  <data name="ShowDeadTvChannel" xml:space="preserve">
+    <value>El canal de TV seleccionado ha sido marcado como inactivo y puede no estar disponible.
+
+¿Desea ver en cualquier caso {0}?</value>
   </data>
 </root>

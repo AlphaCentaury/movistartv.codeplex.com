@@ -267,6 +267,355 @@
   <data name="wizardControl.Appearance" type="System.Windows.Forms.TabAppearance, System.Windows.Forms">
     <value>Buttons</value>
   </data>
+  <data name="&gt;&gt;groupVlc.Name" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;groupVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupVlc.Parent" xml:space="preserve">
+    <value>wizardPage1</value>
+  </data>
+  <data name="&gt;&gt;groupVlc.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupPrerequisites.Name" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;groupPrerequisites.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupPrerequisites.Parent" xml:space="preserve">
+    <value>wizardPage1</value>
+  </data>
+  <data name="&gt;&gt;groupPrerequisites.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="wizardPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="wizardPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="wizardPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>487, 265</value>
+  </data>
+  <data name="wizardPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="wizardPage1.Text" xml:space="preserve">
+    <value>wizardPage1</value>
+  </data>
+  <data name="&gt;&gt;wizardPage1.Name" xml:space="preserve">
+    <value>wizardPage1</value>
+  </data>
+  <data name="&gt;&gt;wizardPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardPage1.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;wizardPage1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupFirewall.Name" xml:space="preserve">
+    <value>groupFirewall</value>
+  </data>
+  <data name="&gt;&gt;groupFirewall.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupFirewall.Parent" xml:space="preserve">
+    <value>wizardPage2</value>
+  </data>
+  <data name="&gt;&gt;groupFirewall.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBasicConfig.Name" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;groupBasicConfig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBasicConfig.Parent" xml:space="preserve">
+    <value>wizardPage2</value>
+  </data>
+  <data name="&gt;&gt;groupBasicConfig.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="wizardPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="wizardPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="wizardPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>487, 265</value>
+  </data>
+  <data name="wizardPage2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="wizardPage2.Text" xml:space="preserve">
+    <value>wizardPage2</value>
+  </data>
+  <data name="&gt;&gt;wizardPage2.Name" xml:space="preserve">
+    <value>wizardPage2</value>
+  </data>
+  <data name="&gt;&gt;wizardPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardPage2.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;wizardPage2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="wizardPage3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;labelHowToClose.Name" xml:space="preserve">
+    <value>labelHowToClose</value>
+  </data>
+  <data name="&gt;&gt;labelHowToClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHowToClose.Parent" xml:space="preserve">
+    <value>wizardPage3</value>
+  </data>
+  <data name="&gt;&gt;labelHowToClose.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkBoxLaunchProgram.Name" xml:space="preserve">
+    <value>checkBoxLaunchProgram</value>
+  </data>
+  <data name="&gt;&gt;checkBoxLaunchProgram.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxLaunchProgram.Parent" xml:space="preserve">
+    <value>wizardPage3</value>
+  </data>
+  <data name="&gt;&gt;checkBoxLaunchProgram.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelWizardResult.Name" xml:space="preserve">
+    <value>labelWizardResult</value>
+  </data>
+  <data name="&gt;&gt;labelWizardResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelWizardResult.Parent" xml:space="preserve">
+    <value>wizardPage3</value>
+  </data>
+  <data name="&gt;&gt;labelWizardResult.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxWizardResult.Name" xml:space="preserve">
+    <value>pictureBoxWizardResult</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxWizardResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxWizardResult.Parent" xml:space="preserve">
+    <value>wizardPage3</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxWizardResult.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="wizardPage3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="wizardPage3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="wizardPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>487, 265</value>
+  </data>
+  <data name="wizardPage3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="wizardPage3.Text" xml:space="preserve">
+    <value>wizardPage3</value>
+  </data>
+  <data name="&gt;&gt;wizardPage3.Name" xml:space="preserve">
+    <value>wizardPage3</value>
+  </data>
+  <data name="&gt;&gt;wizardPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardPage3.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;wizardPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="wizardControl.IsPageAllowed" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAPgBbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1u
+        ZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XSxbU3lzdGVtLkJvb2xlYW4sIG1z
+        Y29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3
+        YTVjNTYxOTM0ZTA4OV1dLCBtc2NvcmxpYiwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWws
+        IFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAJoBbXNjb3JsaWIsIFZlcnNpb249Mi4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0sIG1z
+        Y29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3
+        YTVjNTYxOTM0ZTA4OQUBAAAANlN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkRpY3Rpb25hcnlgMltb
+        U3lzdGVtLlN0cmluZwMAAAAHVmVyc2lvbghDb21wYXJlcghIYXNoU2l6ZQAEAAhDU3lzdGVtLkNvbGxl
+        Y3Rpb25zLkdlbmVyaWMuR2VuZXJpY0VxdWFsaXR5Q29tcGFyZXJgMVtbU3lzdGVtLlN0cmluZwMAAAAI
+        AgAAAAAAAAAJBAAAAAAAAAAFBAAAAENTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5HZW5lcmljRXF1
+        YWxpdHlDb21wYXJlcmAxW1tTeXN0ZW0uU3RyaW5nAAAAAAMAAAAL
+</value>
+  </data>
+  <data name="wizardControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="wizardControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>495, 294</value>
+  </data>
+  <data name="wizardControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;wizardControl.Name" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;wizardControl.Type" xml:space="preserve">
+    <value>Project.DvbIpTv.Tools.FirstTimeConfig.WizardTabControl, FirstTimeConfig, Version=1.0.40100.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;wizardControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;wizardControl.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;buttonTestVlc.Name" xml:space="preserve">
+    <value>buttonTestVlc</value>
+  </data>
+  <data name="&gt;&gt;buttonTestVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonTestVlc.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;buttonTestVlc.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelVlcInstallCheckResult.Name" xml:space="preserve">
+    <value>labelVlcInstallCheckResult</value>
+  </data>
+  <data name="&gt;&gt;labelVlcInstallCheckResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelVlcInstallCheckResult.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;labelVlcInstallCheckResult.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;buttonFindVlc.Name" xml:space="preserve">
+    <value>buttonFindVlc</value>
+  </data>
+  <data name="&gt;&gt;buttonFindVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonFindVlc.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;buttonFindVlc.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;textBoxVlc.Name" xml:space="preserve">
+    <value>textBoxVlc</value>
+  </data>
+  <data name="&gt;&gt;textBoxVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxVlc.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;textBoxVlc.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;labelVlcPath.Name" xml:space="preserve">
+    <value>labelVlcPath</value>
+  </data>
+  <data name="&gt;&gt;labelVlcPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelVlcPath.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;labelVlcPath.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxVlcOk.Name" xml:space="preserve">
+    <value>pictureBoxVlcOk</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxVlcOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxVlcOk.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxVlcOk.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyVlc.Name" xml:space="preserve">
+    <value>buttonVerifyVlc</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyVlc.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyVlc.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteVlc.Name" xml:space="preserve">
+    <value>linkLabelPrerequisiteVlc</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteVlc.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteVlc.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;labelVlc.Name" xml:space="preserve">
+    <value>labelVlc</value>
+  </data>
+  <data name="&gt;&gt;labelVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelVlc.Parent" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;labelVlc.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="groupVlc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 100</value>
+  </data>
+  <data name="groupVlc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>475, 159</value>
+  </data>
+  <data name="groupVlc.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupVlc.Text" xml:space="preserve">
+    <value>Additional software</value>
+  </data>
+  <data name="&gt;&gt;groupVlc.Name" xml:space="preserve">
+    <value>groupVlc</value>
+  </data>
+  <data name="&gt;&gt;groupVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupVlc.Parent" xml:space="preserve">
+    <value>wizardPage1</value>
+  </data>
+  <data name="&gt;&gt;groupVlc.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="buttonTestVlc.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -534,29 +883,125 @@
   <data name="&gt;&gt;labelVlc.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="groupVlc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 100</value>
+  <data name="&gt;&gt;pictureBoxEmbOk.Name" xml:space="preserve">
+    <value>pictureBoxEmbOk</value>
   </data>
-  <data name="groupVlc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 159</value>
+  <data name="&gt;&gt;pictureBoxEmbOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupVlc.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;pictureBoxEmbOk.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEmbOk.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxNetOk.Name" xml:space="preserve">
+    <value>pictureBoxNetOk</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxNetOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxNetOk.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxNetOk.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="groupVlc.Text" xml:space="preserve">
-    <value>Additional software</value>
+  <data name="&gt;&gt;buttonVerifyEmb.Name" xml:space="preserve">
+    <value>buttonVerifyEmb</value>
   </data>
-  <data name="&gt;&gt;groupVlc.Name" xml:space="preserve">
-    <value>groupVlc</value>
+  <data name="&gt;&gt;buttonVerifyEmb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupVlc.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonVerifyEmb.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyEmb.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyNet.Name" xml:space="preserve">
+    <value>buttonVerifyNet</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyNet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyNet.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;buttonVerifyNet.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteEmb.Name" xml:space="preserve">
+    <value>linkLabelPrerequisiteEmb</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteEmb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteEmb.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteEmb.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;labelEmb.Name" xml:space="preserve">
+    <value>labelEmb</value>
+  </data>
+  <data name="&gt;&gt;labelEmb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelEmb.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;labelEmb.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteNet.Name" xml:space="preserve">
+    <value>linkLabelPrerequisiteNet</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteNet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteNet.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;linkLabelPrerequisiteNet.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;labelNet.Name" xml:space="preserve">
+    <value>labelNet</value>
+  </data>
+  <data name="&gt;&gt;labelNet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelNet.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;labelNet.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="groupPrerequisites.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="groupPrerequisites.Size" type="System.Drawing.Size, System.Drawing">
+    <value>475, 88</value>
+  </data>
+  <data name="groupPrerequisites.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupPrerequisites.Text" xml:space="preserve">
+    <value>Download and install pre-requisites</value>
+  </data>
+  <data name="&gt;&gt;groupPrerequisites.Name" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;groupPrerequisites.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupVlc.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupPrerequisites.Parent" xml:space="preserve">
     <value>wizardPage1</value>
   </data>
-  <data name="&gt;&gt;groupVlc.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;groupPrerequisites.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="pictureBoxEmbOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -810,55 +1255,76 @@
   <data name="&gt;&gt;labelNet.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="groupPrerequisites.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+  <data name="&gt;&gt;buttonFirewall.Name" xml:space="preserve">
+    <value>buttonFirewall</value>
   </data>
-  <data name="groupPrerequisites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 88</value>
+  <data name="&gt;&gt;buttonFirewall.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupPrerequisites.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;buttonFirewall.Parent" xml:space="preserve">
+    <value>groupFirewall</value>
+  </data>
+  <data name="&gt;&gt;buttonFirewall.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="groupPrerequisites.Text" xml:space="preserve">
-    <value>Download and install pre-requisites</value>
+  <data name="&gt;&gt;labelFirewallWarning.Name" xml:space="preserve">
+    <value>labelFirewallWarning</value>
   </data>
-  <data name="&gt;&gt;groupPrerequisites.Name" xml:space="preserve">
-    <value>groupPrerequisites</value>
+  <data name="&gt;&gt;labelFirewallWarning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupPrerequisites.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;labelFirewallWarning.Parent" xml:space="preserve">
+    <value>groupFirewall</value>
   </data>
-  <data name="&gt;&gt;groupPrerequisites.Parent" xml:space="preserve">
-    <value>wizardPage1</value>
-  </data>
-  <data name="&gt;&gt;groupPrerequisites.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;labelFirewallWarning.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="wizardPage1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+  <data name="&gt;&gt;checkBoxFirewallVlc.Name" xml:space="preserve">
+    <value>checkBoxFirewallVlc</value>
   </data>
-  <data name="wizardPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;checkBoxFirewallVlc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="wizardPage1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>487, 265</value>
+  <data name="&gt;&gt;checkBoxFirewallVlc.Parent" xml:space="preserve">
+    <value>groupFirewall</value>
   </data>
-  <data name="wizardPage1.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;checkBoxFirewallVlc.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxFirewallDecoder.Name" xml:space="preserve">
+    <value>checkBoxFirewallDecoder</value>
+  </data>
+  <data name="&gt;&gt;checkBoxFirewallDecoder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxFirewallDecoder.Parent" xml:space="preserve">
+    <value>groupFirewall</value>
+  </data>
+  <data name="&gt;&gt;checkBoxFirewallDecoder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupFirewall.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="groupFirewall.Size" type="System.Drawing.Size, System.Drawing">
+    <value>475, 104</value>
+  </data>
+  <data name="groupFirewall.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="wizardPage1.Text" xml:space="preserve">
-    <value>wizardPage1</value>
+  <data name="groupFirewall.Text" xml:space="preserve">
+    <value>Windows Firewall configuration</value>
   </data>
-  <data name="&gt;&gt;wizardPage1.Name" xml:space="preserve">
-    <value>wizardPage1</value>
+  <data name="&gt;&gt;groupFirewall.Name" xml:space="preserve">
+    <value>groupFirewall</value>
   </data>
-  <data name="&gt;&gt;wizardPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupFirewall.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;wizardPage1.Parent" xml:space="preserve">
-    <value>wizardControl</value>
+  <data name="&gt;&gt;groupFirewall.Parent" xml:space="preserve">
+    <value>wizardPage2</value>
   </data>
-  <data name="&gt;&gt;wizardPage1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;groupFirewall.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="buttonFirewall.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -981,29 +1447,113 @@
   <data name="&gt;&gt;checkBoxFirewallDecoder.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="groupFirewall.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+  <data name="&gt;&gt;labelCreatingConfig.Name" xml:space="preserve">
+    <value>labelCreatingConfig</value>
   </data>
-  <data name="groupFirewall.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 104</value>
+  <data name="&gt;&gt;labelCreatingConfig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupFirewall.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;labelCreatingConfig.Parent" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;labelCreatingConfig.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="groupFirewall.Text" xml:space="preserve">
-    <value>Windows Firewall configuration</value>
+  <data name="&gt;&gt;buttonConfig.Name" xml:space="preserve">
+    <value>buttonConfig</value>
   </data>
-  <data name="&gt;&gt;groupFirewall.Name" xml:space="preserve">
-    <value>groupFirewall</value>
+  <data name="&gt;&gt;buttonConfig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupFirewall.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonConfig.Parent" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;buttonConfig.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;textSaveSubFolder.Name" xml:space="preserve">
+    <value>textSaveSubFolder</value>
+  </data>
+  <data name="&gt;&gt;textSaveSubFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textSaveSubFolder.Parent" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;textSaveSubFolder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;labelSaveSubFolder.Name" xml:space="preserve">
+    <value>labelSaveSubFolder</value>
+  </data>
+  <data name="&gt;&gt;labelSaveSubFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSaveSubFolder.Parent" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;labelSaveSubFolder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;buttonBrowseSave.Name" xml:space="preserve">
+    <value>buttonBrowseSave</value>
+  </data>
+  <data name="&gt;&gt;buttonBrowseSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonBrowseSave.Parent" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;buttonBrowseSave.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;textBoxSave.Name" xml:space="preserve">
+    <value>textBoxSave</value>
+  </data>
+  <data name="&gt;&gt;textBoxSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxSave.Parent" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;textBoxSave.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;labelSaveFolder.Name" xml:space="preserve">
+    <value>labelSaveFolder</value>
+  </data>
+  <data name="&gt;&gt;labelSaveFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSaveFolder.Parent" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;labelSaveFolder.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="groupBasicConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 116</value>
+  </data>
+  <data name="groupBasicConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>475, 143</value>
+  </data>
+  <data name="groupBasicConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBasicConfig.Text" xml:space="preserve">
+    <value>Basic configuration information</value>
+  </data>
+  <data name="&gt;&gt;groupBasicConfig.Name" xml:space="preserve">
+    <value>groupBasicConfig</value>
+  </data>
+  <data name="&gt;&gt;groupBasicConfig.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupFirewall.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBasicConfig.Parent" xml:space="preserve">
     <value>wizardPage2</value>
   </data>
-  <data name="&gt;&gt;groupFirewall.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;groupBasicConfig.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="labelCreatingConfig.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1039,7 +1589,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonConfig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 94</value>
+    <value>6, 96</value>
   </data>
   <data name="buttonConfig.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 25</value>
@@ -1197,60 +1747,6 @@
   <data name="&gt;&gt;labelSaveFolder.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="groupBasicConfig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 116</value>
-  </data>
-  <data name="groupBasicConfig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 143</value>
-  </data>
-  <data name="groupBasicConfig.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="groupBasicConfig.Text" xml:space="preserve">
-    <value>Basic configuration information</value>
-  </data>
-  <data name="&gt;&gt;groupBasicConfig.Name" xml:space="preserve">
-    <value>groupBasicConfig</value>
-  </data>
-  <data name="&gt;&gt;groupBasicConfig.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBasicConfig.Parent" xml:space="preserve">
-    <value>wizardPage2</value>
-  </data>
-  <data name="&gt;&gt;groupBasicConfig.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="wizardPage2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="wizardPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="wizardPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>487, 265</value>
-  </data>
-  <data name="wizardPage2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="wizardPage2.Text" xml:space="preserve">
-    <value>wizardPage2</value>
-  </data>
-  <data name="&gt;&gt;wizardPage2.Name" xml:space="preserve">
-    <value>wizardPage2</value>
-  </data>
-  <data name="&gt;&gt;wizardPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;wizardPage2.Parent" xml:space="preserve">
-    <value>wizardControl</value>
-  </data>
-  <data name="&gt;&gt;wizardPage2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="wizardPage3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
   <data name="labelHowToClose.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1288,13 +1784,13 @@
     <value>174, 193</value>
   </data>
   <data name="checkBoxLaunchProgram.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 17</value>
+    <value>201, 17</value>
   </data>
   <data name="checkBoxLaunchProgram.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="checkBoxLaunchProgram.Text" xml:space="preserve">
-    <value>&amp;Launch 'Channel list' program</value>
+    <value>&amp;Launch 'movistar+ channels' program</value>
   </data>
   <data name="&gt;&gt;checkBoxLaunchProgram.Name" xml:space="preserve">
     <value>checkBoxLaunchProgram</value>
@@ -1359,69 +1855,32 @@
   <data name="&gt;&gt;pictureBoxWizardResult.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="wizardPage3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
+  <data name="pictureWizardEnd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="wizardPage3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="wizardPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>487, 265</value>
-  </data>
-  <data name="wizardPage3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="wizardPage3.Text" xml:space="preserve">
-    <value>wizardPage3</value>
-  </data>
-  <data name="&gt;&gt;wizardPage3.Name" xml:space="preserve">
-    <value>wizardPage3</value>
-  </data>
-  <data name="&gt;&gt;wizardPage3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;wizardPage3.Parent" xml:space="preserve">
-    <value>wizardControl</value>
-  </data>
-  <data name="&gt;&gt;wizardPage3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="wizardControl.IsPageAllowed" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAPgBbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1u
-        ZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XSxbU3lzdGVtLkJvb2xlYW4sIG1z
-        Y29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3
-        YTVjNTYxOTM0ZTA4OV1dLCBtc2NvcmxpYiwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWws
-        IFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAJoBbXNjb3JsaWIsIFZlcnNpb249Mi4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0sIG1z
-        Y29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3
-        YTVjNTYxOTM0ZTA4OQUBAAAANlN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkRpY3Rpb25hcnlgMltb
-        U3lzdGVtLlN0cmluZwMAAAAHVmVyc2lvbghDb21wYXJlcghIYXNoU2l6ZQAEAAhDU3lzdGVtLkNvbGxl
-        Y3Rpb25zLkdlbmVyaWMuR2VuZXJpY0VxdWFsaXR5Q29tcGFyZXJgMVtbU3lzdGVtLlN0cmluZwMAAAAI
-        AgAAAAAAAAAJBAAAAAAAAAAFBAAAAENTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5HZW5lcmljRXF1
-        YWxpdHlDb21wYXJlcmAxW1tTeXN0ZW0uU3RyaW5nAAAAAAMAAAAL
-</value>
-  </data>
-  <data name="wizardControl.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="pictureWizardEnd.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="wizardControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>495, 294</value>
+  <data name="pictureWizardEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 333</value>
   </data>
-  <data name="wizardControl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="pictureWizardEnd.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;wizardControl.Name" xml:space="preserve">
-    <value>wizardControl</value>
+  <data name="pictureWizardEnd.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;wizardControl.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.Tools.FirstTimeConfig.WizardTabControl, FirstTimeConfig, Version=1.0.2000.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;pictureWizardEnd.Name" xml:space="preserve">
+    <value>pictureWizardEnd</value>
   </data>
-  <data name="&gt;&gt;wizardControl.Parent" xml:space="preserve">
+  <data name="&gt;&gt;pictureWizardEnd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureWizardEnd.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;wizardControl.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;pictureWizardEnd.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1442,7 +1901,7 @@
     <value>selectFolder</value>
   </data>
   <data name="&gt;&gt;selectFolder.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.SelectFolderDialog, UiServices.Controls, Version=1.0.2000.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.SelectFolderDialog, UiServices.Controls, Version=1.0.40100.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;openFile.Name" xml:space="preserve">
     <value>openFile</value>

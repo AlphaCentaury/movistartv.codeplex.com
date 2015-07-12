@@ -8,12 +8,13 @@
         <File Id="UiServices.Discovery.dll" Source="$(var.ChannelList.TargetDir)UiServices.Discovery.dll" />
         <File Id="UiServices.Forms.dll" Source="$(var.ChannelList.TargetDir)UiServices.Forms.dll" />
         <File Id='license.txt' Source='$(var.SolutionDir)!(loc.SourceFileLicenseAgreement).txt' Name='!(loc.FileLicenseAgreement).txt' />
-        <File Id='license.rtf' Source='$(var.SolutionDir)solution-license.rtf' Name='!(loc.FileLicenseAgreement).rtf' />
+        <File Id='license.rtf' Source='$(var.SolutionDir)!(loc.SourceFileLicenseAgreement).rtf' Name='!(loc.FileLicenseAgreement).rtf' />
       </Component>
 
       <Component Id="ProgramStartMenuFolder" Guid="*" Directory="ProgramStartMenuFolder">
         <RegistryKey Root='HKCU' Key='Software\movistartv.codeplex.com\DVBIPTV\v1.0' ForceDeleteOnUninstall='yes'>
           <RegistryValue Type='string' Name='Installed' Value='1' KeyPath='yes' />
+          <RegistryValue Type='string' Name='Update' Value='1.0.40100.0' />
           <RegistryKey Key='Folders'>
             <RegistryValue Type='string' Name='Base' Value='[BaseFolder]' />
             <RegistryValue Type='string' Name='Install' Value='[INSTALLFOLDER]' />

@@ -57,7 +57,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             if (appUiConfig == null)
             {
                 MessageBox.Show(this, initResult.Message, initResult.Caption, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                Page3_Step0(Texts.WizardResultAborted, false, Resources.Exclamation_48x48);
+                EndWizard(Texts.WizardResultAborted, false, Resources.Exclamation_48x48);
                 return;
             } // if
 
@@ -95,7 +95,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         private void ConfirmUserCancel()
         {
             if (MessageBox.Show(this, Texts.ConfirmUserCancel, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
-            Page3_Step0(Texts.WizardResultUserCancel, false, null);
+            EndWizard(Texts.WizardResultUserCancel, false, null);
         } // ConfirmUserCancel
 
         #region Page1
@@ -397,15 +397,18 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 return;
             } // if
 
-            Page3_Step0(message, true, null);
+            EndWizard(message, true, null);
         } // buttonConfig_Click
 
         #endregion
 
-        #region
+        #region End wizard
 
-        private void Page3_Step0(string wizardResult, bool success, Image wizardResultIcon)
+        private void EndWizard(string wizardResult, bool success, Image wizardResultIcon)
         {
+            pictureWizardEnd.Visible = true;
+            pictureWizardEnd.BringToFront();
+
             wizardControl.ShowWizardButtons(false);
             wizardControl.IsPageAllowed.Clear();
             wizardControl.IsPageAllowed[wizardPage3.Name] = true;
@@ -423,7 +426,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
             checkBoxLaunchProgram.Visible = success;
             buttonClose.DialogResult = success ? DialogResult.OK : DialogResult.Cancel;
-        } // Page3_Step0
+        } // EndWizard
 
         #endregion
     } // class ConfigForm

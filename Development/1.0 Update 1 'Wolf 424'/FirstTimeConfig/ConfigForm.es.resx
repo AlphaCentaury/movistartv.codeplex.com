@@ -280,7 +280,7 @@
     <value>219, 17</value>
   </data>
   <data name="checkBoxLaunchProgram.Text" xml:space="preserve">
-    <value>&amp;Ejecutar el programa 'Listado de canales'</value>
+    <value>&amp;Ejecutar el programa 'Canales movistar+'</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Asistente de configuración inicial</value>

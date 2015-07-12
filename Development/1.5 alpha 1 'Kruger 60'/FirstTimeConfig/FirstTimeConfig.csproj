@@ -123,6 +123,7 @@
     <Content Include="License.txt" />
     <Content Include="Resources\ActionBack_Medium_16.png" />
     <Content Include="Resources\ActionForward_Medium_16.png" />
+    <None Include="Resources\WizardEndPattern.png" />
     <None Include="Resources\Exclamation_48x48.png" />
     <None Include="Resources\Firewall_48x48.png" />
     <Content Include="Resources\Warning_48x48.png" />

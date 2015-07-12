@@ -40,5 +40,11 @@ namespace Project.DvbIpTv.UiServices.Forms
             get;
             set;
         } // LicenseText
+
+        public string LicenseTextRtf
+        {
+            get;
+            set;
+        } // LicenseTextRtf
     } // class AboutBoxApplicationData
 } // namespace
