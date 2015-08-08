@@ -162,12 +162,12 @@ Please verify the value of the 'ForceUICulture' program argument.</value>
     <value>Se ha cancelado la modificación de la configuración del cortafuegos.</value>
   </data>
   <data name="IsEmbInstalledException" xml:space="preserve">
-    <value>No ha sido posible determinar si el componente Microsoft Exception Message Box se enecuentra instalado.
+    <value>No ha sido posible determinar si el componente Microsoft Exception Message Box se encuentra instalado.
 
 {0}</value>
   </data>
   <data name="IsEmbInstalledNotInstalled" xml:space="preserve">
-    <value>El component Microsoft Exception Message Box no está instalado en esta máquina.</value>
+    <value>El component Microsoft Exception Message Box no está instalado en este equipo.</value>
   </data>
   <data name="IsEmbInstalledOk" xml:space="preserve">
     <value>Se ha verificado la instalación del component Microsoft Exception Message Box (v{0}).</value>
@@ -184,7 +184,7 @@ Please verify the value of the 'ForceUICulture' program argument.</value>
     <value>No se ha localizado el valor de registro '{0}' del .NET Framework v3.5.</value>
   </data>
   <data name="IsNetInstalledNotInstalled" xml:space="preserve">
-    <value>.NET Framework v3.5 no está instalado en esta máquina.</value>
+    <value>.NET Framework v3.5 no está instalado en este equipo.</value>
   </data>
   <data name="IsNetInstalledOk" xml:space="preserve">
     <value>Se ha verificado la instalación de .NET Framework v3.5 Service Pack 1 (o superior).</value>
@@ -201,14 +201,14 @@ Please verify the value of the 'ForceUICulture' program argument.</value>
     <value>Se ha verificado la instalación del reproductor VLC (versión {0}) y de su archivo de librería (versión {1}).</value>
   </data>
   <data name="IsVlcInstalledVersion" xml:space="preserve">
-    <value>El reproductor VLC versión {0} (o superior) no está instalado en esta máquina.
+    <value>El reproductor VLC versión {0} (o superior) no está instalado en este equipo.
 La versión actualmente instalada es {1}.</value>
   </data>
   <data name="IsVlcLibInstalledNotInstalled" xml:space="preserve">
     <value>El archivo de la librería VLC no se ha localizado en '{0}'.</value>
   </data>
   <data name="IsVlcLibInstalledVersion" xml:space="preserve">
-    <value>La librería VLC versión {0} (o superior) no está instalado en esta máquina.
+    <value>La librería VLC versión {0} (o superior) no está instalada en este equipo.
 La versión actualmente instalada es {1}.</value>
   </data>
   <data name="OpenFileVlcFilter" xml:space="preserve">

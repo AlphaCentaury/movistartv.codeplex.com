@@ -126,7 +126,14 @@
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>&amp;Cancelar</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="checkRunMainProgram.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 17</value>
+  </data>
+  <data name="checkRunMainProgram.Text" xml:space="preserve">
+    <value>Ejecutar el programa '{0}'</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Fin del asistente del actualización</value>
+    <value>Asistente del actualización</value>
   </data>
 </root>

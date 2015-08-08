@@ -31,8 +31,11 @@ namespace Project.DvbIpTv.Setup.UpdateWolf424
             {
                 case System.Windows.Forms.DialogResult.OK:
                     pictureEndIcon.Image = Properties.Resources.TickGreen_64x64;
-                    labelEndTitle.Text = string.Format(Properties.Resources.EndTextOk, Program.TargetProductName, Program.UpdateProductName);
-                    labelEndText.Text = string.Format(Properties.Resources.EndTitleOk, Program.TargetProductName, Program.UpdateProductName);
+                    labelEndTitle.Text = string.Format(Properties.Resources.EndTitleOk, Program.TargetProductName, Program.UpdateProductName);
+                    labelEndText.Text = string.Format(Properties.Resources.EndTextOk, Program.TargetProductName, Program.UpdateProductName);
+                    checkRunMainProgram.Visible = true;
+                    checkRunMainProgram.Checked = true;
+                    checkRunMainProgram.Text = string.Format(checkRunMainProgram.Text, Properties.Resources.UpdateProductMainProgramName);
                     break;
                 case System.Windows.Forms.DialogResult.Cancel:
                     pictureEndIcon.Image = Properties.Resources.Warning_64x64;

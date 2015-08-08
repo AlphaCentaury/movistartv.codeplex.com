@@ -37,6 +37,7 @@
             this.labelEndTitle = new System.Windows.Forms.Label();
             this.labelEndText = new System.Windows.Forms.Label();
             this.pictureEndIcon = new System.Windows.Forms.PictureBox();
+            this.checkRunMainProgram = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureWelcome)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEndIcon)).BeginInit();
@@ -97,6 +98,13 @@
             this.pictureEndIcon.Name = "pictureEndIcon";
             this.pictureEndIcon.TabStop = false;
             // 
+            // checkRunMainProgram
+            // 
+            resources.ApplyResources(this.checkRunMainProgram, "checkRunMainProgram");
+            this.checkRunMainProgram.BackColor = System.Drawing.SystemColors.Window;
+            this.checkRunMainProgram.Name = "checkRunMainProgram";
+            this.checkRunMainProgram.UseVisualStyleBackColor = false;
+            // 
             // WizardEndDialog
             // 
             this.AcceptButton = this.buttonCancel;
@@ -104,6 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.buttonNext;
+            this.Controls.Add(this.checkRunMainProgram);
             this.Controls.Add(this.pictureEndIcon);
             this.Controls.Add(this.labelEndText);
             this.Controls.Add(this.labelEndTitle);
@@ -118,6 +127,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEndIcon)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,5 +141,6 @@
         private System.Windows.Forms.Label labelEndText;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.PictureBox pictureEndIcon;
+        internal System.Windows.Forms.CheckBox checkRunMainProgram;
     }
 }

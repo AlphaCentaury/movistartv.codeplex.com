@@ -8,7 +8,7 @@
   <String Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT">Ejecutar el Asistente de configuración inicial</String>
   <String Id="SourceFileLicenseAgreement">solution-license_es</String>
   <String Id="FileLicenseAgreement">Acuerdo de licencia</String>
-  <String Id="DvbIpTvStartMenuFolder">Decodificador DVB-IPTV</String>
+  <String Id="DvbIpTvStartMenuFolder">DVB-IPTV</String>
   <String Id="ProgramStartMenuFolder">movistar+ v1.0 “Wolf 424”</String>
   <String Id="ToolsStartMenuFolder">Utilidades</String>
   <String Id="ChannelList.exe.lnk">Canales movistar+</String>

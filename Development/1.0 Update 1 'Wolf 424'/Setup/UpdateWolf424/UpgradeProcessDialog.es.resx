@@ -117,104 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CheckInstalledVersionException" xml:space="preserve">
-    <value>No ha sido posible determinar si la aplicación {0} está instalada en el equipo.</value>
+  <data name="labelUpdating.Text" xml:space="preserve">
+    <value>  Actualizando {0}</value>
   </data>
-  <data name="CheckInstalledVersionNo" xml:space="preserve">
-    <value>El programa {0} no está instalado en este equipo.
-El asistente de actualización no puede continuar y se finalizará.</value>
+  <data name="labelStep1.Text" xml:space="preserve">
+    <value>Realizando copia de seguridad de los archivos de datos</value>
   </data>
-  <data name="CheckInstalledVersionUpdated" xml:space="preserve">
-    <value>Una versión posterior de {0} se encuentra instalada en el equipo.
-La versión instalada es {1} y la actualización es para la versión {2}.
-
-El asistente de actualización no puede continuar y se finalizará.</value>
+  <data name="labelStep2.Text" xml:space="preserve">
+    <value>Desinstalando la versión anterior del producto</value>
   </data>
-  <data name="EndTextAbort" xml:space="preserve">
-    <value>El asistente de actualización ha finalizado de manera inesperada y {0} no se ha actualizado correctamente. Es muy posible que no pueda utilizarse correctamente.
-Intente actualizar de nuevo y si el problema persiste, desinstale completamente el producto e instale la versión completa con la actualización.
-
-Seleccione 'Finalizar' para salir del asistente de actualización.</value>
+  <data name="labelStep3.Text" xml:space="preserve">
+    <value>Instalando la nueva versión del producto</value>
   </data>
-  <data name="EndTextCancel" xml:space="preserve">
-    <value>Se interrumpió la actualización de {0} a {1}.
-El sistema no se ha modificado. Para actualizar este programa más tarde, vuelve a ejecutar el asistente.
-
-Seleccione 'Finalizar' para salir del asistente de actualización.</value>
+  <data name="labelStep4.Text" xml:space="preserve">
+    <value>Restaurando los archivos de datos anteriores</value>
   </data>
-  <data name="EndTextOk" xml:space="preserve">
-    <value>{0} ha sido correctamente actualizado a {1}.
-
-Seleccione 'Finalizar' para salir del asistente de actualización.</value>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>&amp;Cancelar</value>
   </data>
-  <data name="EndTitleAbort" xml:space="preserve">
-    <value>No ha sido posible actualizar {0}.</value>
-  </data>
-  <data name="EndTitleCancel" xml:space="preserve">
-    <value>Se canceló el asistente de actualización de {0}.</value>
-  </data>
-  <data name="EndTitleOk" xml:space="preserve">
-    <value>Ha completado el asistente para la actualización de {0}.</value>
-  </data>
-  <data name="IsEmbInstalledException" xml:space="preserve">
-    <value>No ha sido posible determinar si el componente Microsoft Exception Message Box se enecuentra instalado.
-
-{0}</value>
-  </data>
-  <data name="IsEmbInstalledNotInstalled" xml:space="preserve">
-    <value>El component Microsoft Exception Message Box no está instalado.
-Este problema puede deberse a que la aplicación que se desea actualizar no está instalada en el equipo.</value>
-  </data>
-  <data name="IsEmbInstalledOk" xml:space="preserve">
-    <value>Se ha verificado la instalación del component Microsoft Exception Message Box (v{0}).</value>
-  </data>
-  <data name="LaunchMainProgramException" xml:space="preserve">
-    <value>No ha sido posible ejecutar el programa principal del producto.</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LicenseAgreement" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\solution-license_es.rtf;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="ProgramCaption" xml:space="preserve">
-    <value>Asistente de actualización para {0}</value>
-  </data>
-  <data name="ProgressBackingUpFiles" xml:space="preserve">
-    <value>Realizando copia de seguridad...</value>
-  </data>
-  <data name="ProgressDone" xml:space="preserve">
-    <value>La actualización se ha completado</value>
-  </data>
-  <data name="ProgressDoneException" xml:space="preserve">
-    <value>La actualización no se ha podido llevar a cabo</value>
-  </data>
-  <data name="ProgressInstallUpdateProduct" xml:space="preserve">
-    <value>Windows Installer está copiando los nuevos archivos...</value>
-  </data>
-  <data name="ProgressRestoringFiles" xml:space="preserve">
-    <value>Restaurando archivos...</value>
-  </data>
-  <data name="ProgressUninstallTargetProduct" xml:space="preserve">
-    <value>Windows Installer está desinstalando la versión anterior...</value>
-  </data>
-  <data name="TargetProductName" xml:space="preserve">
-    <value>Decodificador Movistar TV 1.0 “Wolf 424”</value>
-  </data>
-  <data name="TargetProductShortcutsFolder" xml:space="preserve">
-    <value>Decodificador DVB-IPTV\Movistar TV v1.0 “Wolf 424”</value>
-  </data>
-  <data name="UpdateProductMainProgramName" xml:space="preserve">
-    <value>Canales movistar+</value>
-  </data>
-  <data name="UpdateProductMainProgramShortcut" xml:space="preserve">
-    <value>Canales movistar+.lnk</value>
-  </data>
-  <data name="UpdateProductName" xml:space="preserve">
-    <value>Decodificador movistar+ 1.0 “Wolf 424” con actualización 1</value>
-  </data>
-  <data name="UpdateProductShortcutsFolder" xml:space="preserve">
-    <value>DVB-IPTV\movistar+ v1.0 “Wolf 424”</value>
-  </data>
-  <data name="UpdateProduct_MsiFile" xml:space="preserve">
-    <value>DVB-IPTV_MovistarTV_1-0_Update-1_es-es.msi</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Realizando la actualización - Asistente de actualización</value>
   </data>
 </root>

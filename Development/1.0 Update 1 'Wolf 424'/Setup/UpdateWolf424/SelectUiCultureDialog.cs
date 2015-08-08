@@ -28,6 +28,7 @@ namespace Project.DvbIpTv.Setup.UpdateWolf424
             {
                 radioEnglish.Checked = true;
             }
+            ApplyResources();
         }
 
         private void radioSpanish_CheckedChanged(object sender, EventArgs e)
@@ -39,11 +40,13 @@ namespace Project.DvbIpTv.Setup.UpdateWolf424
         private void radioEnglish_CheckedChanged(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+
             ApplyResources();
         } // radioEnglish_CheckedChanged
 
         private void ApplyResources()
         {
+            Properties.Resources.Culture = Thread.CurrentThread.CurrentUICulture;
             ComponentResourceManager resources = new ComponentResourceManager(typeof(SelectUiCultureDialog));
             resources.ApplyResources(this, "$this");
             resources.ApplyResources(this.labelSelect, "labelSelect");
