@@ -82,6 +82,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             {
                 Version assemblyVersion, fileVersion;
 
+                // Solve bug per work item 1757
                 var found = IsAssemblyInstalled(Resources.EmbComponentAssemblyName, out assemblyVersion, out fileVersion);
 
                 if (!found)

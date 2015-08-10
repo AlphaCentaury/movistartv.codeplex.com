@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movistar+ channels/services - DVB-IPTV (1.5“Kruger 60” Alpha 1).
+        ///   Looks up a localized string similar to movistar+ channels and services - DVB-IPTV (1.5“Kruger 60” Alpha 1).
         /// </summary>
         internal static string AppCaption {
             get {
@@ -70,7 +70,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DVB-IPTV: movistar+ channels/services.
+        ///   Looks up a localized string similar to DVB-IPTV: movistar+ channels and services.
         /// </summary>
         internal static string AppName {
             get {

@@ -221,7 +221,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent0.Text" xml:space="preserve">
     <value>Recent[0]</value>
@@ -279,7 +279,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent1.Text" xml:space="preserve">
     <value>Recent[1]</value>
@@ -311,7 +311,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent2.Text" xml:space="preserve">
     <value>Recent[2]</value>
@@ -351,7 +351,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent3.Text" xml:space="preserve">
     <value>Recent[3]</value>
@@ -392,7 +392,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent4.Text" xml:space="preserve">
     <value>Recent[4]</value>
@@ -425,7 +425,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent5.Text" xml:space="preserve">
     <value>Recent[5]</value>
@@ -468,7 +468,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent6.Text" xml:space="preserve">
     <value>Recent[6]</value>
@@ -520,7 +520,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent7.Text" xml:space="preserve">
     <value>Recent[7]</value>
@@ -625,7 +625,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent8.Text" xml:space="preserve">
     <value>Recent[8]</value>
@@ -725,7 +725,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemDvbRecent9.Text" xml:space="preserve">
     <value>Recent[9]</value>
@@ -1303,7 +1303,7 @@
     <value>Alt+T</value>
   </data>
   <data name="menuItemChannelListViewTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemChannelListViewTile.Text" xml:space="preserve">
     <value>Tile</value>
@@ -1312,7 +1312,7 @@
     <value>Alt+D</value>
   </data>
   <data name="menuItemChannelListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="menuItemChannelListViewDetails.Text" xml:space="preserve">
     <value>Details</value>
@@ -1528,7 +1528,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="labelProviderName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1561,7 +1561,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelProviderName.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="labelProviderDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1594,7 +1594,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelProviderDescription.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="listViewChannels.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1741,7 +1741,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;listViewChannels.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="labelNotification.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -1777,7 +1777,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelNotification.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <metadata name="timerDismissNotification.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>488, 17</value>
@@ -1810,7 +1810,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelPackageLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1846,7 +1846,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="pictureNotificationIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -1879,7 +1879,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureNotificationIcon.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="buttonRecordChannel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1915,7 +1915,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonRecordChannel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="buttonDisplayChannel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1951,7 +1951,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonDisplayChannel.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="pictureProviderLogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1978,7 +1978,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureProviderLogo.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="epgMiniBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -2005,127 +2005,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;epgMiniBar.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="radioListViewDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="radioListViewDetails.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioListViewDetails.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioListViewDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 0</value>
-  </data>
-  <data name="radioListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 17</value>
-  </data>
-  <data name="radioListViewDetails.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="radioListViewDetails.Text" xml:space="preserve">
-    <value>&amp;Details</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Name" xml:space="preserve">
-    <value>radioListViewDetails</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Parent" xml:space="preserve">
-    <value>panelRadioListView</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="radioListViewTile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="radioListViewTile.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioListViewTile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioListViewTile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 0</value>
-  </data>
-  <data name="radioListViewTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 17</value>
-  </data>
-  <data name="radioListViewTile.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="radioListViewTile.Text" xml:space="preserve">
-    <value>&amp;Tile</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.Name" xml:space="preserve">
-    <value>radioListViewTile</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.Parent" xml:space="preserve">
-    <value>panelRadioListView</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="labelListChannelsView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="labelListChannelsView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelListChannelsView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 2</value>
-  </data>
-  <data name="labelListChannelsView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
-  </data>
-  <data name="labelListChannelsView.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="labelListChannelsView.Text" xml:space="preserve">
-    <value>List view:</value>
-  </data>
-  <data name="labelListChannelsView.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopRight</value>
-  </data>
-  <data name="&gt;&gt;labelListChannelsView.Name" xml:space="preserve">
-    <value>labelListChannelsView</value>
-  </data>
-  <data name="&gt;&gt;labelListChannelsView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelListChannelsView.Parent" xml:space="preserve">
-    <value>panelRadioListView</value>
-  </data>
-  <data name="&gt;&gt;labelListChannelsView.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="panelRadioListView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>438, 45</value>
-  </data>
-  <data name="panelRadioListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 17</value>
-  </data>
-  <data name="panelRadioListView.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;panelRadioListView.Name" xml:space="preserve">
-    <value>panelRadioListView</value>
-  </data>
-  <data name="&gt;&gt;panelRadioListView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelRadioListView.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelRadioListView.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>12</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

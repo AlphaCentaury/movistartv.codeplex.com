@@ -104,7 +104,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Properties\Texts.es.resx" />
+    <EmbeddedResource Include="Properties\Texts.es.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Texts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>

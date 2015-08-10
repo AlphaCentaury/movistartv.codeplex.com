@@ -26,6 +26,7 @@ using System.Text;
 using System.IO;
 using System.Diagnostics;
 using Microsoft.SqlServer.MessageBox;
+using Project.DvbIpTv.Common;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -237,16 +238,6 @@ namespace Project.DvbIpTv.ChannelList
         #endregion
 
         #region Service-related event handlers
-
-        private void radioListViewTile_Click(object sender, EventArgs e)
-        {
-            SafeCall(ChannelListViewChanged, View.Tile);
-        } // radioListViewTile_Click
-
-        private void radioListViewDetails_Click(object sender, EventArgs e)
-        {
-            SafeCall(ChannelListViewChanged, View.Details);
-        } // radioListViewDetails_Click
 
         private void menuItemChannelListViewTile_Click(object sender, EventArgs e)
         {
@@ -868,9 +859,6 @@ namespace Project.DvbIpTv.ChannelList
                 listViewChannels.Items.Clear();
             } // if
 
-            labelListChannelsView.Enabled = (broadcastDiscovery != null);
-            radioListViewTile.Enabled = (broadcastDiscovery != null);
-            radioListViewDetails.Enabled = (broadcastDiscovery != null);
             menuItemChannelListView.Enabled = (broadcastDiscovery != null);
             menuItemChannelListSort.Enabled = (broadcastDiscovery != null);
             menuItemChannelVerify.Enabled = (broadcastDiscovery != null);
@@ -954,9 +942,7 @@ namespace Project.DvbIpTv.ChannelList
                 menuItemChannelListSortName.Checked = true;
             } // if
 
-            // update menu items & radio buttons view selection
-            radioListViewTile.Checked = (newView == View.Tile);
-            radioListViewDetails.Checked = (newView == View.Details);
+            // update menu items view selection
             menuItemChannelListViewTile.Checked = (newView == View.Tile);
             menuItemChannelListViewDetails.Checked = (newView == View.Details);
 
@@ -1167,24 +1153,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void OpenUrl(string url)
         {
-            try
-            {
-                using (var process = new Process())
-                {
-                    process.StartInfo = new ProcessStartInfo()
-                    {
-                        FileName = url,
-                        UseShellExecute = true,
-                        ErrorDialog = true,
-                        ErrorDialogParentHandle = this.Handle,
-                    };
-                    process.Start();
-                } // using process
-            }
-            catch (Exception ex)
-            {
-                HandleException(string.Format(Properties.Texts.OpenUrlError, url), ex);
-            } // try-catch
+            Launcher.OpenUrl(this, url, HandleException, Properties.Texts.OpenUrlError);
         } // OpenUrl
 
         #endregion

@@ -153,10 +153,6 @@ namespace Project.DvbIpTv.ChannelList
             this.buttonDisplayChannel = new System.Windows.Forms.Button();
             this.pictureProviderLogo = new System.Windows.Forms.PictureBox();
             this.epgMiniBar = new Project.DvbIpTv.UiServices.EPG.EpgMiniBar();
-            this.panelRadioListView = new System.Windows.Forms.Panel();
-            this.radioListViewDetails = new System.Windows.Forms.RadioButton();
-            this.radioListViewTile = new System.Windows.Forms.RadioButton();
-            this.labelListChannelsView = new System.Windows.Forms.Label();
             Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ServiceType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -165,7 +161,6 @@ namespace Project.DvbIpTv.ChannelList
             this.contextMenuList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureNotificationIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).BeginInit();
-            this.panelRadioListView.SuspendLayout();
             this.SuspendLayout();
             // 
             // Name
@@ -1018,39 +1013,9 @@ namespace Project.DvbIpTv.ChannelList
             this.epgMiniBar.ButtonClicked += new System.EventHandler<Project.DvbIpTv.UiServices.EPG.EpgMiniBarButtonClickedEventArgs>(this.epgMiniBar_ButtonClicked);
             this.epgMiniBar.NavigationButtonsChanged += new System.EventHandler<Project.DvbIpTv.UiServices.EPG.EpgMiniBarNavigationButtonsChangedEventArgs>(this.epgMiniBar_NavigationButtonsChanged);
             // 
-            // panelRadioListView
-            // 
-            this.panelRadioListView.Controls.Add(this.radioListViewDetails);
-            this.panelRadioListView.Controls.Add(this.radioListViewTile);
-            this.panelRadioListView.Controls.Add(this.labelListChannelsView);
-            resources.ApplyResources(this.panelRadioListView, "panelRadioListView");
-            this.panelRadioListView.Name = "panelRadioListView";
-            // 
-            // radioListViewDetails
-            // 
-            resources.ApplyResources(this.radioListViewDetails, "radioListViewDetails");
-            this.radioListViewDetails.AutoCheck = false;
-            this.radioListViewDetails.Name = "radioListViewDetails";
-            this.radioListViewDetails.UseVisualStyleBackColor = true;
-            this.radioListViewDetails.Click += new System.EventHandler(this.radioListViewDetails_Click);
-            // 
-            // radioListViewTile
-            // 
-            resources.ApplyResources(this.radioListViewTile, "radioListViewTile");
-            this.radioListViewTile.AutoCheck = false;
-            this.radioListViewTile.Name = "radioListViewTile";
-            this.radioListViewTile.UseVisualStyleBackColor = true;
-            this.radioListViewTile.Click += new System.EventHandler(this.radioListViewTile_Click);
-            // 
-            // labelListChannelsView
-            // 
-            resources.ApplyResources(this.labelListChannelsView, "labelListChannelsView");
-            this.labelListChannelsView.Name = "labelListChannelsView";
-            // 
             // ChannelListForm
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.panelRadioListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelPackageLabel);
             this.Controls.Add(this.labelNotification);
@@ -1073,8 +1038,6 @@ namespace Project.DvbIpTv.ChannelList
             this.contextMenuList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureNotificationIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProviderLogo)).EndInit();
-            this.panelRadioListView.ResumeLayout(false);
-            this.panelRadioListView.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1193,9 +1156,5 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ToolStripMenuItem menuItemEpgPrevious;
         private System.Windows.Forms.ToolStripMenuItem menuItemEpgNext;
         private System.Windows.Forms.ToolStripSeparator separatorEpg2;
-        private System.Windows.Forms.Panel panelRadioListView;
-        private System.Windows.Forms.RadioButton radioListViewDetails;
-        private System.Windows.Forms.RadioButton radioListViewTile;
-        private System.Windows.Forms.Label labelListChannelsView;
     }
 }
