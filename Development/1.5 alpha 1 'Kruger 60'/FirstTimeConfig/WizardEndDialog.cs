@@ -1,7 +1,7 @@
 ﻿// Copyright (C) 2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using Project.DvbIpTv.Common.Analytics;
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +43,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             switch (EndResult)
             {
                 case System.Windows.Forms.DialogResult.OK:
-                    BasicGoogleAnalytics.SendScreenHit("WizardEndDialog: Ok");
+                    BasicGoogleTelemetry.SendScreenHit("WizardEndDialog: Ok");
                     pictureEndIcon.Image = Properties.Resources.Success_48x48;
                     labelEndTitle.Text = Properties.Texts.WizardEndTitleOk;
                     labelEndText.Text = string.Format(labelEndText.Text, Properties.Texts.WizardEndTextOk);
@@ -53,13 +53,13 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                     checkRunMainProgram.Text = string.Format(checkRunMainProgram.Text, Properties.Texts.ProductMainProgramName);
                     break;
                 case System.Windows.Forms.DialogResult.Cancel:
-                    BasicGoogleAnalytics.SendScreenHit("WizardEndDialog: Cancel");
+                    BasicGoogleTelemetry.SendScreenHit("WizardEndDialog: Cancel");
                     pictureEndIcon.Image = Properties.Resources.Warning_48x48;
                     labelEndTitle.Text = Properties.Texts.WizardEndTitleCancel;
                     labelEndText.Text = string.Format(labelEndText.Text, Properties.Texts.WizardEndTextCancel);
                     break;
                 default:
-                    BasicGoogleAnalytics.SendScreenHit("WizardEndDialog: Abort");
+                    BasicGoogleTelemetry.SendScreenHit("WizardEndDialog: Abort");
                     pictureEndIcon.Image = Properties.Resources.Exclamation_48x48;
                     labelEndTitle.Text = Properties.Texts.WizardEndTitleAbort;
                     labelEndText.Text = string.Format(labelEndText.Text, Properties.Texts.WizardEndTextAbort);

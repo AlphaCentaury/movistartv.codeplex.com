@@ -121,6 +121,7 @@
       <Mapping serviceName="1221" logo="paramountchannel" />
       <Mapping serviceName="1243" logo="hd_cplus_ligacampeones" />
       <Mapping serviceName="1263" logo="movistar_futbol" remarks="Europa League 6" />
+      <Mapping serviceName="1264" logo="movistar_futbol" remarks="Euro 8" />
       <Mapping serviceName="1276" logo="cplus_ligacampeones_2" />
       <Mapping serviceName="1277" logo="movistar_futbol" remarks="Europa League 2" />
       <Mapping serviceName="1278" logo="movistar_futbol" remarks="Europa League 3" />
@@ -339,6 +340,16 @@
       <Mapping serviceName="2846" logo="movistar_futbol" remarks="Multifútbol" />
       <Mapping serviceName="2847" logo="movistar_deportes" remarks="Multideporte" />
       <Mapping serviceName="2863" logo="atresmedia_mega" remarks="MEGA" />
+      <Mapping serviceName="2883" logo="cplus_deportes" remarks="C+Deportes SD" />
+      <Mapping serviceName="2884" logo="movistar_generico" remarks="Pruebas DRM SD" />
+      <Mapping serviceName="2885" logo="hd_movistar_generico" remarks="Pruebas DRM HD" />
+      <Mapping serviceName="2886" logo="hd_cplus_deportes_2" remarks="C+ Deportes 2 HD" />
+      <Mapping serviceName="2903" logo="hd_movistar_generico" remarks="Contingencia HD2" />
+      <Mapping serviceName="2923" logo="iberalia" remarks="Iberalia TV" />
+      <Mapping serviceName="2924" logo="hd_iberalia" remarks="Iberalia TV HD" />
+      <Mapping serviceName="2943" logo="garage" remarks="Garage TV" />
+      <Mapping serviceName="2969" logo="movistar_deportes" remarks="Multideporte 2" />
+      <Mapping serviceName="2970" logo="movistar_deportes" remarks="Multideporte" />
     </Domain>
     <Domain name="dem_1.imagenio.es" redirectDomain="imagenio.es">
       <Mapping serviceName="56" logo="autonomico_cataluna" remarks="TV3" />

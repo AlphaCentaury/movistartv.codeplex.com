@@ -9,9 +9,9 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Project.DvbIpTv.Common.Analytics
+namespace Project.DvbIpTv.Common.Telemetry
 {
-    public class BasicGoogleAnalytics
+    public class BasicGoogleTelemetry
     {
 #if DEBUG
         private static Uri UrlEndpoint = new Uri("https://www.google-analytics.com/debug/collect");
@@ -54,10 +54,11 @@ namespace Project.DvbIpTv.Common.Analytics
         public static void Init(string trackingId, string clientId, bool enabled, bool usage, bool exceptions)
         {
             TrackingId = trackingId;
-            ClientId = ClientId;
+            ClientId = clientId;
             Enabled = enabled;
             Usage = usage & enabled;
             Exceptions = exceptions & enabled;
+            //MessageBox.Show(string.Format("TrackingId: {0}\r\nClientId: {1}\r\nEnable: {2} {3} {4}", TrackingId, ClientId, Enabled, Usage, Exceptions), "Init Google Telemetry");
         } // Init
 
         public static void EnsureHitsSents()
@@ -65,7 +66,10 @@ namespace Project.DvbIpTv.Common.Analytics
             // this is a nasty trick to give time to the ThreadPool to send any remaining hits
             // TODO: create a true queue
 #if !DEBUG
-            Thread.Sleep(5000);
+            if (Enabled)
+            {
+                Thread.Sleep(5000);
+            } // if
 #endif
         } // EnsureHitsSents
 
@@ -124,6 +128,7 @@ namespace Project.DvbIpTv.Common.Analytics
                 var result = client.UploadData(UrlEndpoint, binPostData);
                 var json = Encoding.UTF8.GetString(result);
 #else
+                //MessageBox.Show(UrlEndpoint.ToString() + "\r\n" + postData, "Basic Google Telemetry");
                 client.UploadDataAsync(UrlEndpoint, binPostData);
 #endif
             }
@@ -167,5 +172,5 @@ namespace Project.DvbIpTv.Common.Analytics
 
             return string.Format("{0} ({1} {2})", "Mozilla/5.0", osName, osVersion);
         } // BuildUserAgent
-    } // internal class BasicGoogleAnalytics
+    } // internal class BasicGoogleTelemetry
 } // namespace

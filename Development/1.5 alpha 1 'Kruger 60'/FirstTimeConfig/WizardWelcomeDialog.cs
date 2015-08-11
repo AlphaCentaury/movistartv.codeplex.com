@@ -1,7 +1,7 @@
 ﻿// Copyright (C) 2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using Project.DvbIpTv.Common.Analytics;
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +35,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void checkAnalytics_CheckedChanged(object sender, EventArgs e)
         {
-            BasicGoogleAnalytics.Init(BasicGoogleAnalytics.TrackingId, BasicGoogleAnalytics.ClientId, checkAnalytics.Checked, true, true);
+            BasicGoogleTelemetry.Init(BasicGoogleTelemetry.TrackingId, BasicGoogleTelemetry.ClientId, checkAnalytics.Checked, true, true);
             if (!checkAnalytics.Checked)
             {
                 MessageBox.Show(this, Properties.Texts.AnalyticsKeepChecked, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);

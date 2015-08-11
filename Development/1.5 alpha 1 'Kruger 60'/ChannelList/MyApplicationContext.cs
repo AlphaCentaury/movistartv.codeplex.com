@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Forms.Startup;
 using System;
@@ -114,6 +115,14 @@ namespace Project.DvbIpTv.ChannelList
 
                 DisplayProgress(Properties.Texts.MyAppCtxLoadingUserConfig, true);
                 result = AppUiConfiguration.Current.LoadUserConfiguration();
+
+                BasicGoogleTelemetry.Init(Properties.InvariantTexts.AnalyticsGoogleTrackingId,
+                    AppUiConfiguration.Current.AnalyticsClientId,
+                    AppUiConfiguration.Current.User.Analytics.Enabled,
+                    AppUiConfiguration.Current.User.Analytics.Usage,
+                    AppUiConfiguration.Current.User.Analytics.Exceptions);
+
+                BasicGoogleTelemetry.SendScreenHit("SplashScreen");
 
                 return result;
             }

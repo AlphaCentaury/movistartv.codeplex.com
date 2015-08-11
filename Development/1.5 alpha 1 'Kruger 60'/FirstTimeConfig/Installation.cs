@@ -2,7 +2,7 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Microsoft.Win32;
-using Project.DvbIpTv.Common.Analytics;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Tools.FirstTimeConfig.Properties;
 using Project.DvbIpTv.UiServices.Configuration;
 using System;
@@ -216,7 +216,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
             try
             {
-                BasicGoogleAnalytics.SendScreenHit("FirewallForm");
+                BasicGoogleTelemetry.SendScreenHit("FirewallForm");
 
                 var arguments = new StringBuilder();
                 arguments.AppendFormat("/ForceUiCulture:{0}", CultureInfo.CurrentUICulture.Name);
@@ -257,24 +257,24 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             {
                 if (win32.NativeErrorCode == 1223) // operation cancelled by user
                 {
-                    BasicGoogleAnalytics.SendScreenHit("FirewallForm: UACancel");
+                    BasicGoogleTelemetry.SendScreenHit("FirewallForm: UACancel");
                     return new InitializationResult(Texts.FirewallUserCancel);
                 }
                 else
                 {
-                    BasicGoogleAnalytics.SendScreenHit("FirewallForm: Exception");
+                    BasicGoogleTelemetry.SendScreenHit("FirewallForm: Exception");
                     return new InitializationResult(win32);
                 } // if-else
             }
             catch (Exception ex)
             {
-                BasicGoogleAnalytics.SendScreenHit("FirewallForm: Exception");
+                BasicGoogleTelemetry.SendScreenHit("FirewallForm: Exception");
                 return new InitializationResult(ex);
             } // try-catch
 
             if (exitCode == 0)
             {
-                BasicGoogleAnalytics.SendScreenHit("FirewallForm: Ok");
+                BasicGoogleTelemetry.SendScreenHit("FirewallForm: Ok");
                 return new InitializationResult(Texts.FirewallOk)
                 {
                     IsOk = true
@@ -282,12 +282,12 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             }
             else if (exitCode > 0)
             {
-                BasicGoogleAnalytics.SendScreenHit("FirewallForm: Cancel");
+                BasicGoogleTelemetry.SendScreenHit("FirewallForm: Cancel");
                 return new InitializationResult(Texts.FirewallUserCancel);
             }
             else
             {
-                BasicGoogleAnalytics.SendScreenHit("FirewallForm: " + exitCode.ToString());
+                BasicGoogleTelemetry.SendScreenHit("FirewallForm: " + exitCode.ToString());
                 return new InitializationResult((string)null);
             } // if-else
         } // RunSelfForFirewall

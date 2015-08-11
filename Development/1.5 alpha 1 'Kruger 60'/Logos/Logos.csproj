@@ -909,6 +909,13 @@
     <Content Include="Services\imagenio.es\futbol-replay%4064.png" />
     <Content Include="Services\imagenio.es\futbol-replay%4096.png" />
     <Content Include="Services\imagenio.es\futbol-replay.ico" />
+    <Content Include="Services\imagenio.es\garage%40128.png" />
+    <Content Include="Services\imagenio.es\garage%40256.png" />
+    <Content Include="Services\imagenio.es\garage%4032.png" />
+    <Content Include="Services\imagenio.es\garage%4048.png" />
+    <Content Include="Services\imagenio.es\garage%4064.png" />
+    <Content Include="Services\imagenio.es\garage%4096.png" />
+    <Content Include="Services\imagenio.es\garage.ico" />
     <Content Include="Services\imagenio.es\gol_2_internacional%40128.png" />
     <Content Include="Services\imagenio.es\gol_2_internacional%40256.png" />
     <Content Include="Services\imagenio.es\gol_2_internacional%4032.png" />
@@ -1189,6 +1196,13 @@
     <Content Include="Services\imagenio.es\hd_hollywood%4064.png" />
     <Content Include="Services\imagenio.es\hd_hollywood%4096.png" />
     <Content Include="Services\imagenio.es\hd_hollywood.ico" />
+    <Content Include="Services\imagenio.es\hd_iberalia%40128.png" />
+    <Content Include="Services\imagenio.es\hd_iberalia%40256.png" />
+    <Content Include="Services\imagenio.es\hd_iberalia%4032.png" />
+    <Content Include="Services\imagenio.es\hd_iberalia%4048.png" />
+    <Content Include="Services\imagenio.es\hd_iberalia%4064.png" />
+    <Content Include="Services\imagenio.es\hd_iberalia%4096.png" />
+    <Content Include="Services\imagenio.es\hd_iberalia.ico" />
     <Content Include="Services\imagenio.es\hd_lasexta%40128.png" />
     <Content Include="Services\imagenio.es\hd_lasexta%40256.png" />
     <Content Include="Services\imagenio.es\hd_lasexta%4032.png" />

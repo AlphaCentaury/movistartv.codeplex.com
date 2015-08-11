@@ -1,7 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using Project.DvbIpTv.Common.Analytics;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.UiServices.Configuration;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             if (!RunFirewallConfiguration)
             {
                 var result = LaunchWizard();
-                BasicGoogleAnalytics.EnsureHitsSents();
+                BasicGoogleTelemetry.EnsureHitsSents();
 
                 return result;
             }
@@ -82,7 +82,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 Program.SetWizardResult(DialogResult.Abort, string.Format("{0}\r\n{1}", initResult.Caption, initResult.Message), initResult.InnerException);
                 goto End;
             } // if
-            BasicGoogleAnalytics.Init(BasicGoogleAnalytics.TrackingId, AppUiConfig.AnalyticsClientId, BasicGoogleAnalytics.Enabled, true, true);
+            BasicGoogleTelemetry.Init(Properties.Resources.AnalyticsGoogleTrackingId, AppUiConfig.AnalyticsClientId, true, true, true);
 
             using (var dlg = new WizardWelcomeDialog())
             {

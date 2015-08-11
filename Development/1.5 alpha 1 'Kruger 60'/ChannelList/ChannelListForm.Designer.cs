@@ -1009,6 +1009,7 @@ namespace Project.DvbIpTv.ChannelList
             resources.ApplyResources(this.epgMiniBar, "epgMiniBar");
             this.epgMiniBar.BackColor = System.Drawing.SystemColors.ControlLight;
             this.epgMiniBar.DetailsButtonEnabled = true;
+            this.epgMiniBar.IsDisabled = false;
             this.epgMiniBar.Name = "epgMiniBar";
             this.epgMiniBar.ButtonClicked += new System.EventHandler<Project.DvbIpTv.UiServices.EPG.EpgMiniBarButtonClickedEventArgs>(this.epgMiniBar_ButtonClicked);
             this.epgMiniBar.NavigationButtonsChanged += new System.EventHandler<Project.DvbIpTv.UiServices.EPG.EpgMiniBarNavigationButtonsChangedEventArgs>(this.epgMiniBar_NavigationButtonsChanged);

@@ -103,11 +103,9 @@ All rights reserved, except those granted by the governing license of this softw
         <RemoveFolder Id="Remove_RecordTasksFolder" On="uninstall" Directory="RecordTasksFolder"/>
       
         <RemoveFile Id="Purge_ProgramStartMenuFolder" Name="*.*" On="uninstall" Directory="ProgramStartMenuFolder"/>
-        <RemoveFile Id="Purge_ToolsStartMenuFolder" Name="*.*" On="uninstall" Directory="ToolsStartMenuFolder"/>
 
         <RemoveFolder Id="Remove_DvbIpTvStartMenuFolder" On="uninstall" Directory="DvbIpTvStartMenuFolder" />
         <RemoveFolder Id="Remove_ProgramStartMenuFolder" On="uninstall" Directory="ProgramStartMenuFolder"/>
-        <RemoveFolder Id="Remove_ToolsStartMenuFolder" On="uninstall" Directory="ToolsStartMenuFolder"/>
       </Component>
     </ComponentGroup>
   </Fragment>

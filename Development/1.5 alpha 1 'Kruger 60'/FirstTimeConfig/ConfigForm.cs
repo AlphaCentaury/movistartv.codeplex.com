@@ -1,7 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using Project.DvbIpTv.Common.Analytics;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Tools.FirstTimeConfig.Properties;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
@@ -31,11 +31,12 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             wizardControl.PreviousButton = buttonPreviousPage;
             wizardControl.NextButton = buttonNextPage;
             wizardControl.IsPageAllowed[wizardPage1.Name] = true;
+            wizardControl.SelectedIndexChanged += WizardControl_SelectedIndexChanged;
         } // constructor
 
         private void ConfigForm_Load(object sender, EventArgs e)
         {
-            BasicGoogleAnalytics.SendScreenHit("ConfigForm");
+            BasicGoogleTelemetry.SendScreenHit("ConfigForm");
 
             selectFolder.Description = Properties.Texts.SelectFolderSaveDescription;
             openFile.Title = Properties.Texts.OpenFileVlcTitle;
@@ -67,6 +68,11 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             e.Cancel = true;
             ConfirmUserCancel();
         } // ConfigForm_FormClosing
+
+        private void WizardControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BasicGoogleTelemetry.SendScreenHit(string.Format("ConfigForm: Step{0:00}", wizardControl.SelectedIndex + 1));
+        } // WizardControl_SelectedIndexChanged
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -156,7 +162,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void Page1_Step0()
         {
-            BasicGoogleAnalytics.SendScreenHit("ConfigForm: Step01");
+            BasicGoogleTelemetry.SendScreenHit("ConfigForm: Step01");
 
             buttonVerifyNet.Enabled = true;
             linkLabelPrerequisiteNet.Enabled = true;
@@ -295,8 +301,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void Page2_Step0()
         {
-            BasicGoogleAnalytics.SendScreenHit("ConfigForm: Step02");
-
             checkBoxFirewallDecoder.Checked = true;
             checkBoxFirewallVlc.Checked = true;
 
@@ -358,8 +362,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void Page3_Step0()
         {
-            BasicGoogleAnalytics.SendScreenHit("ConfigForm: Step03");
-
             labelSaveSubFolder.Enabled = false;
             textSaveSubFolder.Enabled = false;
             buttonConfig.Enabled = false;
