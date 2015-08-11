@@ -117,6 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnalyticsInfo" xml:space="preserve">
+    <value>Data is sent anonymously to Google Analytics web servers. No personal data, or data identifying you, is ever sent. 
+Collecting this data helps us improve the program by better understanding usage patterns and allows us to try to detect problems and errors.</value>
+  </data>
+  <data name="AnalyticsKeepChecked" xml:space="preserve">
+    <value>Please keep this option selected!
+Collecting usage data helps us improve the program and this is crucial in pre-release versions</value>
+  </data>
   <data name="ConfigurationCreateException" xml:space="preserve">
     <value>Unable to create the configuration file. An error has occurred.
 
@@ -150,6 +158,9 @@ First-time configuration process is finished and the application is now ready to
   </data>
   <data name="DownloadUrlVlc" xml:space="preserve">
     <value>http://www.videolan.org/vlc/index.html</value>
+  </data>
+  <data name="DvbIpTv_PreferredLanguages" xml:space="preserve">
+    <value>eng;spa</value>
   </data>
   <data name="ExceptionForceUiCulture" xml:space="preserve">
     <value>Unable to change the application UI language.
@@ -247,6 +258,15 @@ If you overwrite the file all custom configurations will be lost.
 
 Do you want to overwrite the existing file?</value>
   </data>
+  <data name="ProductFullName" xml:space="preserve">
+    <value>movistar+ DVB-IPTV Decoder 1.5 “Kruger 60” Alpha 1</value>
+  </data>
+  <data name="ProductMainProgramName" xml:space="preserve">
+    <value>movistar+ channels</value>
+  </data>
+  <data name="ProductShortName" xml:space="preserve">
+    <value>v1.5 “Kruger 60” Alpha 1</value>
+  </data>
   <data name="SaveLocationMoviesFolder" xml:space="preserve">
     <value>Movies</value>
   </data>
@@ -272,6 +292,26 @@ Do you want to overwrite the existing file?</value>
   </data>
   <data name="TestVlcInstallationOk" xml:space="preserve">
     <value>VLC player has been successfully launched.</value>
+  </data>
+  <data name="WizardEndTextAbort" xml:space="preserve">
+    <value>The application is not properly configured and will not run.
+To properly configure the application at a later time, please run this wizard again.</value>
+  </data>
+  <data name="WizardEndTextCancel" xml:space="preserve">
+    <value>The application is not properly configured and will not run.
+To properly configure the application at a later time, please run this wizard again.</value>
+  </data>
+  <data name="WizardEndTextOk" xml:space="preserve">
+    <value>First-time configuration process is finished and the application is now ready to be used.</value>
+  </data>
+  <data name="WizardEndTitleAbort" xml:space="preserve">
+    <value>Can not perform the initial configuration of the application.</value>
+  </data>
+  <data name="WizardEndTitleCancel" xml:space="preserve">
+    <value>The first-time configuration of the application has been cancelled.</value>
+  </data>
+  <data name="WizardEndTitleOk" xml:space="preserve">
+    <value>Configuration file(s) successfully created.</value>
   </data>
   <data name="WizardResultAborted" xml:space="preserve">
     <value>Can not perform the initial configuration of the application.

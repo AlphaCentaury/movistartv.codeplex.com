@@ -1033,7 +1033,7 @@ namespace Project.DvbIpTv.ChannelList
             } // if
 
             // TODO: player should be user-selectable
-            var player = AppUiConfiguration.Current.User.Players[0];
+            var player = AppUiConfiguration.Current.User.TvViewer.Players[0];
 
             ExternalPlayer.Launch(player, SelectedBroadcastService, true);
         } // ShowTvChannel

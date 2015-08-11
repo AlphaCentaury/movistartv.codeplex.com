@@ -221,7 +221,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent0.Text" xml:space="preserve">
     <value>Recent[0]</value>
@@ -279,7 +279,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent1.Text" xml:space="preserve">
     <value>Recent[1]</value>
@@ -311,7 +311,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent2.Text" xml:space="preserve">
     <value>Recent[2]</value>
@@ -351,7 +351,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent3.Text" xml:space="preserve">
     <value>Recent[3]</value>
@@ -392,7 +392,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent4.Text" xml:space="preserve">
     <value>Recent[4]</value>
@@ -425,7 +425,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent5.Text" xml:space="preserve">
     <value>Recent[5]</value>
@@ -468,7 +468,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent6.Text" xml:space="preserve">
     <value>Recent[6]</value>
@@ -520,7 +520,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent7.Text" xml:space="preserve">
     <value>Recent[7]</value>
@@ -625,7 +625,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent8.Text" xml:space="preserve">
     <value>Recent[8]</value>
@@ -725,7 +725,7 @@
 </value>
   </data>
   <data name="menuItemDvbRecent9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>124, 22</value>
   </data>
   <data name="menuItemDvbRecent9.Text" xml:space="preserve">
     <value>Recent[9]</value>
@@ -1303,7 +1303,7 @@
     <value>Alt+T</value>
   </data>
   <data name="menuItemChannelListViewTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>147, 22</value>
   </data>
   <data name="menuItemChannelListViewTile.Text" xml:space="preserve">
     <value>Tile</value>
@@ -1312,7 +1312,7 @@
     <value>Alt+D</value>
   </data>
   <data name="menuItemChannelListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>147, 22</value>
   </data>
   <data name="menuItemChannelListViewDetails.Text" xml:space="preserve">
     <value>Details</value>
@@ -1982,6 +1982,9 @@
   </data>
   <data name="epgMiniBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
+  </data>
+  <data name="epgMiniBar.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="epgMiniBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 354</value>

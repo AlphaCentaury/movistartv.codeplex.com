@@ -21,7 +21,7 @@
       <Component Id="FirstTimeConfig">
         <File Id="FirstTimeConfig.exe" Source="$(var.FirstTimeConfig.TargetDir)FirstTimeConfig.exe" KeyPath="yes">
           <Shortcut Id='FirstTimeConfig.exe.lnk'
-                    Directory='ToolsStartMenuFolder'
+                    Directory='ProgramStartMenuFolder'
                     Name='!(loc.FirstTimeConfig.exe.lnk)'
                     Icon='FirstTimeConfig.ico' IconIndex='0'
                     WorkingDirectory='INSTALLFOLDER' Advertise='yes' />

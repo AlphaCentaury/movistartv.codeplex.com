@@ -1,8 +1,10 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Analytics;
 using Project.DvbIpTv.Tools.FirstTimeConfig.Properties;
 using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,12 +22,12 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
     {
         private string defaultSavePath;
         private bool IsFormAllowedToClose;
-        private AppUiConfiguration appUiConfig;
-
+        
         public ConfigForm()
         {
             InitializeComponent();
             this.Icon = Properties.Resources.InstallIcon;
+            wizardControl.LabelTitle = labelStepTitle;
             wizardControl.PreviousButton = buttonPreviousPage;
             wizardControl.NextButton = buttonNextPage;
             wizardControl.IsPageAllowed[wizardPage1.Name] = true;
@@ -33,6 +35,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void ConfigForm_Load(object sender, EventArgs e)
         {
+            BasicGoogleAnalytics.SendScreenHit("ConfigForm");
+
             selectFolder.Description = Properties.Texts.SelectFolderSaveDescription;
             openFile.Title = Properties.Texts.OpenFileVlcTitle;
             openFile.Filter = Properties.Texts.OpenFileVlcFilter;
@@ -51,17 +55,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void ConfigForm_Shown(object sender, EventArgs e)
         {
-            InitializationResult initResult;
-
-            appUiConfig = Installation.LoadRegistrySettings(out initResult);
-            if (appUiConfig == null)
-            {
-                MessageBox.Show(this, initResult.Message, initResult.Caption, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                EndWizard(Texts.WizardResultAborted, false, Resources.Exclamation_48x48);
-                return;
-            } // if
-
             Page1_Step1(false);
+            labelStepTitle.Text = wizardControl.SelectedTab.ToolTipText;
         } // ConfigForm_Shown
 
         private void ConfigForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -80,22 +75,10 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             ConfirmUserCancel();
         } // buttonCancel_Click
 
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            if ((checkBoxLaunchProgram.Checked) && (checkBoxLaunchProgram.Visible))
-            {
-                var message = Installation.Launch(this, appUiConfig.Folders.Install, Resources.SuccessExecuteProgram);
-                if (message != null)
-                {
-                    MessageBox.Show(this, message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                } // if
-            } // if
-        } // buttonClose_Click
-
         private void ConfirmUserCancel()
         {
             if (MessageBox.Show(this, Texts.ConfirmUserCancel, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
-            EndWizard(Texts.WizardResultUserCancel, false, null);
+            EndWizard(DialogResult.Cancel, null, null);
         } // ConfirmUserCancel
 
         #region Page1
@@ -173,6 +156,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void Page1_Step0()
         {
+            BasicGoogleAnalytics.SendScreenHit("ConfigForm: Step01");
+
             buttonVerifyNet.Enabled = true;
             linkLabelPrerequisiteNet.Enabled = true;
 
@@ -310,14 +295,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void Page2_Step0()
         {
+            BasicGoogleAnalytics.SendScreenHit("ConfigForm: Step02");
+
             checkBoxFirewallDecoder.Checked = true;
             checkBoxFirewallVlc.Checked = true;
 
-            labelSaveSubFolder.Enabled = false;
-            textSaveSubFolder.Enabled = false;
-            buttonConfig.Enabled = false;
+            wizardControl.IsPageAllowed[wizardPage3.Name] = true;
+            wizardControl.UpdateWizardButtons();
 
-            labelCreatingConfig.Visible = false;
+            Page3_Step0();
         } // Page2_Step0
 
         private void checkBoxFirewall_CheckedChanged(object sender, EventArgs e)
@@ -330,8 +316,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         private void buttonFirewall_Click(object sender, EventArgs e)
         {
             var result = Installation.RunSelfForFirewall(
-                checkBoxFirewallDecoder.Checked? appUiConfig.Folders.Install : null,
-                checkBoxFirewallVlc.Checked? textBoxVlc.Text : null);
+                checkBoxFirewallDecoder.Checked ? Program.AppUiConfig.Folders.Install : null,
+                checkBoxFirewallVlc.Checked ? textBoxVlc.Text : null);
 
             if (result.Message == null) return;
             if (result.InnerException != null)
@@ -350,10 +336,44 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             } // if-else
         } // buttonFirewall_Click
 
+        private void checkEnableAnalytics_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!checkEnableAnalytics.Checked)
+            {
+                MessageBox.Show(this, Properties.Texts.AnalyticsKeepChecked, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } // if
+
+            checkAnalyticsUsage.Checked = checkEnableAnalytics.Checked;
+            checkAnalyticsExceptions.Checked = checkEnableAnalytics.Checked;
+        } // checkEnableAnalytics_CheckedChanged
+
+        private void linkAnalyticsHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show(this, Properties.Texts.AnalyticsInfo, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        } // linkAnalyticsHelp_LinkClicked
+
+        #endregion
+
+        #region Page 3
+
+        private void Page3_Step0()
+        {
+            BasicGoogleAnalytics.SendScreenHit("ConfigForm: Step03");
+
+            labelSaveSubFolder.Enabled = false;
+            textSaveSubFolder.Enabled = false;
+            buttonConfig.Enabled = false;
+
+            labelCreatingConfig.Visible = false;
+
+            wizardControl.IsPageAllowed[wizardPage3.Name] = true;
+            wizardControl.UpdateWizardButtons();
+        } // Page3_Step0
+
         private void buttonBrowseSave_Click(object sender, EventArgs e)
         {
             selectFolder.NewStyle = true;
-            selectFolder.SelectedPath = string.IsNullOrEmpty(textBoxSave.Text)? defaultSavePath : textBoxSave.Text;
+            selectFolder.SelectedPath = string.IsNullOrEmpty(textBoxSave.Text) ? defaultSavePath : textBoxSave.Text;
             selectFolder.RootFolder = Environment.SpecialFolder.Desktop;
             if (selectFolder.ShowDialog(this) != DialogResult.OK) return;
 
@@ -377,7 +397,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 rootFolder = Path.Combine(rootFolder, subFolder);
             } // if
 
-            xmlConfigPath = Path.Combine(appUiConfig.Folders.Base, "user-config.xml");
+            xmlConfigPath = Path.Combine(Program.AppUiConfig.Folders.Base, "user-config.xml");
 
             if (File.Exists(xmlConfigPath))
             {
@@ -390,43 +410,31 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
             labelCreatingConfig.Visible = true;
             labelCreatingConfig.Refresh();
-            var success = Configuration.Create(textBoxVlc.Text, rootFolder, xmlConfigPath, out message);
-            if (!success)
+            var success = Configuration.Create(textBoxVlc.Text,
+                rootFolder,
+                new AnalyticsConfig(checkEnableAnalytics.Checked, checkAnalyticsUsage.Checked, checkAnalyticsExceptions.Checked),
+                new EpgConfig(checkEpg.Checked, checkEpgAutoUpdate.Checked? 24 : -1, 7),
+                xmlConfigPath, out message);
+            if (success)
             {
-                MessageBox.Show(this, message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            } // if
-
-            EndWizard(message, true, null);
+                EndWizard(DialogResult.OK, null, null);
+            }
+            else
+            {
+                EndWizard(DialogResult.Abort, message, null);
+            } // if-else
         } // buttonConfig_Click
 
         #endregion
 
         #region End wizard
 
-        private void EndWizard(string wizardResult, bool success, Image wizardResultIcon)
+        private void EndWizard(DialogResult result, string message, Exception ex)
         {
-            pictureWizardEnd.Visible = true;
-            pictureWizardEnd.BringToFront();
-
-            wizardControl.ShowWizardButtons(false);
-            wizardControl.IsPageAllowed.Clear();
-            wizardControl.IsPageAllowed[wizardPage3.Name] = true;
-            wizardControl.SelectedTab = wizardPage3;
-
-            buttonCancel.Visible = false;
-            buttonClose.Location = buttonCancel.Location;
-            buttonClose.Size = buttonCancel.Size;
-            buttonClose.Visible = true;
-
             IsFormAllowedToClose = true;
-
-            labelWizardResult.Text = wizardResult;
-            pictureBoxWizardResult.Image = (wizardResultIcon == null) ? (success ? Resources.Success_48x48 : Resources.Warning_48x48) : wizardResultIcon;
-
-            checkBoxLaunchProgram.Visible = success;
-            buttonClose.DialogResult = success ? DialogResult.OK : DialogResult.Cancel;
-        } // EndWizard
+            Program.SetWizardResult(result, message, ex);
+            Close();
+        }  // EndWizard
 
         #endregion
     } // class ConfigForm

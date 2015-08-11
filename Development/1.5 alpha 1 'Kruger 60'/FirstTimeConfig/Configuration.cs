@@ -15,7 +15,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 {
     internal class Configuration
     {
-        public static bool Create(string vlcPath, string rootSaveLocation, string xmlConfigPath, out string message)
+        public static bool Create(string vlcPath, string rootSaveLocation, AnalyticsConfig analytics, EpgConfig epg, string xmlConfigPath, out string message)
         {
             UserConfig user;
 
@@ -23,24 +23,25 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             {
                 user = new UserConfig()
                 {
-                    PreferredLanguages = new string[]
+                    Analytics = analytics,
+                    PreferredLanguages = Properties.Texts.DvbIpTv_PreferredLanguages,
+                    TvViewer = new TvViewerConfig()
                     {
-                        "spa",
-                        "eng"
-                    }, // PreferredLanguages
-                    Players = new PlayerConfig[]
-                    {
-                        new PlayerConfig()
+                        DefaultPlayer = "VLC",
+                        Players = new PlayerConfig[]
                         {
-                            Name = "VLC",
-                            Path = vlcPath,
-                            Arguments = new string[]
+                            new PlayerConfig()
                             {
-                                "{param:Channel.Url}",
-                                ":meta-title={param:Channel.Name}"
-                            } // Arguments
-                        } // PlayerConfig
-                    }, // Players
+                                Name = "VLC",
+                                Path = vlcPath,
+                                Arguments = new string[]
+                                {
+                                    "{param:Channel.Url}",
+                                    ":meta-title={param:Channel.Name}"
+                                } // Arguments
+                            } // PlayerConfig
+                        }, // Players
+                    }, // TvViewer
                     Record = new RecordConfig()
                     {
                         SaveLocations = new RecordSaveLocation[]
@@ -87,7 +88,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                                 } // Arguments
                             } // RecorderConfig
                         } // Recorders
-                    } // Record
+                    }, // Record
+                    Epg = epg,
                 }; // user
 
                 foreach (var location in user.Record.SaveLocations)

@@ -61,6 +61,15 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UA-66146192-3.
+        /// </summary>
+        internal static string AnalyticsGoogleTrackingId {
+            get {
+                return ResourceManager.GetString("AnalyticsGoogleTrackingId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to change the applicationt UI language.
         ///The language (&quot;culture&quot;) id may not be valid or not recognized by the system.
         ///Please verify the value of the &apos;ForceUICulture&apos; property in &apos;.config&apos; file.

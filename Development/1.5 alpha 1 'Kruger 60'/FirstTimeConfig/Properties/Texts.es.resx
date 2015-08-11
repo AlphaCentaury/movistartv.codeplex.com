@@ -117,6 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnalyticsInfo" xml:space="preserve">
+    <value>Los datos se envían de forma anónima a los servidores web de Google Analytics. No se envía ningún dato personal o que permita identificarle a usted.
+La recopilación de esta información nos ayuda a mejorar el programa mediante una mejor comprensión de los patrones de uso del programa y nos permite intentar detectar problemas y errores.</value>
+  </data>
+  <data name="AnalyticsKeepChecked" xml:space="preserve">
+    <value>Por favor, ¡mantenga esta opción seleccionada!
+La recopilación de datos de uso nos ayuda a mejorar el programa y esto es crucial en las versiones preliminares.</value>
+  </data>
   <data name="ConfigurationCreateException" xml:space="preserve">
     <value>No ha sido posible crear el archivo de configuración. Se ha producido un error.
 
@@ -150,6 +158,9 @@ El proceso de configuración inicial ha finalizado y la aplicación ya está lis
   </data>
   <data name="DownloadUrlVlc" xml:space="preserve">
     <value>http://www.videolan.org/vlc/index.es.html</value>
+  </data>
+  <data name="DvbIpTv_PreferredLanguages" xml:space="preserve">
+    <value>spa;eng</value>
   </data>
   <data name="ExceptionForceUiCulture" xml:space="preserve">
     <value>No se ha podido cambiar el idioma de la aplicación.
@@ -246,6 +257,15 @@ Si sobreescribe el archivo se perderá cualquier configuración personalizada.
 
 ¿Desea sobreescribir el archivo?</value>
   </data>
+  <data name="ProductFullName" xml:space="preserve">
+    <value>Decodificador DVB-IPTV para movistar+ 1.5 “Kruger 60” Alpha 1</value>
+  </data>
+  <data name="ProductMainProgramName" xml:space="preserve">
+    <value>Canales movistar+</value>
+  </data>
+  <data name="ProductShortName" xml:space="preserve">
+    <value>v1.5 “Kruger 60” Alpha 1</value>
+  </data>
   <data name="SaveLocationMoviesFolder" xml:space="preserve">
     <value>Películas</value>
   </data>
@@ -271,6 +291,26 @@ Si sobreescribe el archivo se perderá cualquier configuración personalizada.
   </data>
   <data name="TestVlcInstallationOk" xml:space="preserve">
     <value>Se ha abierto correctamente el reproductor VLC.</value>
+  </data>
+  <data name="WizardEndTextAbort" xml:space="preserve">
+    <value>La aplicación no está configurada adecuadamente y no se podrá ejecutar.
+Para configurar adecuadamente la aplicación mas tarde, ejecute el asistente de nuevo.</value>
+  </data>
+  <data name="WizardEndTextCancel" xml:space="preserve">
+    <value>La aplicación no está configurada adecuadamente y no se podrá ejecutar.
+Para configurar adecuadamente la aplicación mas tarde, ejecute el asistente de nuevo.</value>
+  </data>
+  <data name="WizardEndTextOk" xml:space="preserve">
+    <value>El proceso de configuración inicial ha finalizado y la aplicación ya está lista para poder utilizarse.</value>
+  </data>
+  <data name="WizardEndTitleAbort" xml:space="preserve">
+    <value>No es posible realizar la configuración inicial de la aplicación.</value>
+  </data>
+  <data name="WizardEndTitleCancel" xml:space="preserve">
+    <value>Se ha cancelado la configuración inicial de la aplicación.</value>
+  </data>
+  <data name="WizardEndTitleOk" xml:space="preserve">
+    <value>Los archivos de configuración han sido creados satisfactoriamente.</value>
   </data>
   <data name="WizardResultAborted" xml:space="preserve">
     <value>No es posible realizar la configuración inicial de la aplicación.

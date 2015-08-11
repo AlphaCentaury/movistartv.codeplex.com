@@ -16,6 +16,12 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             IsPageAllowed = new Dictionary<string, bool>();
         } // constructor
 
+        public Label LabelTitle
+        {
+            get;
+            set;
+        } // LabelTitle
+
         public Button PreviousButton
         {
             get;
@@ -42,6 +48,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             UpdateWizardButtons();
             PreviousButton.Click += PreviousButton_Click;
             NextButton.Click += NextButton_Click;
+            this.Selected += WizardTabControl_Selected;
         } // OnCreateControl
 
         protected override void WndProc(ref Message m)
@@ -56,6 +63,14 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 base.WndProc(ref m);
             } // if-else
         } // WndProc
+
+        void WizardTabControl_Selected(object sender, TabControlEventArgs e)
+        {
+            if (LabelTitle != null)
+            {
+                LabelTitle.Text = SelectedTab.ToolTipText;
+            } // if
+        } // WizardTabControl_Selected
 
         protected override void OnSelecting(TabControlCancelEventArgs e)
         {

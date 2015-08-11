@@ -111,6 +111,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UA-66146192-3.
+        /// </summary>
+        internal static string AnalyticsGoogleTrackingId {
+            get {
+                return ResourceManager.GetString("AnalyticsGoogleTrackingId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ApproveReject_16x16 {
@@ -343,9 +352,9 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WizardEnd {
+        internal static System.Drawing.Bitmap WizardSide {
             get {
-                object obj = ResourceManager.GetObject("WizardEnd", resourceCulture);
+                object obj = ResourceManager.GetObject("WizardSide", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,9 +362,19 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WizardEndPattern {
+        internal static System.Drawing.Bitmap WizardSidePattern {
             get {
-                object obj = ResourceManager.GetObject("WizardEndPattern", resourceCulture);
+                object obj = ResourceManager.GetObject("WizardSidePattern", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WizardTop {
+            get {
+                object obj = ResourceManager.GetObject("WizardTop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

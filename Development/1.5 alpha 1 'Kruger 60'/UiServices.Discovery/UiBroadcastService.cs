@@ -359,7 +359,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             if (Data.ServiceInformation != null)
             {
-                var text = Data.ServiceInformation.Name.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguages, true, null);
+                var text = Data.ServiceInformation.Name.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguagesList, true, null);
                 if (text != null) return text;
             } // if
 
@@ -370,7 +370,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             if (Data.ServiceInformation != null)
             {
-                var text = Data.ServiceInformation.Description.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguages, true, null);
+                var text = Data.ServiceInformation.Description.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguagesList, true, null);
                 if (text != null) return text;
             } // if
 

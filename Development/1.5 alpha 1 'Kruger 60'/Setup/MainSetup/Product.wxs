@@ -80,9 +80,7 @@ All rights reserved, except those granted by the governing license of this softw
 
       <Directory Id="ProgramMenuFolder">
         <Directory Id="DvbIpTvStartMenuFolder" Name="!(loc.DvbIpTvStartMenuFolder)">
-          <Directory Id="ProgramStartMenuFolder" Name="!(loc.ProgramStartMenuFolder)">
-            <Directory Id="ToolsStartMenuFolder" Name="!(loc.ToolsStartMenuFolder)" />
-          </Directory>
+          <Directory Id="ProgramStartMenuFolder" Name="!(loc.ProgramStartMenuFolder)" />
         </Directory>
       </Directory>
     </Directory>

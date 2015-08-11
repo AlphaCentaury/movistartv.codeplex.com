@@ -117,43 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DefaultDomainNameProviderLogo" xml:space="preserve">
-    <value>DVB-IPTV</value>
+  <data name="buttonBack.Text" xml:space="preserve">
+    <value>&amp;Atrás</value>
   </data>
-  <data name="DefaultDomainNameServiceLogo" xml:space="preserve">
-    <value>DVB-IPTV</value>
+  <data name="buttonNext.Text" xml:space="preserve">
+    <value>&amp;Finalizar</value>
   </data>
-  <data name="FileLogoDomainMappings" xml:space="preserve">
-    <value>Services\domain-mappings.xml</value>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>&amp;Cancelar</value>
   </data>
-  <data name="FileLogoProviderMappings" xml:space="preserve">
-    <value>Providers\provider-mappings.xml</value>
+  <data name="labelEndText.Text" xml:space="preserve">
+    <value>{0}
+
+Seleccione 'Finalizar' para salir del asistente de configuración.</value>
   </data>
-  <data name="FileLogoServiceMappings" xml:space="preserve">
-    <value>Services\service-mappings.xml</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="checkRunMainProgram.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 17</value>
   </data>
-  <data name="FormatServiceLogoKey" xml:space="preserve">
-    <value>{0}@{1}</value>
+  <data name="checkRunMainProgram.Text" xml:space="preserve">
+    <value>Ejecutar el programa '{0}'</value>
   </data>
-  <data name="RegistryKey_Folders" xml:space="preserve">
-    <value>Folders</value>
+  <data name="linkErrorDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>324, 291</value>
   </data>
-  <data name="RegistryKey_Root" xml:space="preserve">
-    <value>Software\movistartv.codeplex.com\DVBIPTV\v1.5</value>
+  <data name="linkErrorDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 13</value>
   </data>
-  <data name="RegistryValue_Analytics_ClientId" xml:space="preserve">
-    <value>Analytics.ClientId</value>
+  <data name="linkErrorDetails.Text" xml:space="preserve">
+    <value>Mostrar información detallada del error</value>
   </data>
-  <data name="RegistryValue_Folders_Base" xml:space="preserve">
-    <value>Base</value>
-  </data>
-  <data name="RegistryValue_Folders_Install" xml:space="preserve">
-    <value>Install</value>
-  </data>
-  <data name="RegistryValue_Installed" xml:space="preserve">
-    <value>Installed</value>
-  </data>
-  <data name="ServiceNameAny" xml:space="preserve">
-    <value>&lt;any&gt;</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Asistente de configuración inicial</value>
   </data>
 </root>
