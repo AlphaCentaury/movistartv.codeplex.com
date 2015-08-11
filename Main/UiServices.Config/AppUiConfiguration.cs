@@ -153,6 +153,12 @@ namespace Project.DvbIpTv.UiServices.Configuration
             protected set;
         } // ContentProvider
 
+        public string AnalyticsClientId
+        {
+            get;
+            protected set;
+        } // AnalyticsClientId
+
         public UserConfig User
         {
             get;
@@ -219,6 +225,17 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
                     var isInstalled = root.GetValue(InvariantTexts.RegistryValue_Installed);
                     if (isInstalled == null) return string.Format(Texts.AppConfigRegistryMissingValue, fullKeyPath, InvariantTexts.RegistryValue_Installed);
+
+                    var clientId = root.GetValue(InvariantTexts.RegistryValue_Analytics_ClientId) as string;
+                    AnalyticsClientId = clientId;
+                    if (string.IsNullOrEmpty(clientId))
+                    {
+                        AnalyticsClientId = Guid.NewGuid().ToString("D").ToUpperInvariant();
+                        using (var writableRoot = hkcu.OpenSubKey(InvariantTexts.RegistryKey_Root, true))
+                        {
+                            writableRoot.SetValue(InvariantTexts.RegistryValue_Analytics_ClientId, AnalyticsClientId);
+                        } // using writableRoot
+                    } // if
 
                     fullKeyPath = InvariantTexts.RegistryKey_Root + "\\" + InvariantTexts.RegistryKey_Folders;
                     using (var folders = root.OpenSubKey(InvariantTexts.RegistryKey_Folders))

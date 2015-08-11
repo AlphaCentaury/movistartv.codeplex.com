@@ -2,6 +2,7 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Microsoft.SqlServer.MessageBox;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.UiServices.Configuration;
 using System;
 using System.Collections.Generic;
@@ -51,7 +52,9 @@ namespace Project.DvbIpTv.ChannelList
 
         public static void HandleException(IWin32Window owner, Exception ex)
         {
+            BasicGoogleTelemetry.SendExceptionHit(ex);
             AddExceptionAdvancedInformation(ex);
+
             var box = new Microsoft.SqlServer.MessageBox.ExceptionMessageBox()
             {
                 Caption = Properties.Texts.MyAppHandleExceptionDefaultCaption,
@@ -82,7 +85,9 @@ namespace Project.DvbIpTv.ChannelList
 
         public static void HandleException(IWin32Window owner, string caption, string message, MessageBoxIcon icon, Exception ex)
         {
+            BasicGoogleTelemetry.SendExceptionHit(ex);
             AddExceptionAdvancedInformation(ex);
+
             var box = new ExceptionMessageBox()
             {
                 Caption = caption ?? Properties.Texts.MyAppHandleExceptionDefaultCaption,

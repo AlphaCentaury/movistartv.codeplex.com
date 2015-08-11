@@ -15,28 +15,56 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
     [XmlRoot(ElementName = "UserConfiguration", Namespace = ConfigCommon.ConfigXmlNamespace)]
     public class UserConfig
     {
-        [XmlArray("PreferredLanguages", Namespace = ConfigCommon.ConfigXmlNamespace)]
-        [XmlArrayItem("Language")]
-        public string[] PreferredLanguages
+        private string[] preferredLanguagesList;
+
+        [XmlElement("Analytics")]
+        public AnalyticsConfig Analytics
+        {
+            get;
+            set;
+        } // Analytics
+
+        [XmlElement("PreferredLanguages")]
+        public string PreferredLanguages
         {
             get;
             set;
         } // PreferredLanguages
 
-        [XmlArray("Players", Namespace = ConfigCommon.ConfigXmlNamespace)]
-        [XmlArrayItem("Player")]
-        public PlayerConfig[] Players
+        [XmlElement("TvViewer")]
+        public TvViewerConfig TvViewer
         {
             get;
             set;
-        } // Players
-        
+        } // TvViewer
+       
         [XmlElement("Record")]
         public RecordConfig Record
         {
             get;
             set;
         } // Record
+
+        [XmlElement("EPG")]
+        public EpgConfig Epg
+        {
+            get;
+            set;
+        } // Epg
+
+        [XmlIgnore]
+        public string[] PreferredLanguagesList
+        {
+            get
+            {
+                if (preferredLanguagesList == null)
+                {
+                    preferredLanguagesList = PreferredLanguages.Split(',', ';');
+                } // if
+
+                return preferredLanguagesList;
+            } // get
+        } // PreferredLanguagesList
 
         public static UserConfig Load(string xmlFilePath)
         {
@@ -53,14 +81,12 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             string validationError;
             string ownerTag = "UserConfiguration";
 
-            validationError = PlayerConfig.ValidateArray(Players, "Player", "Players", ownerTag);
+            if (TvViewer == null) return ConfigCommon.ErrorMissingTag("TvViewer", ownerTag);
+            validationError = TvViewer.Validate("TvViewer");
             if (validationError != null) return validationError;
 
-            if (Record == null)
-            {
-                return ConfigCommon.ErrorMissingTag("Record", ownerTag);
-            } // if
-            validationError = Record.Validate("UserConfiguration");
+            if (Record == null) return ConfigCommon.ErrorMissingTag("Record", ownerTag);
+            validationError = Record.Validate("Record");
             if (validationError != null) return validationError;
 
             return null;

@@ -98,9 +98,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
             MultilingualText text;
 
-            text = Data.Name.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguages, true);
+            text = Data.Name.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguagesList, true);
             properties.Add(Utils.GetLanguageProperty("Name (display)", text));
-            text = Data.Description.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguages, true);
+            text = Data.Description.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguagesList, true);
             properties.Add(Utils.GetLanguageProperty("Description (display)", text));
             properties.Add(new Property("Domain name", DomainName));
             properties.Add(new Property("Logo URI", Data.LogoUri));
@@ -179,7 +179,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             string friendlyName;
             string result;
 
-            result = Data.Name.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguages, AppUiConfiguration.Current.DisplayPreferredOrFirst, null);
+            result = Data.Name.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguagesList, AppUiConfiguration.Current.DisplayPreferredOrFirst, null);
             if (result != null) return result;
 
             if (AppUiConfiguration.Current.ContentProvider.FriendlyNames.ServiceProvider.TryGetValue(Data.DomainName, out friendlyName))
@@ -196,7 +196,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             string result;
 
-            result = Data.Description.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguages, AppUiConfiguration.Current.DisplayPreferredOrFirst, null);
+            result = Data.Description.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguagesList, AppUiConfiguration.Current.DisplayPreferredOrFirst, null);
             if (result != null) return result;
 
             return Properties.Texts.ProviderUnknownDisplayDescription;

@@ -1327,7 +1327,7 @@
     <value>222, 6</value>
   </data>
   <data name="menuItemChannelRefreshList.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F5</value>
+    <value>Ctrl+F5</value>
   </data>
   <data name="menuItemChannelRefreshList.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 22</value>
@@ -1464,9 +1464,6 @@
   <data name="menuItemEpg.Text" xml:space="preserve">
     <value>&amp;EPG</value>
   </data>
-  <data name="menuItemHelpDocumentation.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="menuItemHelpDocumentation.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F1</value>
   </data>
@@ -1476,17 +1473,11 @@
   <data name="menuItemHelpDocumentation.Text" xml:space="preserve">
     <value>&amp;Documentation</value>
   </data>
-  <data name="menuItemHelpHomePage.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="menuItemHelpHomePage.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 22</value>
   </data>
   <data name="menuItemHelpHomePage.Text" xml:space="preserve">
     <value>Project &amp;home page</value>
-  </data>
-  <data name="menuItemHelpReportIssue.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="menuItemHelpReportIssue.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 22</value>
@@ -1496,9 +1487,6 @@
   </data>
   <data name="separatorHelp1.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 6</value>
-  </data>
-  <data name="menuItemHelpCheckUpdates.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="menuItemHelpCheckUpdates.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 22</value>
@@ -1540,7 +1528,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStripMain.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>11</value>
   </data>
   <data name="labelProviderName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1573,7 +1561,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelProviderName.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>9</value>
   </data>
   <data name="labelProviderDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -1582,10 +1570,10 @@
     <value>NoControl</value>
   </data>
   <data name="labelProviderDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 44</value>
+    <value>50, 42</value>
   </data>
   <data name="labelProviderDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 15</value>
+    <value>382, 17</value>
   </data>
   <data name="labelProviderDescription.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1606,106 +1594,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelProviderDescription.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="radioListViewDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="radioListViewDetails.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioListViewDetails.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioListViewDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>565, 43</value>
-  </data>
-  <data name="radioListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 17</value>
-  </data>
-  <data name="radioListViewDetails.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="radioListViewDetails.Text" xml:space="preserve">
-    <value>&amp;Details</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Name" xml:space="preserve">
-    <value>radioListViewDetails</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;radioListViewDetails.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <data name="radioListViewTile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="radioListViewTile.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioListViewTile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioListViewTile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>517, 43</value>
-  </data>
-  <data name="radioListViewTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 17</value>
-  </data>
-  <data name="radioListViewTile.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="radioListViewTile.Text" xml:space="preserve">
-    <value>&amp;Tile</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.Name" xml:space="preserve">
-    <value>radioListViewTile</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;radioListViewTile.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="labelListChannelsView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="labelListChannelsView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelListChannelsView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>456, 45</value>
-  </data>
-  <data name="labelListChannelsView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
-  </data>
-  <data name="labelListChannelsView.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="labelListChannelsView.Text" xml:space="preserve">
-    <value>List view:</value>
-  </data>
-  <data name="labelListChannelsView.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopRight</value>
-  </data>
-  <data name="&gt;&gt;labelListChannelsView.Name" xml:space="preserve">
-    <value>labelListChannelsView</value>
-  </data>
-  <data name="&gt;&gt;labelListChannelsView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelListChannelsView.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;labelListChannelsView.ZOrder" xml:space="preserve">
-    <value>10</value>
   </data>
   <data name="listViewChannels.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1840,13 +1729,13 @@
     <value>700, 282</value>
   </data>
   <data name="listViewChannels.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;listViewChannels.Name" xml:space="preserve">
     <value>listViewChannels</value>
   </data>
   <data name="&gt;&gt;listViewChannels.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.ListViewSortable, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.ListViewSortable, UiServices.Controls, Version=1.5.10.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;listViewChannels.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1867,7 +1756,7 @@
     <value>433, 24</value>
   </data>
   <data name="labelNotification.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+    <value>8</value>
   </data>
   <data name="labelNotification.Text" xml:space="preserve">
     <value>(Notification area)</value>
@@ -1903,7 +1792,7 @@
     <value>55, 13</value>
   </data>
   <data name="labelPackageLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+    <value>3</value>
   </data>
   <data name="labelPackageLabel.Text" xml:space="preserve">
     <value>Package:</value>
@@ -1942,7 +1831,7 @@
     <value>160, 13</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+    <value>4</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>(All channels and services)</value>
@@ -2005,7 +1894,7 @@
     <value>100, 25</value>
   </data>
   <data name="buttonRecordChannel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>9</value>
   </data>
   <data name="buttonRecordChannel.Text" xml:space="preserve">
     <value>Rec&amp;ord...</value>
@@ -2041,7 +1930,7 @@
     <value>100, 25</value>
   </data>
   <data name="buttonDisplayChannel.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+    <value>10</value>
   </data>
   <data name="buttonDisplayChannel.Text" xml:space="preserve">
     <value>&amp;Show...</value>
@@ -2089,7 +1978,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureProviderLogo.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>10</value>
   </data>
   <data name="epgMiniBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -2101,7 +1990,7 @@
     <value>594, 57</value>
   </data>
   <data name="epgMiniBar.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
+    <value>7</value>
   </data>
   <data name="epgMiniBar.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -2110,13 +1999,13 @@
     <value>epgMiniBar</value>
   </data>
   <data name="&gt;&gt;epgMiniBar.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.EPG.EpgMiniBar, UiServices.EPG, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.EPG.EpgMiniBar, UiServices.EPG, Version=1.5.10.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;epgMiniBar.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;epgMiniBar.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>12</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2743,6 +2632,6 @@
     <value>ChannelListForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.CommonBaseForm, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.CommonBaseForm, UiServices.Controls, Version=1.5.10.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common;
 using Project.DvbIpTv.UiServices.Controls;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,14 @@ namespace Project.DvbIpTv.UiServices.Forms
                 } // if
                 labelAppName.Text = string.Format("{0}", ApplicationData.Name);
                 labelAppVersion.Text = string.Format("{0} - {1}", ApplicationData.Version, ApplicationData.Status);
-                textBoxDescription.Text = ApplicationData.LicenseText;
+                if (ApplicationData.LicenseTextRtf != null)
+                {
+                    textBoxDescription.Rtf = ApplicationData.LicenseTextRtf;
+                }
+                else
+                {
+                    textBoxDescription.Text = ApplicationData.LicenseText;
+                } // if-else
             }
             else
             {
@@ -61,24 +69,7 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         private void OpenUrl(Form parent, string url)
         {
-            try
-            {
-                using (var process = new Process())
-                {
-                    process.StartInfo = new ProcessStartInfo()
-                    {
-                        FileName = url,
-                        UseShellExecute = true,
-                        ErrorDialog = true,
-                        ErrorDialogParentHandle = parent.Handle,
-                    };
-                    process.Start();
-                } // using process
-            }
-            catch (Exception ex)
-            {
-                HandleException(string.Format(Properties.AboutBox.OpenUrlError, url), ex);
-            } // try-catch
+            Launcher.OpenUrl(parent, url, HandleException, Properties.AboutBox.OpenUrlError);
         } // OpenUrl
 
         #region Assembly Attribute Accessors

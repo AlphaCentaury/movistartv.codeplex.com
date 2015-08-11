@@ -79,8 +79,20 @@
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
     <Compile Include="WindowsFirewall.cs" />
+    <Compile Include="WizardEndDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WizardEndDialog.Designer.cs">
+      <DependentUpon>WizardEndDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="WizardTabControl.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WizardWelcomeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WizardWelcomeDialog.Designer.cs">
+      <DependentUpon>WizardWelcomeDialog.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ConfigForm.es.resx">
       <DependentUpon>ConfigForm.cs</DependentUpon>
@@ -104,10 +116,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Properties\Texts.es.resx" />
+    <EmbeddedResource Include="Properties\Texts.es.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Texts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardEndDialog.es.resx">
+      <DependentUpon>WizardEndDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardEndDialog.resx">
+      <DependentUpon>WizardEndDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardWelcomeDialog.es.resx">
+      <DependentUpon>WizardWelcomeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WizardWelcomeDialog.resx">
+      <DependentUpon>WizardWelcomeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,10 +149,12 @@
     <Content Include="License.txt" />
     <Content Include="Resources\ActionBack_Medium_16.png" />
     <Content Include="Resources\ActionForward_Medium_16.png" />
+    <Content Include="Resources\WizardTop.png" />
     <None Include="Resources\Exclamation_48x48.png" />
     <None Include="Resources\Firewall_48x48.png" />
+    <None Include="Resources\WizardSide.png" />
+    <None Include="Resources\WizardSidePattern.png" />
     <Content Include="Resources\Warning_48x48.png" />
-    <None Include="Resources\WizardEnd.png" />
     <None Include="Resources\ActionRun_16x16.png" />
     <None Include="Resources\ActionOk_16x16.png" />
     <Content Include="Resources\Error_16x16.png" />
@@ -143,6 +171,10 @@
     <None Include="Resources\install.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services.Record.Serialization\Services.Record.Serialization.csproj">
       <Project>{074c14ed-c574-46d2-b9dc-c1b5f65d9a69}</Project>
       <Name>Services.Record.Serialization</Name>

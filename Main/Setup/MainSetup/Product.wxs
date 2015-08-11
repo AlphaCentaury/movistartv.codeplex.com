@@ -64,7 +64,7 @@ All rights reserved, except those granted by the governing license of this softw
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="PersonalFolder">
         <Directory Id="DvbFolder" Name="DVB-IPTV">
-          <Directory Id="BaseFolder" Name="MovistarTV (v1.5 Kruger-60)">
+          <Directory Id="BaseFolder" Name="movistar+ (v1.5 Kruger-60)">
             <Directory Id="INSTALLFOLDER" Name="bin">
               <Directory Id="InstallFolder.es" Name="es" />
             </Directory>
@@ -80,9 +80,7 @@ All rights reserved, except those granted by the governing license of this softw
 
       <Directory Id="ProgramMenuFolder">
         <Directory Id="DvbIpTvStartMenuFolder" Name="!(loc.DvbIpTvStartMenuFolder)">
-          <Directory Id="ProgramStartMenuFolder" Name="!(loc.ProgramStartMenuFolder)">
-            <Directory Id="ToolsStartMenuFolder" Name="!(loc.ToolsStartMenuFolder)" />
-          </Directory>
+          <Directory Id="ProgramStartMenuFolder" Name="!(loc.ProgramStartMenuFolder)" />
         </Directory>
       </Directory>
     </Directory>
@@ -105,11 +103,9 @@ All rights reserved, except those granted by the governing license of this softw
         <RemoveFolder Id="Remove_RecordTasksFolder" On="uninstall" Directory="RecordTasksFolder"/>
       
         <RemoveFile Id="Purge_ProgramStartMenuFolder" Name="*.*" On="uninstall" Directory="ProgramStartMenuFolder"/>
-        <RemoveFile Id="Purge_ToolsStartMenuFolder" Name="*.*" On="uninstall" Directory="ToolsStartMenuFolder"/>
 
         <RemoveFolder Id="Remove_DvbIpTvStartMenuFolder" On="uninstall" Directory="DvbIpTvStartMenuFolder" />
         <RemoveFolder Id="Remove_ProgramStartMenuFolder" On="uninstall" Directory="ProgramStartMenuFolder"/>
-        <RemoveFolder Id="Remove_ToolsStartMenuFolder" On="uninstall" Directory="ToolsStartMenuFolder"/>
       </Component>
     </ComponentGroup>
   </Fragment>

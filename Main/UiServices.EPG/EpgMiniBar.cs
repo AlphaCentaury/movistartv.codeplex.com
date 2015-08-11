@@ -48,6 +48,12 @@ namespace Project.DvbIpTv.UiServices.EPG
             AutoRefresh = true;
         } // constructor
 
+        public bool IsDisabled
+        {
+            get;
+            set;
+        } // IsDisabled
+
         [DefaultValue(true)]
         public bool AutoRefresh
         {
@@ -112,7 +118,7 @@ namespace Project.DvbIpTv.UiServices.EPG
 
             pictureChannelLogo.Image = null;
 
-            labelProgramTitle.Text = null;
+            labelProgramTitle.Text = IsDisabled? Properties.Texts.EpgNoInformation : null;
             labelEllapsed.Text = null;
             labelFromTo.Visible = false;
             labelStartTime.Visible = false;
@@ -202,6 +208,8 @@ namespace Project.DvbIpTv.UiServices.EPG
 
         private void LoadEpgEventsAsync()
         {
+            if (IsDisabled) return;
+
             if (CurrentRequestId == int.MaxValue) CurrentRequestId = 0;
 
             timerLoadingData.Enabled = false;

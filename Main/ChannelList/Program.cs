@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.UiServices.Forms;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,9 @@ namespace Project.DvbIpTv.ChannelList
             Application.Run(appContext);
             var exitCode = appContext.ExitCode;
             appContext.Dispose();
+
+            BasicGoogleTelemetry.SendScreenHit("Main: End");
+            BasicGoogleTelemetry.EnsureHitsSents();
 
             return exitCode;
         } // Main
