@@ -83,11 +83,6 @@
     <Compile Include="SelectFolderDialog.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Properties\SharedResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SharedResources.resx</DependentUpon>
-    </Compile>
     <Compile Include="TimeSpanUpDown.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,35 +106,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\SharedResources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>SharedResources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="TimeSpanUpDown.resx">
       <DependentUpon>TimeSpanUpDown.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="..\Common.UI\Resources\WaitClock_64x64.png">
+      <Link>Resources\WaitClock_64x64.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\WaitClock_Icon.ico">
+      <Link>Resources\WaitClock_Icon.ico</Link>
+    </Content>
     <Content Include="License.txt" />
-    <Content Include="Resources\Action_Copy_Clip_16x16.png" />
-    <Content Include="Resources\Action_Delete_16x16.png" />
-    <None Include="Resources\Action_Properties_16x16.png" />
-    <None Include="Resources\Action_Refresh_Blue_16x16.png" />
-    <None Include="Resources\Action_Repair_16x16.png" />
-    <None Include="Resources\WaitClock_16x16.png" />
-    <None Include="Resources\WaitClock_24x24.png" />
-    <None Include="Resources\WaitClock_32x32.png" />
-    <None Include="Resources\WaitClock_48x48.png" />
-    <None Include="Resources\WaitClock_64x64.png" />
-    <None Include="Resources\WaitClock_Icon.ico" />
-    <None Include="Resources\Action_EditTask_16x16.png" />
-    <None Include="Resources\Action_Edit_16x16.png" />
-    <None Include="Resources\Action_Run_16x16.png" />
-    <None Include="Resources\Action_Close_16x16.png" />
-    <None Include="Resources\Action_Cancel_16x16.png" />
-    <None Include="Resources\Action_Ok_16x16.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Services.Record.Serialization\Services.Record.Serialization.csproj">

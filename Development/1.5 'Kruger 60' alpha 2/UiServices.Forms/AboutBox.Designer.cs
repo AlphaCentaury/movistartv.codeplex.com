@@ -49,6 +49,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             resources.ApplyResources(this.okButton, "okButton");
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.okButton.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Ok_16x16;
             this.okButton.Name = "okButton";
             // 
             // logoPictureBox

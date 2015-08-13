@@ -122,14 +122,6 @@
     <value>Bottom, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="okButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAAd0SU1FB98BCxQxD4gQu2QAAAB+SURBVDhPYxgB4MPPTwJA/B6I/yPhBqg0YQBS
-        XHe467+Kl/Z/vRRzkGaQYQJQafwApBCkAaQRZADIIJCBUGnCAKSYaNtBioEY5keYYuJtB0piOJdkv4Ns
-        QNZEtO0wALIBZBNMI0m2wwDIJpgrSLIdBkA2QW0EaSTN9qEIGBgADBTL2TUR0y4AAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>342, 275</value>
   </data>
@@ -612,6 +604,6 @@
     <value>AboutBox</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.CommonBaseForm, UiServices.Controls, Version=1.5.10.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Controls.CommonBaseForm, UiServices.Controls, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

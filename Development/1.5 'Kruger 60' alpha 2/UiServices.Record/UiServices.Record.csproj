@@ -220,6 +220,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Common.UI\Resources\Action_Cancel_16x16.png">
+      <Link>Resources\Action_Cancel_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Delete_16x16.png">
+      <Link>Resources\Action_Delete_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_EditTask_16x16.png">
+      <Link>Resources\Action_EditTask_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Ok_16x16.png">
+      <Link>Resources\Action_Ok_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Play_LG_16x16.png">
+      <Link>Resources\Action_Play_LG_16x16.png</Link>
+    </Content>
     <Content Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -31,22 +31,11 @@ namespace Project.DvbIpTv.UiServices.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotImplementedBox));
-            this.pictureIconNotImplemented = new System.Windows.Forms.PictureBox();
             this.labelNotImplemented = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
+            this.pictureIconNotImplemented = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIconNotImplemented)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureIconNotImplemented
-            // 
-            this.pictureIconNotImplemented.Image = ((System.Drawing.Image)(resources.GetObject("pictureIconNotImplemented.Image")));
-            this.pictureIconNotImplemented.Location = new System.Drawing.Point(12, 12);
-            this.pictureIconNotImplemented.Name = "pictureIconNotImplemented";
-            this.pictureIconNotImplemented.Size = new System.Drawing.Size(200, 200);
-            this.pictureIconNotImplemented.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureIconNotImplemented.TabIndex = 0;
-            this.pictureIconNotImplemented.TabStop = false;
             // 
             // labelNotImplemented
             // 
@@ -64,7 +53,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonOk.Image = ((System.Drawing.Image)(resources.GetObject("buttonOk.Image")));
+            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Ok_16x16;
             this.buttonOk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.buttonOk.Location = new System.Drawing.Point(372, 187);
             this.buttonOk.Name = "buttonOk";
@@ -74,13 +63,23 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
+            // pictureIconNotImplemented
+            // 
+            this.pictureIconNotImplemented.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.NotImplemented_200x200;
+            this.pictureIconNotImplemented.Location = new System.Drawing.Point(12, 12);
+            this.pictureIconNotImplemented.Name = "pictureIconNotImplemented";
+            this.pictureIconNotImplemented.Size = new System.Drawing.Size(200, 200);
+            this.pictureIconNotImplemented.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureIconNotImplemented.TabIndex = 0;
+            this.pictureIconNotImplemented.TabStop = false;
+            // 
             // NotImplementedBox
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonOk;
-            this.ClientSize = new System.Drawing.Size(480, 220);
+            this.ClientSize = new System.Drawing.Size(472, 212);
             this.ControlBox = false;
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.labelNotImplemented);

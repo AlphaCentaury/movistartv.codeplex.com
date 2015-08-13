@@ -23,7 +23,7 @@ namespace Project.DvbIpTv.UiServices.Controls
         public BackgroundWorkerDialog()
         {
             InitializeComponent();
-            this.Icon = SharedResources.WaitClock_Icon;
+            this.Icon = Resources.WaitClock_Icon;
         }  // constructor
 
         public BackgroundWorkerOptions Options

@@ -121,7 +121,7 @@ namespace Project.DvbIpTv.UiServices.Record
             // buttonOk
             // 
             resources.ApplyResources(this.buttonOk, "buttonOk");
-            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Ok_16x16;
+            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Record.Properties.Resources.Action_Ok_16x16;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
@@ -131,7 +131,7 @@ namespace Project.DvbIpTv.UiServices.Record
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.CausesValidation = false;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
+            this.buttonCancel.Image = global::Project.DvbIpTv.UiServices.Record.Properties.Resources.Action_Cancel_16x16;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -317,6 +317,7 @@ namespace Project.DvbIpTv.UiServices.Record
             this.listViewLocations.HeaderCustomFont = null;
             this.listViewLocations.HeaderCustomForeColor = System.Drawing.Color.Empty;
             this.listViewLocations.HideSelection = false;
+            this.listViewLocations.IsDoubleBuffered = true;
             this.listViewLocations.MultiSelect = false;
             this.listViewLocations.Name = "listViewLocations";
             this.listViewLocations.OwnerDraw = true;

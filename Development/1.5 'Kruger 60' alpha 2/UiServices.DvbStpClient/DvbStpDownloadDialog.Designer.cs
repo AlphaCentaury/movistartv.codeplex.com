@@ -40,11 +40,11 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             this.labelSectionProgress = new System.Windows.Forms.Label();
             this.labelReceiving = new System.Windows.Forms.Label();
             this.labelDataReception = new System.Windows.Forms.Label();
-            this.buttonRequestCancel = new System.Windows.Forms.Button();
             this.timerClose = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
             this.labelEllapsedTime = new System.Windows.Forms.Label();
             this.timerEllapsed = new System.Windows.Forms.Timer(this.components);
+            this.buttonRequestCancel = new System.Windows.Forms.Button();
+            this.pictureBox1 = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,26 +88,10 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             resources.ApplyResources(this.labelDataReception, "labelDataReception");
             this.labelDataReception.Name = "labelDataReception";
             // 
-            // buttonRequestCancel
-            // 
-            this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
-            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
-            this.buttonRequestCancel.Name = "buttonRequestCancel";
-            this.buttonRequestCancel.UseVisualStyleBackColor = true;
-            this.buttonRequestCancel.Click += new System.EventHandler(this.buttonRequestCancel_Click);
-            // 
             // timerClose
             // 
             this.timerClose.Interval = 500;
             this.timerClose.Tick += new System.EventHandler(this.timerClose_Tick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Project.DvbIpTv.UiServices.DvbStpClient.Properties.Resources.InternetDownload;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
             // 
             // labelEllapsedTime
             // 
@@ -118,6 +102,22 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             // 
             this.timerEllapsed.Interval = 1000;
             this.timerEllapsed.Tick += new System.EventHandler(this.timerEllapsed_Tick);
+            // 
+            // buttonRequestCancel
+            // 
+            this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.DvbStpClient.Properties.Resources.Action_Cancel_Red_16x16;
+            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
+            this.buttonRequestCancel.Name = "buttonRequestCancel";
+            this.buttonRequestCancel.UseVisualStyleBackColor = true;
+            this.buttonRequestCancel.Click += new System.EventHandler(this.buttonRequestCancel_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Project.DvbIpTv.UiServices.DvbStpClient.Properties.Resources.InternetDownload;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // DvbStpDownloadDialog
             // 

@@ -45,7 +45,7 @@ namespace Project.DvbIpTv.UiServices.Controls
             // 
             // pictureWaitIcon
             // 
-            this.pictureWaitIcon.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.WaitClock_64x64;
+            this.pictureWaitIcon.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.Resources.WaitClock_64x64;
             resources.ApplyResources(this.pictureWaitIcon, "pictureWaitIcon");
             this.pictureWaitIcon.Name = "pictureWaitIcon";
             this.pictureWaitIcon.TabStop = false;

@@ -97,6 +97,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 		Common.UI\Resources\Action_Run_16x16.png = Common.UI\Resources\Action_Run_16x16.png
 		Common.UI\Resources\Action_Save_16x16.png = Common.UI\Resources\Action_Save_16x16.png
 		Common.UI\Resources\Action_Settings_16x16.png = Common.UI\Resources\Action_Settings_16x16.png
+		Common.UI\Resources\WaitClock_16x16.png = Common.UI\Resources\WaitClock_16x16.png
+		Common.UI\Resources\WaitClock_24x24.png = Common.UI\Resources\WaitClock_24x24.png
+		Common.UI\Resources\WaitClock_32x32.png = Common.UI\Resources\WaitClock_32x32.png
+		Common.UI\Resources\WaitClock_48x48.png = Common.UI\Resources\WaitClock_48x48.png
+		Common.UI\Resources\WaitClock_64x64.png = Common.UI\Resources\WaitClock_64x64.png
+		Common.UI\Resources\WaitClock_Icon.ico = Common.UI\Resources\WaitClock_Icon.ico
 	EndProjectSection
 EndProject
 Global

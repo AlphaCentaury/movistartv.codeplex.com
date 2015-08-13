@@ -87,16 +87,16 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // labelServiceName
             // 
-            resources.ApplyResources(this.labelServiceName, "labelServiceName");
             this.labelServiceName.AutoEllipsis = true;
+            resources.ApplyResources(this.labelServiceName, "labelServiceName");
             this.labelServiceName.Name = "labelServiceName";
             this.labelServiceName.UseMnemonic = false;
             // 
             // buttonRequestCancel
             // 
-            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Cancel_16x16;
+            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;
             this.buttonRequestCancel.Click += new System.EventHandler(this.buttonRequestCancel_Click);
@@ -134,23 +134,23 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // pictureBoxServiceLogo
             // 
-            resources.ApplyResources(this.pictureBoxServiceLogo, "pictureBoxServiceLogo");
             this.pictureBoxServiceLogo.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.pictureBoxServiceLogo, "pictureBoxServiceLogo");
             this.pictureBoxServiceLogo.Name = "pictureBoxServiceLogo";
             this.pictureBoxServiceLogo.TabStop = false;
             // 
             // pictureBoxIcon
             // 
-            resources.ApplyResources(this.pictureBoxIcon, "pictureBoxIcon");
             this.pictureBoxIcon.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.ScanTv_128x128;
+            resources.ApplyResources(this.pictureBoxIcon, "pictureBoxIcon");
             this.pictureBoxIcon.Name = "pictureBoxIcon";
             this.pictureBoxIcon.TabStop = false;
             // 
             // buttonClose
             // 
-            resources.ApplyResources(this.buttonClose, "buttonClose");
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonClose.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Ok_16x16;
+            this.buttonClose.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Ok_16x16;
+            resources.ApplyResources(this.buttonClose, "buttonClose");
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);

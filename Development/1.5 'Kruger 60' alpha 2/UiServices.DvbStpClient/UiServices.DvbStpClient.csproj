@@ -104,15 +104,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ActionOk_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\InternetDownload.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ActionCancel_16x16.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="..\Common.UI\Resources\Action_Cancel_Red_16x16.png">
+      <Link>Resources\Action_Cancel_Red_16x16.png</Link>
+    </Content>
     <Content Include="License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

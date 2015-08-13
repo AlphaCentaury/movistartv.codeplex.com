@@ -115,6 +115,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             resources.ApplyResources(this.buttonOk, "buttonOk");
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Ok_16x16;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             // 

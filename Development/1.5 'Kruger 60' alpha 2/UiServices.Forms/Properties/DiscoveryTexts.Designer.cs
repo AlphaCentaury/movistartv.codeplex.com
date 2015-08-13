@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.UiServices.Controls.Properties {
+namespace Project.DvbIpTv.UiServices.Forms.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class DiscoveryTexts {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal DiscoveryTexts() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.Controls.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.Forms.Properties.DiscoveryTexts", typeof(DiscoveryTexts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,22 +61,47 @@ namespace Project.DvbIpTv.UiServices.Controls.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Unable to obtain the list of service providers.
         /// </summary>
-        internal static System.Drawing.Bitmap WaitClock_64x64 {
+        internal static string SPListUnableRefresh {
             get {
-                object obj = ResourceManager.GetObject("WaitClock_64x64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("SPListUnableRefresh", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized string similar to Obtaining the list of service providers....
         /// </summary>
-        internal static System.Drawing.Icon WaitClock_Icon {
+        internal static string SPObtainingList {
             get {
-                object obj = ResourceManager.GetObject("WaitClock_Icon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ResourceManager.GetString("SPObtainingList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parsing and extracting the list of providers....
+        /// </summary>
+        internal static string SPParsingList {
+            get {
+                return ResourceManager.GetString("SPParsingList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties of the service provider.
+        /// </summary>
+        internal static string SPProperties {
+            get {
+                return ResourceManager.GetString("SPProperties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The refreshing of the list has been cancelled by the user..
+        /// </summary>
+        internal static string UserCancelListRefresh {
+            get {
+                return ResourceManager.GetString("UserCancelListRefresh", resourceCulture);
             }
         }
     }

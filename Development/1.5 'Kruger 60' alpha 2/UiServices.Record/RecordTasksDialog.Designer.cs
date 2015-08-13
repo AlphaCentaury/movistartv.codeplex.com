@@ -39,10 +39,10 @@ namespace Project.DvbIpTv.UiServices.Record
             this.columnTaskSchedule = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnTaskRecordings = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxTaskDetails = new System.Windows.Forms.TextBox();
-            this.buttonEditTask = new System.Windows.Forms.Button();
-            this.buttonDeleteTasks = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonViewRecordings = new System.Windows.Forms.Button();
+            this.buttonDeleteTasks = new System.Windows.Forms.Button();
+            this.buttonEditTask = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -110,25 +110,11 @@ namespace Project.DvbIpTv.UiServices.Record
             this.textBoxTaskDetails.Name = "textBoxTaskDetails";
             this.textBoxTaskDetails.ReadOnly = true;
             // 
-            // buttonEditTask
-            // 
-            resources.ApplyResources(this.buttonEditTask, "buttonEditTask");
-            this.buttonEditTask.Name = "buttonEditTask";
-            this.buttonEditTask.UseVisualStyleBackColor = true;
-            this.buttonEditTask.Click += new System.EventHandler(this.buttonEditTask_Click);
-            // 
-            // buttonDeleteTasks
-            // 
-            resources.ApplyResources(this.buttonDeleteTasks, "buttonDeleteTasks");
-            this.buttonDeleteTasks.CausesValidation = false;
-            this.buttonDeleteTasks.Name = "buttonDeleteTasks";
-            this.buttonDeleteTasks.UseVisualStyleBackColor = true;
-            this.buttonDeleteTasks.Click += new System.EventHandler(this.buttonDeleteTasks_Click);
-            // 
             // buttonOk
             // 
             resources.ApplyResources(this.buttonOk, "buttonOk");
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Record.Properties.Resources.Action_Ok_16x16;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
@@ -136,9 +122,27 @@ namespace Project.DvbIpTv.UiServices.Record
             // 
             resources.ApplyResources(this.buttonViewRecordings, "buttonViewRecordings");
             this.buttonViewRecordings.CausesValidation = false;
+            this.buttonViewRecordings.Image = global::Project.DvbIpTv.UiServices.Record.Properties.Resources.Action_Play_LG_16x16;
             this.buttonViewRecordings.Name = "buttonViewRecordings";
             this.buttonViewRecordings.UseVisualStyleBackColor = true;
             this.buttonViewRecordings.Click += new System.EventHandler(this.buttonViewRecordings_Click);
+            // 
+            // buttonDeleteTasks
+            // 
+            resources.ApplyResources(this.buttonDeleteTasks, "buttonDeleteTasks");
+            this.buttonDeleteTasks.CausesValidation = false;
+            this.buttonDeleteTasks.Image = global::Project.DvbIpTv.UiServices.Record.Properties.Resources.Action_Delete_16x16;
+            this.buttonDeleteTasks.Name = "buttonDeleteTasks";
+            this.buttonDeleteTasks.UseVisualStyleBackColor = true;
+            this.buttonDeleteTasks.Click += new System.EventHandler(this.buttonDeleteTasks_Click);
+            // 
+            // buttonEditTask
+            // 
+            resources.ApplyResources(this.buttonEditTask, "buttonEditTask");
+            this.buttonEditTask.Image = global::Project.DvbIpTv.UiServices.Record.Properties.Resources.Action_EditTask_16x16;
+            this.buttonEditTask.Name = "buttonEditTask";
+            this.buttonEditTask.UseVisualStyleBackColor = true;
+            this.buttonEditTask.Click += new System.EventHandler(this.buttonEditTask_Click);
             // 
             // RecordTasksDialog
             // 

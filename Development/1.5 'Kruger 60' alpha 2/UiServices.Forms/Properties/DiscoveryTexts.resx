@@ -117,45 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="columnTaskChannel.Text" xml:space="preserve">
-    <value>Canal</value>
+  <data name="SPListUnableRefresh" xml:space="preserve">
+    <value>Unable to obtain the list of service providers</value>
   </data>
-  <data name="columnTaskName.Text" xml:space="preserve">
-    <value>Nombre de la tarea</value>
+  <data name="SPObtainingList" xml:space="preserve">
+    <value>Obtaining the list of service providers...</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="columnTaskName.Width" type="System.Int32, mscorlib">
-    <value>155</value>
+  <data name="SPParsingList" xml:space="preserve">
+    <value>Parsing and extracting the list of providers...</value>
   </data>
-  <data name="columnTaskSchedule.Text" xml:space="preserve">
-    <value>Programación</value>
+  <data name="SPProperties" xml:space="preserve">
+    <value>Properties of the service provider</value>
   </data>
-  <data name="columnTaskSchedule.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="columnTaskRecordings.Text" xml:space="preserve">
-    <value>Grabaciones</value>
-  </data>
-  <data name="columnTaskRecordings.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="buttonOk.Text" xml:space="preserve">
-    <value>&amp;Cerrar</value>
-  </data>
-  <data name="buttonViewRecordings.Text" xml:space="preserve">
-    <value>&amp;Grabaciones...</value>
-  </data>
-  <data name="buttonDeleteTasks.Text" xml:space="preserve">
-    <value>&amp;Eliminar...</value>
-  </data>
-  <data name="buttonEditTask.Text" xml:space="preserve">
-    <value>&amp;Editar...</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Gestión de tareas de grabación</value>
+  <data name="UserCancelListRefresh" xml:space="preserve">
+    <value>The refreshing of the list has been cancelled by the user.</value>
   </data>
 </root>
