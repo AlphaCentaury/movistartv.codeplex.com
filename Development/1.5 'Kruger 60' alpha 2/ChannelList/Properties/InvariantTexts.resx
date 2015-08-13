@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnalyticsGoogleTrackingId" xml:space="preserve">
-    <value>UA-66146192-3</value>
-    <comment>Invariant</comment>
+    <value>UA-66146192-4</value>
+    <comment>Get new property for every new version!</comment>
   </data>
   <data name="ExceptionForceUiCulture" xml:space="preserve">
     <value>Unable to change the applicationt UI language.
@@ -134,7 +134,7 @@ Verifique el valor de  la propiedad 'ForceUICulture' del archivo '.config'</valu
     <value>http://movistartv.codeplex.com</value>
   </data>
   <data name="UrlCheckForUpdatesManual" xml:space="preserve">
-    <value>http://movistartv.codeplex.com/wikipage?title=Update-v1.5.10.0</value>
+    <value>http://movistartv.codeplex.com/wikipage?title=Update-v1.5.20.0</value>
   </data>
   <data name="UrlDocumentation" xml:space="preserve">
     <value>http://movistartv.codeplex.com/documentation</value>

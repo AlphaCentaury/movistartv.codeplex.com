@@ -259,13 +259,13 @@ If you overwrite the file all custom configurations will be lost.
 Do you want to overwrite the existing file?</value>
   </data>
   <data name="ProductFullName" xml:space="preserve">
-    <value>movistar+ DVB-IPTV Decoder 1.5 “Kruger 60” Alpha 1</value>
+    <value>movistar+ DVB-IPTV Decoder 1.5 “Kruger 60” Alpha 2</value>
   </data>
   <data name="ProductMainProgramName" xml:space="preserve">
     <value>movistar+ channels</value>
   </data>
   <data name="ProductShortName" xml:space="preserve">
-    <value>v1.5 “Kruger 60” Alpha 1</value>
+    <value>v1.5 “Kruger 60” Alpha 2</value>
   </data>
   <data name="SaveLocationMoviesFolder" xml:space="preserve">
     <value>Movies</value>
