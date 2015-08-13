@@ -2,32 +2,33 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using DvbIpTypes.Schema2006;
+using Microsoft.SqlServer.MessageBox;
 using Project.DvbIpTv.ChannelList.Properties;
+using Project.DvbIpTv.Common;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Services.Record;
 using Project.DvbIpTv.Services.Record.Serialization;
+using Project.DvbIpTv.UiServices.Common.Controls;
+using Project.DvbIpTv.UiServices.Common.Forms;
+using Project.DvbIpTv.UiServices.Common.Start;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
-using Project.DvbIpTv.UiServices.Controls;
+using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.DvbStpClient;
 using Project.DvbIpTv.UiServices.EPG;
 using Project.DvbIpTv.UiServices.Forms;
-using Project.DvbIpTv.UiServices.Forms.Startup;
 using Project.DvbIpTv.UiServices.Record;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
-using System.Windows.Forms;
-using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using System.Text;
-using System.IO;
-using System.Diagnostics;
-using Microsoft.SqlServer.MessageBox;
-using Project.DvbIpTv.Common;
-using Project.DvbIpTv.Common.Telemetry;
+using System.Windows.Forms;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -216,9 +217,9 @@ namespace Project.DvbIpTv.ChannelList
             using (var dlg = new PropertiesDialog()
                 {
                     Caption = Properties.Texts.SPProperties,
-                    Properties = SelectedServiceProvider.DumpProperties(),
+                    ItemProperties = SelectedServiceProvider.DumpProperties(),
                     Description = SelectedServiceProvider.DisplayName,
-                    Logo = SelectedServiceProvider.Logo.GetImage(LogoSize.Size64, true),
+                    ItemIcon = SelectedServiceProvider.Logo.GetImage(LogoSize.Size64, true),
                 })
             {
                 dlg.ShowDialog(this);
@@ -421,9 +422,9 @@ namespace Project.DvbIpTv.ChannelList
             using (var dlg = new PropertiesDialog()
             {
                 Caption = Properties.Texts.BroadcastServiceProperties,
-                Properties = SelectedBroadcastService.DumpProperties(),
+                ItemProperties = SelectedBroadcastService.DumpProperties(),
                 Description = SelectedBroadcastService.DisplayName,
-                Logo = SelectedBroadcastService.Logo.GetImage(LogoSize.Size64, true),
+                ItemIcon = SelectedBroadcastService.Logo.GetImage(LogoSize.Size64, true),
             })
             {
                 dlg.ShowDialog(this);

@@ -133,26 +133,6 @@ namespace Project.DvbIpTv.UiServices.Forms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DefaultSplashBackground {
-            get {
-                object obj = ResourceManager.GetObject("DefaultSplashBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap NotImplemented_200x200 {
-            get {
-                object obj = ResourceManager.GetObject("NotImplemented_200x200", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ScanTv_128x128 {
             get {
                 object obj = ResourceManager.GetObject("ScanTv_128x128", resourceCulture);

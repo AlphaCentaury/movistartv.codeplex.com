@@ -32,7 +32,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
-            this.selectFolder = new Project.DvbIpTv.UiServices.Controls.SelectFolderDialog();
+            this.selectFolder = new Project.DvbIpTv.UiServices.Common.Controls.SelectFolderDialog();
             this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.labelStepTitle = new System.Windows.Forms.Label();
             this.panelButtons = new System.Windows.Forms.Panel();
@@ -581,7 +581,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         #endregion
 
-        private UiServices.Controls.SelectFolderDialog selectFolder;
+        private Project.DvbIpTv.UiServices.Common.Controls.SelectFolderDialog selectFolder;
         private System.Windows.Forms.OpenFileDialog openFile;
         private WizardTabControl wizardControl;
         private System.Windows.Forms.TabPage wizardPage1;

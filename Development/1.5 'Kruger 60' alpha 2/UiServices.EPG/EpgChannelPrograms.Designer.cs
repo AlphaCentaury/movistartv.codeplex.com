@@ -43,7 +43,7 @@
             this.buttonDisplayChannel = new System.Windows.Forms.Button();
             this.buttonRecordChannel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
-            this.pictureBoxNow = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.pictureBoxNow = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
             this.pictureChannelLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).BeginInit();
@@ -269,7 +269,7 @@
         private System.Windows.Forms.ListView listPrograms;
         private System.Windows.Forms.ColumnHeader columnHeaderTime;
         private System.Windows.Forms.ColumnHeader columnHeaderTitle;
-        private Controls.PictureBoxEx pictureBoxNow;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxNow;
         private System.Windows.Forms.Label labelNowDetails;
         private System.Windows.Forms.Label labelNowTitle;
         private System.Windows.Forms.Label labelNowTime;

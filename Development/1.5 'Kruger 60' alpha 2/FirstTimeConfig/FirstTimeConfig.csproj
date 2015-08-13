@@ -179,13 +179,13 @@
       <Project>{074c14ed-c574-46d2-b9dc-c1b5f65d9a69}</Project>
       <Name>Services.Record.Serialization</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UiServices.Common\UiServices.Common.csproj">
+      <Project>{76346905-ac2f-4f01-ba99-bbffbb2a6fe9}</Project>
+      <Name>UiServices.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UiServices.Config\UiServices.Config.csproj">
       <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
       <Name>UiServices.Config</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UiServices.Controls\UiServices.Controls.csproj">
-      <Project>{745a4961-d7a0-4a2e-bb58-849ed0690271}</Project>
-      <Name>UiServices.Controls</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

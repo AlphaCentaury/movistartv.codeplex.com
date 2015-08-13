@@ -45,7 +45,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.radioActionDisable = new System.Windows.Forms.RadioButton();
             this.labelInfo = new System.Windows.Forms.Label();
             this.buttonRequestCancel = new System.Windows.Forms.Button();
-            this.pictureIcon = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.pictureIcon = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.numericTimeout)).BeginInit();
             this.groupScanWhat.SuspendLayout();
             this.groupActionScan.SuspendLayout();
@@ -203,7 +203,7 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         #endregion
 
-        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureIcon;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureIcon;
         private System.Windows.Forms.Label labelCaption;
         private System.Windows.Forms.Label labelScanTimeout;
         private System.Windows.Forms.NumericUpDown numericTimeout;

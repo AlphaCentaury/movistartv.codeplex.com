@@ -12,8 +12,8 @@ using System.Text;
 using System.Windows.Forms;
 using Project.DvbIpTv.Services.Record;
 using Project.DvbIpTv.Services.Record.Serialization;
-using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Record.Properties;
+using Project.DvbIpTv.UiServices.Common.Forms;
 
 namespace Project.DvbIpTv.UiServices.Record
 {
@@ -207,17 +207,17 @@ namespace Project.DvbIpTv.UiServices.Record
 
         private void buttonEditTask_Click_Implementation(object sender, EventArgs e)
         {
-            Project.DvbIpTv.UiServices.Forms.NotImplementedBox.ShowBox(this);
+            Project.DvbIpTv.UiServices.Common.Forms.NotImplementedBox.ShowBox(this);
         } // buttonEditTask_Click_Implementation
 
         private void buttonDeleteTasks_Click_Implementation(object sender, EventArgs e)
         {
-            Project.DvbIpTv.UiServices.Forms.NotImplementedBox.ShowBox(this);
+            Project.DvbIpTv.UiServices.Common.Forms.NotImplementedBox.ShowBox(this);
         } // buttonDeleteTasks_Click_Implementation
 
         private void buttonViewRecordings_Click_Implementation(object sender, EventArgs e)
         {
-            Project.DvbIpTv.UiServices.Forms.NotImplementedBox.ShowBox(this);
+            Project.DvbIpTv.UiServices.Common.Forms.NotImplementedBox.ShowBox(this);
         } // buttonViewRecordings_Click_Implementation
 
         #endregion

@@ -45,8 +45,8 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.listViewStats = new System.Windows.Forms.ListView();
             this.labelEllapsedTime = new System.Windows.Forms.Label();
             this.timerEllapsed = new System.Windows.Forms.Timer(this.components);
-            this.pictureBoxServiceLogo = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
-            this.pictureBoxIcon = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.pictureBoxServiceLogo = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
+            this.pictureBoxIcon = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
             this.buttonClose = new System.Windows.Forms.Button();
             columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -192,13 +192,13 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         #endregion
 
-        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxIcon;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxIcon;
         private System.Windows.Forms.Label labelScanning;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label labelProgressPercentage;
         private System.Windows.Forms.Label labelServiceUrl;
         private System.Windows.Forms.Label labelServiceName;
-        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxServiceLogo;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxServiceLogo;
         private System.Windows.Forms.Button buttonRequestCancel;
         private System.Windows.Forms.Label labelCaption;
         private System.Windows.Forms.ListView listViewStats;

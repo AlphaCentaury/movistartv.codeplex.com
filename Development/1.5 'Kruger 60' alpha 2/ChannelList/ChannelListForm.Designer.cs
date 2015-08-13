@@ -122,7 +122,7 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.labelProviderName = new System.Windows.Forms.Label();
             this.labelProviderDescription = new System.Windows.Forms.Label();
-            this.listViewChannels = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
+            this.listViewChannels = new Project.DvbIpTv.UiServices.Common.Controls.ListViewSortable();
             this.contextMenuList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuListShow = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuListRecord = new System.Windows.Forms.ToolStripMenuItem();
@@ -1059,7 +1059,7 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.PictureBox pictureProviderLogo;
         private System.Windows.Forms.Label labelProviderName;
         private System.Windows.Forms.Label labelProviderDescription;
-        private UiServices.Controls.ListViewSortable listViewChannels;
+        private UiServices.Common.Controls.ListViewSortable listViewChannels;
         private System.Windows.Forms.Button buttonRecordChannel;
         private System.Windows.Forms.Button buttonDisplayChannel;
         private System.Windows.Forms.ToolStripMenuItem menuItemChannelListView;

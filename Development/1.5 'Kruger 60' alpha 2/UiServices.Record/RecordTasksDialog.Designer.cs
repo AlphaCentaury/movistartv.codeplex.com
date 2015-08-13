@@ -33,7 +33,7 @@ namespace Project.DvbIpTv.UiServices.Record
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecordTasksDialog));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.listViewTasks = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
+            this.listViewTasks = new Project.DvbIpTv.UiServices.Common.Controls.ListViewSortable();
             this.columnTaskChannel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnTaskName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnTaskSchedule = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -170,7 +170,7 @@ namespace Project.DvbIpTv.UiServices.Record
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private global::Project.DvbIpTv.UiServices.Controls.ListViewSortable listViewTasks;
+        private global::Project.DvbIpTv.UiServices.Common.Controls.ListViewSortable listViewTasks;
         private System.Windows.Forms.ColumnHeader columnTaskName;
         private System.Windows.Forms.ColumnHeader columnTaskChannel;
         private System.Windows.Forms.TextBox textBoxTaskDetails;

@@ -44,7 +44,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             this.labelEllapsedTime = new System.Windows.Forms.Label();
             this.timerEllapsed = new System.Windows.Forms.Timer(this.components);
             this.buttonRequestCancel = new System.Windows.Forms.Button();
-            this.pictureBox1 = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.pictureBox1 = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,7 +161,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
         private System.Windows.Forms.Label labelDataReception;
         private System.Windows.Forms.Button buttonRequestCancel;
         private System.Windows.Forms.Timer timerClose;
-        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBox1;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBox1;
         private System.Windows.Forms.Label labelEllapsedTime;
         private System.Windows.Forms.Timer timerEllapsed;
     }

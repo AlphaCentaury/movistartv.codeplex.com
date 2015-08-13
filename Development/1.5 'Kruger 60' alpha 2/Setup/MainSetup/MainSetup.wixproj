@@ -144,14 +144,6 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\..\UiServices.Controls\UiServices.Controls.csproj">
-      <Name>UiServices.Controls</Name>
-      <Project>{745a4961-d7a0-4a2e-bb58-849ed0690271}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
     <ProjectReference Include="..\..\UiServices.Discovery\UiServices.Discovery.csproj">
       <Name>UiServices.Discovery</Name>
       <Project>{7e5e21b9-4bd6-4fb3-9055-9b09cc479c6c}</Project>
