@@ -70,6 +70,9 @@ namespace Project.DvbIpTv.ChannelList
             this.separatorDvb3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemDvbExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannel = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemChannelShowWith = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorChannel1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemChannelFavorites = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelFavorites0 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelFavorites1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +86,8 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemChannelFavorites9 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelFavoritesSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemChannelFavoritesEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.separatorChannel1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemChannelAddFavorites = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorChannel3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemChannelListSort = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelListSortName = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelListSortDescription = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,6 +99,7 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemChannelListViewTile = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelListViewDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.separatorChannel2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemChannelEditList = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelRefreshList = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelVerify = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemChannelDetails = new System.Windows.Forms.ToolStripMenuItem();
@@ -387,16 +392,37 @@ namespace Project.DvbIpTv.ChannelList
             // menuItemChannel
             // 
             this.menuItemChannel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemChannelFavorites,
+            this.menuItemChannelShow,
+            this.menuItemChannelShowWith,
             this.separatorChannel1,
+            this.menuItemChannelFavorites,
+            this.menuItemChannelAddFavorites,
+            this.separatorChannel3,
             this.menuItemChannelListSort,
             this.menuItemChannelListView,
             this.separatorChannel2,
+            this.menuItemChannelEditList,
             this.menuItemChannelRefreshList,
             this.menuItemChannelVerify,
             this.menuItemChannelDetails});
             this.menuItemChannel.Name = "menuItemChannel";
             resources.ApplyResources(this.menuItemChannel, "menuItemChannel");
+            // 
+            // menuItemChannelShow
+            // 
+            this.menuItemChannelShow.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Play_LG_16x16;
+            this.menuItemChannelShow.Name = "menuItemChannelShow";
+            resources.ApplyResources(this.menuItemChannelShow, "menuItemChannelShow");
+            // 
+            // menuItemChannelShowWith
+            // 
+            this.menuItemChannelShowWith.Name = "menuItemChannelShowWith";
+            resources.ApplyResources(this.menuItemChannelShowWith, "menuItemChannelShowWith");
+            // 
+            // separatorChannel1
+            // 
+            this.separatorChannel1.Name = "separatorChannel1";
+            resources.ApplyResources(this.separatorChannel1, "separatorChannel1");
             // 
             // menuItemChannelFavorites
             // 
@@ -495,14 +521,19 @@ namespace Project.DvbIpTv.ChannelList
             // menuItemChannelFavoritesEdit
             // 
             resources.ApplyResources(this.menuItemChannelFavoritesEdit, "menuItemChannelFavoritesEdit");
-            this.menuItemChannelFavoritesEdit.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.ListBullets_16x16;
+            this.menuItemChannelFavoritesEdit.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Edit_16x16;
             this.menuItemChannelFavoritesEdit.Name = "menuItemChannelFavoritesEdit";
             this.menuItemChannelFavoritesEdit.Click += new System.EventHandler(this.menuItemChannelFavoritesEdit_Click);
             // 
-            // separatorChannel1
+            // menuItemChannelAddFavorites
             // 
-            this.separatorChannel1.Name = "separatorChannel1";
-            resources.ApplyResources(this.separatorChannel1, "separatorChannel1");
+            this.menuItemChannelAddFavorites.Name = "menuItemChannelAddFavorites";
+            resources.ApplyResources(this.menuItemChannelAddFavorites, "menuItemChannelAddFavorites");
+            // 
+            // separatorChannel3
+            // 
+            this.separatorChannel3.Name = "separatorChannel3";
+            resources.ApplyResources(this.separatorChannel3, "separatorChannel3");
             // 
             // menuItemChannelListSort
             // 
@@ -580,6 +611,12 @@ namespace Project.DvbIpTv.ChannelList
             // 
             this.separatorChannel2.Name = "separatorChannel2";
             resources.ApplyResources(this.separatorChannel2, "separatorChannel2");
+            // 
+            // menuItemChannelEditList
+            // 
+            this.menuItemChannelEditList.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Edit_16x16;
+            this.menuItemChannelEditList.Name = "menuItemChannelEditList";
+            resources.ApplyResources(this.menuItemChannelEditList, "menuItemChannelEditList");
             // 
             // menuItemChannelRefreshList
             // 
@@ -823,7 +860,7 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // contextMenuListShow
             // 
-            this.contextMenuListShow.Image = global::Project.DvbIpTv.ChannelList.Properties.Resources.RightArrowShort_Green_16x16;
+            this.contextMenuListShow.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Play_LG_16x16;
             this.contextMenuListShow.Name = "contextMenuListShow";
             resources.ApplyResources(this.contextMenuListShow, "contextMenuListShow");
             this.contextMenuListShow.Click += new System.EventHandler(this.buttonDisplayChannel_Click);
@@ -1157,5 +1194,10 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ToolStripMenuItem menuItemEpgPrevious;
         private System.Windows.Forms.ToolStripMenuItem menuItemEpgNext;
         private System.Windows.Forms.ToolStripSeparator separatorEpg2;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelShow;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelShowWith;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelAddFavorites;
+        private System.Windows.Forms.ToolStripSeparator separatorChannel3;
+        private System.Windows.Forms.ToolStripMenuItem menuItemChannelEditList;
     }
 }

@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -44,6 +45,13 @@
   <ItemGroup>
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="ListSelectionChangedEventArgs.cs" />
+    <Compile Include="ListStatusChangedEventArgs.cs" />
+    <Compile Include="Properties\ListViewManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListViewManager.resx</DependentUpon>
     </Compile>
     <Compile Include="SerializationCommon.cs" />
     <Compile Include="Properties\InvariantTexts.Designer.cs">
@@ -63,6 +71,10 @@
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
     <Compile Include="UiBroadcastDiscovery.cs" />
+    <Compile Include="UiBroadcastListViewColumn.cs" />
+    <Compile Include="UiBroadcastListViewManager.cs" />
+    <Compile Include="UiBroadcastListViewModeSettings.cs" />
+    <Compile Include="UiBroadcastListViewSettings.cs" />
     <Compile Include="UiBroadcastService.cs" />
     <Compile Include="UiProviderDiscovery.cs" />
     <Compile Include="UiServiceProvider.cs" />
@@ -73,12 +85,25 @@
       <Project>{5b7c318b-372f-4265-8337-125e4a098532}</Project>
       <Name>DvbIpTypes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UiServices.Common\UiServices.Common.csproj">
+      <Project>{76346905-ac2f-4f01-ba99-bbffbb2a6fe9}</Project>
+      <Name>UiServices.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UiServices.Config\UiServices.Config.csproj">
       <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
       <Name>UiServices.Config</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\ListViewManager.es.resx" />
+    <EmbeddedResource Include="Properties\ListViewManager.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ListViewManager.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\InvariantTexts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>InvariantTexts.Designer.cs</LastGenOutput>

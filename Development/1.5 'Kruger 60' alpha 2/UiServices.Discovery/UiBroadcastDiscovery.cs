@@ -70,21 +70,18 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private void Create(BroadcastDiscoveryXml discoveryXml, string providerDomainName, int version)
         {
             var services = from offering in discoveryXml.BroadcastDiscovery
-                        from list in offering.ServicesList
-                        from service in list.Services
-                        select new UiBroadcastService(service, providerDomainName);
+                           from list in offering.ServicesList
+                           from service in list.Services
+                           select service;
 
-            /*
-            var q = from service in services
-                    orderby service.DisplayName
-                    select service;
-            */
+            var uiServices = from service in services
+                             select new UiBroadcastService(service, providerDomainName);
 
-            var l = new List<UiBroadcastService>(services.Count());
-            l.AddRange(services);
+            var uiServicesList = new List<UiBroadcastService>(services.Count());
+            uiServicesList.AddRange(uiServices);
 
             Version = version;
-            Services = l;
+            Services = uiServicesList;
         } // Create
 
         private void BuildServicesDictionary()

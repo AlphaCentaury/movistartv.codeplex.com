@@ -190,7 +190,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             {
                 return string.Format(Properties.Texts.FormatProviderUnknownDisplayName, Data.DomainName);
             } // if-else
-        } // CalcDisplayName
+        } // GetDisplayName
 
         private string GetDisplayDescription()
         {

@@ -40,18 +40,15 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             var providers = from discovery in discoveryXml.ServiceProviderDiscovery
                             from provider in discovery.ServiceProvider
-                            select new UiServiceProvider(provider);
+                            select provider;
 
-            /*
-            var q = from provider in providers
-                    orderby provider.DisplayName
-                    select provider;
-            */
+            var uiProviders = from provider in providers
+                              select new UiServiceProvider(provider);
 
-            var list = new List<UiServiceProvider>(providers.Count());
-            list.AddRange(providers);
+            var uiProvidersList = new List<UiServiceProvider>(providers.Count());
+            uiProvidersList.AddRange(uiProviders);
 
-            Providers = list.AsReadOnly();
+            Providers = uiProvidersList.AsReadOnly();
         } // Create
     } // class UiProviderDiscovery
 } // class UiProviderDiscovery

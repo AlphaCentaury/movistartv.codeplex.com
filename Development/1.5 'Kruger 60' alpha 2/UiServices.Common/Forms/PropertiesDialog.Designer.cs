@@ -68,7 +68,6 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
             // 
             // contextMenuList
             // 
-            resources.ApplyResources(this.contextMenuList, "contextMenuList");
             this.contextMenuList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contextMenuListCopyValue,
             this.contextMenuListCopyName,
@@ -76,37 +75,38 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
             this.toolStripSeparator1,
             this.contextMenuListCopyAll});
             this.contextMenuList.Name = "contextMenu";
+            resources.ApplyResources(this.contextMenuList, "contextMenuList");
             this.contextMenuList.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuList_Opening);
             // 
             // contextMenuListCopyValue
             // 
-            resources.ApplyResources(this.contextMenuListCopyValue, "contextMenuListCopyValue");
             this.contextMenuListCopyValue.Image = global::Project.DvbIpTv.UiServices.Common.Properties.Resources.Action_Copy_Clip_16x16;
             this.contextMenuListCopyValue.Name = "contextMenuListCopyValue";
+            resources.ApplyResources(this.contextMenuListCopyValue, "contextMenuListCopyValue");
             this.contextMenuListCopyValue.Click += new System.EventHandler(this.contextMenuListCopyValue_Click);
             // 
             // contextMenuListCopyName
             // 
-            resources.ApplyResources(this.contextMenuListCopyName, "contextMenuListCopyName");
             this.contextMenuListCopyName.Name = "contextMenuListCopyName";
+            resources.ApplyResources(this.contextMenuListCopyName, "contextMenuListCopyName");
             this.contextMenuListCopyName.Click += new System.EventHandler(this.contextMenuListCopyName_Click);
             // 
             // contextMenuListCopyRow
             // 
-            resources.ApplyResources(this.contextMenuListCopyRow, "contextMenuListCopyRow");
             this.contextMenuListCopyRow.Name = "contextMenuListCopyRow";
+            resources.ApplyResources(this.contextMenuListCopyRow, "contextMenuListCopyRow");
             this.contextMenuListCopyRow.Click += new System.EventHandler(this.contextMenuListCopyRow_Click);
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // contextMenuListCopyAll
             // 
-            resources.ApplyResources(this.contextMenuListCopyAll, "contextMenuListCopyAll");
             this.contextMenuListCopyAll.Image = global::Project.DvbIpTv.UiServices.Common.Properties.Resources.Action_Copy_Table;
             this.contextMenuListCopyAll.Name = "contextMenuListCopyAll";
+            resources.ApplyResources(this.contextMenuListCopyAll, "contextMenuListCopyAll");
             this.contextMenuListCopyAll.Click += new System.EventHandler(this.contextMenuListCopyAll_Click);
             // 
             // buttonOk

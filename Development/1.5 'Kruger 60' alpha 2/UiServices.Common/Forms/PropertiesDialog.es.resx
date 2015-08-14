@@ -145,9 +145,6 @@
   <data name="contextMenuListCopyRow.Text" xml:space="preserve">
     <value>Copiar &amp;fila</value>
   </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 6</value>
-  </data>
   <data name="contextMenuListCopyAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 22</value>
   </data>
@@ -159,15 +156,5 @@
   </data>
   <data name="buttonOk.Text" xml:space="preserve">
     <value>&amp;Aceptar</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBoxItemIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxItemIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 64</value>
-  </data>
-  <data name="pictureBoxItemIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
   </data>
 </root>

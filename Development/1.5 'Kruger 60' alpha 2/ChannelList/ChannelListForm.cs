@@ -681,6 +681,7 @@ namespace Project.DvbIpTv.ChannelList
                 pictureProviderLogo.Image = null;
                 menuItemProviderDetails.Enabled = false;
                 menuItemChannelRefreshList.Enabled = false;
+                menuItemChannelEditList.Enabled = false;
                 SetBroadcastDiscovery(null);
 
                 return;
@@ -692,6 +693,7 @@ namespace Project.DvbIpTv.ChannelList
 
             menuItemProviderDetails.Enabled = true;
             menuItemChannelRefreshList.Enabled = true;
+            menuItemChannelEditList.Enabled = true;
 
             // TODO: clean-up
             UpdateEpgData();
@@ -886,12 +888,10 @@ namespace Project.DvbIpTv.ChannelList
 
             menuItemChannelListView.Enabled = (broadcastDiscovery != null);
             menuItemChannelListSort.Enabled = (broadcastDiscovery != null);
+            menuItemChannelEditList.Enabled = (broadcastDiscovery != null);
             menuItemChannelVerify.Enabled = (broadcastDiscovery != null);
             menuItemChannelDetails.Enabled = (broadcastDiscovery != null);
             listViewChannels.Enabled = (broadcastDiscovery != null);
-            menuItemRecordingsRecord.Enabled = (broadcastDiscovery != null);
-            buttonRecordChannel.Enabled = (broadcastDiscovery != null);
-            buttonDisplayChannel.Enabled = (broadcastDiscovery != null);
             SelectedBroadcastService = null;
 
             BroadcastServiceChanged();
@@ -901,6 +901,9 @@ namespace Project.DvbIpTv.ChannelList
         {
             var selectedItem = (listViewChannels.SelectedItems.Count > 0) ? listViewChannels.SelectedItems[0] : null;
 
+            menuItemChannelShow.Enabled = (selectedItem != null);
+            menuItemChannelShowWith.Enabled = (selectedItem != null);
+            menuItemChannelAddFavorites.Enabled = (selectedItem != null);
             menuItemChannelDetails.Enabled = (selectedItem != null);
             menuItemRecordingsRecord.Enabled = (selectedItem != null);
             buttonRecordChannel.Enabled = (selectedItem != null);
@@ -1460,6 +1463,8 @@ namespace Project.DvbIpTv.ChannelList
         private void LaunchEpgLoader(bool foreground)
         {
             //TODO: avoid fixed paths & code clean-up
+            //TODO: avoid updating if an update is already in progress
+
 #if DEBUG
             MessageBox.Show(this, "EPG updating is not available in DEBUG builds");
 #else

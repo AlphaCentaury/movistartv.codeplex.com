@@ -149,6 +149,59 @@ namespace DvbIpTypes.Schema2006
     [XmlType(TypeName = "SI", Namespace = "urn:dvb:ipisdns:2006")]
     public partial class ServiceInformation // SI
     {
+        #region Implementation classes for Genre and ParentalRating
+
+        [Serializable()]
+        [XmlType(TypeName = "Genre", Namespace = "urn:dvb:ipisdns:2006")]
+        public class GenreClass
+        {
+            [XmlAttribute("href")]
+            public string Code
+            {
+                get;
+                set;
+            } // Code
+
+            [XmlElement(Namespace = "urn:tva:metadata:2007")]
+            public string Name
+            {
+                get;
+                set;
+            } // Name
+        } // GenreClass
+
+        [Serializable]
+        [XmlType(TypeName = "ParentalGuidance", Namespace = "urn:dvb:ipisdns:2006")]
+        public class ParentalGuidanceClass
+        {
+            [Serializable()]
+            [XmlType(TypeName = "ParentalRating", Namespace = "urn:tva:mpeg7:2005")]
+            public class Mpeg7ParentalRating
+            {
+                [XmlAttribute("href")]
+                public string Code
+                {
+                    get;
+                    set;
+                } // Code
+
+                [XmlElement(Namespace = "urn:tva:mpeg7:2005")]
+                public string Name
+                {
+                    get;
+                    set;
+                } // Name
+            } // Mpeg7ParentalRating
+
+            public Mpeg7ParentalRating ParentalRating
+            {
+                get;
+                set;
+            } // ParentalRating
+        } // ParentalGuidanceClass
+
+        #endregion
+
         public ServiceInformation()
         {
             this.PrimarySISource = PrimarySISource.XML;
@@ -239,6 +292,31 @@ namespace DvbIpTypes.Schema2006
             get;
             set;
         } // ServiceAvailability
+
+        #region The following fields are not part of the 2006 schema, but of later schemas
+
+        [XmlElement("Name")]
+        public MultilingualText[] ShortName
+        {
+            get;
+            set;
+        } // Name
+
+        [XmlElement("Genre")]
+        public GenreClass Genre
+        {
+            get;
+            set;
+        } // Genre
+
+        [XmlElement("ParentalGuidance")]
+        public ParentalGuidanceClass ParentalGuidance
+        {
+            get;
+            set;
+        } // ParentalGuidance
+
+        #endregion
 
         [XmlAnyElement()]
         public XmlElement[] ExtraData

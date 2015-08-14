@@ -2,11 +2,13 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using DvbIpTypes.Schema2006;
+using Project.DvbIpTv.Common;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -19,8 +21,14 @@ namespace Project.DvbIpTv.UiServices.Discovery
     public class UiBroadcastService
     {
         private string fieldKey;
-        private string fieldDisplayName;
+        private string fieldDisplayOriginalName;
+        private string fieldDisplayShortName;
         private string fieldDisplayDescription;
+        private string fieldDisplayGenre;
+        private string fieldDisplayGenreCode;
+        private string fieldDisplayParentalRating;
+        private string fieldDisplayParentalRatingCode;
+        private string fieldDisplayLockLevel;
         private string fieldLocationUrl;
         private string fieldDisplayServiceType;
         [NonSerialized]
@@ -40,65 +48,47 @@ namespace Project.DvbIpTv.UiServices.Discovery
             Key = string.Format(Properties.InvariantTexts.FormatServiceProviderKey, ServiceName, DomainName);
         } // constructor
 
-        [XmlElement(Namespace = IpService.XmlNamespace)]
-        public IpService Data
-        {
-            get;
-            set;
-        } // Data
-
-        public string DomainName
-        {
-            get;
-            set;
-        } // DomainName
+        #region Data for UI display
 
         [XmlIgnore]
-        public string ServiceName
+        public string DisplayLogicalNumber
         {
-            get { return Data.TextualIdentifier.ServiceName; }
-        } // ServiceName
-
-        [XmlIgnore]
-        public string FullServiceName
-        {
-            get { return ServiceName + "." + DomainName; }
-        } // FullServiceName
-
-        [XmlIgnore]
-        public TextualIdentifier ReplacementService
-        {
-            get
-            {
-                var si = Data.ServiceInformation;
-                if (si == null) return null;
-
-                var replacements = si.ReplacementService;
-                if ((replacements == null) || (replacements.Length == 0)) return null;
-
-                var q = from r in replacements
-                        let ti = r.Item as TextualIdentifier
-                        where ti != null
-                        select ti;
-                var replacement = q.FirstOrDefault();
-
-                return replacement;
-            } // get
-        } // ReplacementServiceName
+            get { return (UserLogicalNumber ?? (ServiceLogicalNumber ?? Properties.Texts.ChannelNumberNone)); }
+        } // DisplayLogicalNumber
 
         [XmlIgnore]
         public string DisplayName
         {
+            get { return (UserDisplayName ?? DisplayOriginalName); }
+        } // DisplayName
+
+        [XmlIgnore]
+        public string DisplayShortName
+        {
             get
             {
-                if (fieldDisplayName == null)
+                if (fieldDisplayShortName == null)
                 {
-                    fieldDisplayName = GetDisplayName();
+                    fieldDisplayShortName = GetDisplayShortName();
                 } // if
 
-                return fieldDisplayName;
+                return fieldDisplayShortName;
             } // get
-        } // DisplayName
+        } // DisplayShortName
+
+        [XmlIgnore]
+        public string DisplayOriginalName
+        {
+            get
+            {
+                if (fieldDisplayOriginalName == null)
+                {
+                    fieldDisplayOriginalName = GetDisplayOriginalName();
+                } // if
+
+                return fieldDisplayOriginalName;
+            } // get
+        } // DisplayOriginalName
 
         [XmlIgnore]
         public string DisplayDescription
@@ -115,12 +105,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } // DisplayDescription
 
         [XmlIgnore]
-        public string ServiceType
-        {
-            get { return (Data.ServiceInformation == null) ? null : Data.ServiceInformation.ServiceType; }
-        } // ServiceType
-
-        [XmlIgnore]
         public string DisplayServiceType
         {
             get
@@ -135,20 +119,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } //  DisplayServiceType
 
         [XmlIgnore]
-        public string LocationUrl
-        {
-            get
-            {
-                if (fieldLocationUrl == null)
-                {
-                    fieldLocationUrl = GetLocationUrl();
-                } // if
-
-                return fieldLocationUrl;
-            } // get
-        } // LocationUrl
-
-        [XmlIgnore]
         public string DisplayLocationUrl
         {
             get
@@ -158,6 +128,87 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 return (locationUrl != null) ? locationUrl : Properties.Texts.NotProvidedValue;
             } // get
         } // DisplayLocationUrl
+
+        [XmlIgnore]
+        public string DisplayGenre
+        {
+            get
+            {
+                if (fieldDisplayGenre == null)
+                {
+                    fieldDisplayGenre = GetDisplayGenre();
+                } // if
+
+                return fieldDisplayGenre;
+            } // get
+        } // DisplayGenre
+
+        [XmlIgnore]
+        public string DisplayGenreCode
+        {
+            get
+            {
+                if (fieldDisplayGenreCode == null)
+                {
+                    fieldDisplayGenreCode = GetDisplayGenreCode();
+                } // if
+
+                return fieldDisplayGenreCode;
+            } // get
+        } // DisplayGenreCode
+
+        [XmlIgnore]
+        public string DisplayParentalRating
+        {
+            get
+            {
+                if (fieldDisplayParentalRating == null)
+                {
+                    fieldDisplayParentalRating = GetDisplayParentalRating();
+                } // if
+
+                return fieldDisplayParentalRating;
+            } // get
+        } // DisplayParentalRating
+
+        [XmlIgnore]
+        public string DisplayParentalRatingCode
+        {
+            get
+            {
+                if (fieldDisplayParentalRatingCode == null)
+                {
+                    fieldDisplayParentalRatingCode = GetDisplayParentalRatingCode();
+                } // if
+
+                return fieldDisplayParentalRatingCode;
+            } // get
+        } // DisplayParentalRatingCode
+
+        [XmlIgnore]
+        public string DisplayLockLevel
+        {
+            get
+            {
+                if (fieldDisplayLockLevel == null)
+                {
+                    fieldDisplayLockLevel = GetDisplayLockLevel();
+                } // if
+
+                return fieldDisplayLockLevel;
+            } // get
+        } // DisplayLockLevel
+
+
+        #endregion
+
+        #region UI additional data
+
+        public string DomainName
+        {
+            get;
+            set;
+        } // DomainName
 
         [XmlIgnore]
         public ServiceLogo Logo
@@ -190,11 +241,117 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // set
         } // Key
 
+        [DefaultValue(false)]
         public bool IsDead
         {
             get;
             set;
         } // IsDead
+
+        [XmlIgnore]
+        public string ServiceLogicalNumber
+        {
+            get;
+            set;
+        } // ServiceLogicalNumber
+
+        #endregion
+
+        #region User defined data
+
+        [DefaultValue(false)]
+        public bool IsDisabled
+        {
+            get;
+            set;
+        } // IsDisabled
+
+        [DefaultValue(0)]
+        public int LockLevel
+        {
+            get;
+            set;
+        } // LockLevel
+
+        [DefaultValue(null)]
+        public string UserDisplayName
+        {
+            get;
+            set;
+        } // UserDisplayName
+
+        [DefaultValue(null)]
+        public string UserLogicalNumber
+        {
+            get;
+            set;
+        } // UserLogicalNumber
+
+        #endregion
+
+        #region Shortcuts for underlying BroadcastService data
+
+        [XmlElement(Namespace = IpService.XmlNamespace)]
+        public IpService Data
+        {
+            get;
+            set;
+        } // Data
+
+        [XmlIgnore]
+        public string ServiceName
+        {
+            get { return Data.TextualIdentifier.ServiceName; }
+        } // ServiceName
+
+        [XmlIgnore]
+        public string FullServiceName
+        {
+            get { return ServiceName + "." + DomainName; }
+        } // FullServiceName
+
+        [XmlIgnore]
+        public TextualIdentifier ReplacementService
+        {
+            get
+            {
+                var si = Data.ServiceInformation;
+                if (si == null) return null;
+
+                var replacements = si.ReplacementService;
+                if ((replacements == null) || (replacements.Length == 0)) return null;
+
+                var q = from r in replacements
+                        let ti = r.Item as TextualIdentifier
+                        where ti != null
+                        select ti;
+                var replacement = q.FirstOrDefault();
+
+                return replacement;
+            } // get
+        } // ReplacementService
+
+        [XmlIgnore]
+        public string ServiceType
+        {
+            get { return (Data.ServiceInformation == null) ? null : Data.ServiceInformation.ServiceType; }
+        } // ServiceType
+
+        [XmlIgnore]
+        public string LocationUrl
+        {
+            get
+            {
+                if (fieldLocationUrl == null)
+                {
+                    fieldLocationUrl = GetLocationUrl();
+                } // if
+
+                return fieldLocationUrl;
+            } // get
+        } // LocationUrl
+
+        #endregion
 
         // v1.0 RC 0: code moved from ChannelList > ChanneListForm.cs > DumpProperties(UiBroadcastService)
 
@@ -355,7 +512,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
             return properties;
         } // DumpProperties
 
-        private string GetDisplayName()
+        #region Data extraction for underlying BroadcastService
+
+        private string GetDisplayOriginalName()
         {
             if (Data.ServiceInformation != null)
             {
@@ -364,7 +523,18 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // if
 
             return string.Format(Properties.Texts.FormatBroadcastUnknownDisplayName, Data.TextualIdentifier.ServiceName, DomainName);
-        } // GetDisplayName
+        } // GetDisplayOriginalName
+
+        private string GetDisplayShortName()
+        {
+            if (Data.ServiceInformation != null)
+            {
+                var text = Data.ServiceInformation.ShortName.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguagesList, true, null);
+                if (text != null) return text;
+            } // if
+
+            return Properties.Texts.NotProvidedValue;
+        } // GetDisplayShortName
 
         private string GetDisplayDescription()
         {
@@ -406,6 +576,62 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // if-else
         } // GetDisplayServiceType
 
+        private string GetDisplayGenre()
+        {
+            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.Genre != null))
+            {
+                return Data.ServiceInformation.Genre.Name;
+            } // if
+
+            return Properties.Texts.NotProvidedValue;
+        } // GetDisplayGenre
+
+        private string GetDisplayGenreCode()
+        {
+            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.Genre != null))
+            {
+                var code = Data.ServiceInformation.Genre.Code;
+                if (code.StartsWith("urn:miviewtv:cs:GenreCS:", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    code.Substring(21);
+                } // if
+                return code;
+            } // if
+
+            return Properties.Texts.NotProvidedValue;
+        } // GetDisplayGenreCode
+
+        private string GetDisplayParentalRating()
+        {
+            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.ParentalGuidance != null) && (Data.ServiceInformation.ParentalGuidance.ParentalRating != null))
+            {
+                return Data.ServiceInformation.ParentalGuidance.ParentalRating.Name;
+            } // if
+
+            return Properties.Texts.NotProvidedValue;
+        } // GetDisplayParentalRating
+
+        private string GetDisplayParentalRatingCode()
+        {
+            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.ParentalGuidance != null) && (Data.ServiceInformation.ParentalGuidance.ParentalRating != null))
+            {
+                var code = Data.ServiceInformation.ParentalGuidance.ParentalRating.Code;
+                if (code.StartsWith("urn:dvb:metadata:cs:ParentalGuidanceCS:", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    code.Substring(34);
+                } // if
+                return code;
+            } // if
+
+            return Properties.Texts.NotProvidedValue;
+        } // GetDisplayParentalRatingCode
+
+        private string GetDisplayLockLevel()
+        {
+            // TODO: GetDisplayLockLevel
+            return Properties.Texts.NotProvidedValue;
+        } // GetDisplayLockLevel
+
         private ServiceLogo GetLogo()
         {
             return AppUiConfiguration.Current.ServiceLogoMappings.Get(Data.TextualIdentifier.DomainName,
@@ -413,5 +639,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 Data.TextualIdentifier.ServiceName,
                 ServiceType);
         } // GetLogo
+
+        #endregion
     } // class UiBroadcastService
 } // namespace

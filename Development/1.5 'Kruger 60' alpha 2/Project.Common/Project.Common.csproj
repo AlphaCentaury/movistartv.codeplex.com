@@ -74,6 +74,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
+    <Compile Include="XmlNullable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="License.txt" />

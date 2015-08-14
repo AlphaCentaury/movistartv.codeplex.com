@@ -117,34 +117,130 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BroadcastUnknownDisplayDescription" xml:space="preserve">
-    <value>No existe una descripción de este canal de TV o servicio</value>
+  <data name="ColumnDescription" xml:space="preserve">
+    <value>Descripción del canal</value>
   </data>
-  <data name="ChannelNumberNone" xml:space="preserve">
-    <value>---</value>
+  <data name="ColumnDescriptionShort" xml:space="preserve">
+    <value>Descripción</value>
   </data>
-  <data name="FormatBroadcastUnknownDisplayName" xml:space="preserve">
-    <value>Desconocido: {0}.{1}</value>
+  <data name="ColumnDvbType" xml:space="preserve">
+    <value>Tipo de servicio DVB</value>
   </data>
-  <data name="FormatProviderFriendlyDisplayName" xml:space="preserve">
-    <value>{0} (deducido)</value>
+  <data name="ColumnDvbTypeShort" xml:space="preserve">
+    <value>Tipo</value>
   </data>
-  <data name="FormatProviderUnknownDisplayName" xml:space="preserve">
-    <value>(Sin nombre) {0}</value>
+  <data name="ColumnFullServiceId" xml:space="preserve">
+    <value>Identificador del servicio (con dominio)</value>
   </data>
-  <data name="FormatServiceTypeIdUnknown" xml:space="preserve">
-    <value>Desconocido ({0})</value>
+  <data name="ColumnFullServiceIdShort" xml:space="preserve">
+    <value>Id + dominio</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>No</value>
+  <data name="ColumnGenre" xml:space="preserve">
+    <value>Género (tipo de programación)</value>
   </data>
-  <data name="NotProvidedValue" xml:space="preserve">
-    <value>&lt;No suministrado&gt;</value>
+  <data name="ColumnGenreCode" xml:space="preserve">
+    <value>Género (código)</value>
   </data>
-  <data name="ProviderUnknownDisplayDescription" xml:space="preserve">
-    <value>No existe una descripción de este proveedor de servicios</value>
+  <data name="ColumnGenreCodeShort" xml:space="preserve">
+    <value>Cód. género</value>
   </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Sí</value>
+  <data name="ColumnGenreShort" xml:space="preserve">
+    <value>Género</value>
+  </data>
+  <data name="ColumnIsActive" xml:space="preserve">
+    <value>Está disponible</value>
+  </data>
+  <data name="ColumnIsActiveShort" xml:space="preserve">
+    <value>Disponible</value>
+  </data>
+  <data name="ColumnIsEnabled" xml:space="preserve">
+    <value>Está habilitado por el usuario</value>
+  </data>
+  <data name="ColumnIsEnabledShort" xml:space="preserve">
+    <value>Habilitado</value>
+  </data>
+  <data name="ColumnLocationUrl" xml:space="preserve">
+    <value>Direción URL de ubicación</value>
+  </data>
+  <data name="ColumnLocationUrlShort" xml:space="preserve">
+    <value>Ubicación</value>
+  </data>
+  <data name="ColumnLockLevel" xml:space="preserve">
+    <value>Nivel de bloqueo parental</value>
+  </data>
+  <data name="ColumnLockLevelShort" xml:space="preserve">
+    <value>Bloqueo</value>
+  </data>
+  <data name="ColumnName" xml:space="preserve">
+    <value>Nombre del canal</value>
+  </data>
+  <data name="ColumnNameAndNumber" xml:space="preserve">
+    <value>Nombre y número del canal</value>
+  </data>
+  <data name="ColumnNameAndNumberShort" xml:space="preserve">
+    <value>Nombre + Nº</value>
+  </data>
+  <data name="ColumnNameShort" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="ColumnNumber" xml:space="preserve">
+    <value>Número de canal</value>
+  </data>
+  <data name="ColumnNumberAndName" xml:space="preserve">
+    <value>Número y nombre del canal</value>
+  </data>
+  <data name="ColumnNumberAndNameShort" xml:space="preserve">
+    <value>Nº + Nombre</value>
+  </data>
+  <data name="ColumnNumberShort" xml:space="preserve">
+    <value>Nº</value>
+  </data>
+  <data name="ColumnOriginalName" xml:space="preserve">
+    <value>Nombre original del canal (asignado por operador)</value>
+  </data>
+  <data name="ColumnOriginalNameShort" xml:space="preserve">
+    <value>Nombre original</value>
+  </data>
+  <data name="ColumnOriginalNumber" xml:space="preserve">
+    <value>Número original del canal (asignado por operador)</value>
+  </data>
+  <data name="ColumnOriginalNumberShort" xml:space="preserve">
+    <value>Nº Orig.</value>
+  </data>
+  <data name="ColumnParentalRating" xml:space="preserve">
+    <value>Calificación parental</value>
+  </data>
+  <data name="ColumnParentalRatingCode" xml:space="preserve">
+    <value>Calificación parental (código)</value>
+  </data>
+  <data name="ColumnParentalRatingCodeShort" xml:space="preserve">
+    <value>Cod. calificación</value>
+  </data>
+  <data name="ColumnParentalRatingShort" xml:space="preserve">
+    <value>Calificación</value>
+  </data>
+  <data name="ColumnServiceId" xml:space="preserve">
+    <value>Identificador del servicio</value>
+  </data>
+  <data name="ColumnServiceIdShort" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="ColumnShortName" xml:space="preserve">
+    <value>Abreviatura del canal</value>
+  </data>
+  <data name="ColumnShortNameShort" xml:space="preserve">
+    <value>Abreviatura</value>
+  </data>
+  <data name="ColumnUserName" xml:space="preserve">
+    <value>Nombre del canal (asignado por usuario)</value>
+  </data>
+  <data name="ColumnUserNameShort" xml:space="preserve">
+    <value>Nombre usuario</value>
+  </data>
+  <data name="ColumnUserNumber" xml:space="preserve">
+    <value>Número de canal (asignado por usuario)</value>
+  </data>
+  <data name="ColumnUserNumberShort" xml:space="preserve">
+    <value>Nº Us.</value>
   </data>
 </root>

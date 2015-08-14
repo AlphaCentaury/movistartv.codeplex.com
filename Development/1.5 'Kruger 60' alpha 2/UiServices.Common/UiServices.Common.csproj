@@ -175,7 +175,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\PropertiesDialog.es.resx" />
     <EmbeddedResource Include="Properties\PropertiesDialog.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PropertiesDialog.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\CommonForm.es.resx" />

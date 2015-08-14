@@ -22,7 +22,7 @@ namespace Project.DvbIpTv.UiServices.Common.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class PropertiesDialog {
+    public class PropertiesDialog {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Project.DvbIpTv.UiServices.Common.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.Common.Properties.PropertiesDialog", typeof(PropertiesDialog).Assembly);
@@ -51,7 +51,7 @@ namespace Project.DvbIpTv.UiServices.Common.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Project.DvbIpTv.UiServices.Common.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Properties of selected item.
         /// </summary>
-        internal static string CaptionDefault {
+        public static string CaptionDefault {
             get {
                 return ResourceManager.GetString("CaptionDefault", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Project.DvbIpTv.UiServices.Common.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;unknown&gt;.
         /// </summary>
-        internal static string NameNull {
+        public static string NameNull {
             get {
                 return ResourceManager.GetString("NameNull", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Project.DvbIpTv.UiServices.Common.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;not specified&gt;.
         /// </summary>
-        internal static string ValueNull {
+        public static string ValueNull {
             get {
                 return ResourceManager.GetString("ValueNull", resourceCulture);
             }
