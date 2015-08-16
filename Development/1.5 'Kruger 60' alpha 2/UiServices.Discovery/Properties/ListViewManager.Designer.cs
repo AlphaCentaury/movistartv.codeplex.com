@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Channel description.
+        ///   Looks up a localized string similar to Channel: Description.
         /// </summary>
         internal static string ColumnDescription {
             get {
@@ -79,7 +79,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DVB service type.
+        ///   Looks up a localized string similar to Channel: DVB type (HD/SD).
         /// </summary>
         internal static string ColumnDvbType {
             get {
@@ -97,7 +97,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Service identifier (with domain).
+        ///   Looks up a localized string similar to Service: Full identifier.
         /// </summary>
         internal static string ColumnFullServiceId {
             get {
@@ -106,7 +106,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Id + domain.
+        ///   Looks up a localized string similar to Full Id.
         /// </summary>
         internal static string ColumnFullServiceIdShort {
             get {
@@ -124,7 +124,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Genre code.
+        ///   Looks up a localized string similar to Service: Genre code.
         /// </summary>
         internal static string ColumnGenreCode {
             get {
@@ -151,7 +151,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is channel available.
+        ///   Looks up a localized string similar to Channel: Is available.
         /// </summary>
         internal static string ColumnIsActive {
             get {
@@ -169,7 +169,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is channel enabled by the user.
+        ///   Looks up a localized string similar to User: Is enabled.
         /// </summary>
         internal static string ColumnIsEnabled {
             get {
@@ -187,7 +187,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL location address.
+        ///   Looks up a localized string similar to Servicio: URL location address.
         /// </summary>
         internal static string ColumnLocationUrl {
             get {
@@ -196,7 +196,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL.
+        ///   Looks up a localized string similar to Location URL.
         /// </summary>
         internal static string ColumnLocationUrlShort {
             get {
@@ -223,7 +223,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Channel name.
+        ///   Looks up a localized string similar to Channel: Name.
         /// </summary>
         internal static string ColumnName {
             get {
@@ -232,7 +232,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Channel name and number.
+        ///   Looks up a localized string similar to Channel: Name &amp; number.
         /// </summary>
         internal static string ColumnNameAndNumber {
             get {
@@ -241,7 +241,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name + Ch#.
+        ///   Looks up a localized string similar to Name &amp; Ch#.
         /// </summary>
         internal static string ColumnNameAndNumberShort {
             get {
@@ -259,7 +259,16 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Channel number.
+        ///   Looks up a localized string similar to (None).
+        /// </summary>
+        internal static string ColumnNone {
+            get {
+                return ResourceManager.GetString("ColumnNone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Channel: Number.
         /// </summary>
         internal static string ColumnNumber {
             get {
@@ -268,11 +277,20 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Channel number and name.
+        ///   Looks up a localized string similar to Channel: Number &amp; name.
         /// </summary>
         internal static string ColumnNumberAndName {
             get {
                 return ResourceManager.GetString("ColumnNumberAndName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canal: Number &amp; name (in new line).
+        /// </summary>
+        internal static string ColumnNumberAndNameCrlf {
+            get {
+                return ResourceManager.GetString("ColumnNumberAndNameCrlf", resourceCulture);
             }
         }
         
@@ -295,7 +313,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Original channel name (operator asigned).
+        ///   Looks up a localized string similar to Operator: Original name.
         /// </summary>
         internal static string ColumnOriginalName {
             get {
@@ -313,7 +331,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Original channel number (operator asigned).
+        ///   Looks up a localized string similar to Operator: Original number.
         /// </summary>
         internal static string ColumnOriginalNumber {
             get {
@@ -322,7 +340,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Op. Ch#.
+        ///   Looks up a localized string similar to Org#.
         /// </summary>
         internal static string ColumnOriginalNumberShort {
             get {
@@ -340,7 +358,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parental rating code.
+        ///   Looks up a localized string similar to Service: Parental rating code.
         /// </summary>
         internal static string ColumnParentalRatingCode {
             get {
@@ -367,7 +385,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Service identifier.
+        ///   Looks up a localized string similar to Service: Identifier.
         /// </summary>
         internal static string ColumnServiceId {
             get {
@@ -385,7 +403,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Short channel name.
+        ///   Looks up a localized string similar to Channel: Short name.
         /// </summary>
         internal static string ColumnShortName {
             get {
@@ -403,7 +421,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User defined channel name.
+        ///   Looks up a localized string similar to User: Channel name.
         /// </summary>
         internal static string ColumnUserName {
             get {
@@ -421,7 +439,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User defined channel number.
+        ///   Looks up a localized string similar to User: Channel number.
         /// </summary>
         internal static string ColumnUserNumber {
             get {
@@ -430,11 +448,39 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User #.
+        ///   Looks up a localized string similar to Usr#.
         /// </summary>
         internal static string ColumnUserNumberShort {
             get {
                 return ResourceManager.GetString("ColumnUserNumberShort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} ({1}).
+        /// </summary>
+        internal static string NameAndNumberFormat {
+            get {
+                return ResourceManager.GetString("NameAndNumberFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}
+        ///{1}.
+        /// </summary>
+        internal static string NumberAndNameCrlfFormat {
+            get {
+                return ResourceManager.GetString("NumberAndNameCrlfFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1}.
+        /// </summary>
+        internal static string NumberAndNameFormat {
+            get {
+                return ResourceManager.GetString("NumberAndNameFormat", resourceCulture);
             }
         }
     }

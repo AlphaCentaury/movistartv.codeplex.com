@@ -65,7 +65,10 @@ namespace Project.DvbIpTv.Common.Serialization
             {
                 var c = input[i];
                 var isWhitespace = char.IsWhiteSpace(c);
-                if (isWhitespace) c = ' ';
+                if (isWhitespace)
+                {
+                    c = ' ';
+                } // if
                 if ((i == startIndex) || !isWhitespace || (isWhitespace && !char.IsWhiteSpace(input[i - 1])))
                 {
                     buffer.Append(c);

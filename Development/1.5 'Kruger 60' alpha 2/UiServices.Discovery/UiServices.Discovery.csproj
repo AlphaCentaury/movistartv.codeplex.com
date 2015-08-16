@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,11 +71,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
+    <Compile Include="ServiceSortComparer.cs" />
     <Compile Include="UiBroadcastDiscovery.cs" />
-    <Compile Include="UiBroadcastListViewColumn.cs" />
-    <Compile Include="UiBroadcastListViewManager.cs" />
-    <Compile Include="UiBroadcastListViewModeSettings.cs" />
-    <Compile Include="UiBroadcastListViewSettings.cs" />
+    <Compile Include="UiBroadcastListColumn.cs" />
+    <Compile Include="UiBroadcastListManager.cs" />
+    <Compile Include="UiBroadcastListModeSettings.cs" />
+    <Compile Include="UiBroadcastListSettings.cs" />
+    <Compile Include="UiBroadcastListSortColumn.cs" />
     <Compile Include="UiBroadcastService.cs" />
     <Compile Include="UiProviderDiscovery.cs" />
     <Compile Include="UiServiceProvider.cs" />

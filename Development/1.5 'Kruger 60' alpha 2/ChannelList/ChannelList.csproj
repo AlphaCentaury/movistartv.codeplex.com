@@ -121,6 +121,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
+    <Compile Include="TestNewChannelListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestNewChannelListForm.Designer.cs">
+      <DependentUpon>TestNewChannelListForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChannelListForm.es.resx">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SelectProviderDialog.resx">
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestNewChannelListForm.resx">
+      <DependentUpon>TestNewChannelListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\solution-license.rtf">
       <Link>Resources\solution-license.rtf</Link>

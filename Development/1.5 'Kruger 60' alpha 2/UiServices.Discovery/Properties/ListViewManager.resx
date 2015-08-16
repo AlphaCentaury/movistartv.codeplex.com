@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ColumnDescription" xml:space="preserve">
-    <value>Channel description</value>
+    <value>Channel: Description</value>
   </data>
   <data name="ColumnDescriptionShort" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="ColumnDvbType" xml:space="preserve">
-    <value>DVB service type</value>
+    <value>Channel: DVB type (HD/SD)</value>
   </data>
   <data name="ColumnDvbTypeShort" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="ColumnFullServiceId" xml:space="preserve">
-    <value>Service identifier (with domain)</value>
+    <value>Service: Full identifier</value>
   </data>
   <data name="ColumnFullServiceIdShort" xml:space="preserve">
-    <value>Id + domain</value>
+    <value>Full Id</value>
   </data>
   <data name="ColumnGenre" xml:space="preserve">
     <value>Genre</value>
   </data>
   <data name="ColumnGenreCode" xml:space="preserve">
-    <value>Genre code</value>
+    <value>Service: Genre code</value>
   </data>
   <data name="ColumnGenreCodeShort" xml:space="preserve">
     <value>Genre code</value>
@@ -148,22 +148,22 @@
     <value>Genre</value>
   </data>
   <data name="ColumnIsActive" xml:space="preserve">
-    <value>Is channel available</value>
+    <value>Channel: Is available</value>
   </data>
   <data name="ColumnIsActiveShort" xml:space="preserve">
     <value>Available</value>
   </data>
   <data name="ColumnIsEnabled" xml:space="preserve">
-    <value>Is channel enabled by the user</value>
+    <value>User: Is enabled</value>
   </data>
   <data name="ColumnIsEnabledShort" xml:space="preserve">
     <value>Enabled</value>
   </data>
   <data name="ColumnLocationUrl" xml:space="preserve">
-    <value>URL location address</value>
+    <value>Servicio: URL location address</value>
   </data>
   <data name="ColumnLocationUrlShort" xml:space="preserve">
-    <value>URL</value>
+    <value>Location URL</value>
   </data>
   <data name="ColumnLockLevel" xml:space="preserve">
     <value>Parental lock level</value>
@@ -172,22 +172,28 @@
     <value>Lock</value>
   </data>
   <data name="ColumnName" xml:space="preserve">
-    <value>Channel name</value>
+    <value>Channel: Name</value>
   </data>
   <data name="ColumnNameAndNumber" xml:space="preserve">
-    <value>Channel name and number</value>
+    <value>Channel: Name &amp; number</value>
   </data>
   <data name="ColumnNameAndNumberShort" xml:space="preserve">
-    <value>Name + Ch#</value>
+    <value>Name &amp; Ch#</value>
   </data>
   <data name="ColumnNameShort" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="ColumnNone" xml:space="preserve">
+    <value>(None)</value>
+  </data>
   <data name="ColumnNumber" xml:space="preserve">
-    <value>Channel number</value>
+    <value>Channel: Number</value>
   </data>
   <data name="ColumnNumberAndName" xml:space="preserve">
-    <value>Channel number and name</value>
+    <value>Channel: Number &amp; name</value>
+  </data>
+  <data name="ColumnNumberAndNameCrlf" xml:space="preserve">
+    <value>Canal: Number &amp; name (in new line)</value>
   </data>
   <data name="ColumnNumberAndNameShort" xml:space="preserve">
     <value>Ch# Name</value>
@@ -196,22 +202,22 @@
     <value>Ch#</value>
   </data>
   <data name="ColumnOriginalName" xml:space="preserve">
-    <value>Original channel name (operator asigned)</value>
+    <value>Operator: Original name</value>
   </data>
   <data name="ColumnOriginalNameShort" xml:space="preserve">
     <value>Original name</value>
   </data>
   <data name="ColumnOriginalNumber" xml:space="preserve">
-    <value>Original channel number (operator asigned)</value>
+    <value>Operator: Original number</value>
   </data>
   <data name="ColumnOriginalNumberShort" xml:space="preserve">
-    <value>Op. Ch#</value>
+    <value>Org#</value>
   </data>
   <data name="ColumnParentalRating" xml:space="preserve">
     <value>Parental rating</value>
   </data>
   <data name="ColumnParentalRatingCode" xml:space="preserve">
-    <value>Parental rating code</value>
+    <value>Service: Parental rating code</value>
   </data>
   <data name="ColumnParentalRatingCodeShort" xml:space="preserve">
     <value>Rating code</value>
@@ -220,27 +226,37 @@
     <value>Rating</value>
   </data>
   <data name="ColumnServiceId" xml:space="preserve">
-    <value>Service identifier</value>
+    <value>Service: Identifier</value>
   </data>
   <data name="ColumnServiceIdShort" xml:space="preserve">
     <value>Id</value>
   </data>
   <data name="ColumnShortName" xml:space="preserve">
-    <value>Short channel name</value>
+    <value>Channel: Short name</value>
   </data>
   <data name="ColumnShortNameShort" xml:space="preserve">
     <value>Short name</value>
   </data>
   <data name="ColumnUserName" xml:space="preserve">
-    <value>User defined channel name</value>
+    <value>User: Channel name</value>
   </data>
   <data name="ColumnUserNameShort" xml:space="preserve">
     <value>User name</value>
   </data>
   <data name="ColumnUserNumber" xml:space="preserve">
-    <value>User defined channel number</value>
+    <value>User: Channel number</value>
   </data>
   <data name="ColumnUserNumberShort" xml:space="preserve">
-    <value>User #</value>
+    <value>Usr#</value>
+  </data>
+  <data name="NameAndNumberFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="NumberAndNameCrlfFormat" xml:space="preserve">
+    <value>{0}
+{1}</value>
+  </data>
+  <data name="NumberAndNameFormat" xml:space="preserve">
+    <value>{0} {1}</value>
   </data>
 </root>

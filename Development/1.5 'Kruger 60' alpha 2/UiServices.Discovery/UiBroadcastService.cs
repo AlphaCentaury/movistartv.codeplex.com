@@ -242,11 +242,11 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } // Key
 
         [DefaultValue(false)]
-        public bool IsDead
+        public bool IsInactive
         {
             get;
             set;
-        } // IsDead
+        } // IsInactive
 
         [XmlIgnore]
         public string ServiceLogicalNumber
@@ -363,7 +363,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             properties.Add(new Property("Description (display)", DisplayDescription));
             properties.Add(new Property("Type (display)", DisplayServiceType));
             properties.Add(new Property("Location URL (display)", DisplayLocationUrl));
-            properties.Add(new Property("Is active", (!IsDead).ToString()));
+            properties.Add(new Property("Is active", (!IsInactive).ToString()));
 
             if (Data.ServiceLocation == null)
             {
@@ -593,7 +593,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 var code = Data.ServiceInformation.Genre.Code;
                 if (code.StartsWith("urn:miviewtv:cs:GenreCS:", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    code.Substring(21);
+                    return code.Substring(21);
                 } // if
                 return code;
             } // if

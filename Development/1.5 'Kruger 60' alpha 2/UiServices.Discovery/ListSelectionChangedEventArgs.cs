@@ -12,17 +12,10 @@ namespace Project.DvbIpTv.UiServices.Discovery
             // no op
         } // constructor
 
-        public ListSelectionChangedEventArgs(int index, UiBroadcastService item)
+        public ListSelectionChangedEventArgs(UiBroadcastService item)
         {
-            ItemIndex = index;
             Item = item;
         } // constructor
-
-        public int ItemIndex
-        {
-            get;
-            set;
-        } // ItemIndex
 
         public UiBroadcastService Item
         {

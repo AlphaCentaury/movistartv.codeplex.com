@@ -295,7 +295,7 @@ namespace DvbIpTypes.Schema2006
 
         #region The following fields are not part of the 2006 schema, but of later schemas
 
-        [XmlElement("Name")]
+        [XmlElement("ShortName")]
         public MultilingualText[] ShortName
         {
             get;

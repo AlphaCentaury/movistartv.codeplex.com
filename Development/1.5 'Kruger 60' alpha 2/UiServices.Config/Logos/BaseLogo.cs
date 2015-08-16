@@ -12,6 +12,21 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
 {
     public abstract class BaseLogo
     {
+        public static Size LogoSizeToSize(LogoSize logoSize)
+        {
+            switch (logoSize)
+            {
+                case LogoSize.Size32: return new Size(32, 32);
+                case LogoSize.Size48: return new Size(48, 48);
+                case LogoSize.Size64: return new Size(64,64);
+                case LogoSize.Size96: return new Size(96,96);
+                case LogoSize.Size128: return new Size(128, 128);
+                case LogoSize.Size256: return new Size(256, 256);
+                default:
+                    throw new IndexOutOfRangeException();
+            } // switch
+        } // LogoSizeToSize
+
         public string File
         {
             get;

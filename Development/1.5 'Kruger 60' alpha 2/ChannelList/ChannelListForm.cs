@@ -90,6 +90,12 @@ namespace Project.DvbIpTv.ChannelList
             {
                 SafeCall(SelectProvider);
             } // if
+
+#if DEBUG
+            // TODO: Remove on production code
+            var form = new TestNewChannelListForm();
+            form.Show(this);
+#endif
         } // ChannelListForm_Shown
 
         private void ChannelListForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -375,7 +381,7 @@ namespace Project.DvbIpTv.ChannelList
                 case MulticastScannerOptionsDialog.ScanWhatList.ActiveServices:
                 case MulticastScannerOptionsDialog.ScanWhatList.DeadServices:
                     whatList = from service in BroadcastDiscovery.Services
-                               where service.IsDead == (list == MulticastScannerOptionsDialog.ScanWhatList.DeadServices)
+                               where service.IsInactive == (list == MulticastScannerOptionsDialog.ScanWhatList.DeadServices)
                                select service;
                     break;
                 default:
@@ -514,7 +520,7 @@ namespace Project.DvbIpTv.ChannelList
 
             if (SelectedBroadcastService == null) return;
 
-            if (SelectedBroadcastService.IsDead)
+            if (SelectedBroadcastService.IsInactive)
             {
                 var box = new ExceptionMessageBox()
                 {
@@ -757,7 +763,8 @@ namespace Project.DvbIpTv.ChannelList
                             MulticastPort = SelectedServiceProvider.Offering.Push[0].Port,
                             Description = Properties.Texts.BroadcastObtainingList,
                             DescriptionParsing = Properties.Texts.BroadcastParsingList,
-                            PayloadDataType = typeof(BroadcastDiscoveryXml)
+                            PayloadDataType = typeof(BroadcastDiscoveryXml),
+                            AllowExtraWhitespace = false,
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.BroadcastListUnableRefresh,
@@ -829,7 +836,7 @@ namespace Project.DvbIpTv.ChannelList
                     item.UseItemStyleForSubItems = false;
                     item.SubItems.Add(service.DisplayServiceType);
                 } // if-else
-                PrivateEnableChannelListItem(service, item, !service.IsDead);
+                PrivateEnableChannelListItem(service, item, !service.IsInactive);
                 item.Tag = service;
                 item.Name = service.Key;
                 listItems[index++] = item;
@@ -1046,7 +1053,7 @@ namespace Project.DvbIpTv.ChannelList
         {
             if (SelectedBroadcastService == null) return;
 
-            if (SelectedBroadcastService.IsDead)
+            if (SelectedBroadcastService.IsInactive)
             {
                 var box = new ExceptionMessageBox()
                 {
@@ -1109,7 +1116,7 @@ namespace Project.DvbIpTv.ChannelList
                 } // using image
             } // using original
 
-            // get original large logo; convert to grayscale; add to small image list
+            // get original large logo; convert to grayscale; add to large image list
             using (var original = imageListChannelsLarge.Images[logo.Key])
             {
                 using (var image = PictureBoxEx.ToGrayscale(original))

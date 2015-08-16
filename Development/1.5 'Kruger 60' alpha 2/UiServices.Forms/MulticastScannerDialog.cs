@@ -301,7 +301,7 @@ namespace Project.DvbIpTv.UiServices.Forms
                     {
                         ChannelScanResult(e, new ChannelScanResultEventArgs()
                             {
-                                IsDead = progress.Service.IsDead,
+                                IsDead = progress.Service.IsInactive,
                                 IsSkipped = false,
                                 Service = progress.Service,
                                 DeadAction = this.DeadAction
@@ -313,7 +313,7 @@ namespace Project.DvbIpTv.UiServices.Forms
                     {
                         ChannelScanResult(e, new ChannelScanResultEventArgs()
                             {
-                                IsDead = progress.Service.IsDead,
+                                IsDead = progress.Service.IsInactive,
                                 IsSkipped = true,
                                 Service = progress.Service,
                                 DeadAction = this.DeadAction
@@ -390,19 +390,19 @@ namespace Project.DvbIpTv.UiServices.Forms
                 {
                     s.Receive(buffer);
                     progress.Active++;
-                    service.IsDead = false;
+                    service.IsInactive = false;
                 }
                 catch (SocketException ex)
                 {
                     if (ex.SocketErrorCode == SocketError.TimedOut)
                     {
                         progress.Dead++;
-                        service.IsDead = true;
+                        service.IsInactive = true;
                     }
                     else
                     {
                         progress.Error++;
-                        service.IsDead = true;
+                        service.IsInactive = true;
                     } // if
                 } // try-catch
                 s.Close();
