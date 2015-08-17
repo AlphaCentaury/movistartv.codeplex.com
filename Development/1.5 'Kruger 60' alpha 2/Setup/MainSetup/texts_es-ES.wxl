@@ -7,8 +7,8 @@ All rights reserved, except those granted by the governing license of this softw
 	<String Id="LANGUAGE">3082</String>
   <String Id="DowngradeErrorMessage">Ya está instalada una nueva versión de [ProductName].</String>
   <String Id="NetFrameworkNotPresent">Esta aplicación requiere .NET Framework 3.5 SP1. Por favor, instale el .NET Framework y ejecute el instalador de nuevo.</String>
-  <String Id="ProductName">Decodificador movistar+ 1.5 “Kruger 60” alpha 1</String>
-  <String Id="PackageDescription">Decodificador DVB-IPTV para movistar+ 1.5 “Kruger 60” alpha 1</String>
+  <String Id="ProductName">Decodificador movistar+ 1.5 “Kruger 60” alpha 2</String>
+  <String Id="PackageDescription">Decodificador DVB-IPTV para movistar+ 1.5 “Kruger 60” alpha 2</String>
   <String Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT">Ejecutar “Asistente de configuración inicial”</String>
   <String Id="SourceFileLicenseAgreement">solution-license_es</String>
   <String Id="FileLicenseAgreement">Acuerdo de licencia</String>
