@@ -248,11 +248,10 @@ namespace Project.DvbIpTv.DvbStp.Client
             // Computed at reception: Header.SegmentVersion = RawHeader[7];
 
             // byte 8-9
-            TempBytesBuffer[1] = RawHeader[8];
-            TempBytesBuffer[0] = (byte)(RawHeader[9] & DvbStpHeaderMasks.SectionNumberLSB);
+            TempBytesBuffer[0] = RawHeader[8];
+            TempBytesBuffer[1] = (byte)(RawHeader[9] & DvbStpHeaderMasks.SectionNumberLSB);
             networkShort = BitConverter.ToInt16(TempBytesBuffer, 0);
-            networkShort <<= 4;
-            Header.SectionNumber = IPAddress.NetworkToHostOrder(networkShort);
+            Header.SectionNumber = (short)((IPAddress.NetworkToHostOrder(networkShort) >> 4) & 0x00FFFF);
 
             // byte 9-10
             TempBytesBuffer[0] = (byte)(RawHeader[9] & DvbStpHeaderMasks.LastSectionNumberMSB);
