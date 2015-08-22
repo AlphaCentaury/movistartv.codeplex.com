@@ -111,7 +111,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UA-66146192-4.
+        ///   Looks up a localized string similar to UA-66146192-3.
         /// </summary>
         internal static string AnalyticsGoogleTrackingId {
             get {

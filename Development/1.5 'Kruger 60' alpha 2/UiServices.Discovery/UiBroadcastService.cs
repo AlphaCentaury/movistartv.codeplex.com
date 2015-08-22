@@ -260,11 +260,11 @@ namespace Project.DvbIpTv.UiServices.Discovery
         #region User defined data
 
         [DefaultValue(false)]
-        public bool IsDisabled
+        public bool IsHidden
         {
             get;
             set;
-        } // IsDisabled
+        } // IsHidden
 
         [DefaultValue(0)]
         public int LockLevel

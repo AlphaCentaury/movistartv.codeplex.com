@@ -47,12 +47,18 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="ISettingsEditorModeColumns.cs" />
     <Compile Include="ListSelectionChangedEventArgs.cs" />
     <Compile Include="ListStatusChangedEventArgs.cs" />
     <Compile Include="Properties\ListViewManager.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ListViewManager.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SerializationCommon.cs" />
     <Compile Include="Properties\InvariantTexts.Designer.cs">
@@ -61,22 +67,52 @@
       <DependentUpon>InvariantTexts.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Texts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
     <Compile Include="ServiceSortComparer.cs" />
+    <Compile Include="Properties\SettingsEditor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsEditor.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsEditorModeMultiColumn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsEditorModeMultiColumn.Designer.cs">
+      <DependentUpon>SettingsEditorModeMultiColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsEditorModeSingleColumn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsEditorModeSingleColumn.Designer.cs">
+      <DependentUpon>SettingsEditorModeSingleColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsEditorModeTripleColumn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsEditorModeTripleColumn.Designer.cs">
+      <DependentUpon>SettingsEditorModeTripleColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsEditorSorting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsEditorSorting.Designer.cs">
+      <DependentUpon>SettingsEditorSorting.cs</DependentUpon>
+    </Compile>
     <Compile Include="UiBroadcastDiscovery.cs" />
     <Compile Include="UiBroadcastListColumn.cs" />
     <Compile Include="UiBroadcastListManager.cs" />
     <Compile Include="UiBroadcastListModeSettings.cs" />
     <Compile Include="UiBroadcastListSettings.cs" />
+    <Compile Include="UiBroadcastListSettingsEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UiBroadcastListSettingsEditor.Designer.cs">
+      <DependentUpon>UiBroadcastListSettingsEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UiBroadcastListSortColumn.cs" />
     <Compile Include="UiBroadcastService.cs" />
     <Compile Include="UiProviderDiscovery.cs" />
@@ -113,17 +149,83 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Texts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Texts.es.resx" />
+    <EmbeddedResource Include="Properties\SettingsEditor.es.resx" />
+    <EmbeddedResource Include="Properties\SettingsEditor.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsEditor.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsEditorModeMultiColumn.es.resx">
+      <DependentUpon>SettingsEditorModeMultiColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsEditorModeMultiColumn.resx">
+      <DependentUpon>SettingsEditorModeMultiColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsEditorModeSingleColumn.es.resx">
+      <DependentUpon>SettingsEditorModeSingleColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsEditorModeSingleColumn.resx">
+      <DependentUpon>SettingsEditorModeSingleColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsEditorModeTripleColumn.es.resx">
+      <DependentUpon>SettingsEditorModeTripleColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsEditorModeTripleColumn.resx">
+      <DependentUpon>SettingsEditorModeTripleColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsEditorSorting.resx">
+      <DependentUpon>SettingsEditorSorting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UiBroadcastListSettingsEditor.es.resx">
+      <DependentUpon>UiBroadcastListSettingsEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UiBroadcastListSettingsEditor.resx">
+      <DependentUpon>UiBroadcastListSettingsEditor.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Common.UI\Resources\Action_Add_Blue_16x16.png">
+      <Link>Resources\Action_Add_Blue_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Delete_16x16.png">
+      <Link>Resources\Action_Delete_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_GoNextDown_16x16.png">
+      <Link>Resources\Action_GoNextDown_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_GoPreviousUp_16x16.png">
+      <Link>Resources\Action_GoPreviousUp_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_SortAscending_16x16.png">
+      <Link>Resources\Action_SortAscending_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_SortDescending_16x16.png">
+      <Link>Resources\Action_SortDescending_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\ListView_Details_16x16.png">
+      <Link>Resources\ListView_Details_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\ListView_List_16x16.png">
+      <Link>Resources\ListView_List_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\ListView_MediumIcons_16x16.png">
+      <Link>Resources\ListView_MediumIcons_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\ListView_SmallIcons_16x16.png">
+      <Link>Resources\ListView_SmallIcons_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\ListView_Tiles_16x16.png">
+      <Link>Resources\ListView_Tiles_16x16.png</Link>
+    </Content>
     <Content Include="License.txt" />
+    <None Include="Resources\BroadcastListSettings_32x32.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

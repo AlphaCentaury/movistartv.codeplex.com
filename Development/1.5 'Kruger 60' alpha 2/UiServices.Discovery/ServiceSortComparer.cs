@@ -8,9 +8,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
     internal class ServiceSortComparer: IComparer<UiBroadcastService>
     {
         private UiBroadcastListSettings Settings;
-        private UiBroadcastListColumn Sort;
+        private IList<UiBroadcastListSortColumn> Sort;
 
-        public ServiceSortComparer(UiBroadcastListSettings settings, UiBroadcastListColumn sort)
+        public ServiceSortComparer(UiBroadcastListSettings settings, IList<UiBroadcastListSortColumn> sort)
         {
             Settings = settings;
             Sort = sort;
@@ -18,27 +18,42 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         public int Compare(UiBroadcastService x, UiBroadcastService y)
         {
-            var sortColumn = Sort;
             var compare = 0;
 
-            var loop = 0;
-            while ((sortColumn != UiBroadcastListColumn.None) && (loop < 3))
+            foreach (var sort in Sort)
             {
+                var sortColumn = sort.Column;
+                if (sortColumn == UiBroadcastListColumn.None) break;
+
                 var data1 = UiBroadcastListManager.GetColumnData(x, sortColumn);
                 var data2 = UiBroadcastListManager.GetColumnData(y, sortColumn);
-                compare = data1.CompareTo(data2);
-                if (compare != 0) break;
+                compare = data1.CompareTo(data2) * (sort.IsAscending ? 1 : -1);
 
-                sortColumn = GetNextCompareColumn(sortColumn);
-                loop++;
-            } // while
+                if (compare != 0) break;
+            } // foreach sort
 
             return compare;
         } // Compare
 
-        public static UiBroadcastListColumn GetNextCompareColumn(UiBroadcastListColumn column)
+        public static List<UiBroadcastListSortColumn> GetSuggestedSortColumns(UiBroadcastListColumn column, bool ascending, int max)
         {
-            // TODO: store this user-modifiable data into Settings or Config
+            var sortColumn = column;
+            var result = new List<UiBroadcastListSortColumn>(max);
+
+            var loop = 0;
+            do
+            {
+                result.Add(new UiBroadcastListSortColumn(sortColumn, !ascending));
+                sortColumn = GetSuggestedNextSortColumn(sortColumn);
+                loop++;
+            }
+            while ((sortColumn != UiBroadcastListColumn.None) && (loop < max));
+
+            return result;
+        } // GetSuggestedSortColumns
+
+        public static UiBroadcastListColumn GetSuggestedNextSortColumn(UiBroadcastListColumn column)
+        {
             switch (column)
             {
                 case UiBroadcastListColumn.None: return UiBroadcastListColumn.None;
@@ -67,6 +82,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 default:
                     throw new IndexOutOfRangeException();
             } // switch
-        } // GetNextCompareColumn
+        } // GetSuggestedNextSortColumn
     } // class ServiceSortComparer
 } // namespace

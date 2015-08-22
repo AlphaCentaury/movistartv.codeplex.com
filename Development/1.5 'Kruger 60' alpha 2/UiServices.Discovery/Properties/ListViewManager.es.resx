@@ -154,10 +154,10 @@
     <value>Disponible</value>
   </data>
   <data name="ColumnIsEnabled" xml:space="preserve">
-    <value>Usuario: Está habilitado</value>
+    <value>Usuario: Mostrar en la lista</value>
   </data>
   <data name="ColumnIsEnabledShort" xml:space="preserve">
-    <value>Habilitado</value>
+    <value>Mostrar</value>
   </data>
   <data name="ColumnLocationUrl" xml:space="preserve">
     <value>Servicio: Direción URL de ubicación</value>

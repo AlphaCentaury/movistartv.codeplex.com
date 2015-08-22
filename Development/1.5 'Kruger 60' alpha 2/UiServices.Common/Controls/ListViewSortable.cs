@@ -12,6 +12,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Project.DvbIpTv.UiServices.Common.Controls
 {
+    [ToolboxBitmap(typeof(ListView))]
     public class ListViewSortable : ListView
     {
         public enum EllipsisStyle
@@ -116,24 +117,26 @@ namespace Project.DvbIpTv.UiServices.Common.Controls
         /// <summary>
         /// Sorts the list
         /// </summary>
-        /// <param name="columnIndex">Column to sort</param>
+        /// <param name="sortColumnIndex">Column to sort</param>
         /// <param name="sortAscending">null = toggle current column sort order (ascending->descending; descending->ascending); true = sort ascending; false = sort descending</param>
-        public void Sort(int columnIndex, bool? sortAscending)
+        public void Sort(int sortColumnIndex, bool? sortAscending)
         {
             bool ascending;
 
-            if (columnIndex < 0)
+            if (sortColumnIndex >= Columns.Count) throw new ArgumentOutOfRangeException("columnIndex");
+
+            if (sortColumnIndex < 0)
             {
                 CurrentSortColumn = -1;
                 CurrentSortIsDescending = false;
-                this.ListViewItemSorter = null;
+                ListViewItemSorter = null;
             }
             else
             {
                 if (!sortAscending.HasValue)
                 {
                     ascending = true;
-                    if (columnIndex == CurrentSortColumn)
+                    if (sortColumnIndex == CurrentSortColumn)
                     {
                         ascending = CurrentSortIsDescending;
                     } // if
@@ -143,15 +146,17 @@ namespace Project.DvbIpTv.UiServices.Common.Controls
                     ascending = sortAscending.Value;
                 } // if-else
 
-                CurrentSortColumn = columnIndex;
+                CurrentSortColumn = sortColumnIndex;
                 CurrentSortIsDescending = !ascending;
 
-                this.ListViewItemSorter = new ListViewColumnItemComparer(CurrentSortColumn, CurrentSortIsDescending);
+                if (SelfSorting)
+                {
+                    this.ListViewItemSorter = new ListViewColumnItemComparer(CurrentSortColumn, CurrentSortIsDescending);
+                } // if
             } // if-else
 
             // force redraw to update the "arrow" on the header
-            Visible = false;
-            Visible = true;
+            RedrawHeader();
 
             if (AfterSorting != null)
             {
@@ -244,7 +249,7 @@ namespace Project.DvbIpTv.UiServices.Common.Controls
             // measure sort arrow size
             style = (CurrentSortIsDescending) ? VisualStyleElement.Header.SortArrow.SortedUp : VisualStyleElement.Header.SortArrow.SortedDown;
             renderer = new VisualStyleRenderer(style);
-            arrowSize = renderer.GetPartSize(e.Graphics, ThemeSizeType.Draw);
+            arrowSize = renderer.GetPartSize(e.Graphics, ThemeSizeType.True);
             bounds = new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width - arrowSize.Width - 3, e.Bounds.Height); // -3 = give extra right space
 
             // render text
@@ -272,5 +277,14 @@ namespace Project.DvbIpTv.UiServices.Common.Controls
             e.DrawDefault = true;
             base.OnDrawSubItem(e);
         } // OnDrawSubItem
+
+        protected void RedrawHeader()
+        {
+            BeginUpdate();
+            var old = HeaderStyle;
+            HeaderStyle = ColumnHeaderStyle.None;
+            HeaderStyle = old;
+            EndUpdate();
+        } // RedrawHeader
     } // ListViewSortable
 } // namespace

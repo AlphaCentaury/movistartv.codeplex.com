@@ -13,9 +13,8 @@ namespace Project.DvbIpTv.UiServices.Discovery
         public UiBroadcastListSortColumn(UiBroadcastListColumn column, bool descending)
             : this()
         {
-
             Column = column;
-            Descending = descending;
+            Descending = (column == UiBroadcastListColumn.None)? false : descending;
         } // constructor
 
         public UiBroadcastListColumn Column

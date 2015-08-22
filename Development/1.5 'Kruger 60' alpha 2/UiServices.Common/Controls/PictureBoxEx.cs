@@ -14,6 +14,7 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Common.Controls
 {
+    [ToolboxBitmap(typeof(PictureBox))]
     public class PictureBoxEx : PictureBox
     {
         protected override void OnPaint(PaintEventArgs pe)

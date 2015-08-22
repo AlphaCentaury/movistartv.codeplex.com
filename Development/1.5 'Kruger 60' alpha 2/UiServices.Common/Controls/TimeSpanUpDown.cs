@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Common.Controls
 {
+    [ToolboxBitmap(typeof(NumericUpDown))]
     public partial class TimeSpanUpDown : UserControl
     {
         private int SupressValueChangedEvent;

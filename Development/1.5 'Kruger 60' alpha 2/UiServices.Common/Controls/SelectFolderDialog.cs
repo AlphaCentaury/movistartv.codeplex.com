@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Security.Permissions;
 using System.Security;
 using System.Threading;
+using System.Drawing;
 
 namespace Project.DvbIpTv.UiServices.Common.Controls
 {
@@ -57,7 +58,10 @@ namespace Project.DvbIpTv.UiServices.Common.Controls
     // }
     //
 
-    //[Designer("System.Windows.Forms.Design.FolderBrowserDialogDesigner, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), DefaultEvent("HelpRequest"), SRDescription("DescriptionFolderBrowserDialog"), DefaultProperty("SelectedPath")]
+    [Designer("System.Windows.Forms.Design.FolderBrowserDialogDesigner, System.Design, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [DefaultEvent("HelpRequest")]
+    [DefaultProperty("SelectedPath")]
+    [ToolboxBitmap(typeof(FolderBrowserDialog))]
     public class SelectFolderDialog : CommonDialog
     {
         private static readonly int MAX_PATH = 260;

@@ -1,4 +1,5 @@
 ﻿using Project.DvbIpTv.Common.Serialization;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         public static UiBroadcastListModeSettings GetDefaultSettings(View mode)
         {
             var result = new UiBroadcastListModeSettings();
-            result.SortColumn = new UiBroadcastListSortColumn(UiBroadcastListColumn.Number, false);
+            result.SortColumns = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, false, 3);
 
             switch (mode)
             {
@@ -25,23 +26,28 @@ namespace Project.DvbIpTv.UiServices.Discovery
                     result.Columns.Add(UiBroadcastListColumn.Description);
                     result.Columns.Add(UiBroadcastListColumn.DvbType);
                     result.Columns.Add(UiBroadcastListColumn.LocationUrl);
+                    result.LogoSize = LogoSize.Size32;
                     break;
                 case View.LargeIcon:
                     result.Columns = new List<UiBroadcastListColumn>(1);
                     result.Columns.Add(UiBroadcastListColumn.NumberAndNameCrlf);
+                    result.LogoSize = LogoSize.Size48;
                     break;
                 case View.SmallIcon:
                     result.Columns = new List<UiBroadcastListColumn>(1);
                     result.Columns.Add(UiBroadcastListColumn.Number);
+                    result.LogoSize = LogoSize.Size32;
                     break;
                 case View.List:
                     result.Columns = new List<UiBroadcastListColumn>(1);
                     result.Columns.Add(UiBroadcastListColumn.NumberAndName);
+                    result.LogoSize = LogoSize.Size32;
                     break;
                 case View.Tile:
                     result.Columns = new List<UiBroadcastListColumn>(2);
                     result.Columns.Add(UiBroadcastListColumn.NumberAndName);
                     result.Columns.Add(UiBroadcastListColumn.DvbType);
+                    result.LogoSize = LogoSize.Size48;
                     break;
                 default:
                     throw new IndexOutOfRangeException();
@@ -57,10 +63,16 @@ namespace Project.DvbIpTv.UiServices.Discovery
             set;
         } // Columns
 
-        public UiBroadcastListSortColumn SortColumn
+        public List<UiBroadcastListSortColumn> SortColumns
         {
             get;
             set;
-        } // SortColumn
+        } // SortColumns
+
+        public LogoSize LogoSize
+        {
+            get;
+            set;
+        } // LogoSize
     } // class UiBroadcastListViewModeSettings
 } // namespace

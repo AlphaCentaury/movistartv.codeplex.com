@@ -27,6 +27,46 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
             } // switch
         } // LogoSizeToSize
 
+        public static string LogoSizeToString(LogoSize logoSize, bool withSize)
+        {
+            string text;
+
+            switch (logoSize)
+            {
+                case LogoSize.Size32: text = Properties.Texts.LogoSize32; break;
+                case LogoSize.Size48: text = Properties.Texts.LogoSize48; break;
+                case LogoSize.Size64: text = Properties.Texts.LogoSize64; break;
+                case LogoSize.Size96: text = Properties.Texts.LogoSize96; break;
+                case LogoSize.Size128: text = Properties.Texts.LogoSize128; break;
+                case LogoSize.Size256: text = Properties.Texts.LogoSize256; break;
+                default:
+                    throw new IndexOutOfRangeException();
+            } // switch
+
+            if (withSize)
+            {
+                var size = LogoSizeToSize(logoSize);
+                return string.Format(Properties.Texts.LogoSizeWithSizeFormat, text, size.Width, size.Height);
+            }
+            else
+            {
+                return text;
+            } // if-else
+        } // LogoSizeToString
+
+        public static List<KeyValuePair<LogoSize, string>> GetListLogoSizes(bool withSize)
+        {
+            var result = new List<KeyValuePair<LogoSize, string>>(6);
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size32, LogoSizeToString(LogoSize.Size32, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size48, LogoSizeToString(LogoSize.Size48, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size64, LogoSizeToString(LogoSize.Size64, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size96, LogoSizeToString(LogoSize.Size96, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size128, LogoSizeToString(LogoSize.Size128, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size256, LogoSizeToString(LogoSize.Size256, withSize)));
+
+            return result;
+        } // GetListLogoSizes
+
         public string File
         {
             get;

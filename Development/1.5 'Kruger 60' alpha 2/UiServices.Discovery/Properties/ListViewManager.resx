@@ -154,13 +154,13 @@
     <value>Available</value>
   </data>
   <data name="ColumnIsEnabled" xml:space="preserve">
-    <value>User: Is enabled</value>
+    <value>User: Show in list</value>
   </data>
   <data name="ColumnIsEnabledShort" xml:space="preserve">
-    <value>Enabled</value>
+    <value>Show</value>
   </data>
   <data name="ColumnLocationUrl" xml:space="preserve">
-    <value>Servicio: URL location address</value>
+    <value>Service: Location URL address</value>
   </data>
   <data name="ColumnLocationUrlShort" xml:space="preserve">
     <value>Location URL</value>
@@ -193,7 +193,7 @@
     <value>Channel: Number &amp; name</value>
   </data>
   <data name="ColumnNumberAndNameCrlf" xml:space="preserve">
-    <value>Canal: Number &amp; name (in new line)</value>
+    <value>Channel: Number &amp; name (in new line)</value>
   </data>
   <data name="ColumnNumberAndNameShort" xml:space="preserve">
     <value>Ch# Name</value>

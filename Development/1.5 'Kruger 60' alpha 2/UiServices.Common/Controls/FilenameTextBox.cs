@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Common.Controls
 {
+    [ToolboxBitmap(typeof(TextBox))]
     public class FilenameTextBox : TextBox
     {
         private char[] InvalidCharacters;

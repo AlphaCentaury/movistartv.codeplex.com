@@ -169,7 +169,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User: Is enabled.
+        ///   Looks up a localized string similar to User: Show in list.
         /// </summary>
         internal static string ColumnIsEnabled {
             get {
@@ -178,7 +178,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enabled.
+        ///   Looks up a localized string similar to Show.
         /// </summary>
         internal static string ColumnIsEnabledShort {
             get {
@@ -187,7 +187,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Servicio: URL location address.
+        ///   Looks up a localized string similar to Service: Location URL address.
         /// </summary>
         internal static string ColumnLocationUrl {
             get {
@@ -286,7 +286,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Canal: Number &amp; name (in new line).
+        ///   Looks up a localized string similar to Channel: Number &amp; name (in new line).
         /// </summary>
         internal static string ColumnNumberAndNameCrlf {
             get {

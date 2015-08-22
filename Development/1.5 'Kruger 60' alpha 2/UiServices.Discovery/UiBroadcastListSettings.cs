@@ -53,22 +53,29 @@ namespace Project.DvbIpTv.UiServices.Discovery
             var result = new UiBroadcastListSettings();
 
             result.CurrentMode = View.Tile;
+            result.ShowGridlines = true;
+            result.ShowInactiveServices = true;
+            result.ShowOutOfPackage = true;
+
             result.ViewSettings = new ModeViewSettings();
             result.ViewSettings.Details = UiBroadcastListModeSettings.GetDefaultSettings(View.Details);
             result.ViewSettings.LargeIcon = UiBroadcastListModeSettings.GetDefaultSettings(View.LargeIcon);
             result.ViewSettings.SmallIcon = UiBroadcastListModeSettings.GetDefaultSettings(View.SmallIcon);
             result.ViewSettings.List = UiBroadcastListModeSettings.GetDefaultSettings(View.List);
             result.ViewSettings.Tile = UiBroadcastListModeSettings.GetDefaultSettings(View.Tile);
+
+            result.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, false, 3);
+            result.ApplyGlobalSortColumn = true;
+
             // force creation of ColumnWidth field
             var dummy = result.ColumnWidth[0];
-
-            result.ShowGridlines = true;
 
             return result;
         } // GetDefaultSettings
 
         public UiBroadcastListSettings()
         {
+            // no op
         } // constructor
 
         public View CurrentMode
@@ -114,11 +121,11 @@ namespace Project.DvbIpTv.UiServices.Discovery
             set;
         } // ViewSettings
 
-        public UiBroadcastListSortColumn GlobalSortColumn
+        public List<UiBroadcastListSortColumn> GlobalSortColumns
         {
             get;
             set;
-        } // GlobalSortColumn
+        } // GlobalSortColumns
 
         [DefaultValue(false)]
         public bool ApplyGlobalSortColumn
@@ -128,18 +135,18 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } // ApplyGlobalSortColumn
 
         [DefaultValue(false)]
-        public bool HideInactiveServices
+        public bool ShowInactiveServices
         {
             get;
             set;
-        } // HideInactiveServices
+        } // ShowInactiveServices
 
         [DefaultValue(false)]
-        public bool HideDisabledServices
+        public bool ShowHiddenServices
         {
             get;
             set;
-        } // HideDisabledServices
+        } // ShowHiddenServices
 
         [DefaultValue(false)]
         public bool ShowGridlines
@@ -147,6 +154,13 @@ namespace Project.DvbIpTv.UiServices.Discovery
             get;
             set;
         } // ShowGridlines
+
+        [DefaultValue(false)]
+        public bool ShowOutOfPackage
+        {
+            get;
+            set;
+        } // ShowOutOfPackage
 
         public int[] ColumnWidth
         {

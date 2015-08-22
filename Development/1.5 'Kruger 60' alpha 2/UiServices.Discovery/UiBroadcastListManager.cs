@@ -31,53 +31,56 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         #region Static public methods
 
-        public static IList<KeyValuePair<UiBroadcastListColumn, string>> ColumnNames
+        public static List<KeyValuePair<UiBroadcastListColumn, string>> GetColumnNames(bool withNone = false)
         {
-            get
+            var result = new List<KeyValuePair<UiBroadcastListColumn, string>>(withNone? 22 : 21);
+
+            if (withNone)
             {
-                var result = new List<KeyValuePair<UiBroadcastListColumn, string>>(21);
+                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.None, Properties.ListViewManager.ColumnNone));
+            } // if
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.Name, Properties.ListViewManager.ColumnName));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.Number, Properties.ListViewManager.ColumnNumber));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.NumberAndName, Properties.ListViewManager.ColumnNumberAndName));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.NumberAndNameCrlf, Properties.ListViewManager.ColumnNumberAndNameCrlf));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.NameAndNumber, Properties.ListViewManager.ColumnNameAndNumber));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.Description, Properties.ListViewManager.ColumnDescription));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.DvbType, Properties.ListViewManager.ColumnDvbType));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.LocationUrl, Properties.ListViewManager.ColumnLocationUrl));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.ShortName, Properties.ListViewManager.ColumnShortName));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.Genre, Properties.ListViewManager.ColumnGenre));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.GenreCode, Properties.ListViewManager.ColumnGenreCode));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.ParentalRating, Properties.ListViewManager.ColumnParentalRating));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.ParentalRatingCode, Properties.ListViewManager.ColumnParentalRatingCode));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.ServiceId, Properties.ListViewManager.ColumnServiceId));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.FullServiceId, Properties.ListViewManager.ColumnFullServiceId));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.UserName, Properties.ListViewManager.ColumnUserName));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.UserNumber, Properties.ListViewManager.ColumnUserNumber));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.OriginalName, Properties.ListViewManager.ColumnOriginalName));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.OriginalNumber, Properties.ListViewManager.ColumnOriginalNumber));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.IsActive, Properties.ListViewManager.ColumnIsActive));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.IsEnabled, Properties.ListViewManager.ColumnIsEnabled));
+            result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.LockLevel, Properties.ListViewManager.ColumnLockLevel));
 
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.Name, Properties.ListViewManager.ColumnName));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.Number, Properties.ListViewManager.ColumnNumber));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.NumberAndName, Properties.ListViewManager.ColumnNumberAndName));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.NumberAndNameCrlf, Properties.ListViewManager.ColumnNumberAndNameCrlf));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.NameAndNumber, Properties.ListViewManager.ColumnNameAndNumber));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.Description, Properties.ListViewManager.ColumnDescription));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.DvbType, Properties.ListViewManager.ColumnDvbType));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.LocationUrl, Properties.ListViewManager.ColumnLocationUrl));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.ShortName, Properties.ListViewManager.ColumnShortName));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.Genre, Properties.ListViewManager.ColumnGenre));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.GenreCode, Properties.ListViewManager.ColumnGenreCode));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.ParentalRating, Properties.ListViewManager.ColumnParentalRating));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.ParentalRatingCode, Properties.ListViewManager.ColumnParentalRatingCode));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.ServiceId, Properties.ListViewManager.ColumnServiceId));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.FullServiceId, Properties.ListViewManager.ColumnFullServiceId));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.UserName, Properties.ListViewManager.ColumnUserName));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.UserNumber, Properties.ListViewManager.ColumnUserNumber));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.OriginalName, Properties.ListViewManager.ColumnOriginalName));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.OriginalNumber, Properties.ListViewManager.ColumnOriginalNumber));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.IsActive, Properties.ListViewManager.ColumnIsActive));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.IsEnabled, Properties.ListViewManager.ColumnIsEnabled));
-                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.LockLevel, Properties.ListViewManager.ColumnLockLevel));
-
-                return result.AsReadOnly();
-            } // get
+            return result;
         } // ColumnNames
 
-        public static IList<KeyValuePair<UiBroadcastListColumn, string>> SortedColumnNames
+        public static List<KeyValuePair<UiBroadcastListColumn, string>> GetSortedColumnNames(bool withNone = false)
         {
-            get
+            var names = GetColumnNames();
+            var q = from item in names
+                    orderby item.Value
+                    select item;
+
+            var count = withNone ? (names.Count + 1) : names.Count;
+            var result = new List<KeyValuePair<UiBroadcastListColumn, string>>(names.Count);
+            if (withNone)
             {
-                var names = ColumnNames;
-                var q = from item in names
-                        orderby item.Value
-                        select item;
+                result.Add(new KeyValuePair<UiBroadcastListColumn, string>(UiBroadcastListColumn.None, Properties.ListViewManager.ColumnNone));
+            } // if
+            result.AddRange(q);
 
-                var result = new List<KeyValuePair<UiBroadcastListColumn, string>>(names.Count);
-                result.AddRange(q);
-
-                return result.AsReadOnly();
-            } // get
+            return result;
         } // SortedColumnNames
 
         public static string GetColumnName(UiBroadcastListColumn column)
@@ -115,28 +118,28 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             switch (column)
             {
-                case UiBroadcastListColumn.Number: return 50;
-                case UiBroadcastListColumn.Name: return 225;
-                case UiBroadcastListColumn.NumberAndName: return 250;
-                case UiBroadcastListColumn.NumberAndNameCrlf: return 250;
-                case UiBroadcastListColumn.NameAndNumber: return 250;
+                case UiBroadcastListColumn.Number: return 45;
+                case UiBroadcastListColumn.Name: return 180;
+                case UiBroadcastListColumn.NumberAndName: return 210;
+                case UiBroadcastListColumn.NumberAndNameCrlf: return 210;
+                case UiBroadcastListColumn.NameAndNumber: return 210;
                 case UiBroadcastListColumn.Description: return 200;
-                case UiBroadcastListColumn.DvbType: return 100;
+                case UiBroadcastListColumn.DvbType: return 60;
                 case UiBroadcastListColumn.LocationUrl: return 150;
-                case UiBroadcastListColumn.ShortName: return 125;
+                case UiBroadcastListColumn.ShortName: return 90;
                 case UiBroadcastListColumn.Genre: return 150;
                 case UiBroadcastListColumn.GenreCode: return 100;
                 case UiBroadcastListColumn.ParentalRating: return 150;
                 case UiBroadcastListColumn.ParentalRatingCode: return 100;
                 case UiBroadcastListColumn.ServiceId: return 75;
                 case UiBroadcastListColumn.FullServiceId: return 125;
-                case UiBroadcastListColumn.UserName: return 225;
-                case UiBroadcastListColumn.UserNumber: return 50;
-                case UiBroadcastListColumn.OriginalName: return 225;
-                case UiBroadcastListColumn.OriginalNumber: return 50;
-                case UiBroadcastListColumn.IsActive: return 50;
-                case UiBroadcastListColumn.IsEnabled: return 50;
-                case UiBroadcastListColumn.LockLevel: return 100;
+                case UiBroadcastListColumn.UserName: return 180;
+                case UiBroadcastListColumn.UserNumber: return 45;
+                case UiBroadcastListColumn.OriginalName: return 180;
+                case UiBroadcastListColumn.OriginalNumber: return 45;
+                case UiBroadcastListColumn.IsActive: return 45;
+                case UiBroadcastListColumn.IsEnabled: return 45;
+                case UiBroadcastListColumn.LockLevel: return 120;
                 default:
                     throw new IndexOutOfRangeException();
             } // switch
@@ -187,7 +190,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 case UiBroadcastListColumn.IsActive:
                     return (service.IsInactive) ? Properties.Texts.No : Properties.Texts.Yes;
                 case UiBroadcastListColumn.IsEnabled:
-                    return (service.IsDisabled) ? Properties.Texts.No : Properties.Texts.Yes;
+                    return (service.IsHidden) ? Properties.Texts.No : Properties.Texts.Yes;
                 case UiBroadcastListColumn.LockLevel:
                     return service.DisplayLockLevel;
                 default:
@@ -197,7 +200,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         #endregion
 
-        public UiBroadcastListManager(ListView listView, UiBroadcastListSettings settings, ImageList smallImageList, ImageList largeImageList, bool overrideDesignSettings)
+        public UiBroadcastListManager(ListViewSortable listView, UiBroadcastListSettings settings, ImageList smallImageList, ImageList largeImageList, bool overrideDesignSettings)
         {
             if (listView == null) throw new ArgumentNullException("listView");
             if (settings == null) throw new ArgumentNullException("settings");
@@ -219,7 +222,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             private set;
         } // Disposed
 
-        public ListView ListView
+        public ListViewSortable ListView
         {
             get;
             protected set;
@@ -291,6 +294,12 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // set
         } // SelectedService
 
+        public UiBroadcastListSortColumn SelectedSort
+        {
+            get;
+            private set;
+        } // SelectedSort
+
         #region Events
 
         protected virtual void OnStatusChanged(object sender, ListStatusChangedEventArgs e)
@@ -353,12 +362,12 @@ namespace Project.DvbIpTv.UiServices.Discovery
             if (add)
             {
                 ListView.SelectedIndexChanged += ListView_SelectedIndexChanged;
-                ListView.Resize += ListView_Resize;
+                ListView.ColumnClick += ListView_ColumnClick;
             }
             else
             {
                 ListView.SelectedIndexChanged -= ListView_SelectedIndexChanged;
-                ListView.Resize -= ListView_Resize;
+                ListView.ColumnClick -= ListView_ColumnClick;
             } // if-else
         }  // HookupEvents
 
@@ -367,11 +376,18 @@ namespace Project.DvbIpTv.UiServices.Discovery
             FireSelectionChanged();
         } // ListView_SelectedIndexChanged
 
-        void ListView_Resize(object sender, EventArgs e)
+        void ListView_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            // TODO: user adjustable
-            ListView.TileSize = new Size((ListView.Width - 20) / 3, ListView.TileSize.Height);
-        } // ListView_Resize
+            var sortColumn = new UiBroadcastListSortColumn();
+            sortColumn.Column = Settings.CurrentColumns[e.Column];
+            sortColumn.IsAscending = sortColumn.Column == SelectedSort.Column? !SelectedSort.IsAscending : true;
+
+            Settings.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
+            Settings[Settings.CurrentMode].SortColumns = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
+
+            ApplySorting();
+            FillList(false);
+        } // ListView_ColumnClick
 
         #endregion
 
@@ -383,7 +399,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
             FontNormalDisabled = new Font("Segoe UI Semibold", 9, FontStyle.Regular);
             FontNormalNotAvailable = new Font("Segoe UI", 9, FontStyle.Regular);
             FontDetails = new Font("Segoe UI Semibold", 9, FontStyle.Regular);
-            //FontDetailsNotAvailable = new Font("Segoe UI", 9, FontStyle.Regular);
             FontDetailsNameItem = new Font("Tahoma", 11.0f, FontStyle.Bold);
 
             ListView.FullRowSelect = true;
@@ -391,11 +406,18 @@ namespace Project.DvbIpTv.UiServices.Discovery
             ListView.MultiSelect = false;
             ListView.SmallImageList = SmallImageList;
             ListView.LargeImageList = LargeImageList;
+            ListView.SelfSorting = false;
+            ListView.OwnerDraw = true;
 
             if (overrideDesignSettings)
             {
                 ListView.HeaderStyle = ColumnHeaderStyle.Clickable;
                 ListView.ShowItemToolTips = true;
+                ListView.HeaderCustomFont = new Font(ListView.Font.OriginalFontName, 9, FontStyle.Bold);
+                ListView.HeaderCustomTextAlignment = ContentAlignment.MiddleCenter;
+                ListView.HeaderUsesCustomFont = true;
+                ListView.HeaderUsesCustomTextAlignment = true;
+                ListView.IsDoubleBuffered = true;
             } // if
             HookupEvents(true);
         } // InitListViewControl
@@ -450,6 +472,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             {
                 ListView.Columns.Add(GetColumnName(column), GetColumnWidth(column));
             } // foreach
+            ListView.Columns[0].Width += SmallImageList.ImageSize.Width + 5;
 
             ApplyCosmeticSettings(null, fieldSettings);
             ApplySorting();
@@ -470,14 +493,14 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
             foreach (var service in SortedBroadcastServices)
             {
-                if ((service.IsInactive) && (Settings.HideInactiveServices)) continue;
-                if ((service.IsDisabled) && (Settings.HideDisabledServices)) continue;
+                if ((service.IsInactive) && (!Settings.ShowInactiveServices)) continue;
+                if ((service.IsHidden) && (!Settings.ShowHiddenServices)) continue;
 
                 var item = new ListViewItem();
                 item.Tag = service;
                 item.Name = service.Key;
                 item.Text = GetColumnData(service, columns[0]);
-                EnableListItem(item, service, !service.IsInactive, !service.IsDisabled);
+                EnableListItem(item, service, !service.IsInactive, !service.IsHidden);
 
                 var subItems = new string[columns.Count - 1];
                 var index = (int)0;
@@ -513,7 +536,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
             if ((BroadcastServices == null) || (BroadcastServices.Count == 0)) return;
 
             // select sorting column
-            var sortingColumn = Settings.ApplyGlobalSortColumn? Settings.GlobalSortColumn : Settings[Settings.CurrentMode].SortColumn;
+            var sortingColumns = Settings.ApplyGlobalSortColumn ? Settings.GlobalSortColumns : Settings[Settings.CurrentMode].SortColumns;
+            var sortingColumn = sortingColumns[0];
+            SelectedSort = sortingColumn;
 
             if (sortingColumn.Column == UiBroadcastListColumn.None)
             {
@@ -521,18 +546,22 @@ namespace Project.DvbIpTv.UiServices.Discovery
             }
             else
             {
-                var comparer = new ServiceSortComparer(Settings, sortingColumn.Column);
-                if (sortingColumn.IsAscending)
-                {
-                    SortedBroadcastServices = fieldBroadcastServices.OrderBy(item => item, comparer);
-                }
-                else
-                {
-                    SortedBroadcastServices = fieldBroadcastServices.OrderByDescending(item => item, comparer);
-                } // if-else
+                var comparer = new ServiceSortComparer(Settings, sortingColumns);
+                SortedBroadcastServices = fieldBroadcastServices.OrderBy(item => item, comparer);
             } // if-else
 
             FillList(true);
+
+            // update 'arrow'
+            if (Settings.CurrentMode == View.Details)
+            {
+                var q = from index in Enumerable.Range(0, Settings.CurrentColumns.Count)
+                        where Settings.CurrentColumns[index] == sortingColumn.Column
+                        select index;
+
+                var columnIndex = q.DefaultIfEmpty(-1).First();
+                ListView.Sort(columnIndex, sortingColumn.IsAscending);
+            } // if
         } // ApplySorting
 
         private bool NeedToRebuildList(UiBroadcastListSettings oldSettings, UiBroadcastListSettings newSettings)
@@ -564,16 +593,30 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             // global sort column changed?
             if (oldSettings.ApplyGlobalSortColumn != newSettings.ApplyGlobalSortColumn) return true;
-            if (oldSettings.GlobalSortColumn != newSettings.GlobalSortColumn) return true;
+
+            if (newSettings.ApplyGlobalSortColumn)
+            {
+                return !CompareSortColumns(oldSettings.GlobalSortColumns, newSettings.GlobalSortColumns);
+            } // if
 
             // current mode sort column changed?
             var oldModeSettings = oldSettings[oldSettings.CurrentMode];
             var newModeSettings = newSettings[newSettings.CurrentMode];
 
-            if (oldModeSettings.SortColumn != newModeSettings.SortColumn) return true;
-
-            return false;
+            return !CompareSortColumns(oldModeSettings.SortColumns, newModeSettings.SortColumns);
         } // NeedToApplySorting
+
+        private bool CompareSortColumns(List<UiBroadcastListSortColumn> oldColumns, List<UiBroadcastListSortColumn> newColumns)
+        {
+            if (oldColumns.Count != newColumns.Count) return false;
+
+            for (int index = 0; index < oldColumns.Count; index++)
+            {
+                if (oldColumns[index] != newColumns[index]) return false;
+            } // if
+
+            return true;
+        } // CompareSortColumns
 
         private int GetColumnWidth(UiBroadcastListColumn column)
         {

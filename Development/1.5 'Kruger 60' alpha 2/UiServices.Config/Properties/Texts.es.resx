@@ -238,4 +238,25 @@ Verifique la sintáxis XML del archivo y corrija los errores detectados.</value>
 
 Por favor, instale la aplicación utilizando el instalador oficial o repare la instalación.</value>
   </data>
+  <data name="LogoSize128" xml:space="preserve">
+    <value>Más grande</value>
+  </data>
+  <data name="LogoSize256" xml:space="preserve">
+    <value>Enorme</value>
+  </data>
+  <data name="LogoSize32" xml:space="preserve">
+    <value>Pequeño</value>
+  </data>
+  <data name="LogoSize48" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="LogoSize64" xml:space="preserve">
+    <value>Medio</value>
+  </data>
+  <data name="LogoSize96" xml:space="preserve">
+    <value>Grande</value>
+  </data>
+  <data name="LogoSizeWithSizeFormat" xml:space="preserve">
+    <value>{0} ({1}x{2})</value>
+  </data>
 </root>
