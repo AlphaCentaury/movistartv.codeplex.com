@@ -1,7 +1,8 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using DvbIpTypes.Schema2006;
+using Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery;
+using Etsi.Ts102034.v010501.XmlSerialization.Common;
 using Project.DvbIpTv.Common;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
@@ -291,7 +292,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         #region Shortcuts for underlying BroadcastService data
 
-        [XmlElement(Namespace = IpService.XmlNamespace)]
+        [XmlElement(Namespace = IpService.Namespace)]
         public IpService Data
         {
             get;
@@ -322,7 +323,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 if ((replacements == null) || (replacements.Length == 0)) return null;
 
                 var q = from r in replacements
-                        let ti = r.Item as TextualIdentifier
+                        let ti = r.TextualIdentifier
                         where ti != null
                         select ti;
                 var replacement = q.FirstOrDefault();
@@ -371,15 +372,26 @@ namespace Project.DvbIpTv.UiServices.Discovery
             }
             else
             {
-                if (Data.ServiceLocation.Multicast == null)
+                if (Data.ServiceLocation.IpMulticastAddress == null)
                 {
                     properties.Add(new Property("Service location (multicast)", null));
                 }
                 else
                 {
-                    properties.Add(new Property("Service location (multicast)", Data.ServiceLocation.Multicast.RtpUrl));
+                    properties.Add(new Property("Service location (multicast)", Data.ServiceLocation.IpMulticastAddress.Url));
                 } // if-else
-                properties.Add(new Property("Service location (RTSP)", Data.ServiceLocation.RtspUrl));
+
+                if (Data.ServiceLocation.RtspUrl == null)
+                {
+                    properties.Add(new Property("Service location (RTSP)", null));
+                }
+                else
+                {
+                    properties.Add(new Property("Service location (RTSP control URL)", Data.ServiceLocation.RtspUrl.ControlUrl));
+                    properties.Add(new Property("Service location (RTSP)", Data.ServiceLocation.RtspUrl.Value));
+                } // if
+
+                properties.Add(new Property("Service location (broadcast system)", Data.ServiceLocation.BroadcastSystem));
             } // if-else
 
             if (Data.TextualIdentifier == null)
@@ -392,14 +404,17 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 properties.Add(new Property("Identifier: Domain", Data.TextualIdentifier.DomainName));
             } // if-else
 
-            if (Data.DvbTriplet == null)
+            if ((Data.DvbTriplet == null) || (Data.DvbTriplet.Length == 0))
             {
                 properties.Add(new Property("DVB Triplet", null));
             }
             else
             {
-                properties.Add(new Property("DVB Triplet", string.Format("OrigNetId='{0}', TSId='{1}', ServiceId='{2}'",
-                    Data.DvbTriplet.OrigNetId, Data.DvbTriplet.TSId, Data.DvbTriplet.ServiceId)));
+                foreach (var triplet in Data.DvbTriplet)
+                {
+                    properties.Add(new Property("DVB Triplet", string.Format("OrigNetId='{0}', TSId='{1}', ServiceId='{2}'",
+                        triplet.OrigNetId, triplet.TSId, triplet.ServiceId)));
+                } // foreach
             } // if-else
 
             properties.Add(new Property("Max bitarate", Data.MaxBitrate));
@@ -411,7 +426,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             else
             {
                 properties.Add(new Property("Service type", Data.ServiceInformation.ServiceType));
-                properties.Add(new Property("Primary SI source", Data.ServiceInformation.PrimarySISource.ToString()));
+                properties.Add(new Property("Primary information source", Data.ServiceInformation.PrimaryServiceInformationSource.ToString()));
                 if (Data.ServiceInformation.Name == null)
                 {
                     properties.Add(new Property("Name", null));
@@ -443,7 +458,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 {
                     foreach (var location in Data.ServiceInformation.ServiceDescriptionLocation)
                     {
-                        properties.Add(new Property("Description location", location));
+                        properties.Add(new Property("Description location", location.Value));
                     } // foreach
                 } // if-else
                 if (Data.ServiceInformation.ContentGenre == null)
@@ -469,13 +484,13 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 {
                     foreach (var replacement in Data.ServiceInformation.ReplacementService)
                     {
-                        var triplet = replacement.Item as DvbTriplet;
+                        var triplet = replacement.DvbTriplet as DvbTriplet;
                         if (triplet != null)
                         {
                             properties.Add(new Property("Replacement service", string.Format("DVB Triplet: OrigNetId='{0}', TSId='{1}', ServiceId='{2}'",
-                                                Data.DvbTriplet.OrigNetId, Data.DvbTriplet.TSId, Data.DvbTriplet.ServiceId)));
+                                                triplet.OrigNetId, triplet.TSId, triplet.ServiceId)));
                         } // if
-                        var textual = replacement.Item as TextualIdentifier;
+                        var textual = replacement.TextualIdentifier;
                         if (textual != null)
                         {
                             properties.Add(new Property("Replacement service", string.Format("Identifier: Name='{0}', Domain='{1}'",
@@ -486,7 +501,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
                         {
                             properties.Add(new Property("Replacement service", null));
                         } // if
-                        properties.Add(new Property("Replacement type", replacement.ReplacementType));
+                        properties.Add(new Property("Replacement type", replacement.Kind));
                     } // foreach
                 } // if-else
 
@@ -496,18 +511,15 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 // ServiceInformation.AnnouncementSupport
                 properties.Add(new Property("Has announcement support", (Data.ServiceInformation.AnnouncementSupport != null).ToString()));
 
-                // ServiceInformation.ServiceAvailability
-                properties.Add(new Property("Has service availability", (Data.ServiceInformation.ServiceAvailability != null).ToString()));
-
                 // ServiceInformation.ExtraData
                 properties.Add(new Property("Has out-of-schema data", (Data.ServiceInformation.ExtraData != null).ToString()));
             } // if-else
 
             // AudioAttibutes
-            properties.Add(new Property("Has audio details", (Data.AudioAttibutes != null).ToString()));
+            properties.Add(new Property("Has audio details", (Data.AudioAttributes != null).ToString()));
 
             // VideoAttibutes
-            properties.Add(new Property("Has video details", (Data.VideoAttibutes != null).ToString()));
+            properties.Add(new Property("Has video details", (Data.VideoAttributes != null).ToString()));
 
             return properties;
         } // DumpProperties
@@ -529,7 +541,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             if (Data.ServiceInformation != null)
             {
-                var text = Data.ServiceInformation.ShortName.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguagesList, true, null);
+                var text = Data.ServiceInformation.ProprietaryShortName.SafeGetLanguageValue(AppUiConfiguration.Current.User.PreferredLanguagesList, true, null);
                 if (text != null) return text;
             } // if
 
@@ -550,8 +562,8 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private string GetLocationUrl()
         {
             if (Data.ServiceLocation == null) return null;
-            if (Data.ServiceLocation.Multicast != null) return Data.ServiceLocation.Multicast.RtpUrl;
-            if (Data.ServiceLocation.RtspUrl != null) return Data.ServiceLocation.RtspUrl;
+            if (Data.ServiceLocation.IpMulticastAddress != null) return Data.ServiceLocation.IpMulticastAddress.Url;
+            if (Data.ServiceLocation.RtspUrl != null) return Data.ServiceLocation.RtspUrl.Value;
             return null;
         } // GetLocationUrl
 
@@ -578,9 +590,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         private string GetDisplayGenre()
         {
-            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.Genre != null))
+            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.ProprietaryGenre != null))
             {
-                return Data.ServiceInformation.Genre.Name;
+                return Data.ServiceInformation.ProprietaryGenre.Name;
             } // if
 
             return Properties.Texts.NotProvidedValue;
@@ -588,9 +600,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         private string GetDisplayGenreCode()
         {
-            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.Genre != null))
+            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.ProprietaryGenre != null))
             {
-                var code = Data.ServiceInformation.Genre.Code;
+                var code = Data.ServiceInformation.ProprietaryGenre.Code;
                 if (code.StartsWith("urn:miviewtv:cs:GenreCS:", StringComparison.InvariantCultureIgnoreCase))
                 {
                     return code.Substring(21);
@@ -603,9 +615,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         private string GetDisplayParentalRating()
         {
-            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.ParentalGuidance != null) && (Data.ServiceInformation.ParentalGuidance.ParentalRating != null))
+            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.ProprietaryParentalGuidance != null) && (Data.ServiceInformation.ProprietaryParentalGuidance.ParentalRating != null))
             {
-                return Data.ServiceInformation.ParentalGuidance.ParentalRating.Name;
+                return Data.ServiceInformation.ProprietaryParentalGuidance.ParentalRating.Name[0].Value;
             } // if
 
             return Properties.Texts.NotProvidedValue;
@@ -613,12 +625,12 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         private string GetDisplayParentalRatingCode()
         {
-            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.ParentalGuidance != null) && (Data.ServiceInformation.ParentalGuidance.ParentalRating != null))
+            if ((Data.ServiceInformation != null) && (Data.ServiceInformation.ProprietaryParentalGuidance != null) && (Data.ServiceInformation.ProprietaryParentalGuidance.ParentalRating != null))
             {
-                var code = Data.ServiceInformation.ParentalGuidance.ParentalRating.Code;
+                var code = Data.ServiceInformation.ProprietaryParentalGuidance.ParentalRating.TermUrl;
                 if (code.StartsWith("urn:dvb:metadata:cs:ParentalGuidanceCS:", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    code.Substring(34);
+                    return code.Substring(36);
                 } // if
                 return code;
             } // if

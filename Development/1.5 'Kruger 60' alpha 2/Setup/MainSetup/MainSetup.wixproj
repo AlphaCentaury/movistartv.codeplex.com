@@ -47,14 +47,6 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\..\DvbIpTypes\DvbIpTypes.csproj">
-      <Name>DvbIpTypes</Name>
-      <Project>{5b7c318b-372f-4265-8337-125e4a098532}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
     <ProjectReference Include="..\..\DvbStpClient\DvbStpClient.csproj">
       <Name>DvbStpClient</Name>
       <Project>{8ad3c34b-a1d3-4385-a8a9-c429bd9a37d3}</Project>

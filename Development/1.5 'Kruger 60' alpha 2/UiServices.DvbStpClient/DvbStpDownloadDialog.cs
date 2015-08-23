@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -253,10 +254,17 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
                 Response.Version = stpClient.SegmentVersion;
                 e.Result = payload;
 
+#if DEBUG
+                if ((payload != null) && (Request.DumpToFile != null))
+                {
+                    File.WriteAllBytes(Request.DumpToFile, payload);
+                } // if
+#endif
+
                 if ((Request.PayloadDataType != null) && (payload != null))
                 {
                     Worker.ReportProgress(int.MaxValue);
-                    Response.DeserializedPayloadData = DvbStpDownloadResponse.ParsePayload(Request.PayloadDataType, payload, Request.PayloadId, !Request.AllowExtraWhitespace);
+                    Response.DeserializedPayloadData = DvbStpDownloadResponse.ParsePayload(Request.PayloadDataType, payload, Request.PayloadId, !Request.AllowExtraWhitespace, Request.NamespaceReplacer);
                 } // if
             }
             finally

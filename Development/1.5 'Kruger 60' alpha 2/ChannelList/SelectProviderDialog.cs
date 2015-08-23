@@ -1,7 +1,8 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using DvbIpTypes.Schema2006;
+using Etsi.Ts102034.v010501.XmlSerialization;
+using Etsi.Ts102034.v010501.XmlSerialization.ProviderDiscovery;
 using Project.DvbIpTv.UiServices.Common.Forms;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
@@ -115,7 +116,7 @@ namespace Project.DvbIpTv.ChannelList
             if (lastSelectedProvider == null) return null;
 
             var baseIpAddress = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastAddress;
-            var discovery = AppUiConfiguration.Current.Cache.LoadXml<ServiceProviderDiscoveryXml>("ProviderDiscovery", baseIpAddress);
+            var discovery = AppUiConfiguration.Current.Cache.LoadXml<ProviderDiscoveryRoot>("ProviderDiscovery", baseIpAddress);
             if (discovery == null) return null;
 
             return UiProviderDiscovery.GetUiServiceProviderFromKey(discovery, lastSelectedProvider);
@@ -125,14 +126,14 @@ namespace Project.DvbIpTv.ChannelList
         {
             try
             {
-                ServiceProviderDiscoveryXml discovery;
+                ProviderDiscoveryRoot discovery;
                 var baseIpAddress = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastAddress;
 
                 // can load from cache?
                 discovery = null;
                 if (fromCache)
                 {
-                    discovery = AppUiConfiguration.Current.Cache.LoadXml<ServiceProviderDiscoveryXml>("ProviderDiscovery", baseIpAddress);
+                    discovery = AppUiConfiguration.Current.Cache.LoadXml<ProviderDiscoveryRoot>("ProviderDiscovery", baseIpAddress);
                     if (discovery == null)
                     {
                         return false;
@@ -153,7 +154,9 @@ namespace Project.DvbIpTv.ChannelList
                             MulticastPort = basePort,
                             Description = Properties.Texts.SPObtainingList,
                             DescriptionParsing = Properties.Texts.SPParsingList,
-                            PayloadDataType = typeof(ServiceProviderDiscoveryXml)
+                            PayloadDataType = typeof(ProviderDiscoveryRoot),
+                            AllowExtraWhitespace = false,
+                            NamespaceReplacer = NamespaceUnification.Replacer,
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.SPListUnableRefresh,
@@ -162,7 +165,7 @@ namespace Project.DvbIpTv.ChannelList
                     download.ShowDialog(this);
                     if (!download.IsOk) return false;
 
-                    discovery = download.Response.DeserializedPayloadData as ServiceProviderDiscoveryXml;
+                    discovery = download.Response.DeserializedPayloadData as ProviderDiscoveryRoot;
                     AppUiConfiguration.Current.Cache.SaveXml("ProviderDiscovery", baseIpAddress, download.Response.Version, discovery);
                 } // if
 

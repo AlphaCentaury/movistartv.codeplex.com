@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DvbIpTypes.Schema2006
+namespace Etsi.Ts102034.v010501.XmlSerialization.Common
 {
     public static class Extensions
     {

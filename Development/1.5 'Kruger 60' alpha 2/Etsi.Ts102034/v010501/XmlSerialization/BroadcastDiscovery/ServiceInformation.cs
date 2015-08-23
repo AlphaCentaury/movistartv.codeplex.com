@@ -7,6 +7,7 @@ using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
@@ -52,6 +53,29 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
         [XmlAttribute]
         [DefaultValue(PrimaryServiceInformationSource.Xml)]
         public PrimaryServiceInformationSource PrimaryServiceInformationSource;
+
+        #region Extensions -- Content provider proprietary tags
+
+        [XmlAnyElement()]
+        public XmlElement[] ExtraData
+        {
+            get;
+            set;
+        } // ExtraData
+
+        /// <summary>
+        /// movistar+ short name
+        /// </summary>
+        [XmlElement("ShortName")]
+        public MultilingualText[] ProprietaryShortName;
+
+        [XmlElement("Genre")]
+        public ProprietaryServiceGenre ProprietaryGenre;
+
+        [XmlElement("ParentalGuidance")]
+        public TvAnytime.Mpeg7.ParentalGuidance ProprietaryParentalGuidance;
+
+        #endregion
 
         public ServiceInformation()
         {

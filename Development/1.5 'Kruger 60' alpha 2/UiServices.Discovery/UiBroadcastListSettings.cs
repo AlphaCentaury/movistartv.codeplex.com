@@ -64,7 +64,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             result.ViewSettings.List = UiBroadcastListModeSettings.GetDefaultSettings(View.List);
             result.ViewSettings.Tile = UiBroadcastListModeSettings.GetDefaultSettings(View.Tile);
 
-            result.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, false, 3);
+            result.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, true, 3);
             result.ApplyGlobalSortColumn = true;
 
             // force creation of ColumnWidth field

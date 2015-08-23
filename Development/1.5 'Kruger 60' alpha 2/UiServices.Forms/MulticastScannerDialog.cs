@@ -370,19 +370,19 @@ namespace Project.DvbIpTv.UiServices.Forms
                 Worker.ReportProgress((int)ProgressReportKind.Progress, progress.ShallowClone());
                 progress.Count++;
 
-                if ((service.Data.ServiceLocation == null) || (service.Data.ServiceLocation.Multicast == null))
+                if ((service.Data.ServiceLocation == null) || (service.Data.ServiceLocation.IpMulticastAddress == null))
                 {
                     progress.Skipped++;
                     Worker.ReportProgress((int)ProgressReportKind.SkippedChannel, progress.ShallowClone());
                     continue;
                 } // if
 
-                var multicastData = new MulticastOption(IPAddress.Parse(service.Data.ServiceLocation.Multicast.Address), IPAddress.Any);
+                var multicastData = new MulticastOption(IPAddress.Parse(service.Data.ServiceLocation.IpMulticastAddress.Address), IPAddress.Any);
                 s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 s.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 s.ReceiveTimeout = Timeout;
                 s.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership, multicastData);
-                s.Bind(new IPEndPoint(IPAddress.Any, service.Data.ServiceLocation.Multicast.Port));
+                s.Bind(new IPEndPoint(IPAddress.Any, service.Data.ServiceLocation.IpMulticastAddress.Port));
 
                 if (Worker.CancellationPending) break;
 

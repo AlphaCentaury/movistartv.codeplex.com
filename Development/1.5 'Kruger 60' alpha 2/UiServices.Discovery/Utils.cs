@@ -1,4 +1,4 @@
-﻿using DvbIpTypes.Schema2006;
+﻿using Etsi.Ts102034.v010501.XmlSerialization.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

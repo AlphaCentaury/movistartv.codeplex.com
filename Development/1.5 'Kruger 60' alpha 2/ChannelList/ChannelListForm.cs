@@ -1,7 +1,8 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using DvbIpTypes.Schema2006;
+using Etsi.Ts102034.v010501.XmlSerialization;
+using Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery;
 using Microsoft.SqlServer.MessageBox;
 using Project.DvbIpTv.ChannelList.Properties;
 using Project.DvbIpTv.Common;
@@ -763,8 +764,13 @@ namespace Project.DvbIpTv.ChannelList
                             MulticastPort = SelectedServiceProvider.Offering.Push[0].Port,
                             Description = Properties.Texts.BroadcastObtainingList,
                             DescriptionParsing = Properties.Texts.BroadcastParsingList,
-                            PayloadDataType = typeof(BroadcastDiscoveryXml),
+                            PayloadDataType = typeof(BroadcastDiscoveryRoot),
                             AllowExtraWhitespace = false,
+                            NamespaceReplacer = NamespaceUnification.Replacer,
+#if DEBUG
+                            DumpToFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache,
+                                "{broadcastdiscovery} " + SelectedServiceProvider.DomainName.Replace(".", "~") + ".xml"),
+#endif
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.BroadcastListUnableRefresh,
@@ -775,7 +781,7 @@ namespace Project.DvbIpTv.ChannelList
                     BasicGoogleTelemetry.SendScreenHit("ChannelListForm");
                     if (!download.IsOk) return false;
 
-                    var xmlDiscovery = download.Response.DeserializedPayloadData as BroadcastDiscoveryXml;
+                    var xmlDiscovery = download.Response.DeserializedPayloadData as BroadcastDiscoveryRoot;
                     uiDiscovery = new UiBroadcastDiscovery(xmlDiscovery, SelectedServiceProvider.DomainName, download.Response.Version);
                     AppUiConfiguration.Current.Cache.SaveXml("UiBroadcastDiscovery", SelectedServiceProvider.Key, uiDiscovery.Version, uiDiscovery);
                 } // if

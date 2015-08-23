@@ -18,7 +18,7 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.TvAnytime.Mpeg7
     [XmlType("TextualType", Namespace = "urn:tva:mpeg7:2008")]
     //[XmlInclude(typeof(OrganizationNameType))]
     //[XmlInclude(typeof(ServiceInformationNameType))]
-    //[XmlInclude(typeof(ExplanationType))]
+    [XmlInclude(typeof(Explanation))]
     //[XmlInclude(typeof(SynopsisType))]
     //[XmlInclude(typeof(KeywordType))]
     [XmlInclude(typeof(TermName))]

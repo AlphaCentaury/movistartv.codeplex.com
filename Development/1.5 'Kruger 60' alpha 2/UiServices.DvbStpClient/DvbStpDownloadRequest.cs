@@ -71,5 +71,19 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             get;
             set;
         } // AllowExtraWhitespace
+
+        public Func<string, string> NamespaceReplacer
+        {
+            get;
+            set;
+        } // NamespaceReplacer
+
+#if DEBUG
+        public string DumpToFile
+        {
+            get;
+            set;
+        } // DumpToFile
+#endif
     } // class DownloadDlgRequestData
 } // namespace

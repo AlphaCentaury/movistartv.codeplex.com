@@ -127,10 +127,10 @@
     <value>Unknown: {0}.{1}</value>
   </data>
   <data name="FormatProviderFriendlyDisplayName" xml:space="preserve">
-    <value>{0} (deduced)</value>
+    <value>{0} (*)</value>
   </data>
   <data name="FormatProviderUnknownDisplayName" xml:space="preserve">
-    <value>(Nameless) {0}</value>
+    <value>(Name not provided) {0}</value>
   </data>
   <data name="FormatServiceTypeIdUnknown" xml:space="preserve">
     <value>Unknown ({0})</value>

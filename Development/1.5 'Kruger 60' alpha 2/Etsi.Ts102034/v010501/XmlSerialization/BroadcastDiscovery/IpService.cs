@@ -16,9 +16,11 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategory("code")]
-    [XmlType(TypeName="IPService", Namespace = "urn:dvb:metadata:iptv:sdns:2012-1")]
+    [XmlType(TypeName="IPService", Namespace = IpService.Namespace)]
     public partial class IpService
     {
+        public const string Namespace = "urn:dvb:metadata:iptv:sdns:2012-1";
+
         [XmlElement("ServiceLocation")]
         public ServiceLocation ServiceLocation;
 
@@ -48,5 +50,5 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
 
         [XmlElement("LinkedService")]
         public IpService[] LinkedService;
-    } // class
+    } // class IpService
 } // namespace

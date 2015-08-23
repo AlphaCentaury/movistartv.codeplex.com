@@ -127,7 +127,7 @@
     <value>Desconocido: {0}.{1}</value>
   </data>
   <data name="FormatProviderFriendlyDisplayName" xml:space="preserve">
-    <value>{0} (deducido)</value>
+    <value>{0} (*)</value>
   </data>
   <data name="FormatProviderUnknownDisplayName" xml:space="preserve">
     <value>(Sin nombre) {0}</value>

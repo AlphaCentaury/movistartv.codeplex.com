@@ -70,10 +70,6 @@
     <Compile Include="TvAnytime\TvaScheduleEvent.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DvbIpTypes\DvbIpTypes.csproj">
-      <Project>{5b7c318b-372f-4265-8337-125e4a098532}</Project>
-      <Name>DvbIpTypes</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Project.Common\Project.Common.csproj">
       <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
       <Name>Project.Common</Name>

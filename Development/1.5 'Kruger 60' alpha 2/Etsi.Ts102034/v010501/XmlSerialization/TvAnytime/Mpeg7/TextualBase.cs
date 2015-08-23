@@ -22,7 +22,7 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.TvAnytime.Mpeg7
     //[XmlInclude(typeof(TextualType))]
     //[XmlInclude(typeof(OrganizationNameType))]
     //[XmlInclude(typeof(ServiceInformationNameType))]
-    //[XmlInclude(typeof(ExplanationType))]
+    [XmlInclude(typeof(Explanation))]
     //[XmlInclude(typeof(SynopsisType))]
     //[XmlInclude(typeof(KeywordType))]
     [XmlInclude(typeof(TermName))]

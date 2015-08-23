@@ -23,6 +23,6 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
     public partial class BroadcastOffering : OfferingBase
     {
         [XmlElement("ServiceList")]
-        public IpServiceList[] ServicesList;
+        public IpServiceList[] Services;
     } // class BroadcastOffering
 } // namespace

@@ -1,7 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using DvbIpTypes.Schema2006;
+using Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,15 +62,15 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
         } // constructor
 
-        public UiBroadcastDiscovery(BroadcastDiscoveryXml discoveryXml, string providerDomainName, int version)
+        public UiBroadcastDiscovery(BroadcastDiscoveryRoot discoveryXml, string providerDomainName, int version)
         {
             Create(discoveryXml, providerDomainName, version);
         } // constructor
 
-        private void Create(BroadcastDiscoveryXml discoveryXml, string providerDomainName, int version)
+        private void Create(BroadcastDiscoveryRoot discoveryXml, string providerDomainName, int version)
         {
             var services = from offering in discoveryXml.BroadcastDiscovery
-                           from list in offering.ServicesList
+                           from list in offering.Services
                            from service in list.Services
                            select service;
 

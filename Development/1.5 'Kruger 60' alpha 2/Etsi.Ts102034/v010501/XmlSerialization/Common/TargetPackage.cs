@@ -8,20 +8,19 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
+namespace Etsi.Ts102034.v010501.XmlSerialization.Common
 {
     [GeneratedCode("myxsdtool", "0.0.0.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategory("code")]
-    [XmlType(Namespace = "urn:dvb:metadata:iptv:sdns:2012-1")]
-    //[XmlInclude(typeof(PackageTextualIdentifier))]
-    public partial class TextualIdentifier
+    [XmlType("TargetPackageType", Namespace = "urn:dvb:metadata:iptv:sdns:2012-1")]
+    public partial class TargetPackage
     {
-        [XmlAttribute]
-        public string DomainName;
+        [XmlElement("PackageType")]
+        public MultilingualText[] PackageType;
 
-        [XmlAttribute]
-        public string ServiceName;
-    } // class TextualIdentifier
+        [XmlAttribute("PackageIDRef")]
+        public string PackageIdRef;
+    } // class TargetPackage
 } // namespace

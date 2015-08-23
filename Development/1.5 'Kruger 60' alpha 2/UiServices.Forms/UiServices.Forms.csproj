@@ -132,9 +132,9 @@
     <None Include="Resources\128-scan-tv.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DvbIpTypes\DvbIpTypes.csproj">
-      <Project>{5b7c318b-372f-4265-8337-125e4a098532}</Project>
-      <Name>DvbIpTypes</Name>
+    <ProjectReference Include="..\Etsi.Ts102034\Etsi.Ts102034.csproj">
+      <Project>{b91c438d-0333-4d06-86cd-74ce82df6f40}</Project>
+      <Name>Etsi.Ts102034</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Common\Project.Common.csproj">
       <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>

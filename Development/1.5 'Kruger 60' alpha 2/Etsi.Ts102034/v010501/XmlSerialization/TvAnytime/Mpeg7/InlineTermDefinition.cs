@@ -8,30 +8,21 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
+namespace Etsi.Ts102034.v010501.XmlSerialization.TvAnytime.Mpeg7
 {
     [GeneratedCode("myxsdtool", "0.0.0.0")]
     [Serializable]
     [DebuggerStepThrough]
     [DesignerCategory("code")]
-    [XmlType(Namespace = "urn:dvb:metadata:iptv:sdns:2012-1")]
-    public partial class DvbTriplet
+    [XmlType("InlineTermDefinitionType", Namespace = "urn:tva:mpeg7:2008")]
+    [XmlInclude(typeof(TermUse))]
+    [XmlInclude(typeof(ControlledTermUse))]
+    public abstract partial class InlineTermDefinition
     {
-        [XmlAttribute]
-        public ushort OrigNetId;
+        [XmlElement("Name")]
+        public InlineTermDefinitionTypeName[] Name;
 
-        [XmlAttribute]
-        public ushort TSId;
-
-        [XmlAttribute]
-        public ushort ServiceId;
-
-        [XmlAttribute]
-        public string TSIdWildcard;
-
-        public DvbTriplet()
-        {
-            this.TSIdWildcard = "*";
-        } // default constructor
-    } // class DvbTriplet
+        [XmlElement("Definition")]
+        public TextualData[] Definition;
+    } // class InlineTermDefinitionType
 } // namespace

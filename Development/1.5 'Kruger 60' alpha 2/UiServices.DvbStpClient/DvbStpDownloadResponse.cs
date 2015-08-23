@@ -42,13 +42,13 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             set;
         } // DeserializedPayloadData
 
-        public static object ParsePayload(Type payloadType, byte[] payloadData, byte payloadId, bool trimExtraWhitespace)
+        public static object ParsePayload(Type payloadType, byte[] payloadData, byte payloadId, bool trimExtraWhitespace, Func<string, string> namespaceReplacer)
         {
             try
             {
                 using (MemoryStream input = new MemoryStream(payloadData, false))
                 {
-                    return XmlSerialization.Deserialize(input, trimExtraWhitespace, payloadType);
+                    return XmlSerialization.Deserialize(input, payloadType, trimExtraWhitespace, namespaceReplacer);
                 } // using input
             }
             catch (Exception ex)
@@ -58,9 +58,9 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             } // try-catch
         } // ParsePayload<T>
 
-        public static T ParsePayload<T>(byte[] payloadData, byte payloadId, bool trimExtraWhitespace) where T: class
+        public static T ParsePayload<T>(byte[] payloadData, byte payloadId, bool trimExtraWhitespace, Func<string, string> namespaceReplacer) where T : class
         {
-            return ParsePayload(typeof(T), payloadData, payloadId, trimExtraWhitespace) as T;
+            return ParsePayload(typeof(T), payloadData, payloadId, trimExtraWhitespace, namespaceReplacer) as T;
         } // ParsePayload<T>
     } // class DownloadDlgResponseData
 } // namespace

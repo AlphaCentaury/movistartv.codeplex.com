@@ -50,5 +50,25 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
         /// <remarks></remarks>
         [XmlIgnore]
         public bool StreamingSpecified;
+
+        [XmlIgnore]
+        public string Url
+        {
+            get
+            {
+                if ((!StreamingSpecified) || (Streaming == StreamingKind.Rtp))
+                {
+                    return string.Format("rtp://@{0}:{1}", Address, Port);
+                }
+                else if (Streaming == StreamingKind.Udp)
+                {
+                    return string.Format("udp://@{0}:{1}", Address, Port);
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException();
+                } // if-else
+            }
+        } // Url
     } // class IpMulticastAddress
 } // namespace
