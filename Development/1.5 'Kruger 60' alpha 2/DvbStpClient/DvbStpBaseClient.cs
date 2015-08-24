@@ -92,7 +92,6 @@ namespace Project.DvbIpTv.DvbStp.Client
             private set;
         } // ReceivedBytes
 
-
         public DvbStpBaseClient(IPAddress ip, int port)
         {
             MulticastIpAddress = ip;

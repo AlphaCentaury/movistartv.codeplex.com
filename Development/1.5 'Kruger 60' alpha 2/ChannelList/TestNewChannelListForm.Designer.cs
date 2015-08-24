@@ -37,6 +37,7 @@
             this.buttonSort = new System.Windows.Forms.Button();
             this.comboSortDirection = new System.Windows.Forms.ComboBox();
             this.buttonConfig = new System.Windows.Forms.Button();
+            this.buttonTestMultiDownload = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewChannelList
@@ -148,11 +149,23 @@
             this.buttonConfig.UseVisualStyleBackColor = true;
             this.buttonConfig.Click += new System.EventHandler(this.buttonConfig_Click);
             // 
+            // buttonTestMultiDownload
+            // 
+            this.buttonTestMultiDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonTestMultiDownload.Location = new System.Drawing.Point(612, 358);
+            this.buttonTestMultiDownload.Name = "buttonTestMultiDownload";
+            this.buttonTestMultiDownload.Size = new System.Drawing.Size(100, 25);
+            this.buttonTestMultiDownload.TabIndex = 9;
+            this.buttonTestMultiDownload.Text = "Multi download...";
+            this.buttonTestMultiDownload.UseVisualStyleBackColor = true;
+            this.buttonTestMultiDownload.Click += new System.EventHandler(this.buttonTestMultiDownload_Click);
+            // 
             // TestNewChannelListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 422);
+            this.Controls.Add(this.buttonTestMultiDownload);
             this.Controls.Add(this.buttonConfig);
             this.Controls.Add(this.comboSortDirection);
             this.Controls.Add(this.buttonSort);
@@ -182,5 +195,6 @@
         private System.Windows.Forms.Button buttonSort;
         private System.Windows.Forms.ComboBox comboSortDirection;
         private System.Windows.Forms.Button buttonConfig;
+        private System.Windows.Forms.Button buttonTestMultiDownload;
     }
 }

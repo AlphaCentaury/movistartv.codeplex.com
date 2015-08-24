@@ -73,9 +73,9 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap InternetDownload {
+        internal static System.Drawing.Bitmap DvbStpDownload_128x128 {
             get {
-                object obj = ResourceManager.GetObject("InternetDownload", resourceCulture);
+                object obj = ResourceManager.GetObject("DvbStpDownload_128x128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

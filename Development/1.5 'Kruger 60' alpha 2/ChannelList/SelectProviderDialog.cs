@@ -144,9 +144,9 @@ namespace Project.DvbIpTv.ChannelList
                 {
                     var basePort = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastPort;
 
-                    var download = new DvbStpDownloadHelper()
+                    var download = new UiDvbStpSimpleDownloadHelper()
                     {
-                        Request = new DvbStpDownloadRequest()
+                        Request = new UiDvbStpSimpleDownloadRequest()
                         {
                             PayloadId = 0x01,
                             SegmentId = null, // accept any segment
@@ -155,8 +155,8 @@ namespace Project.DvbIpTv.ChannelList
                             Description = Properties.Texts.SPObtainingList,
                             DescriptionParsing = Properties.Texts.SPParsingList,
                             PayloadDataType = typeof(ProviderDiscoveryRoot),
-                            AllowExtraWhitespace = false,
-                            NamespaceReplacer = NamespaceUnification.Replacer,
+                            AllowXmlExtraWhitespace = false,
+                            XmlNamespaceReplacer = NamespaceUnification.Replacer,
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.SPListUnableRefresh,

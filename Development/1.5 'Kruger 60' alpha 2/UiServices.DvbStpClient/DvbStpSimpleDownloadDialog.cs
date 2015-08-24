@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.DvbStp.Client;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.DvbStpClient
 {
-    public partial class DvbStpDownloadDialog : Form
+    public partial class DvbStpSimpleDownloadDialog : Form
     {
         private string FormatProgressPercentage;
         private string FormatSectionProgress;
@@ -28,19 +29,19 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
         private Action CancelDownloadRequest;
         private DateTime StartTime;
 
-        public DvbStpDownloadRequest Request
+        public UiDvbStpSimpleDownloadRequest Request
         {
             get;
             set;
         } // Request
 
-        public DvbStpDownloadResponse Response
+        public UiDvbStpSimpleDownloadResponse Response
         {
             get;
             private set;
         } // Response
 
-        public DvbStpDownloadDialog()
+        public DvbStpSimpleDownloadDialog()
         {
             InitializeComponent();
         } // constructor
@@ -51,7 +52,10 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
         {
             if (Request == null) throw new ArgumentNullException();
 
-            labelDownloadingPayloadName.Text = Request.Description;
+            if (!string.IsNullOrEmpty(Request.Description))
+            {
+                labelDownloadingPayloadName.Text = Request.Description;
+            } // if
             labelDownloadSource.Text = string.Format(labelDownloadSource.Text, Request.MulticastAddress, Request.MulticastPort);
             FormatProgressPercentage = labelProgressPct.Text;
             FormatSectionProgress = labelSectionProgress.Text;
@@ -64,12 +68,15 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             labelReceiving.Visible = false;
             labelEllapsedTime.Text = null;
 
-            Response = new DvbStpDownloadResponse();
+            Response = new UiDvbStpSimpleDownloadResponse();
         }  // DownloadDlg_Load
 
         private void DownloadDlg_Shown(object sender, EventArgs e)
         {
             StartDownload();
+            
+            var screen = string.Format("{0}: {1}:{2} 0x{3:X2}", this.GetType().Name, Request.MulticastAddress, Request.MulticastPort, Request.PayloadId);
+            BasicGoogleTelemetry.SendScreenHit(screen);
         } // DownloadDlg_Shown
 
         private void DownloadDlg_FormClosing(object sender, FormClosingEventArgs e)
@@ -139,9 +146,9 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
         private void StartClose()
         {
-            if (Request.FormCloseDelay <= 0) CloseForm();
+            if (Request.DialogCloseDelay <= 0) CloseForm();
 
-            timerClose.Interval = Request.FormCloseDelay;
+            timerClose.Interval = Request.DialogCloseDelay;
             timerClose.Enabled = true;
         } // private StartClose
 
@@ -196,11 +203,9 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
         private void DisplaySectionReception(ProgressChangedEventArgs e)
         {
-            DvbStpSimpleClient.PayloadSectionReceivedEventArgs sectionReceivedArgs;
-
             if (progressBar.Style == ProgressBarStyle.Marquee) progressBar.Style = ProgressBarStyle.Continuous;
 
-            sectionReceivedArgs = e.UserState as DvbStpSimpleClient.PayloadSectionReceivedEventArgs;
+            var sectionReceivedArgs = e.UserState as DvbStpSimpleClient.PayloadSectionReceivedEventArgs;
             labelProgressPct.Text = string.Format(FormatProgressPercentage, e.ProgressPercentage / 1000.0);
             labelSectionProgress.Text = string.Format(FormatSectionProgress, sectionReceivedArgs.SectionsReceived, sectionReceivedArgs.SectionCount);
             progressBar.Value = e.ProgressPercentage / 10;
@@ -231,17 +236,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             DvbStpSimpleClient stpClient;
             byte[] payload;
 
-            // set worker thread name (for debugging pourposes)
-            var currentThread = Thread.CurrentThread;
-            currentThread.Name = "DvbStpDownloadDialog BackgroundWorker";
-
-            // inherit parent thead culture settings
-            var parentThread = e.Argument as Thread;
-            if (parentThread != null)
-            {
-                currentThread.CurrentCulture = parentThread.CurrentCulture; // matches regular application Culture; set again just-in-case
-                currentThread.CurrentUICulture = parentThread.CurrentUICulture; // UICulture not inherited from spwawning thread
-            } // if
+            InitWorker(e);
 
             stpClient = new DvbStpSimpleClient(Request.MulticastAddress, Request.MulticastPort);
             CancelDownloadRequest = stpClient.CancelRequest;
@@ -253,18 +248,16 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
                 payload = stpClient.GetPayload(Request.PayloadId, Request.SegmentId);
                 Response.Version = stpClient.SegmentVersion;
                 e.Result = payload;
-
 #if DEBUG
                 if ((payload != null) && (Request.DumpToFile != null))
                 {
                     File.WriteAllBytes(Request.DumpToFile, payload);
                 } // if
 #endif
-
                 if ((Request.PayloadDataType != null) && (payload != null))
                 {
                     Worker.ReportProgress(int.MaxValue);
-                    Response.DeserializedPayloadData = DvbStpDownloadResponse.ParsePayload(Request.PayloadDataType, payload, Request.PayloadId, !Request.AllowExtraWhitespace, Request.NamespaceReplacer);
+                    Response.DeserializedPayloadData = UiDvbStpSimpleDownloadResponse.ParsePayload(Request.PayloadDataType, payload, Request.PayloadId, !Request.AllowXmlExtraWhitespace, Request.XmlNamespaceReplacer);
                 } // if
             }
             finally
@@ -273,6 +266,25 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
                 stpClient.Close();
             } // finally
         } // Worker_DoWork
+
+        private void InitWorker(DoWorkEventArgs e)
+        {
+            // set worker thread name (for debugging purposes)
+            var currentThread = Thread.CurrentThread;
+            currentThread.Name = "DvbStpSimpleDownloadDialog BackgroundWorker";
+
+            // inherit parent thead culture settings
+            var parentThread = e.Argument as Thread;
+            if (parentThread != null)
+            {
+                currentThread.CurrentCulture = parentThread.CurrentCulture; // matches regular application Culture; set again just-in-case
+                currentThread.CurrentUICulture = parentThread.CurrentUICulture; // UICulture not inherited from spwawning thread
+            } // if
+        } // InitWorker
+
+#endregion
+
+        #region StpClient event handlers
 
         void StpClient_SectionReceived(object sender, DvbStpSimpleClient.SectionReceivedEventArgs e)
         {
@@ -285,5 +297,5 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
         } // StpClient_PayloadSectionReceived
 
         #endregion
-    } // class DownloadDlg
+    } // class DvbStpSimpleDownloadDialog
 } // namespace

@@ -754,9 +754,9 @@ namespace Project.DvbIpTv.ChannelList
 
                 if (uiDiscovery == null)
                 {
-                    var download = new DvbStpDownloadHelper()
+                    var download = new UiDvbStpSimpleDownloadHelper()
                     {
-                        Request = new DvbStpDownloadRequest()
+                        Request = new UiDvbStpSimpleDownloadRequest()
                         {
                             PayloadId = 0x02,
                             SegmentId = null, // accept any segment
@@ -765,8 +765,8 @@ namespace Project.DvbIpTv.ChannelList
                             Description = Properties.Texts.BroadcastObtainingList,
                             DescriptionParsing = Properties.Texts.BroadcastParsingList,
                             PayloadDataType = typeof(BroadcastDiscoveryRoot),
-                            AllowExtraWhitespace = false,
-                            NamespaceReplacer = NamespaceUnification.Replacer,
+                            AllowXmlExtraWhitespace = false,
+                            XmlNamespaceReplacer = NamespaceUnification.Replacer,
 #if DEBUG
                             DumpToFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache,
                                 "{broadcastdiscovery} " + SelectedServiceProvider.DomainName.Replace(".", "~") + ".xml"),

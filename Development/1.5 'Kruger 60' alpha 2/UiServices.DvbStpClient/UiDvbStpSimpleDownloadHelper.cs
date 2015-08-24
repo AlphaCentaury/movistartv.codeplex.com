@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.DvbStpClient
 {
-    public sealed class DvbStpDownloadHelper
+    public sealed class UiDvbStpSimpleDownloadHelper
     {
         // "Input" properties
 
-        public DvbStpDownloadRequest Request
+        public UiDvbStpSimpleDownloadRequest Request
         {
             get;
             set;
@@ -53,7 +53,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             private set;
         } // IsOk
 
-        public DvbStpDownloadResponse Response
+        public UiDvbStpSimpleDownloadResponse Response
         {
             get;
             private set;
@@ -65,7 +65,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             set;
         } // HandleException
 
-        public DvbStpDownloadHelper()
+        public UiDvbStpSimpleDownloadHelper()
         {
             CaptionUserCancelled = Texts.HelperUserCancelledCaption;
             CaptionDownloadException = Texts.HelperExceptionCaption;
@@ -73,7 +73,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
         public void ShowDialog(IWin32Window owner)
         {
-            using (var dlg = new DvbStpDownloadDialog()
+            using (var dlg = new DvbStpSimpleDownloadDialog()
                 {
                     Request = this.Request,
                 })

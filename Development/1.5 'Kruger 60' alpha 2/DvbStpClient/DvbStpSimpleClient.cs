@@ -116,11 +116,11 @@ namespace Project.DvbIpTv.DvbStp.Client
                 InitSectionData();
             } // if
 
-            // store data
-            StoreSectionData();
-
             // notify reception of a requested section
             if (PayloadSectionReceived != null) OnPayloadSectionReceived();
+
+            // store data
+            StoreSectionData();
         } // ProcessReceivedData
 
         private void InitSectionData()
@@ -229,6 +229,7 @@ namespace Project.DvbIpTv.DvbStp.Client
                 SegmentId = Header.SegmentId,
                 OldVersion = SegmentVersion,
                 NewVersion = Header.SegmentVersion,
+                SectionCount = Header.LastSectionNumber + 1
             };
 
             DownloadRestarted(this, e);

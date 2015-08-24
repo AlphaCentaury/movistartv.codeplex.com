@@ -1,12 +1,17 @@
-﻿using Project.DvbIpTv.UiServices.Configuration;
+﻿using Etsi.Ts102034.v010501.XmlSerialization;
+using Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery;
+using Etsi.Ts102034.v010501.XmlSerialization.PackageDiscovery;
+using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Discovery;
+using Project.DvbIpTv.UiServices.DvbStpClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Windows.Forms;
 
@@ -189,6 +194,41 @@ namespace Project.DvbIpTv.ChannelList
                     form.ShowDialog(this);
                 } // using
             } // using
+        }
+
+        private void buttonTestMultiDownload_Click(object sender, EventArgs e)
+        {
+            var dlg = new DvbStpEnhancedDownloadDialog();
+            var payloads = new List<UiDvbStpClientSegmentInfo>();
+            payloads.Add(new UiDvbStpClientSegmentInfo()
+            {
+                DisplayName = "0x02: Broadcast discovery",
+                PayloadId = 0x02,
+                SegmentId = null, // any
+                XmlType = typeof(BroadcastDiscoveryRoot)
+            });
+            payloads.Add(new UiDvbStpClientSegmentInfo()
+            {
+                DisplayName = "0x05: Package discovery",
+                PayloadId = 0x05,
+                SegmentId = null, // any
+                XmlType = typeof(PackageDiscoveryRoot)
+            });
+
+            dlg.Request = new UiDvbStpEnhancedDownloadRequest()
+            {
+                Payloads = payloads,
+                MulticastAddress = IPAddress.Parse("239.0.2.154"),
+                MulticastPort = 3937,
+                Description = Properties.Texts.BroadcastObtainingList,
+                DescriptionParsing = Properties.Texts.BroadcastParsingList,
+                AllowXmlExtraWhitespace = false,
+                XmlNamespaceReplacer = NamespaceUnification.Replacer,
+#if DEBUG
+                DumpToFolder = AppUiConfiguration.Current.Folders.Cache,
+#endif
+            };
+            dlg.ShowDialog(this);
         }
     }
 }

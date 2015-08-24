@@ -123,6 +123,12 @@
   <data name="CompletedDownloadDataReception" xml:space="preserve">
     <value>Completada la recepción de datos</value>
   </data>
+  <data name="DownloadFragmentProgressFormat" xml:space="preserve">
+    <value>{0:N0} de {1:N0}</value>
+  </data>
+  <data name="DownloadSegmentProgressFormat" xml:space="preserve">
+    <value>{0:P1}</value>
+  </data>
   <data name="HelperExceptionCaption" xml:space="preserve">
     <value>Se ha producido un error al obtener la información</value>
   </data>
