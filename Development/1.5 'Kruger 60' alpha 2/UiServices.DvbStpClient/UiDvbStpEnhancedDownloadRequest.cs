@@ -5,8 +5,23 @@ using System.Text;
 
 namespace Project.DvbIpTv.UiServices.DvbStpClient
 {
-    public class UiDvbStpEnhancedDownloadRequest: UiDvbStpBaseDownloadRequest
+    public class UiDvbStpEnhancedDownloadRequest : UiDvbStpBaseDownloadRequest
     {
+        public UiDvbStpEnhancedDownloadRequest()
+        {
+            // no op
+        } // default constructor
+
+        public UiDvbStpEnhancedDownloadRequest(int expectedPayloadCount)
+        {
+            Payloads = new List<UiDvbStpClientSegmentInfo>(expectedPayloadCount);
+        } // constructor
+
+        public UiDvbStpEnhancedDownloadRequest(IList<UiDvbStpClientSegmentInfo> payloads)
+        {
+            Payloads = payloads;
+        } // constructor
+
         public IList<UiDvbStpClientSegmentInfo> Payloads
         {
             get;
@@ -32,5 +47,15 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             set;
         } // DumpToFolder
 #endif
+
+        public void AddPayload(byte payloadId, short? segmentId, string displayName, Type xmlType)
+        {
+            Payloads.Add(new UiDvbStpClientSegmentInfo(payloadId, segmentId, displayName, xmlType));
+        } // AddPayload
+
+        public void AddPayload(UiDvbStpClientSegmentInfo payload)
+        {
+            Payloads.Add(payload);
+        } // AddPayload
     } // class UiDvbStpEnhancedDownloadRequest
 } // namespace

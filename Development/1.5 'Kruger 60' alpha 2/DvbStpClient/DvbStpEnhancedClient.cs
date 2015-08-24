@@ -152,6 +152,7 @@ namespace Project.DvbIpTv.DvbStp.Client
         private void InitSectionData(SegmentStatus status)
         {
             // initialize segment data storage
+            status.SegmentId = Header.SegmentId;
             status.SegmentData = new SegmentAssembler(new DvbStpSegmentIdentity(Header), Header.LastSectionNumber);
             status.SegmentVersion = Header.SegmentVersion;
             ResetTimeout();

@@ -353,6 +353,24 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Channel description and data.
+        /// </summary>
+        internal static string Payload02DisplayName {
+            get {
+                return ResourceManager.GetString("Payload02DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Packages and channel numbers.
+        /// </summary>
+        internal static string Payload05DisplayName {
+            get {
+                return ResourceManager.GetString("Payload05DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The selected TV channel has been marked as inactive and might not be available.
         ///
         ///Do you still want to schedule a recording of {0}?.
@@ -384,7 +402,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.5 “Kruger 60” Alpha 1
+        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.5 “Kruger 60” Alpha 2
         ///
         ///NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services.
         ///DO NOT EVER CALL 1002 nor 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.

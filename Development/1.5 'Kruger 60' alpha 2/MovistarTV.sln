@@ -117,17 +117,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 		Common.UI\Resources\ListView_Tiles.ico = Common.UI\Resources\ListView_Tiles.ico
 		Common.UI\Resources\ListView_Tiles_16x16.png = Common.UI\Resources\ListView_Tiles_16x16.png
 		Common.UI\Resources\ListView_Tiles_24x24.png = Common.UI\Resources\ListView_Tiles_24x24.png
-		Common.UI\Resources\Status_Ok_16x16.png = Common.UI\Resources\Status_Ok_16x16.png
-		Common.UI\Resources\Status_Ok_Small_16x16.png = Common.UI\Resources\Status_Ok_Small_16x16.png
+		Common.UI\Resources\Status_Download_Blue_16x16.png = Common.UI\Resources\Status_Download_Blue_16x16.png
+		Common.UI\Resources\Status_Ok_Blue_16x16.png = Common.UI\Resources\Status_Ok_Blue_16x16.png
+		Common.UI\Resources\Status_Ok_Circle_16x16.png = Common.UI\Resources\Status_Ok_Circle_16x16.png
+		Common.UI\Resources\Status_Ok_Green_16x16.png = Common.UI\Resources\Status_Ok_Green_16x16.png
+		Common.UI\Resources\Status_Ok_SmallCircle_16x16.png = Common.UI\Resources\Status_Ok_SmallCircle_16x16.png
 		Common.UI\Resources\Status_Pause_16x16.png = Common.UI\Resources\Status_Pause_16x16.png
 		Common.UI\Resources\Status_Pause_Small_16x16.png = Common.UI\Resources\Status_Pause_Small_16x16.png
 		Common.UI\Resources\Status_Run_16x16.png = Common.UI\Resources\Status_Run_16x16.png
 		Common.UI\Resources\Status_Run_Small_16x16.png = Common.UI\Resources\Status_Run_Small_16x16.png
+		Common.UI\Resources\Status_Wait_16x16.png = Common.UI\Resources\Status_Wait_16x16.png
+		Common.UI\Resources\WaitClock_128x128.png = Common.UI\Resources\WaitClock_128x128.png
 		Common.UI\Resources\WaitClock_16x16.png = Common.UI\Resources\WaitClock_16x16.png
 		Common.UI\Resources\WaitClock_24x24.png = Common.UI\Resources\WaitClock_24x24.png
+		Common.UI\Resources\WaitClock_256x256.png = Common.UI\Resources\WaitClock_256x256.png
 		Common.UI\Resources\WaitClock_32x32.png = Common.UI\Resources\WaitClock_32x32.png
 		Common.UI\Resources\WaitClock_48x48.png = Common.UI\Resources\WaitClock_48x48.png
 		Common.UI\Resources\WaitClock_64x64.png = Common.UI\Resources\WaitClock_64x64.png
+		Common.UI\Resources\WaitClock_96x96.png = Common.UI\Resources\WaitClock_96x96.png
 		Common.UI\Resources\WaitClock_Icon.ico = Common.UI\Resources\WaitClock_Icon.ico
 	EndProjectSection
 EndProject
@@ -542,8 +549,5 @@ Global
 		{0BA7DA0C-3C45-4834-9927-C8CB5B49DD7B} = {C1DAEFDD-689E-4324-A05D-66FA30B574B5}
 		{3935C593-1E31-42EC-8C9F-23F8D548C112} = {C1DAEFDD-689E-4324-A05D-66FA30B574B5}
 		{4B6AC9D7-14AF-4C52-9154-59F4B4A3EC0E} = {1A7A0EC8-D85A-4674-8DF7-89FF64D0A158}
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

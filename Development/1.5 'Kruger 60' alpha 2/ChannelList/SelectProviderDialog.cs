@@ -144,7 +144,7 @@ namespace Project.DvbIpTv.ChannelList
                 {
                     var basePort = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastPort;
 
-                    var download = new UiDvbStpSimpleDownloadHelper()
+                    var downloader = new UiDvbStpSimpleDownloader()
                     {
                         Request = new UiDvbStpSimpleDownloadRequest()
                         {
@@ -162,11 +162,11 @@ namespace Project.DvbIpTv.ChannelList
                         TextDownloadException = Properties.Texts.SPListUnableRefresh,
                         HandleException = MyApplication.HandleException
                     };
-                    download.ShowDialog(this);
-                    if (!download.IsOk) return false;
+                    downloader.Download(this);
+                    if (!downloader.IsOk) return false;
 
-                    discovery = download.Response.DeserializedPayloadData as ProviderDiscoveryRoot;
-                    AppUiConfiguration.Current.Cache.SaveXml("ProviderDiscovery", baseIpAddress, download.Response.Version, discovery);
+                    discovery = downloader.Response.DeserializedPayloadData as ProviderDiscoveryRoot;
+                    AppUiConfiguration.Current.Cache.SaveXml("ProviderDiscovery", baseIpAddress, downloader.Response.Version, discovery);
                 } // if
 
                 ProvidersDiscovery = new UiProviderDiscovery(discovery);

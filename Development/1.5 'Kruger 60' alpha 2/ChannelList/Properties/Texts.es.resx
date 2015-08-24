@@ -252,4 +252,10 @@ Verifique la sintáxis XML del archivo y corrija los errores detectados.</value>
 
 ¿Desea ver en cualquier caso {0}?</value>
   </data>
+  <data name="Payload02DisplayName" xml:space="preserve">
+    <value>Descripción y datos de los canales</value>
+  </data>
+  <data name="Payload05DisplayName" xml:space="preserve">
+    <value>Paquetes y números de canal</value>
+  </data>
 </root>

@@ -54,6 +54,12 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             InitializeComponent();
         } // constructor
 
+        public DvbStpEnhancedDownloadDialog(UiDvbStpEnhancedDownloadRequest request)
+            : this()
+        {
+            Request = request;
+        } // constructor
+
         #region Dialog events
 
         private void Dialog_Load(object sender, EventArgs e)
@@ -76,7 +82,8 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
             foreach (var segment in Request.Payloads)
             {
-                var item = new ListViewItem(segment.DisplayName);
+                var displayName = segment.DisplayName ?? string.Format("Payload 0x{0:X2}", segment.PayloadId);
+                var item = new ListViewItem(displayName);
                 item.SubItems.Add("-");
                 item.SubItems.Add("-");
                 item.ImageKey = "Waiting";
@@ -364,11 +371,14 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
             foreach (var payload in Request.Payloads)
             {
-                payload.XmlDeserializedData = UiDvbStpSimpleDownloadResponse.ParsePayload(payload.XmlType,
-                    payload.Data,
-                    payload.PayloadId,
-                    !Request.AllowXmlExtraWhitespace,
-                    Request.XmlNamespaceReplacer);
+                if (payload.XmlType != null)
+                {
+                    payload.XmlDeserializedData = UiDvbStpSimpleDownloadResponse.ParsePayload(payload.XmlType,
+                        payload.Data,
+                        payload.PayloadId,
+                        !Request.AllowXmlExtraWhitespace,
+                        Request.XmlNamespaceReplacer);
+                } // if
 
                 if (!Request.KeepRawData)
                 {

@@ -54,6 +54,7 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="UiDvbStpEnhancedDownloader.cs" />
     <Compile Include="DvbStpEnhancedDownloadDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,10 +67,11 @@
     <Compile Include="DvbStpSimpleDownloadDialog.Designer.cs">
       <DependentUpon>DvbStpSimpleDownloadDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UiDvbStpBaseDownloader.cs" />
     <Compile Include="UiDvbStpEnhancedDownloadRequest.cs" />
     <Compile Include="UiDvbStpEnhancedDownloadResponse.cs" />
     <Compile Include="UiDvbStpBaseDownloadResponse.cs" />
-    <Compile Include="UiDvbStpSimpleDownloadHelper.cs" />
+    <Compile Include="UiDvbStpSimpleDownloader.cs" />
     <Compile Include="UiDvbStpSimpleDownloadRequest.cs" />
     <Compile Include="UiDvbStpSimpleDownloadResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

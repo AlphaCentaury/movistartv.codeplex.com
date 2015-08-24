@@ -11,18 +11,33 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 {
     public class UiDvbStpClientSegmentInfo: DvbStpClientSegmentInfo
     {
+        public UiDvbStpClientSegmentInfo()
+        {
+            // no op
+        } // constructor
+
+        public UiDvbStpClientSegmentInfo(byte payloadId, short? segmentId, string displayName, Type xmlType)
+            : base(payloadId, segmentId)
+        {
+            DisplayName = displayName;
+            XmlType = xmlType;
+        } // constructor
+
+        // Required IN parameter
         public string DisplayName
         {
             get;
             set;
         } // DisplayName
 
+        // Required IN parameter
         public Type XmlType
         {
             get;
             set;
         } // XmlType
 
+        // Out parameter
         public object XmlDeserializedData
         {
             get;

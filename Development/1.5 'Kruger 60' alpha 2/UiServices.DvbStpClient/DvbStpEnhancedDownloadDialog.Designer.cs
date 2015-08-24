@@ -161,8 +161,8 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             this.imageListPayloadStatus.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListPayloadStatus.ImageStream")));
             this.imageListPayloadStatus.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListPayloadStatus.Images.SetKeyName(0, "Waiting");
-            this.imageListPayloadStatus.Images.SetKeyName(1, "Downloading");
-            this.imageListPayloadStatus.Images.SetKeyName(2, "Restarted");
+            this.imageListPayloadStatus.Images.SetKeyName(1, "Restarted");
+            this.imageListPayloadStatus.Images.SetKeyName(2, "Downloading");
             this.imageListPayloadStatus.Images.SetKeyName(3, "Completed");
             // 
             // DvbStpEnhancedDownloadDialog

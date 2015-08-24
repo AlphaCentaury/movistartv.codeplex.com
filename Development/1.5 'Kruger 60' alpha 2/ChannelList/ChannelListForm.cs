@@ -3,6 +3,7 @@
 
 using Etsi.Ts102034.v010501.XmlSerialization;
 using Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery;
+using Etsi.Ts102034.v010501.XmlSerialization.PackageDiscovery;
 using Microsoft.SqlServer.MessageBox;
 using Project.DvbIpTv.ChannelList.Properties;
 using Project.DvbIpTv.Common;
@@ -86,7 +87,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void ChannelListForm_Shown(object sender, EventArgs e)
         {
-            BasicGoogleTelemetry.SendScreenHit("ChannelListForm");
+            BasicGoogleTelemetry.SendScreenHit("ChannelListForm: Shown");
             if (SelectedServiceProvider == null)
             {
                 SafeCall(SelectProvider);
@@ -116,7 +117,9 @@ namespace Project.DvbIpTv.ChannelList
             this.Text = Properties.Texts.AppCaption;
 
             // set-up channel list control
-            listViewChannels.TileSize = new Size(225, imageListChannelsLarge.ImageSize.Height + 6);
+            //listViewChannels.TileSize = new Size(160, imageListChannelsLarge.ImageSize.Height + 6);
+            listViewChannels.TileSize = new Size((listViewChannels.Width - SystemInformation.VerticalScrollBarWidth - 6) / 4,
+                imageListChannelsLarge.ImageSize.Height + 6);
             ChannelListTileFont = new Font("Tahoma", 10.5f, FontStyle.Bold);
             ChannelListTileDisabledFont = new Font(listViewChannels.Font, listViewChannels.Font.Style);
             ChannelListDetailsFont = new Font(listViewChannels.Font, listViewChannels.Font.Style);
@@ -754,35 +757,32 @@ namespace Project.DvbIpTv.ChannelList
 
                 if (uiDiscovery == null)
                 {
-                    var download = new UiDvbStpSimpleDownloadHelper()
+                    var downloader = new UiDvbStpEnhancedDownloader()
                     {
-                        Request = new UiDvbStpSimpleDownloadRequest()
+                        Request = new UiDvbStpEnhancedDownloadRequest(2)
                         {
-                            PayloadId = 0x02,
-                            SegmentId = null, // accept any segment
                             MulticastAddress = IPAddress.Parse(SelectedServiceProvider.Offering.Push[0].Address),
                             MulticastPort = SelectedServiceProvider.Offering.Push[0].Port,
                             Description = Properties.Texts.BroadcastObtainingList,
                             DescriptionParsing = Properties.Texts.BroadcastParsingList,
-                            PayloadDataType = typeof(BroadcastDiscoveryRoot),
                             AllowXmlExtraWhitespace = false,
                             XmlNamespaceReplacer = NamespaceUnification.Replacer,
 #if DEBUG
-                            DumpToFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache,
-                                "{broadcastdiscovery} " + SelectedServiceProvider.DomainName.Replace(".", "~") + ".xml"),
+                            DumpToFolder = AppUiConfiguration.Current.Folders.Cache
 #endif
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.BroadcastListUnableRefresh,
                         HandleException = MyApplication.HandleException
                     };
-                    BasicGoogleTelemetry.SendScreenHit("DvbStpDownloadHelper: 0x02 " + SelectedServiceProvider.Offering.Push[0].Address);
-                    download.ShowDialog(this);
+                    downloader.Request.AddPayload(0x02, null, Properties.Texts.Payload02DisplayName, typeof(BroadcastDiscoveryRoot));
+                    downloader.Request.AddPayload(0x05, null, Properties.Texts.Payload05DisplayName, typeof(PackageDiscoveryRoot));
+                    downloader.Download(this);
                     BasicGoogleTelemetry.SendScreenHit("ChannelListForm");
-                    if (!download.IsOk) return false;
+                    if (!downloader.IsOk) return false;
 
-                    var xmlDiscovery = download.Response.DeserializedPayloadData as BroadcastDiscoveryRoot;
-                    uiDiscovery = new UiBroadcastDiscovery(xmlDiscovery, SelectedServiceProvider.DomainName, download.Response.Version);
+                    var xmlDiscovery = downloader.Request.Payloads[0].XmlDeserializedData as BroadcastDiscoveryRoot;
+                    uiDiscovery = new UiBroadcastDiscovery(xmlDiscovery, SelectedServiceProvider.DomainName, downloader.Request.Payloads[0].SegmentVersion);
                     AppUiConfiguration.Current.Cache.SaveXml("UiBroadcastDiscovery", SelectedServiceProvider.Key, uiDiscovery.Version, uiDiscovery);
                 } // if
 

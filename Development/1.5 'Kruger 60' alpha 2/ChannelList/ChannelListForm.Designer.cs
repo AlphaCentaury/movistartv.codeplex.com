@@ -151,8 +151,6 @@ namespace Project.DvbIpTv.ChannelList
             this.contextMenuListProperties = new System.Windows.Forms.ToolStripMenuItem();
             this.labelNotification = new System.Windows.Forms.Label();
             this.timerDismissNotification = new System.Windows.Forms.Timer(this.components);
-            this.labelPackageLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureNotificationIcon = new System.Windows.Forms.PictureBox();
             this.buttonRecordChannel = new System.Windows.Forms.Button();
             this.buttonDisplayChannel = new System.Windows.Forms.Button();
@@ -1003,16 +1001,6 @@ namespace Project.DvbIpTv.ChannelList
             // 
             this.timerDismissNotification.Tick += new System.EventHandler(this.timerDismissNotification_Tick);
             // 
-            // labelPackageLabel
-            // 
-            resources.ApplyResources(this.labelPackageLabel, "labelPackageLabel");
-            this.labelPackageLabel.Name = "labelPackageLabel";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
             // pictureNotificationIcon
             // 
             resources.ApplyResources(this.pictureNotificationIcon, "pictureNotificationIcon");
@@ -1054,8 +1042,6 @@ namespace Project.DvbIpTv.ChannelList
             // ChannelListForm
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelPackageLabel);
             this.Controls.Add(this.labelNotification);
             this.Controls.Add(this.pictureNotificationIcon);
             this.Controls.Add(this.buttonRecordChannel);
@@ -1129,8 +1115,6 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ToolStripSeparator separatorRecordings1;
         private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsRepair;
         private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsImport;
-        private System.Windows.Forms.Label labelPackageLabel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem menuItemDvbPackages;
         private System.Windows.Forms.ToolStripMenuItem menuItemPackagesSelect;
         private System.Windows.Forms.ToolStripMenuItem menuItemPackagesManage;

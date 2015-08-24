@@ -252,4 +252,10 @@ Do you still want to schedule a recording of {0}?</value>
 
 Do you still want to show {0}?</value>
   </data>
+  <data name="Payload02DisplayName" xml:space="preserve">
+    <value>Channel description and data</value>
+  </data>
+  <data name="Payload05DisplayName" xml:space="preserve">
+    <value>Packages and channel numbers</value>
+  </data>
 </root>

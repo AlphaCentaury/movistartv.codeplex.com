@@ -46,6 +46,12 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             InitializeComponent();
         } // constructor
 
+        public DvbStpSimpleDownloadDialog(UiDvbStpSimpleDownloadRequest request)
+            : this()
+        {
+            Request = request;
+        } // constructor
+
         #region DownloadDlg events
 
         private void DownloadDlg_Load(object sender, EventArgs e)

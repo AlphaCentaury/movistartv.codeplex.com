@@ -1187,15 +1187,6 @@
   <data name="contextMenuListCopyAll.Text" xml:space="preserve">
     <value>Copiar todos los canales</value>
   </data>
-  <data name="labelPackageLabel.Text" xml:space="preserve">
-    <value>Paquete:</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 13</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>(Todos los canales y servicios)</value>
-  </data>
   <data name="buttonRecordChannel.Text" xml:space="preserve">
     <value>Gra&amp;bar...</value>
   </data>

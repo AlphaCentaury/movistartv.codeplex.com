@@ -10,6 +10,17 @@ namespace Project.DvbIpTv.DvbStp.Client
 {
     public class DvbStpClientSegmentInfo
     {
+        public DvbStpClientSegmentInfo()
+        {
+            // no op
+        } // constructor
+
+        public DvbStpClientSegmentInfo(byte payloadId, short? segmentId)
+        {
+            PayloadId = payloadId;
+            SegmentId = segmentId;
+        } // constructor
+
         // Required IN parameter
         public byte PayloadId
         {
