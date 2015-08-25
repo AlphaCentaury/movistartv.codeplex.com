@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblySolutionInfo.cs">
+      <Link>Properties\AssemblySolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="v010501\XmlSerialization\BroadcastDiscovery\AnnouncementSupport.cs" />
     <Compile Include="v010501\XmlSerialization\BroadcastDiscovery\AnnouncementSupportAnnouncement.cs" />

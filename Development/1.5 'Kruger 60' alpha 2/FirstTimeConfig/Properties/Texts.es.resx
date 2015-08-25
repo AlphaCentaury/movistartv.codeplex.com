@@ -171,6 +171,9 @@ Unable to change the application UI language.
 The language ("culture") id may not be valid or not recognized by the system.
 Please verify the value of the 'ForceUICulture' program argument.</value>
   </data>
+  <data name="FirewallDvbIpTvRuleDescription" xml:space="preserve">
+    <value>Permitir conexiones {1} entrantes a {0} (parte de {2})</value>
+  </data>
   <data name="FirewallException" xml:space="preserve">
     <value>Se ha producido un error al ejecutar el programa de configuración del cortafuegos.</value>
   </data>
@@ -179,6 +182,9 @@ Please verify the value of the 'ForceUICulture' program argument.</value>
   </data>
   <data name="FirewallUserCancel" xml:space="preserve">
     <value>Se ha cancelado la modificación de la configuración del cortafuegos.</value>
+  </data>
+  <data name="FirewallVlcRuleDescription" xml:space="preserve">
+    <value>Permitir conexiones {1} entrantes al reproductor VLC</value>
   </data>
   <data name="IsEmbInstalledException" xml:space="preserve">
     <value>No ha sido posible determinar si el componente Microsoft® Exception Message Box se encuentra instalado.

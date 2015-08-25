@@ -171,6 +171,9 @@ No se ha podido cambiar el idioma de la aplicación.
 El identificador de idioma ("cultura") puede no ser válido o no ser reconocido por el sistema.
 Verifique el valor del argumento 'ForceUICulture' pasado al programa.</value>
   </data>
+  <data name="FirewallDvbIpTvRuleDescription" xml:space="preserve">
+    <value>Allow {0} (part of {2}) {1} inbound connections</value>
+  </data>
   <data name="FirewallException" xml:space="preserve">
     <value>Unable to execute the firewall configuration program.</value>
   </data>
@@ -179,6 +182,9 @@ Verifique el valor del argumento 'ForceUICulture' pasado al programa.</value>
   </data>
   <data name="FirewallUserCancel" xml:space="preserve">
     <value>Windows Firewall configuration change has ben cancelled.</value>
+  </data>
+  <data name="FirewallVlcRuleDescription" xml:space="preserve">
+    <value>Allow VLC media player {0} inbound connections</value>
   </data>
   <data name="IsEmbInstalledException" xml:space="preserve">
     <value>Unable to determine if the Microsoft® Exception Message Box component is installed.

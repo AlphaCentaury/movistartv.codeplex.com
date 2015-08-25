@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Windows.Forms;
 
@@ -43,7 +44,7 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         private void MulticastScannerOptionsDialog_Load(object sender, EventArgs e)
         {
-            // no op
+            BasicGoogleTelemetry.SendScreenHit(this);
         } // MulticastScannerOptionsDialog_Load
 
         private void buttonStart_Click(object sender, EventArgs e)

@@ -43,7 +43,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             switch (EndResult)
             {
                 case System.Windows.Forms.DialogResult.OK:
-                    BasicGoogleTelemetry.SendScreenHit("WizardEndDialog: Ok");
+                    BasicGoogleTelemetry.SendScreenHit(this, "Ok");
                     pictureEndIcon.Image = Properties.Resources.Success_48x48;
                     labelEndTitle.Text = Properties.Texts.WizardEndTitleOk;
                     labelEndText.Text = string.Format(labelEndText.Text, Properties.Texts.WizardEndTextOk);
@@ -53,13 +53,13 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                     checkRunMainProgram.Text = string.Format(checkRunMainProgram.Text, Properties.Texts.ProductMainProgramName);
                     break;
                 case System.Windows.Forms.DialogResult.Cancel:
-                    BasicGoogleTelemetry.SendScreenHit("WizardEndDialog: Cancel");
+                    BasicGoogleTelemetry.SendScreenHit(this, "Cancel");
                     pictureEndIcon.Image = Properties.Resources.Warning_48x48;
                     labelEndTitle.Text = Properties.Texts.WizardEndTitleCancel;
                     labelEndText.Text = string.Format(labelEndText.Text, Properties.Texts.WizardEndTextCancel);
                     break;
                 default:
-                    BasicGoogleTelemetry.SendScreenHit("WizardEndDialog: Abort");
+                    BasicGoogleTelemetry.SendScreenHit(this, "Abort");
                     pictureEndIcon.Image = Properties.Resources.Exclamation_48x48;
                     labelEndTitle.Text = Properties.Texts.WizardEndTitleAbort;
                     labelEndText.Text = string.Format(labelEndText.Text, Properties.Texts.WizardEndTextAbort);

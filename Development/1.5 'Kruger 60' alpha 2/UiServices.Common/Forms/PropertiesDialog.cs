@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
 
         private void PropertiesDialog_Load(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this, Caption);
             this.Text = Caption;
             this.labelDescription.Text = (Description ?? Properties.PropertiesDialog.CaptionDefault);
             this.pictureBoxItemIcon.Image = ItemIcon;

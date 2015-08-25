@@ -193,6 +193,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow {0} (part of {2}) {1} inbound connections.
+        /// </summary>
+        internal static string FirewallDvbIpTvRuleDescription {
+            get {
+                return ResourceManager.GetString("FirewallDvbIpTvRuleDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to execute the firewall configuration program..
         /// </summary>
         internal static string FirewallException {
@@ -216,6 +225,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         internal static string FirewallUserCancel {
             get {
                 return ResourceManager.GetString("FirewallUserCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow VLC media player {0} inbound connections.
+        /// </summary>
+        internal static string FirewallVlcRuleDescription {
+            get {
+                return ResourceManager.GetString("FirewallVlcRuleDescription", resourceCulture);
             }
         }
         

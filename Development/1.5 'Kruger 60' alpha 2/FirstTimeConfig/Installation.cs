@@ -269,6 +269,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             catch (Exception ex)
             {
                 BasicGoogleTelemetry.SendScreenHit("FirewallForm: Exception");
+                BasicGoogleTelemetry.SendExtendedExceptionHit(ex, true, "FirewallForm: Execute", "FirewallForm");
                 return new InitializationResult(ex);
             } // try-catch
 
@@ -310,8 +311,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                         var programPath = Path.Combine(binPath, program);
                         var fileVersionInfo = FileVersionInfo.GetVersionInfo(programPath);
                         var name = string.Format(Resources.FirewallRulePrefix, fileVersionInfo.OriginalFilename);
-                        var description = string.Format("Allow {0} (part of the DVB-IPTV v1.0 'Wolf 424' virtual decoder) {1} inbound connections",
-                            fileVersionInfo.OriginalFilename, "{0}");
+                        var description = string.Format(Properties.Texts.FirewallDvbIpTvRuleDescription,
+                            fileVersionInfo.OriginalFilename, "{0}", SolutionVersion.AssemblyProduct);
 
                         // for reasons unknown the path can not contain the '~' symbol!!
                         // before discovering this, the installation path was \Documents\DVB-IPTV\MovistarTV~1.0~Wolf424\bin\
@@ -322,7 +323,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
                 if (vlcPath != null)
                 {
-                    firewall.AllowProgram(vlcPath, string.Format(Resources.FirewallRulePrefix, "VLC media player"), "Allow VLC media player {0} inbound connections");
+                    firewall.AllowProgram(vlcPath, string.Format(Resources.FirewallRulePrefix, "VLC media player"), Properties.Texts.FirewallVlcRuleDescription);
                 } // if
             }
             catch (Exception ex)

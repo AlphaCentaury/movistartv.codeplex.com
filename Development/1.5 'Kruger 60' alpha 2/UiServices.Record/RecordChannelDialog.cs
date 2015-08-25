@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Services.Record.Serialization;
 using Project.DvbIpTv.UiServices.Common.Forms;
 using Project.DvbIpTv.UiServices.Configuration;
@@ -61,6 +62,8 @@ namespace Project.DvbIpTv.UiServices.Record
 
         private void DialogRecordChannel_Load_Implementation(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this);
+
             // Initialize
             if (Task == null)
             {

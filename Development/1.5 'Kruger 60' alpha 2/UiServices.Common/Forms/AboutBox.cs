@@ -2,6 +2,7 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Project.DvbIpTv.Common;
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,7 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
 
         private void AboutBox_Load(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this, Assembly.GetEntryAssembly().GetName().Name);
             this.Text = String.Format(this.Text, Assembly.GetEntryAssembly().GetName().Name);
             if (ApplicationData != null)
             {

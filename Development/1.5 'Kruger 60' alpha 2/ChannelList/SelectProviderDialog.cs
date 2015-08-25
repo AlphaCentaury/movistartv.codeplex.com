@@ -3,6 +3,7 @@
 
 using Etsi.Ts102034.v010501.XmlSerialization;
 using Etsi.Ts102034.v010501.XmlSerialization.ProviderDiscovery;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.UiServices.Common.Forms;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
@@ -80,6 +81,8 @@ namespace Project.DvbIpTv.ChannelList
 
         private void SelectProviderDialog_Load_Implementation(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this);
+
             if (SelectedServiceProvider == null)
             {
                 SelectedIndexChanged();

@@ -29,7 +29,8 @@ namespace Project.DvbIpTv.ChannelList
             var exitCode = appContext.ExitCode;
             appContext.Dispose();
 
-            BasicGoogleTelemetry.SendScreenHit("Main: End");
+            BasicGoogleTelemetry.SendScreenHit("ChannelList_Main: End");
+            BasicGoogleTelemetry.ManageSession(true);
             BasicGoogleTelemetry.EnsureHitsSents();
 
             return exitCode;

@@ -87,7 +87,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void ChannelListForm_Shown(object sender, EventArgs e)
         {
-            BasicGoogleTelemetry.SendScreenHit("ChannelListForm: Shown");
+            BasicGoogleTelemetry.SendScreenHit(this, "Shown");
             if (SelectedServiceProvider == null)
             {
                 SafeCall(SelectProvider);
@@ -112,7 +112,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void ChannelListForm_Load_Implementation(object sender, EventArgs e)
         {
-            BasicGoogleTelemetry.SendScreenHit("ChannelListForm: Load");
+            BasicGoogleTelemetry.SendScreenHit(this, "Load");
 
             this.Text = Properties.Texts.AppCaption;
 
@@ -166,12 +166,12 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemDvbRecent_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "menuItemDvbRecent");
         }  // menuItemDvbRecent_Click
 
         private void menuItemDvbExport_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "menuItemDvbExport");
         } // menuItemDvbExport_Click
 
         private void menuItemDvbExit_Click(object sender, EventArgs e)
@@ -210,9 +210,8 @@ namespace Project.DvbIpTv.ChannelList
             using (var dialog = new SelectProviderDialog())
             {
                 dialog.SelectedServiceProvider = SelectedServiceProvider;
-                BasicGoogleTelemetry.SendScreenHit("SelectProviderDialog");
                 var result = dialog.ShowDialog(this);
-                BasicGoogleTelemetry.SendScreenHit("ChannelListForm");
+                BasicGoogleTelemetry.SendScreenHit(this);
                 if (result != DialogResult.OK) return;
 
                 SelectedServiceProvider = dialog.SelectedServiceProvider;
@@ -256,12 +255,12 @@ namespace Project.DvbIpTv.ChannelList
 
         private void Implementation_menuItemPackagesSelect_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "menuItemPackagesSelect");
         } // Implementation_menuItemPackagesSelect_Click
 
         private void Implementation_menuItemPackagesManage_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "menuItemPackagesManage");
         } // Implementation_menuItemPackagesManage_Click
 
         #endregion
@@ -370,9 +369,8 @@ namespace Project.DvbIpTv.ChannelList
 
             using (var dialog = new MulticastScannerOptionsDialog())
             {
-                BasicGoogleTelemetry.SendScreenHit("MulticastScannerOptionsDialog");
                 var result = dialog.ShowDialog(this);
-                BasicGoogleTelemetry.SendScreenHit("ChannelListForm");
+                BasicGoogleTelemetry.SendScreenHit(this);
                 if (result != DialogResult.OK) return;
                 timeout = dialog.Timeout;
                 list = dialog.ScanList;
@@ -403,7 +401,6 @@ namespace Project.DvbIpTv.ChannelList
             MulticastScanner.Disposed += MulticastScanner_Disposed;
             MulticastScanner.ScanCompleted += MulticastScanner_ScanCompleted;
             MulticastScanner.ExceptionThrown += OnExceptionThrown;
-            BasicGoogleTelemetry.SendScreenHit("MulticastScannerDialog");
             MulticastScanner.Show(this);
         }  // menuItemChannelVerify_Click_Implementation
 
@@ -586,12 +583,12 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemRecordingsRepair_Click_Implementation(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "menuItemRecordingsRepair");
         } // menuItemRecordingsRepair_Click_Implementation
 
         private void menuItemRecordingsImport_Click_Implementation(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "menuItemRecordingsImport");
         } // menuItemRecordingsImport_Click_Implementation
 
         #endregion
@@ -777,7 +774,7 @@ namespace Project.DvbIpTv.ChannelList
                     downloader.Request.AddPayload(0x02, null, Properties.Texts.Payload02DisplayName, typeof(BroadcastDiscoveryRoot));
                     downloader.Request.AddPayload(0x05, null, Properties.Texts.Payload05DisplayName, typeof(PackageDiscoveryRoot));
                     downloader.Download(this);
-                    BasicGoogleTelemetry.SendScreenHit("ChannelListForm");
+                    BasicGoogleTelemetry.SendScreenHit(this);
                     if (!downloader.IsOk) return false;
 
                     var xmlDiscovery = downloader.Request.Payloads[0].XmlDeserializedData as BroadcastDiscoveryRoot;
@@ -1219,12 +1216,12 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemChannelFavorites_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "menuItemChannelFavorites");
         }  // menuItemChannelFavorites_Click
 
         private void menuItemChannelFavoritesEdit_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "menuItemChannelFavorites");
         }  // menuItemChannelFavoritesEdit_Click
 
         private void menuItemEpgNow_Click(object sender, EventArgs e)
@@ -1282,7 +1279,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void contextMenuListShowWith_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this);
+            NotImplementedBox.ShowBox(this, "contextMenuListShowWith");
         } // contextMenuListShowWith_Click
 
         private void contextMenuListSort_DropDownOpening(object sender, EventArgs e)

@@ -3,6 +3,7 @@
 
 using Project.DvbIpTv.Common;
 using Project.DvbIpTv.Common.Serialization;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Services.EPG;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,7 @@ namespace Project.DvbIpTv.UiServices.EPG
 
         private void FormBasicEpgData_Load(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this);
             EpgLoadingProgramImage = Properties.Resources.EpgLoadingProgramImage;
             EpgNoProgramImage = Properties.Resources.EpgNoProgramImage;
 

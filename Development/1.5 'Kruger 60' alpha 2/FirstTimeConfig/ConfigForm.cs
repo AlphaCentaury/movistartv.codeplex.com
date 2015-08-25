@@ -36,7 +36,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void ConfigForm_Load(object sender, EventArgs e)
         {
-            BasicGoogleTelemetry.SendScreenHit("ConfigForm");
+            BasicGoogleTelemetry.SendScreenHit(this);
 
             selectFolder.Description = Properties.Texts.SelectFolderSaveDescription;
             openFile.Title = Properties.Texts.OpenFileVlcTitle;
@@ -71,7 +71,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void WizardControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BasicGoogleTelemetry.SendScreenHit(string.Format("ConfigForm: Step{0:00}", wizardControl.SelectedIndex + 1));
+            BasicGoogleTelemetry.SendScreenHit(this, string.Format("Step{0:00}", wizardControl.SelectedIndex + 1));
         } // WizardControl_SelectedIndexChanged
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -162,7 +162,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void Page1_Step0()
         {
-            BasicGoogleTelemetry.SendScreenHit("ConfigForm: Step01");
+            BasicGoogleTelemetry.SendScreenHit(this, "Step01");
 
             buttonVerifyNet.Enabled = true;
             linkLabelPrerequisiteNet.Enabled = true;
