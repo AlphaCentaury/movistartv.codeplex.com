@@ -34,6 +34,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             using (var dlg = new DvbStpSimpleDownloadDialog(Request))
             {
                 dlg.ShowDialog(owner);
+                TelemetryScreenName = dlg.TelemetryScreenName;
                 Response = dlg.Response;
                 return Response;
             } // using

@@ -97,6 +97,15 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HELP!.
+        /// </summary>
+        internal static string HandleExceptionHelpButton {
+            get {
+                return ResourceManager.GetString("HandleExceptionHelpButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error has ocurred while fetching data.
         /// </summary>
         internal static string HelperExceptionCaption {
@@ -121,6 +130,48 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient.Properties {
         internal static string ParsePayloadException {
             get {
                 return ResourceManager.GetString("ParsePayloadException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
+        ///{\colortbl ;\red0\green0\blue255;}
+        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sl240\slmult1\qc\lang10\f0\fs22{\pict\wmetafile8\picw1270\pich1270\picwgoal720\pichgoal720 
+        ///010009000003ca0d00000000a10d000000000400000003010800050000000b0200000000050000
+        ///000c0230003000030000001e0004000000070104000400000007010400a10d0000410b2000cc00
+        ///30003000000000003000300000000000280000003000000030000000 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RtfTroubleshootingGuide {
+            get {
+                return ResourceManager.GetString("RtfTroubleshootingGuide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}
+        ///
+        ///Unable to receive data from movistar+ servers due to connectivity issues. (Reason: {1})
+        ///Power-cycle your router and try again in a few minutes.
+        ///
+        ///If the problem persists, please click “HELP!” for guidance on how to troubleshoot connectivity issues..
+        /// </summary>
+        internal static string SocketException {
+            get {
+                return ResourceManager.GetString("SocketException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}
+        ///
+        ///Data reception from movistar+ servers took too much time. This might be an indication of poor network performance or WiFi reception.
+        ///Power-cycle your router and try again in a few minutes.
+        ///
+        ///If the problem persists, please click “HELP!” for guidance on how to troubleshoot connectivity issues..
+        /// </summary>
+        internal static string TimeoutException {
+            get {
+                return ResourceManager.GetString("TimeoutException", resourceCulture);
             }
         }
         

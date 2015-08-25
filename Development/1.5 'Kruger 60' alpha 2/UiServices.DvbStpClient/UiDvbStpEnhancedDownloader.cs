@@ -31,9 +31,15 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
         protected override UiDvbStpBaseDownloadResponse ShowDialog(IWin32Window owner)
         {
+            // TODO: TEST TEST TES
+            Request.ReceiveDatagramTimeout = 500;
+            Request.NoDataTimeout = 4000;
+            Request.MulticastAddress = new System.Net.IPAddress(new byte[] { 239, 0, 2, 1 });
+
             using (var dlg = new DvbStpEnhancedDownloadDialog(Request))
             {
                 dlg.ShowDialog(owner);
+                TelemetryScreenName = dlg.TelemetryScreenName;
                 Response = dlg.Response;
                 return Response;
             } // using

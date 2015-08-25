@@ -32,7 +32,7 @@ namespace Project.DvbIpTv.DvbStp.Client
         public DvbStpEnhancedClient(IPAddress ip, int port)
             : base(ip, port)
         {
-            OperationTimeout = 30000; // milliseconds
+            NoDataTimeout = 30000; // milliseconds
             MaxDowloadRestartCount = 5;
         } // constructor
 
@@ -155,7 +155,6 @@ namespace Project.DvbIpTv.DvbStp.Client
             status.SegmentId = Header.SegmentId;
             status.SegmentData = new SegmentAssembler(new DvbStpSegmentIdentity(Header), Header.LastSectionNumber);
             status.SegmentVersion = Header.SegmentVersion;
-            ResetTimeout();
 
             // notify start of download
             FireSegmentDownloadStarted(status);
@@ -177,7 +176,7 @@ namespace Project.DvbIpTv.DvbStp.Client
             var oldVersion = status.SegmentVersion;
             status.SegmentData = new SegmentAssembler(new DvbStpSegmentIdentity(Header), Header.LastSectionNumber);
             status.SegmentVersion = Header.SegmentVersion;
-            ResetTimeout();
+            ResetNoDataTimeout();
 
             // notify of download restart
             FireSegmentDownloadRestarted(status, oldVersion);
@@ -186,7 +185,7 @@ namespace Project.DvbIpTv.DvbStp.Client
         private void StoreSectionData(SegmentStatus status)
         {
             // reset timeout
-            ResetTimeout();
+            ResetNoDataTimeout();
 
             // version change?
             if (Header.SegmentVersion != status.SegmentVersion)

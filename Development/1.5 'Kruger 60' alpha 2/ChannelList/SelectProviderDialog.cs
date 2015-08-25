@@ -160,7 +160,6 @@ namespace Project.DvbIpTv.ChannelList
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.SPListUnableRefresh,
-                        HandleException = MyApplication.HandleException
                     };
                     downloader.Download(this);
                     if (!downloader.IsOk) return false;

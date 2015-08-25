@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -82,7 +83,6 @@ namespace Project.DvbIpTv.Common.Telemetry
                 var bag = CreateProperyBag();
                 bag.Add("t", "screenview");
                 bag.Add("cd", screenName);
-
                 Send(bag);
             });
         } // SendScreenHit
@@ -95,11 +95,70 @@ namespace Project.DvbIpTv.Common.Telemetry
             {
                 var bag = CreateProperyBag();
                 bag.Add("t", "exception");
-                bag.Add("cd", ex.GetType().FullName);
-
+                bag.Add("exd", ex.GetType().FullName);
                 Send(bag);
             });
         } // SendExceptionHit
+
+        public static void SendExtendedExceptionHit(Exception ex, bool sendBasic = true, string context = null, string screenName = null)
+        {
+            if (!Exceptions) return;
+
+            ThreadPool.QueueUserWorkItem((o) =>
+            {
+                if (sendBasic)
+                {
+                    var basicBag = CreateProperyBag();
+                    basicBag.Add("t", "exception");
+                    basicBag.Add("exd", ex.GetType().FullName);
+                    if (screenName != null)
+                    {
+                        basicBag.Add("cd", screenName);
+                    } // if
+                    Send(basicBag);
+                } // if
+
+                var bag = CreateProperyBag();
+                bag.Add("t", "event");
+                bag.Add("ec", "Exception");
+                bag.Add("ea", ex.GetType().FullName);
+                if (context != null)
+                {
+                    bag.Add("el", context);
+                } // if
+                if (screenName != null)
+                {
+                    bag.Add("cd", screenName);
+                } // if
+                Send(bag);
+            });
+        } // SendExtendedExceptionHit
+
+        public static void SendEventHit(string category, string action, string label = null, string screenName = null, int? value = null)
+        {
+            if (!Usage) return;
+
+            ThreadPool.QueueUserWorkItem((o) =>
+            {
+                var bag = CreateProperyBag();
+                bag.Add("t", "event");
+                bag.Add("ec", category);
+                bag.Add("ea", action);
+                if (label != null)
+                {
+                    bag.Add("el", label);
+                } // if
+                if (value != null)
+                {
+                    bag.Add("ev", value.Value.ToString(CultureInfo.InvariantCulture));
+                } // if
+                if (screenName != null)
+                {
+                    bag.Add("cd", screenName);
+                } // if
+                Send(bag);
+            });
+        } // SendEventHit
 
         private static IDictionary<string, string> CreateProperyBag()
         {

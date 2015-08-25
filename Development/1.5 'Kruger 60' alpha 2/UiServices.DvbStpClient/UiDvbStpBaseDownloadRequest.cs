@@ -11,9 +11,24 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
     {
         public UiDvbStpBaseDownloadRequest()
         {
+            // TODO: get default values from app configuration
+            ReceiveDatagramTimeout = 7500;
+            NoDataTimeout = 45000;
             DialogCloseDelay = 500;
         } // constructor
-        
+
+        public int ReceiveDatagramTimeout // in milliseconds
+        {
+            get;
+            set;
+        } // ReceiveDatagramTimeout
+
+        public int NoDataTimeout // in milliseconds
+        {
+            get;
+            set;
+        } // NoDataTimeout
+
         public IPAddress MulticastAddress
         {
             get;

@@ -18,7 +18,7 @@ namespace Project.DvbIpTv.DvbStp.Client
         public DvbStpSimpleClient(IPAddress ip, int port)
             : base(ip, port)
         {
-            OperationTimeout = 30000; // milliseconds
+            NoDataTimeout = 30000; // milliseconds
             MaxDowloadRestartCount = 5;
         } // constructor
 
@@ -127,7 +127,6 @@ namespace Project.DvbIpTv.DvbStp.Client
         {
             // initialize segment data storage
             SegmentData = new SegmentAssembler(new DvbStpSegmentIdentity(Header), Header.LastSectionNumber);
-            ResetTimeout();
 
             // notify start of download
             if (DownloadStarted != null)
@@ -152,13 +151,13 @@ namespace Project.DvbIpTv.DvbStp.Client
 
             // start over
             SegmentData = new SegmentAssembler(new DvbStpSegmentIdentity(Header), Header.LastSectionNumber);
-            ResetTimeout();
+            ResetNoDataTimeout();
         } // RestartSectionData
 
         private void StoreSectionData()
         {
             // reset timeout
-            ResetTimeout();
+            ResetNoDataTimeout();
 
             // version change?
             if (Header.SegmentVersion != SegmentVersion)

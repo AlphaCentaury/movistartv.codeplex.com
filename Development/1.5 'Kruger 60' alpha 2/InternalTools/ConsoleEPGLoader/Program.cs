@@ -277,7 +277,8 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
                         Log("=== Loading EPG data from {0}:{1} ===", address.Key, address.Value);
 
                         var client = new DvbStp.Client.DvbStpClient(address.Key, address.Value);
-                        client.OperationTimeout = (20 * 60) * 1000;
+                        client.NoDataTimeout = -1;
+                        client.OperationTimeout = (60 * 60) * 1000; // 60 minutes
                         client.DatagramReceived += Client_DatagramReceived;
                         client.SegmentDataDownloaded += Client_SegmentDataDownloaded;
                         client.SegmentReceived += Client_SegmentReceived;

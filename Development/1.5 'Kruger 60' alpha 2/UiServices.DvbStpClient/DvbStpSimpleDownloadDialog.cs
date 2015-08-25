@@ -41,6 +41,12 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             private set;
         } // Response
 
+        public string TelemetryScreenName
+        {
+            get;
+            private set;
+        } // TelemetryScreenName
+
         public DvbStpSimpleDownloadDialog()
         {
             InitializeComponent();
@@ -57,6 +63,8 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
         private void DownloadDlg_Load(object sender, EventArgs e)
         {
             if (Request == null) throw new ArgumentNullException();
+
+            TelemetryScreenName = string.Format("{0}: {1}:{2} 0x{3:X2}", this.GetType().Name, Request.MulticastAddress, Request.MulticastPort, Request.PayloadId);
 
             if (!string.IsNullOrEmpty(Request.Description))
             {
@@ -79,10 +87,8 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
         private void DownloadDlg_Shown(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(TelemetryScreenName);
             StartDownload();
-            
-            var screen = string.Format("{0}: {1}:{2} 0x{3:X2}", this.GetType().Name, Request.MulticastAddress, Request.MulticastPort, Request.PayloadId);
-            BasicGoogleTelemetry.SendScreenHit(screen);
         } // DownloadDlg_Shown
 
         private void DownloadDlg_FormClosing(object sender, FormClosingEventArgs e)
@@ -248,6 +254,8 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             CancelDownloadRequest = stpClient.CancelRequest;
             try
             {
+                stpClient.ReceiveDatagramTimeout = Request.ReceiveDatagramTimeout;
+                stpClient.NoDataTimeout = Request.NoDataTimeout;
                 stpClient.SectionReceived += StpClient_SectionReceived;
                 stpClient.PayloadSectionReceived += StpClient_PayloadSectionReceived;
 

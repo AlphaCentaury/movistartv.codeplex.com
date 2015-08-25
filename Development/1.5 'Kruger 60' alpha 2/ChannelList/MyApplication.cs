@@ -52,7 +52,7 @@ namespace Project.DvbIpTv.ChannelList
 
         public static void HandleException(IWin32Window owner, Exception ex)
         {
-            BasicGoogleTelemetry.SendExceptionHit(ex);
+            BasicGoogleTelemetry.SendExtendedExceptionHit(ex);
             AddExceptionAdvancedInformation(ex);
 
             var box = new Microsoft.SqlServer.MessageBox.ExceptionMessageBox()
@@ -85,7 +85,7 @@ namespace Project.DvbIpTv.ChannelList
 
         public static void HandleException(IWin32Window owner, string caption, string message, MessageBoxIcon icon, Exception ex)
         {
-            BasicGoogleTelemetry.SendExceptionHit(ex);
+            BasicGoogleTelemetry.SendExtendedExceptionHit(ex, true, message, null);
             AddExceptionAdvancedInformation(ex);
 
             var box = new ExceptionMessageBox()

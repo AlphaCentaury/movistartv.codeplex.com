@@ -1,7 +1,9 @@
 ﻿using Microsoft.SqlServer.MessageBox;
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
@@ -35,12 +37,6 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             set;
         } // TextDownloadException
 
-        public Action<IWin32Window, string, string, Exception> HandleException
-        {
-            get;
-            set;
-        } // HandleException
-
         // "Return" properties
 
         public bool IsOk
@@ -48,6 +44,12 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             get;
             private set;
         } // IsOk
+
+        protected string TelemetryScreenName
+        {
+            get;
+            set;
+        } // TelemetryScreenName
 
         public UiDvbStpBaseDownloader()
         {
@@ -77,15 +79,44 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
 
             if (response.DownloadException != null)
             {
-                if (HandleException != null)
-                {
-                    HandleException(owner, CaptionDownloadException, TextDownloadException, response.DownloadException);
-                } // if
-
-                return;
+                HandleException(owner, response.DownloadException);
             } // if
         } // Download
 
         protected abstract UiDvbStpBaseDownloadResponse ShowDialog(IWin32Window owner);
+
+        private void HandleException(IWin32Window owner, Exception ex)
+        {
+            string message;
+
+            BasicGoogleTelemetry.SendExtendedExceptionHit(ex, false, TelemetryScreenName, TelemetryScreenName);
+
+            var isSocket = ex as SocketException;
+            var isTimeout = ex as TimeoutException;
+
+            if (isSocket != null) message = string.Format(Properties.Texts.SocketException, TextDownloadException, isSocket.SocketErrorCode);
+            else if (isTimeout != null) message = string.Format(Properties.Texts.TimeoutException);
+            else message = TextDownloadException;
+
+            var box = new ExceptionMessageBox()
+            {
+                Buttons = ExceptionMessageBoxButtons.Custom,
+                InnerException = ex,
+                Text = message,
+                DefaultButton = ExceptionMessageBoxDefaultButton.Button2,
+                CustomSymbol = Properties.Resources.DvbStpDownload_Error_48x48
+            };
+            box.SetButtonText(ExceptionMessageBox.OKButtonText, Properties.Texts.HandleExceptionHelpButton);
+            box.Show(owner);
+
+            if (box.CustomDialogResult == ExceptionMessageBoxDialogResult.Button2)
+            {
+                BasicGoogleTelemetry.SendEventHit("ShowDialog", "UiServices.DvbStpClient.HelpDialog", TelemetryScreenName, TelemetryScreenName);
+                using (var helpDialog = new HelpDialog())
+                {
+                    helpDialog.ShowDialog(owner);
+                } // using
+            } // if
+        } // HandleException
     } // abstract class UiDvbStpBaseDownloader
 } // namespace

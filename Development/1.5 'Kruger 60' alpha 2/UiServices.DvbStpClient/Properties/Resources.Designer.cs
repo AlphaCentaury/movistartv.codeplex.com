@@ -73,9 +73,39 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Ok_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Ok_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DvbStpDownload_128x128 {
             get {
                 object obj = ResourceManager.GetObject("DvbStpDownload_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DvbStpDownload_Error_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DvbStpDownload_Error_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DvbStpDownload_Error_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("DvbStpDownload_Error_48x48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
