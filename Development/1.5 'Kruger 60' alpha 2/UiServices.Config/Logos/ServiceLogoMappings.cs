@@ -165,32 +165,28 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
 
                 partialPath = GetFolderForDomain((serviceLogos.DomainRedirection == null) ? serviceDomainName : serviceLogos.DomainRedirection);
 
-                return new ServiceLogo()
-                    {
-                        File = logoFile,
-                        Path = Path.Combine(BasePathLogos, partialPath),
-                        Key = string.Format(Properties.InvariantTexts.FormatServiceLogoKey, serviceName, serviceDomainName),
-                    };
+                return new ServiceLogo(BasePathLogos, partialPath, logoFile,
+                    string.Format(Properties.InvariantTexts.FormatServiceLogoKey, logoFile, partialPath));
             } // while
 
             // obtain default icon
             return Get(null, Properties.InvariantTexts.DefaultDomainNameServiceLogo, serviceTypeId, serviceTypeId);
         } // Get
 
-        public ServiceLogo FromLogoKey(string logoKey)
+        public ServiceLogo FromServiceKey(string serviceKey)
         {
             int pos;
             string service, domain;
 
-            pos = logoKey.IndexOf('@');
+            pos = serviceKey.IndexOf('@');
             if (pos < 1) throw new ArgumentException();
-            if ((pos + 1) == logoKey.Length) throw new ArgumentException();
+            if ((pos + 1) == serviceKey.Length) throw new ArgumentException();
 
-            service = logoKey.Substring(0, pos);
-            domain = logoKey.Substring(pos + 1);
+            service = serviceKey.Substring(0, pos);
+            domain = serviceKey.Substring(pos + 1);
 
             return Get(null, domain, service, null);
-        } // FromLogoKey
+        } // FromServiceKey
 
         private static string GetParentDomain(string domainName)
         {

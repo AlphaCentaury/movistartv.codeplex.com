@@ -304,7 +304,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ch#.
+        ///   Looks up a localized string similar to #.
         /// </summary>
         internal static string ColumnNumberShort {
             get {

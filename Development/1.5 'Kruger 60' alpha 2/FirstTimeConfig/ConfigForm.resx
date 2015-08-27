@@ -1748,7 +1748,7 @@
     <value>wizardControl</value>
   </data>
   <data name="&gt;&gt;wizardControl.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.Tools.FirstTimeConfig.WizardTabControl, FirstTimeConfig, Version=1.5.10.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.Tools.FirstTimeConfig.WizardTabControl, FirstTimeConfig, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;wizardControl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1765,9 +1765,6 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>493, 359</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -1778,7 +1775,7 @@
     <value>selectFolder</value>
   </data>
   <data name="&gt;&gt;selectFolder.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.SelectFolderDialog, UiServices.Controls, Version=1.5.10.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Common.Controls.SelectFolderDialog, UiServices.Common, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;openFile.Name" xml:space="preserve">
     <value>openFile</value>

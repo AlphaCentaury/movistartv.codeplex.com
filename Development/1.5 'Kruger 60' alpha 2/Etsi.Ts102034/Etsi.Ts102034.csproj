@@ -66,7 +66,7 @@
     <Compile Include="v010501\XmlSerialization\BroadcastDiscovery\MosaicDescriptionLogicalCell.cs" />
     <Compile Include="v010501\XmlSerialization\BroadcastDiscovery\MosaicDescriptionPackageId.cs" />
     <Compile Include="v010501\XmlSerialization\BroadcastDiscovery\MulticastRetransmission.cs" />
-    <Compile Include="v010501\XmlSerialization\Common\Extensions.cs" />
+    <Compile Include="v010501\XmlSerialization\Extensions.cs" />
     <Compile Include="v010501\XmlSerialization\Common\MultilingualText.cs" />
     <Compile Include="v010501\XmlSerialization\Common\OfferingBase.cs" />
     <Compile Include="v010501\XmlSerialization\Common\PackageAvailabilityCountryCode.cs" />

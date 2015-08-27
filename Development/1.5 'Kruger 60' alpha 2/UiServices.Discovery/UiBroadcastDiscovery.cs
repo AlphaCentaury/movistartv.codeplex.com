@@ -16,6 +16,87 @@ namespace Project.DvbIpTv.UiServices.Discovery
     {
         private IDictionary<string, UiBroadcastService> ServicesDictionary;
 
+        public static UiBroadcastDiscoveryMergeResult Merge(UiBroadcastDiscovery oldDiscovery, UiBroadcastDiscovery newDiscovery)
+        {
+            if (newDiscovery == null) throw new ArgumentNullException("newDiscovery");
+
+            if (oldDiscovery == null)
+            {
+                return new UiBroadcastDiscoveryMergeResult()
+                {
+                    RemovedServices = new List<UiBroadcastService>(),
+                    NewServices = newDiscovery.Services.AsReadOnly(),
+                    ChangedServices = new List<UiBroadcastService>(),
+                    CountNotChanged = -1,
+                    IsEmpty = (newDiscovery.Services.Count == 0)
+                };
+            } // if
+
+            var removedServices = new List<UiBroadcastService>();
+            var newServices = new List<UiBroadcastService>();
+            var changedServices = new List<UiBroadcastService>();
+            int notChanged = 0;
+
+            oldDiscovery.BuildServicesDictionary();
+            newDiscovery.BuildServicesDictionary();
+
+            // detect new services and changes
+            foreach (var service in newDiscovery.Services)
+            {
+                UiBroadcastService oldService;
+
+                if (oldDiscovery.ServicesDictionary.TryGetValue(service.Key, out oldService))
+                {
+                    if (service.IsSameService(oldService))
+                    {
+                        notChanged++;
+                        service.TransferMergeProperties(oldService);
+                    }
+                    else
+                    {
+                        changedServices.Add(service);
+                    } // if-else
+                }
+                else
+                {
+                    newServices.Add(service);
+                } // if-else
+            } // foreach service
+
+            // detect removed services
+            foreach (var service in oldDiscovery.Services)
+            {
+                if (!newDiscovery.ServicesDictionary.ContainsKey(service.Key))
+                {
+                    removedServices.Add(service);
+                } // if
+            } // foreach service
+
+            oldDiscovery.ServicesDictionary = null;
+            newDiscovery.ServicesDictionary = null;
+
+            var result = new UiBroadcastDiscoveryMergeResult()
+            {
+                RemovedServices = removedServices.AsReadOnly(),
+                NewServices = newServices.AsReadOnly(),
+                ChangedServices = changedServices.AsReadOnly(),
+                CountNotChanged = notChanged,
+                IsEmpty = (newDiscovery.Services.Count == 0)
+            };
+
+            return result;
+        } // Merge
+
+        /// <remarks>Used by Serialization</remarks>
+        protected UiBroadcastDiscovery()
+        {
+        } // constructor
+
+        public UiBroadcastDiscovery(BroadcastDiscoveryRoot discoveryXml, string providerDomainName, int version)
+        {
+            Create(discoveryXml, providerDomainName, version);
+        } // constructor
+
         [XmlAttribute("version")]
         public int Version
         {
@@ -56,16 +137,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
             if (ServicesDictionary == null) BuildServicesDictionary();
             return ServicesDictionary.TryGetValue(serviceKey, out service) ? service : null;
         } // TryGetService
-
-        /// <remarks>Used by Serialization</remarks>
-        protected UiBroadcastDiscovery()
-        {
-        } // constructor
-
-        public UiBroadcastDiscovery(BroadcastDiscoveryRoot discoveryXml, string providerDomainName, int version)
-        {
-            Create(discoveryXml, providerDomainName, version);
-        } // constructor
 
         private void Create(BroadcastDiscoveryRoot discoveryXml, string providerDomainName, int version)
         {

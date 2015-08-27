@@ -392,6 +392,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             resources.ApplyResources(this.linkAnalyticsHelp, "linkAnalyticsHelp");
             this.linkAnalyticsHelp.Name = "linkAnalyticsHelp";
             this.linkAnalyticsHelp.TabStop = true;
+            this.linkAnalyticsHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkAnalyticsHelp_LinkClicked);
             // 
             // checkAnalyticsUsage
             // 

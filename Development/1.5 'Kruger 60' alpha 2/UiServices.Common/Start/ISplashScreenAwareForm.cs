@@ -11,9 +11,5 @@ namespace Project.DvbIpTv.UiServices.Common.Start
     public interface ISplashScreenAwareForm : IDisposable
     {
         event EventHandler FormLoadCompleted;
-        bool DisposeOnFormClose
-        {
-            get;
-        } // DisposeOnClose
     } // ISplashScreenAwareForm
 } // namespace

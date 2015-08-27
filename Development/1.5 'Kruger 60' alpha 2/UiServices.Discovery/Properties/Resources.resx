@@ -130,6 +130,9 @@
   <data name="Action_GoPreviousUp_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\common.ui\resources\action_gopreviousup_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Action_Ok_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\common.ui\resources\action_ok_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Action_SortAscending_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\common.ui\resources\action_sortascending_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -153,5 +156,11 @@
   </data>
   <data name="ListView_Tiles_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\common.ui\resources\listview_tiles_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Status_Info_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\common.ui\resources\status_info_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Status_Success_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\common.ui\resources\status_success_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -187,6 +187,10 @@
       <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
       <Name>UiServices.Config</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UiServices.Discovery\UiServices.Discovery.csproj">
+      <Project>{7e5e21b9-4bd6-4fb3-9055-9b09cc479c6c}</Project>
+      <Name>UiServices.Discovery</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="NetFwTypeLib">

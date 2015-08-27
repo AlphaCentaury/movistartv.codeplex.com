@@ -102,7 +102,14 @@
     <Compile Include="SettingsEditorSorting.Designer.cs">
       <DependentUpon>SettingsEditorSorting.cs</DependentUpon>
     </Compile>
+    <Compile Include="UiBroadcastDiscoveryMergeResult.cs" />
     <Compile Include="UiBroadcastDiscovery.cs" />
+    <Compile Include="UiBroadcastDiscoveryMergeResultDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UiBroadcastDiscoveryMergeResultDialog.Designer.cs">
+      <DependentUpon>UiBroadcastDiscoveryMergeResultDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UiBroadcastListColumn.cs" />
     <Compile Include="UiBroadcastListManager.cs" />
     <Compile Include="UiBroadcastListModeSettings.cs" />
@@ -183,6 +190,9 @@
     <EmbeddedResource Include="SettingsEditorSorting.resx">
       <DependentUpon>SettingsEditorSorting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UiBroadcastDiscoveryMergeResultDialog.resx">
+      <DependentUpon>UiBroadcastDiscoveryMergeResultDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UiBroadcastListSettingsEditor.es.resx">
       <DependentUpon>UiBroadcastListSettingsEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +212,9 @@
     </Content>
     <Content Include="..\Common.UI\Resources\Action_GoPreviousUp_16x16.png">
       <Link>Resources\Action_GoPreviousUp_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Ok_16x16.png">
+      <Link>Resources\Action_Ok_16x16.png</Link>
     </Content>
     <Content Include="..\Common.UI\Resources\Action_SortAscending_16x16.png">
       <Link>Resources\Action_SortAscending_16x16.png</Link>
@@ -223,6 +236,12 @@
     </Content>
     <Content Include="..\Common.UI\Resources\ListView_Tiles_16x16.png">
       <Link>Resources\ListView_Tiles_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Status_Info_24x24.png">
+      <Link>Resources\Status_Info_24x24.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Status_Success_24x24.png">
+      <Link>Resources\Status_Success_24x24.png</Link>
     </Content>
     <Content Include="License.txt" />
     <None Include="Resources\BroadcastListSettings_32x32.png" />

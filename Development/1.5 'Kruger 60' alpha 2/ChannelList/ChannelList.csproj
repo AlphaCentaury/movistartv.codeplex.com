@@ -89,6 +89,11 @@
     <Compile Include="ChannelListForm.Designer.cs">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonUiResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonUiResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="MyApplicationContext.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -96,11 +101,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ExternalPlayer.cs" />
-    <Compile Include="CommonUiResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CommonUiResources.resx</DependentUpon>
-    </Compile>
     <Compile Include="SelectProviderDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,12 +120,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
-    </Compile>
-    <Compile Include="TestNewChannelListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TestNewChannelListForm.Designer.cs">
-      <DependentUpon>TestNewChannelListForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ChannelListForm.es.resx">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
@@ -155,17 +149,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonUiResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectProviderDialog.es.resx">
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectProviderDialog.resx">
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestNewChannelListForm.resx">
-      <DependentUpon>TestNewChannelListForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\solution-license.rtf">
       <Link>Resources\solution-license.rtf</Link>
@@ -185,9 +176,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\InternetDownload.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\WebBrowser_16x16.png" />
     <None Include="Resources\RefreshBlue_16x16.png" />
     <None Include="Resources\Properties_16x16.png" />
@@ -195,6 +183,9 @@
     <None Include="Resources\RightArrowShort_Green_16x16.png" />
     <None Include="Resources\Record_16x16.png" />
     <None Include="Resources\Help_16x16.png" />
+    <Content Include="..\Common.UI\Resources\ListView_Tiles_16x16.png">
+      <Link>Resources\ListView_Tiles_16x16.png</Link>
+    </Content>
     <Content Include="..\solution-license.txt">
       <Link>Resources\solution-license.txt</Link>
     </Content>

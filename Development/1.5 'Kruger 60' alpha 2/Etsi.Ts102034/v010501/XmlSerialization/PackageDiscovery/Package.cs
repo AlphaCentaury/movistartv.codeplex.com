@@ -29,7 +29,7 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.PackageDiscovery
         public DescriptionLocation[] Description;
 
         [XmlElement("Service")]
-        public PackagedService[] Services;
+        public List<PackagedService> Services;
 
         [XmlElement("PackageReference")]
         public PackageReference[] References;

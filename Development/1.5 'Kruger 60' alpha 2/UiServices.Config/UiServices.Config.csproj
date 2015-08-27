@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="IConfigurationFormItem.cs" />
     <Compile Include="InitializationResult.cs" />
+    <Compile Include="IConfigurationItem.cs" />
     <Compile Include="Logos\BaseLogo.cs" />
     <Compile Include="Cache\CacheManager.cs" />
     <Compile Include="Logos\LogoSize.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="UiContentProvider.cs" />
     <Compile Include="UiContentProviderFriendlyNames.cs" />
     <Compile Include="UiContentProviderIdentification.cs" />
+    <Compile Include="XmlConfigurationItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ConfigurationForm.resx">

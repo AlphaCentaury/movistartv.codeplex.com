@@ -20,14 +20,5 @@
     <Setting Name="LastSelectedService" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="LastSelectedListView" Type="System.Windows.Forms.View" Scope="User">
-      <Value Profile="(Default)">Tile</Value>
-    </Setting>
-    <Setting Name="LastSelectedListSortColumn" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="LastSelectedListSortIsDescending" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

@@ -41,8 +41,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.radioScanActive = new System.Windows.Forms.RadioButton();
             this.radioScanAll = new System.Windows.Forms.RadioButton();
             this.groupActionScan = new System.Windows.Forms.GroupBox();
-            this.radioActionDelete = new System.Windows.Forms.RadioButton();
-            this.radioActionDisable = new System.Windows.Forms.RadioButton();
+            this.comboAction = new System.Windows.Forms.ComboBox();
             this.labelInfo = new System.Windows.Forms.Label();
             this.buttonRequestCancel = new System.Windows.Forms.Button();
             this.pictureIcon = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
@@ -90,9 +89,9 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // buttonStart
             // 
+            resources.ApplyResources(this.buttonStart, "buttonStart");
             this.buttonStart.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonStart.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Run_16x16;
-            resources.ApplyResources(this.buttonStart, "buttonStart");
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
@@ -128,25 +127,21 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // groupActionScan
             // 
-            this.groupActionScan.Controls.Add(this.radioActionDelete);
-            this.groupActionScan.Controls.Add(this.radioActionDisable);
+            this.groupActionScan.Controls.Add(this.comboAction);
             resources.ApplyResources(this.groupActionScan, "groupActionScan");
             this.groupActionScan.Name = "groupActionScan";
             this.groupActionScan.TabStop = false;
             // 
-            // radioActionDelete
+            // comboAction
             // 
-            resources.ApplyResources(this.radioActionDelete, "radioActionDelete");
-            this.radioActionDelete.Name = "radioActionDelete";
-            this.radioActionDelete.UseVisualStyleBackColor = true;
-            // 
-            // radioActionDisable
-            // 
-            resources.ApplyResources(this.radioActionDisable, "radioActionDisable");
-            this.radioActionDisable.Checked = true;
-            this.radioActionDisable.Name = "radioActionDisable";
-            this.radioActionDisable.TabStop = true;
-            this.radioActionDisable.UseVisualStyleBackColor = true;
+            this.comboAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboAction.FormattingEnabled = true;
+            this.comboAction.Items.AddRange(new object[] {
+            resources.GetString("comboAction.Items"),
+            resources.GetString("comboAction.Items1"),
+            resources.GetString("comboAction.Items2")});
+            resources.ApplyResources(this.comboAction, "comboAction");
+            this.comboAction.Name = "comboAction";
             // 
             // labelInfo
             // 
@@ -155,9 +150,9 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // buttonRequestCancel
             // 
+            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Cancel_16x16;
-            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;
             // 
@@ -194,7 +189,6 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.groupScanWhat.ResumeLayout(false);
             this.groupScanWhat.PerformLayout();
             this.groupActionScan.ResumeLayout(false);
-            this.groupActionScan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -214,8 +208,7 @@ namespace Project.DvbIpTv.UiServices.Forms
         private System.Windows.Forms.RadioButton radioScanActive;
         private System.Windows.Forms.RadioButton radioScanAll;
         private System.Windows.Forms.GroupBox groupActionScan;
-        private System.Windows.Forms.RadioButton radioActionDelete;
-        private System.Windows.Forms.RadioButton radioActionDisable;
         private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.ComboBox comboAction;
     }
 }

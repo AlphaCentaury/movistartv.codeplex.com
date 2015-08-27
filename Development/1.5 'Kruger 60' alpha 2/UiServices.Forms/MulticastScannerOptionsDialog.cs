@@ -45,6 +45,7 @@ namespace Project.DvbIpTv.UiServices.Forms
         private void MulticastScannerOptionsDialog_Load(object sender, EventArgs e)
         {
             BasicGoogleTelemetry.SendScreenHit(this);
+            comboAction.SelectedIndex = 2;
         } // MulticastScannerOptionsDialog_Load
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -58,9 +59,14 @@ namespace Project.DvbIpTv.UiServices.Forms
             else ScanList = ScanWhatList.AllServices;
 
             // Action
-            if (radioActionDisable.Checked) DeadAction = MulticastScannerDialog.ScanDeadAction.Disable;
-            else if (radioActionDelete.Checked) DeadAction = MulticastScannerDialog.ScanDeadAction.Delete;
-            else DeadAction = MulticastScannerDialog.ScanDeadAction.Disable;
+            switch (comboAction.SelectedIndex)
+            {
+                case 0: DeadAction = MulticastScannerDialog.ScanDeadAction.Inactivate; break;
+                case 1: DeadAction = MulticastScannerDialog.ScanDeadAction.Hide; break;
+                default:
+                    DeadAction = MulticastScannerDialog.ScanDeadAction.Both;
+                    break;
+            } // switch
         } // buttonStart_Click
     } // AskMulticastScannerDlg
 } // namespace

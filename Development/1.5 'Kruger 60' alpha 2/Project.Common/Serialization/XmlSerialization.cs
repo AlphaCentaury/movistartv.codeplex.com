@@ -15,6 +15,12 @@ namespace Project.DvbIpTv.Common.Serialization
     {
         #region Serialize
 
+        public static void Serialize(Stream output, object o)
+        {
+            var serializer = new XmlSerializer(o.GetType());
+            serializer.Serialize(output, o);
+        } // Serialize
+
         public static void Serialize<T>(string filename, T o)
         {
             using (var output = new FileStream(filename, FileMode.Create, FileAccess.ReadWrite))
@@ -33,8 +39,7 @@ namespace Project.DvbIpTv.Common.Serialization
 
         public static void Serialize<T>(Stream output, T o)
         {
-            var serializer = new XmlSerializer(typeof(T));
-            serializer.Serialize(output, o);
+            Serialize(output, o);
         } // Serialize<T>
 
         public static void Serialize<T>(Stream output, Encoding encoding, T o)

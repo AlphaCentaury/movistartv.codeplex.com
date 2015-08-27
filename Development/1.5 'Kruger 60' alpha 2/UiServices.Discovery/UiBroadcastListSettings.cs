@@ -1,4 +1,8 @@
-﻿using Project.DvbIpTv.Common.Serialization;
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using Project.DvbIpTv.Common.Serialization;
+using Project.DvbIpTv.UiServices.Configuration;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +15,10 @@ using System.Xml.Serialization;
 namespace Project.DvbIpTv.UiServices.Discovery
 {
     [Serializable]
-    public class UiBroadcastListSettings: ICloneable
+    public class UiBroadcastListSettings : ICloneable, IConfigurationItem
     {
         private int[] fieldColumnWidth;
+        public static readonly Guid ConfigurationItemGuid = new Guid("{68B9F98B-DB50-4A08-AF04-35457F0224FB}");
 
         public class ModeViewSettings
         {
@@ -48,6 +53,8 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // Tile
         } // class ModeViewSettings
 
+        #region Static methods
+
         public static UiBroadcastListSettings GetDefaultSettings()
         {
             var result = new UiBroadcastListSettings();
@@ -65,13 +72,15 @@ namespace Project.DvbIpTv.UiServices.Discovery
             result.ViewSettings.Tile = UiBroadcastListModeSettings.GetDefaultSettings(View.Tile);
 
             result.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, true, 3);
-            result.ApplyGlobalSortColumn = true;
+            result.UseGlobalSortColumns = true;
 
             // force creation of ColumnWidth field
             var dummy = result.ColumnWidth[0];
 
             return result;
         } // GetDefaultSettings
+
+        #endregion
 
         public UiBroadcastListSettings()
         {
@@ -121,6 +130,8 @@ namespace Project.DvbIpTv.UiServices.Discovery
             set;
         } // ViewSettings
 
+        [XmlArray("OverrideSortBy")]
+        [XmlArrayItem("Column")]
         public List<UiBroadcastListSortColumn> GlobalSortColumns
         {
             get;
@@ -128,11 +139,12 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } // GlobalSortColumns
 
         [DefaultValue(false)]
-        public bool ApplyGlobalSortColumn
+        [XmlElement("UseOverrideSortBy")]
+        public bool UseGlobalSortColumns
         {
             get;
             set;
-        } // ApplyGlobalSortColumn
+        } // UseGlobalSortColumn
 
         [DefaultValue(false)]
         public bool ShowInactiveServices
@@ -198,5 +210,15 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 return XmlSerialization.Deserialize<UiBroadcastListSettings>(buffer);
             } // using buffer
         } // CloneSettings
+
+        #region IConfigurationItem implementation
+
+        [XmlIgnore]
+        public Guid ConfigurationId
+        {
+            get { return ConfigurationItemGuid; }
+        } // ConfigurationId
+
+        #endregion
     } // class UiBroadcastListViewSettings
 } // namespace

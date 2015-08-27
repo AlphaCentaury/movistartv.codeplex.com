@@ -36,8 +36,9 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         public enum ScanDeadAction
         {
-            Disable,
-            Delete,
+            Inactivate,
+            Hide,
+            Both
         } // ScanDeadAction
 
         public class ChannelScanResultEventArgs: EventArgs
@@ -362,7 +363,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             progress = new ProgressData() { Total = BroadcastServicesCount };
 
             // cache services enumerable if dead action is delete
-            services = (DeadAction != ScanDeadAction.Delete) ? BroadcastServices : BroadcastServices.ToList();
+            services = (DeadAction != ScanDeadAction.Hide) ? BroadcastServices : BroadcastServices.ToList();
 
             foreach (var service in services)
             {

@@ -2,6 +2,7 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Microsoft.Win32;
+using Project.DvbIpTv.Common.Serialization;
 using Project.DvbIpTv.UiServices.Configuration.Cache;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Properties;
@@ -13,15 +14,15 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 namespace Project.DvbIpTv.UiServices.Configuration
 {
     public class AppUiConfiguration
     {
-        public AppUiConfiguration()
-        {
-            Folders = new AppUiConfigurationFolders();
-        } // constructor
+        private IDictionary<Guid, IConfigurationItem> Items;
+
+        #region Static methods
 
         public static AppUiConfiguration Current
         {
@@ -29,64 +30,36 @@ namespace Project.DvbIpTv.UiServices.Configuration
             private set;
         } // Current
 
-        public static InitializationResult Load(string overrideBasePath)
+        public static AppUiConfiguration CreateForUserConfig(UserConfig userConfig)
         {
             AppUiConfiguration config;
-            InitializationResult initResult;
 
             config = new AppUiConfiguration();
+            config.User = userConfig;
+            config.Items = new Dictionary<Guid, IConfigurationItem>();
 
-            initResult = config.LoadRegistrySettings(overrideBasePath);
-            if (initResult.IsError) return initResult;
+            return config;
+        } // CreateForUserConfig
 
-            // Cultures
-            config.Cultures = GetUiCultures();
+        public static InitializationResult Load(string overrideBasePath, Action<string> displayProgress)
+        {
+            AppUiConfiguration config;
+            InitializationResult result;
 
-            // Record tasks
-            config.Folders.RecordTasks =  Path.Combine(config.Folders.Base, "RecordTasks");
+            if (displayProgress != null) displayProgress(Properties.Texts.LoadProgress_Start);
+            config = new AppUiConfiguration();
+            result = config.LoadBasicConfiguration(overrideBasePath);
+            if (result.IsError) return result;
 
-            // Cache
-            config.Folders.Cache = Path.Combine(config.Folders.Base, "Cache");
+            if (displayProgress != null) displayProgress(Properties.Texts.LoadProgress_ContentProvider);
+            result = config.LoadContentProviderData();
+            if (result.IsError) return result;
 
-            // Logos
-            config.Folders.Logos = Path.Combine(config.Folders.Base, "Logos");
+            if (displayProgress != null) displayProgress(Properties.Texts.LoadProgress_UserConfig);
+            result = config.LoadUserConfiguration();
+            if (result.IsError) return result;
 
-            // TODO: load from somewhere in a culture-aware way
-            var descriptionServiceType = new Dictionary<string, string>();
-            descriptionServiceType.Add("1", "SD TV");
-            descriptionServiceType.Add("2", "Radio (MPEG-1)");
-            descriptionServiceType.Add("3", "Teletext");
-            descriptionServiceType.Add("6", "Mosaic");
-            descriptionServiceType.Add("10", "Radio (AAC)");
-            descriptionServiceType.Add("11", "Mosaic (AAC)");
-            descriptionServiceType.Add("12", "Data");
-            descriptionServiceType.Add("16", "DVB MHP");
-            descriptionServiceType.Add("17", "HD TV (MPEG-2)");
-            descriptionServiceType.Add("22", "SD TV (AVC)");
-            descriptionServiceType.Add("25", "HD TV (AVC)");
-            config.DescriptionServiceTypes = descriptionServiceType;
-
-            // TODO: load from user config
-            config.DisplayPreferredOrFirst = true;
-
-            // Validate application configuration
-            initResult = config.Validate();
-            if (!initResult.IsOk) return initResult;
-
-            // Initialize managers and providers
-            if (!Directory.Exists(config.Folders.RecordTasks))
-            {
-                Directory.CreateDirectory(config.Folders.RecordTasks);
-            } // if
-
-            config.Cache = new CacheManager(config.Folders.Cache);
-
-            config.ProviderLogoMappings = new ProviderLogoMappings(
-                Path.Combine(config.Folders.Logos, Properties.InvariantTexts.FileLogoProviderMappings));
-
-            config.ServiceLogoMappings = new ServiceLogoMappings(
-                Path.Combine(config.Folders.Logos, Properties.InvariantTexts.FileLogoDomainMappings),
-                Path.Combine(config.Folders.Logos, Properties.InvariantTexts.FileLogoServiceMappings));
+            config.ProcessXmlConfigurationItems();
 
             Current = config;
 
@@ -104,6 +77,31 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
             return config;
         } // LoadRegistryAppConfiguration
+
+        protected static IList<string> GetUiCultures()
+        {
+            var culture = CultureInfo.CurrentUICulture;
+            var tempList = new List<string>();
+
+            while (culture.Name != "")
+            {
+                tempList.Add(culture.Name.ToLowerInvariant());
+                culture = culture.Parent;
+            } // while
+            tempList.Add("<default>");
+
+            var cultureList = new List<string>(tempList.Count);
+            cultureList.AddRange(tempList);
+
+            return cultureList.AsReadOnly();
+        } // GetUiCultures
+
+        #endregion
+
+        public AppUiConfiguration()
+        {
+            Folders = new AppUiConfigurationFolders();
+        } // constructor
 
         public AppUiConfigurationFolders Folders
         {
@@ -165,23 +163,99 @@ namespace Project.DvbIpTv.UiServices.Configuration
             protected set;
         } // User
 
-        protected static IList<string> GetUiCultures()
+        public IConfigurationItem this[Guid guid]
         {
-            var culture = CultureInfo.CurrentUICulture;
-            var tempList = new List<string>();
+            get { return Items[guid]; } // get
+            set { Items[guid] = value; } // set
+        } // this[Guid]
 
-            while (culture.Name != "")
+        public void SetConfiguration(IConfigurationItem item)
+        {
+            this[item.ConfigurationId] = item;
+        } // SetConfiguration
+
+        #region Public methods
+
+        public void Save(string xmlFilePath)
+        {
+            foreach (var pair in Items)
             {
-                tempList.Add(culture.Name.ToLowerInvariant());
-                culture = culture.Parent;
-            } // while
-            tempList.Add("<default>");
+                User.Configuration = new XmlConfigurationItem();
+                User.Configuration.XmlData = new List<XmlElement>(Items.Count);
+                User.Configuration.XmlData.Add(XmlConfigurationItem.GetXmlElement(pair.Value));
+            } // foreach
 
-            var cultureList = new List<string>(tempList.Count);
-            cultureList.AddRange(tempList);
+            XmlSerialization.Serialize(xmlFilePath, Encoding.UTF8, User);
 
-            return cultureList.AsReadOnly();
-        } // GetUiCultures
+            User.Configuration = null;
+        } // Save
+
+        #endregion
+
+        #region Basic app configuration
+
+        protected InitializationResult LoadBasicConfiguration(string overrideBasePath)
+        {
+            InitializationResult initResult;
+
+            initResult = LoadRegistrySettings(overrideBasePath);
+            if (initResult.IsError) return initResult;
+
+            // Cultures
+            Cultures = GetUiCultures();
+
+            // Record tasks
+            Folders.RecordTasks = Path.Combine(Folders.Base, "RecordTasks");
+
+            // Cache
+            Folders.Cache = Path.Combine(Folders.Base, "Cache");
+
+            // Logos
+            Folders.Logos = Path.Combine(Folders.Base, "Logos");
+
+            // TODO: load from somewhere in a culture-aware way
+            var descriptionServiceType = new Dictionary<string, string>();
+            descriptionServiceType.Add("1", "SD TV");
+            descriptionServiceType.Add("2", "Radio (MPEG-1)");
+            descriptionServiceType.Add("3", "Teletext");
+            descriptionServiceType.Add("6", "Mosaic");
+            descriptionServiceType.Add("10", "Radio (AAC)");
+            descriptionServiceType.Add("11", "Mosaic (AAC)");
+            descriptionServiceType.Add("12", "Data");
+            descriptionServiceType.Add("16", "DVB MHP");
+            descriptionServiceType.Add("17", "HD TV (MPEG-2)");
+            descriptionServiceType.Add("22", "SD TV (AVC)");
+            descriptionServiceType.Add("25", "HD TV (AVC)");
+            DescriptionServiceTypes = descriptionServiceType;
+
+            // TODO: load from user config
+            DisplayPreferredOrFirst = true;
+
+            // Validate application configuration
+            initResult = Validate();
+            if (!initResult.IsOk) return initResult;
+
+            // Initialize managers and providers
+            if (!Directory.Exists(Folders.RecordTasks))
+            {
+                Directory.CreateDirectory(Folders.RecordTasks);
+            } // if
+
+            Cache = new CacheManager(Folders.Cache);
+
+            ProviderLogoMappings = new ProviderLogoMappings(
+                Path.Combine(Folders.Logos, Properties.InvariantTexts.FileLogoProviderMappings));
+
+            ServiceLogoMappings = new ServiceLogoMappings(
+                Path.Combine(Folders.Logos, Properties.InvariantTexts.FileLogoDomainMappings),
+                Path.Combine(Folders.Logos, Properties.InvariantTexts.FileLogoServiceMappings));
+
+            return InitializationResult.Ok;
+        } // LoadBasicConfiguration
+
+        #endregion
+
+        #region Registry settings
 
         protected InitializationResult LoadRegistrySettings(string overrideBasePath)
         {
@@ -263,6 +337,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             return null;
         } // LoadRegistrySettingsInternal
 
+        #endregion
+
         protected InitializationResult Validate()
         {
             InitializationResult result;
@@ -286,7 +362,9 @@ namespace Project.DvbIpTv.UiServices.Configuration
             return result;
         } // Validate
 
-        public InitializationResult LoadContentProviderData()
+        #region Content provider
+
+        protected InitializationResult LoadContentProviderData()
         {
             var xmlPath = Path.Combine(Folders.Base, "movistartv-config.xml");
 
@@ -318,14 +396,18 @@ namespace Project.DvbIpTv.UiServices.Configuration
             } // try-catch
         } // LoadContentProviderData
 
-        public InitializationResult LoadUserConfiguration()
+        #endregion
+
+        #region User configuration
+
+        protected InitializationResult LoadUserConfiguration()
         {
             var xmlPath = Path.Combine(Folders.Base, "user-config.xml");
 
             try
             {
                 // load
-                User = UserConfig.Load(xmlPath);
+                User = XmlSerialization.Deserialize<UserConfig>(xmlPath, true);
 
                 // validate
                 var validationError = User.Validate();
@@ -350,5 +432,22 @@ namespace Project.DvbIpTv.UiServices.Configuration
                 };
             } // try-catch
         } // LoadUserConfiguration
+
+        protected void ProcessXmlConfigurationItems()
+        {
+            Items = new Dictionary<Guid, IConfigurationItem>(User.Configuration.XmlData.Count);
+            foreach (var item in User.Configuration.XmlData)
+            {
+                var xAttr = item.Attributes["configurationId"];
+                if (xAttr != null)
+                {
+                    var id = new Guid(xAttr.Value);
+                    // TODO: ProcessXmlConfigurationItems
+                    Items[id] = null;
+                } // if
+            } // foreach
+        } // ProcessXmlConfigurationItems
+
+        #endregion
     } // class AppUiConfiguration
 } // namespace

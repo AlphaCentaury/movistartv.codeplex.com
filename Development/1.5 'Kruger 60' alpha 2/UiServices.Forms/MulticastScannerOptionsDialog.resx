@@ -204,11 +204,14 @@
   <data name="&gt;&gt;numericTimeout.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="buttonStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="buttonStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>266, 191</value>
+    <value>266, 201</value>
   </data>
   <data name="buttonStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 25</value>
@@ -351,71 +354,41 @@
   <data name="&gt;&gt;groupScanWhat.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="radioActionDelete.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="comboAction.Items" xml:space="preserve">
+    <value>Mark as inactive</value>
   </data>
-  <data name="radioActionDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="comboAction.Items1" xml:space="preserve">
+    <value>Mark as hidden</value>
   </data>
-  <data name="radioActionDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>108, 19</value>
+  <data name="comboAction.Items2" xml:space="preserve">
+    <value>Mark as inactive and hidden</value>
   </data>
-  <data name="radioActionDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 17</value>
-  </data>
-  <data name="radioActionDelete.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="radioActionDelete.Text" xml:space="preserve">
-    <value>Delete from list</value>
-  </data>
-  <data name="&gt;&gt;radioActionDelete.Name" xml:space="preserve">
-    <value>radioActionDelete</value>
-  </data>
-  <data name="&gt;&gt;radioActionDelete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioActionDelete.Parent" xml:space="preserve">
-    <value>groupActionScan</value>
-  </data>
-  <data name="&gt;&gt;radioActionDelete.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="radioActionDisable.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioActionDisable.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioActionDisable.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="comboAction.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
-  <data name="radioActionDisable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 17</value>
+  <data name="comboAction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 21</value>
   </data>
-  <data name="radioActionDisable.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="comboAction.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="radioActionDisable.Text" xml:space="preserve">
-    <value>"Disable" in list</value>
+  <data name="&gt;&gt;comboAction.Name" xml:space="preserve">
+    <value>comboAction</value>
   </data>
-  <data name="&gt;&gt;radioActionDisable.Name" xml:space="preserve">
-    <value>radioActionDisable</value>
+  <data name="&gt;&gt;comboAction.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioActionDisable.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioActionDisable.Parent" xml:space="preserve">
+  <data name="&gt;&gt;comboAction.Parent" xml:space="preserve">
     <value>groupActionScan</value>
   </data>
-  <data name="&gt;&gt;radioActionDisable.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;comboAction.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="groupActionScan.Location" type="System.Drawing.Point, System.Drawing">
     <value>85, 108</value>
   </data>
   <data name="groupActionScan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 43</value>
+    <value>387, 50</value>
   </data>
   <data name="groupActionScan.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -435,11 +408,14 @@
   <data name="&gt;&gt;groupActionScan.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="labelInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="labelInfo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 156</value>
+    <value>88, 166</value>
   </data>
   <data name="labelInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>384, 32</value>
@@ -462,11 +438,14 @@
   <data name="&gt;&gt;labelInfo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="buttonRequestCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="buttonRequestCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonRequestCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>372, 191</value>
+    <value>372, 201</value>
   </data>
   <data name="buttonRequestCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 25</value>
@@ -514,7 +493,7 @@
     <value>pictureIcon</value>
   </data>
   <data name="&gt;&gt;pictureIcon.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.PictureBoxEx, UiServices.Controls, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx, UiServices.Common, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureIcon.Parent" xml:space="preserve">
     <value>$this</value>
@@ -529,10 +508,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>484, 227</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>484, 237</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

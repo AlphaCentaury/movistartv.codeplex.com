@@ -106,7 +106,7 @@ namespace Project.DvbIpTv.UiServices.Record
 
         private void InitGeneralData()
         {
-            var serviceLogo = AppUiConfiguration.Current.ServiceLogoMappings.FromLogoKey(Task.Channel.LogoKey);
+            var serviceLogo = AppUiConfiguration.Current.ServiceLogoMappings.FromServiceKey(Task.Channel.ServiceKey);
             pictureChannelLogo.Image = serviceLogo.GetImage(LogoSize.Size64, true);
             labelChannelNumber.Text = Task.Channel.LogicalNumber;
             labelChannelName.Text = Task.Channel.Name;

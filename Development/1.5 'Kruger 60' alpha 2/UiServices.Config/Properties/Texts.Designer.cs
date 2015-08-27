@@ -259,6 +259,33 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading content provider data....
+        /// </summary>
+        internal static string LoadProgress_ContentProvider {
+            get {
+                return ResourceManager.GetString("LoadProgress_ContentProvider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading application configuration....
+        /// </summary>
+        internal static string LoadProgress_Start {
+            get {
+                return ResourceManager.GetString("LoadProgress_Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leyendo la configuración de usuario y preferencias....
+        /// </summary>
+        internal static string LoadProgress_UserConfig {
+            get {
+                return ResourceManager.GetString("LoadProgress_UserConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to load the user configuration.
         /// </summary>
         internal static string LoadUserConfigExceptionCaption {

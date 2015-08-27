@@ -1,4 +1,7 @@
-﻿namespace Project.DvbIpTv.UiServices.Discovery
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+namespace Project.DvbIpTv.UiServices.Discovery
 {
     partial class SettingsEditorModeSingleColumn
     {
@@ -68,4 +71,4 @@
         private System.Windows.Forms.GroupBox groupBoxData;
         private System.Windows.Forms.ComboBox comboColumns;
     }
-}
+} // namespace

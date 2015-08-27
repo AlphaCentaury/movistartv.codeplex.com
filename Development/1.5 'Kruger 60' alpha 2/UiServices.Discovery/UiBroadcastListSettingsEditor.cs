@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -81,6 +84,11 @@ namespace Project.DvbIpTv.UiServices.Discovery
             checkShowHidden.Checked = Settings.ShowHiddenServices;
             checkShowOutOfPackage.Checked = Settings.ShowOutOfPackage;
 
+            settingsEditorSorting1.ColumnsNoneList = sortedColumnsNone;
+            settingsEditorSorting1.Columns = Settings.GlobalSortColumns;
+            // TODO!
+            //settingsEditorSorting1.ApplyGlobal = Settings.ApplyGlobalSortColumn;
+
             // Mode settings tab
 
             EditorModeColumns = new ISettingsEditorModeColumns[5];
@@ -97,14 +105,23 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
             EditorModeSorting = new SettingsEditorSorting[5];
             EditorModeSorting[0] = new SettingsEditorSorting();
+            EditorModeSorting[0].Columns = Settings.ViewSettings.Details.Sort;
             EditorModeSorting[1] = new SettingsEditorSorting();
+            EditorModeSorting[1].Columns = Settings.ViewSettings.LargeIcon.Sort;
             EditorModeSorting[2] = new SettingsEditorSorting();
+            EditorModeSorting[2].Columns = Settings.ViewSettings.SmallIcon.Sort;
             EditorModeSorting[3] = new SettingsEditorSorting();
+            EditorModeSorting[3].Columns = Settings.ViewSettings.List.Sort;
             EditorModeSorting[4] = new SettingsEditorSorting();
+            EditorModeSorting[4].Columns = Settings.ViewSettings.Tile.Sort;
 
             foreach (var editor in EditorModeColumns)
             {
                 editor.ColumnsList = sortedColumns;
+                editor.ColumnsNoneList = sortedColumnsNone;
+            } // foreach
+            foreach (var editor in EditorModeSorting)
+            {
                 editor.ColumnsNoneList = sortedColumnsNone;
             } // foreach
 

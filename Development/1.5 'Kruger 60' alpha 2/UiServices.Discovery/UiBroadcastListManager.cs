@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +10,7 @@ using Project.DvbIpTv.UiServices.Common.Properties;
 using System.Drawing;
 using Project.DvbIpTv.UiServices.Common.Controls;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
+using Project.DvbIpTv.UiServices.Configuration;
 
 namespace Project.DvbIpTv.UiServices.Discovery
 {
@@ -24,9 +28,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         // TODO: Use fonts from Settings
         private Font FontDetails;
-        private Font FontDetailsNameItem;
+        private Font FontDetailsBold;
         private Font FontNormal;
-        private Font FontNormalDisabled;
+        private Font FontNormalHidden;
         private Font FontNormalNotAvailable;
 
         #region Static public methods
@@ -300,6 +304,59 @@ namespace Project.DvbIpTv.UiServices.Discovery
             private set;
         } // SelectedSort
 
+        public bool HasItems
+        {
+            get { return (BroadcastServices == null) ? false : BroadcastServices.Count > 0; }
+        } // HasItems
+
+        public void EnableItem(UiBroadcastService service, bool isInactive, bool isHidden)
+        {
+            if (service == null) throw new ArgumentNullException();
+
+            service.IsInactive = isInactive;
+            service.IsHidden = isHidden;
+
+            var remove = false;
+            if ((isInactive) && (!Settings.ShowInactiveServices)) remove = true;
+            if ((isHidden) && (!Settings.ShowHiddenServices)) remove = true;
+
+            ListView.BeginUpdate();
+
+            var item = ListView.Items[service.Key];
+            if (remove)
+            {
+                ListView.Items.Remove(item);
+            }
+            else
+            {
+                EnableListItem(item, service);
+            } // if-else
+
+            ListView.EndUpdate();
+        } // EnableItem
+
+        public UiBroadcastListSettings ShowSettingsEditor(IWin32Window owner, bool autoApplyChanges)
+        {
+            DialogResult result;
+
+            using (var form = new ConfigurationForm())
+            {
+                using (var editor = new UiBroadcastListSettingsEditor())
+                {
+                    editor.Settings = ClonedSettings;
+                    form.ConfigurationItems.Add(editor);
+                    result = form.ShowDialog(owner);
+                } // using editor
+            } // using form
+
+            if ((result == DialogResult.OK) && (autoApplyChanges))
+            {
+                // TODO!
+            } // if
+
+            return null;
+        } // ShowSettingsEditor
+
         #region Events
 
         protected virtual void OnStatusChanged(object sender, ListStatusChangedEventArgs e)
@@ -340,15 +397,16 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             if (Disposed) return;
 
-            BroadcastServices = null;
             HookupEvents(false);
+            fieldBroadcastServices = null;
+            ListView.Items.Clear();
             ListView = null;
 
             if (FontNormal != null) FontNormal.Dispose();
-            if (FontNormalDisabled != null) FontNormalDisabled.Dispose();
+            if (FontNormalHidden != null) FontNormalHidden.Dispose();
             if (FontNormalNotAvailable != null) FontNormalNotAvailable.Dispose();
             if (FontDetails != null) FontDetails.Dispose();
-            if (FontDetailsNameItem != null) FontDetailsNameItem.Dispose();
+            if (FontDetailsBold != null) FontDetailsBold.Dispose();
 
             Disposed = true;
         } // Dispose
@@ -383,7 +441,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             sortColumn.IsAscending = sortColumn.Column == SelectedSort.Column? !SelectedSort.IsAscending : true;
 
             Settings.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
-            Settings[Settings.CurrentMode].SortColumns = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
+            Settings[Settings.CurrentMode].Sort = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
 
             ApplySorting();
             FillList(false);
@@ -396,13 +454,11 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private void InitListViewControl(bool overrideDesignSettings)
         {
             FontNormal = new Font("Tahoma", 10.5f, FontStyle.Bold);
-            FontNormalDisabled = new Font("Segoe UI Semibold", 9, FontStyle.Regular);
+            FontNormalHidden = new Font("Segoe UI Semibold", 9.5f, FontStyle.Regular);
             FontNormalNotAvailable = new Font("Segoe UI", 9, FontStyle.Regular);
-            FontDetails = new Font("Segoe UI Semibold", 9, FontStyle.Regular);
-            FontDetailsNameItem = new Font("Tahoma", 11.0f, FontStyle.Bold);
+            FontDetails = new Font(ListView.Font.OriginalFontName, ListView.Font.SizeInPoints, FontStyle.Regular);
+            FontDetailsBold = new Font("Tahoma", 10.5f, FontStyle.Bold);
 
-            ListView.FullRowSelect = true;
-            ListView.HideSelection = false;
             ListView.MultiSelect = false;
             ListView.SmallImageList = SmallImageList;
             ListView.LargeImageList = LargeImageList;
@@ -418,7 +474,10 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 ListView.HeaderUsesCustomFont = true;
                 ListView.HeaderUsesCustomTextAlignment = true;
                 ListView.IsDoubleBuffered = true;
+                ListView.FullRowSelect = true;
+                ListView.HideSelection = false;
             } // if
+
             HookupEvents(true);
         } // InitListViewControl
 
@@ -426,7 +485,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             // save existing settings
             var oldSettings = fieldSettings;
-            var savedSelectedService = fieldSelectedService;
+            
 
             // save new settings
             fieldSettings = newSettings;
@@ -450,13 +509,10 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 {
                     // apply cosmetic changes?
                     ApplyCosmeticSettings(oldSettings, newSettings);
-                    savedSelectedService = null;
                 } // if-else
 
                 ListView.EndUpdate();
             } // if-else
-
-            if (savedSelectedService != null) SelectedService = savedSelectedService;
         } // ApplySettings
 
         private void BuildListLayout()
@@ -482,10 +538,17 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         private void FillList(bool insideUpdate)
         {
+            // save selected service
+            var savedSelectedService = fieldSelectedService;
+
             if (!insideUpdate) ListView.BeginUpdate();
 
             ListView.Items.Clear();
-            if ((BroadcastServices == null) || (BroadcastServices.Count == 0)) return;
+            if ((BroadcastServices == null) || (BroadcastServices.Count == 0))
+            {
+                if (!insideUpdate) ListView.EndUpdate();
+                return;
+            } // if
 
             var items = new List<ListViewItem>(BroadcastServices.Count);
             var columns = Settings.CurrentColumns;
@@ -500,20 +563,52 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 item.Tag = service;
                 item.Name = service.Key;
                 item.Text = GetColumnData(service, columns[0]);
-                EnableListItem(item, service, !service.IsInactive, !service.IsHidden);
+                EnableListItem(item, service);
 
                 var subItems = new string[columns.Count - 1];
                 var index = (int)0;
                 foreach (var column in columns.Skip(1))
                 {
-                    subItems[index++] = GetColumnData(service, column);
+                    subItems[index] = GetColumnData(service, column);
+                    index++;
                 } // foreach
                 item.SubItems.AddRange(subItems);
+
+                // set certains columns as bold
+                if ((Settings.CurrentMode == View.Details) && (!item.UseItemStyleForSubItems))
+                {
+                    index = (int)0;
+                    foreach (var column in columns)
+                    {
+                        switch (column)
+                        {
+                            case UiBroadcastListColumn.Name:
+                            case UiBroadcastListColumn.NameAndNumber:
+                            case UiBroadcastListColumn.Number:
+                            case UiBroadcastListColumn.NumberAndName:
+                            case UiBroadcastListColumn.NumberAndNameCrlf:
+                            case UiBroadcastListColumn.OriginalName:
+                            case UiBroadcastListColumn.OriginalNumber:
+                            case UiBroadcastListColumn.UserName:
+                            case UiBroadcastListColumn.UserNumber:
+                                item.SubItems[index].Font = FontDetailsBold;
+                                break;
+                        } // switch
+                        index++;
+                    } // foreach
+                } // if
 
                 items.Add(item);
             } // foreach
 
             ListView.Items.AddRange(items.ToArray());
+
+            // restore selected service and ensure is visible
+            if (savedSelectedService != null)
+            {
+                SelectedService = savedSelectedService;
+                ListView.Items[SelectedService.Key].EnsureVisible();
+            } // if
 
             if (!insideUpdate) ListView.EndUpdate();
         } // FillList
@@ -536,7 +631,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             if ((BroadcastServices == null) || (BroadcastServices.Count == 0)) return;
 
             // select sorting column
-            var sortingColumns = Settings.ApplyGlobalSortColumn ? Settings.GlobalSortColumns : Settings[Settings.CurrentMode].SortColumns;
+            var sortingColumns = Settings.UseGlobalSortColumns ? Settings.GlobalSortColumns : Settings[Settings.CurrentMode].Sort;
             var sortingColumn = sortingColumns[0];
             SelectedSort = sortingColumn;
 
@@ -592,9 +687,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private bool NeedToApplySorting(UiBroadcastListSettings oldSettings, UiBroadcastListSettings newSettings)
         {
             // global sort column changed?
-            if (oldSettings.ApplyGlobalSortColumn != newSettings.ApplyGlobalSortColumn) return true;
+            if (oldSettings.UseGlobalSortColumns != newSettings.UseGlobalSortColumns) return true;
 
-            if (newSettings.ApplyGlobalSortColumn)
+            if (newSettings.UseGlobalSortColumns)
             {
                 return !CompareSortColumns(oldSettings.GlobalSortColumns, newSettings.GlobalSortColumns);
             } // if
@@ -603,7 +698,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             var oldModeSettings = oldSettings[oldSettings.CurrentMode];
             var newModeSettings = newSettings[newSettings.CurrentMode];
 
-            return !CompareSortColumns(oldModeSettings.SortColumns, newModeSettings.SortColumns);
+            return !CompareSortColumns(oldModeSettings.Sort, newModeSettings.Sort);
         } // NeedToApplySorting
 
         private bool CompareSortColumns(List<UiBroadcastListSortColumn> oldColumns, List<UiBroadcastListSortColumn> newColumns)
@@ -626,21 +721,21 @@ namespace Project.DvbIpTv.UiServices.Discovery
             else return width;
         } // GetColumnWidth
 
-        private void EnableListItem(ListViewItem item, UiBroadcastService service, bool available, bool enabled)
+        private void EnableListItem(ListViewItem item, UiBroadcastService service)
         {
-            if (available && enabled)
-            {
-                item.UseItemStyleForSubItems = false;
-                item.ForeColor = ListView.ForeColor;
-                item.Font = (Settings.CurrentMode != View.Tile) ? FontDetailsNameItem : null;
-                item.ImageKey = GetServiceLogoImageKey(service, false);
-            }
-            else
+            if (service.IsInactive || service.IsHidden)
             {
                 item.UseItemStyleForSubItems = (Settings.CurrentMode == View.Details);
                 item.ForeColor = SystemColors.GrayText;
-                item.Font = available? FontNormalDisabled : FontNormalNotAvailable;
+                item.Font = service.IsHidden ? FontNormalHidden : FontNormalNotAvailable;
                 item.ImageKey = GetServiceLogoImageKey(service, true);
+            }
+            else
+            {
+                item.UseItemStyleForSubItems = false;
+                item.ForeColor = ListView.ForeColor;
+                item.Font = (Settings.CurrentMode != View.Tile) ? FontDetails : null;
+                item.ImageKey = GetServiceLogoImageKey(service, false);
             } // if-else
         } // EnableListItem
 

@@ -61,6 +61,24 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The list has been successfully refreshed, but it is empty..
+        /// </summary>
+        internal static string BroadcastListRefreshEmpty {
+            get {
+                return ResourceManager.GetString("BroadcastListRefreshEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The channel list has been successfully refreshed..
+        /// </summary>
+        internal static string BroadcastListRefreshSuccess {
+            get {
+                return ResourceManager.GetString("BroadcastListRefreshSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No description is available for this TV channel/service.
         /// </summary>
         internal static string BroadcastUnknownDisplayDescription {
@@ -70,7 +88,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ---.
+        ///   Looks up a localized string similar to xxx.
         /// </summary>
         internal static string ChannelNumberNone {
             get {
@@ -111,6 +129,78 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         internal static string FormatServiceTypeIdUnknown {
             get {
                 return ResourceManager.GetString("FormatServiceTypeIdUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} channels have been reallocated.
+        /// </summary>
+        internal static string MergeResultChangedServicesCount {
+            get {
+                return ResourceManager.GetString("MergeResultChangedServicesCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} channels have not changed.
+        /// </summary>
+        internal static string MergeResultEqualServicesCount {
+            get {
+                return ResourceManager.GetString("MergeResultEqualServicesCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are {0} new channels.
+        /// </summary>
+        internal static string MergeResultNewServicesCount {
+            get {
+                return ResourceManager.GetString("MergeResultNewServicesCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} channels have been discontinued.
+        /// </summary>
+        internal static string MergeResultRemovedServicesCount {
+            get {
+                return ResourceManager.GetString("MergeResultRemovedServicesCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No channels have been reallocated.
+        /// </summary>
+        internal static string MergeResultZeroChangedServices {
+            get {
+                return ResourceManager.GetString("MergeResultZeroChangedServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All channels have changed!.
+        /// </summary>
+        internal static string MergeResultZeroEqualServices {
+            get {
+                return ResourceManager.GetString("MergeResultZeroEqualServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no new channels.
+        /// </summary>
+        internal static string MergeResultZeroNewServices {
+            get {
+                return ResourceManager.GetString("MergeResultZeroNewServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No channels have been discontinued.
+        /// </summary>
+        internal static string MergeResultZeroRemovedServices {
+            get {
+                return ResourceManager.GetString("MergeResultZeroRemovedServices", resourceCulture);
             }
         }
         

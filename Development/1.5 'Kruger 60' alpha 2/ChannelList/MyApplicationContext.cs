@@ -6,6 +6,7 @@ using Project.DvbIpTv.UiServices.Common.Start;
 using Project.DvbIpTv.UiServices.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -106,15 +107,11 @@ namespace Project.DvbIpTv.ChannelList
             try
             {
                 DisplayProgress(Properties.Texts.MyAppCtxLoadingConfig, true);
-                result = MyApplication.LoadAppUiConfig();
-                if (!result.IsOk) return result;
-
-                DisplayProgress(Properties.Texts.MyAppCtxLoadingContentProviderConfig, true);
-                result = AppUiConfiguration.Current.LoadContentProviderData();
+                result = AppUiConfiguration.Load(null, ConfigLoadDisplayProgress);
                 if (result.IsError) return result;
 
-                DisplayProgress(Properties.Texts.MyAppCtxLoadingUserConfig, true);
-                result = AppUiConfiguration.Current.LoadUserConfiguration();
+                result = ValidateConfiguration(AppUiConfiguration.Current);
+                if (result.IsError) return result;
 
                 BasicGoogleTelemetry.Init(Properties.InvariantTexts.AnalyticsGoogleTrackingId,
                     AppUiConfiguration.Current.AnalyticsClientId,
@@ -124,7 +121,7 @@ namespace Project.DvbIpTv.ChannelList
 
                 BasicGoogleTelemetry.SendScreenHit("SplashScreen");
 
-                return result;
+                return InitializationResult.Ok;
             }
             catch (Exception ex)
             {
@@ -136,6 +133,33 @@ namespace Project.DvbIpTv.ChannelList
                 };
             } // try-catch
         } // LoadConfiguration
+
+        private void ConfigLoadDisplayProgress(string text)
+        {
+            DisplayProgress(text, true);
+        } // ConfigLoadDisplayProgress
+
+        private static InitializationResult ValidateConfiguration(AppUiConfiguration config)
+        {
+            var myPath = Application.StartupPath;
+#if DEBUG
+            var recorderLauncher = myPath.EndsWith(Properties.Settings.Default.DevelopmentLocationPath, StringComparison.OrdinalIgnoreCase) ? Properties.Settings.Default.RecorderLauncherDevelopment : Properties.Settings.Default.RecorderLauncher;
+#else
+            var recorderLauncher = Properties.Settings.Default.RecorderLauncher;
+#endif // DEBUG
+
+            MyApplication.RecorderLauncherPath = Path.Combine(myPath, recorderLauncher);
+            MyApplication.RecorderLauncherPath = Path.GetFullPath(MyApplication.RecorderLauncherPath);
+            if (!File.Exists(MyApplication.RecorderLauncherPath))
+            {
+                return new InitializationResult()
+                {
+                    Message = string.Format(Properties.Texts.MyAppRecorderLauncherNotFound, MyApplication.RecorderLauncherPath)
+                };
+            } // if
+
+            return InitializationResult.Ok;
+        } // ValidateConfiguration
 
         private static void ForceUiCulture(object data)
         {

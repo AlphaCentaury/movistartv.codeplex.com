@@ -258,4 +258,13 @@ Please install the application using the official installer or repair the instal
   <data name="LogoSizeWithSizeFormat" xml:space="preserve">
     <value>{0} ({1}x{2})</value>
   </data>
+  <data name="LoadProgress_ContentProvider" xml:space="preserve">
+    <value>Loading content provider data...</value>
+  </data>
+  <data name="LoadProgress_Start" xml:space="preserve">
+    <value>Loading application configuration...</value>
+  </data>
+  <data name="LoadProgress_UserConfig" xml:space="preserve">
+    <value>Leyendo la configuración de usuario y preferencias...</value>
+  </data>
 </root>

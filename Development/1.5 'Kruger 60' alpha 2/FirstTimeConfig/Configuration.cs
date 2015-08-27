@@ -1,7 +1,9 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
+using Project.DvbIpTv.UiServices.Discovery;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -97,7 +99,12 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                     Directory.CreateDirectory(location.Path);
                 } // foreach
 
-                user.Save(xmlConfigPath);
+                var config = AppUiConfiguration.CreateForUserConfig(user);
+
+                var listSettings = UiBroadcastListSettings.GetDefaultSettings();
+                config.SetConfiguration(listSettings);
+                
+                config.Save(xmlConfigPath);
                 message = Properties.Texts.ConfigurationCreateOk;
                 return true;
             }
@@ -106,7 +113,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 message = string.Format(Properties.Texts.ConfigurationCreateException, ex.ToString());
                 return false;
             } // try-catch
-
         } // Create
     } // class Configuration
 } // namespace

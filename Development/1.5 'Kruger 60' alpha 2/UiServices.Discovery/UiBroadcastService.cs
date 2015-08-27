@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Etsi.Ts102034.v010501.XmlSerialization;
 using Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery;
 using Etsi.Ts102034.v010501.XmlSerialization.Common;
 using Project.DvbIpTv.Common;
@@ -50,6 +51,56 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } // constructor
 
         #region Data for UI display
+
+        [XmlIgnore]
+        public bool IsHighDefinitionTv
+        {
+            get
+            {
+                switch (ServiceType)
+                {
+                    case "17": // HD TV (MPEG-2)
+                    case "25": // HD TV (AVC)
+                        return true;
+                    default:
+                        return false;
+                } // switch
+            } // get
+        } // IsHighDefinitionTv
+
+        [XmlIgnore]
+        public bool IsStandardDefinitionTv
+        {
+            get
+            {
+                switch (ServiceType)
+                {
+                    case "1": // SD TV
+                    case "22": // SD TV (AVC)
+                        return true;
+                    default:
+                        return false;
+                } // switch
+            } // get
+        } // IsStandardDefinitionTv
+
+        [XmlIgnore]
+        public bool IsTelevionService
+        {
+            get
+            {
+                switch (ServiceType)
+                {
+                    case "1": // SD TV
+                    case "22": // SD TV (AVC)
+                    case "17": // HD TV (MPEG-2)
+                    case "25": // HD TV (AVC)
+                        return true;
+                    default:
+                        return false;
+                } // switch
+            } // get
+        } // IsTelevionService
 
         [XmlIgnore]
         public string DisplayLogicalNumber
@@ -200,7 +251,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
             } // get
         } // DisplayLockLevel
 
-
         #endregion
 
         #region UI additional data
@@ -249,7 +299,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
             set;
         } // IsInactive
 
-        [XmlIgnore]
         public string ServiceLogicalNumber
         {
             get;
@@ -353,6 +402,16 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } // LocationUrl
 
         #endregion
+
+        public bool IsSameService(UiBroadcastService service)
+        {
+            if (this.Key != service.Key) return false;
+            if (this.LocationUrl != service.LocationUrl) return false;
+            if (this.DisplayOriginalName != service.DisplayOriginalName) return false;
+            if (this.DisplayServiceType != service.DisplayServiceType) return false;
+
+            return true;
+        } // IsSameService
 
         // v1.0 RC 0: code moved from ChannelList > ChanneListForm.cs > DumpProperties(UiBroadcastService)
 
@@ -523,6 +582,15 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
             return properties;
         } // DumpProperties
+
+        internal void TransferMergeProperties(UiBroadcastService service)
+        {
+            IsInactive = service.IsInactive;
+            IsHidden = service.IsHidden;
+            LockLevel = service.LockLevel;
+            UserDisplayName = service.UserDisplayName;
+            UserLogicalNumber = service.UserLogicalNumber;
+        } // TransferMergeProperties
 
         #region Data extraction for underlying BroadcastService
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -17,6 +20,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             Descending = (column == UiBroadcastListColumn.None)? false : descending;
         } // constructor
 
+        [XmlAttribute("name")]
         public UiBroadcastListColumn Column
         {
             get;
@@ -24,6 +28,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         } // Column
 
         [DefaultValue(false)]
+        [XmlAttribute("descending")]
         public bool Descending
         {
             get;

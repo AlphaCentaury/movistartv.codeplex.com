@@ -133,11 +133,11 @@
   <data name="numericTimeout.Location" type="System.Drawing.Point, System.Drawing">
     <value>313, 33</value>
   </data>
-  <data name="buttonRequestCancel.Text" xml:space="preserve">
-    <value>&amp;Cancelar</value>
-  </data>
   <data name="buttonStart.Text" xml:space="preserve">
     <value>Co&amp;menzar</value>
+  </data>
+  <data name="groupScanWhat.Text" xml:space="preserve">
+    <value>Indique los canales de TV o servicios que se van a verificar</value>
   </data>
   <data name="radioScanDead.Location" type="System.Drawing.Point, System.Drawing">
     <value>232, 19</value>
@@ -163,29 +163,30 @@
   <data name="radioScanAll.Text" xml:space="preserve">
     <value>Todos los servicios</value>
   </data>
-  <data name="groupScanWhat.Text" xml:space="preserve">
-    <value>Indique los canales de TV o servicios que se van a verificar</value>
-  </data>
-  <data name="radioActionDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 19</value>
-  </data>
-  <data name="radioActionDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 17</value>
-  </data>
-  <data name="radioActionDelete.Text" xml:space="preserve">
-    <value>Eliminar de la lista</value>
-  </data>
-  <data name="radioActionDisable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 17</value>
-  </data>
-  <data name="radioActionDisable.Text" xml:space="preserve">
-    <value>"Desactivar" en la lista</value>
-  </data>
   <data name="groupActionScan.Text" xml:space="preserve">
     <value>Acción para los canales de TV o servicios no disponibles</value>
   </data>
+  <data name="comboAction.Items" xml:space="preserve">
+    <value>Marcar como inactivo</value>
+  </data>
+  <data name="comboAction.Items1" xml:space="preserve">
+    <value>Marcar como oculto</value>
+  </data>
+  <data name="comboAction.Items2" xml:space="preserve">
+    <value>Marcar como inactivo y oculto</value>
+  </data>
+  <data name="comboAction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 21</value>
+  </data>
   <data name="labelInfo.Text" xml:space="preserve">
     <value>La exploración de los servicios de multifusión se realiza en segundo plano y el progreso se muestra en una ventana flotante no bloqueante.</value>
+  </data>
+  <data name="buttonRequestCancel.Text" xml:space="preserve">
+    <value>&amp;Cancelar</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Verificar canales de TV o servicios</value>

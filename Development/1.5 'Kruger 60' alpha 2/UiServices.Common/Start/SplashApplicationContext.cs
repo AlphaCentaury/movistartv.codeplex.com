@@ -81,15 +81,6 @@ namespace Project.DvbIpTv.UiServices.Common.Start
 
         void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var splashAware = sender as ISplashScreenAwareForm;
-            if (splashAware != null)
-            {
-                if (splashAware.DisposeOnFormClose)
-                {
-                    splashAware.Dispose();
-                } // if
-            } // if
-
             // end application context
             ExitThread();
         } // MainForm_FormClosed

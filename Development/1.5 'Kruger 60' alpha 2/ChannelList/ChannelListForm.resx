@@ -117,43 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Name.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="Name.Text" xml:space="preserve">
-    <value>Channel name</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Name.Width" type="System.Int32, mscorlib">
-    <value>225</value>
-  </data>
-  <metadata name="Description.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="Description.Text" xml:space="preserve">
-    <value>Channel description</value>
-  </data>
-  <data name="Description.Width" type="System.Int32, mscorlib">
-    <value>200</value>
-  </data>
-  <metadata name="ServiceType.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="ServiceType.Text" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="ServiceType.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <metadata name="Location.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="Location.Text" xml:space="preserve">
-    <value>Location</value>
-  </data>
-  <data name="Location.Width" type="System.Int32, mscorlib">
-    <value>150</value>
-  </data>
   <metadata name="imageListChannelsLarge.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -170,6 +133,7 @@
   <metadata name="menuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>353, 17</value>
   </metadata>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuItemDvbRecent0.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -784,17 +748,11 @@
   <data name="separatorDvb2.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 6</value>
   </data>
-  <data name="menuItemDvbSettings.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="menuItemDvbSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
   <data name="menuItemDvbSettings.Text" xml:space="preserve">
     <value>Settings...</value>
-  </data>
-  <data name="menuItemDvbExport.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="menuItemDvbExport.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
@@ -822,21 +780,6 @@
   </data>
   <data name="menuItemDvbIpTv.Text" xml:space="preserve">
     <value>DVB-&amp;IPTV</value>
-  </data>
-  <data name="menuItemChannelShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="menuItemChannelShow.Text" xml:space="preserve">
-    <value>Show &amp;TV channel</value>
-  </data>
-  <data name="menuItemChannelShowWith.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="menuItemChannelShowWith.Text" xml:space="preserve">
-    <value>Show &amp;with player...</value>
-  </data>
-  <data name="separatorChannel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 6</value>
   </data>
   <data name="menuItemChannelFavorites0.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1242,6 +1185,12 @@
   <data name="menuItemChannelFavoritesSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>172, 6</value>
   </data>
+  <data name="menuItemChannelFavoritesAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 22</value>
+  </data>
+  <data name="menuItemChannelFavoritesAdd.Text" xml:space="preserve">
+    <value>&amp;Add to favorites...</value>
+  </data>
   <data name="menuItemChannelFavoritesEdit.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -1257,95 +1206,29 @@
   <data name="menuItemChannelFavorites.Text" xml:space="preserve">
     <value>&amp;Favorites</value>
   </data>
-  <data name="menuItemChannelAddFavorites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="menuItemChannelAddFavorites.Text" xml:space="preserve">
-    <value>&amp;Add to favorites...</value>
-  </data>
-  <data name="separatorChannel3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="separatorChannel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>222, 6</value>
   </data>
-  <data name="menuItemChannelListSortName.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+1</value>
-  </data>
-  <data name="menuItemChannelListSortName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="menuItemChannelListSortName.Text" xml:space="preserve">
-    <value>Channel name</value>
-  </data>
-  <data name="menuItemChannelListSortDescription.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+2</value>
-  </data>
-  <data name="menuItemChannelListSortDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="menuItemChannelListSortDescription.Text" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="menuItemChannelListSortType.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+3</value>
-  </data>
-  <data name="menuItemChannelListSortType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="menuItemChannelListSortType.Text" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="menuItemChannelListSortLocation.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+4</value>
-  </data>
-  <data name="menuItemChannelListSortLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="menuItemChannelListSortLocation.Text" xml:space="preserve">
-    <value>Location</value>
-  </data>
-  <data name="separatorChannelSort1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 6</value>
-  </data>
-  <data name="menuItemChannelListSortNone.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+0</value>
-  </data>
-  <data name="menuItemChannelListSortNone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="menuItemChannelListSortNone.Text" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="menuItemChannelListSort.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menuItemChannelShow.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 22</value>
   </data>
-  <data name="menuItemChannelListSort.Text" xml:space="preserve">
-    <value>&amp;Sort list by</value>
+  <data name="menuItemChannelShow.Text" xml:space="preserve">
+    <value>Show &amp;TV channel</value>
   </data>
-  <data name="menuItemChannelListViewTile.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+T</value>
+  <data name="menuItemChannelShowWith.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 22</value>
   </data>
-  <data name="menuItemChannelListViewTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+  <data name="menuItemChannelShowWith.Text" xml:space="preserve">
+    <value>Show &amp;with player...</value>
   </data>
-  <data name="menuItemChannelListViewTile.Text" xml:space="preserve">
-    <value>Tile</value>
-  </data>
-  <data name="menuItemChannelListViewDetails.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+D</value>
-  </data>
-  <data name="menuItemChannelListViewDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
-  </data>
-  <data name="menuItemChannelListViewDetails.Text" xml:space="preserve">
-    <value>Details</value>
+  <data name="separatorChannel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 6</value>
   </data>
   <data name="menuItemChannelListView.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 22</value>
   </data>
   <data name="menuItemChannelListView.Text" xml:space="preserve">
-    <value>List &amp;view</value>
-  </data>
-  <data name="separatorChannel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 6</value>
+    <value>List &amp;view settings...</value>
   </data>
   <data name="menuItemChannelEditList.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 22</value>
@@ -1353,14 +1236,8 @@
   <data name="menuItemChannelEditList.Text" xml:space="preserve">
     <value>Edit channel list...</value>
   </data>
-  <data name="menuItemChannelRefreshList.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+F5</value>
-  </data>
-  <data name="menuItemChannelRefreshList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
-  </data>
-  <data name="menuItemChannelRefreshList.Text" xml:space="preserve">
-    <value>&amp;Refresh list...</value>
+  <data name="separatorChannel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 6</value>
   </data>
   <data name="menuItemChannelVerify.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Alt+F5</value>
@@ -1370,6 +1247,15 @@
   </data>
   <data name="menuItemChannelVerify.Text" xml:space="preserve">
     <value>Verify &amp;availability...</value>
+  </data>
+  <data name="menuItemChannelRefreshList.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+F5</value>
+  </data>
+  <data name="menuItemChannelRefreshList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 22</value>
+  </data>
+  <data name="menuItemChannelRefreshList.Text" xml:space="preserve">
+    <value>&amp;Refresh list...</value>
   </data>
   <data name="menuItemChannelDetails.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F12</value>
@@ -1623,9 +1509,6 @@
   <data name="&gt;&gt;labelProviderDescription.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="listViewChannels.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <metadata name="contextMenuList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>673, 17</value>
   </metadata>
@@ -1649,57 +1532,6 @@
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>215, 6</value>
-  </data>
-  <data name="contextMenuListSortChannel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="contextMenuListSortChannel.Text" xml:space="preserve">
-    <value>Channel name</value>
-  </data>
-  <data name="contextMenuListSortDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="contextMenuListSortDescription.Text" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="contextMenuListSortType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="contextMenuListSortType.Text" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="contextMenuListSortLocation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="contextMenuListSortLocation.Text" xml:space="preserve">
-    <value>Location</value>
-  </data>
-  <data name="contextMenuListSortSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 6</value>
-  </data>
-  <data name="contextMenuListSortNone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="contextMenuListSortNone.Text" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="contextMenuListSort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="contextMenuListSort.Text" xml:space="preserve">
-    <value>(Placeholder for sort)</value>
-  </data>
-  <data name="contextMenuListModeTile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 22</value>
-  </data>
-  <data name="contextMenuListModeTile.Text" xml:space="preserve">
-    <value>Tile</value>
-  </data>
-  <data name="contextMenuListModeDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 22</value>
-  </data>
-  <data name="contextMenuListModeDetails.Text" xml:space="preserve">
-    <value>Details</value>
   </data>
   <data name="contextMenuListMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 22</value>
@@ -1741,34 +1573,13 @@
     <value>(Placeholder for properties)</value>
   </data>
   <data name="contextMenuList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 170</value>
+    <value>219, 148</value>
   </data>
   <data name="&gt;&gt;contextMenuList.Name" xml:space="preserve">
     <value>contextMenuList</value>
   </data>
   <data name="&gt;&gt;contextMenuList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="listViewChannels.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 66</value>
-  </data>
-  <data name="listViewChannels.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 282</value>
-  </data>
-  <data name="listViewChannels.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;listViewChannels.Name" xml:space="preserve">
-    <value>listViewChannels</value>
-  </data>
-  <data name="&gt;&gt;listViewChannels.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Common.Controls.ListViewSortable, UiServices.Common, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;listViewChannels.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;listViewChannels.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="labelNotification.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -1783,7 +1594,7 @@
     <value>433, 24</value>
   </data>
   <data name="labelNotification.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="labelNotification.Text" xml:space="preserve">
     <value>(Notification area)</value>
@@ -1804,11 +1615,62 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelNotification.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="timerDismissNotification.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>488, 17</value>
   </metadata>
+  <data name="epgMiniBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="epgMiniBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 354</value>
+  </data>
+  <data name="epgMiniBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>594, 57</value>
+  </data>
+  <data name="epgMiniBar.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="epgMiniBar.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;epgMiniBar.Name" xml:space="preserve">
+    <value>epgMiniBar</value>
+  </data>
+  <data name="&gt;&gt;epgMiniBar.Type" xml:space="preserve">
+    <value>Project.DvbIpTv.UiServices.EPG.EpgMiniBar, UiServices.EPG, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;epgMiniBar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;epgMiniBar.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="listViewChannelList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="listViewChannelList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 66</value>
+  </data>
+  <data name="listViewChannelList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 282</value>
+  </data>
+  <data name="listViewChannelList.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;listViewChannelList.Name" xml:space="preserve">
+    <value>listViewChannelList</value>
+  </data>
+  <data name="&gt;&gt;listViewChannelList.Type" xml:space="preserve">
+    <value>Project.DvbIpTv.UiServices.Common.Controls.ListViewSortable, UiServices.Common, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;listViewChannelList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;listViewChannelList.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="pictureNotificationIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -1840,7 +1702,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureNotificationIcon.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="buttonRecordChannel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1855,7 +1717,7 @@
     <value>100, 25</value>
   </data>
   <data name="buttonRecordChannel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="buttonRecordChannel.Text" xml:space="preserve">
     <value>Rec&amp;ord...</value>
@@ -1876,7 +1738,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonRecordChannel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="buttonDisplayChannel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -1891,7 +1753,7 @@
     <value>100, 25</value>
   </data>
   <data name="buttonDisplayChannel.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="buttonDisplayChannel.Text" xml:space="preserve">
     <value>&amp;Show...</value>
@@ -1912,7 +1774,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonDisplayChannel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="pictureProviderLogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1941,33 +1803,6 @@
   <data name="&gt;&gt;pictureProviderLogo.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="epgMiniBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
-  </data>
-  <data name="epgMiniBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 354</value>
-  </data>
-  <data name="epgMiniBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>594, 57</value>
-  </data>
-  <data name="epgMiniBar.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="epgMiniBar.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;epgMiniBar.Name" xml:space="preserve">
-    <value>epgMiniBar</value>
-  </data>
-  <data name="&gt;&gt;epgMiniBar.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.EPG.EpgMiniBar, UiServices.EPG, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;epgMiniBar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;epgMiniBar.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1976,30 +1811,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Channel list - DVB-IPTV</value>
-  </data>
-  <data name="&gt;&gt;Name.Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="&gt;&gt;Name.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Description.Name" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="&gt;&gt;Description.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ServiceType.Name" xml:space="preserve">
-    <value>ServiceType</value>
-  </data>
-  <data name="&gt;&gt;ServiceType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Location.Name" xml:space="preserve">
-    <value>Location</value>
-  </data>
-  <data name="&gt;&gt;Location.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;imageListChannelsLarge.Name" xml:space="preserve">
     <value>imageListChannelsLarge</value>
@@ -2163,24 +1974,6 @@
   <data name="&gt;&gt;menuItemChannel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelShow.Name" xml:space="preserve">
-    <value>menuItemChannelShow</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelShow.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelShowWith.Name" xml:space="preserve">
-    <value>menuItemChannelShowWith</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelShowWith.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;separatorChannel1.Name" xml:space="preserve">
-    <value>separatorChannel1</value>
-  </data>
-  <data name="&gt;&gt;separatorChannel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;menuItemChannelFavorites.Name" xml:space="preserve">
     <value>menuItemChannelFavorites</value>
   </data>
@@ -2253,82 +2046,34 @@
   <data name="&gt;&gt;menuItemChannelFavoritesSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;menuItemChannelFavoritesAdd.Name" xml:space="preserve">
+    <value>menuItemChannelFavoritesAdd</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelFavoritesAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;menuItemChannelFavoritesEdit.Name" xml:space="preserve">
     <value>menuItemChannelFavoritesEdit</value>
   </data>
   <data name="&gt;&gt;menuItemChannelFavoritesEdit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelAddFavorites.Name" xml:space="preserve">
-    <value>menuItemChannelAddFavorites</value>
+  <data name="&gt;&gt;separatorChannel1.Name" xml:space="preserve">
+    <value>separatorChannel1</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelAddFavorites.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;separatorChannel3.Name" xml:space="preserve">
-    <value>separatorChannel3</value>
-  </data>
-  <data name="&gt;&gt;separatorChannel3.Type" xml:space="preserve">
+  <data name="&gt;&gt;separatorChannel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelListSort.Name" xml:space="preserve">
-    <value>menuItemChannelListSort</value>
+  <data name="&gt;&gt;menuItemChannelShow.Name" xml:space="preserve">
+    <value>menuItemChannelShow</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelListSort.Type" xml:space="preserve">
+  <data name="&gt;&gt;menuItemChannelShow.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelListSortName.Name" xml:space="preserve">
-    <value>menuItemChannelListSortName</value>
+  <data name="&gt;&gt;menuItemChannelShowWith.Name" xml:space="preserve">
+    <value>menuItemChannelShowWith</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelListSortName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortDescription.Name" xml:space="preserve">
-    <value>menuItemChannelListSortDescription</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortType.Name" xml:space="preserve">
-    <value>menuItemChannelListSortType</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortLocation.Name" xml:space="preserve">
-    <value>menuItemChannelListSortLocation</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortLocation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;separatorChannelSort1.Name" xml:space="preserve">
-    <value>separatorChannelSort1</value>
-  </data>
-  <data name="&gt;&gt;separatorChannelSort1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortNone.Name" xml:space="preserve">
-    <value>menuItemChannelListSortNone</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListSortNone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListView.Name" xml:space="preserve">
-    <value>menuItemChannelListView</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListViewTile.Name" xml:space="preserve">
-    <value>menuItemChannelListViewTile</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListViewTile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListViewDetails.Name" xml:space="preserve">
-    <value>menuItemChannelListViewDetails</value>
-  </data>
-  <data name="&gt;&gt;menuItemChannelListViewDetails.Type" xml:space="preserve">
+  <data name="&gt;&gt;menuItemChannelShowWith.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;separatorChannel2.Name" xml:space="preserve">
@@ -2337,22 +2082,34 @@
   <data name="&gt;&gt;separatorChannel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;menuItemChannelListView.Name" xml:space="preserve">
+    <value>menuItemChannelListView</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;menuItemChannelEditList.Name" xml:space="preserve">
     <value>menuItemChannelEditList</value>
   </data>
   <data name="&gt;&gt;menuItemChannelEditList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelRefreshList.Name" xml:space="preserve">
-    <value>menuItemChannelRefreshList</value>
+  <data name="&gt;&gt;separatorChannel3.Name" xml:space="preserve">
+    <value>separatorChannel3</value>
   </data>
-  <data name="&gt;&gt;menuItemChannelRefreshList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;separatorChannel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemChannelVerify.Name" xml:space="preserve">
     <value>menuItemChannelVerify</value>
   </data>
   <data name="&gt;&gt;menuItemChannelVerify.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelRefreshList.Name" xml:space="preserve">
+    <value>menuItemChannelRefreshList</value>
+  </data>
+  <data name="&gt;&gt;menuItemChannelRefreshList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemChannelDetails.Name" xml:space="preserve">
@@ -2517,64 +2274,10 @@
   <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;contextMenuListSort.Name" xml:space="preserve">
-    <value>contextMenuListSort</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortChannel.Name" xml:space="preserve">
-    <value>contextMenuListSortChannel</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortChannel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortDescription.Name" xml:space="preserve">
-    <value>contextMenuListSortDescription</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortType.Name" xml:space="preserve">
-    <value>contextMenuListSortType</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortLocation.Name" xml:space="preserve">
-    <value>contextMenuListSortLocation</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortLocation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortSeparator1.Name" xml:space="preserve">
-    <value>contextMenuListSortSeparator1</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortNone.Name" xml:space="preserve">
-    <value>contextMenuListSortNone</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListSortNone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;contextMenuListMode.Name" xml:space="preserve">
     <value>contextMenuListMode</value>
   </data>
   <data name="&gt;&gt;contextMenuListMode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListModeTile.Name" xml:space="preserve">
-    <value>contextMenuListModeTile</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListModeTile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListModeDetails.Name" xml:space="preserve">
-    <value>contextMenuListModeDetails</value>
-  </data>
-  <data name="&gt;&gt;contextMenuListModeDetails.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">

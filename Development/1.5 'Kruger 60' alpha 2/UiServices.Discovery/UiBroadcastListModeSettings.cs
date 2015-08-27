@@ -1,4 +1,7 @@
-﻿using Project.DvbIpTv.Common.Serialization;
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using Project.DvbIpTv.Common.Serialization;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using System;
 using System.Collections.Generic;
@@ -15,7 +18,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         public static UiBroadcastListModeSettings GetDefaultSettings(View mode)
         {
             var result = new UiBroadcastListModeSettings();
-            result.SortColumns = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, false, 3);
+            result.Sort = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, false, 3);
 
             switch (mode)
             {
@@ -63,11 +66,13 @@ namespace Project.DvbIpTv.UiServices.Discovery
             set;
         } // Columns
 
-        public List<UiBroadcastListSortColumn> SortColumns
+        [XmlArray("SortBy")]
+        [XmlArrayItem("Column")]
+        public List<UiBroadcastListSortColumn> Sort
         {
             get;
             set;
-        } // SortColumns
+        } // Sort
 
         public LogoSize LogoSize
         {

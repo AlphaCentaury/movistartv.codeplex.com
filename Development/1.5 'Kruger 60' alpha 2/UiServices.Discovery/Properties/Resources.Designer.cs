@@ -103,6 +103,16 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Ok_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Ok_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Action_SortAscending_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_SortAscending_16x16", resourceCulture);
@@ -176,6 +186,26 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         internal static System.Drawing.Bitmap ListView_Tiles_16x16 {
             get {
                 object obj = ResourceManager.GetObject("ListView_Tiles_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status_Info_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Status_Info_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status_Success_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Status_Success_24x24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
