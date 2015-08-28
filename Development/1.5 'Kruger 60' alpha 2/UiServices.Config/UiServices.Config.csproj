@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -55,7 +56,8 @@
     <Compile Include="ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IConfigurationFormItem.cs" />
+    <Compile Include="IConfigurationItemEditor.cs" />
+    <Compile Include="IConfigurationItemRegistration.cs" />
     <Compile Include="InitializationResult.cs" />
     <Compile Include="IConfigurationItem.cs" />
     <Compile Include="Logos\BaseLogo.cs" />
@@ -112,7 +114,7 @@
     <Compile Include="UiContentProvider.cs" />
     <Compile Include="UiContentProviderFriendlyNames.cs" />
     <Compile Include="UiContentProviderIdentification.cs" />
-    <Compile Include="XmlConfigurationItem.cs" />
+    <Compile Include="XmlConfigurationItems.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ConfigurationForm.resx">

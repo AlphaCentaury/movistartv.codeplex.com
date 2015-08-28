@@ -11,8 +11,9 @@ using System.Drawing;
 using Project.DvbIpTv.UiServices.Common.Controls;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.Common.Serialization;
 
-namespace Project.DvbIpTv.UiServices.Discovery
+namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 {
     public class UiBroadcastListManager: IDisposable
     {
@@ -21,6 +22,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         private IList<UiBroadcastService> fieldBroadcastServices;
         private IEnumerable<UiBroadcastService> SortedBroadcastServices;
+        private UiBroadcastListSettings fieldOldSettings;
         private UiBroadcastListSettings fieldSettings;
         private UiBroadcastService fieldSelectedService;
         private const int MinColumnWidth = 25;
@@ -127,8 +129,8 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 case UiBroadcastListColumn.NumberAndName: return 210;
                 case UiBroadcastListColumn.NumberAndNameCrlf: return 210;
                 case UiBroadcastListColumn.NameAndNumber: return 210;
-                case UiBroadcastListColumn.Description: return 200;
-                case UiBroadcastListColumn.DvbType: return 60;
+                case UiBroadcastListColumn.Description: return 170;
+                case UiBroadcastListColumn.DvbType: return 90;
                 case UiBroadcastListColumn.LocationUrl: return 150;
                 case UiBroadcastListColumn.ShortName: return 90;
                 case UiBroadcastListColumn.Genre: return 150;
@@ -213,6 +215,12 @@ namespace Project.DvbIpTv.UiServices.Discovery
             SmallImageList = smallImageList;
             LargeImageList = largeImageList;
 
+            FontNormal = new Font("Segoe UI Semibold", 10.0f, FontStyle.Regular);
+            FontNormalHidden = new Font("Segoe UI Semibold", 9.5f, FontStyle.Regular);
+            FontNormalNotAvailable = new Font("Segoe UI", 9, FontStyle.Regular);
+            FontDetails = new Font(ListView.Font.OriginalFontName, ListView.Font.SizeInPoints, FontStyle.Regular);
+            FontDetailsBold = new Font("Tahoma", 10.5f, FontStyle.Bold);
+
             InitListViewControl(overrideDesignSettings);
             ApplySettings(settings);
         } // constructor
@@ -251,25 +259,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         public UiBroadcastListSettings Settings
         {
-            get
-            {
-                return fieldSettings;
-            } // get
-            set
-            {
-                if (object.ReferenceEquals(fieldSettings, value))
-                {
-                    throw new InvalidOperationException();
-                } // if
-
-                ApplySettings(value);
-            } // set
+            get { return fieldSettings; } // get
+            set { ApplySettings(value); } // set
         } // Settings
-
-        public UiBroadcastListSettings ClonedSettings
-        {
-            get { return Settings.CloneSettings(); }
-        } // ClonedSettings
 
         public UiBroadcastService SelectedService
         {
@@ -337,24 +329,16 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         public UiBroadcastListSettings ShowSettingsEditor(IWin32Window owner, bool autoApplyChanges)
         {
-            DialogResult result;
+            var result = ConfigurationForm.ShowConfigurationForm(owner, UiBroadcastListSettingsConfigurationRegistration.ConfigurationGuid, fieldSettings);
 
-            using (var form = new ConfigurationForm())
+            if ((result != null) && (autoApplyChanges))
             {
-                using (var editor = new UiBroadcastListSettingsEditor())
-                {
-                    editor.Settings = ClonedSettings;
-                    form.ConfigurationItems.Add(editor);
-                    result = form.ShowDialog(owner);
-                } // using editor
-            } // using form
-
-            if ((result == DialogResult.OK) && (autoApplyChanges))
-            {
-                // TODO!
+                UiBroadcastListSettingsConfigurationRegistration.UserSettings = result;
+                AppUiConfiguration.Current.Save();
+                Settings = result;
             } // if
 
-            return null;
+            return result;
         } // ShowSettingsEditor
 
         #region Events
@@ -453,12 +437,6 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
         private void InitListViewControl(bool overrideDesignSettings)
         {
-            FontNormal = new Font("Tahoma", 10.5f, FontStyle.Bold);
-            FontNormalHidden = new Font("Segoe UI Semibold", 9.5f, FontStyle.Regular);
-            FontNormalNotAvailable = new Font("Segoe UI", 9, FontStyle.Regular);
-            FontDetails = new Font(ListView.Font.OriginalFontName, ListView.Font.SizeInPoints, FontStyle.Regular);
-            FontDetailsBold = new Font("Tahoma", 10.5f, FontStyle.Bold);
-
             ListView.MultiSelect = false;
             ListView.SmallImageList = SmallImageList;
             ListView.LargeImageList = LargeImageList;
@@ -484,10 +462,10 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private void ApplySettings(UiBroadcastListSettings newSettings)
         {
             // save existing settings
-            var oldSettings = fieldSettings;
-            
+            var oldSettings = fieldOldSettings;
 
             // save new settings
+            fieldOldSettings = XmlSerialization.Clone(newSettings);
             fieldSettings = newSettings;
 
             // rebuild list?
@@ -734,7 +712,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             {
                 item.UseItemStyleForSubItems = false;
                 item.ForeColor = ListView.ForeColor;
-                item.Font = (Settings.CurrentMode != View.Tile) ? FontDetails : null;
+                item.Font = (Settings.CurrentMode == View.Details) ? FontDetails : FontNormal;
                 item.ImageKey = GetServiceLogoImageKey(service, false);
             } // if-else
         } // EnableListItem

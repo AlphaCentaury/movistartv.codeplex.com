@@ -20,7 +20,10 @@ namespace Project.DvbIpTv.UiServices.Configuration
 {
     public class AppUiConfiguration
     {
-        private IDictionary<Guid, IConfigurationItem> Items;
+        private string DefaultSaveLocation;
+        internal IDictionary<Guid, IConfigurationItemRegistration> ItemsRegistry;
+        internal IDictionary<Guid, int> ItemsIndex;
+        internal IList<IConfigurationItem> Items;
 
         #region Static methods
 
@@ -36,7 +39,6 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
             config = new AppUiConfiguration();
             config.User = userConfig;
-            config.Items = new Dictionary<Guid, IConfigurationItem>();
 
             return config;
         } // CreateForUserConfig
@@ -59,7 +61,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
             result = config.LoadUserConfiguration();
             if (result.IsError) return result;
 
-            config.ProcessXmlConfigurationItems();
+            result = config.RegisterConfigurationItems();
+            if (result.IsError) return result;
+
+            result = config.ProcessXmlConfigurationItems();
+            if (result.IsError) return result;
 
             Current = config;
 
@@ -77,6 +83,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
             return config;
         } // LoadRegistryAppConfiguration
+
+        public static T CloneSettings<T>(IConfigurationItem settings) where T: class, IConfigurationItem
+        {
+            return XmlSerialization.CloneObject(settings) as T;
+        } // CloneSettings
 
         protected static IList<string> GetUiCultures()
         {
@@ -165,30 +176,58 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
         public IConfigurationItem this[Guid guid]
         {
-            get { return Items[guid]; } // get
-            set { Items[guid] = value; } // set
+            get { return Items[ItemsIndex[guid]]; } // get
+            set { Items[ItemsIndex[guid]] = value; } // set
         } // this[Guid]
 
-        public void SetConfiguration(IConfigurationItem item)
+        public IConfigurationItem this[int directIndex]
         {
-            this[item.ConfigurationId] = item;
-        } // SetConfiguration
+            get { return Items[directIndex]; } // get
+            set { Items[directIndex] = value; } // set
+        } // this[int]
 
         #region Public methods
 
-        public void Save(string xmlFilePath)
+        public void Save(string overrideSaveLocation = null)
         {
-            foreach (var pair in Items)
+            // serialize configuration items
+            foreach (var pair in ItemsIndex)
             {
-                User.Configuration = new XmlConfigurationItem();
+                User.Configuration = new XmlConfigurationItems();
                 User.Configuration.XmlData = new List<XmlElement>(Items.Count);
-                User.Configuration.XmlData.Add(XmlConfigurationItem.GetXmlElement(pair.Value));
+                User.Configuration.XmlData.Add(XmlConfigurationItems.GetXmlElement(pair.Key, Items[pair.Value]));
             } // foreach
 
-            XmlSerialization.Serialize(xmlFilePath, Encoding.UTF8, User);
+            // save registry
+            User.Configuration.Registry = new List<string>(ItemsRegistry.Count);
+            foreach (var pair in ItemsRegistry)
+            {
+                User.Configuration.Registry.Add(pair.Value.GetType().AssemblyQualifiedName);
+            } // foreach
 
+            var configFilename = overrideSaveLocation ?? DefaultSaveLocation;
+            XmlSerialization.Serialize(configFilename, Encoding.UTF8, User);
+
+            // save memory
+            // the serialized configuration items are not needed for normal operation, as they are accessed using this[Guid]
             User.Configuration = null;
         } // Save
+
+        public void RegisterConfiguration(IConfigurationItemRegistration registration, IConfigurationItem configItem = null, bool createDefault = false)
+        {
+            if (ItemsRegistry == null)
+            {
+                ItemsRegistry = new Dictionary<Guid, IConfigurationItemRegistration>();
+                ItemsIndex = new Dictionary<Guid, int>();
+                Items = new List<IConfigurationItem>();
+            } // if
+
+            ItemsRegistry.Add(registration.Id, registration);
+            var directIndex = Items.Count;
+            ItemsIndex[registration.Id] = directIndex;
+            Items.Add(configItem ?? (createDefault? registration.CreateDefault() : null));
+            registration.DirectIndex = directIndex;
+        } // RegisterConfiguration
 
         #endregion
 
@@ -402,12 +441,12 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
         protected InitializationResult LoadUserConfiguration()
         {
-            var xmlPath = Path.Combine(Folders.Base, "user-config.xml");
+            DefaultSaveLocation = Path.Combine(Folders.Base, "user-config.xml");
 
             try
             {
                 // load
-                User = XmlSerialization.Deserialize<UserConfig>(xmlPath, true);
+                User = XmlSerialization.Deserialize<UserConfig>(DefaultSaveLocation, true);
 
                 // validate
                 var validationError = User.Validate();
@@ -416,7 +455,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                     return new InitializationResult()
                     {
                         Caption = Properties.Texts.LoadUserConfigValidationCaption,
-                        Message = string.Format(Properties.Texts.LoadConfigUserConfigValidation, xmlPath, validationError),
+                        Message = string.Format(Properties.Texts.LoadConfigUserConfigValidation, DefaultSaveLocation, validationError),
                     };
                 } // if
 
@@ -427,25 +466,72 @@ namespace Project.DvbIpTv.UiServices.Configuration
                 return new InitializationResult()
                 {
                     Caption = Properties.Texts.LoadUserConfigExceptionCaption,
-                    Message = string.Format(Properties.Texts.LoadConfigUserConfigValidation, xmlPath, Properties.Texts.LoadConfigUserConfigValidationException),
+                    Message = string.Format(Properties.Texts.LoadConfigUserConfigValidation, DefaultSaveLocation, Properties.Texts.LoadConfigUserConfigValidationException),
                     InnerException = ex
                 };
             } // try-catch
         } // LoadUserConfiguration
 
-        protected void ProcessXmlConfigurationItems()
+        private InitializationResult RegisterConfigurationItems()
         {
-            Items = new Dictionary<Guid, IConfigurationItem>(User.Configuration.XmlData.Count);
-            foreach (var item in User.Configuration.XmlData)
+            try
             {
-                var xAttr = item.Attributes["configurationId"];
-                if (xAttr != null)
+                var registerItems = User.Configuration.Registry;
+                ItemsRegistry = new Dictionary<Guid, IConfigurationItemRegistration>(registerItems.Count);
+
+                foreach (var registerType in registerItems)
                 {
+                    var type = Type.GetType(registerType);
+                    var registration = (IConfigurationItemRegistration)Activator.CreateInstance(type);
+                    if (registration == null) continue;
+
+                    ItemsRegistry.Add(registration.Id, registration);
+                } // foreach
+            }
+            catch (Exception ex)
+            {
+                return new InitializationResult(ex);
+            } // try-catch
+
+            return InitializationResult.Ok;
+        } // RegisterConfigurationItems
+
+        private InitializationResult ProcessXmlConfigurationItems()
+        {
+            try
+            {
+                ItemsIndex = new Dictionary<Guid, int>(User.Configuration.XmlData.Count);
+                Items = new List<IConfigurationItem>(User.Configuration.XmlData.Count);
+
+                foreach (var item in User.Configuration.XmlData)
+                {
+                    var xAttr = item.Attributes["configurationId"];
+                    if ((xAttr == null) || (xAttr.Value == null)) continue;
                     var id = new Guid(xAttr.Value);
-                    // TODO: ProcessXmlConfigurationItems
-                    Items[id] = null;
-                } // if
-            } // foreach
+
+                    IConfigurationItemRegistration registration;
+                    if (!ItemsRegistry.TryGetValue(id, out registration)) continue;
+
+                    using (var reader = new XmlNodeReader(item))
+                    {
+                        var configItem = (IConfigurationItem) XmlSerialization.Deserialize(reader, registration.ItemType);
+                        var directIndex = Items.Count;
+                        ItemsIndex[id] = directIndex;
+                        Items.Add(configItem);
+                        registration.DirectIndex = directIndex;
+                    } // using reader
+                } // foreach
+
+                // save memory
+                // the serialized configuration items are not needed for normal operation, as they are accessed using this[Guid]
+                User.Configuration = null;
+            }
+            catch (Exception ex)
+            {
+                return new InitializationResult(ex);
+            } // try-catch
+
+            return InitializationResult.Ok;
         } // ProcessXmlConfigurationItems
 
         #endregion

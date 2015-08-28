@@ -7,24 +7,27 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Configuration
 {
-    public interface IConfigurationFormItem
+    public interface IConfigurationItemEditor
     {
         UserControl UserInterfaceItem
         {
             get;
         } // UserInterfaceItem
 
-        string ItemName
+        bool SupportsWinFormsValidation
         {
             get;
-        } // ItemName
+        } // SupportsWinFormsValidation
 
-        Image ItemImage
+        bool IsDataChanged
         {
             get;
-        } // ItemImage
-        
-        void CommitChanges();
-        void DiscardChanges();
+        } // IsDataChanged
+
+        bool Validate();
+        IConfigurationItem GetNewData();
+
+        void EditorClosing(out bool cancelClose);
+        void EditorClosed(bool userCancel);
     } // interface IConfigurationFormItem
 } // namespace

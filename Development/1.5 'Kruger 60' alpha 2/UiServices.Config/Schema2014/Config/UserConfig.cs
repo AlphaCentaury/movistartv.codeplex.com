@@ -54,7 +54,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
         } // Epg
 
         [XmlElement("Configuration")]
-        public XmlConfigurationItem Configuration
+        public XmlConfigurationItems Configuration
         {
             get;
             set;

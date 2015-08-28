@@ -10,9 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Project.DvbIpTv.UiServices.Discovery
+namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
-    public partial class SettingsEditorSorting : UserControl
+    internal partial class SettingsEditorSorting : UserControl
     {
         private UiBroadcastListSortColumn[] SortColumns;
         private int ManualUpdateLock;

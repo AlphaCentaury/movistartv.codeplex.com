@@ -11,9 +11,9 @@ using System.Xml.XPath;
 namespace Project.DvbIpTv.UiServices.Configuration
 {
     [Serializable]
-    public class XmlConfigurationItem
+    public class XmlConfigurationItems
     {
-        public static XmlElement GetXmlElement(IConfigurationItem item)
+        public static XmlElement GetXmlElement(Guid id, IConfigurationItem item)
         {
             XmlDocument xDoc = new XmlDocument();
             XPathNavigator xNavigator = xDoc.CreateNavigator();
@@ -24,11 +24,19 @@ namespace Project.DvbIpTv.UiServices.Configuration
             } // using
 
             var xAttr = xDoc.CreateAttribute("configurationId");
-            xAttr.Value = item.ConfigurationId.ToString();
+            xAttr.Value = id.ToString();
             xDoc.DocumentElement.Attributes.Append(xAttr);
 
             return xDoc.DocumentElement;
         } // GetXmlElement
+
+        [XmlArray("Registry")]
+        [XmlArrayItem("Type")]
+        public List<string> Registry
+        {
+            get;
+            set;
+        } // Registry
 
         [XmlAnyElement]
         public List<XmlElement> XmlData
@@ -36,5 +44,5 @@ namespace Project.DvbIpTv.UiServices.Configuration
             get;
             set;
         } // XmlData
-    } // class XmlConfigurationItem
+    } // class XmlConfigurationItems
 } // namespace

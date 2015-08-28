@@ -7,9 +7,6 @@ namespace Project.DvbIpTv.UiServices.Configuration
 {
     public interface IConfigurationItem
     {
-        Guid ConfigurationId
-        {
-            get;
-        } // ConfigurationId
+        // interface for marking objects
     } // interface IConfigurationItem
 } // namespace

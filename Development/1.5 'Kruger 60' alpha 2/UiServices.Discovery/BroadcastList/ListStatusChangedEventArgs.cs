@@ -6,24 +6,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.UiServices.Discovery
+namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 {
-    public class ListSelectionChangedEventArgs: EventArgs
+    public class ListStatusChangedEventArgs: EventArgs
     {
-        public ListSelectionChangedEventArgs()
+        public ListStatusChangedEventArgs()
         {
             // no op
         } // constructor
 
-        public ListSelectionChangedEventArgs(UiBroadcastService item)
+        public ListStatusChangedEventArgs(bool hasItems)
         {
-            Item = item;
+            HasItems = hasItems;
         } // constructor
 
-        public UiBroadcastService Item
+        public bool HasItems
         {
             get;
             set;
-        } // Item
-    } // class ListSelectionChangedEventArgs
+        } // HasItems
+    } // class ListStatusChangedEventArgs
 } // namespace

@@ -83,12 +83,12 @@ namespace Project.DvbIpTv.ChannelList
 
         protected override void DoDisplayMessage(IWin32Window splashScreen, string caption, string message, MessageBoxIcon icon)
         {
-            MyApplication.HandleException(splashScreen, caption, message, icon, null);
+            MyApplication.HandleException(splashScreen, caption, message ?? Properties.Texts.MyAppCtxExceptionMsg, icon, null);
         } // DoDisplayMessage
 
         protected override void DoDisplayException(IWin32Window splashScreen, string caption, string message, MessageBoxIcon icon, Exception exception)
         {
-            MyApplication.HandleException(splashScreen, caption, message, icon, exception);
+            MyApplication.HandleException(splashScreen, caption, message ?? Properties.Texts.MyAppCtxExceptionMsg, icon, exception);
         } // DoDisplayException
 
         protected override Form GetMainForm()

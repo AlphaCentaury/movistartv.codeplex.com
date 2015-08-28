@@ -188,24 +188,6 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The list has been successfully refreshed, but it is empty..
-        /// </summary>
-        internal static string ChannelListRefreshEmpty {
-            get {
-                return ResourceManager.GetString("ChannelListRefreshEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The channel list has been successfully refreshed..
-        /// </summary>
-        internal static string ChannelListRefreshSuccess {
-            get {
-                return ResourceManager.GetString("ChannelListRefreshSuccess", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Launches {0} player to view DVB-IPTV channel &apos;{1}&apos;.
         /// </summary>
         internal static string ExternalPlayerShortcutDescription {
@@ -283,6 +265,15 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string MyAppHandleExceptionDefaultCaption {
             get {
                 return ResourceManager.GetString("MyAppHandleExceptionDefaultCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No information has been supplied as to where or why the error occurred. Find error details below:.
+        /// </summary>
+        internal static string MyAppHandleExceptionDefaultMessage {
+            get {
+                return ResourceManager.GetString("MyAppHandleExceptionDefaultMessage", resourceCulture);
             }
         }
         

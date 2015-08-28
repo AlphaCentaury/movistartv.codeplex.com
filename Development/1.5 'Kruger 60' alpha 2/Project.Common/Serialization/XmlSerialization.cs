@@ -15,11 +15,31 @@ namespace Project.DvbIpTv.Common.Serialization
     {
         #region Serialize
 
-        public static void Serialize(Stream output, object o)
+        public static object CloneObject(object data)
+        {
+            using (var buffer = new MemoryStream())
+            {
+                XmlSerialization.SerializeObject(buffer, data);
+                buffer.Seek(0, SeekOrigin.Begin);
+                return XmlSerialization.Deserialize(buffer, data.GetType());
+            } // using buffer
+        } // Clone
+
+        public static T Clone<T>(T data) where T : class
+        {
+            using (var buffer = new MemoryStream())
+            {
+                XmlSerialization.Serialize(buffer, data);
+                buffer.Seek(0, SeekOrigin.Begin);
+                return XmlSerialization.Deserialize<T>(buffer);
+            } // using buffer
+        } // CloneSettings
+
+        public static void SerializeObject(Stream output, object o)
         {
             var serializer = new XmlSerializer(o.GetType());
             serializer.Serialize(output, o);
-        } // Serialize
+        } // SerializeObject
 
         public static void Serialize<T>(string filename, T o)
         {
@@ -39,7 +59,8 @@ namespace Project.DvbIpTv.Common.Serialization
 
         public static void Serialize<T>(Stream output, T o)
         {
-            Serialize(output, o);
+            var serializer = new XmlSerializer(typeof(T));
+            serializer.Serialize(output, o);
         } // Serialize<T>
 
         public static void Serialize<T>(Stream output, Encoding encoding, T o)
@@ -60,6 +81,20 @@ namespace Project.DvbIpTv.Common.Serialization
         #endregion
 
         #region Deserialize
+
+        public static object Deserialize(Stream input, Type type, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null)
+        {
+            using (var reader = CreateXmlReader(input, trimExtraWhitespace, namespaceReplacer))
+            {
+                return Deserialize(reader, type, trimExtraWhitespace, namespaceReplacer);
+            } // using reader
+        } // Deserialize
+
+        public static object Deserialize(XmlReader reader, Type type, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null)
+        {
+            var serializer = new XmlSerializer(type);
+            return serializer.Deserialize(reader);
+        } // Deserialize
 
         public static T DeserializeXmlText<T>(string xmlText, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null) where T : class
         {
@@ -90,16 +125,6 @@ namespace Project.DvbIpTv.Common.Serialization
         {
             return Deserialize(input, typeof(T), trimExtraWhitespace, namespaceReplacer) as T;
         } // Deserialize<T>
-
-        public static object Deserialize(Stream input, Type type, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null)
-        {
-            var serializer = new XmlSerializer(type);
-
-            using (var reader = CreateXmlReader(input, trimExtraWhitespace, namespaceReplacer))
-            {
-                return serializer.Deserialize(reader);
-            } // using reader
-        } // Deserialize
 
         public static T Deserialize<T>(byte[] data, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null) where T : class
         {

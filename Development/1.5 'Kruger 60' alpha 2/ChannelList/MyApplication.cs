@@ -64,7 +64,7 @@ namespace Project.DvbIpTv.ChannelList
             var box = new ExceptionMessageBox()
             {
                 Caption = caption ?? Properties.Texts.MyAppHandleExceptionDefaultCaption,
-                Text = message,
+                Text = message ?? Properties.Texts.MyAppHandleExceptionDefaultMessage,
                 InnerException = ex,
                 Beep = true,
                 Symbol = TranslateIconToSymbol(icon),

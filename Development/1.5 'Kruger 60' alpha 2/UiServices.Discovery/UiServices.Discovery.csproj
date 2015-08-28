@@ -48,8 +48,8 @@
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ISettingsEditorModeColumns.cs" />
-    <Compile Include="ListSelectionChangedEventArgs.cs" />
-    <Compile Include="ListStatusChangedEventArgs.cs" />
+    <Compile Include="BroadcastList\ListSelectionChangedEventArgs.cs" />
+    <Compile Include="BroadcastList\ListStatusChangedEventArgs.cs" />
     <Compile Include="Properties\ListViewManager.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,34 +72,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
-    <Compile Include="ServiceSortComparer.cs" />
+    <Compile Include="BroadcastList\ServiceSortComparer.cs" />
     <Compile Include="Properties\SettingsEditor.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SettingsEditor.resx</DependentUpon>
     </Compile>
-    <Compile Include="SettingsEditorModeMultiColumn.cs">
+    <Compile Include="BroadcastList\Editors\SettingsEditorModeMultiColumn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SettingsEditorModeMultiColumn.Designer.cs">
+    <Compile Include="BroadcastList\Editors\SettingsEditorModeMultiColumn.Designer.cs">
       <DependentUpon>SettingsEditorModeMultiColumn.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingsEditorModeSingleColumn.cs">
+    <Compile Include="BroadcastList\Editors\SettingsEditorModeSingleColumn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SettingsEditorModeSingleColumn.Designer.cs">
+    <Compile Include="BroadcastList\Editors\SettingsEditorModeSingleColumn.Designer.cs">
       <DependentUpon>SettingsEditorModeSingleColumn.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingsEditorModeTripleColumn.cs">
+    <Compile Include="BroadcastList\Editors\SettingsEditorModeTripleColumn.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SettingsEditorModeTripleColumn.Designer.cs">
+    <Compile Include="BroadcastList\Editors\SettingsEditorModeTripleColumn.Designer.cs">
       <DependentUpon>SettingsEditorModeTripleColumn.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingsEditorSorting.cs">
+    <Compile Include="BroadcastList\Editors\SettingsEditorSorting.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SettingsEditorSorting.Designer.cs">
+    <Compile Include="BroadcastList\Editors\SettingsEditorSorting.Designer.cs">
       <DependentUpon>SettingsEditorSorting.cs</DependentUpon>
     </Compile>
     <Compile Include="UiBroadcastDiscoveryMergeResult.cs" />
@@ -110,17 +110,18 @@
     <Compile Include="UiBroadcastDiscoveryMergeResultDialog.Designer.cs">
       <DependentUpon>UiBroadcastDiscoveryMergeResultDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UiBroadcastListColumn.cs" />
-    <Compile Include="UiBroadcastListManager.cs" />
-    <Compile Include="UiBroadcastListModeSettings.cs" />
-    <Compile Include="UiBroadcastListSettings.cs" />
-    <Compile Include="UiBroadcastListSettingsEditor.cs">
+    <Compile Include="BroadcastList\UiBroadcastListColumn.cs" />
+    <Compile Include="BroadcastList\UiBroadcastListManager.cs" />
+    <Compile Include="BroadcastList\UiBroadcastListModeSettings.cs" />
+    <Compile Include="BroadcastList\UiBroadcastListSettings.cs" />
+    <Compile Include="BroadcastList\UiBroadcastListSettingsConfigurationRegistration.cs" />
+    <Compile Include="BroadcastList\Editors\UiBroadcastListSettingsEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UiBroadcastListSettingsEditor.Designer.cs">
+    <Compile Include="BroadcastList\Editors\UiBroadcastListSettingsEditor.Designer.cs">
       <DependentUpon>UiBroadcastListSettingsEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="UiBroadcastListSortColumn.cs" />
+    <Compile Include="BroadcastList\UiBroadcastListSortColumn.cs" />
     <Compile Include="UiBroadcastService.cs" />
     <Compile Include="UiProviderDiscovery.cs" />
     <Compile Include="UiServiceProvider.cs" />
@@ -169,34 +170,37 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>SettingsEditor.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsEditorModeMultiColumn.es.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorModeMultiColumn.es.resx">
       <DependentUpon>SettingsEditorModeMultiColumn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsEditorModeMultiColumn.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorModeMultiColumn.resx">
       <DependentUpon>SettingsEditorModeMultiColumn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsEditorModeSingleColumn.es.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorModeSingleColumn.es.resx">
       <DependentUpon>SettingsEditorModeSingleColumn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsEditorModeSingleColumn.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorModeSingleColumn.resx">
       <DependentUpon>SettingsEditorModeSingleColumn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsEditorModeTripleColumn.es.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorModeTripleColumn.es.resx">
       <DependentUpon>SettingsEditorModeTripleColumn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsEditorModeTripleColumn.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorModeTripleColumn.resx">
       <DependentUpon>SettingsEditorModeTripleColumn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsEditorSorting.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorSorting.resx">
       <DependentUpon>SettingsEditorSorting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UiBroadcastDiscoveryMergeResultDialog.es.resx">
+      <DependentUpon>UiBroadcastDiscoveryMergeResultDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UiBroadcastDiscoveryMergeResultDialog.resx">
       <DependentUpon>UiBroadcastDiscoveryMergeResultDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UiBroadcastListSettingsEditor.es.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\UiBroadcastListSettingsEditor.es.resx">
       <DependentUpon>UiBroadcastListSettingsEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UiBroadcastListSettingsEditor.resx">
+    <EmbeddedResource Include="BroadcastList\Editors\UiBroadcastListSettingsEditor.resx">
       <DependentUpon>UiBroadcastListSettingsEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

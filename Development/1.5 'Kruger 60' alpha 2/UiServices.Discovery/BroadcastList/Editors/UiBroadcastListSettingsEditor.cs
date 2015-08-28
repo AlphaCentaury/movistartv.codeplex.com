@@ -12,9 +12,9 @@ using System.Windows.Forms;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 
-namespace Project.DvbIpTv.UiServices.Discovery
+namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
-    public partial class UiBroadcastListSettingsEditor : UserControl, IConfigurationFormItem
+    public partial class UiBroadcastListSettingsEditor : UserControl, IConfigurationItemEditor
     {
         private ToolStripButton[] ListModeItems;
         private ISettingsEditorModeColumns[] EditorModeColumns;
@@ -31,32 +31,43 @@ namespace Project.DvbIpTv.UiServices.Discovery
             set;
         } // Settings
 
-        #region IConfigurationFormItem implementation
+        #region IConfigurationItemEditor implementation
 
-        public UserControl UserInterfaceItem
+        UserControl IConfigurationItemEditor.UserInterfaceItem
         {
             get { return this; }
-        } // UserInterfaceItem
+        } // IConfigurationItemEditor.UserInterfaceItem
 
-        public string ItemName
+        bool IConfigurationItemEditor.SupportsWinFormsValidation
         {
-            get { return "Lista de canales"; }
-        } // ItemName
+            get { return false; }
+        } // IConfigurationItemEditor.SupportsWinFormsValidation
 
-        public Image ItemImage
+        public bool IsDataChanged
         {
-            get { return Properties.Resources.BroadcastListSettings_32x32; }
-        } // ItemImage
+            get;
+            protected set;
+        } // IsDataChanged
 
-        public void CommitChanges()
+        bool IConfigurationItemEditor.Validate()
         {
-            throw new NotImplementedException();
-        } // CommitChanges
+            return true;
+        } // IConfigurationItemEditor.Validate
 
-        public void DiscardChanges()
+        IConfigurationItem IConfigurationItemEditor.GetNewData()
         {
-            throw new NotImplementedException();
-        }  // DiscardChanges
+            return Settings;
+        } // IConfigurationItemEditor.GetNewData
+
+        void IConfigurationItemEditor.EditorClosing(out bool cancelClose)
+        {
+            cancelClose = false;
+        } // IConfigurationItemEditor.EditorClosing
+
+        void IConfigurationItemEditor.EditorClosed(bool userCancel)
+        {
+            // no op
+        } // IConfigurationItemEditor.EditorClosed
 
         #endregion
 
@@ -130,6 +141,9 @@ namespace Project.DvbIpTv.UiServices.Discovery
             comboLogoSize.ValueMember = "Key";
             comboLogoSize.DisplayMember = "Value";
             comboLogoSize.DataSource = BaseLogo.GetListLogoSizes(true).AsReadOnly();
+
+            // TODO: trully implement IsDataChanged
+            IsDataChanged = true;
         } // UiBroadcastListSettingsEditor_Load
 
         #region General tab

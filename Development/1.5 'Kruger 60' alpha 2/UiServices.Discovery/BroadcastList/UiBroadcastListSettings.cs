@@ -12,13 +12,12 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-namespace Project.DvbIpTv.UiServices.Discovery
+namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 {
     [Serializable]
-    public class UiBroadcastListSettings : ICloneable, IConfigurationItem
+    public class UiBroadcastListSettings : IConfigurationItem
     {
         private int[] fieldColumnWidth;
-        public static readonly Guid ConfigurationItemGuid = new Guid("{68B9F98B-DB50-4A08-AF04-35457F0224FB}");
 
         public class ModeViewSettings
         {
@@ -195,30 +194,5 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             get { return this[CurrentMode].Columns.AsReadOnly(); }
         } // CurrentColumns
-
-        public object Clone()
-        {
-            return CloneSettings();
-        } // Clone
-
-        public UiBroadcastListSettings CloneSettings()
-        {
-            using (var buffer = new MemoryStream())
-            {
-                XmlSerialization.Serialize(buffer, this);
-                buffer.Seek(0, SeekOrigin.Begin);
-                return XmlSerialization.Deserialize<UiBroadcastListSettings>(buffer);
-            } // using buffer
-        } // CloneSettings
-
-        #region IConfigurationItem implementation
-
-        [XmlIgnore]
-        public Guid ConfigurationId
-        {
-            get { return ConfigurationItemGuid; }
-        } // ConfigurationId
-
-        #endregion
     } // class UiBroadcastListViewSettings
 } // namespace

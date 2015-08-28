@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Project.DvbIpTv.UiServices.Discovery
+namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
     internal partial class SettingsEditorModeTripleColumn : UserControl, ISettingsEditorModeColumns
     {

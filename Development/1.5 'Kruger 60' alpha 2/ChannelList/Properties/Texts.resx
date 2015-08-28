@@ -160,12 +160,6 @@ The verification has to be canceled before you can perform the requested action.
   <data name="ChannelListNoCache" xml:space="preserve">
     <value>No cached version of the channel list exists. You have to refresh the list.</value>
   </data>
-  <data name="ChannelListRefreshEmpty" xml:space="preserve">
-    <value>The list has been successfully refreshed, but it is empty.</value>
-  </data>
-  <data name="ChannelListRefreshSuccess" xml:space="preserve">
-    <value>The channel list has been successfully refreshed.</value>
-  </data>
   <data name="ExternalPlayerShortcutDescription" xml:space="preserve">
     <value>Launches {0} player to view DVB-IPTV channel '{1}'</value>
   </data>
@@ -257,5 +251,8 @@ Do you still want to show {0}?</value>
   </data>
   <data name="Payload05DisplayName" xml:space="preserve">
     <value>Packages and channel numbers</value>
+  </data>
+  <data name="MyAppHandleExceptionDefaultMessage" xml:space="preserve">
+    <value>No information has been supplied as to where or why the error occurred. Find error details below:</value>
   </data>
 </root>

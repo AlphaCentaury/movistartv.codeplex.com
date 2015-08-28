@@ -45,7 +45,7 @@ namespace Project.DvbIpTv.UiServices.Forms
         private void MulticastScannerOptionsDialog_Load(object sender, EventArgs e)
         {
             BasicGoogleTelemetry.SendScreenHit(this);
-            comboAction.SelectedIndex = 2;
+            comboAction.SelectedIndex = 0;
         } // MulticastScannerOptionsDialog_Load
 
         private void buttonStart_Click(object sender, EventArgs e)

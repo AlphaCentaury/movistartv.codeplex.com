@@ -85,5 +85,17 @@ namespace Project.DvbIpTv.ChannelList.Properties {
                 this["LastSelectedService"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>UiBroadcastListSettingsConfigurationRegistration, UiServices.Discovery</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection AppUiConfigurationRegisterItems {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["AppUiConfigurationRegisterItems"]));
+            }
+        }
     }
 }

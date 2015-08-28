@@ -11,7 +11,7 @@ using System.Text;
 using System.Windows.Forms;
 using Project.DvbIpTv.UiServices.Common.Controls;
 
-namespace Project.DvbIpTv.UiServices.Discovery
+namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
     internal partial class SettingsEditorModeMultiColumn : UserControl, ISettingsEditorModeColumns
     {

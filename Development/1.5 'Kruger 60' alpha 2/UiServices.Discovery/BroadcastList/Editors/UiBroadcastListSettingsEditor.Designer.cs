@@ -1,7 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-namespace Project.DvbIpTv.UiServices.Discovery
+namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
     partial class UiBroadcastListSettingsEditor
     {
@@ -34,7 +34,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiBroadcastListSettingsEditor));
             this.tabControlSettings = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
-            this.settingsEditorSorting1 = new Project.DvbIpTv.UiServices.Discovery.SettingsEditorSorting();
+            this.settingsEditorSorting1 = new Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors.SettingsEditorSorting();
             this.groupGeneralMoreOptions = new System.Windows.Forms.GroupBox();
             this.checkShowOutOfPackage = new System.Windows.Forms.CheckBox();
             this.checkShowHidden = new System.Windows.Forms.CheckBox();

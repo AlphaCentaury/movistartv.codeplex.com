@@ -1,6 +1,8 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Microsoft.SqlServer.MessageBox;
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +28,7 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
         } // HandleException
 
         /// <summary>
-        /// Handles a caught exception, by displaying a (rather ugly) MessageBox. Descendants are encouraged to provide their own implementation.
+        /// Handles a caught exception, by displaying an ExceptionMessageBox. Descendants are encouraged to provide their own implementation.
         /// </summary>
         /// <param name="e">Caught exception information</param>
         /// <remarks>Descendants who override this method should not call base.HandleException</remarks>
@@ -38,8 +40,26 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
             }
             else
             {
-                var boxMessage = (e.Message == null) ? e.Exception.Message : e.Message + "\r\n" + e.Exception.Message;
-                MessageBox.Show(this, Properties.CommonForm.UncaughtExceptionCaption, boxMessage, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                BasicGoogleTelemetry.SendExtendedExceptionHit(e.Exception, true, e.Message, this.GetType().Name);
+
+                var box = new ExceptionMessageBox()
+                {
+                    Caption = Properties.CommonForm.UncaughtExceptionCaption,
+                    Buttons = ExceptionMessageBoxButtons.OK,
+                    Symbol = ExceptionMessageBoxSymbol.Stop,
+                };
+
+                if (e.Message == null)
+                {
+                    box.Message = e.Exception;
+                }
+                else
+                {
+                    box.Text = e.Message;
+                    box.InnerException = e.Exception;
+                } // if-else
+
+                box.Show(this);
             } // if-else
         } // OnExceptionThrown
 

@@ -16,6 +16,7 @@ using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using Project.DvbIpTv.UiServices.Discovery;
+using Project.DvbIpTv.UiServices.Discovery.BroadcastList;
 using Project.DvbIpTv.UiServices.DvbStpClient;
 using Project.DvbIpTv.UiServices.EPG;
 using Project.DvbIpTv.UiServices.Forms;
@@ -98,11 +99,7 @@ namespace Project.DvbIpTv.ChannelList
             this.Text = Properties.Texts.AppCaption;
 
             // TODO: load from Configuration
-            var settings = UiBroadcastListSettings.GetDefaultSettings();
-            settings.CurrentMode = View.LargeIcon;
-            settings.ShowInactiveServices = true;
-            settings.ShowHiddenServices = true;
-
+            var settings = UiBroadcastListSettingsConfigurationRegistration.UserSettings;
             ListManager = new UiBroadcastListManager(listViewChannelList, settings, imageListChannels, imageListChannelsLarge, true);
             ListManager.SelectionChanged += ListManager_SelectionChanged;
             ListManager.StatusChanged += ListManager_StatusChanged;
@@ -1213,7 +1210,7 @@ namespace Project.DvbIpTv.ChannelList
                     var fullName = service.TextualIdentifiers[0].ServiceName + "@" + SelectedServiceProvider.DomainName;
                     buffer.Append("\t");
                     buffer.Append("\t");
-                    var refService = BroadcastDiscovery.TryGetService(fullName);
+                    var refService = uiDiscovery.TryGetService(fullName);
                     buffer.Append(fullName);
                     buffer.Append("\t");
                     buffer.Append(service.LogicalChannelNumber);

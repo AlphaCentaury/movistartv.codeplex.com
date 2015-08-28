@@ -117,16 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Description" xml:space="preserve">
-    <value>Channel list display settings</value>
-  </data>
-  <data name="DisplayName" xml:space="preserve">
-    <value>Channel list</value>
-  </data>
-  <data name="SortAscendingTooltip" xml:space="preserve">
-    <value>Changes the sort order to descending (from highest to lowest, from Z to A)</value>
-  </data>
-  <data name="SortDescendingTooltip" xml:space="preserve">
-    <value>Changes the sort direction to ascending (from lowest to highest, from A to Z)</value>
+  <data name="groupBoxResults.Text" xml:space="preserve">
+    <value>Resumen de los cambios con respecto a la lista anterior</value>
   </data>
 </root>
