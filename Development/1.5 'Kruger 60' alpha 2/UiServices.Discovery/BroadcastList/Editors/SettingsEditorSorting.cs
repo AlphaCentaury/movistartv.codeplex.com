@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
-    internal partial class SettingsEditorSorting : UserControl
+    internal partial class SettingsEditorSorting : SettingsEditorBaseUserControl
     {
         private UiBroadcastListSortColumn[] SortColumns;
         private int ManualUpdateLock;
@@ -28,38 +28,46 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             set;
         } // Columns
 
-        public IList<UiBroadcastListSortColumn> Columns
+        public IList<UiBroadcastListSortColumn> Sort
         {
             private get;
             set;
-        } // Columns
+        } // Sort
 
-        public IList<UiBroadcastListSortColumn> SelectedColumns
+        public List<UiBroadcastListSortColumn> SelectedSort
         {
             get
             {
-                return Columns;
+                var result = new List<UiBroadcastListSortColumn>(SortColumns.Length);
+                for (int index = 0; index < SortColumns.Length; index++)
+                {
+                    var sortColumn = SortColumns[index];
+                    result.Add(sortColumn);
+                    if (sortColumn.Column == UiBroadcastListColumn.None) break;
+                } // for index
+
+                return result;
             } // get
-        } // SelectedColumns
+        } // SelectedSort
 
         private void SettingsEditorSorting_Load(object sender, EventArgs e)
         {
             if (DesignMode)
             {
                 ColumnsNoneList = UiBroadcastListManager.GetSortedColumnNames(true);
-                Columns = new List<UiBroadcastListSortColumn>();
+                Sort = new List<UiBroadcastListSortColumn>();
             } // if
 
             SortColumns = new UiBroadcastListSortColumn[3];
-            for (int index = 0; index < Math.Min(3, Columns.Count); index++)
+            for (int index = 0; index < Math.Min(3, Sort.Count); index++)
             {
-                SortColumns[index] = Columns[index];
+                SortColumns[index] = Sort[index];
             } // for
-            for (int index = Columns.Count; index < 3; index++)
+            for (int index = Sort.Count; index < 3; index++)
             {
                 SortColumns[index] = new UiBroadcastListSortColumn(UiBroadcastListColumn.None, false);
             } // for
-            if (Columns.Count == 0)
+            if (Sort.Count == 0)
             {
                 SortColumns[0] = new UiBroadcastListSortColumn(UiBroadcastListColumn.Number, false);
             } // if
@@ -68,7 +76,6 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             comboThirdColumn.DataSource = ColumnsNoneList.AsReadOnly();
             comboSecondColumn.DataSource = ColumnsNoneList.AsReadOnly();
             comboFirstColumn.DataSource = ColumnsNoneList.AsReadOnly();
-            ManualUpdateLock--;
 
             comboThirdColumn.SelectedValue = SortColumns[2].Column;
             comboSecondColumn.SelectedValue = SortColumns[1].Column;
@@ -77,6 +84,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             SetButtonDirectionStatus(buttonFirstDirection, 0, SortColumns[0].IsAscending);
             SetButtonDirectionStatus(buttonFirstDirection, 1, SortColumns[0].IsAscending);
             SetButtonDirectionStatus(buttonFirstDirection, 2, SortColumns[0].IsAscending);
+            ManualUpdateLock--;
         } // SettingsEditorSorting_Load
 
         private void comboFirstColumn_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,6 +127,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             SortColumns[2].Column = value;
             var enabled = (value != UiBroadcastListColumn.None);
             buttonThirdDirection.Enabled = enabled;
+            
+            SetDataChanged();
         }  // comboThirdColumn_SelectedIndexChanged
 
         private void buttonFirstDirection_Click(object sender, EventArgs e)
@@ -139,6 +149,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
         private void ToggleDirectionStatus(Button button, int index)
         {
             SetButtonDirectionStatus(button, index, !SortColumns[index].IsAscending);
+            SetDataChanged();
         } // ToggleDirectionStatus
 
         private void SetButtonDirectionStatus(Button button, int index, bool isAscending)

@@ -2,6 +2,8 @@
 using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Services.EPG;
 using Project.DvbIpTv.Services.EPG.Serialization;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
+using Project.DvbIpTv.UiServices.Discovery;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,16 +28,11 @@ namespace Project.DvbIpTv.UiServices.EPG
             set;
         } // DaysDelta
 
-        public Image ChannelLogo
+        public UiBroadcastService Service
         {
-            set { pictureChannelLogo.Image = value; }
+            get;
+            set;
         } // ChannelLog
-
-        public string ChannelName
-        {
-            get { return labelChannelName.Text; }
-            set { labelChannelName.Text = value; }
-        } // ChannelName
 
         public string FullServiceName
         {
@@ -75,6 +72,9 @@ namespace Project.DvbIpTv.UiServices.EPG
             BasicGoogleTelemetry.SendScreenHit(this);
             EpgLoadingProgramImage = Properties.Resources.EpgLoadingProgramImage;
             EpgNoProgramImage = Properties.Resources.EpgNoProgramImage;
+
+            pictureChannelLogo.Image = Service.Logo.GetImage(LogoSize.Size48, true);
+            labelChannelName.Text = string.Format("{0} - {1}", Service.DisplayLogicalNumber, Service.DisplayName);
 
             BoldListFont = new Font(listPrograms.Font, FontStyle.Bold);
             ItalicListFont = new Font(listPrograms.Font, FontStyle.Italic);

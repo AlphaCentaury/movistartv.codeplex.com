@@ -138,7 +138,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
                 case UiBroadcastListColumn.ParentalRating: return 150;
                 case UiBroadcastListColumn.ParentalRatingCode: return 100;
                 case UiBroadcastListColumn.ServiceId: return 75;
-                case UiBroadcastListColumn.FullServiceId: return 125;
+                case UiBroadcastListColumn.FullServiceId: return 150;
                 case UiBroadcastListColumn.UserName: return 180;
                 case UiBroadcastListColumn.UserNumber: return 45;
                 case UiBroadcastListColumn.OriginalName: return 180;
@@ -271,6 +271,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             } // get
             set
             {
+                UiBroadcastService selected = value;
+
                 // remove current selection
                 for (int index = 0; index < ListView.SelectedItems.Count; index++)
                 {
@@ -281,12 +283,19 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
                 if (value != null)
                 {
                     var listItem = ListView.Items[value.Key];
-                    listItem.Selected = true;
-                    listItem.EnsureVisible();
+                    if (listItem != null)
+                    {
+                        listItem.Selected = true;
+                        listItem.EnsureVisible();
+                    }
+                    else
+                    {
+                        selected = null;
+                    } // if-else
                 } // if
-                
+
                 // save selected service
-                fieldSelectedService = value;
+                fieldSelectedService = selected;
             } // set
         } // SelectedService
 
@@ -585,7 +594,6 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             if (savedSelectedService != null)
             {
                 SelectedService = savedSelectedService;
-                ListView.Items[SelectedService.Key].EnsureVisible();
             } // if
 
             if (!insideUpdate) ListView.EndUpdate();
@@ -658,6 +666,11 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
                     return true;
                 } // if
             } // for
+
+            // show/hide changed
+            if (oldSettings.ShowHiddenServices != newSettings.ShowHiddenServices) return true;
+            if (oldSettings.ShowInactiveServices != newSettings.ShowInactiveServices) return true;
+            if (oldSettings.ShowOutOfPackage != newSettings.ShowOutOfPackage) return true;
 
             return false;
         } // NeedToRebuildList

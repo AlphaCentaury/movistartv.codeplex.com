@@ -110,7 +110,7 @@ namespace Project.DvbIpTv.UiServices.Common.Controls
             AddItems(add);
         } // Add
 
-        public IList<TValue> GetListValues()
+        public List<TValue> GetListValues()
         {
             var count = ListBox.Items.Count;
             var result = new List<TValue>(count);

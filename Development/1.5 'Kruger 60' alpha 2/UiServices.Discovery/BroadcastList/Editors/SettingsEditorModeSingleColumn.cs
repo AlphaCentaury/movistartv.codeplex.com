@@ -12,50 +12,39 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
-    internal partial class SettingsEditorModeSingleColumn : UserControl, ISettingsEditorModeColumns
+    internal partial class SettingsEditorModeSingleColumn : SettingsEditorModeBaseColumn
     {
+        private int ManualUpdateLock;
+
         public SettingsEditorModeSingleColumn()
         {
             InitializeComponent();
         } // constructor
 
-        public List<KeyValuePair<UiBroadcastListColumn, string>> ColumnsList
-        {
-            private get;
-            set;
-        } // Columns
-
-        public List<KeyValuePair<UiBroadcastListColumn, string>> ColumnsNoneList
-        {
-            private get;
-            set;
-        } // Columns
-
-        public IList<UiBroadcastListColumn> Columns
-        {
-            private get;
-            set;
-        } // Columns
-
-        public IList<UiBroadcastListColumn> SelectedColumns
+        public override List<UiBroadcastListColumn> SelectedColumns
         {
             get
             {
-                Columns[0] = (UiBroadcastListColumn)comboColumns.SelectedValue;
+                var result = new List<UiBroadcastListColumn>(1);
+                result.Add((UiBroadcastListColumn)comboColumns.SelectedValue);
 
-                return Columns;
+                return result;
             } // get
         } // SelectedColumns
 
-        public Control GetControl()
-        {
-            return this;
-        } // GetControl
-
         private void SettingsEditorModeMultiColumn_Load(object sender, EventArgs e)
         {
+            ManualUpdateLock++;
             comboColumns.DataSource = ColumnsList.AsReadOnly();
             comboColumns.SelectedValue = Columns[0];
-        }  // SettingsEditorModeMultiColumn_Load
+            ManualUpdateLock--;
+        } // SettingsEditorModeMultiColumn_Load
+
+        private void comboColumns_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ManualUpdateLock > 0) return;
+
+            SetDataChanged();
+        }  // comboColumns_SelectedIndexChanged
     } // class SettingsEditorModeSingleColumn
 } // namespace

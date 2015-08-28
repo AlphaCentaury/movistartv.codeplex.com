@@ -47,7 +47,15 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="ISettingsEditorModeColumns.cs" />
+    <Compile Include="BroadcastList\Editors\ISettingsEditor.cs" />
+    <Compile Include="BroadcastList\Editors\ISettingsEditorContainer.cs" />
+    <Compile Include="BroadcastList\Editors\ISettingsEditorModeColumns.cs" />
+    <Compile Include="BroadcastList\Editors\SettingsEditorBaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BroadcastList\Editors\SettingsEditorModeBaseColumn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="BroadcastList\ListSelectionChangedEventArgs.cs" />
     <Compile Include="BroadcastList\ListStatusChangedEventArgs.cs" />
     <Compile Include="Properties\ListViewManager.Designer.cs">

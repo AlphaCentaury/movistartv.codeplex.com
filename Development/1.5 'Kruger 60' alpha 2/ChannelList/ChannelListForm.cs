@@ -442,7 +442,7 @@ namespace Project.DvbIpTv.ChannelList
             {
                 Caption = Properties.Texts.BroadcastServiceProperties,
                 ItemProperties = ListManager.SelectedService.DumpProperties(),
-                Description = ListManager.SelectedService.DisplayName,
+                Description = string.Format("{0}\r\n{1}", ListManager.SelectedService.DisplayLogicalNumber, ListManager.SelectedService.DisplayName),
                 ItemIcon = ListManager.SelectedService.Logo.GetImage(LogoSize.Size64, true),
             })
             {
@@ -1064,8 +1064,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void ShowEpgNowThenForm()
         {
-                FormEpgNowThen.ShowEpgEvents(imageListChannelsLarge.Images[ListManager.SelectedService.Logo.Key],
-                    ListManager.SelectedService.DisplayName,
+                FormEpgNowThen.ShowEpgEvents(ListManager.SelectedService,
                     epgMiniBar.GetEpgEvents(), this, epgMiniBar.ReferenceTime);
         } // ShowEpgNowThenForm
 
@@ -1170,8 +1169,7 @@ namespace Project.DvbIpTv.ChannelList
                 form.FullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
 
                 form.DaysDelta = daysDelta;
-                form.ChannelLogo = imageListChannelsLarge.Images[ListManager.SelectedService.Logo.Key];
-                form.ChannelName = ListManager.SelectedService.DisplayName;
+                form.Service = ListManager.SelectedService;
 
                 form.ShowDialog(this);
             } // using form

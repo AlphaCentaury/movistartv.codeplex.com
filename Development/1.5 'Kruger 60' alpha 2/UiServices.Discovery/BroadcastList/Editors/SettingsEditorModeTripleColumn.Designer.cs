@@ -57,6 +57,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             this.comboThirdColumn.FormattingEnabled = true;
             this.comboThirdColumn.Name = "comboThirdColumn";
             this.comboThirdColumn.ValueMember = "Key";
+            this.comboThirdColumn.SelectedIndexChanged += new System.EventHandler(this.comboThirdColumn_SelectedIndexChanged);
             // 
             // comboSecondColumn
             // 
@@ -78,6 +79,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             this.comboFirstColumn.FormattingEnabled = true;
             this.comboFirstColumn.Name = "comboFirstColumn";
             this.comboFirstColumn.ValueMember = "Key";
+            this.comboFirstColumn.SelectedIndexChanged += new System.EventHandler(this.comboFirstColumn_SelectedIndexChanged);
             // 
             // SettingsEditorModeTripleColumn
             // 

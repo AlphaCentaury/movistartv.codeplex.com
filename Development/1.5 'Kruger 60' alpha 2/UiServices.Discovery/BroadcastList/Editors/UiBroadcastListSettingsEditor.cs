@@ -14,10 +14,12 @@ using Project.DvbIpTv.UiServices.Configuration.Logos;
 
 namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
-    public partial class UiBroadcastListSettingsEditor : UserControl, IConfigurationItemEditor
+    public partial class UiBroadcastListSettingsEditor : UserControl, IConfigurationItemEditor, ISettingsEditorContainer
     {
+        private int ManualUpdateLock;
         private ToolStripButton[] ListModeItems;
         private ISettingsEditorModeColumns[] EditorModeColumns;
+        private SettingsEditorSorting EditorGlobalSorting;
         private SettingsEditorSorting[] EditorModeSorting;
 
         public UiBroadcastListSettingsEditor()
@@ -56,6 +58,9 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 
         IConfigurationItem IConfigurationItemEditor.GetNewData()
         {
+            SaveGeneralTab();
+            SaveModeSettingsTab();
+
             return Settings;
         } // IConfigurationItemEditor.GetNewData
 
@@ -71,12 +76,36 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 
         #endregion
 
+        #region ISettingsEditorContainer implementation
+
+        void ISettingsEditorContainer.SetDataChanged()
+        {
+            IsDataChanged = true;
+        } // SetDataChanged
+
+        protected void SetDataChanged()
+        {
+            IsDataChanged = true;
+        } // SetDataChanged
+
+        #endregion
+
         private void UiBroadcastListSettingsEditor_Load(object sender, EventArgs e)
         {
             var sortedColumns = UiBroadcastListManager.GetSortedColumnNames();
             var sortedColumnsNone = UiBroadcastListManager.GetSortedColumnNames(true);
 
             // General tab
+            LoadGeneralTab(sortedColumnsNone);
+
+            // Mode settings tab
+            LoadModeSettingsTab(sortedColumns, sortedColumnsNone);
+        } // UiBroadcastListSettingsEditor_Load
+
+        #region General tab load/save
+
+        private void LoadGeneralTab(List<KeyValuePair<UiBroadcastListColumn, string>> sortedColumnsNone)
+        {
             ListModeItems = new ToolStripButton[5];
             ListModeItems[0] = toolButtonDetails;
             ListModeItems[1] = toolButtonLarge;
@@ -91,86 +120,66 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 
             SetListMode(Settings.CurrentMode);
 
+            ManualUpdateLock++;
+
             checkShowInactive.Checked = Settings.ShowInactiveServices;
             checkShowHidden.Checked = Settings.ShowHiddenServices;
             checkShowOutOfPackage.Checked = Settings.ShowOutOfPackage;
 
-            settingsEditorSorting1.ColumnsNoneList = sortedColumnsNone;
-            settingsEditorSorting1.Columns = Settings.GlobalSortColumns;
+            EditorGlobalSorting = new SettingsEditorSorting();
+            EditorGlobalSorting.ColumnsNoneList = sortedColumnsNone;
+            EditorGlobalSorting.Sort = Settings.GlobalSortColumns;
+            EditorGlobalSorting.SetContainer(this);
+            EditorGlobalSorting.Dock = DockStyle.Fill;
             // TODO!
-            //settingsEditorSorting1.ApplyGlobal = Settings.ApplyGlobalSortColumn;
+            //EditorGlobalSorting.ApplyGlobal = Settings.ApplyGlobalSortColumn;
+            panelGlobalSorting.Controls.Add(EditorGlobalSorting);
 
-            // Mode settings tab
+            ManualUpdateLock--;
+        } // LoadGeneralTab
 
-            EditorModeColumns = new ISettingsEditorModeColumns[5];
-            EditorModeColumns[0] = new SettingsEditorModeMultiColumn();
-            EditorModeColumns[0].Columns = Settings.ViewSettings.Details.Columns;
-            EditorModeColumns[1] = new SettingsEditorModeSingleColumn();
-            EditorModeColumns[1].Columns = Settings.ViewSettings.LargeIcon.Columns;
-            EditorModeColumns[2] = new SettingsEditorModeSingleColumn();
-            EditorModeColumns[2].Columns = Settings.ViewSettings.SmallIcon.Columns;
-            EditorModeColumns[3] = new SettingsEditorModeSingleColumn();
-            EditorModeColumns[3].Columns = Settings.ViewSettings.List.Columns;
-            EditorModeColumns[4] = new SettingsEditorModeTripleColumn();
-            EditorModeColumns[4].Columns = Settings.ViewSettings.Tile.Columns;
-
-            EditorModeSorting = new SettingsEditorSorting[5];
-            EditorModeSorting[0] = new SettingsEditorSorting();
-            EditorModeSorting[0].Columns = Settings.ViewSettings.Details.Sort;
-            EditorModeSorting[1] = new SettingsEditorSorting();
-            EditorModeSorting[1].Columns = Settings.ViewSettings.LargeIcon.Sort;
-            EditorModeSorting[2] = new SettingsEditorSorting();
-            EditorModeSorting[2].Columns = Settings.ViewSettings.SmallIcon.Sort;
-            EditorModeSorting[3] = new SettingsEditorSorting();
-            EditorModeSorting[3].Columns = Settings.ViewSettings.List.Sort;
-            EditorModeSorting[4] = new SettingsEditorSorting();
-            EditorModeSorting[4].Columns = Settings.ViewSettings.Tile.Sort;
-
-            foreach (var editor in EditorModeColumns)
+        private void SaveGeneralTab()
+        {
+            if (EditorGlobalSorting.IsDataChanged)
             {
-                editor.ColumnsList = sortedColumns;
-                editor.ColumnsNoneList = sortedColumnsNone;
-            } // foreach
-            foreach (var editor in EditorModeSorting)
-            {
-                editor.ColumnsNoneList = sortedColumnsNone;
-            } // foreach
+                Settings.GlobalSortColumns = EditorGlobalSorting.SelectedSort;
+                // TODO!
+                // Settings.ApplyGlobalSortColumn = EditorGlobalSorting.ApplyGlobal;
+            } // if
+        } // SaveGeneralTab
 
-            comboMode.SelectedIndex = 0;
+        #endregion
 
-            comboLogoSize.ValueMember = "Key";
-            comboLogoSize.DisplayMember = "Value";
-            comboLogoSize.DataSource = BaseLogo.GetListLogoSizes(true).AsReadOnly();
-
-            // TODO: trully implement IsDataChanged
-            IsDataChanged = true;
-        } // UiBroadcastListSettingsEditor_Load
-
-        #region General tab
+        #region General tab event handlers
 
         private void toolButtonDetails_Click(object sender, EventArgs e)
         {
             SetListMode(View.Details);
+            SetDataChanged();
         } // toolButtonDetails_Click
 
         private void toolButtonLarge_Click(object sender, EventArgs e)
         {
             SetListMode(View.LargeIcon);
+            SetDataChanged();
         } // toolButtonLarge_Click
 
         private void toolButtonSmall_Click(object sender, EventArgs e)
         {
             SetListMode(View.SmallIcon);
+            SetDataChanged();
         } // toolButtonSmall_Click
 
         private void toolButtonList_Click(object sender, EventArgs e)
         {
             SetListMode(View.List);
+            SetDataChanged();
         } // toolButtonList_Click
 
         private void toolButtonTile_Click(object sender, EventArgs e)
         {
             SetListMode(View.Tile);
+            SetDataChanged();
         } // toolButtonTile_Click
 
         private void SetListMode(View mode)
@@ -191,24 +200,116 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             } // foreach control
         } // SetListMode
 
+        private void checkShowInactive_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ManualUpdateLock > 0) return;
+
+            Settings.ShowInactiveServices = checkShowInactive.Checked;
+            SetDataChanged();
+        }
+
+        private void checkShowHidden_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ManualUpdateLock > 0) return;
+
+            Settings.ShowHiddenServices = checkShowHidden.Checked;
+            SetDataChanged();
+        } // checkShowHidden_CheckedChanged
+
+        private void checkShowOutOfPackage_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ManualUpdateLock > 0) return;
+
+            Settings.ShowOutOfPackage = checkShowOutOfPackage.Checked;
+            SetDataChanged();
+        } // checkShowOutOfPackage_CheckedChanged
+
         #endregion
 
-        #region Mode settings tab
+        #region Mode settings tab load/save
 
-        private void comboMode_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadModeSettingsTab(List<KeyValuePair<UiBroadcastListColumn, string>> sortedColumns, List<KeyValuePair<UiBroadcastListColumn, string>> sortedColumnsNone)
         {
-            panelModeColumns.Controls.Clear();
-            panelModeColumns.Controls.Add(EditorModeColumns[comboMode.SelectedIndex].GetControl());
-            panelModeColumns.Controls[0].Dock = DockStyle.Fill;
+            EditorModeColumns = new ISettingsEditorModeColumns[5];
+            EditorModeColumns[0] = new SettingsEditorModeMultiColumn();
+            EditorModeColumns[1] = new SettingsEditorModeSingleColumn();
+            EditorModeColumns[2] = new SettingsEditorModeSingleColumn();
+            EditorModeColumns[3] = new SettingsEditorModeSingleColumn();
+            EditorModeColumns[4] = new SettingsEditorModeTripleColumn();
 
-            panelModeSorting.Controls.Clear();
-            panelModeSorting.Controls.Add(EditorModeSorting[comboMode.SelectedIndex]);
-            panelModeSorting.Controls[0].Dock = DockStyle.Fill;
+            EditorModeSorting = new SettingsEditorSorting[5];
+            EditorModeSorting[0] = new SettingsEditorSorting();
+            EditorModeSorting[1] = new SettingsEditorSorting();
+            EditorModeSorting[2] = new SettingsEditorSorting();
+            EditorModeSorting[3] = new SettingsEditorSorting();
+            EditorModeSorting[4] = new SettingsEditorSorting();
 
-            var view = IndexToView(comboMode.SelectedIndex);
-            comboLogoSize.SelectedValue = Settings[view].LogoSize;
-            checkShowGridlines.Visible = (view == View.Details);
-        }  // comboMode_SelectedIndexChanged
+            for (int index = 0; index < EditorModeColumns.Length; index++)
+            {
+                var editor = EditorModeColumns[index];
+                var view = IndexToView(index);
+                editor.SetContainer(this);
+                editor.ColumnsList = sortedColumns;
+                editor.ColumnsNoneList = sortedColumnsNone;
+                editor.Columns = Settings[view].Columns;
+            } // for
+
+            for (int index = 0; index < EditorModeSorting.Length; index++)
+            {
+                var editor = EditorModeSorting[index];
+                var view = IndexToView(index);
+                editor.SetContainer(this);
+                editor.ColumnsNoneList = sortedColumnsNone;
+                editor.Sort = Settings[view].Sort;
+            } // for
+
+            ManualUpdateLock++;
+
+            comboLogoSize.ValueMember = "Key";
+            comboLogoSize.DisplayMember = "Value";
+            comboLogoSize.DataSource = BaseLogo.GetListLogoSizes(true).AsReadOnly();
+
+            checkShowGridlines.Checked = Settings.ShowGridlines;
+
+            ManualUpdateLock--;
+
+            comboMode.SelectedIndex = ViewToIndex(Settings.CurrentMode);
+        } // private LoadModeSettingsTab
+
+        private void SaveModeSettingsTab()
+        {
+            for (int index = 0; index < EditorModeColumns.Length; index++)
+            {
+                var editor = EditorModeColumns[index];
+                if (!editor.IsDataChanged) continue;
+
+                var view = IndexToView(index);
+                Settings[view].Columns = editor.SelectedColumns;
+            } // for
+
+            for (int index = 0; index < EditorModeSorting.Length; index++)
+            {
+                var editor = EditorModeSorting[index];
+                if (!editor.IsDataChanged) continue;
+
+                var view = IndexToView(index);
+                Settings[view].Sort = editor.SelectedSort;
+            } // for
+        } // SaveGeneralTab
+
+        private int ViewToIndex(View view)
+        {
+            switch (view)
+            {
+                case View.Details: return 0;
+                case View.LargeIcon: return 1;
+                case View.SmallIcon: return 2;
+                case View.List: return 3;
+                case View.Tile: return 4;
+                default:
+                    throw new IndexOutOfRangeException();
+            } // switch
+        } // ViewToIndex
 
         private View IndexToView(int index)
         {
@@ -223,6 +324,46 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
                     throw new IndexOutOfRangeException();
             } // switch
         } // IndexToView
+
+        #endregion
+
+        #region Mode settings tab event handlers
+
+        private void comboMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ManualUpdateLock++;
+
+            panelModeColumns.Controls.Clear();
+            panelModeColumns.Controls.Add(EditorModeColumns[comboMode.SelectedIndex].GetUnderlyingControl());
+            panelModeColumns.Controls[0].Dock = DockStyle.Fill;
+
+            panelModeSorting.Controls.Clear();
+            panelModeSorting.Controls.Add(EditorModeSorting[comboMode.SelectedIndex]);
+            panelModeSorting.Controls[0].Dock = DockStyle.Fill;
+
+            var view = IndexToView(comboMode.SelectedIndex);
+            comboLogoSize.SelectedValue = Settings[view].LogoSize;
+            checkShowGridlines.Visible = (view == View.Details);
+
+            ManualUpdateLock--;
+        } // comboMode_SelectedIndexChanged
+
+        private void comboLogoSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ManualUpdateLock > 0) return;
+
+            var view = IndexToView(comboMode.SelectedIndex);
+            Settings[view].LogoSize = (LogoSize) comboLogoSize.SelectedValue;
+            SetDataChanged();
+        } //  comboLogoSize_SelectedIndexChanged
+
+        private void checkShowGridlines_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ManualUpdateLock > 0) return;
+
+            Settings.ShowGridlines = checkShowGridlines.Checked;
+            SetDataChanged();
+        } // checkShowGridlines_CheckedChanged
 
         #endregion
     } // class UiBroadcastListSettingsEditor

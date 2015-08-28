@@ -192,7 +192,7 @@
             this.Controls.Add(this.labelBeforeTitle);
             this.Controls.Add(this.labelBeforeTime);
             this.Controls.Add(this.labelBefore);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEpgNowThen";
             this.ShowIcon = false;

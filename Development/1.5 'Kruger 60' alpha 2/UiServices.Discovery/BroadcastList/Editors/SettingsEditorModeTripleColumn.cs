@@ -12,58 +12,43 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
-    internal partial class SettingsEditorModeTripleColumn : UserControl, ISettingsEditorModeColumns
+    internal partial class SettingsEditorModeTripleColumn : SettingsEditorModeBaseColumn
     {
+        private int ManualUpdateLock;
+
         public SettingsEditorModeTripleColumn()
         {
             InitializeComponent();
         } // constructor
 
-        public List<KeyValuePair<UiBroadcastListColumn, string>> ColumnsList
-        {
-            private get;
-            set;
-        } // Columns
-
-        public List<KeyValuePair<UiBroadcastListColumn, string>> ColumnsNoneList
-        {
-            private get;
-            set;
-        } // Columns
-
-        public IList<UiBroadcastListColumn> Columns
-        {
-            private get;
-            set;
-        } // Columns
-
-        public IList<UiBroadcastListColumn> SelectedColumns
+        public override List<UiBroadcastListColumn> SelectedColumns
         {
             get
             {
-                var result = new List<UiBroadcastListColumn>(3);
+                var result = new List<UiBroadcastListColumn>(Columns.Count);
 
-                var value =(UiBroadcastListColumn)comboFirstColumn.SelectedValue;
-                result.Add(value);
+                var column = (UiBroadcastListColumn)comboFirstColumn.SelectedValue;
+                result.Add(column);
 
-                value = (UiBroadcastListColumn)comboSecondColumn.SelectedValue;
-                if (value != UiBroadcastListColumn.None)
+                column = (UiBroadcastListColumn)comboSecondColumn.SelectedValue;
+                if (column != UiBroadcastListColumn.None)
                 {
-                    result.Add(value);
+                    result.Add(column);
 
-                    value = (UiBroadcastListColumn)comboThirdColumn.SelectedValue;
-                    if (value != UiBroadcastListColumn.None)
+                    column = (UiBroadcastListColumn)comboThirdColumn.SelectedValue;
+                    if (column != UiBroadcastListColumn.None)
                     {
-                        result.Add(value);
-                    } // if
+                        result.Add(column);
+                    } // 
                 } // if
 
                 return result;
             } // get
-        } // SelectedColumns
+        } // 
 
         private void SettingsEditorModeTripleColumn_Load(object sender, EventArgs e)
         {
+            ManualUpdateLock++;
             comboFirstColumn.DataSource = ColumnsList.AsReadOnly();
             comboSecondColumn.DataSource = ColumnsNoneList.AsReadOnly();
             comboThirdColumn.DataSource = ColumnsNoneList.AsReadOnly();
@@ -91,20 +76,33 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
                     comboThirdColumn.SelectedValue = Columns[2];
                     break;
             } // switch
+            ManualUpdateLock--;
         } // SettingsEditorModeTripleColumn_Load
 
-        public Control GetControl()
+        private void comboFirstColumn_SelectedIndexChanged(object sender, EventArgs e)
         {
-            return this;
-        } // GetControl
+            if (ManualUpdateLock > 0) return;
+
+            SetDataChanged();
+        } // comboFirstColumn_SelectedIndexChanged
 
         private void comboSecondColumn_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ManualUpdateLock > 0) return;
+
             comboThirdColumn.Enabled = ((UiBroadcastListColumn)comboSecondColumn.SelectedValue) != UiBroadcastListColumn.None;
             if (!comboThirdColumn.Enabled)
             {
                 comboThirdColumn.SelectedValue = UiBroadcastListColumn.None;
             } // if
+            SetDataChanged();
         } // comboSecondColumn_SelectedIndexChanged
+
+        private void comboThirdColumn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ManualUpdateLock > 0) return;
+
+            SetDataChanged();
+        } // comboThirdColumn_SelectedIndexChanged
     } // class SettingsEditorModeTripleColumn
 } // namespace

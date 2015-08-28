@@ -46,13 +46,14 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // comboColumns
             // 
-            resources.ApplyResources(this.comboColumns, "comboColumns");
             this.comboColumns.DisplayMember = "Value";
             this.comboColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboColumns.DropDownWidth = 250;
             this.comboColumns.FormattingEnabled = true;
+            resources.ApplyResources(this.comboColumns, "comboColumns");
             this.comboColumns.Name = "comboColumns";
             this.comboColumns.ValueMember = "Key";
+            this.comboColumns.SelectedIndexChanged += new System.EventHandler(this.comboColumns_SelectedIndexChanged);
             // 
             // SettingsEditorModeSingleColumn
             // 
