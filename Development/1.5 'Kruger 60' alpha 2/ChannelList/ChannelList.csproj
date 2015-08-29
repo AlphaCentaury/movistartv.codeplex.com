@@ -176,6 +176,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\GoogleTelemetry_en.rtf" />
+    <None Include="Resources\GoogleTelemetry_es.rtf" />
     <None Include="Resources\WebBrowser_16x16.png" />
     <None Include="Resources\RefreshBlue_16x16.png" />
     <None Include="Resources\Properties_16x16.png" />

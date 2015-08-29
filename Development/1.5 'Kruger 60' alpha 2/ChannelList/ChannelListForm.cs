@@ -42,6 +42,16 @@ namespace Project.DvbIpTv.ChannelList
         MulticastScannerDialog MulticastScanner;
         UiBroadcastListManager ListManager;
 
+        // disabled functionality
+        private const bool enable_menuItemDvbRecent = false;
+        private const bool enable_menuItemDvbPackages = false;
+        private const bool enable_menuItemDvbSettings = false;
+        private const bool enable_menuItemDvbExport = false;
+        private const bool enable_menuItemChannelFavorites = false;
+        private const bool enable_menuItemChannelShowWith = false;
+        private const bool enable_menuItemChannelEditList = false;
+        private bool enable_Epg = true;
+
         public ChannelListForm()
         {
             InitializeComponent();
@@ -98,21 +108,22 @@ namespace Project.DvbIpTv.ChannelList
 
             this.Text = Properties.Texts.AppCaption;
 
-            // TODO: load from Configuration
+            // disable functionality
+            menuItemDvbRecent.Enabled = enable_menuItemDvbRecent;
+            menuItemDvbPackages.Enabled = enable_menuItemDvbPackages;
+            menuItemDvbSettings.Enabled = enable_menuItemDvbSettings;
+            menuItemDvbExport.Enabled = enable_menuItemDvbExport;
+
             var settings = UiBroadcastListSettingsConfigurationRegistration.UserSettings;
             ListManager = new UiBroadcastListManager(listViewChannelList, settings, imageListChannels, imageListChannelsLarge, true);
             ListManager.SelectionChanged += ListManager_SelectionChanged;
             ListManager.StatusChanged += ListManager_StatusChanged;
 
-            // set-up channel list control
-            // TODO: move this code to UiBroadcastListManager
-            listViewChannelList.TileSize = new Size((listViewChannelList.Width - SystemInformation.VerticalScrollBarWidth - 6) / 4,
-                imageListChannelsLarge.ImageSize.Height + 6);
-
             SetupContextMenuList();
 
             // set-up EPG functionality
-            epgMiniBar.IsDisabled = !AppUiConfiguration.Current.User.Epg.Enabled;
+            enable_Epg = AppUiConfiguration.Current.User.Epg.Enabled;
+            epgMiniBar.IsDisabled = !enable_Epg;
             if (epgMiniBar.IsDisabled)
             {
                 foreach (ToolStripItem item in menuItemEpg.DropDownItems)
@@ -149,9 +160,9 @@ namespace Project.DvbIpTv.ChannelList
         private void ListManager_StatusChanged_Implementation(object sender, ListStatusChangedEventArgs e)
         {
             ListManager.ListView.Enabled = e.HasItems;
+            menuItemChannelFavorites.Enabled = e.HasItems && enable_menuItemChannelFavorites;
             menuItemChannelListView.Enabled = e.HasItems;
-            menuItemChannelEditList.Enabled = e.HasItems;
-            menuItemChannelFavorites.Enabled = e.HasItems;
+            menuItemChannelEditList.Enabled = e.HasItems && enable_menuItemChannelEditList;
             menuItemChannelVerify.Enabled = e.HasItems;
         } // ListManager_StatusChanged_Implementation
 
@@ -165,7 +176,7 @@ namespace Project.DvbIpTv.ChannelList
             var enable = e.Item != null;
             var enable2 = enable && !e.Item.IsHidden;
             menuItemChannelShow.Enabled = enable2;
-            menuItemChannelShowWith.Enabled = enable2;
+            menuItemChannelShowWith.Enabled = enable2 && enable_menuItemChannelShowWith;
             menuItemChannelFavoritesAdd.Enabled = enable2;
             menuItemChannelDetails.Enabled = enable;
             menuItemRecordingsRecord.Enabled = enable2;
@@ -469,11 +480,6 @@ namespace Project.DvbIpTv.ChannelList
             SafeCall(menuItemRecordingsRepair_Click_Implementation, sender, e);
         } // menuItemRecordingsRepair_Click
 
-        private void menuItemRecordingsImport_Click(object sender, EventArgs e)
-        {
-            SafeCall(menuItemRecordingsImport_Click_Implementation, sender, e);
-        } // menuItemRecordingsImport_Click
-
         #endregion
 
         #region 'Recordings' menu event handlers implementation
@@ -548,11 +554,6 @@ namespace Project.DvbIpTv.ChannelList
         {
             NotImplementedBox.ShowBox(this, "menuItemRecordingsRepair");
         } // menuItemRecordingsRepair_Click_Implementation
-
-        private void menuItemRecordingsImport_Click_Implementation(object sender, EventArgs e)
-        {
-            NotImplementedBox.ShowBox(this, "menuItemRecordingsImport");
-        } // menuItemRecordingsImport_Click_Implementation
 
         #endregion
 
@@ -743,9 +744,9 @@ namespace Project.DvbIpTv.ChannelList
                     var xmlDiscovery = downloader.Request.Payloads[0].XmlDeserializedData as BroadcastDiscoveryRoot;
                     uiDiscovery = new UiBroadcastDiscovery(xmlDiscovery, SelectedServiceProvider.DomainName, downloader.Request.Payloads[0].SegmentVersion);
                     UiBroadcastDiscoveryMergeResultDialog.Merge(this, BroadcastDiscovery, uiDiscovery);
-                    
+
                     var xmlPackageDiscovery = downloader.Request.Payloads[1].XmlDeserializedData as PackageDiscoveryRoot;
-                    GetLogicalNumbers(uiDiscovery, xmlPackageDiscovery);
+                    GetLogicalNumbers(uiDiscovery, xmlPackageDiscovery, !AppUiConfiguration.Current.User.ChannelNumberStandardDefinitionPriority);
                     AppUiConfiguration.Current.Cache.SaveXml("UiBroadcastDiscovery", SelectedServiceProvider.Key, uiDiscovery.Version, uiDiscovery);
                 } // if
 
@@ -772,7 +773,7 @@ namespace Project.DvbIpTv.ChannelList
         private void SetBroadcastDiscovery(UiBroadcastDiscovery broadcastDiscovery)
         {
             BroadcastDiscovery = broadcastDiscovery;
-            ListManager.BroadcastServices = (BroadcastDiscovery != null)? BroadcastDiscovery.Services : null;
+            ListManager.BroadcastServices = (BroadcastDiscovery != null) ? BroadcastDiscovery.Services : null;
         } // SetBroadcastDiscovery
 
         private void ShowTvChannel()
@@ -1036,9 +1037,9 @@ namespace Project.DvbIpTv.ChannelList
 
         private void EnableEpgMenus(bool enable)
         {
-            menuItemEpgNow.Enabled = enable;
-            menuItemEpgToday.Enabled = enable;
-            menuItemEpgTomorrow.Enabled = enable;
+            menuItemEpgNow.Enabled = enable & enable_Epg;
+            menuItemEpgToday.Enabled = enable & enable_Epg;
+            menuItemEpgTomorrow.Enabled = enable & enable_Epg;
             menuItemEpgPrevious.Enabled = false;
             menuItemEpgNext.Enabled = false;
             menuItemEpgRefresh.Enabled = (AppUiConfiguration.Current.User.Epg.Enabled) && (SelectedServiceProvider != null);
@@ -1064,8 +1065,8 @@ namespace Project.DvbIpTv.ChannelList
 
         private void ShowEpgNowThenForm()
         {
-                FormEpgNowThen.ShowEpgEvents(ListManager.SelectedService,
-                    epgMiniBar.GetEpgEvents(), this, epgMiniBar.ReferenceTime);
+            FormEpgNowThen.ShowEpgEvents(ListManager.SelectedService,
+                epgMiniBar.GetEpgEvents(), this, epgMiniBar.ReferenceTime);
         } // ShowEpgNowThenForm
 
 
@@ -1142,7 +1143,7 @@ namespace Project.DvbIpTv.ChannelList
                 Arguments = args,
                 ErrorDialog = true,
                 ErrorDialogParentHandle = ((IWin32Window)this).Handle,
-                WindowStyle = foreground? System.Diagnostics.ProcessWindowStyle.Normal :  System.Diagnostics.ProcessWindowStyle.Minimized
+                WindowStyle = foreground ? System.Diagnostics.ProcessWindowStyle.Normal : System.Diagnostics.ProcessWindowStyle.Minimized
             };
 
             using (var process = System.Diagnostics.Process.Start(processInfo))
@@ -1175,12 +1176,13 @@ namespace Project.DvbIpTv.ChannelList
             } // using form
         } // ShowEpgList
 
-        private void GetLogicalNumbers(UiBroadcastDiscovery uiDiscovery, PackageDiscoveryRoot xmlPackage)
+        private void GetLogicalNumbers(UiBroadcastDiscovery uiDiscovery, PackageDiscoveryRoot xmlPackage, bool hdPriority)
         {
             var packages = from discovery in xmlPackage.PackageDiscovery
                            from package in discovery.Packages
                            select package;
 
+            /*
             var buffer = new StringBuilder();
             foreach (var package in packages)
             {
@@ -1221,11 +1223,13 @@ namespace Project.DvbIpTv.ChannelList
             } // foreach
 
             var list2 = buffer.ToString();
+            */
 
             var sortedPackages = from package in packages
                                  orderby package.Services.Count descending
                                  select package;
 
+            // assign channel number (duplicated logical numbers may exist)
             foreach (var package in sortedPackages)
             {
                 foreach (var service in package.Services)
@@ -1251,11 +1255,17 @@ namespace Project.DvbIpTv.ChannelList
                     }
                     else if (refService.ServiceLogicalNumber != logical)
                     {
-                        
+
                     } // if-else
                 } // foreach
             } // foreach
 
+            // renumber channels, to avoid duplicated logical numbers as much as possible
+            // if HD channels priority, the goal is to ensure HD services get the intended logical number and SD channels get 'Sxxx'
+            // otherwise, the goal is to ensure SD services get the intended logical number and HD channels get 'Hxxx'
+            // duplicated logical numbers will get 'Hxxx' or 'Sxxx' as appropriate
+            // renumbering algorithm will not take into account user-assigned logical numbers and no attemp will be made to correct
+            // colisions
             var numbers = new Dictionary<string, UiBroadcastService>(uiDiscovery.Services.Count, StringComparer.CurrentCultureIgnoreCase);
             var noNumber = 1;
             foreach (var service in uiDiscovery.Services)
@@ -1268,45 +1278,92 @@ namespace Project.DvbIpTv.ChannelList
                     continue;
                 } // if
 
-                if (numbers.TryGetValue(service.ServiceLogicalNumber, out existing))
+                if (!numbers.TryGetValue(service.ServiceLogicalNumber, out existing))
                 {
-                    if (service.IsHighDefinitionTv)
-                    {
-                        if (existing.IsStandardDefinitionTv)
-                        {
-                            numbers[service.ServiceLogicalNumber] = service;
-                            existing.ServiceLogicalNumber = "S" + existing.ServiceLogicalNumber;
-                            numbers[existing.ServiceLogicalNumber] = existing;
-                        }
-                        else
-                        {
-                            numbers[service.ServiceLogicalNumber] = existing;
-                            service.ServiceLogicalNumber = "S" + existing.ServiceLogicalNumber;
-                            numbers[service.ServiceLogicalNumber] = service;
-                        } // if-else
-                    }
-                    else
-                    {
-                        if (existing.IsStandardDefinitionTv)
-                        {
-                            numbers[service.ServiceLogicalNumber] = service;
-                            existing.ServiceLogicalNumber = "S" + existing.ServiceLogicalNumber;
-                            numbers[existing.ServiceLogicalNumber] = existing;
-                        }
-                        else
-                        {
-                            numbers[service.ServiceLogicalNumber] = existing;
-                            service.ServiceLogicalNumber = "S" + existing.ServiceLogicalNumber;
-                            numbers[service.ServiceLogicalNumber] = service;
-                        } // if-else
-                    } // if-else
+                    // add
+                    numbers[service.ServiceLogicalNumber] = service;
                 }
                 else
                 {
-                    numbers[service.ServiceLogicalNumber] = service;
+                    bool assign;
+
+                    if (service.IsHighDefinitionTv == existing.IsHighDefinitionTv)
+                    {
+                        assign = true;
+                    }
+                    else
+                    {
+                        assign = hdPriority ? service.IsStandardDefinitionTv : service.IsHighDefinitionTv;
+                    } // if-else
+
+                    if (assign)
+                    {
+                        var prefix = service.IsStandardDefinitionTv ? 'S' : 'H';
+                        service.ServiceLogicalNumber = prefix + service.ServiceLogicalNumber;
+                        numbers[service.ServiceLogicalNumber] = service;
+
+                    }
+                    else
+                    {
+                        var prefix = hdPriority ? 'S' : 'H';
+                        numbers[service.ServiceLogicalNumber] = service;
+                        if ((existing.ServiceLogicalNumber.Length > 0) && (existing.ServiceLogicalNumber[0] != prefix))
+                        {
+                            existing.ServiceLogicalNumber = prefix + existing.ServiceLogicalNumber;
+                        } // if
+                        numbers[existing.ServiceLogicalNumber] = existing;
+                    }
                 } // if-else
             } // foreach
-        } // GetLogicalNumbers
+        }  // GetLogicalNumbers
+
+        private void contextMenuListExportM3u_Click(object sender, EventArgs e)
+        {
+            SafeCall(contextMenuListExportM3u_Click_Implementation, sender, e);
+        }
+
+        private void contextMenuListExportM3u_Click_Implementation(object sender, EventArgs e)
+        {
+            string filename;
+
+            using (var fileDialog = new SaveFileDialog()
+                {
+                    AddExtension = true,
+                    AutoUpgradeEnabled = true,
+                    CheckPathExists = true,
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                    OverwritePrompt = true,
+                    RestoreDirectory = true,
+                    ShowHelp = false,
+                    SupportMultiDottedExtensions = true,
+                    Title = contextMenuListExportM3u.Text,
+                    ValidateNames = true,
+                    DefaultExt = "m3u",
+                    Filter = ".m3u|*.m3u",
+                })
+            {
+                if (fileDialog.ShowDialog(this) != DialogResult.OK) return;
+                filename = fileDialog.FileName;
+            } // using
+
+            BasicGoogleTelemetry.SendEventHit("Feature", "contextMenuListExportM3u", "contextMenuListExportM3u.Text", this.GetType().Name);
+
+            var sortedServices = from service in ListManager.BroadcastServices
+                                 orderby service.DisplayLogicalNumber
+                                 select service;
+
+            var output = new StringBuilder();
+            output.AppendLine("#EXTM3U");
+
+            foreach (var service in sortedServices)
+            {
+                output.AppendFormat("#EXTINF:-1,[{0}] {1}", service.DisplayLogicalNumber, service.DisplayName);
+                output.AppendLine();
+                output.AppendLine(service.DisplayLocationUrl);
+            } // foreach service
+
+            File.WriteAllText(filename, output.ToString(), Encoding.UTF8);
+        } // contextMenuListExportM3u_Click_Implementation
 
         #endregion
     } // class ChannelListForm

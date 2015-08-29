@@ -34,6 +34,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UiBroadcastListSettingsEditor));
             this.tabControlSettings = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.panelGlobalSorting = new System.Windows.Forms.Panel();
             this.groupGeneralMoreOptions = new System.Windows.Forms.GroupBox();
             this.checkShowOutOfPackage = new System.Windows.Forms.CheckBox();
             this.checkShowHidden = new System.Windows.Forms.CheckBox();
@@ -54,7 +55,6 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             this.panelModeColumns = new System.Windows.Forms.Panel();
             this.labelMode = new System.Windows.Forms.Label();
             this.comboMode = new System.Windows.Forms.ComboBox();
-            this.panelGlobalSorting = new System.Windows.Forms.Panel();
             this.tabControlSettings.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.groupGeneralMoreOptions.SuspendLayout();
@@ -66,27 +66,32 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // tabControlSettings
             // 
+            resources.ApplyResources(this.tabControlSettings, "tabControlSettings");
             this.tabControlSettings.Controls.Add(this.tabPageGeneral);
             this.tabControlSettings.Controls.Add(this.tabPageViewSettings);
-            resources.ApplyResources(this.tabControlSettings, "tabControlSettings");
             this.tabControlSettings.Name = "tabControlSettings";
             this.tabControlSettings.SelectedIndex = 0;
             // 
             // tabPageGeneral
             // 
+            resources.ApplyResources(this.tabPageGeneral, "tabPageGeneral");
             this.tabPageGeneral.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageGeneral.Controls.Add(this.panelGlobalSorting);
             this.tabPageGeneral.Controls.Add(this.groupGeneralMoreOptions);
             this.tabPageGeneral.Controls.Add(this.groupViewMode);
-            resources.ApplyResources(this.tabPageGeneral, "tabPageGeneral");
             this.tabPageGeneral.Name = "tabPageGeneral";
+            // 
+            // panelGlobalSorting
+            // 
+            resources.ApplyResources(this.panelGlobalSorting, "panelGlobalSorting");
+            this.panelGlobalSorting.Name = "panelGlobalSorting";
             // 
             // groupGeneralMoreOptions
             // 
+            resources.ApplyResources(this.groupGeneralMoreOptions, "groupGeneralMoreOptions");
             this.groupGeneralMoreOptions.Controls.Add(this.checkShowOutOfPackage);
             this.groupGeneralMoreOptions.Controls.Add(this.checkShowHidden);
             this.groupGeneralMoreOptions.Controls.Add(this.checkShowInactive);
-            resources.ApplyResources(this.groupGeneralMoreOptions, "groupGeneralMoreOptions");
             this.groupGeneralMoreOptions.Name = "groupGeneralMoreOptions";
             this.groupGeneralMoreOptions.TabStop = false;
             // 
@@ -113,8 +118,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // groupViewMode
             // 
-            this.groupViewMode.Controls.Add(this.toolStripListMode);
             resources.ApplyResources(this.groupViewMode, "groupViewMode");
+            this.groupViewMode.Controls.Add(this.toolStripListMode);
             this.groupViewMode.Name = "groupViewMode";
             this.groupViewMode.TabStop = false;
             // 
@@ -134,49 +139,49 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // toolButtonDetails
             // 
+            resources.ApplyResources(this.toolButtonDetails, "toolButtonDetails");
             this.toolButtonDetails.BackColor = System.Drawing.SystemColors.Window;
             this.toolButtonDetails.ForeColor = System.Drawing.SystemColors.ControlText;
             this.toolButtonDetails.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_Details_16x16;
-            resources.ApplyResources(this.toolButtonDetails, "toolButtonDetails");
             this.toolButtonDetails.Name = "toolButtonDetails";
             this.toolButtonDetails.Click += new System.EventHandler(this.toolButtonDetails_Click);
             // 
             // toolButtonLarge
             // 
-            this.toolButtonLarge.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_MediumIcons_16x16;
             resources.ApplyResources(this.toolButtonLarge, "toolButtonLarge");
+            this.toolButtonLarge.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_MediumIcons_16x16;
             this.toolButtonLarge.Name = "toolButtonLarge";
             this.toolButtonLarge.Click += new System.EventHandler(this.toolButtonLarge_Click);
             // 
             // toolButtonSmall
             // 
-            this.toolButtonSmall.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_SmallIcons_16x16;
             resources.ApplyResources(this.toolButtonSmall, "toolButtonSmall");
+            this.toolButtonSmall.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_SmallIcons_16x16;
             this.toolButtonSmall.Name = "toolButtonSmall";
             this.toolButtonSmall.Click += new System.EventHandler(this.toolButtonSmall_Click);
             // 
             // toolButtonList
             // 
-            this.toolButtonList.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_List_16x16;
             resources.ApplyResources(this.toolButtonList, "toolButtonList");
+            this.toolButtonList.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_List_16x16;
             this.toolButtonList.Name = "toolButtonList";
             this.toolButtonList.Click += new System.EventHandler(this.toolButtonList_Click);
             // 
             // toolButtonTile
             // 
-            this.toolButtonTile.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_Tiles_16x16;
             resources.ApplyResources(this.toolButtonTile, "toolButtonTile");
+            this.toolButtonTile.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_Tiles_16x16;
             this.toolButtonTile.Name = "toolButtonTile";
             this.toolButtonTile.Click += new System.EventHandler(this.toolButtonTile_Click);
             // 
             // tabPageViewSettings
             // 
+            resources.ApplyResources(this.tabPageViewSettings, "tabPageViewSettings");
             this.tabPageViewSettings.Controls.Add(this.panelModeSorting);
             this.tabPageViewSettings.Controls.Add(this.groupViewMoreOptions);
             this.tabPageViewSettings.Controls.Add(this.panelModeColumns);
             this.tabPageViewSettings.Controls.Add(this.labelMode);
             this.tabPageViewSettings.Controls.Add(this.comboMode);
-            resources.ApplyResources(this.tabPageViewSettings, "tabPageViewSettings");
             this.tabPageViewSettings.Name = "tabPageViewSettings";
             // 
             // panelModeSorting
@@ -186,10 +191,10 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // groupViewMoreOptions
             // 
+            resources.ApplyResources(this.groupViewMoreOptions, "groupViewMoreOptions");
             this.groupViewMoreOptions.Controls.Add(this.checkShowGridlines);
             this.groupViewMoreOptions.Controls.Add(this.comboLogoSize);
             this.groupViewMoreOptions.Controls.Add(this.labelLogoSize);
-            resources.ApplyResources(this.groupViewMoreOptions, "groupViewMoreOptions");
             this.groupViewMoreOptions.Name = "groupViewMoreOptions";
             this.groupViewMoreOptions.TabStop = false;
             // 
@@ -202,8 +207,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // comboLogoSize
             // 
-            this.comboLogoSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.comboLogoSize, "comboLogoSize");
+            this.comboLogoSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboLogoSize.FormattingEnabled = true;
             this.comboLogoSize.Items.AddRange(new object[] {
             resources.GetString("comboLogoSize.Items"),
@@ -232,6 +237,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // comboMode
             // 
+            resources.ApplyResources(this.comboMode, "comboMode");
             this.comboMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMode.FormattingEnabled = true;
             this.comboMode.Items.AddRange(new object[] {
@@ -240,14 +246,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             resources.GetString("comboMode.Items2"),
             resources.GetString("comboMode.Items3"),
             resources.GetString("comboMode.Items4")});
-            resources.ApplyResources(this.comboMode, "comboMode");
             this.comboMode.Name = "comboMode";
             this.comboMode.SelectedIndexChanged += new System.EventHandler(this.comboMode_SelectedIndexChanged);
-            // 
-            // panelGlobalSorting
-            // 
-            resources.ApplyResources(this.panelGlobalSorting, "panelGlobalSorting");
-            this.panelGlobalSorting.Name = "panelGlobalSorting";
             // 
             // UiBroadcastListSettingsEditor
             // 

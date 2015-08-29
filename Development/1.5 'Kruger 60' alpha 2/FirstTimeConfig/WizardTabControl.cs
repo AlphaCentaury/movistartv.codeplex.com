@@ -1,8 +1,10 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -14,6 +16,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
         public WizardTabControl()
         {
             IsPageAllowed = new Dictionary<string, bool>();
+            Initialization = new Dictionary<string, Action>();
         } // constructor
 
         public Label LabelTitle
@@ -34,15 +37,26 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             set;
         } // NextButton
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IDictionary<string, bool> IsPageAllowed
         {
             get;
             set;
         } // IsPageAllowed
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public IDictionary<string, Action> Initialization
+        {
+            get;
+            set;
+        } // Initialization
+
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
+
             if (DesignMode) return;
 
             UpdateWizardButtons();
@@ -66,9 +80,11 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         void WizardTabControl_Selected(object sender, TabControlEventArgs e)
         {
-            if (LabelTitle != null)
+            if (DesignMode) return;
+
+            if ((LabelTitle != null) && (e.TabPage != null))
             {
-                LabelTitle.Text = SelectedTab.ToolTipText;
+                LabelTitle.Text = e.TabPage.ToolTipText;
             } // if
         } // WizardTabControl_Selected
 
@@ -79,8 +95,22 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             base.OnSelecting(e);
             if (DesignMode) return;
 
+            if (e.TabPage == null) return;
+
             isAllowed = (IsPageAllowed.TryGetValue(e.TabPage.Name, out isAllowed)) ? isAllowed : false;
             e.Cancel = !isAllowed;
+
+            if (isAllowed)
+            {
+                Action init;
+
+                if (Initialization.TryGetValue(e.TabPage.Name, out init))
+                {
+                    Initialization.Remove(e.TabPage.Name);
+                    init();
+                    BasicGoogleTelemetry.SendScreenHit(this.FindForm(), e.TabPage.Text);
+                } // if
+            } // if
         } // OnSelecting
 
         protected override void OnSelected(TabControlEventArgs e)
@@ -109,7 +139,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             if (this.SelectedIndex > 0)
             {
                 var page = TabPages[this.SelectedIndex - 1];
-                isAllowed =(IsPageAllowed.TryGetValue(page.Name, out isAllowed))? isAllowed : false;
+                isAllowed = (IsPageAllowed.TryGetValue(page.Name, out isAllowed)) ? isAllowed : false;
             } // if
             PreviousButton.Enabled = isAllowed;
 

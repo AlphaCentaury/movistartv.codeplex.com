@@ -265,6 +265,39 @@ Please install the application using the official installer or repair the instal
     <value>Loading application configuration...</value>
   </data>
   <data name="LoadProgress_UserConfig" xml:space="preserve">
-    <value>Leyendo la configuración de usuario y preferencias...</value>
+    <value>Loading user configuration and preferences...</value>
+  </data>
+  <data name="DvbServiceTypeDescription_01" xml:space="preserve">
+    <value>SD TV</value>
+  </data>
+  <data name="DvbServiceTypeDescription_02" xml:space="preserve">
+    <value>Radio (MPEG-1)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_03" xml:space="preserve">
+    <value>Teletext</value>
+  </data>
+  <data name="DvbServiceTypeDescription_06" xml:space="preserve">
+    <value>Mosaic</value>
+  </data>
+  <data name="DvbServiceTypeDescription_10" xml:space="preserve">
+    <value>Radio (HD)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_11" xml:space="preserve">
+    <value>Mosaic (HD)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_12" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="DvbServiceTypeDescription_16" xml:space="preserve">
+    <value>DVB MHP</value>
+  </data>
+  <data name="DvbServiceTypeDescription_17" xml:space="preserve">
+    <value>HD TV (MPEG-2)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_22" xml:space="preserve">
+    <value>SD TV (AVC)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_25" xml:space="preserve">
+    <value>HD TV</value>
   </data>
 </root>

@@ -181,4 +181,19 @@
   <data name="labelMode.Text" xml:space="preserve">
     <value>Modo:</value>
   </data>
+  <data name="comboMode.Items" xml:space="preserve">
+    <value>Detalles</value>
+  </data>
+  <data name="comboMode.Items1" xml:space="preserve">
+    <value>Logotipos grandes</value>
+  </data>
+  <data name="comboMode.Items2" xml:space="preserve">
+    <value>Logotipos pequeños</value>
+  </data>
+  <data name="comboMode.Items3" xml:space="preserve">
+    <value>Lista</value>
+  </data>
+  <data name="comboMode.Items4" xml:space="preserve">
+    <value>Mosaico</value>
+  </data>
 </root>

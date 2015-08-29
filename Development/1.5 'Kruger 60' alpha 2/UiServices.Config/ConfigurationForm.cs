@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.DvbIpTv.Common.Telemetry;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
             using (var form = new ConfigurationForm())
             {
+                BasicGoogleTelemetry.SendScreenHit(form, "(default)");
                 form.ConfigurationItems = items;
                 result = form.ShowDialog(owner);
                 if (result != DialogResult.OK)
@@ -73,8 +75,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
             var items = new List<ConfigurationItem>(1);
             items.Add(data);
 
+            
+
             using (var form = new ConfigurationForm())
             {
+                BasicGoogleTelemetry.SendScreenHit(form, data.Registration.ItemType.Name);
                 form.ConfigurationItems = items;
                 var dialogResult = form.ShowDialog(owner);
                 if (dialogResult != DialogResult.OK)

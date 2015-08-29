@@ -81,6 +81,12 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AboutBoxApplicationData.cs" />
+    <Compile Include="Forms\HelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HelpDialog.Designer.cs">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NotImplementedBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HelpDialog.es.resx">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HelpDialog.resx">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NotImplementedBox.resx">
       <DependentUpon>NotImplementedBox.cs</DependentUpon>

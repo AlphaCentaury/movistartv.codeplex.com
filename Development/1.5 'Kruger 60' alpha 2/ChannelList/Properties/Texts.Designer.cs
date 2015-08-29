@@ -224,33 +224,6 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loading application configuration....
-        /// </summary>
-        internal static string MyAppCtxLoadingConfig {
-            get {
-                return ResourceManager.GetString("MyAppCtxLoadingConfig", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Loading content provider data....
-        /// </summary>
-        internal static string MyAppCtxLoadingContentProviderConfig {
-            get {
-                return ResourceManager.GetString("MyAppCtxLoadingContentProviderConfig", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Loading user configuration and preferences....
-        /// </summary>
-        internal static string MyAppCtxLoadingUserConfig {
-            get {
-                return ResourceManager.GetString("MyAppCtxLoadingUserConfig", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Starting application....
         /// </summary>
         internal static string MyAppCtxStarting {

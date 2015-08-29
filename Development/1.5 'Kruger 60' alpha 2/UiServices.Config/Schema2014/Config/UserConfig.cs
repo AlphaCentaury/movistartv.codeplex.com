@@ -18,12 +18,12 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
     {
         private string[] preferredLanguagesList;
 
-        [XmlElement("Analytics")]
-        public AnalyticsConfig Analytics
+        [XmlElement("Telemetry")]
+        public TelemetryConfiguration Telemetry
         {
             get;
             set;
-        } // Analytics
+        } // Telemetry
 
         [XmlElement("PreferredLanguages")]
         public string PreferredLanguages
@@ -52,6 +52,12 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             get;
             set;
         } // Epg
+
+        public bool ChannelNumberStandardDefinitionPriority
+        {
+            get;
+            set;
+        } // ChannelNumberStandardDefinitionPriority
 
         [XmlElement("Configuration")]
         public XmlConfigurationItems Configuration

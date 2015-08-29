@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EpgDataLoading" xml:space="preserve">
-    <value>Obteniendo información EPG...</value>
+    <value>Obteniendo información del programa...</value>
   </data>
   <data name="EpgNoGenre" xml:space="preserve">
     <value>Género no disponible</value>
   </data>
   <data name="EpgNoInformation" xml:space="preserve">
-    <value>Información EPG no disponible</value>
+    <value>Información de programa no disponible</value>
   </data>
   <data name="EpgNoParentalRating" xml:space="preserve">
     <value>Clasificación no disponible</value>

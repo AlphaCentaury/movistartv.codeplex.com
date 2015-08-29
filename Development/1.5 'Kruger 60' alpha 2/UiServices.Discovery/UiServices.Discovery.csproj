@@ -154,6 +154,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorSorting.es.resx">
+      <DependentUpon>SettingsEditorSorting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\ListViewManager.es.resx" />
     <EmbeddedResource Include="Properties\ListViewManager.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -62,6 +62,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             result.ShowGridlines = true;
             result.ShowInactiveServices = true;
             result.ShowOutOfPackage = true;
+            result.TilesPerRow = 4;
 
             result.ViewSettings = new ModeViewSettings();
             result.ViewSettings.Details = UiBroadcastListModeSettings.GetDefaultSettings(View.Details);
@@ -71,7 +72,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             result.ViewSettings.Tile = UiBroadcastListModeSettings.GetDefaultSettings(View.Tile);
 
             result.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, true, 3);
-            result.UseGlobalSortColumns = true;
+            result.UseGlobalSortColumns = false;
 
             // force creation of ColumnWidth field
             var dummy = result.ColumnWidth[0];
@@ -160,19 +161,26 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         } // ShowHiddenServices
 
         [DefaultValue(false)]
-        public bool ShowGridlines
-        {
-            get;
-            set;
-        } // ShowGridlines
-
-        [DefaultValue(false)]
         public bool ShowOutOfPackage
         {
             get;
             set;
         } // ShowOutOfPackage
 
+        [DefaultValue(false)]
+        public bool ShowGridlines
+        {
+            get;
+            set;
+        } // ShowGridlines
+
+        public int TilesPerRow
+        {
+            get;
+            set;
+        } // TilesPerRow
+
+        [XmlArrayItem("Width")]
         public int[] ColumnWidth
         {
             get

@@ -20,10 +20,28 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 {
     internal class Installation
     {
+        private static string RedistFolder;
+
+        public static bool Is32BitWindows
+        {
+            get;
+            set;
+        } // Is32BitWindow
+
         public static AppUiConfiguration LoadRegistrySettings(out InitializationResult initializationResult)
         {
-            return AppUiConfiguration.LoadRegistryAppConfiguration(out initializationResult);
+            Is32BitWindows = WindowsBitness.Is32BitWindows();
+            var result = AppUiConfiguration.LoadRegistryAppConfiguration(out initializationResult);
+#if DEBUG
+            RedistFolder = Path.Combine(result.Folders.Base, "Bin\\Redist");
+#else
+            RedistFolder = Path.Combine(result.Folders.Install, "Redist");
+#endif
+
+            return result;
         } // LoadRegistrySettings
+
+        #region IsComponentInstalled
 
         public static bool IsNetInstalled(out string message)
         {
@@ -208,7 +226,110 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
             message = Properties.Texts.TestVlcInstallationOk;
             return true;
-        } // IsVlcInstalled
+        } // TestVlcInstallation
+
+        #endregion
+
+        #region Redist setup
+
+        public static bool CheckRedistFile(string file64bit, string file32bit)
+        {
+            var file = GetRedistFileFullPath(file64bit, file32bit);
+            return File.Exists(file);
+        } // CheckRedistFile
+
+        public static void PromptDownloadFromVendor(Form owner, string vendor, string file64bit, string file32bit)
+        {
+            string text;
+
+            if (Is32BitWindows)
+            {
+                text = string.Format(Properties.Texts.DownloadFromVendor32bit, vendor, file32bit);
+            }
+            else
+            {
+                text = string.Format(Properties.Texts.DownloadFromVendor64bit, vendor, file64bit);
+            } // if-else
+
+            MessageBox.Show(owner, text, owner.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        } // PromptDownloadFromVendor
+
+        public static bool RedistSetup(Form owner, string file64bit, string file32bit, string productName, Label labelProduct, Action<bool> setupExitCallback)
+        {
+            Exception exception;
+            var filename = GetRedistFileFullPath(file64bit, file32bit);
+
+            exception = null;
+            try
+            {
+                var process = new Process();
+                process.StartInfo = new ProcessStartInfo()
+                {
+                    FileName = filename,
+                    UseShellExecute = true,
+                    ErrorDialog = true,
+                    ErrorDialogParentHandle = (owner != null) ? owner.Handle : IntPtr.Zero,
+                };
+                process.EnableRaisingEvents = true;
+                process.Exited += (o, e) =>
+                    {
+                        var exitCode = process.ExitCode;
+                        process.Dispose();
+
+                        owner.BeginInvoke(new RedistSetup_ProcessExited_Delegate(RedistSetup_ProcessExited), exitCode, owner, productName, labelProduct, setupExitCallback);
+                    };
+                process.Start();
+
+                labelProduct.Text = string.Format(Texts.RedistSetupInstalling, productName);
+
+                return true;
+            }
+            catch (Win32Exception ex)
+            {
+                if (ex.NativeErrorCode != 1223) // Operation cancelled by user
+                {
+                    exception = ex;
+                } // if
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+            } // try-catch
+
+            if (exception != null)
+            {
+                var message = string.Format(Properties.Texts.LaunchSetupException, filename, labelProduct.Text, exception.ToString());
+                MessageBox.Show(owner, message, owner.Text, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            } // if
+
+            return false;
+        }  // RedistSetup
+
+        private delegate void RedistSetup_ProcessExited_Delegate(int exitCode, Form owner, string productName, Label labelProduct, Action<bool> setupExitCallback);
+
+        static void RedistSetup_ProcessExited(int exitCode, Form owner, string productName, Label labelProduct, Action<bool> setupExitCallback)
+        {
+            var format = (exitCode == 0) ? Texts.LaunchSetupSuccess : Texts.LaunchSetupError;
+            var message = string.Format(format, productName, exitCode);
+            MessageBox.Show(owner, message, owner.Text, MessageBoxButtons.OK, exitCode == 0 ? MessageBoxIcon.Information : MessageBoxIcon.Warning);
+
+            labelProduct.Text = productName;
+
+            setupExitCallback(exitCode == 0);
+        } // RedistSetup_ProcessExited
+
+        private static string GetRedistFileFullPath(string file64bit, string file32bit)
+        {
+            var file = Is32BitWindows ? file32bit : file64bit;
+            file.Replace('\\', Path.DirectorySeparatorChar);
+            file = Path.Combine(RedistFolder, file);
+
+            return file;
+        } // GetRedistFileFullPath
+
+        #endregion
+
+        #region Firewall installation
 
         public static InitializationResult RunSelfForFirewall(string binPath, string vlcPath)
         {
@@ -340,6 +461,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             return true;
         } // ConfigureFirewall
 
+        #endregion
+
         public static string GetProgramFilesAnyFolder()
         {
             try
@@ -428,13 +551,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         internal static string Launch(IWin32Window parent, string basePath, string programFile)
         {
+            var filename = (programFile == null) ? basePath : Path.Combine(basePath, programFile);
+
             try
             {
                 using (var process = new Process())
                 {
                     process.StartInfo = new ProcessStartInfo()
                     {
-                        FileName = Path.Combine(basePath, programFile),
+                        FileName = filename,
                         UseShellExecute = true,
                         ErrorDialog = true,
                         ErrorDialogParentHandle = (parent != null)? parent.Handle : IntPtr.Zero,
@@ -445,7 +570,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             }
             catch (Exception ex)
             {
-                return ex.ToString();
+                return string.Format(Properties.Texts.LaunchProgramException, filename, ex.ToString());
             } // try-catch
         } // Launch
 

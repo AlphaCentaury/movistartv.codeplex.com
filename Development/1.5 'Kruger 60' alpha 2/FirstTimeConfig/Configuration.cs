@@ -17,7 +17,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 {
     internal class Configuration
     {
-        public static bool Create(string vlcPath, string rootSaveLocation, AnalyticsConfig analytics, EpgConfig epg, string xmlConfigPath, out string message)
+        public static bool Create(string vlcPath, string rootSaveLocation, TelemetryConfiguration analytics, EpgConfig epg, bool sdPriority, string xmlConfigPath, out string message)
         {
             UserConfig user;
 
@@ -25,7 +25,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             {
                 user = new UserConfig()
                 {
-                    Analytics = analytics,
+                    Telemetry = analytics,
                     PreferredLanguages = Properties.Texts.DvbIpTv_PreferredLanguages,
                     TvViewer = new TvViewerConfig()
                     {
@@ -92,6 +92,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                         } // Recorders
                     }, // Record
                     Epg = epg,
+                    ChannelNumberStandardDefinitionPriority = sdPriority,
                 }; // user
 
                 foreach (var location in user.Record.SaveLocations)

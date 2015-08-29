@@ -433,8 +433,14 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             sortColumn.Column = Settings.CurrentColumns[e.Column];
             sortColumn.IsAscending = sortColumn.Column == SelectedSort.Column? !SelectedSort.IsAscending : true;
 
-            Settings.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
-            Settings[Settings.CurrentMode].Sort = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
+            if (Settings.UseGlobalSortColumns)
+            {
+                Settings.GlobalSortColumns = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
+            }
+            else
+            {
+                Settings[Settings.CurrentMode].Sort = ServiceSortComparer.GetSuggestedSortColumns(sortColumn.Column, sortColumn.IsAscending, 3);
+            } // if-else
 
             ApplySorting();
             FillList(false);
@@ -607,6 +613,13 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             {
                 ListView.GridLines = newSettings.ShowGridlines;
                 changed = true;
+            } // if
+
+            if ((oldSettings == null) || (oldSettings.TilesPerRow != newSettings.TilesPerRow))
+            {
+                var tilesPerRow = Math.Max(newSettings.TilesPerRow, 1);
+                ListView.TileSize = new Size((ListView.Width - SystemInformation.VerticalScrollBarWidth - 6) / tilesPerRow,
+                ListView.LargeImageList.ImageSize.Height + 6);
             } // if
 
             return changed;

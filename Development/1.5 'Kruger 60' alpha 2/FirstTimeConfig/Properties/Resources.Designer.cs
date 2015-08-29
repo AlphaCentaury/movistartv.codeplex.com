@@ -277,6 +277,26 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Status_Pending_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Status_Pending_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status_Wait_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Status_Wait_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Success_48x48 {
             get {
                 object obj = ResourceManager.GetObject("Success_48x48", resourceCulture);

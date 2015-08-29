@@ -118,8 +118,6 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             ListModeItems[3].Tag = View.List;
             ListModeItems[4].Tag = View.Tile;
 
-            SetListMode(Settings.CurrentMode);
-
             ManualUpdateLock++;
 
             checkShowInactive.Checked = Settings.ShowInactiveServices;
@@ -131,8 +129,9 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             EditorGlobalSorting.Sort = Settings.GlobalSortColumns;
             EditorGlobalSorting.SetContainer(this);
             EditorGlobalSorting.Dock = DockStyle.Fill;
-            // TODO!
-            //EditorGlobalSorting.ApplyGlobal = Settings.ApplyGlobalSortColumn;
+            EditorGlobalSorting.UseGlobalSort = Settings.UseGlobalSortColumns;
+            EditorGlobalSorting.ShowUseGlobalSort = true;
+            EditorGlobalSorting.UseGlobalSortChanged += EditorGlobalSorting_UseGlobalSortChanged;
             panelGlobalSorting.Controls.Add(EditorGlobalSorting);
 
             ManualUpdateLock--;
@@ -143,8 +142,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             if (EditorGlobalSorting.IsDataChanged)
             {
                 Settings.GlobalSortColumns = EditorGlobalSorting.SelectedSort;
-                // TODO!
-                // Settings.ApplyGlobalSortColumn = EditorGlobalSorting.ApplyGlobal;
+                Settings.UseGlobalSortColumns = EditorGlobalSorting.UseGlobalSort;
             } // if
         } // SaveGeneralTab
 
@@ -198,6 +196,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
                     control.ForeColor = toolStripListMode.ForeColor;
                 } // if-else
             } // foreach control
+
+            comboMode.SelectedIndex = ViewToIndex(mode);
         } // SetListMode
 
         private void checkShowInactive_CheckedChanged(object sender, EventArgs e)
@@ -223,6 +223,14 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             Settings.ShowOutOfPackage = checkShowOutOfPackage.Checked;
             SetDataChanged();
         } // checkShowOutOfPackage_CheckedChanged
+
+        private void EditorGlobalSorting_UseGlobalSortChanged(object sender, EventArgs e)
+        {
+            foreach (var editor in EditorModeSorting)
+            {
+                editor.Enabled = !EditorGlobalSorting.UseGlobalSort;
+            } // foreach editor
+        } // EditorGlobalSorting_UseGlobalSortChanged
 
         #endregion
 
@@ -261,6 +269,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
                 editor.SetContainer(this);
                 editor.ColumnsNoneList = sortedColumnsNone;
                 editor.Sort = Settings[view].Sort;
+                editor.Enabled = !Settings.UseGlobalSortColumns;
             } // for
 
             ManualUpdateLock++;
@@ -273,7 +282,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 
             ManualUpdateLock--;
 
-            comboMode.SelectedIndex = ViewToIndex(Settings.CurrentMode);
+            SetListMode(Settings.CurrentMode);
         } // private LoadModeSettingsTab
 
         private void SaveModeSettingsTab()
@@ -333,12 +342,14 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
         {
             ManualUpdateLock++;
 
+            var index = comboMode.SelectedIndex;
+
             panelModeColumns.Controls.Clear();
-            panelModeColumns.Controls.Add(EditorModeColumns[comboMode.SelectedIndex].GetUnderlyingControl());
+            panelModeColumns.Controls.Add(EditorModeColumns[index].GetUnderlyingControl());
             panelModeColumns.Controls[0].Dock = DockStyle.Fill;
 
             panelModeSorting.Controls.Clear();
-            panelModeSorting.Controls.Add(EditorModeSorting[comboMode.SelectedIndex]);
+            panelModeSorting.Controls.Add(EditorModeSorting[index]);
             panelModeSorting.Controls[0].Dock = DockStyle.Fill;
 
             var view = IndexToView(comboMode.SelectedIndex);

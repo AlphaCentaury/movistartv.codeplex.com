@@ -118,6 +118,105 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SD TV.
+        /// </summary>
+        internal static string DvbServiceTypeDescription_01 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Radio (MPEG-1).
+        /// </summary>
+        internal static string DvbServiceTypeDescription_02 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teletext.
+        /// </summary>
+        internal static string DvbServiceTypeDescription_03 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mosaic.
+        /// </summary>
+        internal static string DvbServiceTypeDescription_06 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Radio (HD).
+        /// </summary>
+        internal static string DvbServiceTypeDescription_10 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mosaic (HD).
+        /// </summary>
+        internal static string DvbServiceTypeDescription_11 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        internal static string DvbServiceTypeDescription_12 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DVB MHP.
+        /// </summary>
+        internal static string DvbServiceTypeDescription_16 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HD TV (MPEG-2).
+        /// </summary>
+        internal static string DvbServiceTypeDescription_17 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SD TV (AVC).
+        /// </summary>
+        internal static string DvbServiceTypeDescription_22 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_22", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HD TV.
+        /// </summary>
+        internal static string DvbServiceTypeDescription_25 {
+            get {
+                return ResourceManager.GetString("DvbServiceTypeDescription_25", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Duplicated domain name &apos;{0}&apos; in &apos;logos/services/domain-mappings.xml&apos;.
         /// </summary>
         internal static string ExceptionLogosDomainMappingsDuplicatedDomain {
@@ -277,7 +376,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Leyendo la configuración de usuario y preferencias....
+        ///   Looks up a localized string similar to Loading user configuration and preferences....
         /// </summary>
         internal static string LoadProgress_UserConfig {
             get {

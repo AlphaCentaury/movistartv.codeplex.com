@@ -163,7 +163,7 @@ namespace Project.DvbIpTv.UiServices.EPG
             if (epgEvents.Count == 0)
             {
                 item = new ListViewItem("--:--");
-                item.SubItems.Add("Información EPG no disponible para este canal");
+                item.SubItems.Add("Información de programas no disponible para este canal");
                 item.UseItemStyleForSubItems = false;
                 listPrograms.Items.Add(item);
             } // if
@@ -181,7 +181,7 @@ namespace Project.DvbIpTv.UiServices.EPG
                 DisplayData(null, labelNowTime, labelNowTitle, labelNowDetails, pictureBoxNow, DateTime.Now);
                 if (epgEvents.Count == 0)
                 {
-                    labelNowTitle.Text = "Información EPG no disponible para este canal";
+                    labelNowTitle.Text = "Información de programas no disponible para este canal";
                 } // if
             } // if-else
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.SqlServer.MessageBox;
 using Project.DvbIpTv.Common.Telemetry;
+using Project.DvbIpTv.UiServices.Common.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,10 +113,7 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             if (box.CustomDialogResult == ExceptionMessageBoxDialogResult.Button2)
             {
                 BasicGoogleTelemetry.SendEventHit("ShowDialog", "UiServices.DvbStpClient.HelpDialog", TelemetryScreenName, TelemetryScreenName);
-                using (var helpDialog = new HelpDialog())
-                {
-                    helpDialog.ShowDialog(owner);
-                } // using
+                HelpDialog.ShowRtfHelp(owner, Properties.Texts.RtfTroubleshootingGuide, null);
             } // if
         } // HandleException
     } // abstract class UiDvbStpBaseDownloader

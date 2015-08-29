@@ -71,7 +71,11 @@
             this.comboBoxDate.Items.AddRange(new object[] {
             "Hoy",
             "Mañana",
-            "Pasado"});
+            "Pasado mañana",
+            "Dentro de 3 días",
+            "Dentro de 4 días",
+            "Dentro de 5 días",
+            "Dentro de 6 días"});
             this.comboBoxDate.Location = new System.Drawing.Point(66, 39);
             this.comboBoxDate.Name = "comboBoxDate";
             this.comboBoxDate.Size = new System.Drawing.Size(198, 21);

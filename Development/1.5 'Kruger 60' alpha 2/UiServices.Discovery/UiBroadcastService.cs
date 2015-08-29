@@ -408,7 +408,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             if (this.Key != service.Key) return false;
             if (this.LocationUrl != service.LocationUrl) return false;
             if (this.DisplayOriginalName != service.DisplayOriginalName) return false;
-            if (this.DisplayServiceType != service.DisplayServiceType) return false;
+            if (this.ServiceType != service.ServiceType) return false;
 
             return true;
         } // IsSameService

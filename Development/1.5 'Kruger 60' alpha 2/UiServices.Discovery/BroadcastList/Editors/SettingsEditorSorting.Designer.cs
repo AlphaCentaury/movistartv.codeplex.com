@@ -32,6 +32,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsEditorSorting));
             this.groupSortBy = new System.Windows.Forms.GroupBox();
             this.checkGlobalSorting = new System.Windows.Forms.CheckBox();
             this.buttonThirdDirection = new System.Windows.Forms.Button();
@@ -53,119 +54,83 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             this.groupSortBy.Controls.Add(this.comboSecondColumn);
             this.groupSortBy.Controls.Add(this.buttonFirstDirection);
             this.groupSortBy.Controls.Add(this.comboFirstColumn);
-            this.groupSortBy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupSortBy.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.groupSortBy, "groupSortBy");
             this.groupSortBy.Name = "groupSortBy";
-            this.groupSortBy.Size = new System.Drawing.Size(225, 130);
-            this.groupSortBy.TabIndex = 10;
             this.groupSortBy.TabStop = false;
-            this.groupSortBy.Text = "Sort list by";
             // 
             // checkGlobalSorting
             // 
-            this.checkGlobalSorting.AutoSize = true;
-            this.checkGlobalSorting.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkGlobalSorting.Location = new System.Drawing.Point(6, 100);
+            resources.ApplyResources(this.checkGlobalSorting, "checkGlobalSorting");
             this.checkGlobalSorting.Name = "checkGlobalSorting";
-            this.checkGlobalSorting.Size = new System.Drawing.Size(97, 17);
-            this.checkGlobalSorting.TabIndex = 12;
-            this.checkGlobalSorting.Text = "Global override";
             this.checkGlobalSorting.UseVisualStyleBackColor = true;
+            this.checkGlobalSorting.CheckedChanged += new System.EventHandler(this.checkGlobalSorting_CheckedChanged);
             // 
             // buttonThirdDirection
             // 
-            this.buttonThirdDirection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.buttonThirdDirection, "buttonThirdDirection");
             this.buttonThirdDirection.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonThirdDirection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonThirdDirection.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_SortAscending_16x16;
-            this.buttonThirdDirection.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonThirdDirection.Location = new System.Drawing.Point(192, 70);
             this.buttonThirdDirection.Name = "buttonThirdDirection";
-            this.buttonThirdDirection.Size = new System.Drawing.Size(25, 25);
-            this.buttonThirdDirection.TabIndex = 11;
             this.buttonThirdDirection.UseVisualStyleBackColor = true;
             this.buttonThirdDirection.Click += new System.EventHandler(this.buttonThirdDirection_Click);
             // 
             // comboThirdColumn
             // 
-            this.comboThirdColumn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.comboThirdColumn, "comboThirdColumn");
             this.comboThirdColumn.DisplayMember = "Value";
             this.comboThirdColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboThirdColumn.DropDownWidth = 250;
             this.comboThirdColumn.FormattingEnabled = true;
-            this.comboThirdColumn.Location = new System.Drawing.Point(6, 73);
             this.comboThirdColumn.Name = "comboThirdColumn";
-            this.comboThirdColumn.Size = new System.Drawing.Size(180, 21);
-            this.comboThirdColumn.TabIndex = 10;
             this.comboThirdColumn.ValueMember = "Key";
             this.comboThirdColumn.SelectedIndexChanged += new System.EventHandler(this.comboThirdColumn_SelectedIndexChanged);
             // 
             // buttonSecondDirection
             // 
-            this.buttonSecondDirection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.buttonSecondDirection, "buttonSecondDirection");
             this.buttonSecondDirection.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonSecondDirection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSecondDirection.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_SortAscending_16x16;
-            this.buttonSecondDirection.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonSecondDirection.Location = new System.Drawing.Point(192, 43);
             this.buttonSecondDirection.Name = "buttonSecondDirection";
-            this.buttonSecondDirection.Size = new System.Drawing.Size(25, 25);
-            this.buttonSecondDirection.TabIndex = 9;
             this.buttonSecondDirection.UseVisualStyleBackColor = true;
             this.buttonSecondDirection.Click += new System.EventHandler(this.buttonSecondDirection_Click);
             // 
             // comboSecondColumn
             // 
-            this.comboSecondColumn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.comboSecondColumn, "comboSecondColumn");
             this.comboSecondColumn.DisplayMember = "Value";
             this.comboSecondColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboSecondColumn.DropDownWidth = 250;
             this.comboSecondColumn.FormattingEnabled = true;
-            this.comboSecondColumn.Location = new System.Drawing.Point(6, 46);
             this.comboSecondColumn.Name = "comboSecondColumn";
-            this.comboSecondColumn.Size = new System.Drawing.Size(180, 21);
-            this.comboSecondColumn.TabIndex = 8;
             this.comboSecondColumn.ValueMember = "Key";
             this.comboSecondColumn.SelectedIndexChanged += new System.EventHandler(this.comboSecondColumn_SelectedIndexChanged);
             // 
             // buttonFirstDirection
             // 
-            this.buttonFirstDirection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.buttonFirstDirection, "buttonFirstDirection");
             this.buttonFirstDirection.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonFirstDirection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFirstDirection.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_SortAscending_16x16;
-            this.buttonFirstDirection.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonFirstDirection.Location = new System.Drawing.Point(192, 16);
             this.buttonFirstDirection.Name = "buttonFirstDirection";
-            this.buttonFirstDirection.Size = new System.Drawing.Size(25, 25);
-            this.buttonFirstDirection.TabIndex = 7;
             this.buttonFirstDirection.UseVisualStyleBackColor = true;
             this.buttonFirstDirection.Click += new System.EventHandler(this.buttonFirstDirection_Click);
             // 
             // comboFirstColumn
             // 
-            this.comboFirstColumn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.comboFirstColumn, "comboFirstColumn");
             this.comboFirstColumn.DisplayMember = "Value";
             this.comboFirstColumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboFirstColumn.DropDownWidth = 250;
             this.comboFirstColumn.FormattingEnabled = true;
-            this.comboFirstColumn.Location = new System.Drawing.Point(6, 19);
             this.comboFirstColumn.Name = "comboFirstColumn";
-            this.comboFirstColumn.Size = new System.Drawing.Size(180, 21);
-            this.comboFirstColumn.TabIndex = 6;
             this.comboFirstColumn.ValueMember = "Key";
             this.comboFirstColumn.SelectedIndexChanged += new System.EventHandler(this.comboFirstColumn_SelectedIndexChanged);
             // 
             // SettingsEditorSorting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupSortBy);
             this.Name = "SettingsEditorSorting";
-            this.Size = new System.Drawing.Size(225, 130);
             this.Load += new System.EventHandler(this.SettingsEditorSorting_Load);
             this.groupSortBy.ResumeLayout(false);
             this.groupSortBy.PerformLayout();

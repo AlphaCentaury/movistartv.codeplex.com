@@ -172,15 +172,6 @@ The verification has to be canceled before you can perform the requested action.
   <data name="MyAppCtxInitializationErrorCaption" xml:space="preserve">
     <value>Application configuration error</value>
   </data>
-  <data name="MyAppCtxLoadingConfig" xml:space="preserve">
-    <value>Loading application configuration...</value>
-  </data>
-  <data name="MyAppCtxLoadingContentProviderConfig" xml:space="preserve">
-    <value>Loading content provider data...</value>
-  </data>
-  <data name="MyAppCtxLoadingUserConfig" xml:space="preserve">
-    <value>Loading user configuration and preferences...</value>
-  </data>
   <data name="MyAppCtxStarting" xml:space="preserve">
     <value>Starting application...</value>
   </data>

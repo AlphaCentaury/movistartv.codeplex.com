@@ -17,6 +17,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
         private UiBroadcastListSortColumn[] SortColumns;
         private int ManualUpdateLock;
 
+        public event EventHandler UseGlobalSortChanged;
+
         public SettingsEditorSorting()
         {
             InitializeComponent();
@@ -33,6 +35,18 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             private get;
             set;
         } // Sort
+
+        public bool UseGlobalSort
+        {
+            get;
+            set;
+        } // UseGlobalSort
+
+        public bool ShowUseGlobalSort
+        {
+            get;
+            set;
+        } // ShowUseGlobalSort
 
         public List<UiBroadcastListSortColumn> SelectedSort
         {
@@ -84,6 +98,11 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             SetButtonDirectionStatus(buttonFirstDirection, 0, SortColumns[0].IsAscending);
             SetButtonDirectionStatus(buttonFirstDirection, 1, SortColumns[0].IsAscending);
             SetButtonDirectionStatus(buttonFirstDirection, 2, SortColumns[0].IsAscending);
+
+            checkGlobalSorting.Visible = ShowUseGlobalSort;
+            checkGlobalSorting.Checked = UseGlobalSort;
+            EnableCombos();
+
             ManualUpdateLock--;
         } // SettingsEditorSorting_Load
 
@@ -157,6 +176,32 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             SortColumns[index].IsAscending = isAscending;
             button.Image = isAscending ? Properties.Resources.Action_SortAscending_16x16 : Properties.Resources.Action_SortDescending_16x16;
             toolTip.SetToolTip(button, isAscending ? Properties.SettingsEditor.SortAscendingTooltip : Properties.SettingsEditor.SortDescendingTooltip);
-        } // SetButtonDirectionStatus
+        } //  // SetButtonDirectionStatus
+
+        private void checkGlobalSorting_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ManualUpdateLock > 0) return;
+
+            UseGlobalSort = checkGlobalSorting.Checked;
+            EnableCombos();
+            SetDataChanged();
+
+            if (UseGlobalSortChanged != null)
+            {
+                UseGlobalSortChanged(this, EventArgs.Empty);
+            } // if
+        } // checkGlobalSorting_CheckedChanged
+
+        private void EnableCombos()
+        {
+            if (!ShowUseGlobalSort) return;
+
+            comboFirstColumn.Enabled = UseGlobalSort;
+            comboSecondColumn.Enabled = UseGlobalSort;
+            comboThirdColumn.Enabled = UseGlobalSort;
+            buttonFirstDirection.Enabled = UseGlobalSort;
+            buttonSecondDirection.Enabled = UseGlobalSort;
+            buttonThirdDirection.Enabled = UseGlobalSort;
+        } // EnableCombos
     } // class SettingsEditorSorting
 }// namespace

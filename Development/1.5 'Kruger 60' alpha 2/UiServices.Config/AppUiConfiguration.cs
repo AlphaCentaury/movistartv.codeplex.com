@@ -252,19 +252,18 @@ namespace Project.DvbIpTv.UiServices.Configuration
             // Logos
             Folders.Logos = Path.Combine(Folders.Base, "Logos");
 
-            // TODO: load from somewhere in a culture-aware way
             var descriptionServiceType = new Dictionary<string, string>();
-            descriptionServiceType.Add("1", "SD TV");
-            descriptionServiceType.Add("2", "Radio (MPEG-1)");
-            descriptionServiceType.Add("3", "Teletext");
-            descriptionServiceType.Add("6", "Mosaic");
-            descriptionServiceType.Add("10", "Radio (AAC)");
-            descriptionServiceType.Add("11", "Mosaic (AAC)");
-            descriptionServiceType.Add("12", "Data");
-            descriptionServiceType.Add("16", "DVB MHP");
-            descriptionServiceType.Add("17", "HD TV (MPEG-2)");
-            descriptionServiceType.Add("22", "SD TV (AVC)");
-            descriptionServiceType.Add("25", "HD TV (AVC)");
+            descriptionServiceType.Add("1", Properties.Texts.DvbServiceTypeDescription_01); // SD TV
+            descriptionServiceType.Add("2", Properties.Texts.DvbServiceTypeDescription_02); // Radio (MPEG-1)
+            descriptionServiceType.Add("3", Properties.Texts.DvbServiceTypeDescription_03); // Teletext
+            descriptionServiceType.Add("6", Properties.Texts.DvbServiceTypeDescription_06); // Mosaic
+            descriptionServiceType.Add("10", Properties.Texts.DvbServiceTypeDescription_10); // Radio (AAC)
+            descriptionServiceType.Add("11", Properties.Texts.DvbServiceTypeDescription_11); // Mosaic (AAC)
+            descriptionServiceType.Add("12", Properties.Texts.DvbServiceTypeDescription_12); // Data
+            descriptionServiceType.Add("16", Properties.Texts.DvbServiceTypeDescription_16); // DVB MHP
+            descriptionServiceType.Add("17", Properties.Texts.DvbServiceTypeDescription_17); // HD TV (MPEG-2)
+            descriptionServiceType.Add("22", Properties.Texts.DvbServiceTypeDescription_22); // SD TV (AVC)
+            descriptionServiceType.Add("25", Properties.Texts.DvbServiceTypeDescription_25); // "HD TV
             DescriptionServiceTypes = descriptionServiceType;
 
             // TODO: load from user config

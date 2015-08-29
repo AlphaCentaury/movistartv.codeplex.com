@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panelConfigItemUi = new System.Windows.Forms.Panel();
@@ -39,53 +40,35 @@
             // 
             // buttonOk
             // 
-            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.buttonOk, "buttonOk");
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Location = new System.Drawing.Point(416, 330);
+            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Action_Ok_16x16;
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 25);
-            this.buttonOk.TabIndex = 3;
-            this.buttonOk.Text = "&Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(522, 330);
+            this.buttonCancel.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Action_Cancel_16x16;
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 25);
-            this.buttonCancel.TabIndex = 4;
-            this.buttonCancel.Text = "&Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // panelConfigItemUi
             // 
-            this.panelConfigItemUi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelConfigItemUi.Location = new System.Drawing.Point(155, 5);
+            resources.ApplyResources(this.panelConfigItemUi, "panelConfigItemUi");
             this.panelConfigItemUi.Name = "panelConfigItemUi";
-            this.panelConfigItemUi.Size = new System.Drawing.Size(470, 320);
-            this.panelConfigItemUi.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            resources.ApplyResources(this.label1, "label1");
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(155, 330);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Interfaz de usuario en desarrollo";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listViewConfigItems
             // 
-            this.listViewConfigItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            resources.ApplyResources(this.listViewConfigItems, "listViewConfigItems");
             this.listViewConfigItems.BackgroundImageTiled = true;
             this.listViewConfigItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listViewConfigItems.FullRowSelect = true;
@@ -93,11 +76,8 @@
             this.listViewConfigItems.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listViewConfigItems.HideSelection = false;
             this.listViewConfigItems.LargeImageList = this.imageListConfigItems;
-            this.listViewConfigItems.Location = new System.Drawing.Point(0, 0);
             this.listViewConfigItems.Name = "listViewConfigItems";
-            this.listViewConfigItems.Size = new System.Drawing.Size(145, 362);
             this.listViewConfigItems.SmallImageList = this.imageListConfigItems;
-            this.listViewConfigItems.TabIndex = 0;
             this.listViewConfigItems.UseCompatibleStateImageBehavior = false;
             this.listViewConfigItems.View = System.Windows.Forms.View.Tile;
             this.listViewConfigItems.SelectedIndexChanged += new System.EventHandler(this.listViewConfigItems_SelectedIndexChanged);
@@ -105,16 +85,15 @@
             // imageListConfigItems
             // 
             this.imageListConfigItems.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageListConfigItems.ImageSize = new System.Drawing.Size(32, 32);
+            resources.ApplyResources(this.imageListConfigItems, "imageListConfigItems");
             this.imageListConfigItems.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // ConfigurationForm
             // 
             this.AcceptButton = this.buttonOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(634, 362);
             this.Controls.Add(this.listViewConfigItems);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelConfigItemUi);
@@ -125,7 +104,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.Text = "(ConfigurationForm)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigurationForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ConfigurationForm_FormClosed);
             this.Load += new System.EventHandler(this.ConfigurationForm_Load);

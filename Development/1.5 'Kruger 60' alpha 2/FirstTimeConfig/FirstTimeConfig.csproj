@@ -135,6 +135,12 @@
     <EmbeddedResource Include="WizardWelcomeDialog.resx">
       <DependentUpon>WizardWelcomeDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\ChannelList\Resources\GoogleTelemetry_en.rtf">
+      <Link>Resources\GoogleTelemetry_en.rtf</Link>
+    </None>
+    <None Include="..\ChannelList\Resources\GoogleTelemetry_es.rtf">
+      <Link>Resources\GoogleTelemetry_es.rtf</Link>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -146,12 +152,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Common.UI\Resources\Status_Pending_16x16.png">
+      <Link>Resources\Status_Pending_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Status_Wait_16x16.png">
+      <Link>Resources\Status_Wait_16x16.png</Link>
+    </Content>
     <Content Include="License.txt" />
     <Content Include="Resources\ActionBack_Medium_16.png" />
     <Content Include="Resources\ActionForward_Medium_16.png" />
     <Content Include="Resources\WizardTop.png" />
     <None Include="Resources\Exclamation_48x48.png" />
     <None Include="Resources\Firewall_48x48.png" />
+    <None Include="Resources\Readme_en.rtf" />
+    <None Include="Resources\Readme_es.rtf" />
     <None Include="Resources\WizardSide.png" />
     <None Include="Resources\WizardSidePattern.png" />
     <Content Include="Resources\Warning_48x48.png" />

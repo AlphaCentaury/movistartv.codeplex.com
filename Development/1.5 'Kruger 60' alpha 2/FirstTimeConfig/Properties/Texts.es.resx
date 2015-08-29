@@ -117,13 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AnalyticsInfo" xml:space="preserve">
-    <value>Los datos se envían de forma anónima a los servidores web de Google Analytics. No se envía ningún dato personal o que permita identificarle a usted.
-La recopilación de esta información nos ayuda a mejorar el programa mediante una mejor comprensión de los patrones de uso del programa y nos permite intentar detectar problemas y errores.</value>
-  </data>
   <data name="AnalyticsKeepChecked" xml:space="preserve">
     <value>Por favor, ¡mantenga esta opción seleccionada!
-La recopilación de datos de uso nos ayuda a mejorar el programa y esto es crucial en las versiones preliminares.</value>
+La recopilación de datos de uso nos ayuda a mejorar el programa y ésto es crucial en las versiones preliminares.</value>
   </data>
   <data name="ConfigurationCreateException" xml:space="preserve">
     <value>No ha sido posible crear el archivo de configuración. Se ha producido un error.
@@ -137,15 +133,25 @@ El proceso de configuración inicial ha finalizado y la aplicación ya está lis
   <data name="ConfirmUserCancel" xml:space="preserve">
     <value>¿Está seguro de que desea cancelar la configuración de la aplicación?</value>
   </data>
-  <data name="DownloadEmbInfo" xml:space="preserve">
-    <value>La página de descargas de Microsoft ofrece múltiples descargas. Asegurese de seleccionar e instalar el siguiente archivo:
-- 'ESN\x64\SQLServer2005_EMB.msi' si se está ejecutando Windows de 64 bits
-- 'ESN\x86\SQLServer2005_EMB.msi' en cualquier otro caso</value>
+  <data name="DownloadEmbFile" xml:space="preserve">
+    <value>ESN\x64\SQLServer2005_EMB.msi</value>
   </data>
-  <data name="DownloadSqlCeInfo" xml:space="preserve">
-    <value>La página de descargas de Microsoft ofrece múltiples descargas. Asegurese de seleccionar e instalar el siguiente archivo:
-- 'ESN\SSCERuntime_x64-ESN.exe' si se está ejecutando Windows de 64 bits
-- 'ESN\SSCERuntime_x86-ESN.exe' en cualquier otro caso</value>
+  <data name="DownloadEmbFile32bit" xml:space="preserve">
+    <value>ESN\x86\SQLServer2005_EMB.msi</value>
+  </data>
+  <data name="DownloadFromVendor32bit" xml:space="preserve">
+    <value>La página de descargas de {0} ofrece múltiples descargas. Puesto que está ejecutando una versión de 32 bits de Windows, asegurese de seleccionar e instalar el siguiente archivo:
+'{1}'</value>
+  </data>
+  <data name="DownloadFromVendor64bit" xml:space="preserve">
+    <value>La página de descargas de {0} ofrece múltiples descargas. Puesto que está ejecutando una versión de 64 bits de Windows, asegurese de seleccionar e instalar el siguiente archivo:
+'{1}'</value>
+  </data>
+  <data name="DownloadSqlCeFile" xml:space="preserve">
+    <value>ESN\SSCERuntime_x64-ESN.exe</value>
+  </data>
+  <data name="DownloadSqlCeFile32bit" xml:space="preserve">
+    <value>ESN\SSCERuntime_x86-ESN.exe</value>
   </data>
   <data name="DownloadUrlEmb" xml:space="preserve">
     <value>http://www.microsoft.com/es-es/download/details.aspx?id=20101</value>
@@ -184,7 +190,11 @@ Please verify the value of the 'ForceUICulture' program argument.</value>
     <value>Se ha cancelado la modificación de la configuración del cortafuegos.</value>
   </data>
   <data name="FirewallVlcRuleDescription" xml:space="preserve">
-    <value>Permitir conexiones {1} entrantes al reproductor VLC</value>
+    <value>Permitir conexiones {0} entrantes al reproductor VLC</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GoogleTelemetry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\channellist\resources\googletelemetry_es.rtf;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="IsEmbInstalledException" xml:space="preserve">
     <value>No ha sido posible determinar si el componente Microsoft® Exception Message Box se encuentra instalado.
@@ -247,6 +257,26 @@ La versión actualmente instalada es {1}.</value>
     <value>La librería VLC versión {0} (o superior) no está instalada en este equipo.
 La versión actualmente instalada es {1}.</value>
   </data>
+  <data name="LaunchProgramException" xml:space="preserve">
+    <value>No ha sido posible ejecutar el programa '{0}'.
+
+{1}</value>
+  </data>
+  <data name="LaunchSetupError" xml:space="preserve">
+    <value>El proceso de instalación de {0} ha finalizado con error (código: {1:N0}).
+
+Intente ejecutar el programa de instalación de nuevo.</value>
+  </data>
+  <data name="LaunchSetupException" xml:space="preserve">
+    <value>No ha sido posible ejecutar el archivo de instalación '{0}' para '{1}.
+
+{2}</value>
+  </data>
+  <data name="LaunchSetupSuccess" xml:space="preserve">
+    <value>El proceso de instalación de {0} ha finalizado.
+
+Haga clic en 'Comprobar' para verificar la correcta instalación del componente.</value>
+  </data>
   <data name="OpenFileVlcFilter" xml:space="preserve">
     <value>Reproductor VLC|vlc.exe|Programas|*.exe</value>
   </data>
@@ -272,6 +302,12 @@ Si sobreescribe el archivo se perderá cualquier configuración personalizada.
   <data name="ProductShortName" xml:space="preserve">
     <value>v1.5 “Kruger 60” alpha 2</value>
   </data>
+  <data name="Readme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\readme_es.rtf;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RedistSetupInstalling" xml:space="preserve">
+    <value>Instalando {0}...</value>
+  </data>
   <data name="SaveLocationMoviesFolder" xml:space="preserve">
     <value>Películas</value>
   </data>
@@ -289,6 +325,9 @@ Si sobreescribe el archivo se perderá cualquier configuración personalizada.
   </data>
   <data name="TaskSchedulerFolderDvbIpTv" xml:space="preserve">
     <value>Carpeta DVB-IPTV</value>
+  </data>
+  <data name="TelemetryHelpCaption" xml:space="preserve">
+    <value>Recolección de datos del programa</value>
   </data>
   <data name="TestVlcInstallationException" xml:space="preserve">
     <value>No es posible determinar si el reproductor VLC está correctamente instalado.

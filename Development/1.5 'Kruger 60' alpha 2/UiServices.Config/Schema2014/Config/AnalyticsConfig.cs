@@ -10,14 +10,14 @@ using System.Xml.Serialization;
 namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
 {
     [Serializable]
-    [XmlType(TypeName = "AnalyticsConfig", Namespace = ConfigCommon.ConfigXmlNamespace)]
-    public class AnalyticsConfig
+    [XmlType(TypeName = "TelemetryConfiguration", Namespace = ConfigCommon.ConfigXmlNamespace)]
+    public class TelemetryConfiguration
     {
-        public AnalyticsConfig()
+        public TelemetryConfiguration()
         {
         } // constructor
 
-        public AnalyticsConfig(bool enabled, bool usage, bool exceptions)
+        public TelemetryConfiguration(bool enabled, bool usage, bool exceptions)
         {
             Enabled = enabled;
             Usage = usage;

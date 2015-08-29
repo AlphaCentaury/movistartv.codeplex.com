@@ -18,7 +18,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         public static UiBroadcastListModeSettings GetDefaultSettings(View mode)
         {
             var result = new UiBroadcastListModeSettings();
-            result.Sort = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, false, 3);
+            result.Sort = ServiceSortComparer.GetSuggestedSortColumns(UiBroadcastListColumn.Number, true, 3);
 
             switch (mode)
             {

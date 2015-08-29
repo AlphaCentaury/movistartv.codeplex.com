@@ -95,7 +95,6 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemRecordingsManage = new System.Windows.Forms.ToolStripMenuItem();
             this.separatorRecordings1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemRecordingsRepair = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemRecordingsImport = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemEpg = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemEpgNow = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemEpgToday = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,13 +117,15 @@ namespace Project.DvbIpTv.ChannelList
             this.contextMenuListShow = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuListRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuListShowWith = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.separatorContextList1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuListMode = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.separatorContextList2 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuListCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuListCopyURL = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuListCopyRow = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuListCopyAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.separatorContextList3 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuListExportM3u = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuListProperties = new System.Windows.Forms.ToolStripMenuItem();
             this.labelNotification = new System.Windows.Forms.Label();
             this.timerDismissNotification = new System.Windows.Forms.Timer(this.components);
@@ -537,8 +538,7 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemRecordingsRecord,
             this.menuItemRecordingsManage,
             this.separatorRecordings1,
-            this.menuItemRecordingsRepair,
-            this.menuItemRecordingsImport});
+            this.menuItemRecordingsRepair});
             this.menuItemRecordings.Name = "menuItemRecordings";
             resources.ApplyResources(this.menuItemRecordings, "menuItemRecordings");
             // 
@@ -567,13 +567,6 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemRecordingsRepair.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Repair_16x16;
             this.menuItemRecordingsRepair.Name = "menuItemRecordingsRepair";
             this.menuItemRecordingsRepair.Click += new System.EventHandler(this.menuItemRecordingsRepair_Click);
-            // 
-            // menuItemRecordingsImport
-            // 
-            resources.ApplyResources(this.menuItemRecordingsImport, "menuItemRecordingsImport");
-            this.menuItemRecordingsImport.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Import_16x16;
-            this.menuItemRecordingsImport.Name = "menuItemRecordingsImport";
-            this.menuItemRecordingsImport.Click += new System.EventHandler(this.menuItemRecordingsImport_Click);
             // 
             // menuItemEpg
             // 
@@ -707,9 +700,9 @@ namespace Project.DvbIpTv.ChannelList
             this.contextMenuListShow,
             this.contextMenuListRecord,
             this.contextMenuListShowWith,
-            this.toolStripSeparator1,
+            this.separatorContextList1,
             this.contextMenuListMode,
-            this.toolStripSeparator2,
+            this.separatorContextList2,
             this.contextMenuListCopy,
             this.contextMenuListProperties});
             this.contextMenuList.Name = "contextMenuList";
@@ -736,10 +729,10 @@ namespace Project.DvbIpTv.ChannelList
             resources.ApplyResources(this.contextMenuListShowWith, "contextMenuListShowWith");
             this.contextMenuListShowWith.Click += new System.EventHandler(this.contextMenuListShowWith_Click);
             // 
-            // toolStripSeparator1
+            // separatorContextList1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.separatorContextList1.Name = "separatorContextList1";
+            resources.ApplyResources(this.separatorContextList1, "separatorContextList1");
             // 
             // contextMenuListMode
             // 
@@ -747,17 +740,19 @@ namespace Project.DvbIpTv.ChannelList
             resources.ApplyResources(this.contextMenuListMode, "contextMenuListMode");
             this.contextMenuListMode.Click += new System.EventHandler(this.contextMenuListMode_Click);
             // 
-            // toolStripSeparator2
+            // separatorContextList2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            this.separatorContextList2.Name = "separatorContextList2";
+            resources.ApplyResources(this.separatorContextList2, "separatorContextList2");
             // 
             // contextMenuListCopy
             // 
             this.contextMenuListCopy.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contextMenuListCopyURL,
             this.contextMenuListCopyRow,
-            this.contextMenuListCopyAll});
+            this.contextMenuListCopyAll,
+            this.separatorContextList3,
+            this.contextMenuListExportM3u});
             this.contextMenuListCopy.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Copy_Clip_16x16;
             this.contextMenuListCopy.Name = "contextMenuListCopy";
             resources.ApplyResources(this.contextMenuListCopy, "contextMenuListCopy");
@@ -782,6 +777,17 @@ namespace Project.DvbIpTv.ChannelList
             this.contextMenuListCopyAll.Name = "contextMenuListCopyAll";
             resources.ApplyResources(this.contextMenuListCopyAll, "contextMenuListCopyAll");
             this.contextMenuListCopyAll.Click += new System.EventHandler(this.contextMenuListCopyAll_Click);
+            // 
+            // separatorContextList3
+            // 
+            this.separatorContextList3.Name = "separatorContextList3";
+            resources.ApplyResources(this.separatorContextList3, "separatorContextList3");
+            // 
+            // contextMenuListExportM3u
+            // 
+            resources.ApplyResources(this.contextMenuListExportM3u, "contextMenuListExportM3u");
+            this.contextMenuListExportM3u.Name = "contextMenuListExportM3u";
+            this.contextMenuListExportM3u.Click += new System.EventHandler(this.contextMenuListExportM3u_Click);
             // 
             // contextMenuListProperties
             // 
@@ -913,7 +919,6 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsManage;
         private System.Windows.Forms.ToolStripSeparator separatorRecordings1;
         private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsRepair;
-        private System.Windows.Forms.ToolStripMenuItem menuItemRecordingsImport;
         private System.Windows.Forms.ToolStripMenuItem menuItemDvbPackages;
         private System.Windows.Forms.ToolStripMenuItem menuItemPackagesSelect;
         private System.Windows.Forms.ToolStripMenuItem menuItemPackagesManage;
@@ -950,12 +955,12 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ToolStripMenuItem menuItemEpgTomorrow;
         private System.Windows.Forms.ContextMenuStrip contextMenuList;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListMode;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator separatorContextList2;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListCopy;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyRow;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListCopyAll;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListProperties;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator separatorContextList1;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListShow;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListRecord;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListShowWith;
@@ -974,5 +979,7 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ToolStripMenuItem menuItemChannelEditList;
         private UiServices.Common.Controls.ListViewSortable listViewChannelList;
         private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavoritesAdd;
+        private System.Windows.Forms.ToolStripSeparator separatorContextList3;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuListExportM3u;
     }
 }

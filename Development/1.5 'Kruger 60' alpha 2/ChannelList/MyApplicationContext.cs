@@ -115,9 +115,9 @@ namespace Project.DvbIpTv.ChannelList
 
                 BasicGoogleTelemetry.Init(Properties.InvariantTexts.AnalyticsGoogleTrackingId,
                     AppUiConfiguration.Current.AnalyticsClientId,
-                    AppUiConfiguration.Current.User.Analytics.Enabled,
-                    AppUiConfiguration.Current.User.Analytics.Usage,
-                    AppUiConfiguration.Current.User.Analytics.Exceptions);
+                    AppUiConfiguration.Current.User.Telemetry.Enabled,
+                    AppUiConfiguration.Current.User.Telemetry.Usage,
+                    AppUiConfiguration.Current.User.Telemetry.Exceptions);
 
                 BasicGoogleTelemetry.SendScreenHit("SplashScreen");
 

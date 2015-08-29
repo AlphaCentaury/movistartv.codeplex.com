@@ -2,6 +2,7 @@
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Project.DvbIpTv.Common.Telemetry;
+using Project.DvbIpTv.UiServices.Common.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +45,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
         private void linkAnalyticsHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show(this, Properties.Texts.AnalyticsInfo, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            HelpDialog.ShowRtfHelp(this, Properties.Texts.GoogleTelemetry, Properties.Texts.TelemetryHelpCaption);
         } // linkAnalyticsHelp_LinkClicked
     } // class WizardWelcomeDialog
 } // namespace

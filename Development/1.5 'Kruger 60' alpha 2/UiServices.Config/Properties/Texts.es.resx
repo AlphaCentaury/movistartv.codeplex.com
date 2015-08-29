@@ -266,6 +266,39 @@ Por favor, instale la aplicación utilizando el instalador oficial o repare la i
     <value>Cargando la configuración de la aplicación...</value>
   </data>
   <data name="LoadProgress_UserConfig" xml:space="preserve">
-    <value>Loading user configuration and preferences...</value>
+    <value>Leyendo la configuración de usuario y preferencias...</value>
+  </data>
+  <data name="DvbServiceTypeDescription_01" xml:space="preserve">
+    <value>TV SD</value>
+  </data>
+  <data name="DvbServiceTypeDescription_02" xml:space="preserve">
+    <value>Radio (MPEG-1)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_03" xml:space="preserve">
+    <value>Teletexto</value>
+  </data>
+  <data name="DvbServiceTypeDescription_06" xml:space="preserve">
+    <value>Mosaico</value>
+  </data>
+  <data name="DvbServiceTypeDescription_10" xml:space="preserve">
+    <value>Radio HD</value>
+  </data>
+  <data name="DvbServiceTypeDescription_11" xml:space="preserve">
+    <value>Mosaico HD</value>
+  </data>
+  <data name="DvbServiceTypeDescription_12" xml:space="preserve">
+    <value>Datos</value>
+  </data>
+  <data name="DvbServiceTypeDescription_16" xml:space="preserve">
+    <value>DVB MHP</value>
+  </data>
+  <data name="DvbServiceTypeDescription_17" xml:space="preserve">
+    <value>TV HD (MPEG-2)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_22" xml:space="preserve">
+    <value>TV SD (AAC)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_25" xml:space="preserve">
+    <value>TV HD</value>
   </data>
 </root>

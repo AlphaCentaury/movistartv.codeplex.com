@@ -23,14 +23,29 @@ All rights reserved, except those granted by the governing license of this softw
       </Component>
     </ComponentGroup>
 
+    <ComponentGroup Id="Redist">
+      <Component Id="x86RedistEmb" Directory="x86RedistFolder">
+        <File Id ="x86RedistEmb" Source="$(var.SolutionDir)Setup\MainSetup\Redist\!(loc.RedistLanguage)\x86/SQLServer2005_EMB.msi" />
+      </Component>
+      <Component Id="x64RedistEmb" Directory="x64RedistFolder">
+        <File Id ="x64RedistEmb" Source="$(var.SolutionDir)Setup\MainSetup\Redist\!(loc.RedistLanguage)\x64/SQLServer2005_EMB.msi" />
+      </Component>
+      <Component Id="x86RedistSqlCe" Directory="RedistFolder">
+        <File Id ="x86RedistSqlCe" Source="$(var.SolutionDir)Setup\MainSetup\Redist\!(loc.RedistLanguage)\SSCERuntime_x86-!(loc.RedistLanguage).exe" />
+      </Component>
+      <Component Id="x64RedistSqlCe" Directory="RedistFolder">
+        <File Id ="x64RedistSqlCe" Source="$(var.SolutionDir)Setup\MainSetup\Redist\!(loc.RedistLanguage)\SSCERuntime_x64-!(loc.RedistLanguage).exe" />
+      </Component>
+    </ComponentGroup>
+
     <ComponentGroup Id="CommonComponents">
       <Component Id="CommonAssemblies" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.CommonAssemblies)">
-        <File Id="DvbIpTypes.dll" Source="$(var.DvbIpTypes.TargetDir)DvbIpTypes.dll" />
+        <File Id="Etsi.Ts102034.dll" Source="$(var.Etsi.Ts102034.TargetDir)Etsi.Ts102034.dll" />
         <File Id="DvbStpClient.dll" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.dll" />
         <File Id="Project.Common.dll" Source="$(var.Project.Common.TargetDir)Project.Common.dll" />
         <File Id="Services.SqlServerCE.dll" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.dll" />
         <File Id="UiServices.Config.dll" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.dll" />
-        <File Id="UiServices.Controls.dll" Source="$(var.UiServices.Controls.TargetDir)UiServices.Controls.dll" />
+        <File Id="UiServices.Common.dll" Source="$(var.UiServices.Common.TargetDir)UiServices.Common.dll" />
         <File Id="UiServices.Discovery.dll" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.dll" />
         <File Id="UiServices.DvbStpClient.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.dll" />
         <File Id="UiServices.Forms.dll" Source="$(var.UiServices.Forms.TargetDir)UiServices.Forms.dll" />
@@ -39,12 +54,12 @@ All rights reserved, except those granted by the governing license of this softw
       </Component>
 
       <Component Id="CommonAssemblies.PDB" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.CommonAssemblies.PDB)">
-        <File Id="DvbIpTypes.pdb" Source="$(var.DvbIpTypes.TargetDir)DvbIpTypes.pdb" />
+        <File Id="Etsi.Ts102034.pdb" Source="$(var.Etsi.Ts102034.TargetDir)Etsi.Ts102034.pdb" />
         <File Id="DvbStpClient.pdb" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.pdb" />
         <File Id="Project.Common.pdb" Source="$(var.Project.Common.TargetDir)Project.Common.pdb" />
         <File Id="Services.SqlServerCE.pdb" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.pdb" />
         <File Id="UiServices.Config.pdb" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.pdb" />
-        <File Id="UiServices.Controls.pdb" Source="$(var.UiServices.Controls.TargetDir)UiServices.Controls.pdb" />
+        <File Id="UiServices.Common.pdb" Source="$(var.UiServices.Common.TargetDir)UiServices.Common.pdb" />
         <File Id="UiServices.Discovery.pdb" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.pdb" />
         <File Id="UiServices.DvbStpClient.pdb" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.pdb" />
         <File Id="UiServices.Forms.pdb" Source="$(var.UiServices.Forms.TargetDir)UiServices.Forms.pdb" />
@@ -54,7 +69,7 @@ All rights reserved, except those granted by the governing license of this softw
     <ComponentGroup Id="CommonComponents.Localization">
       <Component Id="CommonAssemblies.Localization.es" Directory="InstallFolder.es" Guid="$(var.Guid.Component.CommonAssemblies.Localization.es)">
         <!--
-        <File Id="DvbIpTypes.es.dll" Source="$(var.DvbIpTypes.TargetDir)es\DvbIpTypes.resources.dll" />
+        <File Id="Etsi.Ts102034.es.dll" Source="$(var.Etsi.Ts102034.TargetDir)es\Etsi.Ts102034.resources.dll" />
         <File Id="DvbStpClient.es.dll" Source="$(var.DvbStpClient.TargetDir)es\DvbStpClient.resources.dll" />
         -->
         <File Id="Project.Common.es.dll" Source="$(var.Project.Common.TargetDir)es\Project.Common.resources.dll" />
@@ -62,7 +77,7 @@ All rights reserved, except those granted by the governing license of this softw
         <File Id="Services.SqlServerCE.es.dll" Source="$(var.Services.SqlServerCE.TargetDir)es\Services.SqlServerCE.resources.dll" />
         -->
         <File Id="UiServices.Config.es.dll" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Config.resources.dll" />
-        <File Id="UiServices.Controls.es.dll" Source="$(var.UiServices.Controls.TargetDir)es\UiServices.Controls.resources.dll" />
+        <File Id="UiServices.Common.es.dll" Source="$(var.UiServices.Common.TargetDir)es\UiServices.Common.resources.dll" />
         <File Id="UiServices.Discovery.es.dll" Source="$(var.UiServices.Discovery.TargetDir)es\UiServices.Discovery.resources.dll" />
         <File Id="UiServices.DvbStpClient.es.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)es\UiServices.DvbStpClient.resources.dll" />
         <File Id="UiServices.Forms.es.dll" Source="$(var.UiServices.Forms.TargetDir)es\UiServices.Forms.resources.dll" />

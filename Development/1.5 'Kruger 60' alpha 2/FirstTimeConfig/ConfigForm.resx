@@ -291,6 +291,156 @@
   <data name="wizardControl.Appearance" type="System.Windows.Forms.TabAppearance, System.Windows.Forms">
     <value>Buttons</value>
   </data>
+  <data name="checkReadmeAck.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkReadmeAck.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkReadmeAck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 225</value>
+  </data>
+  <data name="checkReadmeAck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>361, 17</value>
+  </data>
+  <data name="checkReadmeAck.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="checkReadmeAck.Text" xml:space="preserve">
+    <value>I have read and understood the information above and wish to proceed</value>
+  </data>
+  <data name="&gt;&gt;checkReadmeAck.Name" xml:space="preserve">
+    <value>checkReadmeAck</value>
+  </data>
+  <data name="&gt;&gt;checkReadmeAck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkReadmeAck.Parent" xml:space="preserve">
+    <value>wizardPageReadme</value>
+  </data>
+  <data name="&gt;&gt;checkReadmeAck.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="richTextReadme.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 57</value>
+  </data>
+  <data name="richTextReadme.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
+    <value>ForcedVertical</value>
+  </data>
+  <data name="richTextReadme.Size" type="System.Drawing.Size, System.Drawing">
+    <value>474, 161</value>
+  </data>
+  <data name="richTextReadme.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="richTextReadme.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="richTextReadme.ZoomFactor" type="System.Single, mscorlib">
+    <value>0.75</value>
+  </data>
+  <data name="&gt;&gt;richTextReadme.Name" xml:space="preserve">
+    <value>richTextReadme</value>
+  </data>
+  <data name="&gt;&gt;richTextReadme.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;richTextReadme.Parent" xml:space="preserve">
+    <value>wizardPageReadme</value>
+  </data>
+  <data name="&gt;&gt;richTextReadme.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pictureIconReadme.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureIconReadme.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 6</value>
+  </data>
+  <data name="pictureIconReadme.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pictureIconReadme.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>CenterImage</value>
+  </data>
+  <data name="pictureIconReadme.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureIconReadme.Name" xml:space="preserve">
+    <value>pictureIconReadme</value>
+  </data>
+  <data name="&gt;&gt;pictureIconReadme.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureIconReadme.Parent" xml:space="preserve">
+    <value>wizardPageReadme</value>
+  </data>
+  <data name="&gt;&gt;pictureIconReadme.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelReadmeWarning.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="labelReadmeWarning.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelReadmeWarning.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 6</value>
+  </data>
+  <data name="labelReadmeWarning.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 48</value>
+  </data>
+  <data name="labelReadmeWarning.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelReadmeWarning.Text" xml:space="preserve">
+    <value>Please read the following information to the end before using this program.</value>
+  </data>
+  <data name="labelReadmeWarning.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;labelReadmeWarning.Name" xml:space="preserve">
+    <value>labelReadmeWarning</value>
+  </data>
+  <data name="&gt;&gt;labelReadmeWarning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelReadmeWarning.Parent" xml:space="preserve">
+    <value>wizardPageReadme</value>
+  </data>
+  <data name="&gt;&gt;labelReadmeWarning.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="wizardPageReadme.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="wizardPageReadme.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="wizardPageReadme.Size" type="System.Drawing.Size, System.Drawing">
+    <value>485, 230</value>
+  </data>
+  <data name="wizardPageReadme.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="wizardPageReadme.Text" xml:space="preserve">
+    <value>Readme</value>
+  </data>
+  <data name="wizardPageReadme.ToolTipText" xml:space="preserve">
+    <value>Important information regarding the use of this program</value>
+  </data>
+  <data name="&gt;&gt;wizardPageReadme.Name" xml:space="preserve">
+    <value>wizardPageReadme</value>
+  </data>
+  <data name="&gt;&gt;wizardPageReadme.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardPageReadme.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;wizardPageReadme.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="buttonTestVlc.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -562,7 +712,7 @@
     <value>8</value>
   </data>
   <data name="groupVlc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 127</value>
+    <value>7, 138</value>
   </data>
   <data name="groupVlc.Size" type="System.Drawing.Size, System.Drawing">
     <value>475, 109</value>
@@ -580,16 +730,76 @@
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupVlc.Parent" xml:space="preserve">
-    <value>wizardPage1</value>
+    <value>wizardPagePrerequisites</value>
   </data>
   <data name="&gt;&gt;groupVlc.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="linkLabelSetupSqlCe.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="linkLabelSetupSqlCe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="linkLabelSetupSqlCe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 100</value>
+  </data>
+  <data name="linkLabelSetupSqlCe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 13</value>
+  </data>
+  <data name="linkLabelSetupSqlCe.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="linkLabelSetupSqlCe.Text" xml:space="preserve">
+    <value>Install from local setup file</value>
+  </data>
+  <data name="&gt;&gt;linkLabelSetupSqlCe.Name" xml:space="preserve">
+    <value>linkLabelSetupSqlCe</value>
+  </data>
+  <data name="&gt;&gt;linkLabelSetupSqlCe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelSetupSqlCe.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;linkLabelSetupSqlCe.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="linkLabelSetupEmb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="linkLabelSetupEmb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="linkLabelSetupEmb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 50</value>
+  </data>
+  <data name="linkLabelSetupEmb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 13</value>
+  </data>
+  <data name="linkLabelSetupEmb.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="linkLabelSetupEmb.Text" xml:space="preserve">
+    <value>Install from local setup file</value>
+  </data>
+  <data name="&gt;&gt;linkLabelSetupEmb.Name" xml:space="preserve">
+    <value>linkLabelSetupEmb</value>
+  </data>
+  <data name="&gt;&gt;linkLabelSetupEmb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkLabelSetupEmb.Parent" xml:space="preserve">
+    <value>groupPrerequisites</value>
+  </data>
+  <data name="&gt;&gt;linkLabelSetupEmb.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="pictureBoxSqlCeOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBoxSqlCeOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 84</value>
+    <value>6, 74</value>
   </data>
   <data name="pictureBoxSqlCeOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 16</value>
@@ -610,19 +820,19 @@
     <value>groupPrerequisites</value>
   </data>
   <data name="&gt;&gt;pictureBoxSqlCeOk.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="buttonVerifySqlCe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonVerifySqlCe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>369, 81</value>
+    <value>369, 69</value>
   </data>
   <data name="buttonVerifySqlCe.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 25</value>
   </data>
   <data name="buttonVerifySqlCe.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="buttonVerifySqlCe.Text" xml:space="preserve">
     <value>&amp;Verify...</value>
@@ -643,7 +853,7 @@
     <value>groupPrerequisites</value>
   </data>
   <data name="&gt;&gt;buttonVerifySqlCe.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="linkLabelPrerequisiteSqlCe.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -652,7 +862,7 @@
     <value>NoControl</value>
   </data>
   <data name="linkLabelPrerequisiteSqlCe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 87</value>
+    <value>217, 100</value>
   </data>
   <data name="linkLabelPrerequisiteSqlCe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -661,7 +871,7 @@
     <value>146, 13</value>
   </data>
   <data name="linkLabelPrerequisiteSqlCe.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="linkLabelPrerequisiteSqlCe.Text" xml:space="preserve">
     <value>Download from microsoft.com</value>
@@ -676,7 +886,7 @@
     <value>groupPrerequisites</value>
   </data>
   <data name="&gt;&gt;linkLabelPrerequisiteSqlCe.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="labelSqlCe.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -688,7 +898,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelSqlCe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 87</value>
+    <value>26, 75</value>
   </data>
   <data name="labelSqlCe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -697,7 +907,7 @@
     <value>184, 13</value>
   </data>
   <data name="labelSqlCe.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="labelSqlCe.Text" xml:space="preserve">
     <value>Microsoft® SQL Server® CE 4.0 SP1</value>
@@ -712,13 +922,13 @@
     <value>groupPrerequisites</value>
   </data>
   <data name="&gt;&gt;labelSqlCe.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="pictureBoxEmbOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBoxEmbOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 53</value>
+    <value>6, 24</value>
   </data>
   <data name="pictureBoxEmbOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 16</value>
@@ -739,46 +949,19 @@
     <value>groupPrerequisites</value>
   </data>
   <data name="&gt;&gt;pictureBoxEmbOk.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="pictureBoxNetOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxNetOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 24</value>
-  </data>
-  <data name="pictureBoxNetOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
-  </data>
-  <data name="pictureBoxNetOk.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>CenterImage</value>
-  </data>
-  <data name="pictureBoxNetOk.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxNetOk.Name" xml:space="preserve">
-    <value>pictureBoxNetOk</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxNetOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxNetOk.Parent" xml:space="preserve">
-    <value>groupPrerequisites</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxNetOk.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="buttonVerifyEmb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonVerifyEmb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>369, 50</value>
+    <value>369, 19</value>
   </data>
   <data name="buttonVerifyEmb.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 25</value>
   </data>
   <data name="buttonVerifyEmb.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="buttonVerifyEmb.Text" xml:space="preserve">
     <value>&amp;Verify...</value>
@@ -799,39 +982,6 @@
     <value>groupPrerequisites</value>
   </data>
   <data name="&gt;&gt;buttonVerifyEmb.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="buttonVerifyNet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonVerifyNet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>369, 19</value>
-  </data>
-  <data name="buttonVerifyNet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 25</value>
-  </data>
-  <data name="buttonVerifyNet.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="buttonVerifyNet.Text" xml:space="preserve">
-    <value>&amp;Verify...</value>
-  </data>
-  <data name="buttonVerifyNet.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="buttonVerifyNet.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;buttonVerifyNet.Name" xml:space="preserve">
-    <value>buttonVerifyNet</value>
-  </data>
-  <data name="&gt;&gt;buttonVerifyNet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonVerifyNet.Parent" xml:space="preserve">
-    <value>groupPrerequisites</value>
-  </data>
-  <data name="&gt;&gt;buttonVerifyNet.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="linkLabelPrerequisiteEmb.AutoSize" type="System.Boolean, mscorlib">
@@ -841,7 +991,7 @@
     <value>NoControl</value>
   </data>
   <data name="linkLabelPrerequisiteEmb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 56</value>
+    <value>217, 50</value>
   </data>
   <data name="linkLabelPrerequisiteEmb.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -850,7 +1000,7 @@
     <value>146, 13</value>
   </data>
   <data name="linkLabelPrerequisiteEmb.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="linkLabelPrerequisiteEmb.Text" xml:space="preserve">
     <value>Download from microsoft.com</value>
@@ -877,7 +1027,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelEmb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 56</value>
+    <value>26, 25</value>
   </data>
   <data name="labelEmb.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -886,7 +1036,7 @@
     <value>177, 13</value>
   </data>
   <data name="labelEmb.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>0</value>
   </data>
   <data name="labelEmb.Text" xml:space="preserve">
     <value>Microsoft® Exception Message Box</value>
@@ -903,83 +1053,14 @@
   <data name="&gt;&gt;labelEmb.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="linkLabelPrerequisiteNet.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="linkLabelPrerequisiteNet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="linkLabelPrerequisiteNet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 25</value>
-  </data>
-  <data name="linkLabelPrerequisiteNet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="linkLabelPrerequisiteNet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 13</value>
-  </data>
-  <data name="linkLabelPrerequisiteNet.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="linkLabelPrerequisiteNet.Text" xml:space="preserve">
-    <value>Download from microsoft.com</value>
-  </data>
-  <data name="&gt;&gt;linkLabelPrerequisiteNet.Name" xml:space="preserve">
-    <value>linkLabelPrerequisiteNet</value>
-  </data>
-  <data name="&gt;&gt;linkLabelPrerequisiteNet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;linkLabelPrerequisiteNet.Parent" xml:space="preserve">
-    <value>groupPrerequisites</value>
-  </data>
-  <data name="&gt;&gt;linkLabelPrerequisiteNet.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="labelNet.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelNet.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt</value>
-  </data>
-  <data name="labelNet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelNet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 25</value>
-  </data>
-  <data name="labelNet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="labelNet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 13</value>
-  </data>
-  <data name="labelNet.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="labelNet.Text" xml:space="preserve">
-    <value>Microsoft® .NET Framework 3.5 SP1</value>
-  </data>
-  <data name="&gt;&gt;labelNet.Name" xml:space="preserve">
-    <value>labelNet</value>
-  </data>
-  <data name="&gt;&gt;labelNet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelNet.Parent" xml:space="preserve">
-    <value>groupPrerequisites</value>
-  </data>
-  <data name="&gt;&gt;labelNet.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
   <data name="groupPrerequisites.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>
   </data>
   <data name="groupPrerequisites.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 115</value>
+    <value>475, 126</value>
   </data>
   <data name="groupPrerequisites.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="groupPrerequisites.Text" xml:space="preserve">
     <value>Download and install pre-requisites</value>
@@ -991,46 +1072,43 @@
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupPrerequisites.Parent" xml:space="preserve">
-    <value>wizardPage1</value>
+    <value>wizardPagePrerequisites</value>
   </data>
   <data name="&gt;&gt;groupPrerequisites.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="wizardPage1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="wizardPagePrerequisites.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 25</value>
   </data>
-  <data name="wizardPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="wizardPagePrerequisites.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="wizardPage1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="wizardPagePrerequisites.Size" type="System.Drawing.Size, System.Drawing">
     <value>485, 230</value>
   </data>
-  <data name="wizardPage1.TabIndex" type="System.Int32, mscorlib">
+  <data name="wizardPagePrerequisites.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="wizardPage1.Text" xml:space="preserve">
-    <value>wizardPage1</value>
+  <data name="wizardPagePrerequisites.Text" xml:space="preserve">
+    <value>Prerequisites</value>
   </data>
-  <data name="wizardPage1.ToolTipText" xml:space="preserve">
-    <value>Step 1: Ensuring required software is installed</value>
+  <data name="wizardPagePrerequisites.ToolTipText" xml:space="preserve">
+    <value>Step 1: Ensuring the required software is installed</value>
   </data>
-  <data name="&gt;&gt;wizardPage1.Name" xml:space="preserve">
-    <value>wizardPage1</value>
+  <data name="&gt;&gt;wizardPagePrerequisites.Name" xml:space="preserve">
+    <value>wizardPagePrerequisites</value>
   </data>
-  <data name="&gt;&gt;wizardPage1.Type" xml:space="preserve">
+  <data name="&gt;&gt;wizardPagePrerequisites.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;wizardPage1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;wizardPagePrerequisites.Parent" xml:space="preserve">
     <value>wizardControl</value>
   </data>
-  <data name="&gt;&gt;wizardPage1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;wizardPagePrerequisites.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="checkAnalyticsExceptions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="checkAnalyticsExceptions.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="checkAnalyticsExceptions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1042,7 +1120,7 @@
     <value>253, 17</value>
   </data>
   <data name="checkAnalyticsExceptions.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>2</value>
   </data>
   <data name="checkAnalyticsExceptions.Text" xml:space="preserve">
     <value>Report application errors and internal exceptions</value>
@@ -1072,7 +1150,7 @@
     <value>174, 13</value>
   </data>
   <data name="linkAnalyticsHelp.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="linkAnalyticsHelp.Text" xml:space="preserve">
     <value>What is this? Why is this important?</value>
@@ -1094,9 +1172,6 @@
   </data>
   <data name="checkAnalyticsUsage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="checkAnalyticsUsage.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="checkAnalyticsUsage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1156,13 +1231,13 @@
     <value>3</value>
   </data>
   <data name="groupAnalytics.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 116</value>
+    <value>6, 134</value>
   </data>
   <data name="groupAnalytics.Size" type="System.Drawing.Size, System.Drawing">
     <value>473, 87</value>
   </data>
   <data name="groupAnalytics.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>1</value>
   </data>
   <data name="groupAnalytics.Text" xml:space="preserve">
     <value>Usage Data Collection</value>
@@ -1174,40 +1249,40 @@
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupAnalytics.Parent" xml:space="preserve">
-    <value>wizardPage2</value>
+    <value>wizardPageFirewall</value>
   </data>
   <data name="&gt;&gt;groupAnalytics.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="labelCreatingConfig.AutoSize" type="System.Boolean, mscorlib">
+  <data name="checkFirewallManual.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="labelCreatingConfig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="checkFirewallManual.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="labelCreatingConfig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 242</value>
+  <data name="checkFirewallManual.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 99</value>
   </data>
-  <data name="labelCreatingConfig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>297, 13</value>
+  <data name="checkFirewallManual.Size" type="System.Drawing.Size, System.Drawing">
+    <value>320, 17</value>
   </data>
-  <data name="labelCreatingConfig.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="checkFirewallManual.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="labelCreatingConfig.Text" xml:space="preserve">
-    <value>Creating application configuration and user preferences files...</value>
+  <data name="checkFirewallManual.Text" xml:space="preserve">
+    <value>I'm a computer expert and I will configure the Firewall by myself</value>
   </data>
-  <data name="&gt;&gt;labelCreatingConfig.Name" xml:space="preserve">
-    <value>labelCreatingConfig</value>
+  <data name="&gt;&gt;checkFirewallManual.Name" xml:space="preserve">
+    <value>checkFirewallManual</value>
   </data>
-  <data name="&gt;&gt;labelCreatingConfig.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;checkFirewallManual.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelCreatingConfig.Parent" xml:space="preserve">
-    <value>wizardPage2</value>
+  <data name="&gt;&gt;checkFirewallManual.Parent" xml:space="preserve">
+    <value>groupFirewall</value>
   </data>
-  <data name="&gt;&gt;labelCreatingConfig.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;checkFirewallManual.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="buttonFirewall.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1240,7 +1315,7 @@
     <value>groupFirewall</value>
   </data>
   <data name="&gt;&gt;buttonFirewall.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="labelFirewallWarning.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1267,7 +1342,7 @@
     <value>groupFirewall</value>
   </data>
   <data name="&gt;&gt;labelFirewallWarning.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="checkBoxFirewallVlc.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1297,7 +1372,7 @@
     <value>groupFirewall</value>
   </data>
   <data name="&gt;&gt;checkBoxFirewallVlc.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="checkBoxFirewallDecoder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1327,13 +1402,13 @@
     <value>groupFirewall</value>
   </data>
   <data name="&gt;&gt;checkBoxFirewallDecoder.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="groupFirewall.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 6</value>
   </data>
   <data name="groupFirewall.Size" type="System.Drawing.Size, System.Drawing">
-    <value>473, 104</value>
+    <value>473, 122</value>
   </data>
   <data name="groupFirewall.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1348,40 +1423,153 @@
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupFirewall.Parent" xml:space="preserve">
-    <value>wizardPage2</value>
+    <value>wizardPageFirewall</value>
   </data>
   <data name="&gt;&gt;groupFirewall.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
-  <data name="wizardPage2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="wizardPageFirewall.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 25</value>
   </data>
-  <data name="wizardPage2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="wizardPageFirewall.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="wizardPage2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="wizardPageFirewall.Size" type="System.Drawing.Size, System.Drawing">
     <value>485, 230</value>
   </data>
-  <data name="wizardPage2.TabIndex" type="System.Int32, mscorlib">
+  <data name="wizardPageFirewall.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="wizardPage2.Text" xml:space="preserve">
-    <value>wizardPage2</value>
+  <data name="wizardPageFirewall.Text" xml:space="preserve">
+    <value>Firewall</value>
   </data>
-  <data name="wizardPage2.ToolTipText" xml:space="preserve">
+  <data name="wizardPageFirewall.ToolTipText" xml:space="preserve">
     <value>Step 2: Windows Firewall and Software Improvement</value>
   </data>
-  <data name="&gt;&gt;wizardPage2.Name" xml:space="preserve">
-    <value>wizardPage2</value>
+  <data name="&gt;&gt;wizardPageFirewall.Name" xml:space="preserve">
+    <value>wizardPageFirewall</value>
   </data>
-  <data name="&gt;&gt;wizardPage2.Type" xml:space="preserve">
+  <data name="&gt;&gt;wizardPageFirewall.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;wizardPage2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;wizardPageFirewall.Parent" xml:space="preserve">
     <value>wizardControl</value>
   </data>
-  <data name="&gt;&gt;wizardPage2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;wizardPageFirewall.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="radioChannelSDPriority.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioChannelSDPriority.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioChannelSDPriority.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 101</value>
+  </data>
+  <data name="radioChannelSDPriority.Size" type="System.Drawing.Size, System.Drawing">
+    <value>458, 17</value>
+  </data>
+  <data name="radioChannelSDPriority.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="radioChannelSDPriority.Text" xml:space="preserve">
+    <value>Give priority to Standard Definition (SD). Corresponding HD channel number will start with 'H'</value>
+  </data>
+  <data name="&gt;&gt;radioChannelSDPriority.Name" xml:space="preserve">
+    <value>radioChannelSDPriority</value>
+  </data>
+  <data name="&gt;&gt;radioChannelSDPriority.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioChannelSDPriority.Parent" xml:space="preserve">
+    <value>groupBoxChannelNumbers</value>
+  </data>
+  <data name="&gt;&gt;radioChannelSDPriority.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radioChannelHDPriority.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioChannelHDPriority.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioChannelHDPriority.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 78</value>
+  </data>
+  <data name="radioChannelHDPriority.Size" type="System.Drawing.Size, System.Drawing">
+    <value>436, 17</value>
+  </data>
+  <data name="radioChannelHDPriority.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="radioChannelHDPriority.Text" xml:space="preserve">
+    <value>Give priority to High Definition (HD). Corresponding SD channel number will start with 'S'</value>
+  </data>
+  <data name="&gt;&gt;radioChannelHDPriority.Name" xml:space="preserve">
+    <value>radioChannelHDPriority</value>
+  </data>
+  <data name="&gt;&gt;radioChannelHDPriority.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioChannelHDPriority.Parent" xml:space="preserve">
+    <value>groupBoxChannelNumbers</value>
+  </data>
+  <data name="&gt;&gt;radioChannelHDPriority.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelChannelAssignmentExplanation.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelChannelAssignmentExplanation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 21</value>
+  </data>
+  <data name="labelChannelAssignmentExplanation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>462, 54</value>
+  </data>
+  <data name="labelChannelAssignmentExplanation.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelChannelAssignmentExplanation.Text" xml:space="preserve">
+    <value>The list of channels comprises all channels, regardless of their broadcast definition. Therefore, there will be duplicated channel numbers when the same channel is broadcasted in HD and SD.
+
+Which channels should appear first?</value>
+  </data>
+  <data name="&gt;&gt;labelChannelAssignmentExplanation.Name" xml:space="preserve">
+    <value>labelChannelAssignmentExplanation</value>
+  </data>
+  <data name="&gt;&gt;labelChannelAssignmentExplanation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelChannelAssignmentExplanation.Parent" xml:space="preserve">
+    <value>groupBoxChannelNumbers</value>
+  </data>
+  <data name="&gt;&gt;labelChannelAssignmentExplanation.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBoxChannelNumbers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 101</value>
+  </data>
+  <data name="groupBoxChannelNumbers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>474, 123</value>
+  </data>
+  <data name="groupBoxChannelNumbers.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="groupBoxChannelNumbers.Text" xml:space="preserve">
+    <value>Channels number assignment</value>
+  </data>
+  <data name="&gt;&gt;groupBoxChannelNumbers.Name" xml:space="preserve">
+    <value>groupBoxChannelNumbers</value>
+  </data>
+  <data name="&gt;&gt;groupBoxChannelNumbers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxChannelNumbers.Parent" xml:space="preserve">
+    <value>wizardPageBasic</value>
+  </data>
+  <data name="&gt;&gt;groupBoxChannelNumbers.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="checkEpgAutoUpdate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1396,7 +1584,7 @@
     <value>364, 17</value>
   </data>
   <data name="checkEpgAutoUpdate.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>2</value>
   </data>
   <data name="checkEpgAutoUpdate.Text" xml:space="preserve">
     <value>Auto-update EPG data if older than 24 hours (at the next app execution)</value>
@@ -1426,7 +1614,7 @@
     <value>404, 13</value>
   </data>
   <data name="labelEpgWarning.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>1</value>
   </data>
   <data name="labelEpgWarning.Text" xml:space="preserve">
     <value>Warning! Ony bare EPG functions are implemented and might crash from time to time</value>
@@ -1456,7 +1644,7 @@
     <value>143, 17</value>
   </data>
   <data name="checkEpg.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>0</value>
   </data>
   <data name="checkEpg.Text" xml:space="preserve">
     <value>Enable EPG functionality</value>
@@ -1480,7 +1668,7 @@
     <value>474, 89</value>
   </data>
   <data name="groupEPG.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>0</value>
   </data>
   <data name="groupEPG.Text" xml:space="preserve">
     <value>Electronic Program Guide (EPG)</value>
@@ -1492,22 +1680,85 @@
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupEPG.Parent" xml:space="preserve">
-    <value>wizardPage3</value>
+    <value>wizardPageBasic</value>
   </data>
   <data name="&gt;&gt;groupEPG.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="wizardPageBasic.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="wizardPageBasic.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="wizardPageBasic.Size" type="System.Drawing.Size, System.Drawing">
+    <value>485, 230</value>
+  </data>
+  <data name="wizardPageBasic.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="wizardPageBasic.Text" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="wizardPageBasic.ToolTipText" xml:space="preserve">
+    <value>Step 3: Basic configuration and settings</value>
+  </data>
+  <data name="&gt;&gt;wizardPageBasic.Name" xml:space="preserve">
+    <value>wizardPageBasic</value>
+  </data>
+  <data name="&gt;&gt;wizardPageBasic.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wizardPageBasic.Parent" xml:space="preserve">
+    <value>wizardControl</value>
+  </data>
+  <data name="&gt;&gt;wizardPageBasic.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labelCreatingConfig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelCreatingConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 173</value>
+  </data>
+  <data name="labelCreatingConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>469, 35</value>
+  </data>
+  <data name="labelCreatingConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelCreatingConfig.Text" xml:space="preserve">
+    <value>Creating application configuration and user preferences files...</value>
+  </data>
+  <data name="labelCreatingConfig.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="labelCreatingConfig.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;labelCreatingConfig.Name" xml:space="preserve">
+    <value>labelCreatingConfig</value>
+  </data>
+  <data name="&gt;&gt;labelCreatingConfig.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelCreatingConfig.Parent" xml:space="preserve">
+    <value>wizardPageRecordings</value>
+  </data>
+  <data name="&gt;&gt;labelCreatingConfig.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="buttonConfig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonConfig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 199</value>
+    <value>167, 141</value>
   </data>
   <data name="buttonConfig.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 25</value>
   </data>
   <data name="buttonConfig.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>1</value>
   </data>
   <data name="buttonConfig.Text" xml:space="preserve">
     <value>Config&amp;ure application</value>
@@ -1525,19 +1776,49 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonConfig.Parent" xml:space="preserve">
-    <value>wizardPage3</value>
+    <value>wizardPageRecordings</value>
   </data>
   <data name="&gt;&gt;buttonConfig.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="checkSaveSubfolder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkSaveSubfolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkSaveSubfolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 64</value>
+  </data>
+  <data name="checkSaveSubfolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>357, 17</value>
+  </data>
+  <data name="checkSaveSubfolder.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkSaveSubfolder.Text" xml:space="preserve">
+    <value>Cr&amp;eate a sub-folder. Recorded programs will be saved in this sub-folder</value>
+  </data>
+  <data name="&gt;&gt;checkSaveSubfolder.Name" xml:space="preserve">
+    <value>checkSaveSubfolder</value>
+  </data>
+  <data name="&gt;&gt;checkSaveSubfolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkSaveSubfolder.Parent" xml:space="preserve">
+    <value>groupRecordConfig</value>
+  </data>
+  <data name="&gt;&gt;checkSaveSubfolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="textSaveSubFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>102, 64</value>
+    <value>128, 83</value>
   </data>
   <data name="textSaveSubFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 20</value>
   </data>
   <data name="textSaveSubFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="textSaveSubFolder.Text" xml:space="preserve">
     <value>movistar+</value>
@@ -1549,10 +1830,10 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textSaveSubFolder.Parent" xml:space="preserve">
-    <value>groupBasicConfig</value>
+    <value>groupRecordConfig</value>
   </data>
   <data name="&gt;&gt;textSaveSubFolder.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="labelSaveSubFolder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1561,16 +1842,16 @@
     <value>NoControl</value>
   </data>
   <data name="labelSaveSubFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 67</value>
+    <value>25, 86</value>
   </data>
   <data name="labelSaveSubFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 13</value>
+    <value>97, 13</value>
   </data>
   <data name="labelSaveSubFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="labelSaveSubFolder.Text" xml:space="preserve">
-    <value>Cr&amp;eate sub-folder:</value>
+    <value>Name of the folder:</value>
   </data>
   <data name="&gt;&gt;labelSaveSubFolder.Name" xml:space="preserve">
     <value>labelSaveSubFolder</value>
@@ -1579,16 +1860,16 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelSaveSubFolder.Parent" xml:space="preserve">
-    <value>groupBasicConfig</value>
+    <value>groupRecordConfig</value>
   </data>
   <data name="&gt;&gt;labelSaveSubFolder.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="buttonBrowseSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonBrowseSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>369, 35</value>
+    <value>368, 35</value>
   </data>
   <data name="buttonBrowseSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 25</value>
@@ -1609,16 +1890,16 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonBrowseSave.Parent" xml:space="preserve">
-    <value>groupBasicConfig</value>
+    <value>groupRecordConfig</value>
   </data>
   <data name="&gt;&gt;buttonBrowseSave.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="textBoxSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 38</value>
   </data>
   <data name="textBoxSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 20</value>
+    <value>353, 20</value>
   </data>
   <data name="textBoxSave.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1630,10 +1911,10 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxSave.Parent" xml:space="preserve">
-    <value>groupBasicConfig</value>
+    <value>groupRecordConfig</value>
   </data>
   <data name="&gt;&gt;textBoxSave.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="labelSaveFolder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1660,80 +1941,61 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelSaveFolder.Parent" xml:space="preserve">
-    <value>groupBasicConfig</value>
+    <value>groupRecordConfig</value>
   </data>
   <data name="&gt;&gt;labelSaveFolder.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
-  <data name="groupBasicConfig.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 101</value>
+  <data name="groupRecordConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
   </data>
-  <data name="groupBasicConfig.Size" type="System.Drawing.Size, System.Drawing">
-    <value>475, 92</value>
+  <data name="groupRecordConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>474, 120</value>
   </data>
-  <data name="groupBasicConfig.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="groupRecordConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="groupBasicConfig.Text" xml:space="preserve">
-    <value>Recording configuration</value>
+  <data name="groupRecordConfig.Text" xml:space="preserve">
+    <value>Recordings configuration</value>
   </data>
-  <data name="&gt;&gt;groupBasicConfig.Name" xml:space="preserve">
-    <value>groupBasicConfig</value>
+  <data name="&gt;&gt;groupRecordConfig.Name" xml:space="preserve">
+    <value>groupRecordConfig</value>
   </data>
-  <data name="&gt;&gt;groupBasicConfig.Type" xml:space="preserve">
+  <data name="&gt;&gt;groupRecordConfig.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBasicConfig.Parent" xml:space="preserve">
-    <value>wizardPage3</value>
+  <data name="&gt;&gt;groupRecordConfig.Parent" xml:space="preserve">
+    <value>wizardPageRecordings</value>
   </data>
-  <data name="&gt;&gt;groupBasicConfig.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;groupRecordConfig.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="wizardPage3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="wizardPageRecordings.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 25</value>
   </data>
-  <data name="wizardPage3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="wizardPage3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="wizardPageRecordings.Size" type="System.Drawing.Size, System.Drawing">
     <value>485, 230</value>
   </data>
-  <data name="wizardPage3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="wizardPageRecordings.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="wizardPage3.Text" xml:space="preserve">
-    <value>wizardPage3</value>
+  <data name="wizardPageRecordings.Text" xml:space="preserve">
+    <value>Recordings</value>
   </data>
-  <data name="wizardPage3.ToolTipText" xml:space="preserve">
-    <value>Step 3: Minimal configuration parameters</value>
+  <data name="wizardPageRecordings.ToolTipText" xml:space="preserve">
+    <value>Step 4: Configuring the recording functionality</value>
   </data>
-  <data name="&gt;&gt;wizardPage3.Name" xml:space="preserve">
-    <value>wizardPage3</value>
+  <data name="&gt;&gt;wizardPageRecordings.Name" xml:space="preserve">
+    <value>wizardPageRecordings</value>
   </data>
-  <data name="&gt;&gt;wizardPage3.Type" xml:space="preserve">
+  <data name="&gt;&gt;wizardPageRecordings.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;wizardPage3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;wizardPageRecordings.Parent" xml:space="preserve">
     <value>wizardControl</value>
   </data>
-  <data name="&gt;&gt;wizardPage3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="wizardControl.IsPageAllowed" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAPgBbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1u
-        ZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XSxbU3lzdGVtLkJvb2xlYW4sIG1z
-        Y29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3
-        YTVjNTYxOTM0ZTA4OV1dLCBtc2NvcmxpYiwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWws
-        IFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAJoBbXNjb3JsaWIsIFZlcnNpb249Mi4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0sIG1z
-        Y29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3
-        YTVjNTYxOTM0ZTA4OQUBAAAANlN5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkRpY3Rpb25hcnlgMltb
-        U3lzdGVtLlN0cmluZwMAAAAHVmVyc2lvbghDb21wYXJlcghIYXNoU2l6ZQAEAAhDU3lzdGVtLkNvbGxl
-        Y3Rpb25zLkdlbmVyaWMuR2VuZXJpY0VxdWFsaXR5Q29tcGFyZXJgMVtbU3lzdGVtLlN0cmluZwMAAAAI
-        AgAAAAAAAAAJBAAAAAAAAAAFBAAAAENTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5HZW5lcmljRXF1
-        YWxpdHlDb21wYXJlcmAxW1tTeXN0ZW0uU3RyaW5nAAAAAAMAAAAL
-</value>
+  <data name="&gt;&gt;wizardPageRecordings.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="wizardControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 61</value>
@@ -1764,6 +2026,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>493, 359</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
