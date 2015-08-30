@@ -1096,19 +1096,22 @@ namespace Project.DvbIpTv.ChannelList
 
         private void UpdateEpgData()
         {
-            if (!AppUiConfiguration.Current.User.Epg.Enabled) return;
+            if (!enable_Epg) return;
 
             var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
             var status = Project.DvbIpTv.Services.EPG.Serialization.EpgDbQuery.GetStatus(dbFile);
+            var hours = AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
 
 #if !DEBUG
             if (status.IsNew)
             {
-                LaunchEpgLoader(true);
+                if (hours >= 0)
+                {
+                    LaunchEpgLoader(true);
+                }
             }
             else if (!status.IsError)
             {
-                var hours = AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
                 if (hours >= 0)
                 {
                     var update = (DateTime.Now - status.Time.ToLocalTime()).TotalHours >= AppUiConfiguration.Current.User.Epg.AutoUpdateHours;

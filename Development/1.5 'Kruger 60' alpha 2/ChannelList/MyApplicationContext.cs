@@ -106,7 +106,6 @@ namespace Project.DvbIpTv.ChannelList
 
             try
             {
-                DisplayProgress(Properties.Texts.MyAppCtxLoadingConfig, true);
                 result = AppUiConfiguration.Load(null, ConfigLoadDisplayProgress);
                 if (result.IsError) return result;
 
