@@ -6,7 +6,7 @@
     <ProductVersion>3.9</ProductVersion>
     <ProjectGuid>f3fc11c7-8850-4874-9cf3-8ba4de43959a</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>DVB-IPTV_MovistarTV_1-5_alpha-1</OutputName>
+    <OutputName>DVB-IPTV_MovistarTV_1-5_alpha-2</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -47,17 +47,17 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\..\DvbIpTypes\DvbIpTypes.csproj">
-      <Name>DvbIpTypes</Name>
-      <Project>{5b7c318b-372f-4265-8337-125e4a098532}</Project>
+    <ProjectReference Include="..\..\DvbStpClient\DvbStpClient.csproj">
+      <Name>DvbStpClient</Name>
+      <Project>{8ad3c34b-a1d3-4385-a8a9-c429bd9a37d3}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\..\DvbStpClient\DvbStpClient.csproj">
-      <Name>DvbStpClient</Name>
-      <Project>{8ad3c34b-a1d3-4385-a8a9-c429bd9a37d3}</Project>
+    <ProjectReference Include="..\..\Etsi.Ts102034\Etsi.Ts102034.csproj">
+      <Name>Etsi.Ts102034</Name>
+      <Project>{b91c438d-0333-4d06-86cd-74ce82df6f40}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
@@ -136,17 +136,17 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\..\UiServices.Config\UiServices.Config.csproj">
-      <Name>UiServices.Config</Name>
-      <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
+    <ProjectReference Include="..\..\UiServices.Common\UiServices.Common.csproj">
+      <Name>UiServices.Common</Name>
+      <Project>{76346905-ac2f-4f01-ba99-bbffbb2a6fe9}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
-    <ProjectReference Include="..\..\UiServices.Controls\UiServices.Controls.csproj">
-      <Name>UiServices.Controls</Name>
-      <Project>{745a4961-d7a0-4a2e-bb58-849ed0690271}</Project>
+    <ProjectReference Include="..\..\UiServices.Config\UiServices.Config.csproj">
+      <Name>UiServices.Config</Name>
+      <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
@@ -211,11 +211,28 @@
     <Content Include="bannrbmp.bmp" />
     <Content Include="dlgbmp.bmp" />
     <Content Include="License.txt" />
+    <Content Include="Redist\ENU\SSCERuntime_x64-ENU.exe" />
+    <Content Include="Redist\ENU\SSCERuntime_x86-ENU.exe" />
+    <Content Include="Redist\ENU\x64\SQLServer2005_EMB.msi" />
+    <Content Include="Redist\ENU\x86\SQLServer2005_EMB.msi" />
+    <Content Include="Redist\ESN\SSCERuntime_x64-ESN.exe" />
+    <Content Include="Redist\ESN\SSCERuntime_x86-ESN.exe" />
+    <Content Include="Redist\ESN\x64\SQLServer2005_EMB.msi" />
+    <Content Include="Redist\ESN\x86\SQLServer2005_EMB.msi" />
   </ItemGroup>
   <ItemGroup>
     <None Include="strings.wxi" />
     <EmbeddedResource Include="texts_en-US.wxl" />
     <EmbeddedResource Include="texts_es-ES.wxl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Redist" />
+    <Folder Include="Redist\ENU\" />
+    <Folder Include="Redist\ENU\x64\" />
+    <Folder Include="Redist\ENU\x86\" />
+    <Folder Include="Redist\ESN\" />
+    <Folder Include="Redist\ESN\x64\" />
+    <Folder Include="Redist\ESN\x86\" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

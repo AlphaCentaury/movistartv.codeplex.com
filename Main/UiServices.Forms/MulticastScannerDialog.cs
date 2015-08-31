@@ -1,8 +1,9 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
+using Project.DvbIpTv.UiServices.Common.Forms;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
-using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.Forms.Properties;
 using System;
@@ -35,8 +36,9 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         public enum ScanDeadAction
         {
-            Disable,
-            Delete,
+            Inactivate,
+            Hide,
+            Both
         } // ScanDeadAction
 
         public class ChannelScanResultEventArgs: EventArgs
@@ -119,6 +121,8 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         private void DialogMulticastServiceScanner_Load(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this);
+
             FormatProgressPercentage = labelProgressPercentage.Text;
             FormatScanningProgress = labelScanning.Text;
             FormatEllapsedTime = labelEllapsedTime.Text;
@@ -301,7 +305,7 @@ namespace Project.DvbIpTv.UiServices.Forms
                     {
                         ChannelScanResult(e, new ChannelScanResultEventArgs()
                             {
-                                IsDead = progress.Service.IsDead,
+                                IsDead = progress.Service.IsInactive,
                                 IsSkipped = false,
                                 Service = progress.Service,
                                 DeadAction = this.DeadAction
@@ -313,7 +317,7 @@ namespace Project.DvbIpTv.UiServices.Forms
                     {
                         ChannelScanResult(e, new ChannelScanResultEventArgs()
                             {
-                                IsDead = progress.Service.IsDead,
+                                IsDead = progress.Service.IsInactive,
                                 IsSkipped = true,
                                 Service = progress.Service,
                                 DeadAction = this.DeadAction
@@ -359,7 +363,7 @@ namespace Project.DvbIpTv.UiServices.Forms
             progress = new ProgressData() { Total = BroadcastServicesCount };
 
             // cache services enumerable if dead action is delete
-            services = (DeadAction != ScanDeadAction.Delete) ? BroadcastServices : BroadcastServices.ToList();
+            services = (DeadAction != ScanDeadAction.Hide) ? BroadcastServices : BroadcastServices.ToList();
 
             foreach (var service in services)
             {
@@ -370,19 +374,19 @@ namespace Project.DvbIpTv.UiServices.Forms
                 Worker.ReportProgress((int)ProgressReportKind.Progress, progress.ShallowClone());
                 progress.Count++;
 
-                if ((service.Data.ServiceLocation == null) || (service.Data.ServiceLocation.Multicast == null))
+                if ((service.Data.ServiceLocation == null) || (service.Data.ServiceLocation.IpMulticastAddress == null))
                 {
                     progress.Skipped++;
                     Worker.ReportProgress((int)ProgressReportKind.SkippedChannel, progress.ShallowClone());
                     continue;
                 } // if
 
-                var multicastData = new MulticastOption(IPAddress.Parse(service.Data.ServiceLocation.Multicast.Address), IPAddress.Any);
+                var multicastData = new MulticastOption(IPAddress.Parse(service.Data.ServiceLocation.IpMulticastAddress.Address), IPAddress.Any);
                 s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 s.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
                 s.ReceiveTimeout = Timeout;
                 s.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership, multicastData);
-                s.Bind(new IPEndPoint(IPAddress.Any, service.Data.ServiceLocation.Multicast.Port));
+                s.Bind(new IPEndPoint(IPAddress.Any, service.Data.ServiceLocation.IpMulticastAddress.Port));
 
                 if (Worker.CancellationPending) break;
 
@@ -390,19 +394,19 @@ namespace Project.DvbIpTv.UiServices.Forms
                 {
                     s.Receive(buffer);
                     progress.Active++;
-                    service.IsDead = false;
+                    service.IsInactive = false;
                 }
                 catch (SocketException ex)
                 {
                     if (ex.SocketErrorCode == SocketError.TimedOut)
                     {
                         progress.Dead++;
-                        service.IsDead = true;
+                        service.IsInactive = true;
                     }
                     else
                     {
                         progress.Error++;
-                        service.IsDead = true;
+                        service.IsInactive = true;
                     } // if
                 } // try-catch
                 s.Close();

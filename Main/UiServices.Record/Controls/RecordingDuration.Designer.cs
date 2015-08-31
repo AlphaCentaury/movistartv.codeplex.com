@@ -38,7 +38,7 @@ namespace Project.DvbIpTv.UiServices.Record.Controls
             this.dateTimeEndDate = new System.Windows.Forms.DateTimePicker();
             this.radioEndDateTime = new System.Windows.Forms.RadioButton();
             this.radioTimeSpan = new System.Windows.Forms.RadioButton();
-            this.timeSpanLength = new Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown();
+            this.timeSpanLength = new Project.DvbIpTv.UiServices.Common.Controls.TimeSpanUpDown();
             this.SuspendLayout();
             // 
             // comboQuickSetting
@@ -129,6 +129,6 @@ namespace Project.DvbIpTv.UiServices.Record.Controls
         private System.Windows.Forms.DateTimePicker dateTimeEndDate;
         private System.Windows.Forms.RadioButton radioEndDateTime;
         private System.Windows.Forms.RadioButton radioTimeSpan;
-        private Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown timeSpanLength;
+        private Project.DvbIpTv.UiServices.Common.Controls.TimeSpanUpDown timeSpanLength;
     }
 }

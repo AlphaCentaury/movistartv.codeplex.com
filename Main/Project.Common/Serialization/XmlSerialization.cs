@@ -13,6 +13,34 @@ namespace Project.DvbIpTv.Common.Serialization
 {
     public static class XmlSerialization
     {
+        #region Serialize
+
+        public static object CloneObject(object data)
+        {
+            using (var buffer = new MemoryStream())
+            {
+                XmlSerialization.SerializeObject(buffer, data);
+                buffer.Seek(0, SeekOrigin.Begin);
+                return XmlSerialization.Deserialize(buffer, data.GetType());
+            } // using buffer
+        } // Clone
+
+        public static T Clone<T>(T data) where T : class
+        {
+            using (var buffer = new MemoryStream())
+            {
+                XmlSerialization.Serialize(buffer, data);
+                buffer.Seek(0, SeekOrigin.Begin);
+                return XmlSerialization.Deserialize<T>(buffer);
+            } // using buffer
+        } // CloneSettings
+
+        public static void SerializeObject(Stream output, object o)
+        {
+            var serializer = new XmlSerializer(o.GetType());
+            serializer.Serialize(output, o);
+        } // SerializeObject
+
         public static void Serialize<T>(string filename, T o)
         {
             using (var output = new FileStream(filename, FileMode.Create, FileAccess.ReadWrite))
@@ -50,39 +78,29 @@ namespace Project.DvbIpTv.Common.Serialization
             serializer.Serialize(output, o);
         } // Serialize<T>
 
-        public static T Deserialize<T>(string filename) where T : class
+        #endregion
+
+        #region Deserialize
+
+        public static object Deserialize(Stream input, Type type, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null)
         {
-            using (var input = new FileStream(filename, FileMode.Open, FileAccess.Read))
+            using (var reader = CreateXmlReader(input, trimExtraWhitespace, namespaceReplacer))
             {
-                return Deserialize<T>(input);
-            } // using input
-        } // Deserialize<T>
-
-        public static T Deserialize<T>(Stream input) where T : class
-        {
-            var serializer = new XmlSerializer(typeof(T));
-            return serializer.Deserialize(input) as T;
-        } // Deserialize<T>
-
-        public static T Deserialize<T>(byte[] data) where T : class
-        {
-            using (var input = new MemoryStream(data))
-            {
-                return Deserialize<T>(input);
-            } // using
-        } // Deserialize<T>
-
-        private static object Deserialize(Stream input, Type type)
-        {
-            var serializer = new XmlSerializer(type);
-            return serializer.Deserialize(input);
+                return Deserialize(reader, type, trimExtraWhitespace, namespaceReplacer);
+            } // using reader
         } // Deserialize
 
-        public static T DeserializeXmlText<T>(string xmlText) where T : class
+        public static object Deserialize(XmlReader reader, Type type, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null)
+        {
+            var serializer = new XmlSerializer(type);
+            return serializer.Deserialize(reader);
+        } // Deserialize
+
+        public static T DeserializeXmlText<T>(string xmlText, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null) where T : class
         {
             using (var input = new StringReader(xmlText))
             {
-                using (var reader = XmlReader.Create(input))
+                using (var reader = CreateXmlReader(input, trimExtraWhitespace, namespaceReplacer))
                 {
                     return Deserialize<T>(reader);
                 } // using reader
@@ -95,62 +113,63 @@ namespace Project.DvbIpTv.Common.Serialization
             return serializer.Deserialize(reader) as T;
         } // Deserialize<T>
 
-        public static T Deserialize<T>(string filename, bool trimExtraWhitespace) where T : class
+        public static T Deserialize<T>(string filename, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null) where T : class
         {
-            if (!trimExtraWhitespace) return Deserialize<T>(filename);
-
-            var serializer = new XmlSerializer(typeof(T));
-            var readerSettings = new System.Xml.XmlReaderSettings()
-            {
-                IgnoreComments = true,
-                IgnoreWhitespace = true,
-            };
             using (var input = new FileStream(filename, FileMode.Open, FileAccess.Read))
             {
-                return Deserialize<T>(input, true);
+                return Deserialize<T>(input, trimExtraWhitespace, namespaceReplacer);
             } // using input
         } // XmlDeserialize
 
-        public static T Deserialize<T>(Stream input, bool trimExtraWhitespace) where T : class
+        public static T Deserialize<T>(Stream input, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null) where T : class
         {
-            if (!trimExtraWhitespace) return Deserialize<T>(input);
-
-            var serializer = new XmlSerializer(typeof(T));
-            var readerSettings = new System.Xml.XmlReaderSettings()
-            {
-                IgnoreComments = true,
-                IgnoreWhitespace = true,
-            };
-            using (var reader = new XmlTextReaderTrimExtraWhitespace(input, readerSettings))
-            {
-                return serializer.Deserialize(reader) as T;
-            } // using reader
+            return Deserialize(input, typeof(T), trimExtraWhitespace, namespaceReplacer) as T;
         } // Deserialize<T>
 
-        public static object Deserialize(Stream input, bool trimExtraWhitespace, Type type)
+        public static T Deserialize<T>(byte[] data, bool trimExtraWhitespace = false, Func<string, string> namespaceReplacer = null) where T : class
         {
-            if (!trimExtraWhitespace) return Deserialize(input, type);
-
-            var serializer = new XmlSerializer(type);
-            var readerSettings = new System.Xml.XmlReaderSettings()
-            {
-                IgnoreComments = true,
-                IgnoreWhitespace = true,
-            };
-            using (var reader = new XmlTextReaderTrimExtraWhitespace(input, readerSettings))
-            {
-                return serializer.Deserialize(reader);
-            } // using reader
-        } // Deserialize
-
-        public static T Deserialize<T>(byte[] data, bool trimExtraWhitespace) where T : class
-        {
-            if (!trimExtraWhitespace) return Deserialize<T>(data);
-
             using (var input = new MemoryStream(data))
             {
-                return Deserialize<T>(input, trimExtraWhitespace);
+                return Deserialize<T>(input, trimExtraWhitespace, namespaceReplacer);
             } // using
         } // Deserialize<T>
+
+        public static XmlReader CreateXmlReader(Stream input, bool trimExtraWhitespace, Func<string, string> namespaceReplacer)
+        {
+            if (trimExtraWhitespace)
+            {
+                var readerSettings = new XmlReaderSettings()
+                {
+                    IgnoreComments = true,
+                    IgnoreWhitespace = true,
+                };
+
+                return new XmlTextReaderTrimExtraWhitespace(input, readerSettings, namespaceReplacer);
+            }
+            else
+            {
+                return XmlReader.Create(input);
+            } // if-else
+        } // CreateXmlReader
+
+        public static XmlReader CreateXmlReader(TextReader input, bool trimExtraWhitespace, Func<string, string> namespaceReplacer)
+        {
+            if (trimExtraWhitespace)
+            {
+                var readerSettings = new XmlReaderSettings()
+                {
+                    IgnoreComments = true,
+                    IgnoreWhitespace = true,
+                };
+
+                return new XmlTextReaderTrimExtraWhitespace(input, readerSettings, namespaceReplacer);
+            }
+            else
+            {
+                return XmlReader.Create(input);
+            } // if-else
+        } // CreateXmlReader
+
+        #endregion
     } // class XmlSerialization
 } // namespace

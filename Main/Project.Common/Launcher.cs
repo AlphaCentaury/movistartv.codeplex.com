@@ -12,6 +12,12 @@ namespace Project.DvbIpTv.Common
 {
     public class Launcher
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parentForm">Handle to owner form for displaying OS error messages</param>
+        /// <param name="url">Url to show in the default browser</param>
+        /// <returns></returns>
         public static Exception OpenUrl(IWin32Window parentForm, string url)
         {
             try
@@ -36,12 +42,19 @@ namespace Project.DvbIpTv.Common
             return null;
         } // OpenUrl
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parentForm">Handle to owner form for displaying OS error messages</param>
+        /// <param name="url">Url to show in the default browser</param>
+        /// <param name="exceptionHandler">Exception handler</param>
+        /// <param name="openUrlErrorFormat">Error formating text or null for standard message</param>
         public static void OpenUrl(IWin32Window parentForm, string url, Action<string, Exception> exceptionHandler, string openUrlErrorFormat)
         {
             var ex = OpenUrl(parentForm, url);
             if (ex != null)
             {
-                exceptionHandler(string.Format(openUrlErrorFormat, url), ex);
+                exceptionHandler(string.Format(openUrlErrorFormat ?? Properties.Texts.LauncherOpenUrlError, url), ex);
             } // if
         } // OpenUrl
     } // class Launcher

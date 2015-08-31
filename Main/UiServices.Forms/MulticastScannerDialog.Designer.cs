@@ -45,8 +45,8 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.listViewStats = new System.Windows.Forms.ListView();
             this.labelEllapsedTime = new System.Windows.Forms.Label();
             this.timerEllapsed = new System.Windows.Forms.Timer(this.components);
-            this.pictureBoxServiceLogo = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
-            this.pictureBoxIcon = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.pictureBoxServiceLogo = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
+            this.pictureBoxIcon = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
             this.buttonClose = new System.Windows.Forms.Button();
             columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -87,16 +87,16 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // labelServiceName
             // 
-            resources.ApplyResources(this.labelServiceName, "labelServiceName");
             this.labelServiceName.AutoEllipsis = true;
+            resources.ApplyResources(this.labelServiceName, "labelServiceName");
             this.labelServiceName.Name = "labelServiceName";
             this.labelServiceName.UseMnemonic = false;
             // 
             // buttonRequestCancel
             // 
-            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Cancel_16x16;
+            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
             this.buttonRequestCancel.Name = "buttonRequestCancel";
             this.buttonRequestCancel.UseVisualStyleBackColor = true;
             this.buttonRequestCancel.Click += new System.EventHandler(this.buttonRequestCancel_Click);
@@ -134,23 +134,23 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // pictureBoxServiceLogo
             // 
-            resources.ApplyResources(this.pictureBoxServiceLogo, "pictureBoxServiceLogo");
             this.pictureBoxServiceLogo.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.pictureBoxServiceLogo, "pictureBoxServiceLogo");
             this.pictureBoxServiceLogo.Name = "pictureBoxServiceLogo";
             this.pictureBoxServiceLogo.TabStop = false;
             // 
             // pictureBoxIcon
             // 
-            resources.ApplyResources(this.pictureBoxIcon, "pictureBoxIcon");
             this.pictureBoxIcon.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.ScanTv_128x128;
+            resources.ApplyResources(this.pictureBoxIcon, "pictureBoxIcon");
             this.pictureBoxIcon.Name = "pictureBoxIcon";
             this.pictureBoxIcon.TabStop = false;
             // 
             // buttonClose
             // 
-            resources.ApplyResources(this.buttonClose, "buttonClose");
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonClose.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Ok_16x16;
+            this.buttonClose.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Ok_16x16;
+            resources.ApplyResources(this.buttonClose, "buttonClose");
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
@@ -192,13 +192,13 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         #endregion
 
-        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxIcon;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxIcon;
         private System.Windows.Forms.Label labelScanning;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label labelProgressPercentage;
         private System.Windows.Forms.Label labelServiceUrl;
         private System.Windows.Forms.Label labelServiceName;
-        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxServiceLogo;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxServiceLogo;
         private System.Windows.Forms.Button buttonRequestCancel;
         private System.Windows.Forms.Label labelCaption;
         private System.Windows.Forms.ListView listViewStats;

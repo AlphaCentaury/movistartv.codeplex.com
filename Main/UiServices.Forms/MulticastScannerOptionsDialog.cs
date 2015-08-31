@@ -1,6 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using System;
 using System.Windows.Forms;
 
@@ -43,7 +44,8 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         private void MulticastScannerOptionsDialog_Load(object sender, EventArgs e)
         {
-            // no op
+            BasicGoogleTelemetry.SendScreenHit(this);
+            comboAction.SelectedIndex = 0;
         } // MulticastScannerOptionsDialog_Load
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -57,9 +59,14 @@ namespace Project.DvbIpTv.UiServices.Forms
             else ScanList = ScanWhatList.AllServices;
 
             // Action
-            if (radioActionDisable.Checked) DeadAction = MulticastScannerDialog.ScanDeadAction.Disable;
-            else if (radioActionDelete.Checked) DeadAction = MulticastScannerDialog.ScanDeadAction.Delete;
-            else DeadAction = MulticastScannerDialog.ScanDeadAction.Disable;
+            switch (comboAction.SelectedIndex)
+            {
+                case 0: DeadAction = MulticastScannerDialog.ScanDeadAction.Inactivate; break;
+                case 1: DeadAction = MulticastScannerDialog.ScanDeadAction.Hide; break;
+                default:
+                    DeadAction = MulticastScannerDialog.ScanDeadAction.Both;
+                    break;
+            } // switch
         } // buttonStart_Click
     } // AskMulticastScannerDlg
 } // namespace

@@ -48,6 +48,7 @@ namespace Project.DvbIpTv.DvbStp.Client
                     if (StartSectionNumber == -1)
                     {
                         LastHeader = Header.Clone();
+                        LastHeader.SectionNumber--;
                         InitRun();
                     } // if
 
@@ -64,7 +65,8 @@ namespace Project.DvbIpTv.DvbStp.Client
 
                     if ((Header.PayloadId != LastHeader.PayloadId) ||
                         (Header.SegmentId != LastHeader.SegmentId) ||
-                        (Header.SegmentVersion != LastHeader.SegmentVersion))
+                        (Header.SegmentVersion != LastHeader.SegmentVersion) ||
+                        (Header.SectionNumber != LastHeader.SectionNumber + 1))
                     {
                         OnRunEnded();
                         InitRun();

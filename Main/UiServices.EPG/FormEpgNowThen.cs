@@ -3,7 +3,10 @@
 
 using Project.DvbIpTv.Common;
 using Project.DvbIpTv.Common.Serialization;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Services.EPG;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
+using Project.DvbIpTv.UiServices.Discovery;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,17 +36,18 @@ namespace Project.DvbIpTv.UiServices.EPG
             if (EpgNoProgramImage != null) EpgNoProgramImage.Dispose();
         } // DisposeForm
 
-        public static void ShowEpgEvents(Image channelLogo, string channelName, EpgEvent[] epg, IWin32Window owner, DateTime referenceTime) 
+        public static void ShowEpgEvents(UiBroadcastService service, EpgEvent[] epg, IWin32Window owner, DateTime referenceTime) 
         {
             using (var form = new FormEpgNowThen())
             {
-                form.DisplayData(channelLogo, channelName, epg, referenceTime);
+                form.DisplayData(service, epg, referenceTime);
                 form.ShowDialog(owner);
             } // using form
         } // ShowEpgBasicData
 
         private void FormBasicEpgData_Load(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this);
             EpgLoadingProgramImage = Properties.Resources.EpgLoadingProgramImage;
             EpgNoProgramImage = Properties.Resources.EpgNoProgramImage;
 
@@ -65,10 +69,10 @@ namespace Project.DvbIpTv.UiServices.EPG
             this.Hide();
         }
 
-        private void DisplayData(Image channelLogo, string channelName, EpgEvent[] epg, DateTime referenceTime)
+        private void DisplayData(UiBroadcastService service, EpgEvent[] epg, DateTime referenceTime)
         {
-            pictureChannelLogo.Image = channelLogo;
-            labelChannelName.Text = channelName;
+            pictureChannelLogo.Image = service.Logo.GetImage(LogoSize.Size48, true);
+            labelChannelName.Text = string.Format("{0}\r\n{1}", service.DisplayLogicalNumber, service.DisplayName);
 
             DisplayData((epg == null) ? null : epg[0], labelBeforeTime, labelBeforeTitle, labelBeforeDetails, pictureBoxBefore, referenceTime);
             DisplayData((epg == null) ? null : epg[1], labelNowTime, labelNowTitle, labelNowDetails, pictureBoxNow, referenceTime);

@@ -1,7 +1,9 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using DvbIpTypes.Schema2006;
+using Etsi.Ts102034.v010501.XmlSerialization;
+using Etsi.Ts102034.v010501.XmlSerialization.Common;
+using Etsi.Ts102034.v010501.XmlSerialization.ProviderDiscovery;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014;
@@ -40,7 +42,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             get { return Data.DomainName; }
         } // DomainName
 
-        public ServiceProviderOffering Offering
+        public ProviderOffering Offering
         {
             get { return Data.Offering; }
         } // Offering
@@ -103,7 +105,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
             text = Data.Description.SafeGetLanguageItem(AppUiConfiguration.Current.User.PreferredLanguagesList, true);
             properties.Add(Utils.GetLanguageProperty("Description (display)", text));
             properties.Add(new Property("Domain name", DomainName));
-            properties.Add(new Property("Logo URI", Data.LogoUri));
+            properties.Add(new Property("Logo URI", Data.LogoUrl));
 
             if (Offering.Push != null)
             {
@@ -184,13 +186,13 @@ namespace Project.DvbIpTv.UiServices.Discovery
 
             if (AppUiConfiguration.Current.ContentProvider.FriendlyNames.ServiceProvider.TryGetValue(Data.DomainName, out friendlyName))
             {
-                return string.Format(Properties.Texts.FormatProviderFriendlyDisplayName, friendlyName);
+                return string.Format(Properties.Texts.FormatProviderFriendlyDisplayName, friendlyName, Data.DomainName.ToLowerInvariant());
             }
             else
             {
-                return string.Format(Properties.Texts.FormatProviderUnknownDisplayName, Data.DomainName);
+                return string.Format(Properties.Texts.FormatProviderUnknownDisplayName, Data.DomainName.ToLowerInvariant());
             } // if-else
-        } // CalcDisplayName
+        } // GetDisplayName
 
         private string GetDisplayDescription()
         {

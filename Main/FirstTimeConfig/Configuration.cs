@@ -1,7 +1,9 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
+using Project.DvbIpTv.UiServices.Discovery.BroadcastList;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +17,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 {
     internal class Configuration
     {
-        public static bool Create(string vlcPath, string rootSaveLocation, AnalyticsConfig analytics, EpgConfig epg, string xmlConfigPath, out string message)
+        public static bool Create(string vlcPath, string rootSaveLocation, TelemetryConfiguration analytics, EpgConfig epg, bool sdPriority, string xmlConfigPath, out string message)
         {
             UserConfig user;
 
@@ -23,7 +25,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             {
                 user = new UserConfig()
                 {
-                    Analytics = analytics,
+                    Telemetry = analytics,
                     PreferredLanguages = Properties.Texts.DvbIpTv_PreferredLanguages,
                     TvViewer = new TvViewerConfig()
                     {
@@ -90,6 +92,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                         } // Recorders
                     }, // Record
                     Epg = epg,
+                    ChannelNumberStandardDefinitionPriority = sdPriority,
                 }; // user
 
                 foreach (var location in user.Record.SaveLocations)
@@ -97,7 +100,9 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                     Directory.CreateDirectory(location.Path);
                 } // foreach
 
-                user.Save(xmlConfigPath);
+                var config = AppUiConfiguration.CreateForUserConfig(user);
+                config.RegisterConfiguration(new UiBroadcastListSettingsConfigurationRegistration(), null, true);
+                config.Save(xmlConfigPath);
                 message = Properties.Texts.ConfigurationCreateOk;
                 return true;
             }
@@ -106,7 +111,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 message = string.Format(Properties.Texts.ConfigurationCreateException, ex.ToString());
                 return false;
             } // try-catch
-
         } // Create
     } // class Configuration
 } // namespace

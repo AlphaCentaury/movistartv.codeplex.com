@@ -89,6 +89,11 @@
     <Compile Include="ChannelListForm.Designer.cs">
       <DependentUpon>ChannelListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonUiResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonUiResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="MyApplicationContext.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -96,11 +101,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ExternalPlayer.cs" />
-    <Compile Include="CommonUiResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CommonUiResources.resx</DependentUpon>
-    </Compile>
     <Compile Include="SelectProviderDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,8 +149,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CommonUiResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectProviderDialog.es.resx">
       <DependentUpon>SelectProviderDialog.cs</DependentUpon>
@@ -176,9 +176,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\InternetDownload.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\GoogleTelemetry_en.rtf" />
+    <None Include="Resources\GoogleTelemetry_es.rtf" />
     <None Include="Resources\WebBrowser_16x16.png" />
     <None Include="Resources\RefreshBlue_16x16.png" />
     <None Include="Resources\Properties_16x16.png" />
@@ -186,6 +185,9 @@
     <None Include="Resources\RightArrowShort_Green_16x16.png" />
     <None Include="Resources\Record_16x16.png" />
     <None Include="Resources\Help_16x16.png" />
+    <Content Include="..\Common.UI\Resources\ListView_Tiles_16x16.png">
+      <Link>Resources\ListView_Tiles_16x16.png</Link>
+    </Content>
     <Content Include="..\solution-license.txt">
       <Link>Resources\solution-license.txt</Link>
     </Content>
@@ -225,13 +227,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DvbIpTypes\DvbIpTypes.csproj">
-      <Project>{5b7c318b-372f-4265-8337-125e4a098532}</Project>
-      <Name>DvbIpTypes</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DvbStpClient\DvbStpClient.csproj">
       <Project>{8ad3c34b-a1d3-4385-a8a9-c429bd9a37d3}</Project>
       <Name>DvbStpClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Etsi.Ts102034\Etsi.Ts102034.csproj">
+      <Project>{b91c438d-0333-4d06-86cd-74ce82df6f40}</Project>
+      <Name>Etsi.Ts102034</Name>
     </ProjectReference>
     <ProjectReference Include="..\Project.Common\Project.Common.csproj">
       <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
@@ -254,13 +256,13 @@
       <Name>Services.SqlServerCE</Name>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\UiServices.Common\UiServices.Common.csproj">
+      <Project>{76346905-ac2f-4f01-ba99-bbffbb2a6fe9}</Project>
+      <Name>UiServices.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UiServices.Config\UiServices.Config.csproj">
       <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>
       <Name>UiServices.Config</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UiServices.Controls\UiServices.Controls.csproj">
-      <Project>{745a4961-d7a0-4a2e-bb58-849ed0690271}</Project>
-      <Name>UiServices.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\UiServices.Discovery\UiServices.Discovery.csproj">
       <Project>{7e5e21b9-4bd6-4fb3-9055-9b09cc479c6c}</Project>

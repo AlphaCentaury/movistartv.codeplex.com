@@ -20,6 +20,14 @@ namespace Project.DvbIpTv.DvbStp.Client
 
         private byte[] TempBytesBuffer;
 
+        public DvbStpBaseClient(IPAddress ip, int port)
+        {
+            MulticastIpAddress = ip;
+            MulticastPort = port;
+            ReceiveDatagramTimeout = 7500; // 7.5 seconds (7.5 s * 1,000 ms)
+            OperationTimeout = 600000; // 10 minutes (10 m * 60 s * 1,000 ms)
+        } // constructor
+
         public IPAddress MulticastIpAddress
         {
             get;
@@ -32,7 +40,7 @@ namespace Project.DvbIpTv.DvbStp.Client
             protected set;
         } // MulticastPort
 
-        public int ReceiveDatagramTimeout
+        public int ReceiveDatagramTimeout // in milliseconds
         {
             get;
             set;
@@ -56,11 +64,17 @@ namespace Project.DvbIpTv.DvbStp.Client
             private set;
         } // StartTime
 
-        public DateTime TimeoutStartTime
+        public DateTime NoDataTimeoutStartTime
         {
             get;
             private set;
-        } // TimeoutStartTime
+        } // NoDataTimeoutStartTime
+
+        public int NoDataTimeout // in milliseconds
+        {
+            get;
+            set;
+        } // NoDataTimeout
 
         public int OperationTimeout // in milliseconds
         {
@@ -92,14 +106,6 @@ namespace Project.DvbIpTv.DvbStp.Client
             private set;
         } // ReceivedBytes
 
-
-        public DvbStpBaseClient(IPAddress ip, int port)
-        {
-            MulticastIpAddress = ip;
-            MulticastPort = port;
-            ReceiveDatagramTimeout = 5000;
-        } // constructor
-
         public virtual void Close()
         {
             if (Socket == null) return;
@@ -122,6 +128,8 @@ namespace Project.DvbIpTv.DvbStp.Client
 
             while (!CancelRequested)
             {
+                CheckTimeouts();
+
                 Receive(false);
                 if (Header.Version != 0) continue;
 
@@ -139,8 +147,6 @@ namespace Project.DvbIpTv.DvbStp.Client
                 {
                     break;
                 } // if
-
-                CheckTimeout();
             } // while
         } // ReceiveData
 
@@ -175,7 +181,7 @@ namespace Project.DvbIpTv.DvbStp.Client
             s.SetSocketOption(SocketOptionLevel.IP, SocketOptionName.AddMembership, multicastData);
 
             Socket = s;
-            StartTimeout();
+            StartNoDataTimeout();
         } // Connect
 
         protected void Receive(bool decodeHeader)
@@ -248,11 +254,10 @@ namespace Project.DvbIpTv.DvbStp.Client
             // Computed at reception: Header.SegmentVersion = RawHeader[7];
 
             // byte 8-9
-            TempBytesBuffer[1] = RawHeader[8];
-            TempBytesBuffer[0] = (byte)(RawHeader[9] & DvbStpHeaderMasks.SectionNumberLSB);
+            TempBytesBuffer[0] = RawHeader[8];
+            TempBytesBuffer[1] = (byte)(RawHeader[9] & DvbStpHeaderMasks.SectionNumberLSB);
             networkShort = BitConverter.ToInt16(TempBytesBuffer, 0);
-            networkShort <<= 4;
-            Header.SectionNumber = IPAddress.NetworkToHostOrder(networkShort);
+            Header.SectionNumber = (short)((IPAddress.NetworkToHostOrder(networkShort) >> 4) & 0x00FFFF);
 
             // byte 9-10
             TempBytesBuffer[0] = (byte)(RawHeader[9] & DvbStpHeaderMasks.LastSectionNumberMSB);
@@ -307,26 +312,32 @@ namespace Project.DvbIpTv.DvbStp.Client
 
         #region Timeout handling
 
-        private void StartTimeout()
+        private void StartNoDataTimeout()
         {
             StartTime = DateTime.Now;
-            TimeoutStartTime = StartTime;
+            NoDataTimeoutStartTime = StartTime;
         } // StartTimeout
 
-        protected void ResetTimeout()
+        protected void ResetNoDataTimeout()
         {
-            TimeoutStartTime = DateTime.Now;
-        } // ResetTimeout
+            NoDataTimeoutStartTime = DateTime.Now;
+        } // ResetNoDataTimeout
 
-        protected void CheckTimeout()
+        protected void CheckTimeouts()
         {
             TimeSpan elapsed;
 
-            if (OperationTimeout <= 0) return;
-
-            elapsed = DateTime.Now - TimeoutStartTime;
-            if (elapsed.TotalMilliseconds > OperationTimeout) throw new TimeoutException();
-        } // CheckTimeout
+            if (NoDataTimeout > 0)
+            {
+                elapsed = DateTime.Now - NoDataTimeoutStartTime;
+                if (elapsed.TotalMilliseconds > NoDataTimeout) throw new TimeoutException();
+            } // if
+            if (OperationTimeout > 0)
+            {
+                elapsed = DateTime.Now - StartTime;
+                if (elapsed.TotalMilliseconds > OperationTimeout) throw new TimeoutException();
+            } // if
+        } // CheckTimeouts
 
         #endregion
     } // class DvbStpBaseClient

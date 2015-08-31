@@ -1,10 +1,12 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using DvbIpTypes.Schema2006;
+using Etsi.Ts102034.v010501.XmlSerialization;
+using Etsi.Ts102034.v010501.XmlSerialization.ProviderDiscovery;
+using Project.DvbIpTv.Common.Telemetry;
+using Project.DvbIpTv.UiServices.Common.Forms;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
-using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.DvbStpClient;
 using Project.DvbIpTv.UiServices.Forms;
@@ -79,6 +81,8 @@ namespace Project.DvbIpTv.ChannelList
 
         private void SelectProviderDialog_Load_Implementation(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this);
+
             if (SelectedServiceProvider == null)
             {
                 SelectedIndexChanged();
@@ -98,9 +102,9 @@ namespace Project.DvbIpTv.ChannelList
             using (var dlg = new PropertiesDialog()
             {
                 Caption = Properties.Texts.SPProperties,
-                Properties = SelectedServiceProvider.DumpProperties(),
+                ItemProperties = SelectedServiceProvider.DumpProperties(),
                 Description = SelectedServiceProvider.DisplayName,
-                Logo = SelectedServiceProvider.Logo.GetImage(LogoSize.Size64, true),
+                ItemIcon = SelectedServiceProvider.Logo.GetImage(LogoSize.Size64, true),
             })
             {
                 dlg.ShowDialog(this);
@@ -115,7 +119,7 @@ namespace Project.DvbIpTv.ChannelList
             if (lastSelectedProvider == null) return null;
 
             var baseIpAddress = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastAddress;
-            var discovery = AppUiConfiguration.Current.Cache.LoadXml<ServiceProviderDiscoveryXml>("ProviderDiscovery", baseIpAddress);
+            var discovery = AppUiConfiguration.Current.Cache.LoadXml<ProviderDiscoveryRoot>("ProviderDiscovery", baseIpAddress);
             if (discovery == null) return null;
 
             return UiProviderDiscovery.GetUiServiceProviderFromKey(discovery, lastSelectedProvider);
@@ -125,14 +129,14 @@ namespace Project.DvbIpTv.ChannelList
         {
             try
             {
-                ServiceProviderDiscoveryXml discovery;
+                ProviderDiscoveryRoot discovery;
                 var baseIpAddress = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastAddress;
 
                 // can load from cache?
                 discovery = null;
                 if (fromCache)
                 {
-                    discovery = AppUiConfiguration.Current.Cache.LoadXml<ServiceProviderDiscoveryXml>("ProviderDiscovery", baseIpAddress);
+                    discovery = AppUiConfiguration.Current.Cache.LoadXml<ProviderDiscoveryRoot>("ProviderDiscovery", baseIpAddress);
                     if (discovery == null)
                     {
                         return false;
@@ -143,9 +147,9 @@ namespace Project.DvbIpTv.ChannelList
                 {
                     var basePort = AppUiConfiguration.Current.ContentProvider.Bootstrap.MulticastPort;
 
-                    var download = new DvbStpDownloadHelper()
+                    var downloader = new UiDvbStpSimpleDownloader()
                     {
-                        Request = new DvbStpDownloadRequest()
+                        Request = new UiDvbStpSimpleDownloadRequest()
                         {
                             PayloadId = 0x01,
                             SegmentId = null, // accept any segment
@@ -153,17 +157,18 @@ namespace Project.DvbIpTv.ChannelList
                             MulticastPort = basePort,
                             Description = Properties.Texts.SPObtainingList,
                             DescriptionParsing = Properties.Texts.SPParsingList,
-                            PayloadDataType = typeof(ServiceProviderDiscoveryXml)
+                            PayloadDataType = typeof(ProviderDiscoveryRoot),
+                            AllowXmlExtraWhitespace = false,
+                            XmlNamespaceReplacer = NamespaceUnification.Replacer,
                         },
                         TextUserCancelled = Properties.Texts.UserCancelListRefresh,
                         TextDownloadException = Properties.Texts.SPListUnableRefresh,
-                        HandleException = MyApplication.HandleException
                     };
-                    download.ShowDialog(this);
-                    if (!download.IsOk) return false;
+                    downloader.Download(this);
+                    if (!downloader.IsOk) return false;
 
-                    discovery = download.Response.DeserializedPayloadData as ServiceProviderDiscoveryXml;
-                    AppUiConfiguration.Current.Cache.SaveXml("ProviderDiscovery", baseIpAddress, download.Response.Version, discovery);
+                    discovery = downloader.Response.DeserializedPayloadData as ProviderDiscoveryRoot;
+                    AppUiConfiguration.Current.Cache.SaveXml("ProviderDiscovery", baseIpAddress, downloader.Response.Version, discovery);
                 } // if
 
                 ProvidersDiscovery = new UiProviderDiscovery(discovery);

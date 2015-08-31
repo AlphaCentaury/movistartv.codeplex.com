@@ -33,7 +33,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Cache
 
         public void SaveXml<T>(string documentType, string name, int version, T xmlTree) where T: class
         {
-            var path = Path.Combine(BaseDirectory, GetSafeDocName(documentType, name, ".xml"));
+            var path = Path.Combine(BaseDirectory, GetSafeDocumentName(documentType, name, ".xml"));
             XmlSerialization.Serialize(path, Encoding.UTF8, xmlTree);
         } // SaveXml
 
@@ -41,7 +41,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Cache
         {
             try
             {
-                var path = Path.Combine(BaseDirectory, GetSafeDocName(documentType, name, ".xml"));
+                var path = Path.Combine(BaseDirectory, GetSafeDocumentName(documentType, name, ".xml"));
                 if (!File.Exists(path))
                 {
                     return null;
@@ -60,7 +60,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Cache
         {
             try
             {
-                var path = Path.Combine(BaseDirectory, GetSafeDocName(documentType, name, ".xml"));
+                var path = Path.Combine(BaseDirectory, GetSafeDocumentName(documentType, name, ".xml"));
                 if (!File.Exists(path))
                 {
                     return null;
@@ -81,22 +81,33 @@ namespace Project.DvbIpTv.UiServices.Configuration.Cache
             } // try-catch
         } // LoadXmlDocument<T>
 
-        private string GetSafeDocName(string docType, string docName, string extension)
+        /// <summary>
+        /// Builds a filename, replacing all filesystem invalid characters (including '.' and spaces) with the given character
+        /// </summary>
+        /// <param name="documentType">Optional. Must not contain invalid chars</param>
+        /// <param name="documentName">Name of the file/document</param>
+        /// <param name="extension">File extension</param>
+        /// <param name="replacingChar">(Optional) Character to mark a replaced, invalid character</param>
+        /// <returns>A filesystem-safe filename</returns>
+        public string GetSafeDocumentName(string documentType, string documentName, string extension, char? replacingChar = '~')
         {
             StringBuilder buffer;
             int startIndex, index;
 
-            docName = docName.ToLowerInvariant();
-            buffer = new StringBuilder(docType.Length + 2 + docName.Length * 2);
-            buffer.Append('{');
-            buffer.Append(docType.ToLowerInvariant());
-            buffer.Append("} ");
+            documentName = documentName.ToLowerInvariant();
+            buffer = new StringBuilder(documentType.Length + 2 + documentName.Length * 2);
+            if (documentType != null)
+            {
+                buffer.Append('{');
+                buffer.Append(documentType.ToLowerInvariant());
+                buffer.Append("} ");
+            } // if
 
             // quick test: any offending char?
-            index = docName.IndexOfAny(DocNameOffendingChars);
+            index = documentName.IndexOfAny(DocNameOffendingChars);
             if (index < 0)
             {
-                buffer.Append(docName);
+                buffer.Append(documentName);
                 buffer.Append(extension);
                 return buffer.ToString();
             } // if
@@ -106,22 +117,22 @@ namespace Project.DvbIpTv.UiServices.Configuration.Cache
             {
                 if (index != startIndex)
                 {
-                    buffer.Append(docName.Substring(startIndex, (index - startIndex)));
-                    buffer.Append('~');
+                    buffer.Append(documentName.Substring(startIndex, (index - startIndex)));
+                    if (replacingChar.HasValue) buffer.Append(replacingChar.Value);
                 } // if
 
                 startIndex = index + 1;
-                index = (startIndex < docName.Length) ? docName.IndexOfAny(DocNameOffendingChars, startIndex) : -1;
+                index = (startIndex < documentName.Length) ? documentName.IndexOfAny(DocNameOffendingChars, startIndex) : -1;
             } // while
 
             // add final text
-            if (startIndex < docName.Length)
+            if (startIndex < documentName.Length)
             {
-                buffer.Append(docName.Substring(startIndex, docName.Length - startIndex));
+                buffer.Append(documentName.Substring(startIndex, documentName.Length - startIndex));
             } // if
             buffer.Append(extension);
 
             return buffer.ToString();
-        } // GetSafeDocName
+        } // GetSafeDocumentName
     } // class CacheManager
 } // namespace

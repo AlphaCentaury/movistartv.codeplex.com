@@ -68,12 +68,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
 
             if (ProviderMappings.TryGetValue(providerDomainName, out logoFile))
             {
-                return new ProviderLogo()
-                {
-                    File = logoFile,
-                    Path = BasePathLogos,
-                    Key = providerDomainName,
-                };
+                return new ProviderLogo(BasePathLogos, string.Empty, logoFile, providerDomainName);
             } // if
 
             // get default logo

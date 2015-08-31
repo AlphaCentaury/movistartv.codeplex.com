@@ -10,6 +10,14 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
 {
     public class ServiceLogo : BaseLogo
     {
+        public ServiceLogo(string basePath, string partialPath, string filePrefix, string key)
+        {
+            BasePath = basePath;
+            PartialPath = partialPath;
+            FilePrefix = filePrefix;
+            Key = key;
+        } // constructor
+
         protected override string ImageNotFoundExceptionText
         {
             get { return Properties.Texts.ExceptionLogosServiceImageNotFound; }

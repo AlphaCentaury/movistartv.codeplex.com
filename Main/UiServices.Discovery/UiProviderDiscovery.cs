@@ -1,7 +1,7 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-using DvbIpTypes.Schema2006;
+using Etsi.Ts102034.v010501.XmlSerialization.ProviderDiscovery;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
     [XmlRoot(ElementName = "UI-BroadcastDiscovery", Namespace = SerializationCommon.XmlNamespace)]
     public class UiProviderDiscovery
     {
-        public UiProviderDiscovery(ServiceProviderDiscoveryXml discoveryXml)
+        public UiProviderDiscovery(ProviderDiscoveryRoot discoveryXml)
         {
             Create(discoveryXml);
         } // constructor
@@ -25,10 +25,10 @@ namespace Project.DvbIpTv.UiServices.Discovery
             set;
         } // Providers
 
-        public static UiServiceProvider GetUiServiceProviderFromKey(ServiceProviderDiscoveryXml discoveryXml, string serviceKey)
+        public static UiServiceProvider GetUiServiceProviderFromKey(ProviderDiscoveryRoot discoveryXml, string serviceKey)
         {
             var providers = from discovery in discoveryXml.ServiceProviderDiscovery
-                            from provider in discovery.ServiceProvider
+                            from provider in discovery.Providers
                             let uiProvider = new UiServiceProvider(provider)
                             where uiProvider.Key == serviceKey
                             select uiProvider;
@@ -36,22 +36,19 @@ namespace Project.DvbIpTv.UiServices.Discovery
             return providers.FirstOrDefault();
         } // GetUiServiceProviderFromKey
 
-        private void Create(ServiceProviderDiscoveryXml discoveryXml)
+        private void Create(ProviderDiscoveryRoot discoveryXml)
         {
             var providers = from discovery in discoveryXml.ServiceProviderDiscovery
-                            from provider in discovery.ServiceProvider
-                            select new UiServiceProvider(provider);
+                            from provider in discovery.Providers
+                            select provider;
 
-            /*
-            var q = from provider in providers
-                    orderby provider.DisplayName
-                    select provider;
-            */
+            var uiProviders = from provider in providers
+                              select new UiServiceProvider(provider);
 
-            var list = new List<UiServiceProvider>(providers.Count());
-            list.AddRange(providers);
+            var uiProvidersList = new List<UiServiceProvider>(providers.Count());
+            uiProvidersList.AddRange(uiProviders);
 
-            Providers = list.AsReadOnly();
+            Providers = uiProvidersList.AsReadOnly();
         } // Create
     } // class UiProviderDiscovery
 } // class UiProviderDiscovery

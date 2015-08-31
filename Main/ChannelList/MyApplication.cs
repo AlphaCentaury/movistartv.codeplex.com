@@ -20,39 +20,12 @@ namespace Project.DvbIpTv.ChannelList
         public static string RecorderLauncherPath
         {
             get;
-            private set;
+            set;
         } // RecorderLauncherPath
-
-        internal static InitializationResult LoadAppUiConfig()
-        {
-            InitializationResult result;
-
-            var myPath = Application.StartupPath;
-#if DEBUG
-            var recorderLauncher = myPath.EndsWith(Properties.Settings.Default.DevelopmentLocationPath, StringComparison.OrdinalIgnoreCase) ? Properties.Settings.Default.RecorderLauncherDevelopment : Properties.Settings.Default.RecorderLauncher;
-#else
-            var recorderLauncher = Properties.Settings.Default.RecorderLauncher;
-#endif // DEBUG
-
-            RecorderLauncherPath = Path.Combine(myPath, recorderLauncher);
-            RecorderLauncherPath = Path.GetFullPath(RecorderLauncherPath);
-            if (!File.Exists(RecorderLauncherPath))
-            {
-                return new InitializationResult()
-                {
-                    Message = string.Format(Properties.Texts.MyAppRecorderLauncherNotFound, RecorderLauncherPath)
-                };
-            } // if
-
-            result = AppUiConfiguration.Load(null);
-            if (!result.IsOk) return result;
-
-            return InitializationResult.Ok;
-        } // LoadAppUiConfig
 
         public static void HandleException(IWin32Window owner, Exception ex)
         {
-            BasicGoogleTelemetry.SendExceptionHit(ex);
+            BasicGoogleTelemetry.SendExtendedExceptionHit(ex);
             AddExceptionAdvancedInformation(ex);
 
             var box = new Microsoft.SqlServer.MessageBox.ExceptionMessageBox()
@@ -85,13 +58,13 @@ namespace Project.DvbIpTv.ChannelList
 
         public static void HandleException(IWin32Window owner, string caption, string message, MessageBoxIcon icon, Exception ex)
         {
-            BasicGoogleTelemetry.SendExceptionHit(ex);
+            BasicGoogleTelemetry.SendExtendedExceptionHit(ex, true, message, null);
             AddExceptionAdvancedInformation(ex);
 
             var box = new ExceptionMessageBox()
             {
                 Caption = caption ?? Properties.Texts.MyAppHandleExceptionDefaultCaption,
-                Text = message,
+                Text = message ?? Properties.Texts.MyAppHandleExceptionDefaultMessage,
                 InnerException = ex,
                 Beep = true,
                 Symbol = TranslateIconToSymbol(icon),

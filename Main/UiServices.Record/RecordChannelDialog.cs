@@ -1,11 +1,12 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Services.Record.Serialization;
+using Project.DvbIpTv.UiServices.Common.Forms;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
-using Project.DvbIpTv.UiServices.Controls;
 using Project.DvbIpTv.UiServices.Record.Controls;
 using System;
 using System.Collections.Generic;
@@ -61,6 +62,8 @@ namespace Project.DvbIpTv.UiServices.Record
 
         private void DialogRecordChannel_Load_Implementation(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this);
+
             // Initialize
             if (Task == null)
             {
@@ -103,7 +106,7 @@ namespace Project.DvbIpTv.UiServices.Record
 
         private void InitGeneralData()
         {
-            var serviceLogo = AppUiConfiguration.Current.ServiceLogoMappings.FromLogoKey(Task.Channel.LogoKey);
+            var serviceLogo = AppUiConfiguration.Current.ServiceLogoMappings.FromServiceKey(Task.Channel.ServiceKey);
             pictureChannelLogo.Image = serviceLogo.GetImage(LogoSize.Size64, true);
             labelChannelNumber.Text = Task.Channel.LogicalNumber;
             labelChannelName.Text = Task.Channel.Name;

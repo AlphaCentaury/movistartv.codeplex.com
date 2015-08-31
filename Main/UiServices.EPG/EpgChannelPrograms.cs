@@ -1,6 +1,9 @@
 ﻿using Project.DvbIpTv.Common;
+using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Services.EPG;
 using Project.DvbIpTv.Services.EPG.Serialization;
+using Project.DvbIpTv.UiServices.Configuration.Logos;
+using Project.DvbIpTv.UiServices.Discovery;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,16 +28,11 @@ namespace Project.DvbIpTv.UiServices.EPG
             set;
         } // DaysDelta
 
-        public Image ChannelLogo
+        public UiBroadcastService Service
         {
-            set { pictureChannelLogo.Image = value; }
+            get;
+            set;
         } // ChannelLog
-
-        public string ChannelName
-        {
-            get { return labelChannelName.Text; }
-            set { labelChannelName.Text = value; }
-        } // ChannelName
 
         public string FullServiceName
         {
@@ -71,8 +69,12 @@ namespace Project.DvbIpTv.UiServices.EPG
 
         private void EpgChannelPrograms_Load(object sender, EventArgs e)
         {
+            BasicGoogleTelemetry.SendScreenHit(this);
             EpgLoadingProgramImage = Properties.Resources.EpgLoadingProgramImage;
             EpgNoProgramImage = Properties.Resources.EpgNoProgramImage;
+
+            pictureChannelLogo.Image = Service.Logo.GetImage(LogoSize.Size48, true);
+            labelChannelName.Text = string.Format("{0} - {1}", Service.DisplayLogicalNumber, Service.DisplayName);
 
             BoldListFont = new Font(listPrograms.Font, FontStyle.Bold);
             ItalicListFont = new Font(listPrograms.Font, FontStyle.Italic);
@@ -161,7 +163,7 @@ namespace Project.DvbIpTv.UiServices.EPG
             if (epgEvents.Count == 0)
             {
                 item = new ListViewItem("--:--");
-                item.SubItems.Add("Información EPG no disponible para este canal");
+                item.SubItems.Add("Información de programas no disponible para este canal");
                 item.UseItemStyleForSubItems = false;
                 listPrograms.Items.Add(item);
             } // if
@@ -179,7 +181,7 @@ namespace Project.DvbIpTv.UiServices.EPG
                 DisplayData(null, labelNowTime, labelNowTitle, labelNowDetails, pictureBoxNow, DateTime.Now);
                 if (epgEvents.Count == 0)
                 {
-                    labelNowTitle.Text = "Información EPG no disponible para este canal";
+                    labelNowTitle.Text = "Información de programas no disponible para este canal";
                 } // if
             } // if-else
 

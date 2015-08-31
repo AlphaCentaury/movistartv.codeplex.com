@@ -13,23 +13,51 @@ namespace Project.DvbIpTv.Common.Serialization
     public class XmlTextReaderTrimExtraWhitespace : XmlTextReader
     {
         private XmlReaderSettings MySettings;
+        private Func<string, string> NamespaceReplacer;
 
-        public XmlTextReaderTrimExtraWhitespace(Stream input)
+        public XmlTextReaderTrimExtraWhitespace(Stream input, Func<string, string> namespaceReplacer)
             : base(input)
         {
-            // no op
+            NamespaceReplacer = namespaceReplacer;
         } // constructor
 
-        public XmlTextReaderTrimExtraWhitespace(Stream input, XmlReaderSettings settings)
+        public XmlTextReaderTrimExtraWhitespace(Stream input, XmlReaderSettings settings, Func<string, string> namespaceReplacer)
             : base(input)
         {
             MySettings = settings;
+            NamespaceReplacer = namespaceReplacer;
+        } // constructor
+
+        public XmlTextReaderTrimExtraWhitespace(TextReader input, Func<string, string> namespaceReplacer)
+            : base(input)
+        {
+            NamespaceReplacer = namespaceReplacer;
+        } // constructor
+
+        public XmlTextReaderTrimExtraWhitespace(TextReader input, XmlReaderSettings settings, Func<string, string> namespaceReplacer)
+            : base(input)
+        {
+            MySettings = settings;
+            NamespaceReplacer = namespaceReplacer;
         } // constructor
 
         public override XmlReaderSettings Settings
         {
             get { return MySettings ?? base.Settings; }
         } // Settings
+
+        public override string NamespaceURI
+        {
+            get
+            {
+                var ns = base.NamespaceURI;
+
+                if (NamespaceReplacer == null) return ns;
+                if (string.IsNullOrEmpty(ns)) return ns;
+
+                return NamespaceReplacer(ns);
+            } // get
+        } // NamespaceURI
 
         public override string ReadString()
         {
@@ -65,7 +93,10 @@ namespace Project.DvbIpTv.Common.Serialization
             {
                 var c = input[i];
                 var isWhitespace = char.IsWhiteSpace(c);
-                if (isWhitespace) c = ' ';
+                if (isWhitespace)
+                {
+                    c = ' ';
+                } // if
                 if ((i == startIndex) || !isWhitespace || (isWhitespace && !char.IsWhiteSpace(input[i - 1])))
                 {
                     buffer.Append(c);

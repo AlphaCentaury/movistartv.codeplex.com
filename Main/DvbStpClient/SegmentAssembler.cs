@@ -76,6 +76,7 @@ namespace Project.DvbIpTv.DvbStp.Client
 
         public byte[] GetPayload()
         {
+            if (IsDisposed) throw new ObjectDisposedException("SegmentAssembler");
             if ((!IsSegmentComplete) || (SectionData == null)) throw new InvalidOperationException();
 
             int totalPayloadSize;

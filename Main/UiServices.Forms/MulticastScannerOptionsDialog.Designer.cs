@@ -35,17 +35,16 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.labelCaption = new System.Windows.Forms.Label();
             this.labelScanTimeout = new System.Windows.Forms.Label();
             this.numericTimeout = new System.Windows.Forms.NumericUpDown();
-            this.buttonRequestCancel = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
             this.groupScanWhat = new System.Windows.Forms.GroupBox();
             this.radioScanDead = new System.Windows.Forms.RadioButton();
             this.radioScanActive = new System.Windows.Forms.RadioButton();
             this.radioScanAll = new System.Windows.Forms.RadioButton();
             this.groupActionScan = new System.Windows.Forms.GroupBox();
-            this.radioActionDelete = new System.Windows.Forms.RadioButton();
-            this.radioActionDisable = new System.Windows.Forms.RadioButton();
+            this.comboAction = new System.Windows.Forms.ComboBox();
             this.labelInfo = new System.Windows.Forms.Label();
-            this.pictureIcon = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.buttonRequestCancel = new System.Windows.Forms.Button();
+            this.pictureIcon = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.numericTimeout)).BeginInit();
             this.groupScanWhat.SuspendLayout();
             this.groupActionScan.SuspendLayout();
@@ -64,13 +63,13 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // numericTimeout
             // 
-            resources.ApplyResources(this.numericTimeout, "numericTimeout");
             this.numericTimeout.DecimalPlaces = 3;
             this.numericTimeout.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
+            resources.ApplyResources(this.numericTimeout, "numericTimeout");
             this.numericTimeout.Maximum = new decimal(new int[] {
             30,
             0,
@@ -88,29 +87,21 @@ namespace Project.DvbIpTv.UiServices.Forms
             0,
             0});
             // 
-            // buttonRequestCancel
-            // 
-            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
-            this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
-            this.buttonRequestCancel.Name = "buttonRequestCancel";
-            this.buttonRequestCancel.UseVisualStyleBackColor = true;
-            // 
             // buttonStart
             // 
             resources.ApplyResources(this.buttonStart, "buttonStart");
             this.buttonStart.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonStart.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Run_16x16;
+            this.buttonStart.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Run_16x16;
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // groupScanWhat
             // 
-            resources.ApplyResources(this.groupScanWhat, "groupScanWhat");
             this.groupScanWhat.Controls.Add(this.radioScanDead);
             this.groupScanWhat.Controls.Add(this.radioScanActive);
             this.groupScanWhat.Controls.Add(this.radioScanAll);
+            resources.ApplyResources(this.groupScanWhat, "groupScanWhat");
             this.groupScanWhat.Name = "groupScanWhat";
             this.groupScanWhat.TabStop = false;
             // 
@@ -136,35 +127,39 @@ namespace Project.DvbIpTv.UiServices.Forms
             // 
             // groupActionScan
             // 
+            this.groupActionScan.Controls.Add(this.comboAction);
             resources.ApplyResources(this.groupActionScan, "groupActionScan");
-            this.groupActionScan.Controls.Add(this.radioActionDelete);
-            this.groupActionScan.Controls.Add(this.radioActionDisable);
             this.groupActionScan.Name = "groupActionScan";
             this.groupActionScan.TabStop = false;
             // 
-            // radioActionDelete
+            // comboAction
             // 
-            resources.ApplyResources(this.radioActionDelete, "radioActionDelete");
-            this.radioActionDelete.Name = "radioActionDelete";
-            this.radioActionDelete.UseVisualStyleBackColor = true;
-            // 
-            // radioActionDisable
-            // 
-            resources.ApplyResources(this.radioActionDisable, "radioActionDisable");
-            this.radioActionDisable.Checked = true;
-            this.radioActionDisable.Name = "radioActionDisable";
-            this.radioActionDisable.TabStop = true;
-            this.radioActionDisable.UseVisualStyleBackColor = true;
+            this.comboAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboAction.FormattingEnabled = true;
+            this.comboAction.Items.AddRange(new object[] {
+            resources.GetString("comboAction.Items"),
+            resources.GetString("comboAction.Items1"),
+            resources.GetString("comboAction.Items2")});
+            resources.ApplyResources(this.comboAction, "comboAction");
+            this.comboAction.Name = "comboAction";
             // 
             // labelInfo
             // 
             resources.ApplyResources(this.labelInfo, "labelInfo");
             this.labelInfo.Name = "labelInfo";
             // 
+            // buttonRequestCancel
+            // 
+            resources.ApplyResources(this.buttonRequestCancel, "buttonRequestCancel");
+            this.buttonRequestCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonRequestCancel.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.Action_Cancel_16x16;
+            this.buttonRequestCancel.Name = "buttonRequestCancel";
+            this.buttonRequestCancel.UseVisualStyleBackColor = true;
+            // 
             // pictureIcon
             // 
-            resources.ApplyResources(this.pictureIcon, "pictureIcon");
             this.pictureIcon.Image = global::Project.DvbIpTv.UiServices.Forms.Properties.Resources.ScanTv_128x128;
+            resources.ApplyResources(this.pictureIcon, "pictureIcon");
             this.pictureIcon.Name = "pictureIcon";
             this.pictureIcon.TabStop = false;
             // 
@@ -194,7 +189,6 @@ namespace Project.DvbIpTv.UiServices.Forms
             this.groupScanWhat.ResumeLayout(false);
             this.groupScanWhat.PerformLayout();
             this.groupActionScan.ResumeLayout(false);
-            this.groupActionScan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -203,7 +197,7 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         #endregion
 
-        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureIcon;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureIcon;
         private System.Windows.Forms.Label labelCaption;
         private System.Windows.Forms.Label labelScanTimeout;
         private System.Windows.Forms.NumericUpDown numericTimeout;
@@ -214,8 +208,7 @@ namespace Project.DvbIpTv.UiServices.Forms
         private System.Windows.Forms.RadioButton radioScanActive;
         private System.Windows.Forms.RadioButton radioScanAll;
         private System.Windows.Forms.GroupBox groupActionScan;
-        private System.Windows.Forms.RadioButton radioActionDelete;
-        private System.Windows.Forms.RadioButton radioActionDisable;
         private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.ComboBox comboAction;
     }
 }

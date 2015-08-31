@@ -3,6 +3,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -18,8 +20,8 @@ namespace Project.DvbIpTv.Common.Telemetry
 #else
         private static Uri UrlEndpoint = new Uri("https://www.google-analytics.com/collect");
 #endif
-        private static string UserAgent = BuildUserAgent();
-        private static string ApplicationName = System.IO.Path.GetFileName(Application.ExecutablePath);
+        private static string UserAgent;
+        private static string ApplicationName;
 
         public static bool Enabled
         {
@@ -53,11 +55,14 @@ namespace Project.DvbIpTv.Common.Telemetry
 
         public static void Init(string trackingId, string clientId, bool enabled, bool usage, bool exceptions)
         {
+            UserAgent = BuildUserAgent();
+            ApplicationName = Path.GetFileNameWithoutExtension(Application.ExecutablePath);
             TrackingId = trackingId;
             ClientId = clientId;
             Enabled = enabled;
             Usage = usage & enabled;
             Exceptions = exceptions & enabled;
+            ManageSession(false);
             //MessageBox.Show(string.Format("TrackingId: {0}\r\nClientId: {1}\r\nEnable: {2} {3} {4}", TrackingId, ClientId, Enabled, Usage, Exceptions), "Init Google Telemetry");
         } // Init
 
@@ -73,6 +78,29 @@ namespace Project.DvbIpTv.Common.Telemetry
 #endif
         } // EnsureHitsSents
 
+        public static void ManageSession(bool end)
+        {
+            if (!Usage) return;
+
+            ThreadPool.QueueUserWorkItem((o) =>
+            {
+                var bag = CreateProperyBag();
+                bag.Add("t", "event");
+                bag.Add("ec", "Session");
+                bag.Add("ea", end? "End" : "Start");
+                bag.Add("sr", string.Format("{0}x{1}", Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height));
+                bag.Add("vp", string.Format("{0}x{1}", SystemInformation.WorkingArea.Width, SystemInformation.WorkingArea.Height));
+                bag.Add("sd", string.Format("{0}-bits", Screen.PrimaryScreen.BitsPerPixel));
+                bag.Add("ni", "1");
+                Send(bag);
+
+                bag = CreateProperyBag();
+                bag.Add("sc", end ? "end" : "start");
+                bag.Add("ni", "1");
+                Send(bag);
+            });
+        } // EndSession
+
         public static void SendScreenHit(string screenName)
         {
             if (!Usage) return;
@@ -82,7 +110,26 @@ namespace Project.DvbIpTv.Common.Telemetry
                 var bag = CreateProperyBag();
                 bag.Add("t", "screenview");
                 bag.Add("cd", screenName);
+                Send(bag);
+            });
+        } // SendScreenHit
 
+        public static void SendScreenHit(Form form, string status = null)
+        {
+            if (!Usage) return;
+
+            ThreadPool.QueueUserWorkItem((o) =>
+            {
+                var bag = CreateProperyBag();
+                bag.Add("t", "screenview");
+                if (status == null)
+                {
+                    bag.Add("cd", form.GetType().Name);
+                }
+                else
+                {
+                    bag.Add("cd", string.Format("{0}: {1}", form.GetType().Name, status));
+                } // if-else
                 Send(bag);
             });
         } // SendScreenHit
@@ -95,11 +142,73 @@ namespace Project.DvbIpTv.Common.Telemetry
             {
                 var bag = CreateProperyBag();
                 bag.Add("t", "exception");
-                bag.Add("cd", ex.GetType().FullName);
-
+                bag.Add("exd", ex.GetType().FullName);
+                bag.Add("ni", "1");
                 Send(bag);
             });
         } // SendExceptionHit
+
+        public static void SendExtendedExceptionHit(Exception ex, bool sendBasic = true, string context = null, string screenName = null)
+        {
+            if (!Exceptions) return;
+
+            ThreadPool.QueueUserWorkItem((o) =>
+            {
+                if (sendBasic)
+                {
+                    var basicBag = CreateProperyBag();
+                    basicBag.Add("t", "exception");
+                    basicBag.Add("exd", ex.GetType().FullName);
+                    basicBag.Add("ni", "1");
+                    if (screenName != null)
+                    {
+                        basicBag.Add("cd", screenName);
+                    } // if
+                    Send(basicBag);
+                } // if
+
+                var bag = CreateProperyBag();
+                bag.Add("t", "event");
+                bag.Add("ec", "Exception");
+                bag.Add("ea", ex.GetType().FullName);
+                if (context != null)
+                {
+                    bag.Add("el", context);
+                } // if
+                if (screenName != null)
+                {
+                    bag.Add("cd", screenName);
+                } // if
+                bag.Add("ni", "1");
+                Send(bag);
+            });
+        } // SendExtendedExceptionHit
+
+        public static void SendEventHit(string category, string action, string label = null, string screenName = null, int? value = null)
+        {
+            if (!Usage) return;
+
+            ThreadPool.QueueUserWorkItem((o) =>
+            {
+                var bag = CreateProperyBag();
+                bag.Add("t", "event");
+                bag.Add("ec", category);
+                bag.Add("ea", action);
+                if (label != null)
+                {
+                    bag.Add("el", label);
+                } // if
+                if (value != null)
+                {
+                    bag.Add("ev", value.Value.ToString(CultureInfo.InvariantCulture));
+                } // if
+                if (screenName != null)
+                {
+                    bag.Add("cd", screenName);
+                } // if
+                Send(bag);
+            });
+        } // SendEventHit
 
         private static IDictionary<string, string> CreateProperyBag()
         {

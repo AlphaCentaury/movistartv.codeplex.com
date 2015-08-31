@@ -43,7 +43,7 @@
             this.buttonDisplayChannel = new System.Windows.Forms.Button();
             this.buttonRecordChannel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
-            this.pictureBoxNow = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.pictureBoxNow = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
             this.pictureChannelLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).BeginInit();
@@ -71,7 +71,11 @@
             this.comboBoxDate.Items.AddRange(new object[] {
             "Hoy",
             "Mañana",
-            "Pasado"});
+            "Pasado mañana",
+            "Dentro de 3 días",
+            "Dentro de 4 días",
+            "Dentro de 5 días",
+            "Dentro de 6 días"});
             this.comboBoxDate.Location = new System.Drawing.Point(66, 39);
             this.comboBoxDate.Name = "comboBoxDate";
             this.comboBoxDate.Size = new System.Drawing.Size(198, 21);
@@ -269,7 +273,7 @@
         private System.Windows.Forms.ListView listPrograms;
         private System.Windows.Forms.ColumnHeader columnHeaderTime;
         private System.Windows.Forms.ColumnHeader columnHeaderTitle;
-        private Controls.PictureBoxEx pictureBoxNow;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxNow;
         private System.Windows.Forms.Label labelNowDetails;
         private System.Windows.Forms.Label labelNowTitle;
         private System.Windows.Forms.Label labelNowTime;

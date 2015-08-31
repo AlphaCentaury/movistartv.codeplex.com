@@ -37,11 +37,11 @@ namespace Project.DvbIpTv.Services.Record.Serialization
             set;
         } // ServiceName
 
-        public string LogoKey
+        public string ServiceKey
         {
             get;
             set;
-        } // LogoKey
+        } // ServiceKey
 
         public string ChannelUrl
         {

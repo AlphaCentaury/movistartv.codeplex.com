@@ -29,6 +29,7 @@ All rights reserved, except those granted by the governing license of this softw
         <ComponentGroupRef Id="ContentProviderComponents" />
         <ComponentGroupRef Id="Logos.Content" />
         <ComponentGroupRef Id="UninstallFolders" />
+        <ComponentGroupRef Id="Redist"/>
       </Feature>
       <Feature Id="Features" Display="expand" Title="Aditional features">
         <FeatureRef Id="Feature.Record" />
@@ -66,6 +67,12 @@ All rights reserved, except those granted by the governing license of this softw
         <Directory Id="DvbFolder" Name="DVB-IPTV">
           <Directory Id="BaseFolder" Name="movistar+ (v1.5 Kruger-60)">
             <Directory Id="INSTALLFOLDER" Name="bin">
+              <Directory Id="RedistFolderBase" Name ="Redist">
+                <Directory Id="RedistFolder" Name="!(loc.RedistLanguage)">
+                  <Directory Id="x86RedistFolder" Name="x86" />
+                  <Directory Id="x64RedistFolder" Name="x64" />
+                </Directory>
+              </Directory>
               <Directory Id="InstallFolder.es" Name="es" />
             </Directory>
             <Directory Id="CacheFolder" Name="Cache" />

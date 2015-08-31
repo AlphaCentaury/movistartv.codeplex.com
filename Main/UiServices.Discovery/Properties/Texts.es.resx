@@ -117,14 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BroadcastListRefreshEmpty" xml:space="preserve">
+    <value>La lista se ha actualizado correctamente, pero no contiene canales o servicios.</value>
+  </data>
+  <data name="BroadcastListRefreshSuccess" xml:space="preserve">
+    <value>La lista de canales se ha actualizado correctamente.</value>
+  </data>
   <data name="BroadcastUnknownDisplayDescription" xml:space="preserve">
     <value>No existe una descripción de este canal de TV o servicio</value>
+  </data>
+  <data name="ChannelNumberNone" xml:space="preserve">
+    <value>xxx</value>
   </data>
   <data name="FormatBroadcastUnknownDisplayName" xml:space="preserve">
     <value>Desconocido: {0}.{1}</value>
   </data>
   <data name="FormatProviderFriendlyDisplayName" xml:space="preserve">
-    <value>{0} (deducido)</value>
+    <value>{0} (*)</value>
   </data>
   <data name="FormatProviderUnknownDisplayName" xml:space="preserve">
     <value>(Sin nombre) {0}</value>
@@ -132,10 +141,40 @@
   <data name="FormatServiceTypeIdUnknown" xml:space="preserve">
     <value>Desconocido ({0})</value>
   </data>
+  <data name="MergeResultChangedServicesCount" xml:space="preserve">
+    <value>{0} canales modificados</value>
+  </data>
+  <data name="MergeResultEqualServicesCount" xml:space="preserve">
+    <value>{0} canales no han cambiado</value>
+  </data>
+  <data name="MergeResultNewServicesCount" xml:space="preserve">
+    <value>{0} nuevos canales</value>
+  </data>
+  <data name="MergeResultRemovedServicesCount" xml:space="preserve">
+    <value>{0} canales han sido suprimidos</value>
+  </data>
+  <data name="MergeResultZeroChangedServices" xml:space="preserve">
+    <value>No hay canales con contenido modificado</value>
+  </data>
+  <data name="MergeResultZeroEqualServices" xml:space="preserve">
+    <value>¡Todos los canales han cambiado!</value>
+  </data>
+  <data name="MergeResultZeroNewServices" xml:space="preserve">
+    <value>No hay nuevos canales</value>
+  </data>
+  <data name="MergeResultZeroRemovedServices" xml:space="preserve">
+    <value>No hay canales suprimidos</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="NotProvidedValue" xml:space="preserve">
     <value>&lt;No suministrado&gt;</value>
   </data>
   <data name="ProviderUnknownDisplayDescription" xml:space="preserve">
     <value>No existe una descripción de este proveedor de servicios</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sí</value>
   </data>
 </root>

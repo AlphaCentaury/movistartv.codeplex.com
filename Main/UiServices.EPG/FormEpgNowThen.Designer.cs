@@ -45,9 +45,9 @@
             this.labelThen = new System.Windows.Forms.Label();
             this.labelChannelName = new System.Windows.Forms.Label();
             this.pictureChannelLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxThen = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
-            this.pictureBoxNow = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
-            this.pictureBoxBefore = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
+            this.pictureBoxThen = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
+            this.pictureBoxNow = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
+            this.pictureBoxBefore = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
             this.buttonOk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxThen)).BeginInit();
@@ -192,7 +192,7 @@
             this.Controls.Add(this.labelBeforeTitle);
             this.Controls.Add(this.labelBeforeTime);
             this.Controls.Add(this.labelBefore);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormEpgNowThen";
             this.ShowIcon = false;
@@ -223,9 +223,9 @@
         private System.Windows.Forms.Label labelThenTime;
         private System.Windows.Forms.Label labelThen;
         private System.Windows.Forms.Button buttonOk;
-        private global::Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxBefore;
-        private global::Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxNow;
-        private global::Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureBoxThen;
+        private global::Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxBefore;
+        private global::Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxNow;
+        private global::Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureBoxThen;
         private System.Windows.Forms.PictureBox pictureChannelLogo;
         private System.Windows.Forms.Label labelChannelName;
     }

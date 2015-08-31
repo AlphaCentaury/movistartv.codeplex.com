@@ -58,18 +58,18 @@ namespace Project.DvbIpTv.UiServices.Record
             this.labelTaskDescription = new System.Windows.Forms.Label();
             this.checkAddTaskPrefix = new System.Windows.Forms.CheckBox();
             this.labelTaskName = new System.Windows.Forms.Label();
-            this.textTaskName = new Project.DvbIpTv.UiServices.Controls.FilenameTextBox();
+            this.textTaskName = new Project.DvbIpTv.UiServices.Common.Controls.FilenameTextBox();
             this.tabPageSave = new System.Windows.Forms.TabPage();
-            this.listViewLocations = new Project.DvbIpTv.UiServices.Controls.ListViewSortable();
+            this.listViewLocations = new Project.DvbIpTv.UiServices.Common.Controls.ListViewSortable();
             this.imageListLocations = new System.Windows.Forms.ImageList(this.components);
             this.buttonSelectFolder = new System.Windows.Forms.Button();
             this.comboFileExtension = new System.Windows.Forms.ComboBox();
-            this.textFilename = new Project.DvbIpTv.UiServices.Controls.FilenameTextBox();
+            this.textFilename = new Project.DvbIpTv.UiServices.Common.Controls.FilenameTextBox();
             this.labelFilename = new System.Windows.Forms.Label();
             this.labelSaveLocation = new System.Windows.Forms.Label();
             this.tabPageAdvanced = new System.Windows.Forms.TabPage();
-            this.timeSpanSchedulerDeleteTaskAfter = new Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown();
-            this.timeSpanSchedulerRetry = new Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown();
+            this.timeSpanSchedulerDeleteTaskAfter = new Project.DvbIpTv.UiServices.Common.Controls.TimeSpanUpDown();
+            this.timeSpanSchedulerRetry = new Project.DvbIpTv.UiServices.Common.Controls.TimeSpanUpDown();
             this.comboSchedulerAlreadyRunning = new System.Windows.Forms.ComboBox();
             this.labelSchedulerConcurrent = new System.Windows.Forms.Label();
             this.checkSchedulerDeleteTask = new System.Windows.Forms.CheckBox();
@@ -80,8 +80,8 @@ namespace Project.DvbIpTv.UiServices.Record
             this.comboSchedulerFolder = new System.Windows.Forms.ComboBox();
             this.labelSchedulerFolder = new System.Windows.Forms.Label();
             this.labelChannelNumber = new System.Windows.Forms.Label();
-            this.pictureChannelLogo = new Project.DvbIpTv.UiServices.Controls.PictureBoxEx();
-            this.selectFolder = new Project.DvbIpTv.UiServices.Controls.SelectFolderDialog();
+            this.pictureChannelLogo = new Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx();
+            this.selectFolder = new Project.DvbIpTv.UiServices.Common.Controls.SelectFolderDialog();
             ColumnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ColumnLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabProperties.SuspendLayout();
@@ -121,7 +121,7 @@ namespace Project.DvbIpTv.UiServices.Record
             // buttonOk
             // 
             resources.ApplyResources(this.buttonOk, "buttonOk");
-            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Ok_16x16;
+            this.buttonOk.Image = global::Project.DvbIpTv.UiServices.Record.Properties.Resources.Action_Ok_16x16;
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
@@ -131,7 +131,7 @@ namespace Project.DvbIpTv.UiServices.Record
             resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.CausesValidation = false;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Project.DvbIpTv.UiServices.Controls.Properties.SharedResources.Action_Cancel_16x16;
+            this.buttonCancel.Image = global::Project.DvbIpTv.UiServices.Record.Properties.Resources.Action_Cancel_16x16;
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -317,6 +317,7 @@ namespace Project.DvbIpTv.UiServices.Record
             this.listViewLocations.HeaderCustomFont = null;
             this.listViewLocations.HeaderCustomForeColor = System.Drawing.Color.Empty;
             this.listViewLocations.HideSelection = false;
+            this.listViewLocations.IsDoubleBuffered = true;
             this.listViewLocations.MultiSelect = false;
             this.listViewLocations.Name = "listViewLocations";
             this.listViewLocations.OwnerDraw = true;
@@ -533,7 +534,7 @@ namespace Project.DvbIpTv.UiServices.Record
 
         #endregion
 
-        private Project.DvbIpTv.UiServices.Controls.PictureBoxEx pictureChannelLogo;
+        private Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx pictureChannelLogo;
         private System.Windows.Forms.Label labelChannelName;
         private System.Windows.Forms.Label labelChannelDescription;
         private System.Windows.Forms.Button buttonOk;
@@ -556,15 +557,15 @@ namespace Project.DvbIpTv.UiServices.Record
         private System.Windows.Forms.TextBox textTaskDescription;
         private System.Windows.Forms.Label labelTaskDescription;
         private System.Windows.Forms.CheckBox checkAddTaskPrefix;
-        private Project.DvbIpTv.UiServices.Controls.FilenameTextBox textTaskName;
+        private Project.DvbIpTv.UiServices.Common.Controls.FilenameTextBox textTaskName;
         private System.Windows.Forms.Label labelTaskName;
         private System.Windows.Forms.TabPage tabPageSave;
         private System.Windows.Forms.Label labelFilename;
         private System.Windows.Forms.Label labelSaveLocation;
         private System.Windows.Forms.ComboBox comboFileExtension;
-        private Project.DvbIpTv.UiServices.Controls.FilenameTextBox textFilename;
+        private Project.DvbIpTv.UiServices.Common.Controls.FilenameTextBox textFilename;
         private System.Windows.Forms.Button buttonSelectFolder;
-        private Project.DvbIpTv.UiServices.Controls.ListViewSortable listViewLocations;
+        private Project.DvbIpTv.UiServices.Common.Controls.ListViewSortable listViewLocations;
         private System.Windows.Forms.ComboBox comboSchedulerFolder;
         private System.Windows.Forms.Label labelSchedulerFolder;
         private System.Windows.Forms.ComboBox comboSchedulerAlreadyRunning;
@@ -577,8 +578,8 @@ namespace Project.DvbIpTv.UiServices.Record
         private System.Windows.Forms.ImageList imageListLocations;
         private System.Windows.Forms.DateTimePicker dateTimeExpiryDate;
         private System.Windows.Forms.CheckBox checkBoxExpiryDate;
-        private Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown timeSpanSchedulerRetry;
-        private Project.DvbIpTv.UiServices.Controls.TimeSpanUpDown timeSpanSchedulerDeleteTaskAfter;
-        private Project.DvbIpTv.UiServices.Controls.SelectFolderDialog selectFolder;
+        private Project.DvbIpTv.UiServices.Common.Controls.TimeSpanUpDown timeSpanSchedulerRetry;
+        private Project.DvbIpTv.UiServices.Common.Controls.TimeSpanUpDown timeSpanSchedulerDeleteTaskAfter;
+        private Project.DvbIpTv.UiServices.Common.Controls.SelectFolderDialog selectFolder;
     }
 }

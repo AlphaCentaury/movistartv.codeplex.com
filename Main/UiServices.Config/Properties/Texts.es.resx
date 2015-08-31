@@ -238,4 +238,67 @@ Verifique la sintáxis XML del archivo y corrija los errores detectados.</value>
 
 Por favor, instale la aplicación utilizando el instalador oficial o repare la instalación.</value>
   </data>
+  <data name="LogoSize128" xml:space="preserve">
+    <value>Más grande</value>
+  </data>
+  <data name="LogoSize256" xml:space="preserve">
+    <value>Enorme</value>
+  </data>
+  <data name="LogoSize32" xml:space="preserve">
+    <value>Pequeño</value>
+  </data>
+  <data name="LogoSize48" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="LogoSize64" xml:space="preserve">
+    <value>Medio</value>
+  </data>
+  <data name="LogoSize96" xml:space="preserve">
+    <value>Grande</value>
+  </data>
+  <data name="LogoSizeWithSizeFormat" xml:space="preserve">
+    <value>{0} ({1}x{2})</value>
+  </data>
+  <data name="LoadProgress_ContentProvider" xml:space="preserve">
+    <value>Leyendo la información del proveedor de contenidos...</value>
+  </data>
+  <data name="LoadProgress_Start" xml:space="preserve">
+    <value>Cargando la configuración de la aplicación...</value>
+  </data>
+  <data name="LoadProgress_UserConfig" xml:space="preserve">
+    <value>Leyendo la configuración de usuario y preferencias...</value>
+  </data>
+  <data name="DvbServiceTypeDescription_01" xml:space="preserve">
+    <value>TV SD</value>
+  </data>
+  <data name="DvbServiceTypeDescription_02" xml:space="preserve">
+    <value>Radio (MPEG-1)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_03" xml:space="preserve">
+    <value>Teletexto</value>
+  </data>
+  <data name="DvbServiceTypeDescription_06" xml:space="preserve">
+    <value>Mosaico</value>
+  </data>
+  <data name="DvbServiceTypeDescription_10" xml:space="preserve">
+    <value>Radio HD</value>
+  </data>
+  <data name="DvbServiceTypeDescription_11" xml:space="preserve">
+    <value>Mosaico HD</value>
+  </data>
+  <data name="DvbServiceTypeDescription_12" xml:space="preserve">
+    <value>Datos</value>
+  </data>
+  <data name="DvbServiceTypeDescription_16" xml:space="preserve">
+    <value>DVB MHP</value>
+  </data>
+  <data name="DvbServiceTypeDescription_17" xml:space="preserve">
+    <value>TV HD (MPEG-2)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_22" xml:space="preserve">
+    <value>TV SD (AAC)</value>
+  </data>
+  <data name="DvbServiceTypeDescription_25" xml:space="preserve">
+    <value>TV HD</value>
+  </data>
 </root>

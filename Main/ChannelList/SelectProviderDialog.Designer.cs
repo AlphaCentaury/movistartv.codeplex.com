@@ -55,8 +55,8 @@ namespace Project.DvbIpTv.ChannelList
             // 
             // listViewServiceProviders
             // 
-            resources.ApplyResources(this.listViewServiceProviders, "listViewServiceProviders");
             this.listViewServiceProviders.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            resources.ApplyResources(this.listViewServiceProviders, "listViewServiceProviders");
             this.listViewServiceProviders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             NameColumn,
             DescriptionColumn});

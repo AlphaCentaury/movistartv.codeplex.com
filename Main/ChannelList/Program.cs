@@ -6,6 +6,7 @@ using Project.DvbIpTv.UiServices.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Project.DvbIpTv.ChannelList
@@ -18,7 +19,8 @@ namespace Project.DvbIpTv.ChannelList
         [STAThread]
         static int Main(string[] arguments)
         {
-            System.Threading.Thread.CurrentThread.Name = "Program main thread";
+            // set thread name for debugging
+            Thread.CurrentThread.Name = "Program main thread";
 
             //Application.ThreadException += Application_ThreadException;
             Application.EnableVisualStyles();
@@ -29,7 +31,8 @@ namespace Project.DvbIpTv.ChannelList
             var exitCode = appContext.ExitCode;
             appContext.Dispose();
 
-            BasicGoogleTelemetry.SendScreenHit("Main: End");
+            BasicGoogleTelemetry.SendScreenHit("ChannelList_Main: End");
+            BasicGoogleTelemetry.ManageSession(true);
             BasicGoogleTelemetry.EnsureHitsSents();
 
             return exitCode;

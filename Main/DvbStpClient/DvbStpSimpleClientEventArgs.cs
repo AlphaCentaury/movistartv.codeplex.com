@@ -35,6 +35,7 @@ namespace Project.DvbIpTv.DvbStp.Client
             public short SegmentId;
             public int OldVersion;
             public int NewVersion;
+            public int SectionCount;
         } // class DownloadRestartedEventArgs
     } // partial class DvbStpSimpleClient
 } // namespace

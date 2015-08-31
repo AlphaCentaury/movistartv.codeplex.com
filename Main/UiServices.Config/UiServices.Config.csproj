@@ -35,8 +35,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -47,7 +50,21 @@
     <Compile Include="AppUiConfigurationFolders.cs" />
     <Compile Include="Cache\CachedItemBase.cs" />
     <Compile Include="Cache\CachedXmlDocument.cs" />
+    <Compile Include="CommonUiResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonUiResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurationForm.Designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IConfigurationItemEditor.cs" />
+    <Compile Include="IConfigurationItemRegistration.cs" />
     <Compile Include="InitializationResult.cs" />
+    <Compile Include="IConfigurationItem.cs" />
     <Compile Include="Logos\BaseLogo.cs" />
     <Compile Include="Cache\CacheManager.cs" />
     <Compile Include="Logos\LogoSize.cs" />
@@ -102,8 +119,21 @@
     <Compile Include="UiContentProvider.cs" />
     <Compile Include="UiContentProviderFriendlyNames.cs" />
     <Compile Include="UiContentProviderIdentification.cs" />
+    <Compile Include="WindowsBitness.cs" />
+    <Compile Include="XmlConfigurationItems.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CommonUiResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigurationForm.es.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigurationForm.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\InvariantTexts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>InvariantTexts.Designer.cs</LastGenOutput>
@@ -112,7 +142,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Texts.es.resx" />
+    <EmbeddedResource Include="Properties\Texts.es.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Texts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
@@ -137,6 +169,12 @@
     <None Include="Resources\BrokenFile_96.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Common.UI\Resources\Action_Cancel_16x16.png">
+      <Link>Resources\Action_Cancel_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Ok_16x16.png">
+      <Link>Resources\Action_Ok_16x16.png</Link>
+    </Content>
     <Content Include="License.txt" />
     <Content Include="Resources\BrokenFile_256.png" />
   </ItemGroup>

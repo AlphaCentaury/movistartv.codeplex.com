@@ -12,35 +12,94 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
 {
     public abstract class BaseLogo
     {
-        public string File
+        public static Size LogoSizeToSize(LogoSize logoSize)
         {
-            get;
-            internal set;
-        } // File
+            switch (logoSize)
+            {
+                case LogoSize.Size32: return new Size(32, 32);
+                case LogoSize.Size48: return new Size(48, 48);
+                case LogoSize.Size64: return new Size(64,64);
+                case LogoSize.Size96: return new Size(96,96);
+                case LogoSize.Size128: return new Size(128, 128);
+                case LogoSize.Size256: return new Size(256, 256);
+                default:
+                    throw new IndexOutOfRangeException();
+            } // switch
+        } // LogoSizeToSize
 
-        public string Path
+        public static string LogoSizeToString(LogoSize logoSize, bool withSize)
+        {
+            string text;
+
+            switch (logoSize)
+            {
+                case LogoSize.Size32: text = Properties.Texts.LogoSize32; break;
+                case LogoSize.Size48: text = Properties.Texts.LogoSize48; break;
+                case LogoSize.Size64: text = Properties.Texts.LogoSize64; break;
+                case LogoSize.Size96: text = Properties.Texts.LogoSize96; break;
+                case LogoSize.Size128: text = Properties.Texts.LogoSize128; break;
+                case LogoSize.Size256: text = Properties.Texts.LogoSize256; break;
+                default:
+                    throw new IndexOutOfRangeException();
+            } // switch
+
+            if (withSize)
+            {
+                var size = LogoSizeToSize(logoSize);
+                return string.Format(Properties.Texts.LogoSizeWithSizeFormat, text, size.Width, size.Height);
+            }
+            else
+            {
+                return text;
+            } // if-else
+        } // LogoSizeToString
+
+        public static List<KeyValuePair<LogoSize, string>> GetListLogoSizes(bool withSize)
+        {
+            var result = new List<KeyValuePair<LogoSize, string>>(6);
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size32, LogoSizeToString(LogoSize.Size32, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size48, LogoSizeToString(LogoSize.Size48, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size64, LogoSizeToString(LogoSize.Size64, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size96, LogoSizeToString(LogoSize.Size96, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size128, LogoSizeToString(LogoSize.Size128, withSize)));
+            result.Add(new KeyValuePair<LogoSize, string>(LogoSize.Size256, LogoSizeToString(LogoSize.Size256, withSize)));
+
+            return result;
+        } // GetListLogoSizes
+
+        public string FilePrefix
         {
             get;
-            internal set;
-        } // Path
+            protected set;
+        } // FilePrefix
+
+        public string PartialPath
+        {
+            get;
+            protected set;
+        } // PartialPath
+
+        public string BasePath
+        {
+            get;
+            protected set;
+        } // BasePath
 
         public string Key
         {
             get;
-            internal set;
+            protected set;
         } // Key
 
         public Image GetImage(LogoSize logoSize, bool noExceptions)
         {
-            string filename;
-
             if (!IsSizeAvailable(logoSize))
             {
                 throw new NotSupportedException();
             } // if
 
-            filename = File + GetSizeSufix(logoSize) + ".png";
-            filename = System.IO.Path.Combine(Path, filename);
+            var path = Path.Combine(BasePath, PartialPath);
+            var filename = Path.Combine(path, GetFilename(logoSize, ".png"));
             try
             {
                 return Image.FromFile(filename);
@@ -69,9 +128,10 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
 
         public string GetLogoIconPath()
         {
-            var path = System.IO.Path.Combine(Path, File + ".ico");
+            var path = Path.Combine(BasePath, PartialPath);
+            var filename = Path.Combine(path, FilePrefix + ".ico");
 
-            return System.IO.File.Exists(path)? path : null;
+            return File.Exists(filename) ? filename : null;
         } // GetLogoIconPath
 
         public static Image GetBrokenFile(LogoSize logoSize)
@@ -119,6 +179,15 @@ namespace Project.DvbIpTv.UiServices.Configuration.Logos
                     throw new ArgumentOutOfRangeException("LogoSize logoSize");
             } // switch
         } // GetSizeSufix
+
+        protected string GetFilename(LogoSize size, string extension)
+        {
+            var buffer = new StringBuilder();
+            buffer.Append(FilePrefix);
+            buffer.Append(GetSizeSufix(size));
+            buffer.Append(extension);
+            return buffer.ToString();
+        } // GetFilename
 
         protected abstract string ImageNotFoundExceptionText
         {

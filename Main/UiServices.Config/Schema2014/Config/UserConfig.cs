@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
@@ -17,12 +18,12 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
     {
         private string[] preferredLanguagesList;
 
-        [XmlElement("Analytics")]
-        public AnalyticsConfig Analytics
+        [XmlElement("Telemetry")]
+        public TelemetryConfiguration Telemetry
         {
             get;
             set;
-        } // Analytics
+        } // Telemetry
 
         [XmlElement("PreferredLanguages")]
         public string PreferredLanguages
@@ -52,6 +53,19 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             set;
         } // Epg
 
+        public bool ChannelNumberStandardDefinitionPriority
+        {
+            get;
+            set;
+        } // ChannelNumberStandardDefinitionPriority
+
+        [XmlElement("Configuration")]
+        public XmlConfigurationItems Configuration
+        {
+            get;
+            set;
+        } // Configuration
+
         [XmlIgnore]
         public string[] PreferredLanguagesList
         {
@@ -65,16 +79,6 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
                 return preferredLanguagesList;
             } // get
         } // PreferredLanguagesList
-
-        public static UserConfig Load(string xmlFilePath)
-        {
-            return XmlSerialization.Deserialize<UserConfig>(xmlFilePath, true);
-        } // Load
-
-        public void Save(string xmlFilePath)
-        {
-            XmlSerialization.Serialize(xmlFilePath, Encoding.UTF8, this);
-        } // Save
 
         internal string Validate()
         {

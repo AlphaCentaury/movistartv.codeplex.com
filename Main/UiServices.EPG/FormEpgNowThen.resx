@@ -484,7 +484,7 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="labelChannelName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt, style=Bold</value>
+    <value>Segoe UI, 11.25pt, style=Bold</value>
   </data>
   <data name="labelChannelName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -559,7 +559,7 @@
     <value>pictureBoxThen</value>
   </data>
   <data name="&gt;&gt;pictureBoxThen.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.PictureBoxEx, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx, UiServices.Common, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxThen.Parent" xml:space="preserve">
     <value>$this</value>
@@ -583,7 +583,7 @@
     <value>pictureBoxNow</value>
   </data>
   <data name="&gt;&gt;pictureBoxNow.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.PictureBoxEx, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx, UiServices.Common, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxNow.Parent" xml:space="preserve">
     <value>$this</value>
@@ -607,7 +607,7 @@
     <value>pictureBoxBefore</value>
   </data>
   <data name="&gt;&gt;pictureBoxBefore.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Controls.PictureBoxEx, UiServices.Controls, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Project.DvbIpTv.UiServices.Common.Controls.PictureBoxEx, UiServices.Common, Version=1.5.20.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;pictureBoxBefore.Parent" xml:space="preserve">
     <value>$this</value>
