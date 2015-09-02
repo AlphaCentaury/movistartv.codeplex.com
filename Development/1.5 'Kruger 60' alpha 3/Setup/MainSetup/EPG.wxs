@@ -9,6 +9,7 @@
              Description="Enables the EPG capabilities. If this feature is not installed, EPG information will not be available.">
       <ComponentGroupRef Id="EPG.Assemblies"/>
       <ComponentGroupRef Id="EPG.Assemblies.Localization"/>
+      <ComponentGroupRef Id="EPG.ThirdParty"/>
       <ComponentGroupRef Id="EPG.DB"/>
     </Feature>
 
@@ -24,6 +25,15 @@
         <File Id="Services.EPG.pdb" Source="$(var.Services.EPG.TargetDir)Services.EPG.pdb" />
         <File Id="UiServices.EPG.pdb" Source="$(var.UiServices.EPG.TargetDir)UiServices.EPG.pdb" />
         <File Id="ConsoleEPGLoader.pdb" Source="$(var.ConsoleEPGLoader.TargetDir)ConsoleEPGLoader.pdb" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="EPG.ThirdParty">
+      <Component Id="EPG.ThirdParty.JsonNet.dll">
+        <File Id="Newtonsoft.Json.dll" Source="$(var.Services.EPG.TargetDir)Newtonsoft.Json.dll" />
+      </Component>
+      <Component Id="EPG.ThirdParty.Newtonsoft.Json.pdb">
+        <File Id="Newtonsoft.Json.pdb" Source="$(var.Services.EPG.TargetDir)Newtonsoft.Json.pdb" />
       </Component>
     </ComponentGroup>
 

@@ -1,4 +1,4 @@
-movistar+ DVB-IPTV decoder version 1.5 “Kruger 60” Alpha 2
+movistar+ DVB-IPTV decoder version 1.5 “Kruger 60” Alpha 3
 
 NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services.
 DO NOT EVER CALL 1002 nor 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
@@ -66,12 +66,12 @@ Microsoft® SQL Server Compact® 4.0 is a free, embedded database that software de
 http://www.microsoft.com/en-us/download/details.aspx?id=30709 (Microsoft® SQL Server® Compact 4.0 SP1)
 x86: ENU\SSCERuntime_x86-ENU.exe; x64: ENU\SSCERuntime_x64-ENU.exe.msi
 
->> "Task Scheduler Managed Wrapper"
+>> "Task Scheduler Managed Wrapper 2.2.2"
 
 This software links to binary code from the Codeplex project "Task Scheduler Managed Wrapper"
 https://taskscheduler.codeplex.com/
 
-"Task Scheduler Managed Wrapper" software is licensed under the MIT License (MIT).
+"Task Scheduler Managed Wrapper" software is licensed under the MIT License (MIT). Complete license text is provided below. Copyright (c) 2003-2010 David Hall
 
 >> FolderBrowserDialogEx class (from DotNetZip)
 
@@ -79,11 +79,16 @@ Contains code extracted from the DotNetZip Codeplex project (http://dotnetzip.co
 Original source code: http://dotnetzip.codeplex.com/SourceControl/changeset/view/29832#432677
 "DotNetZip" software is licensed under the Ms-PL license (http://dotnetzip.codeplex.com/license)
 
+>> "JSON.Net 7.0 Release 1"
+
+This software links to binary code from the Codeplex project "JSON.Net"
+http://json.codeplex.com/
+
+"JSON.Net" software is licensed under the MIT License (MIT). Complete license text is provided below. Copyright (c) 2007 James Newton-King
+
 *****************************************************************************
 ** The MIT License (MIT)                                                   **
 *****************************************************************************
-
-Copyright (c) 2003-2010 David Hall
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
