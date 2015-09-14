@@ -66,6 +66,9 @@
     <Compile Include="v010501\XmlSerialization\BroadcastDiscovery\MosaicDescriptionLogicalCell.cs" />
     <Compile Include="v010501\XmlSerialization\BroadcastDiscovery\MosaicDescriptionPackageId.cs" />
     <Compile Include="v010501\XmlSerialization\BroadcastDiscovery\MulticastRetransmission.cs" />
+    <Compile Include="v010501\XmlSerialization\ContentGuideDiscovery\BroadcastContentGuide.cs" />
+    <Compile Include="v010501\XmlSerialization\ContentGuideDiscovery\BroadcastContentGuideDiscoveryRoot.cs" />
+    <Compile Include="v010501\XmlSerialization\ContentGuideDiscovery\BroadcastContentGuideOffering.cs" />
     <Compile Include="v010501\XmlSerialization\Extensions.cs" />
     <Compile Include="v010501\XmlSerialization\Common\MultilingualText.cs" />
     <Compile Include="v010501\XmlSerialization\Common\OfferingBase.cs" />
@@ -152,6 +155,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

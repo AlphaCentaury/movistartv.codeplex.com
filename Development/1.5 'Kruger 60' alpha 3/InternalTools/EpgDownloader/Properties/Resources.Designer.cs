@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.UiServices.EPG.Properties {
+namespace Project.DvbIpTv.Services.EPG.EpgDownloader.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.UiServices.EPG.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.EPG.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.Services.EPG.EpgDownloader.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,50 +63,10 @@ namespace Project.DvbIpTv.UiServices.EPG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Epg {
+        internal static System.Drawing.Icon EpgDownload {
             get {
-                object obj = ResourceManager.GetObject("Epg", resourceCulture);
+                object obj = ResourceManager.GetObject("EpgDownload", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap EpgLoadingProgramImage {
-            get {
-                object obj = ResourceManager.GetObject("EpgLoadingProgramImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap EpgNoProgramImage {
-            get {
-                object obj = ResourceManager.GetObject("EpgNoProgramImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ProgressBarBase {
-            get {
-                object obj = ResourceManager.GetObject("ProgressBarBase", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ProgressBarFilled {
-            get {
-                object obj = ResourceManager.GetObject("ProgressBarFilled", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

@@ -59,6 +59,7 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
                         {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.134"), 3937) },
                         {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.135"), 3937) },
                         {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.136"), 3937) },
+                        {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.137"), 3937) },
                     });
 
                 Log("Main thread {0} waiting for processing threads to end...", Thread.CurrentThread.ManagedThreadId);

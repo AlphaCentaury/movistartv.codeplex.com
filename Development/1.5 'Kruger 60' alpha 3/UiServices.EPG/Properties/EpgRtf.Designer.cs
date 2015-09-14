@@ -22,14 +22,14 @@ namespace Project.DvbIpTv.UiServices.EPG.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class EpgRtf {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal EpgRtf() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.UiServices.EPG.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.EPG.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.EPG.Properties.EpgRtf", typeof(EpgRtf).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,52 +61,70 @@ namespace Project.DvbIpTv.UiServices.EPG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized string similar to }.
         /// </summary>
-        internal static System.Drawing.Icon Epg {
+        internal static string Footer {
             get {
-                object obj = ResourceManager.GetObject("Epg", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                return ResourceManager.GetString("Footer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang1033
+        ///{\fonttbl
+        ///{\f0\fnil\fcharset0 Segoe UI;}
+        ///{\f1\fnil\fcharset0 Calibri;}
+        ///}
+        ///\viewkind4\uc1\pard\sa200\sl276\slmult1\lang10.
         /// </summary>
-        internal static System.Drawing.Bitmap EpgLoadingProgramImage {
+        internal static string Header {
             get {
-                object obj = ResourceManager.GetObject("EpgLoadingProgramImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Header", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to \f0\fs20 {0}\par.
         /// </summary>
-        internal static System.Drawing.Bitmap EpgNoProgramImage {
+        internal static string ProgramDescription {
             get {
-                object obj = ResourceManager.GetObject("EpgNoProgramImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ProgramDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to \f0\fs28\b {0}\b0\par.
         /// </summary>
-        internal static System.Drawing.Bitmap ProgressBarBase {
+        internal static string ProgramTitle {
             get {
-                object obj = ResourceManager.GetObject("ProgressBarBase", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ProgramTitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to \b {0}:\b0  {1}\line .
         /// </summary>
-        internal static System.Drawing.Bitmap ProgressBarFilled {
+        internal static string Value {
             get {
-                object obj = ResourceManager.GetObject("ProgressBarFilled", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \par.
+        /// </summary>
+        internal static string ValuesFooter {
+            get {
+                return ResourceManager.GetString("ValuesFooter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \f1\fs20.
+        /// </summary>
+        internal static string ValuesHeader {
+            get {
+                return ResourceManager.GetString("ValuesHeader", resourceCulture);
             }
         }
     }

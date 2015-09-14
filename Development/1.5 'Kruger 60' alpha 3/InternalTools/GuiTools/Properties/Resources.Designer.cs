@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.UiServices.EPG {
+namespace Project.DvbIpTv.Internal.Tools.GuiTools.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Project.DvbIpTv.UiServices.EPG {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CommonUiResources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonUiResources() {
+        internal Resources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.UiServices.EPG {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.EPG.CommonUiResources", typeof(CommonUiResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.Internal.Tools.GuiTools.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,69 +63,9 @@ namespace Project.DvbIpTv.UiServices.EPG {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Back_16x16 {
+        internal static System.Drawing.Bitmap Action_Cancel_Red_16x16 {
             get {
-                object obj = ResourceManager.GetObject("Action_Back_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Cancel_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Cancel_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Close_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Close_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Copy_Clip_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Copy_Clip_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Forward_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Forward_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_FullView_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_FullView_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Action_Ok_16x16 {
-            get {
-                object obj = ResourceManager.GetObject("Action_Ok_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("Action_Cancel_Red_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -141,21 +81,30 @@ namespace Project.DvbIpTv.UiServices.EPG {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Properties_16x16 {
+        internal static System.Drawing.Icon GuiTools {
             get {
-                object obj = ResourceManager.GetObject("Action_Properties_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("GuiTools", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error has occurred while processing your request.
+        /// </summary>
+        internal static string MyAppHandleExceptionDefaultCaption {
+            get {
+                return ResourceManager.GetString("MyAppHandleExceptionDefaultCaption", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Record_16x16 {
+        internal static System.Drawing.Bitmap Status_Wait_16x16 {
             get {
-                object obj = ResourceManager.GetObject("Action_Record_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("Status_Wait_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

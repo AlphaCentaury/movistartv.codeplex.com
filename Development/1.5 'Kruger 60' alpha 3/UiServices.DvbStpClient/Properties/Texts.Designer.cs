@@ -115,11 +115,29 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An error has ocurred while fetching data.
+        /// </summary>
+        internal static string HelperExceptionText {
+            get {
+                return ResourceManager.GetString("HelperExceptionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Request cancelled.
         /// </summary>
         internal static string HelperUserCancelledCaption {
             get {
                 return ResourceManager.GetString("HelperUserCancelledCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The download of the data has been cancelled by the user..
+        /// </summary>
+        internal static string HelperUserCancelledText {
+            get {
+                return ResourceManager.GetString("HelperUserCancelledText", resourceCulture);
             }
         }
         

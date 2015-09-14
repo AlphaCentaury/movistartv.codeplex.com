@@ -135,8 +135,14 @@
   <data name="HelperExceptionCaption" xml:space="preserve">
     <value>An error has ocurred while fetching data</value>
   </data>
+  <data name="HelperExceptionText" xml:space="preserve">
+    <value>An error has ocurred while fetching data</value>
+  </data>
   <data name="HelperUserCancelledCaption" xml:space="preserve">
     <value>Request cancelled</value>
+  </data>
+  <data name="HelperUserCancelledText" xml:space="preserve">
+    <value>The download of the data has been cancelled by the user.</value>
   </data>
   <data name="ParsePayloadException" xml:space="preserve">
     <value>The received data can't be successfully parsed and extracted.

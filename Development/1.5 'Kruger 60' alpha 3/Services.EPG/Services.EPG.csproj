@@ -57,6 +57,9 @@
     <Compile Include="EpgEvent.cs" />
     <Compile Include="EpgService.cs" />
     <Compile Include="EpgValue.cs" />
+    <Compile Include="Movistar\MovistarEpgInfo.cs" />
+    <Compile Include="Movistar\MovistarJsonEpgInfoResponse.cs" />
+    <Compile Include="Movistar\MovistarJsonResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\EpgDbQuery.cs" />
     <Compile Include="Serialization\EpgDbSerialization.cs" />

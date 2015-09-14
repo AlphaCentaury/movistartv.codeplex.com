@@ -8,8 +8,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute parameters to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TV-Anytime EPG loader utility")]
-[assembly: AssemblyDescription("Project.DvbIpTv.Internal.ConsoleEPGLoader")]
+[assembly: AssemblyTitle("DVB-IPTV project internal tools: GuiTools")]
+[assembly: AssemblyDescription("Project.DvbIpTv.Internal.Tools.GuiTools")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCopyright(SolutionVersion.DefaultCopyright)]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f5de3d7e-d0da-43fb-87d3-d7d85ab42e6e")]
+[assembly: Guid("e73b3ee5-cedd-4484-a3f8-44894ff77c05")]
 
 // Version information for an assembly consists of the following four parameters:
 //      Major Version
