@@ -241,4 +241,7 @@ La aplicación no puede continuar y se terminará.</value>
   <data name="MyAppHandleExceptionDefaultMessage" xml:space="preserve">
     <value>Ninguna información ha sido proporcionada en cuanto a dónde ni por qué ocurrio el error. Los detalles del error se muestran a continuación:</value>
   </data>
+  <data name="MulticastScannerScanCompleteRefresh" xml:space="preserve">
+    <value>Al menos un servicio inactivo ha pasado a estar activo. La lista se refrescará para mostrar los nuevos servicios activos.</value>
+  </data>
 </root>

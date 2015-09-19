@@ -379,7 +379,6 @@ namespace Project.DvbIpTv.ChannelList
         {
             int timeout;
             MulticastScannerOptionsDialog.ScanWhatList list;
-            MulticastScannerDialog.ScanDeadAction action;
             IEnumerable<UiBroadcastService> whatList;
 
             if ((MulticastScanner != null) && (!MulticastScanner.IsDisposed))
@@ -395,7 +394,6 @@ namespace Project.DvbIpTv.ChannelList
                 if (result != DialogResult.OK) return;
                 timeout = dialog.Timeout;
                 list = dialog.ScanList;
-                action = dialog.DeadAction;
             } // using
 
             // filter whole list, if asked for
@@ -415,7 +413,6 @@ namespace Project.DvbIpTv.ChannelList
             MulticastScanner = new MulticastScannerDialog()
             {
                 Timeout = timeout,
-                DeadAction = action,
                 BroadcastServices = whatList,
             };
             MulticastScanner.ChannelScanResult += MulticastScanner_ChannelScanResult;
@@ -430,30 +427,25 @@ namespace Project.DvbIpTv.ChannelList
             MulticastScanner = null;
         } // MulticastScanner_Disposed
 
-        private void MulticastScanner_ChannelScanResult(object sender, MulticastScannerDialog.ChannelScanResultEventArgs e)
+        private void MulticastScanner_ChannelScanResult(object sender, MulticastScannerDialog.ScanResultEventArgs e)
         {
             if (e.IsSkipped) return;
 
             var service = e.Service;
-
-            switch (e.DeadAction)
-            {
-                case MulticastScannerDialog.ScanDeadAction.Inactivate:
-                    ListManager.EnableItem(service, e.IsDead, service.IsHidden);
-                    break;
-                case MulticastScannerDialog.ScanDeadAction.Hide:
-                    ListManager.EnableItem(service, service.IsInactive, service.IsHidden || e.IsDead);
-                    break;
-                case MulticastScannerDialog.ScanDeadAction.Both:
-                    ListManager.EnableItem(service, e.IsDead, service.IsHidden || e.IsDead);
-                    break;
-            } // switch
+            e.IsInList = ListManager.EnableService(service, e.IsDead, service.IsHidden);
         }  // MulticastScanner_ChannelScanResult
 
-        private void MulticastScanner_ScanCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void MulticastScanner_ScanCompleted(object sender, MulticastScannerDialog.ScanCompletedEventArgs e)
         {
             // Save scan result in cache
             AppUiConfiguration.Current.Cache.SaveXml("UiBroadcastDiscovery", SelectedServiceProvider.Key, BroadcastDiscovery.Version, BroadcastDiscovery);
+
+            // Refresh list if needed
+            if (e.IsListRefreshNeeded)
+            {
+                MessageBox.Show(this, Properties.Texts.MulticastScannerScanCompleteRefresh, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListManager.Refesh();
+            } // if
         } // MulticastScanner_ScanCompleted
 
         private void menuItemChannelDetails_Click_Implementation(object sender, EventArgs e)
@@ -721,10 +713,12 @@ namespace Project.DvbIpTv.ChannelList
                     if (cachedDiscovery == null)
                     {
                         Notify(Properties.Resources.Error_24x24, Properties.Texts.ChannelListNoCache, 60000);
-                        return false;
+                    }
+                    else
+                    {
+                        uiDiscovery = cachedDiscovery.Document;
+                        NotifyChannelListAge((int)cachedDiscovery.Age.TotalDays);
                     } // if
-                    uiDiscovery = cachedDiscovery.Document;
-                    NotifyChannelListAge((int)cachedDiscovery.Age.TotalDays);
                 } // if
 
                 if (uiDiscovery == null)
@@ -754,6 +748,7 @@ namespace Project.DvbIpTv.ChannelList
 
                     var xmlDiscovery = downloader.Request.Payloads[0].XmlDeserializedData as BroadcastDiscoveryRoot;
                     uiDiscovery = new UiBroadcastDiscovery(xmlDiscovery, SelectedServiceProvider.DomainName, downloader.Request.Payloads[0].SegmentVersion);
+
                     UiBroadcastDiscoveryMergeResultDialog.Merge(this, BroadcastDiscovery, uiDiscovery);
 
                     var xmlPackageDiscovery = downloader.Request.Payloads[1].XmlDeserializedData as PackageDiscoveryRoot;

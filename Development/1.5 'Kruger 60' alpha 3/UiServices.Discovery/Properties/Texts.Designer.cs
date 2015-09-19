@@ -142,6 +142,15 @@ namespace Project.DvbIpTv.UiServices.Discovery.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (No new, discontinued or modified channels).
+        /// </summary>
+        internal static string MergeResultDetailsNoData {
+            get {
+                return ResourceManager.GetString("MergeResultDetailsNoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} channels have not changed.
         /// </summary>
         internal static string MergeResultEqualServicesCount {

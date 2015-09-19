@@ -1,4 +1,7 @@
-﻿namespace Project.DvbIpTv.UiServices.Discovery
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+namespace Project.DvbIpTv.UiServices.Discovery
 {
     partial class UiBroadcastDiscoveryMergeResultDialog
     {
@@ -40,6 +43,7 @@
             this.labelAdded = new System.Windows.Forms.Label();
             this.labelBulletAdded = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonDetails = new System.Windows.Forms.Button();
             this.pictureIconSuccess = new System.Windows.Forms.PictureBox();
             this.groupBoxResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIconSuccess)).BeginInit();
@@ -112,6 +116,15 @@
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.UseVisualStyleBackColor = true;
             // 
+            // buttonDetails
+            // 
+            resources.ApplyResources(this.buttonDetails, "buttonDetails");
+            this.buttonDetails.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonDetails.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.ListView_Details_16x16;
+            this.buttonDetails.Name = "buttonDetails";
+            this.buttonDetails.UseVisualStyleBackColor = true;
+            this.buttonDetails.Click += new System.EventHandler(this.buttonDetails_Click);
+            // 
             // pictureIconSuccess
             // 
             this.pictureIconSuccess.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Status_Success_24x24;
@@ -124,10 +137,14 @@
             this.AcceptButton = this.buttonClose;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonDetails);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.groupBoxResults);
             this.Controls.Add(this.labelSuccess);
             this.Controls.Add(this.pictureIconSuccess);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UiBroadcastDiscoveryMergeResultDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -154,5 +171,6 @@
         private System.Windows.Forms.Label labelAdded;
         private System.Windows.Forms.Label labelBulletAdded;
         private System.Windows.Forms.Button buttonClose;
-    }
-}
+        private System.Windows.Forms.Button buttonDetails;
+    } // class UiBroadcastDiscoveryMergeResultDialog
+} // namespace

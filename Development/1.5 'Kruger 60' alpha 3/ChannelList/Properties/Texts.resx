@@ -246,4 +246,7 @@ Do you still want to show {0}?</value>
   <data name="MyAppHandleExceptionDefaultMessage" xml:space="preserve">
     <value>No information has been supplied as to where or why the error occurred. Find error details below:</value>
   </data>
+  <data name="MulticastScannerScanCompleteRefresh" xml:space="preserve">
+    <value>At least one inactive service is now active. The list will be refreshed to show these new active services.</value>
+  </data>
 </root>

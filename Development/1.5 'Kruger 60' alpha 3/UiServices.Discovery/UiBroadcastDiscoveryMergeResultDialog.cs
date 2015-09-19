@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -93,5 +96,14 @@ namespace Project.DvbIpTv.UiServices.Discovery
                 } // if-else
             } // if-else
         } // UiBroadcastDiscoveryMergeResultDialog_Load
+
+        private void buttonDetails_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new UiBroadcastDiscoveryMergeResultDetailsDialog())
+            {
+                dlg.MergeResult = MergeResult;
+                dlg.ShowDialog(this);
+            } // using dlg
+        } // buttonDetails_Click
     } // class UiBroadcastDiscoveryMergeResultDialog
 } // namespace

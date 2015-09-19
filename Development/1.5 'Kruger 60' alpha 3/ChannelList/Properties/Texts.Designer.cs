@@ -197,6 +197,15 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to At least one inactive service is now active. The list will be refreshed to show these new active services..
+        /// </summary>
+        internal static string MulticastScannerScanCompleteRefresh {
+            get {
+                return ResourceManager.GetString("MulticastScannerScanCompleteRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to start the application.
         /// </summary>
         internal static string MyAppCtxExceptionCaption {

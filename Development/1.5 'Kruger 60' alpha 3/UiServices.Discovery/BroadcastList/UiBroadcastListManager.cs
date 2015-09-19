@@ -310,10 +310,23 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             get { return (BroadcastServices == null) ? false : BroadcastServices.Count > 0; }
         } // HasItems
 
-        public void EnableItem(UiBroadcastService service, bool isInactive, bool isHidden)
+        public void Refesh()
+        {
+            FillList(false);
+        } // Refresh
+
+        public bool EnableService(UiBroadcastService service, bool isInactive, bool isHidden)
         {
             if (service == null) throw new ArgumentNullException();
 
+            // is int list?
+            var item = ListView.Items[service.Key];
+            if (item == null) return false;
+
+            // not changed?
+            if ((service.IsInactive == isInactive) && (service.IsHidden == isHidden)) return true;
+
+            // save requested status change
             service.IsInactive = isInactive;
             service.IsHidden = isHidden;
 
@@ -323,18 +336,19 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 
             ListView.BeginUpdate();
 
-            var item = ListView.Items[service.Key];
             if (remove)
             {
                 ListView.Items.Remove(item);
             }
             else
             {
-                EnableListItem(item, service);
+                EnableListItem(item, service, Settings.CurrentColumns);
             } // if-else
 
             ListView.EndUpdate();
-        } // EnableItem
+
+            return true;
+        } // EnableService
 
         public UiBroadcastListSettings ShowSettingsEditor(IWin32Window owner, bool autoApplyChanges)
         {
@@ -556,7 +570,6 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
                 item.Tag = service;
                 item.Name = service.Key;
                 item.Text = GetColumnData(service, columns[0]);
-                EnableListItem(item, service);
 
                 var subItems = new string[columns.Count - 1];
                 var index = (int)0;
@@ -567,29 +580,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
                 } // foreach
                 item.SubItems.AddRange(subItems);
 
-                // set certains columns as bold
-                if ((Settings.CurrentMode == View.Details) && (!item.UseItemStyleForSubItems))
-                {
-                    index = (int)0;
-                    foreach (var column in columns)
-                    {
-                        switch (column)
-                        {
-                            case UiBroadcastListColumn.Name:
-                            case UiBroadcastListColumn.NameAndNumber:
-                            case UiBroadcastListColumn.Number:
-                            case UiBroadcastListColumn.NumberAndName:
-                            case UiBroadcastListColumn.NumberAndNameCrlf:
-                            case UiBroadcastListColumn.OriginalName:
-                            case UiBroadcastListColumn.OriginalNumber:
-                            case UiBroadcastListColumn.UserName:
-                            case UiBroadcastListColumn.UserNumber:
-                                item.SubItems[index].Font = FontDetailsBold;
-                                break;
-                        } // switch
-                        index++;
-                    } // foreach
-                } // if
+                EnableListItem(item, service, columns);
 
                 items.Add(item);
             } // foreach
@@ -725,7 +716,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             else return width;
         } // GetColumnWidth
 
-        private void EnableListItem(ListViewItem item, UiBroadcastService service)
+        private void EnableListItem(ListViewItem item, UiBroadcastService service, IList<UiBroadcastListColumn> columns)
         {
             if (service.IsInactive || service.IsHidden)
             {
@@ -741,6 +732,30 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
                 item.Font = (Settings.CurrentMode == View.Details) ? FontDetails : FontNormal;
                 item.ImageKey = GetServiceLogoImageKey(service, false);
             } // if-else
+
+            // set certains columns as bold
+            if ((Settings.CurrentMode == View.Details) && (!item.UseItemStyleForSubItems))
+            {
+                var index = (int)0;
+                foreach (var column in columns)
+                {
+                    switch (column)
+                    {
+                        case UiBroadcastListColumn.Name:
+                        case UiBroadcastListColumn.NameAndNumber:
+                        case UiBroadcastListColumn.Number:
+                        case UiBroadcastListColumn.NumberAndName:
+                        case UiBroadcastListColumn.NumberAndNameCrlf:
+                        case UiBroadcastListColumn.OriginalName:
+                        case UiBroadcastListColumn.OriginalNumber:
+                        case UiBroadcastListColumn.UserName:
+                        case UiBroadcastListColumn.UserNumber:
+                            item.SubItems[index].Font = FontDetailsBold;
+                            break;
+                    } // switch
+                    index++;
+                } // foreach
+            } // if
         } // EnableListItem
 
         private string GetServiceLogoImageKey(UiBroadcastService service, bool disabled)
@@ -778,5 +793,6 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         } // GetChannelLogoKey
 
         #endregion
+
     } // UiBroadcastListViewManager
 } // namespace

@@ -87,6 +87,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network.Editors
         {
             ManualUpdateLock++;
             checkBoxEnableMulticastProxy.Checked = Settings.MulticastProxy.IsEnabled;
+            parametersEditorMulticastProxy.Enabled = checkBoxEnableMulticastProxy.Checked;
             parametersEditorMulticastProxy.OpenBraceText = MulticastProxy.ParameterOpenBrace;
             parametersEditorMulticastProxy.CloseBraceText = MulticastProxy.ParameterCloseBrace;
             parametersEditorMulticastProxy.CommandLine = Settings.MulticastProxy.ProxyConfiguration;

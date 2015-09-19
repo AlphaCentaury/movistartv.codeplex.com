@@ -112,6 +112,12 @@
     </Compile>
     <Compile Include="UiBroadcastDiscoveryMergeResult.cs" />
     <Compile Include="UiBroadcastDiscovery.cs" />
+    <Compile Include="UiBroadcastDiscoveryMergeResultDetailsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UiBroadcastDiscoveryMergeResultDetailsDialog.Designer.cs">
+      <DependentUpon>UiBroadcastDiscoveryMergeResultDetailsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UiBroadcastDiscoveryMergeResultDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,12 @@
     <EmbeddedResource Include="BroadcastList\Editors\SettingsEditorSorting.resx">
       <DependentUpon>SettingsEditorSorting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UiBroadcastDiscoveryMergeResultDetailsDialog.es.resx">
+      <DependentUpon>UiBroadcastDiscoveryMergeResultDetailsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UiBroadcastDiscoveryMergeResultDetailsDialog.resx">
+      <DependentUpon>UiBroadcastDiscoveryMergeResultDetailsDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UiBroadcastDiscoveryMergeResultDialog.es.resx">
       <DependentUpon>UiBroadcastDiscoveryMergeResultDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +230,9 @@
   <ItemGroup>
     <Content Include="..\Common.UI\Resources\Action_Add_Blue_16x16.png">
       <Link>Resources\Action_Add_Blue_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Copy_Clip_16x16.png">
+      <Link>Resources\Action_Copy_Clip_16x16.png</Link>
     </Content>
     <Content Include="..\Common.UI\Resources\Action_Delete_16x16.png">
       <Link>Resources\Action_Delete_16x16.png</Link>

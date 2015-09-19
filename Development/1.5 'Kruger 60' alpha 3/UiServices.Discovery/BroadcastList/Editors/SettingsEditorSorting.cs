@@ -96,8 +96,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             comboFirstColumn.SelectedValue = SortColumns[0].Column;
 
             SetButtonDirectionStatus(buttonFirstDirection, 0, SortColumns[0].IsAscending);
-            SetButtonDirectionStatus(buttonFirstDirection, 1, SortColumns[0].IsAscending);
-            SetButtonDirectionStatus(buttonFirstDirection, 2, SortColumns[0].IsAscending);
+            SetButtonDirectionStatus(buttonSecondDirection, 1, SortColumns[1].IsAscending);
+            SetButtonDirectionStatus(buttonThirdDirection, 2, SortColumns[2].IsAscending);
 
             checkGlobalSorting.Visible = ShowUseGlobalSort;
             checkGlobalSorting.Checked = UseGlobalSort;
