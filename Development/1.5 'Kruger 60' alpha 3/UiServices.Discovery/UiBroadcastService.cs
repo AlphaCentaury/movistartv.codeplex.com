@@ -8,6 +8,7 @@ using Project.DvbIpTv.Common;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014;
+using Project.DvbIpTv.UiServices.Configuration.Settings.Network;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private string fieldDisplayParentalRating;
         private string fieldDisplayParentalRatingCode;
         private string fieldDisplayLockLevel;
-        private string fieldLocationUrl;
+        private string fieldOriginalLocationUrl;
         private string fieldDisplayServiceType;
         [NonSerialized]
         private ServiceLogo fieldLogo;
@@ -392,14 +393,29 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             get
             {
-                if (fieldLocationUrl == null)
+                var networkSettings = NetworkSettingsConfigurationRegistration.UserSettings;
+                if ((networkSettings == null) || (networkSettings.MulticastProxy == null) || (networkSettings.MulticastProxy.IsEnabled == false))
                 {
-                    fieldLocationUrl = GetLocationUrl();
+                    return OriginalLocationUrl;
                 } // if
 
-                return fieldLocationUrl;
+                return GetProxiedLocationUrl(networkSettings.MulticastProxy);
             } // get
         } // LocationUrl
+
+        [XmlIgnore]
+        public string OriginalLocationUrl
+        {
+            get
+            {
+                if (fieldOriginalLocationUrl == null)
+                {
+                    fieldOriginalLocationUrl = GetLocationUrl();
+                } // if
+
+                return fieldOriginalLocationUrl;
+            } // get
+        } // OriginalLocationUrl
 
         #endregion
 
@@ -630,10 +646,22 @@ namespace Project.DvbIpTv.UiServices.Discovery
         private string GetLocationUrl()
         {
             if (Data.ServiceLocation == null) return null;
-            if (Data.ServiceLocation.IpMulticastAddress != null) return Data.ServiceLocation.IpMulticastAddress.Url;
+
+            return Data.ServiceLocation.LocationUrl;
+        } // GetLocationUrl
+
+        private string GetProxiedLocationUrl(MulticastProxy proxy)
+        {
+            if (Data == null) return null;
+            if (Data.ServiceLocation == null) return null;
+            if (Data.ServiceLocation.IpMulticastAddress != null)
+            {
+                var multicast = Data.ServiceLocation.IpMulticastAddress;
+                return proxy.GetProxiedLocationUrl(multicast.Protocol, multicast.Address, multicast.Port);
+            } // if
             if (Data.ServiceLocation.RtspUrl != null) return Data.ServiceLocation.RtspUrl.Value;
             return null;
-        } // GetLocationUrl
+        } // GetProxiedLocationUrl
 
         private string GetDisplayServiceType()
         {

@@ -3,6 +3,7 @@
 
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
+using Project.DvbIpTv.UiServices.Configuration.Settings.Network;
 using Project.DvbIpTv.UiServices.Discovery.BroadcastList;
 using System;
 using System.Collections.Generic;
@@ -102,6 +103,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
 
                 var config = AppUiConfiguration.CreateForUserConfig(user);
                 config.RegisterConfiguration(new UiBroadcastListSettingsConfigurationRegistration(), null, true);
+                config.RegisterConfiguration(new NetworkSettingsConfigurationRegistration(), null, true);
                 config.Save(xmlConfigPath);
                 message = Properties.Texts.ConfigurationCreateOk;
                 return true;

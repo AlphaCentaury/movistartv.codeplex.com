@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.UiServices.Configuration {
+namespace Project.DvbIpTv.UiServices.Configuration.Properties {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Project.DvbIpTv.UiServices.Configuration {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class CommonUiResources {
+    internal class SettingsTexts {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonUiResources() {
+        internal SettingsTexts() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.UiServices.Configuration {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.Configuration.CommonUiResources", typeof(CommonUiResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.Configuration.Properties.SettingsTexts", typeof(SettingsTexts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,32 +61,59 @@ namespace Project.DvbIpTv.UiServices.Configuration {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Some of the changes you have made require you to restart the application before they can take effect. .
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Cancel_16x16 {
+        internal static string ConfigFormAppRestartRequired {
             get {
-                object obj = ResourceManager.GetObject("Action_Cancel_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ConfigFormAppRestartRequired", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Network settings.
         /// </summary>
-        internal static System.Drawing.Bitmap Action_Ok_16x16 {
+        internal static string NetworkDescription {
             get {
-                object obj = ResourceManager.GetObject("Action_Ok_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("NetworkDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to Network.
         /// </summary>
-        internal static System.Drawing.Bitmap Status_Warning_16x16 {
+        internal static string NetworkDisplayName {
             get {
-                object obj = ResourceManager.GetObject("Status_Warning_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("NetworkDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The multicast proxy can not be blank..
+        /// </summary>
+        internal static string NetworkMulticastProxyValidation {
+            get {
+                return ResourceManager.GetString("NetworkMulticastProxyValidation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to protocol|Name of the procotol, in lowercase (rpt or udp)
+        ///protocolU|Name of the protocol, in uppercase (RTP or UDP)
+        ///multicastAddress|Multicast IP address of TV channel
+        ///multicastPort|Multicast port of TV channel.
+        /// </summary>
+        internal static string NetworkUpdProxyParameters {
+            get {
+                return ResourceManager.GetString("NetworkUpdProxyParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Network settings.
+        /// </summary>
+        internal static string NetworkValidationErrorCaption {
+            get {
+                return ResourceManager.GetString("NetworkValidationErrorCaption", resourceCulture);
             }
         }
     }

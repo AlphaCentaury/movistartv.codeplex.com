@@ -259,6 +259,8 @@
       <Link>Resources\Status_Success_24x24.png</Link>
     </Content>
     <Content Include="License.txt" />
+    <Content Include="Resources\NetworkSettings_32.png" />
+    <Content Include="Resources\NetworkSettings_48.png" />
     <None Include="Resources\BroadcastListSettings_32x32.png" />
   </ItemGroup>
   <ItemGroup />

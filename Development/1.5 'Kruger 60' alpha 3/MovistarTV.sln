@@ -132,6 +132,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 		Common.UI\Resources\Status_Success_24x24.png = Common.UI\Resources\Status_Success_24x24.png
 		Common.UI\Resources\Status_Unknown_16x616.png = Common.UI\Resources\Status_Unknown_16x616.png
 		Common.UI\Resources\Status_Wait_16x16.png = Common.UI\Resources\Status_Wait_16x16.png
+		Common.UI\Resources\Status_Warning_16x16.png = Common.UI\Resources\Status_Warning_16x16.png
 		Common.UI\Resources\Status_Warning_24x24.png = Common.UI\Resources\Status_Warning_24x24.png
 		Common.UI\Resources\Status_Warning_48x48.png = Common.UI\Resources\Status_Warning_48x48.png
 		Common.UI\Resources\WaitClock_128x128.png = Common.UI\Resources\WaitClock_128x128.png

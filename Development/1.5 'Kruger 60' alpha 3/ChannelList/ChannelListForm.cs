@@ -45,7 +45,7 @@ namespace Project.DvbIpTv.ChannelList
         // disabled functionality
         private const bool enable_menuItemDvbRecent = false;
         private const bool enable_menuItemDvbPackages = false;
-        private const bool enable_menuItemDvbSettings = false;
+        private const bool enable_menuItemDvbSettings = true;
         private const bool enable_menuItemDvbExport = false;
         private const bool enable_menuItemChannelFavorites = false;
         private const bool enable_menuItemChannelShowWith = false;
@@ -211,7 +211,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemDvbSettings_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this, "menuItemDvbSettings");
+            SafeCall(Implementation_menuItemDvbSettings_Click, sender, e);
         } // menuItemDvbSettings_Click
 
         private void menuItemDvbExport_Click(object sender, EventArgs e)
@@ -223,6 +223,17 @@ namespace Project.DvbIpTv.ChannelList
         {
             this.Close();
         } // menuItemDvbExit_Click
+
+        #endregion
+
+        #region 'DVB-IPTV' menu event handlers implementation
+
+        private void Implementation_menuItemDvbSettings_Click(object sender, EventArgs e)
+        {
+            ConfigurationForm.ShowConfigurationForm(this, true);
+
+            // TODO: apply broadcast list settings changes (if any)
+        } // menuItemDvbSettings_Click
 
         #endregion
 

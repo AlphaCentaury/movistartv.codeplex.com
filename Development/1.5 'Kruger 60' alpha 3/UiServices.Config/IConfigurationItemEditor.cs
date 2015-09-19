@@ -24,6 +24,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
             get;
         } // IsDataChanged
 
+        bool IsAppRestartNeeded
+        {
+            get;
+        } // IsAppRestartNeeded
+
         bool Validate();
         IConfigurationItem GetNewData();
 

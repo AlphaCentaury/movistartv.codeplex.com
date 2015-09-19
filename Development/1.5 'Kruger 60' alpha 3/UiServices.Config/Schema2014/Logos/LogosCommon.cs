@@ -14,7 +14,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Logos
 {
     public class LogosCommon
     {
-        public const string LogoMappingsXmlNamespace = "urn:Project-DvbIpTV:2014:Mappings";
+        public const string LogoMappingsXmlNamespace = "http://movistartv.codeplex.com/schema/2015:Configuration:Mappings";
 
         public static ServiceMappingsXml ParseServiceMappingsXml(string filename)
         {

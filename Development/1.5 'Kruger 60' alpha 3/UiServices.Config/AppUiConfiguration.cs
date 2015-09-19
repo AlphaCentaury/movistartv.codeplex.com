@@ -186,15 +186,22 @@ namespace Project.DvbIpTv.UiServices.Configuration
             set { Items[directIndex] = value; } // set
         } // this[int]
 
+        public bool IsDirty
+        {
+            get;
+            set;
+        } // IsDirty
+
         #region Public methods
 
         public void Save(string overrideSaveLocation = null)
         {
+            User.Configuration = new XmlConfigurationItems();
+            User.Configuration.XmlData = new List<XmlElement>(Items.Count);
+
             // serialize configuration items
             foreach (var pair in ItemsIndex)
             {
-                User.Configuration = new XmlConfigurationItems();
-                User.Configuration.XmlData = new List<XmlElement>(Items.Count);
                 User.Configuration.XmlData.Add(XmlConfigurationItems.GetXmlElement(pair.Key, Items[pair.Value]));
             } // foreach
 
@@ -211,6 +218,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             // save memory
             // the serialized configuration items are not needed for normal operation, as they are accessed using this[Guid]
             User.Configuration = null;
+
+            IsDirty = false;
         } // Save
 
         public void RegisterConfiguration(IConfigurationItemRegistration registration, IConfigurationItem configItem = null, bool createDefault = false)

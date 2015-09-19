@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Logos-Providers xmlns="urn:Project-DvbIpTV:2014:Mappings">
+<Logos-Providers xmlns="http://movistartv.codeplex.com/schema/2015:Configuration:Mappings">
   <Package name="&lt;default&gt;">
     <Mapping domainName="DVB-IPTV" logo="DVB-IPTV" />
   </Package>

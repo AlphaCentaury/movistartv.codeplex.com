@@ -10,6 +10,6 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.ContentProvider
 {
     public class SerializationCommon
     {
-        public const string XmlNamespace = "urn:Project-DvbIpTV:2014:Configuration";
+        public const string XmlNamespace = "http://movistartv.codeplex.com/schema/2015:Configuration:ContentProvider";
     } // class CommonSerialization
 } // namespace

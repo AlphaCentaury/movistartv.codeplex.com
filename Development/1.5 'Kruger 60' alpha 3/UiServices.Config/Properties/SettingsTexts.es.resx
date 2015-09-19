@@ -117,14 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Action_Cancel_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\common.ui\resources\action_cancel_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ConfigFormAppRestartRequired" xml:space="preserve">
+    <value>Algunos de los cambios que ha hecho requieren que reinicie la aplicación para que se hagan efectivos.</value>
   </data>
-  <data name="Action_Ok_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\common.ui\resources\action_ok_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NetworkDescription" xml:space="preserve">
+    <value>Configuración de red</value>
   </data>
-  <data name="Status_Warning_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\common.ui\resources\status_warning_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NetworkDisplayName" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="NetworkMulticastProxyValidation" xml:space="preserve">
+    <value>El proxy de multidifusión no puede estar en blanco.</value>
+  </data>
+  <data name="NetworkUpdProxyParameters" xml:space="preserve">
+    <value>protocol|Nombre del protocolo en minúsculas (rpt o udp)
+protocolU|Nombre del protocolo en mayúsculas (RTP o UDP)
+multicastAddress|Dirección IP de multidifusión del canal de TV
+multicastPort|Puerto de multidifusión del canal de TV</value>
+    <comment>Keep each parameter in a separate line. Never translate text before '|'</comment>
+  </data>
+  <data name="NetworkValidationErrorCaption" xml:space="preserve">
+    <value>Ajustes de red</value>
   </data>
 </root>

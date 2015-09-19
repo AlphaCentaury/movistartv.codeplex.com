@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Project.DvbIpTv.UiServices.Configuration</RootNamespace>
-    <AssemblyName>UiServices.Config</AssemblyName>
+    <AssemblyName>UiServices.Configuration</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -60,6 +60,12 @@
     </Compile>
     <Compile Include="ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\ParametersEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\ParametersEditor.Designer.cs">
+      <DependentUpon>ParametersEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="IConfigurationItemEditor.cs" />
     <Compile Include="IConfigurationItemRegistration.cs" />
@@ -115,6 +121,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Texts.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\SettingsTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsTexts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Network\Editors\NetworkSettingsEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\Network\Editors\NetworkSettingsEditor.Designer.cs">
+      <DependentUpon>NetworkSettingsEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Network\MulticastProxy.cs" />
+    <Compile Include="Settings\Network\NetworkSettings.cs" />
+    <Compile Include="Settings\Network\NetworkSettingsConfigurationRegistration.cs" />
     <Compile Include="StringPair.cs" />
     <Compile Include="UiContentProvider.cs" />
     <Compile Include="UiContentProviderFriendlyNames.cs" />
@@ -134,6 +154,12 @@
     <EmbeddedResource Include="ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editors\ParametersEditor.es.resx">
+      <DependentUpon>ParametersEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\ParametersEditor.resx">
+      <DependentUpon>ParametersEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\InvariantTexts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>InvariantTexts.Designer.cs</LastGenOutput>
@@ -148,6 +174,17 @@
     <EmbeddedResource Include="Properties\Texts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Texts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\SettingsTexts.es.resx" />
+    <EmbeddedResource Include="Properties\SettingsTexts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SettingsTexts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Network\Editors\NetworkSettingsEditor.es.resx">
+      <DependentUpon>NetworkSettingsEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Network\Editors\NetworkSettingsEditor.resx">
+      <DependentUpon>NetworkSettingsEditor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -175,14 +212,26 @@
     <Content Include="..\Common.UI\Resources\Action_Ok_16x16.png">
       <Link>Resources\Action_Ok_16x16.png</Link>
     </Content>
+    <Content Include="..\Common.UI\Resources\Status_Warning_16x16.png">
+      <Link>Resources\Status_Warning_16x16.png</Link>
+    </Content>
     <Content Include="License.txt" />
+    <None Include="Resources\Action_AddVariable_16.png" />
     <Content Include="Resources\BrokenFile_256.png" />
+    <Content Include="Resources\NetworkSettings_32.png" />
+    <Content Include="Resources\NetworkSettings_48.png" />
+    <Content Include="Resources\TvPlayersSettings_256.png" />
+    <Content Include="Resources\TvPlayersSettings_32.png" />
+    <Content Include="Resources\TvPlayersSettings_48.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.Common\Project.Common.csproj">
       <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
       <Name>Project.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Settings\TvPlayers\Editors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

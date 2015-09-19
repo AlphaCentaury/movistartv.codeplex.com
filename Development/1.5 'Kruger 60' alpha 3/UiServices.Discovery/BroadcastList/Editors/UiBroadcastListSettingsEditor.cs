@@ -51,6 +51,11 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             protected set;
         } // IsDataChanged
 
+        public bool IsAppRestartNeeded
+        {
+            get { return false; }
+        } // IsAppRestartNeeded
+
         bool IConfigurationItemEditor.Validate()
         {
             return true;

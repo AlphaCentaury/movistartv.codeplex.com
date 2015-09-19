@@ -56,19 +56,28 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
         {
             get
             {
+                return string.Format("{0}://@{1}:{2}", Protocol, Address, Port);
+            } // get
+        } // Url
+
+        [XmlIgnore]
+        public string Protocol
+        {
+            get
+            {
                 if ((!StreamingSpecified) || (Streaming == StreamingKind.Rtp))
                 {
-                    return string.Format("rtp://@{0}:{1}", Address, Port);
+                    return "rtp";
                 }
                 else if (Streaming == StreamingKind.Udp)
                 {
-                    return string.Format("udp://@{0}:{1}", Address, Port);
+                    return "udp";
                 }
                 else
                 {
                     throw new IndexOutOfRangeException();
                 } // if-else
-            }
-        } // Url
+            } // get
+        } // Protocol
     } // class IpMulticastAddress
 } // namespace

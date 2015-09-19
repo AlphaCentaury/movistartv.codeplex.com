@@ -10,7 +10,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
 {
     public class ConfigCommon
     {
-        public const string ConfigXmlNamespace = "urn:Project-DvbIpTV:2014:Configuration";
+        public const string ConfigXmlNamespace = "http://movistartv.codeplex.com/schema/2015:Configuration";
 
         internal static string Normalize(string value)
         {

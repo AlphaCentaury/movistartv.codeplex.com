@@ -52,10 +52,14 @@ namespace Project.DvbIpTv.UiServices.Configuration
             changed = false;
             foreach (var item in items)
             {
-                if (item.NewData == null) continue;
+                var newData = item.NewData;
+                if (newData == null) continue;
+
                 changed = true;
-                AppUiConfiguration.Current[item.Registration.DirectIndex] = item.NewData;    
+                AppUiConfiguration.Current[item.Registration.DirectIndex] = newData;
             } // foreach
+
+            // autosave if settings changed
             if ((changed) && (autoSave))
             {
                 AppUiConfiguration.Current.Save();
@@ -74,8 +78,6 @@ namespace Project.DvbIpTv.UiServices.Configuration
             };
             var items = new List<ConfigurationItem>(1);
             items.Add(data);
-
-            
 
             using (var form = new ConfigurationForm())
             {
@@ -98,6 +100,12 @@ namespace Project.DvbIpTv.UiServices.Configuration
             InitializeComponent();
             ConfigurationItems = new List<ConfigurationItem>();
         } // constructor
+
+        public bool IsAppRestartNeeded
+        {
+            get;
+            private set;
+        } // IsAppRestartNeeded
 
         private IList<ConfigurationItem> ConfigurationItems
         {
@@ -190,13 +198,20 @@ namespace Project.DvbIpTv.UiServices.Configuration
                 } // if
             } // foreach
 
+            IsAppRestartNeeded = false;
             foreach (var configItem in ConfigurationItems)
             {
                 if (configItem.Editor.IsDataChanged)
                 {
                     configItem.NewData = configItem.Editor.GetNewData();
+                    IsAppRestartNeeded |= configItem.Editor.IsAppRestartNeeded;
                 } // if
             } // foreach
+
+            if (IsAppRestartNeeded)
+            {
+                MessageBox.Show(this, Properties.SettingsTexts.ConfigFormAppRestartRequired, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } // if
 
             buttonOk.DialogResult = DialogResult.OK;
         } // buttonOk_Click

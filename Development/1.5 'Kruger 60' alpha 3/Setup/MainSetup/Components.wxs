@@ -44,7 +44,7 @@ All rights reserved, except those granted by the governing license of this softw
         <File Id="DvbStpClient.dll" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.dll" />
         <File Id="Project.Common.dll" Source="$(var.Project.Common.TargetDir)Project.Common.dll" />
         <File Id="Services.SqlServerCE.dll" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.dll" />
-        <File Id="UiServices.Config.dll" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.dll" />
+        <File Id="UiServices.Configuration.dll" Source="$(var.UiServices.Config.TargetDir)UiServices.Configuration.dll" />
         <File Id="UiServices.Common.dll" Source="$(var.UiServices.Common.TargetDir)UiServices.Common.dll" />
         <File Id="UiServices.Discovery.dll" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.dll" />
         <File Id="UiServices.DvbStpClient.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.dll" />
@@ -58,7 +58,7 @@ All rights reserved, except those granted by the governing license of this softw
         <File Id="DvbStpClient.pdb" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.pdb" />
         <File Id="Project.Common.pdb" Source="$(var.Project.Common.TargetDir)Project.Common.pdb" />
         <File Id="Services.SqlServerCE.pdb" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.pdb" />
-        <File Id="UiServices.Config.pdb" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.pdb" />
+        <File Id="UiServices.Configuration.pdb" Source="$(var.UiServices.Config.TargetDir)UiServices.Configuration.pdb" />
         <File Id="UiServices.Common.pdb" Source="$(var.UiServices.Common.TargetDir)UiServices.Common.pdb" />
         <File Id="UiServices.Discovery.pdb" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.pdb" />
         <File Id="UiServices.DvbStpClient.pdb" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.pdb" />
@@ -76,7 +76,7 @@ All rights reserved, except those granted by the governing license of this softw
         <!--
         <File Id="Services.SqlServerCE.es.dll" Source="$(var.Services.SqlServerCE.TargetDir)es\Services.SqlServerCE.resources.dll" />
         -->
-        <File Id="UiServices.Config.es.dll" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Config.resources.dll" />
+        <File Id="UiServices.Configuration.es.dll" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Configuration.resources.dll" />
         <File Id="UiServices.Common.es.dll" Source="$(var.UiServices.Common.TargetDir)es\UiServices.Common.resources.dll" />
         <File Id="UiServices.Discovery.es.dll" Source="$(var.UiServices.Discovery.TargetDir)es\UiServices.Discovery.resources.dll" />
         <File Id="UiServices.DvbStpClient.es.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)es\UiServices.DvbStpClient.resources.dll" />
