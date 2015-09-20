@@ -1,23 +1,34 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
+using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
+namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers
 {
     [Serializable]
-    public class PlayerConfig
+    public class TvPlayer
     {
+        public const string ParameterOpenBrace = "{param:";
+        public const string ParameterCloseBrace = "}";
+
         [XmlAttribute("name")]
         public string Name
         {
             get;
             set;
         } // Name
+
+        [XmlAttribute("id")]
+        public Guid Id
+        {
+            get;
+            set;
+        } // Id
 
         public string Path
         {
@@ -33,7 +44,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             set;
         } // Parameters
 
-        public string Validate(string ownerTag)
+        internal string Validate(string ownerTag)
         {
             Name = ConfigCommon.Normalize(Name);
             if (string.IsNullOrEmpty(Name))
@@ -54,7 +65,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             var validationError = ConfigCommon.ValidateArray(Arguments, "Argument", "Arguments", ownerTag);
             if (validationError != null) return validationError;
 
-            for (int index=0; index<Arguments.Length ; index++)
+            for (int index = 0; index < Arguments.Length; index++)
             {
                 Arguments[index] = ConfigCommon.Normalize(Arguments[index]);
                 if (string.IsNullOrEmpty(Arguments[index]))
@@ -66,7 +77,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             return null;
         } // Validate
 
-        public static string ValidateArray(PlayerConfig[] players, string arrayElementTag, string arrayTag, string ownerTag)
+        internal static string ValidateArray(TvPlayer[] players, string arrayElementTag, string arrayTag, string ownerTag)
         {
             var validationError = ConfigCommon.ValidateArray(players, arrayElementTag, arrayTag, ownerTag);
             if (validationError != null) return validationError;
@@ -79,5 +90,5 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
 
             return null;
         } // ValidateArray
-    } // class PlayerConfig
+    } // class TvPlayer
 } // namespace

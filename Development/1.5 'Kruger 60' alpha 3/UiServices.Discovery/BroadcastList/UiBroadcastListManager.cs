@@ -352,11 +352,11 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 
         public UiBroadcastListSettings ShowSettingsEditor(IWin32Window owner, bool autoApplyChanges)
         {
-            var result = ConfigurationForm.ShowConfigurationForm(owner, UiBroadcastListSettingsConfigurationRegistration.ConfigurationGuid, fieldSettings);
+            var result = ConfigurationForm.ShowConfigurationForm(owner, UiBroadcastListSettingsRegistration.ConfigurationGuid, fieldSettings);
 
             if ((result != null) && (autoApplyChanges))
             {
-                UiBroadcastListSettingsConfigurationRegistration.UserSettings = result;
+                UiBroadcastListSettingsRegistration.Settings = result;
                 AppUiConfiguration.Current.Save();
                 Settings = result;
             } // if

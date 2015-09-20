@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Configuration.Editors
 {
-    public partial class ParametersEditor : UserControl
+    public partial class ParameterEditor : UserControl
     {
-        public ParametersEditor()
+        public ParameterEditor()
         {
             InitializeComponent();
         } // constructor
@@ -108,5 +108,5 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             var parameter = string.Format("{0}{1}{2}", OpenBraceText, listParameters.SelectedItems[0].Text, CloseBraceText);
             textBoxCommandLine.Paste(parameter);
         } // AddParameter
-    } // class ParametersEditor
+    } // class ParameterEditor
 } // namespace

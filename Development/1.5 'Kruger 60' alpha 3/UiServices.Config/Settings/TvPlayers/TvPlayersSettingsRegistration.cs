@@ -7,18 +7,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network
+namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers
 {
-    public class NetworkSettingsConfigurationRegistration : IConfigurationItemRegistration
+    public class TvPlayersSettingsRegistration : IConfigurationItemRegistration
     {
-        public static readonly Guid ConfigurationGuid = new Guid("{BA2C8A80-A12A-48A2-91DE-1615D5CBA791}");
+        public static readonly Guid ConfigurationGuid = new Guid("{AE75DE5D-11A9-4B0F-9EFB-242E70C022C9}");
         private static int MyDirectIndex;
 
-        public static NetworkSettings UserSettings
+        public static TvPlayersSettings Settings
         {
-            get { return AppUiConfiguration.Current[MyDirectIndex] as NetworkSettings; }
+            get { return AppUiConfiguration.Current[MyDirectIndex] as TvPlayersSettings; }
             set { AppUiConfiguration.Current[MyDirectIndex] = value; }
-        } // UserSettings
+        } // Settings
 
         public Guid Id
         {
@@ -32,39 +32,39 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network
 
         public Type ItemType
         {
-            get { return typeof(NetworkSettings); }
+            get { return typeof(TvPlayersSettings); }
         } // GetItemType
 
         public IConfigurationItem CreateDefault()
         {
-            return NetworkSettings.GetDefaultSettings();
+            return null;
         } // CreateDefault
 
         public string EditorDisplayName
         {
-            get { return Properties.SettingsTexts.NetworkDisplayName; }
+            get { return Properties.SettingsTexts.TvPlayersDisplayName; }
         } // EditorDisplayName
 
         public string EditorDescription
         {
-            get { return Properties.SettingsTexts.NetworkDescription; }
+            get { return Properties.SettingsTexts.TvPlayersDescription; }
         } // EditorDescription
 
         public Image EditorImage
         {
-            get { return Properties.Resources.NetworkSettings_32; }
+            get { return Properties.Resources.TvPlayersSettings_32; }
         } // EditorImage
 
         public int EditorPriority
         {
-            get { return 9000; }
+            get { return 250; }
         } // EditorPriority
 
         public IConfigurationItemEditor CreateEditor(IConfigurationItem data)
         {
-            var editor = new Editors.NetworkSettingsEditor()
+            var editor = new Editors.TvPlayersSettingsEditor()
             {
-                Settings = data as NetworkSettings
+                Settings = data as TvPlayersSettings
             };
 
             return editor;
@@ -75,5 +75,5 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network
             get { return MyDirectIndex; }
             set { MyDirectIndex = value; }
         } // DirectIndex
-    } // class NetworkSettingsConfigurationRegistration
+    } // class TvPlayersSettingsRegistration
 } // namespace

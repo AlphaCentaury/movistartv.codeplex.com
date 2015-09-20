@@ -204,5 +204,19 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         {
             get { return this[CurrentMode].Columns.AsReadOnly(); }
         } // CurrentColumns
+
+        #region IConfigurationItem implementation
+
+        bool IConfigurationItem.CanValidate
+        {
+            get { return false; }
+        } // IConfigurationItem.CanValidate
+
+        string IConfigurationItem.Validate(string ownerTag)
+        {
+            throw new NotImplementedException();
+        } // IConfigurationItem.Validate
+
+        #endregion
     } // class UiBroadcastListViewSettings
 } // namespace

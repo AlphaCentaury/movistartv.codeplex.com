@@ -61,11 +61,17 @@
     <Compile Include="ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editors\ParametersEditor.cs">
+    <Compile Include="Editors\ArgumentsEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Editors\ParametersEditor.Designer.cs">
-      <DependentUpon>ParametersEditor.cs</DependentUpon>
+    <Compile Include="Editors\ArgumentsEditor.Designer.cs">
+      <DependentUpon>ArgumentsEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\ParameterEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editors\ParameterEditor.Designer.cs">
+      <DependentUpon>ParameterEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="IConfigurationItemEditor.cs" />
     <Compile Include="IConfigurationItemRegistration.cs" />
@@ -89,7 +95,6 @@
     <Compile Include="Schema2014\Config\AnalyticsConfig.cs" />
     <Compile Include="Schema2014\Config\ConfigCommon.cs" />
     <Compile Include="Schema2014\Config\EpgConfig.cs" />
-    <Compile Include="Schema2014\Config\PlayerConfig.cs" />
     <Compile Include="Schema2014\Config\RecordConfig.cs" />
     <Compile Include="Schema2014\Config\RecorderConfig.cs" />
     <Compile Include="Schema2014\Config\RecordSaveLocation.cs" />
@@ -99,7 +104,6 @@
     <Compile Include="Logos\ServiceLogoMappings.ReplacementDomain.cs" />
     <Compile Include="Logos\ServiceLogoMappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schema2014\Config\TvViewerConfig.cs" />
     <Compile Include="Schema2014\ContentProvider\BootstrapData.cs" />
     <Compile Include="Schema2014\ContentProvider\BootstrapMethod.cs" />
     <Compile Include="Schema2014\ContentProvider\FriendlyNames.cs" />
@@ -134,7 +138,22 @@
     </Compile>
     <Compile Include="Settings\Network\MulticastProxy.cs" />
     <Compile Include="Settings\Network\NetworkSettings.cs" />
-    <Compile Include="Settings\Network\NetworkSettingsConfigurationRegistration.cs" />
+    <Compile Include="Settings\Network\NetworkSettingsRegistration.cs" />
+    <Compile Include="Settings\TvPlayers\Editors\TvPlayerEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\TvPlayers\Editors\TvPlayerEditorDialog.Designer.cs">
+      <DependentUpon>TvPlayerEditorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\TvPlayers\Editors\TvPlayersSettingsEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\TvPlayers\Editors\TvPlayersSettingsEditor.Designer.cs">
+      <DependentUpon>TvPlayersSettingsEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\TvPlayers\TvPlayersSettingsRegistration.cs" />
+    <Compile Include="Settings\TvPlayers\TvPlayer.cs" />
+    <Compile Include="Settings\TvPlayers\TvPlayersSettings.cs" />
     <Compile Include="StringPair.cs" />
     <Compile Include="UiContentProvider.cs" />
     <Compile Include="UiContentProviderFriendlyNames.cs" />
@@ -154,11 +173,17 @@
     <EmbeddedResource Include="ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editors\ParametersEditor.es.resx">
-      <DependentUpon>ParametersEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\ArgumentsEditor.es.resx">
+      <DependentUpon>ArgumentsEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editors\ParametersEditor.resx">
-      <DependentUpon>ParametersEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\ArgumentsEditor.resx">
+      <DependentUpon>ArgumentsEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\ParameterEditor.es.resx">
+      <DependentUpon>ParameterEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\ParameterEditor.resx">
+      <DependentUpon>ParameterEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\InvariantTexts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -186,6 +211,18 @@
     <EmbeddedResource Include="Settings\Network\Editors\NetworkSettingsEditor.resx">
       <DependentUpon>NetworkSettingsEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TvPlayers\Editors\TvPlayerEditorDialog.es.resx">
+      <DependentUpon>TvPlayerEditorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TvPlayers\Editors\TvPlayerEditorDialog.resx">
+      <DependentUpon>TvPlayerEditorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TvPlayers\Editors\TvPlayersSettingsEditor.es.resx">
+      <DependentUpon>TvPlayersSettingsEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TvPlayers\Editors\TvPlayersSettingsEditor.resx">
+      <DependentUpon>TvPlayersSettingsEditor.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BrokenFile_128.png" />
@@ -206,11 +243,41 @@
     <None Include="Resources\BrokenFile_96.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Common.UI\Resources\Action_Add_16xM.png">
+      <Link>Resources\Action_Add_16xM.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_AttachFile_16x16.png">
+      <Link>Resources\Action_AttachFile_16x16.png</Link>
+    </Content>
     <Content Include="..\Common.UI\Resources\Action_Cancel_16x16.png">
       <Link>Resources\Action_Cancel_16x16.png</Link>
     </Content>
+    <Content Include="..\Common.UI\Resources\Action_Delete_16x16.png">
+      <Link>Resources\Action_Delete_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_GoNextDown_16x16.png">
+      <Link>Resources\Action_GoNextDown_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_GoPreviousUp_16x16.png">
+      <Link>Resources\Action_GoPreviousUp_16x16.png</Link>
+    </Content>
     <Content Include="..\Common.UI\Resources\Action_Ok_16x16.png">
       <Link>Resources\Action_Ok_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Properties_16x16.png">
+      <Link>Resources\Action_Properties_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Property_Add_16x16.png">
+      <Link>Resources\Action_Property_Add_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Action_Property_Edit_16x16.png">
+      <Link>Resources\Action_Property_Edit_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Status_Info_16x16.png">
+      <Link>Resources\Status_Info_16x16.png</Link>
+    </Content>
+    <Content Include="..\Common.UI\Resources\Status_Ok_SmallCircle_16x16.png">
+      <Link>Resources\Status_Ok_SmallCircle_16x16.png</Link>
     </Content>
     <Content Include="..\Common.UI\Resources\Status_Warning_16x16.png">
       <Link>Resources\Status_Warning_16x16.png</Link>
@@ -229,10 +296,12 @@
       <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
       <Name>Project.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UiServices.Common\UiServices.Common.csproj">
+      <Project>{76346905-ac2f-4f01-ba99-bbffbb2a6fe9}</Project>
+      <Name>UiServices.Common</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Settings\TvPlayers\Editors\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

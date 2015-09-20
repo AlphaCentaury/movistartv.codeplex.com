@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
 {
-    internal abstract class SettingsEditorModeBaseColumn : SettingsEditorBaseUserControl, ISettingsEditorModeColumns
+    internal class SettingsEditorModeBaseColumn : SettingsEditorBaseUserControl, ISettingsEditorModeColumns
     {
         #region ISettingsEditorModeColumns implementation
 
@@ -28,9 +28,9 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             set;
         } // Columns
 
-        public abstract List<UiBroadcastListColumn> SelectedColumns
+        public virtual List<UiBroadcastListColumn> SelectedColumns
         {
-            get;
+            get { throw new NotImplementedException(); }
         } // SelectedColumns
 
         public Control GetUnderlyingControl()

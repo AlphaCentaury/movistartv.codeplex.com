@@ -127,7 +127,7 @@
     <value>Elimina la columna seleccionada de la lista</value>
   </data>
   <data name="buttonAddColumn.ToolTip" xml:space="preserve">
-    <value>Añade a la lista de columnas</value>
+    <value>Añade la columna al final de la lista</value>
   </data>
   <data name="groupBoxData.Text" xml:space="preserve">
     <value>Columnas a mostrar</value>

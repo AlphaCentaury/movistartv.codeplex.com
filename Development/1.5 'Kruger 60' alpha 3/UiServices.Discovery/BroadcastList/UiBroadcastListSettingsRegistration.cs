@@ -7,16 +7,16 @@ using System.Text;
 
 namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 {
-    public class UiBroadcastListSettingsConfigurationRegistration: IConfigurationItemRegistration
+    public class UiBroadcastListSettingsRegistration: IConfigurationItemRegistration
     {
         public static readonly Guid ConfigurationGuid = new Guid("{68B9F98B-DB50-4A08-AF04-35457F0224FB}");
         private static int MyDirectIndex;
 
-        public static UiBroadcastListSettings UserSettings
+        public static UiBroadcastListSettings Settings
         {
             get { return AppUiConfiguration.Current[MyDirectIndex] as UiBroadcastListSettings; }
             set { AppUiConfiguration.Current[MyDirectIndex] = value; }
-        } // UserSettings
+        } // Settings
 
         public Guid Id
         {
@@ -73,5 +73,5 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             get { return MyDirectIndex; }
             set { MyDirectIndex = value; }
         } // DirectIndex
-    } // UiBroadcastListSettingsConfigurationRegistration
+    } // UiBroadcastListSettingsRegistration
 } // namespace

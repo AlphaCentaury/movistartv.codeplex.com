@@ -3,7 +3,7 @@
 
 namespace Project.DvbIpTv.UiServices.Configuration.Editors
 {
-    partial class ParametersEditor
+    partial class ParameterEditor
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
         private void InitializeComponent()
         {
             System.Windows.Forms.ColumnHeader columnHeader1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParametersEditor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ParameterEditor));
             System.Windows.Forms.ColumnHeader columnHeader2;
             this.textBoxCommandLine = new System.Windows.Forms.TextBox();
             this.groupBoxParameters = new System.Windows.Forms.GroupBox();
@@ -95,13 +95,13 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             this.listParameters.SelectedIndexChanged += new System.EventHandler(this.listParameters_SelectedIndexChanged);
             this.listParameters.DoubleClick += new System.EventHandler(this.listParameters_DoubleClick);
             // 
-            // ParametersEditor
+            // ParameterEditor
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBoxParameters);
             this.Controls.Add(this.textBoxCommandLine);
-            this.Name = "ParametersEditor";
+            this.Name = "ParameterEditor";
             this.Load += new System.EventHandler(this.ParametersEditor_Load);
             this.groupBoxParameters.ResumeLayout(false);
             this.groupBoxParameters.PerformLayout();
@@ -117,5 +117,5 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
         private System.Windows.Forms.Button buttonAddParam;
         private System.Windows.Forms.Label labelAddParam;
         private System.Windows.Forms.ListView listParameters;
-    }
-}
+    } // class ParameterEditor
+} // namespace

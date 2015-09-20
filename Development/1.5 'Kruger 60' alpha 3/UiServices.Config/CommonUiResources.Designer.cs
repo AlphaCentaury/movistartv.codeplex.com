@@ -63,6 +63,26 @@ namespace Project.DvbIpTv.UiServices.Configuration {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Add_16xM {
+            get {
+                object obj = ResourceManager.GetObject("Action_Add_16xM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_AttachFile_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_AttachFile_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Cancel_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Cancel_16x16", resourceCulture);
@@ -73,9 +93,89 @@ namespace Project.DvbIpTv.UiServices.Configuration {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Action_Delete_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Delete_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_GoNextDown_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_GoNextDown_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_GoPreviousUp_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_GoPreviousUp_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Action_Ok_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Action_Ok_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Properties_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Properties_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Property_Add_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Property_Add_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Property_Edit_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Action_Property_Edit_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status_Info_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Status_Info_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Status_Ok_SmallCircle_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Status_Ok_SmallCircle_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

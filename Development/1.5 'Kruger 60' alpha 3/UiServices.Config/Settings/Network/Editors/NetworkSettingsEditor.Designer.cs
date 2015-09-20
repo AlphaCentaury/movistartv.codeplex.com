@@ -34,9 +34,9 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network.Editors
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NetworkSettingsEditor));
             this.groupBoxMulticastProxy = new System.Windows.Forms.GroupBox();
             this.labelWarning = new System.Windows.Forms.Label();
-            this.pictureIconWarning = new System.Windows.Forms.PictureBox();
-            this.parametersEditorMulticastProxy = new Project.DvbIpTv.UiServices.Configuration.Editors.ParametersEditor();
             this.checkBoxEnableMulticastProxy = new System.Windows.Forms.CheckBox();
+            this.parametersEditorMulticastProxy = new Project.DvbIpTv.UiServices.Configuration.Editors.ParameterEditor();
+            this.pictureIconWarning = new System.Windows.Forms.PictureBox();
             this.groupBoxMulticastProxy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIconWarning)).BeginInit();
             this.SuspendLayout();
@@ -56,12 +56,12 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network.Editors
             resources.ApplyResources(this.labelWarning, "labelWarning");
             this.labelWarning.Name = "labelWarning";
             // 
-            // pictureIconWarning
+            // checkBoxEnableMulticastProxy
             // 
-            resources.ApplyResources(this.pictureIconWarning, "pictureIconWarning");
-            this.pictureIconWarning.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Status_Warning_16x16;
-            this.pictureIconWarning.Name = "pictureIconWarning";
-            this.pictureIconWarning.TabStop = false;
+            resources.ApplyResources(this.checkBoxEnableMulticastProxy, "checkBoxEnableMulticastProxy");
+            this.checkBoxEnableMulticastProxy.Name = "checkBoxEnableMulticastProxy";
+            this.checkBoxEnableMulticastProxy.UseVisualStyleBackColor = true;
+            this.checkBoxEnableMulticastProxy.CheckedChanged += new System.EventHandler(this.checkBoxEnableMulticastProxy_CheckedChanged);
             // 
             // parametersEditorMulticastProxy
             // 
@@ -73,12 +73,12 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network.Editors
             this.parametersEditorMulticastProxy.ParametersList = null;
             this.parametersEditorMulticastProxy.CommandLineChanged += new System.EventHandler(this.parametersEditorMulticastProxy_CommandLineChanged);
             // 
-            // checkBoxEnableMulticastProxy
+            // pictureIconWarning
             // 
-            resources.ApplyResources(this.checkBoxEnableMulticastProxy, "checkBoxEnableMulticastProxy");
-            this.checkBoxEnableMulticastProxy.Name = "checkBoxEnableMulticastProxy";
-            this.checkBoxEnableMulticastProxy.UseVisualStyleBackColor = true;
-            this.checkBoxEnableMulticastProxy.CheckedChanged += new System.EventHandler(this.checkBoxEnableMulticastProxy_CheckedChanged);
+            resources.ApplyResources(this.pictureIconWarning, "pictureIconWarning");
+            this.pictureIconWarning.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Status_Warning_16x16;
+            this.pictureIconWarning.Name = "pictureIconWarning";
+            this.pictureIconWarning.TabStop = false;
             // 
             // NetworkSettingsEditor
             // 
@@ -98,7 +98,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network.Editors
 
         private System.Windows.Forms.GroupBox groupBoxMulticastProxy;
         private System.Windows.Forms.CheckBox checkBoxEnableMulticastProxy;
-        private Configuration.Editors.ParametersEditor parametersEditorMulticastProxy;
+        private Configuration.Editors.ParameterEditor parametersEditorMulticastProxy;
         private System.Windows.Forms.PictureBox pictureIconWarning;
         private System.Windows.Forms.Label labelWarning;
     }

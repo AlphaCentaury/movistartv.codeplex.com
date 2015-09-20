@@ -393,7 +393,7 @@ namespace Project.DvbIpTv.UiServices.Discovery
         {
             get
             {
-                var networkSettings = NetworkSettingsConfigurationRegistration.UserSettings;
+                var networkSettings = NetworkSettingsRegistration.Settings;
                 if ((networkSettings == null) || (networkSettings.MulticastProxy == null) || (networkSettings.MulticastProxy.IsEnabled == false))
                 {
                     return OriginalLocationUrl;

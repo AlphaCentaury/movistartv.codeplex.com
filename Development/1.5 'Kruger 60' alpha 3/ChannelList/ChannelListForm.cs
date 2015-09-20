@@ -15,6 +15,7 @@ using Project.DvbIpTv.UiServices.Common.Start;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
+using Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.Discovery.BroadcastList;
 using Project.DvbIpTv.UiServices.DvbStpClient;
@@ -114,7 +115,7 @@ namespace Project.DvbIpTv.ChannelList
             menuItemDvbSettings.Enabled = enable_menuItemDvbSettings;
             menuItemDvbExport.Enabled = enable_menuItemDvbExport;
 
-            var settings = UiBroadcastListSettingsConfigurationRegistration.UserSettings;
+            var settings = UiBroadcastListSettingsRegistration.Settings;
             ListManager = new UiBroadcastListManager(listViewChannelList, settings, imageListChannels, imageListChannelsLarge, true);
             ListManager.SelectionChanged += ListManager_SelectionChanged;
             ListManager.StatusChanged += ListManager_StatusChanged;
@@ -345,7 +346,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void listViewChannelsList_DoubleClick(object sender, EventArgs e)
         {
-            SafeCall(ShowTvChannel);
+            SafeCall<TvPlayer>(ShowTvChannel, null);
         } // listViewChannelsList_DoubleClick
 
         private void buttonRecordChannel_Click(object sender, EventArgs e)
@@ -355,7 +356,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void buttonDisplayChannel_Click(object sender, EventArgs e)
         {
-            SafeCall(ShowTvChannel);
+            SafeCall<TvPlayer>(ShowTvChannel, null);
         } // buttonDisplayChannel_Click
 
         #endregion
@@ -782,7 +783,7 @@ namespace Project.DvbIpTv.ChannelList
             ListManager.BroadcastServices = (BroadcastDiscovery != null) ? BroadcastDiscovery.Services : null;
         } // SetBroadcastDiscovery
 
-        private void ShowTvChannel()
+        private void ShowTvChannel(TvPlayer player)
         {
             if (ListManager.SelectedService == null) return;
             if (ListManager.SelectedService.IsHidden) return;
@@ -801,10 +802,13 @@ namespace Project.DvbIpTv.ChannelList
                 if (box.Show(this) != System.Windows.Forms.DialogResult.Yes) return;
             } // if
 
-            // TODO: player should be user-selectable
-            var player = AppUiConfiguration.Current.User.TvViewer.Players[0];
+            var tvPlayerSettings = TvPlayersSettingsRegistration.Settings;
+            if (player == null)
+            {
+                player = tvPlayerSettings.GetDefaultPlayer();
+            } // if
 
-            ExternalPlayer.Launch(player, ListManager.SelectedService, true);
+            ExternalPlayer.Launch(player, ListManager.SelectedService, !tvPlayerSettings.DirectLaunch);
         } // ShowTvChannel
 
         private void NotifyChannelListAge(int daysAge)

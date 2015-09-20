@@ -1,9 +1,9 @@
 ﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
-namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
+namespace Project.DvbIpTv.UiServices.Configuration.Editors
 {
-    partial class SettingsEditorModeMultiColumn
+    partial class ArgumentsEditor
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,14 +32,14 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsEditorModeMultiColumn));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArgumentsEditor));
             this.groupBoxData = new System.Windows.Forms.GroupBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonMoveDown = new System.Windows.Forms.Button();
             this.buttonMoveUp = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
-            this.listSelectedColumns = new System.Windows.Forms.ListBox();
-            this.buttonAddColumn = new System.Windows.Forms.Button();
-            this.comboColumns = new System.Windows.Forms.ComboBox();
+            this.listArguments = new System.Windows.Forms.ListBox();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBoxData.SuspendLayout();
             this.SuspendLayout();
@@ -47,20 +47,30 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // groupBoxData
             // 
             resources.ApplyResources(this.groupBoxData, "groupBoxData");
+            this.groupBoxData.Controls.Add(this.buttonAdd);
             this.groupBoxData.Controls.Add(this.buttonMoveDown);
             this.groupBoxData.Controls.Add(this.buttonMoveUp);
             this.groupBoxData.Controls.Add(this.buttonRemove);
-            this.groupBoxData.Controls.Add(this.listSelectedColumns);
-            this.groupBoxData.Controls.Add(this.buttonAddColumn);
-            this.groupBoxData.Controls.Add(this.comboColumns);
+            this.groupBoxData.Controls.Add(this.listArguments);
+            this.groupBoxData.Controls.Add(this.buttonEdit);
             this.groupBoxData.Name = "groupBoxData";
             this.groupBoxData.TabStop = false;
             // 
+            // buttonAdd
+            // 
+            resources.ApplyResources(this.buttonAdd, "buttonAdd");
+            this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonAdd.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Action_Property_Add_16x16;
+            this.buttonAdd.Name = "buttonAdd";
+            this.toolTip.SetToolTip(this.buttonAdd, resources.GetString("buttonAdd.ToolTip"));
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // buttonMoveDown
             // 
-            this.buttonMoveDown.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
             resources.ApplyResources(this.buttonMoveDown, "buttonMoveDown");
-            this.buttonMoveDown.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_GoNextDown_16x16;
+            this.buttonMoveDown.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonMoveDown.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Action_GoNextDown_16x16;
             this.buttonMoveDown.Name = "buttonMoveDown";
             this.toolTip.SetToolTip(this.buttonMoveDown, resources.GetString("buttonMoveDown.ToolTip"));
             this.buttonMoveDown.UseVisualStyleBackColor = true;
@@ -68,9 +78,9 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // buttonMoveUp
             // 
-            this.buttonMoveUp.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
             resources.ApplyResources(this.buttonMoveUp, "buttonMoveUp");
-            this.buttonMoveUp.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_GoPreviousUp_16x16;
+            this.buttonMoveUp.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonMoveUp.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Action_GoPreviousUp_16x16;
             this.buttonMoveUp.Name = "buttonMoveUp";
             this.toolTip.SetToolTip(this.buttonMoveUp, resources.GetString("buttonMoveUp.ToolTip"));
             this.buttonMoveUp.UseVisualStyleBackColor = true;
@@ -78,47 +88,38 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             // buttonRemove
             // 
-            this.buttonRemove.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
             resources.ApplyResources(this.buttonRemove, "buttonRemove");
-            this.buttonRemove.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_Delete_16x16;
+            this.buttonRemove.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonRemove.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Action_Delete_16x16;
             this.buttonRemove.Name = "buttonRemove";
             this.toolTip.SetToolTip(this.buttonRemove, resources.GetString("buttonRemove.ToolTip"));
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
-            // listSelectedColumns
+            // listArguments
             // 
-            this.listSelectedColumns.FormattingEnabled = true;
-            resources.ApplyResources(this.listSelectedColumns, "listSelectedColumns");
-            this.listSelectedColumns.Name = "listSelectedColumns";
+            resources.ApplyResources(this.listArguments, "listArguments");
+            this.listArguments.FormattingEnabled = true;
+            this.listArguments.Name = "listArguments";
+            this.listArguments.SelectedIndexChanged += new System.EventHandler(this.listArguments_SelectedIndexChanged);
             // 
-            // buttonAddColumn
+            // buttonEdit
             // 
-            this.buttonAddColumn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            resources.ApplyResources(this.buttonAddColumn, "buttonAddColumn");
-            this.buttonAddColumn.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_Add_16xM;
-            this.buttonAddColumn.Name = "buttonAddColumn";
-            this.toolTip.SetToolTip(this.buttonAddColumn, resources.GetString("buttonAddColumn.ToolTip"));
-            this.buttonAddColumn.UseVisualStyleBackColor = true;
-            this.buttonAddColumn.Click += new System.EventHandler(this.buttonAddColumn_Click);
+            resources.ApplyResources(this.buttonEdit, "buttonEdit");
+            this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.buttonEdit.Image = global::Project.DvbIpTv.UiServices.Configuration.CommonUiResources.Action_Property_Edit_16x16;
+            this.buttonEdit.Name = "buttonEdit";
+            this.toolTip.SetToolTip(this.buttonEdit, resources.GetString("buttonEdit.ToolTip"));
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // comboColumns
-            // 
-            this.comboColumns.DisplayMember = "Value";
-            this.comboColumns.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboColumns.DropDownWidth = 250;
-            this.comboColumns.FormattingEnabled = true;
-            resources.ApplyResources(this.comboColumns, "comboColumns");
-            this.comboColumns.Name = "comboColumns";
-            this.comboColumns.ValueMember = "Key";
-            // 
-            // SettingsEditorModeMultiColumn
+            // ArgumentsEditor
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBoxData);
-            this.Name = "SettingsEditorModeMultiColumn";
-            this.Load += new System.EventHandler(this.SettingsEditorModeMultiColumn_Load);
+            this.Name = "ArgumentsEditor";
+            this.Load += new System.EventHandler(this.ArgumentsEditor_Load);
             this.groupBoxData.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -127,12 +128,12 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxData;
-        private System.Windows.Forms.ComboBox comboColumns;
-        private System.Windows.Forms.Button buttonRemove;
-        private System.Windows.Forms.ListBox listSelectedColumns;
-        private System.Windows.Forms.Button buttonAddColumn;
+        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonMoveDown;
         private System.Windows.Forms.Button buttonMoveUp;
+        private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.ListBox listArguments;
+        private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.ToolTip toolTip;
-    }
-}
+    } // class ArgumentsEditor
+} // namespace

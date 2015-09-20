@@ -262,6 +262,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to VLC (no new window).
+        /// </summary>
+        internal static string GetTvPlayersVlcSameWindow {
+            get {
+                return ResourceManager.GetString("GetTvPlayersVlcSameWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
         ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\qc\lang10\b\f0\fs28 Help improve this program!\b0\par
         ///\pard\sl276\slmult1\qj\fs24 Collecting this information helps us to improve the program through a better understanding of trends and usage patterns of the program, and helps us to try to detect problems and errors.\par

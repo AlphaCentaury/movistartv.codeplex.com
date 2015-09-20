@@ -139,4 +139,20 @@ multicastPort|Puerto de multidifusión del canal de TV</value>
   <data name="NetworkValidationErrorCaption" xml:space="preserve">
     <value>Ajustes de red</value>
   </data>
+  <data name="TvPlayerArgumentsListEmpty" xml:space="preserve">
+    <value>¡La lista de argumentos para ejecutar el reproductor de TV está vacía!
+¿Desea continuar?</value>
+  </data>
+  <data name="TvPlayerDelete" xml:space="preserve">
+    <value>¿Desea eliminar el reproductor '{0}'?</value>
+  </data>
+  <data name="TvPlayerDeleteCaption" xml:space="preserve">
+    <value>Confirmación de eliminación</value>
+  </data>
+  <data name="TvPlayersDescription" xml:space="preserve">
+    <value>Configuración de reproductores de TV</value>
+  </data>
+  <data name="TvPlayersDisplayName" xml:space="preserve">
+    <value>Reproductores</value>
+  </data>
 </root>

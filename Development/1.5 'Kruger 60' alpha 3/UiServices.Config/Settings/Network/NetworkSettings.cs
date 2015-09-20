@@ -29,5 +29,19 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network
             get;
             set;
         } // MulticastProxy
+
+        #region IConfigurationItem implementation
+
+        bool IConfigurationItem.CanValidate
+        {
+            get { return false; }
+        } // IConfigurationItem.CanValidate
+
+        string IConfigurationItem.Validate(string ownerTag)
+        {
+            throw new NotImplementedException();
+        } // IConfigurationItem.Validate
+
+        #endregion
     } // class NetworkSettings
 } // namespace

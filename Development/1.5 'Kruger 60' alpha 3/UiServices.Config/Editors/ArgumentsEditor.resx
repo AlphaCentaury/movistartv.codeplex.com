@@ -119,7 +119,48 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="groupBoxData.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="buttonAdd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonAdd.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="buttonAdd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 78</value>
+  </data>
+  <data name="buttonAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="buttonAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="buttonAdd.ToolTip" xml:space="preserve">
+    <value>Add a new argument at the end of the list</value>
+  </data>
+  <data name="&gt;&gt;buttonAdd.Name" xml:space="preserve">
+    <value>buttonAdd</value>
+  </data>
+  <data name="&gt;&gt;buttonAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAdd.Parent" xml:space="preserve">
+    <value>groupBoxData</value>
+  </data>
+  <data name="&gt;&gt;buttonAdd.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonMoveDown.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="buttonMoveDown.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -127,22 +168,17 @@
   <data name="buttonMoveDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonMoveDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 144</value>
+    <value>169, 139</value>
   </data>
   <data name="buttonMoveDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonMoveDown.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="buttonMoveDown.ToolTip" xml:space="preserve">
-    <value>Move the selected column one place down</value>
+    <value>Move the selected argument one place down</value>
   </data>
   <data name="&gt;&gt;buttonMoveDown.Name" xml:space="preserve">
     <value>buttonMoveDown</value>
@@ -154,7 +190,10 @@
     <value>groupBoxData</value>
   </data>
   <data name="&gt;&gt;buttonMoveDown.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="buttonMoveUp.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="buttonMoveUp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -163,7 +202,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonMoveUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 116</value>
+    <value>169, 111</value>
   </data>
   <data name="buttonMoveUp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 0</value>
@@ -175,7 +214,7 @@
     <value>4</value>
   </data>
   <data name="buttonMoveUp.ToolTip" xml:space="preserve">
-    <value>Move the selected column one place up</value>
+    <value>Move the selected argument one place up</value>
   </data>
   <data name="&gt;&gt;buttonMoveUp.Name" xml:space="preserve">
     <value>buttonMoveUp</value>
@@ -187,7 +226,10 @@
     <value>groupBoxData</value>
   </data>
   <data name="&gt;&gt;buttonMoveUp.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="buttonRemove.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="buttonRemove.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -196,13 +238,16 @@
     <value>NoControl</value>
   </data>
   <data name="buttonRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 46</value>
+    <value>169, 47</value>
+  </data>
+  <data name="buttonRemove.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 0, 3, 3</value>
   </data>
   <data name="buttonRemove.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
   </data>
   <data name="buttonRemove.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="buttonRemove.ToolTip" xml:space="preserve">
     <value>Remove selected column from the list</value>
@@ -217,94 +262,85 @@
     <value>groupBoxData</value>
   </data>
   <data name="&gt;&gt;buttonRemove.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="listSelectedColumns.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="listSelectedColumns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 46</value>
-  </data>
-  <data name="listSelectedColumns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 123</value>
-  </data>
-  <data name="listSelectedColumns.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;listSelectedColumns.Name" xml:space="preserve">
-    <value>listSelectedColumns</value>
-  </data>
-  <data name="&gt;&gt;listSelectedColumns.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listSelectedColumns.Parent" xml:space="preserve">
-    <value>groupBoxData</value>
-  </data>
-  <data name="&gt;&gt;listSelectedColumns.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="buttonAddColumn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="listArguments.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="buttonAddColumn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="listArguments.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Lucida Console, 9pt</value>
   </data>
-  <data name="buttonAddColumn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 16</value>
+  <data name="listArguments.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="buttonAddColumn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
+  <data name="listArguments.ItemHeight" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
-  <data name="buttonAddColumn.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buttonAddColumn.ToolTip" xml:space="preserve">
-    <value>Add the column at the end of the list</value>
-  </data>
-  <data name="&gt;&gt;buttonAddColumn.Name" xml:space="preserve">
-    <value>buttonAddColumn</value>
-  </data>
-  <data name="&gt;&gt;buttonAddColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonAddColumn.Parent" xml:space="preserve">
-    <value>groupBoxData</value>
-  </data>
-  <data name="&gt;&gt;buttonAddColumn.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="comboColumns.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="listArguments.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
   </data>
-  <data name="comboColumns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 21</value>
+  <data name="listArguments.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 145</value>
   </data>
-  <data name="comboColumns.TabIndex" type="System.Int32, mscorlib">
+  <data name="listArguments.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;comboColumns.Name" xml:space="preserve">
-    <value>comboColumns</value>
+  <data name="&gt;&gt;listArguments.Name" xml:space="preserve">
+    <value>listArguments</value>
   </data>
-  <data name="&gt;&gt;comboColumns.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;listArguments.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;comboColumns.Parent" xml:space="preserve">
+  <data name="&gt;&gt;listArguments.Parent" xml:space="preserve">
     <value>groupBoxData</value>
   </data>
-  <data name="&gt;&gt;comboColumns.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;listArguments.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonEdit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonEdit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="buttonEdit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonEdit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 19</value>
+  </data>
+  <data name="buttonEdit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="buttonEdit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonEdit.ToolTip" xml:space="preserve">
+    <value>Edit selected argument</value>
+  </data>
+  <data name="&gt;&gt;buttonEdit.Name" xml:space="preserve">
+    <value>buttonEdit</value>
+  </data>
+  <data name="&gt;&gt;buttonEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEdit.Parent" xml:space="preserve">
+    <value>groupBoxData</value>
+  </data>
+  <data name="&gt;&gt;buttonEdit.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="groupBoxData.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="groupBoxData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 175</value>
+    <value>200, 170</value>
   </data>
   <data name="groupBoxData.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="groupBoxData.Text" xml:space="preserve">
-    <value>Columns to display</value>
+    <value>Command line arguments</value>
   </data>
   <data name="&gt;&gt;groupBoxData.Name" xml:space="preserve">
     <value>groupBoxData</value>
@@ -325,7 +361,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 175</value>
+    <value>200, 173</value>
   </data>
   <data name="&gt;&gt;toolTip.Name" xml:space="preserve">
     <value>toolTip</value>
@@ -334,9 +370,9 @@
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>SettingsEditorModeMultiColumn</value>
+    <value>ArgumentsEditor</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors.SettingsEditorModeBaseColumn, UiServices.Discovery, Version=1.5.30.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

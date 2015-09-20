@@ -116,5 +116,51 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
                 return ResourceManager.GetString("NetworkValidationErrorCaption", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The list of arguments for executing the TV player is empty!
+        ///Do you wish to continue?.
+        /// </summary>
+        internal static string TvPlayerArgumentsListEmpty {
+            get {
+                return ResourceManager.GetString("TvPlayerArgumentsListEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to remove the player &apos;{0}&apos;?.
+        /// </summary>
+        internal static string TvPlayerDelete {
+            get {
+                return ResourceManager.GetString("TvPlayerDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete conformation.
+        /// </summary>
+        internal static string TvPlayerDeleteCaption {
+            get {
+                return ResourceManager.GetString("TvPlayerDeleteCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TV players settings.
+        /// </summary>
+        internal static string TvPlayersDescription {
+            get {
+                return ResourceManager.GetString("TvPlayersDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TV players.
+        /// </summary>
+        internal static string TvPlayersDisplayName {
+            get {
+                return ResourceManager.GetString("TvPlayersDisplayName", resourceCulture);
+            }
+        }
     }
 }

@@ -4,6 +4,7 @@
 using Project.DvbIpTv.Common;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
+using Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers;
 using Project.DvbIpTv.UiServices.Discovery;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,8 @@ namespace Project.DvbIpTv.ChannelList
     public static class ExternalPlayer
     {
         private static string[] LaunchParamKeys;
-        public const string OpenBrace = "{param:";
-        public const string CloseBrace = "}";
 
-        public static void Launch(PlayerConfig player, UiBroadcastService service, bool throughShortcut)
+        public static void Launch(TvPlayer player, UiBroadcastService service, bool throughShortcut)
         {
             if (!File.Exists(player.Path))
             {
@@ -48,25 +47,34 @@ namespace Project.DvbIpTv.ChannelList
             };
 
             var parameters = ArgumentsManager.CreateParameters(LaunchParamKeys, paramValues, false);
-            var arguments = ArgumentsManager.ExpandArguments(player.Arguments, parameters, OpenBrace, CloseBrace, StringComparison.CurrentCultureIgnoreCase);
+            var arguments = ArgumentsManager.ExpandArguments(player.Arguments, parameters, TvPlayer.ParameterOpenBrace, TvPlayer.ParameterCloseBrace, StringComparison.CurrentCultureIgnoreCase);
+            var launchArguments = ArgumentsManager.JoinArguments(arguments);
 
             if (throughShortcut)
             {
-                LaunchShortcut(player, service, arguments);
+                LaunchShortcut(player, service, launchArguments);
             }
             else
             {
-                LaunchProcess(player, arguments);
+                LaunchProcess(player, launchArguments);
             } // if-else
         } // Launch
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
-        private static void LaunchShortcut(PlayerConfig player, UiBroadcastService service, string[] arguments)
+        private static void LaunchShortcut(TvPlayer player, UiBroadcastService service, string arguments)
         {
             var shortcutPath = Path.Combine(AppUiConfiguration.Current.Folders.Cache, service.FullServiceName) + ".lnk";
+
+            // delete exising shortcut
+            if (File.Exists(shortcutPath))
+            {
+                File.SetAttributes(shortcutPath, FileAttributes.Normal);
+                File.Delete(shortcutPath);
+            } // if
+
             var shortcut = new ShellLink.ShellLink();
             shortcut.TargetPath = player.Path;
-            shortcut.Arguments = ArgumentsManager.JoinArguments(arguments);
+            shortcut.Arguments = arguments;
             shortcut.Description = string.Format(Properties.Texts.ExternalPlayerShortcutDescription, player.Name, service.DisplayName);
             shortcut.IconLocation = service.Logo.GetLogoIconPath();
             shortcutPath = shortcut.CreateShortcut(shortcutPath);
@@ -84,14 +92,14 @@ namespace Project.DvbIpTv.ChannelList
         } // LaunchShortcut
 
         [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
-        private static void LaunchProcess(PlayerConfig player, string[] arguments)
+        private static void LaunchProcess(TvPlayer player, string arguments)
         {
             var start = new ProcessStartInfo()
             {
                 UseShellExecute = false,
                 ErrorDialog = true,
                 FileName = player.Path,
-                Arguments = ArgumentsManager.JoinArguments(arguments),
+                Arguments = arguments,
             };
             using (var process = Process.Start(start))
             {

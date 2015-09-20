@@ -120,6 +120,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             foreach (var configItem in ConfigurationItems)
             {
                 var registration = configItem.Registration;
+                if (!registration.HasEditor) continue;
+
                 using (var img = registration.EditorImage)
                 {
                     listViewConfigItems.LargeImageList.Images.Add(img);
@@ -148,6 +150,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             {
                 foreach (var configItem in ConfigurationItems)
                 {
+                    if (configItem.Editor == null) return;
+
                     configItem.Editor.EditorClosing(out cancelClose);
                     if (cancelClose)
                     {
@@ -160,9 +164,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
         private void ConfigurationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            foreach (var editor in ConfigurationItems)
+            foreach (var configItem in ConfigurationItems)
             {
-                editor.Editor.EditorClosed(DialogResult != DialogResult.OK);
+                if (configItem.Editor == null) return;
+
+                configItem.Editor.EditorClosed(DialogResult != DialogResult.OK);
             } // foreach editorData
         } // ConfigurationForm_FormClosed
 
@@ -185,6 +191,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             buttonOk.DialogResult = DialogResult.None;
             foreach (var configItem in ConfigurationItems)
             {
+                if (configItem.Editor == null) continue;
+
                 if (configItem.Editor.IsDataChanged)
                 {
                     if (configItem.Editor.SupportsWinFormsValidation)
@@ -201,6 +209,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             IsAppRestartNeeded = false;
             foreach (var configItem in ConfigurationItems)
             {
+                if (configItem.Editor == null) continue;
+
                 if (configItem.Editor.IsDataChanged)
                 {
                     configItem.NewData = configItem.Editor.GetNewData();
