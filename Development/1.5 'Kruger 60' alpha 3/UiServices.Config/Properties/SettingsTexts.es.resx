@@ -139,6 +139,12 @@ multicastPort|Puerto de multidifusión del canal de TV</value>
   <data name="NetworkValidationErrorCaption" xml:space="preserve">
     <value>Ajustes de red</value>
   </data>
+  <data name="ParameterEditCaption" xml:space="preserve">
+    <value>Editar el parámetro</value>
+  </data>
+  <data name="ParameterNewCaption" xml:space="preserve">
+    <value>Añadir un nuevo parámetro</value>
+  </data>
   <data name="TvPlayerArgumentsListEmpty" xml:space="preserve">
     <value>¡La lista de argumentos para ejecutar el reproductor de TV está vacía!
 ¿Desea continuar?</value>
@@ -148,6 +154,13 @@ multicastPort|Puerto de multidifusión del canal de TV</value>
   </data>
   <data name="TvPlayerDeleteCaption" xml:space="preserve">
     <value>Confirmación de eliminación</value>
+  </data>
+  <data name="TvPlayerParametersList" xml:space="preserve">
+    <value>Channel.Url|URL de ubicación del canal IPTV
+Channel.Name|Nombre del canal
+Channel.Description|Descripción del canal
+Channel.Icon.Path|Ruta al archivo .ico del logo del canal</value>
+    <comment>Keep each parameter in a separate line. Never translate text before '|'</comment>
   </data>
   <data name="TvPlayersDescription" xml:space="preserve">
     <value>Configuración de reproductores de TV</value>

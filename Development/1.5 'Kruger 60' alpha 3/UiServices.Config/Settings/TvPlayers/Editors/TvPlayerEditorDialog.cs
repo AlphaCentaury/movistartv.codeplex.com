@@ -47,6 +47,10 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers.Editors
                     "{param:Channel.Url}"
                 };
             } // if-else
+
+            argumentsEditor.OpenBraceText = TvPlayer.ParameterOpenBrace;
+            argumentsEditor.CloseBraceText = TvPlayer.ParameterCloseBrace;
+            argumentsEditor.ParametersList = Properties.SettingsTexts.TvPlayerParametersList;
         } // TvPlayerEditorDialog_Load
 
         private void TvPlayerEditorDialog_Shown(object sender, EventArgs e)

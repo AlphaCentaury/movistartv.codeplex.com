@@ -117,55 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ConfigFormAppRestartRequired" xml:space="preserve">
-    <value>Some of the changes you have made require you to restart the application before they can take effect. </value>
+  <data name="buttonCancel.Text" xml:space="preserve">
+    <value>&amp;Cancelar</value>
   </data>
-  <data name="NetworkDescription" xml:space="preserve">
-    <value>Network settings</value>
+  <data name="buttonOk.Text" xml:space="preserve">
+    <value>&amp;Aceptar</value>
   </data>
-  <data name="NetworkDisplayName" xml:space="preserve">
-    <value>Network</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
-  <data name="NetworkMulticastProxyValidation" xml:space="preserve">
-    <value>The multicast proxy can not be blank.</value>
-  </data>
-  <data name="NetworkUpdProxyParameters" xml:space="preserve">
-    <value>protocol|Name of the procotol, in lowercase (rpt or udp)
-protocolU|Name of the protocol, in uppercase (RTP or UDP)
-multicastAddress|Multicast IP address of TV channel
-multicastPort|Multicast port of TV channel</value>
-    <comment>Keep each parameter in a separate line. Never translate text before '|'</comment>
-  </data>
-  <data name="NetworkValidationErrorCaption" xml:space="preserve">
-    <value>Network settings</value>
-  </data>
-  <data name="ParameterEditCaption" xml:space="preserve">
-    <value>Edit parameter</value>
-  </data>
-  <data name="ParameterNewCaption" xml:space="preserve">
-    <value>Add a new parameter</value>
-  </data>
-  <data name="TvPlayerArgumentsListEmpty" xml:space="preserve">
-    <value>The list of arguments for executing the TV player is empty!
-Do you wish to continue?</value>
-  </data>
-  <data name="TvPlayerDelete" xml:space="preserve">
-    <value>Do you want to remove the player '{0}'?</value>
-  </data>
-  <data name="TvPlayerDeleteCaption" xml:space="preserve">
-    <value>Delete conformation</value>
-  </data>
-  <data name="TvPlayerParametersList" xml:space="preserve">
-    <value>Channel.Url|IPTV channel URL
-Channel.Name|Name of the channel
-Channel.Description|Description of the channel
-Channel.Icon.Path|Path to channel logo .ico file</value>
-    <comment>Keep each parameter in a separate line. Never translate text before '|'</comment>
-  </data>
-  <data name="TvPlayersDescription" xml:space="preserve">
-    <value>TV players settings</value>
-  </data>
-  <data name="TvPlayersDisplayName" xml:space="preserve">
-    <value>TV players</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Seleccione un reproductor de TV</value>
   </data>
 </root>

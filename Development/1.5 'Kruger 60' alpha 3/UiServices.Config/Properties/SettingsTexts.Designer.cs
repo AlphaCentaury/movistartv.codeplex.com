@@ -118,6 +118,24 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit parameter.
+        /// </summary>
+        internal static string ParameterEditCaption {
+            get {
+                return ResourceManager.GetString("ParameterEditCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a new parameter.
+        /// </summary>
+        internal static string ParameterNewCaption {
+            get {
+                return ResourceManager.GetString("ParameterNewCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The list of arguments for executing the TV player is empty!
         ///Do you wish to continue?.
         /// </summary>
@@ -142,6 +160,18 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         internal static string TvPlayerDeleteCaption {
             get {
                 return ResourceManager.GetString("TvPlayerDeleteCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Channel.Url|IPTV channel URL
+        ///Channel.Name|Name of the channel
+        ///Channel.Description|Description of the channel
+        ///Channel.Icon.Path|Path to channel logo .ico file.
+        /// </summary>
+        internal static string TvPlayerParametersList {
+            get {
+                return ResourceManager.GetString("TvPlayerParametersList", resourceCulture);
             }
         }
         

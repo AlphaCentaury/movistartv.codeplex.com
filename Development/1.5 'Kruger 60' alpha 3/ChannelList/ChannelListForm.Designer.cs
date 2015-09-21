@@ -482,11 +482,13 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemChannelShow.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Play_LG_16x16;
             this.menuItemChannelShow.Name = "menuItemChannelShow";
             resources.ApplyResources(this.menuItemChannelShow, "menuItemChannelShow");
+            this.menuItemChannelShow.Click += new System.EventHandler(this.menuItemChannelShow_Click);
             // 
             // menuItemChannelShowWith
             // 
             this.menuItemChannelShowWith.Name = "menuItemChannelShowWith";
             resources.ApplyResources(this.menuItemChannelShowWith, "menuItemChannelShowWith");
+            this.menuItemChannelShowWith.Click += new System.EventHandler(this.menuItemChannelShowWith_Click);
             // 
             // separatorChannel2
             // 
@@ -714,7 +716,7 @@ namespace Project.DvbIpTv.ChannelList
             this.contextMenuListShow.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Play_LG_16x16;
             this.contextMenuListShow.Name = "contextMenuListShow";
             resources.ApplyResources(this.contextMenuListShow, "contextMenuListShow");
-            this.contextMenuListShow.Click += new System.EventHandler(this.buttonDisplayChannel_Click);
+            this.contextMenuListShow.Click += new System.EventHandler(this.contextMenuListShow_Click);
             // 
             // contextMenuListRecord
             // 

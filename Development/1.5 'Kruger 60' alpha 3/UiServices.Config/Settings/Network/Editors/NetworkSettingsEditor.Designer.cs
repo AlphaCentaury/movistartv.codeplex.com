@@ -35,7 +35,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network.Editors
             this.groupBoxMulticastProxy = new System.Windows.Forms.GroupBox();
             this.labelWarning = new System.Windows.Forms.Label();
             this.checkBoxEnableMulticastProxy = new System.Windows.Forms.CheckBox();
-            this.parametersEditorMulticastProxy = new Project.DvbIpTv.UiServices.Configuration.Editors.ParameterEditor();
+            this.parametersEditorMulticastProxy = new Project.DvbIpTv.UiServices.Configuration.Editors.ArgumentEditor();
             this.pictureIconWarning = new System.Windows.Forms.PictureBox();
             this.groupBoxMulticastProxy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIconWarning)).BeginInit();
@@ -98,7 +98,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network.Editors
 
         private System.Windows.Forms.GroupBox groupBoxMulticastProxy;
         private System.Windows.Forms.CheckBox checkBoxEnableMulticastProxy;
-        private Configuration.Editors.ParameterEditor parametersEditorMulticastProxy;
+        private Configuration.Editors.ArgumentEditor parametersEditorMulticastProxy;
         private System.Windows.Forms.PictureBox pictureIconWarning;
         private System.Windows.Forms.Label labelWarning;
     }

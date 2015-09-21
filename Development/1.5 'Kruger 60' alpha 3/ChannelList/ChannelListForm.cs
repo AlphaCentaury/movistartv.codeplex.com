@@ -46,10 +46,8 @@ namespace Project.DvbIpTv.ChannelList
         // disabled functionality
         private const bool enable_menuItemDvbRecent = false;
         private const bool enable_menuItemDvbPackages = false;
-        private const bool enable_menuItemDvbSettings = true;
         private const bool enable_menuItemDvbExport = false;
         private const bool enable_menuItemChannelFavorites = false;
-        private const bool enable_menuItemChannelShowWith = false;
         private const bool enable_menuItemChannelEditList = false;
         private bool enable_Epg = true;
 
@@ -112,7 +110,6 @@ namespace Project.DvbIpTv.ChannelList
             // disable functionality
             menuItemDvbRecent.Enabled = enable_menuItemDvbRecent;
             menuItemDvbPackages.Enabled = enable_menuItemDvbPackages;
-            menuItemDvbSettings.Enabled = enable_menuItemDvbSettings;
             menuItemDvbExport.Enabled = enable_menuItemDvbExport;
 
             var settings = UiBroadcastListSettingsRegistration.Settings;
@@ -177,7 +174,7 @@ namespace Project.DvbIpTv.ChannelList
             var enable = e.Item != null;
             var enable2 = enable && !e.Item.IsHidden;
             menuItemChannelShow.Enabled = enable2;
-            menuItemChannelShowWith.Enabled = enable2 && enable_menuItemChannelShowWith;
+            menuItemChannelShowWith.Enabled = enable2;
             menuItemChannelFavoritesAdd.Enabled = enable2;
             menuItemChannelDetails.Enabled = enable;
             menuItemRecordingsRecord.Enabled = enable2;
@@ -231,7 +228,13 @@ namespace Project.DvbIpTv.ChannelList
 
         private void Implementation_menuItemDvbSettings_Click(object sender, EventArgs e)
         {
-            ConfigurationForm.ShowConfigurationForm(this, true);
+            var applyChanges = new Dictionary<Guid, Action>(1);
+            applyChanges.Add(UiBroadcastListSettingsRegistration.ConfigurationGuid, () =>
+                {
+                    ListManager.Settings = UiBroadcastListSettingsRegistration.Settings;
+                });
+
+            ConfigurationForm.ShowConfigurationForm(this, true, applyChanges);
 
             // TODO: apply broadcast list settings changes (if any)
         } // menuItemDvbSettings_Click
@@ -329,6 +332,16 @@ namespace Project.DvbIpTv.ChannelList
             SafeCall(menuItemChannelListView_Click_Implementation, sender, e);
         } // menuItemChannelListView_Click
 
+        private void menuItemChannelShow_Click(object sender, EventArgs e)
+        {
+            SafeCall(ShowTvChannel, true);
+        } // menuItemChannelShow_Click
+
+        private void menuItemChannelShowWith_Click(object sender, EventArgs e)
+        {
+            SafeCall(ShowTvChannel, false);
+        } // menuItemChannelShowWith_Click
+
         private void menuItemChannelRefreshList_Click(object sender, EventArgs e)
         {
             SafeCall(menuItemChannelRefreshList_Click_Implementation, sender, e);
@@ -346,7 +359,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void listViewChannelsList_DoubleClick(object sender, EventArgs e)
         {
-            SafeCall<TvPlayer>(ShowTvChannel, null);
+            SafeCall(ShowTvChannel, true);
         } // listViewChannelsList_DoubleClick
 
         private void buttonRecordChannel_Click(object sender, EventArgs e)
@@ -356,7 +369,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void buttonDisplayChannel_Click(object sender, EventArgs e)
         {
-            SafeCall<TvPlayer>(ShowTvChannel, null);
+            SafeCall(ShowTvChannel, true);
         } // buttonDisplayChannel_Click
 
         #endregion
@@ -783,8 +796,10 @@ namespace Project.DvbIpTv.ChannelList
             ListManager.BroadcastServices = (BroadcastDiscovery != null) ? BroadcastDiscovery.Services : null;
         } // SetBroadcastDiscovery
 
-        private void ShowTvChannel(TvPlayer player)
+        private void ShowTvChannel(bool defaultPlayer)
         {
+            TvPlayer player;
+
             if (ListManager.SelectedService == null) return;
             if (ListManager.SelectedService.IsHidden) return;
 
@@ -803,10 +818,22 @@ namespace Project.DvbIpTv.ChannelList
             } // if
 
             var tvPlayerSettings = TvPlayersSettingsRegistration.Settings;
-            if (player == null)
+            if (defaultPlayer)
             {
                 player = tvPlayerSettings.GetDefaultPlayer();
-            } // if
+            }
+            else
+            {
+                using (var dialog = new SelectTvPlayerDialog())
+                {
+                    if (dialog.ShowDialog(this) != DialogResult.OK)
+                    {
+                        return;
+                    } // if
+
+                    player = dialog.SelectedPlayer;
+                } // using
+            } // if-else
 
             ExternalPlayer.Launch(player, ListManager.SelectedService, !tvPlayerSettings.DirectLaunch);
         } // ShowTvChannel
@@ -941,9 +968,14 @@ namespace Project.DvbIpTv.ChannelList
             contextMenuListProperties.Enabled = menuItemChannelDetails.Enabled;
         } // contextMenuList_Opening
 
+        private void contextMenuListShow_Click(object sender, EventArgs e)
+        {
+            SafeCall(ShowTvChannel, true);
+        } // contextMenuListShow_Click
+
         private void contextMenuListShowWith_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this, "contextMenuListShowWith");
+            SafeCall(ShowTvChannel, false);
         } // contextMenuListShowWith_Click
 
         private void contextMenuListMode_Click(object sender, EventArgs e)

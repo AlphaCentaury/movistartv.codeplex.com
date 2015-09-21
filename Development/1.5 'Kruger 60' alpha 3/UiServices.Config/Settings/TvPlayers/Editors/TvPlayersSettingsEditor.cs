@@ -86,7 +86,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers.Editors
 
             var tilesPerRow = 2;
             listViewPlayers.TileSize = new Size((listViewPlayers.Width - SystemInformation.VerticalScrollBarWidth - 6) / tilesPerRow,
-                Settings.PlayerIcons.ImageSize.Height + 6);
+                Settings.PlayerIcons.ImageSize.Height + 4);
 
             ManualUpdateLock++;
             labelDefaultPlayer.Text = Settings.GetDefaultPlayer().Name;
@@ -94,7 +94,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers.Editors
             ManualUpdateLock--;
 
             Players = new List<TvPlayer>(Settings.Players);
-            FillList(false);
+            FillList(false, true);
         } // TvPlayersSettingsEditor_Load
 
         private void listViewPlayers_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers.Editors
                 editor.ShowDialog(this);
                 if (editor.IsDataChanged)
                 {
-                    FillList(true);
+                    FillList(true, false);
                     IsDataChanged = true;
                 } // if
             } // using
@@ -150,7 +150,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers.Editors
             item.Selected = false;
             Players.Remove(player);
             IsDataChanged = true;
-            FillList(false);
+            FillList(false, false);
         } // buttonDelete_Click
 
         private void buttonSetDefault_Click(object sender, EventArgs e)
@@ -164,7 +164,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers.Editors
             labelDefaultPlayer.Text = player.Name;
 
             // update list
-            FillList(true);
+            FillList(true, true);
         } // buttonSetDefault_Click
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -175,7 +175,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers.Editors
                 if (editor.IsDataChanged)
                 {
                     Players.Add(editor.Player);
-                    FillList(false);
+                    FillList(false, false);
                     listViewPlayers.Items[listViewPlayers.Items.Count - 1].Selected = true;
                 } // if
             } // using
@@ -187,37 +187,46 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers.Editors
             IsDataChanged = true;
         } // checkBoxShortcut_CheckedChanged
 
-        private void FillList(bool keepSelection)
+        private void FillList(bool keepSelection, bool selectDefault)
+        {
+            FillList(listViewPlayers, Players, Settings.DefaultPlayerId, keepSelection, selectDefault);
+        } // FillList
+
+        internal static void FillList(ListView list, IList<TvPlayer> players, Guid defaultPlayerId, bool keepSelection, bool selectDefault)
         {
             ListViewItem[] items;
             int index;
             int selectedIndex;
 
-            selectedIndex = (listViewPlayers.SelectedItems.Count > 0) ? listViewPlayers.SelectedItems[0].Index : -1;
+            selectedIndex = (list.SelectedItems.Count > 0) ? list.SelectedItems[0].Index : -1;
 
-            items = new ListViewItem[Players.Count];
+            items = new ListViewItem[players.Count];
             index = 0;
-            foreach (var player in Players)
+            foreach (var player in players)
             {
-                items[index++] = GetTvPlayerListItem(player);
+                items[index++] = GetTvPlayerListItem(player, defaultPlayerId, list.Font, selectDefault);
             } // foreach
 
-            listViewPlayers.Items.Clear();
-            listViewPlayers.Items.AddRange(items);
+            list.Items.Clear();
+            list.Items.AddRange(items);
             if ((selectedIndex >= 0) && (keepSelection))
             {
-                listViewPlayers.Items[selectedIndex].Selected = true;
+                list.Items[selectedIndex].Selected = true;
             } // if
         } // FillList
 
-        private ListViewItem GetTvPlayerListItem(TvPlayer player)
+        private static ListViewItem GetTvPlayerListItem(TvPlayer player, Guid defaultPlayerId, Font listFont, bool selectDefault)
         {
             var item = new ListViewItem(player.Name);
             item.Tag = player;
             item.ImageKey = TvPlayersSettingsRegistration.Settings.GetPlayerIconKey(player.Path);
-            if (player.Id == Settings.DefaultPlayerId)
+            if (player.Id == defaultPlayerId)
             {
-                item.Font = new Font(listViewPlayers.Font, FontStyle.Bold);
+                item.Font = new Font(listFont, FontStyle.Bold);
+                if (selectDefault)
+                {
+                    item.Selected = true;
+                } // if
             } // if
 
             return item;

@@ -32,11 +32,12 @@ namespace Project.DvbIpTv.ChannelList
             if (LaunchParamKeys == null)
             {
                 LaunchParamKeys = new string[]
-            {
-                "Channel.Url",
-                "Channel.Name",
-                "Channel.Description",
-            };
+                {
+                    "Channel.Url",
+                    "Channel.Name",
+                    "Channel.Description",
+                    "Channel.Icon.Path",
+                };
             } // if
 
             var paramValues = new string[]
@@ -44,6 +45,7 @@ namespace Project.DvbIpTv.ChannelList
                 service.LocationUrl,
                 service.DisplayName,
                 service.DisplayDescription,
+                service.Logo.GetLogoIconPath(),
             };
 
             var parameters = ArgumentsManager.CreateParameters(LaunchParamKeys, paramValues, false);

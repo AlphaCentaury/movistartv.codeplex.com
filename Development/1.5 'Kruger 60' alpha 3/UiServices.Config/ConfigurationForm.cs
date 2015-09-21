@@ -22,7 +22,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
             public IConfigurationItemEditor Editor;
         } // ConfigurationItem
 
-        public static DialogResult ShowConfigurationForm(IWin32Window owner, bool autoSave = true)
+        public static DialogResult ShowConfigurationForm(IWin32Window owner, bool autoSave = true, IDictionary<Guid, Action> applyChanges = null)
         {
             DialogResult result;
             bool changed;
@@ -63,6 +63,22 @@ namespace Project.DvbIpTv.UiServices.Configuration
             if ((changed) && (autoSave))
             {
                 AppUiConfiguration.Current.Save();
+            } // if
+
+            // apply changes
+            if ((changed) && (applyChanges != null) && (applyChanges.Count > 0))
+            {
+                Action applyChangesMethod;
+
+                foreach (var item in items)
+                {
+                    if (item.NewData == null) continue;
+
+                    if (applyChanges.TryGetValue(item.Registration.Id, out applyChangesMethod))
+                    {
+                        applyChangesMethod();
+                    } // if
+                } // foreach
             } // if
 
             return result;

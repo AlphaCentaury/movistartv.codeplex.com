@@ -102,6 +102,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             this.listArguments.FormattingEnabled = true;
             this.listArguments.Name = "listArguments";
             this.listArguments.SelectedIndexChanged += new System.EventHandler(this.listArguments_SelectedIndexChanged);
+            this.listArguments.DoubleClick += new System.EventHandler(this.listArguments_DoubleClick);
             // 
             // buttonEdit
             // 

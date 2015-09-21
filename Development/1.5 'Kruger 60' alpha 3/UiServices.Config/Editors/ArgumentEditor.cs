@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Project.DvbIpTv.UiServices.Configuration.Editors
 {
-    public partial class ParameterEditor : UserControl
+    public partial class ArgumentEditor : UserControl
     {
-        public ParameterEditor()
+        public ArgumentEditor()
         {
             InitializeComponent();
         } // constructor
@@ -75,6 +75,8 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             } // if
 
             buttonAddParam.Enabled = listParameters.Items.Count > 0;
+            textBoxCommandLine.SelectionStart = textBoxCommandLine.Text.Length;
+            textBoxCommandLine.SelectionLength = 0;
         } // ParametersEditor_Load
 
         private void textBoxCommandLine_TextChanged(object sender, EventArgs e)
@@ -108,5 +110,5 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             var parameter = string.Format("{0}{1}{2}", OpenBraceText, listParameters.SelectedItems[0].Text, CloseBraceText);
             textBoxCommandLine.Paste(parameter);
         } // AddParameter
-    } // class ParameterEditor
+    } // class ArgumentEditor
 } // namespace

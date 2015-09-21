@@ -23,6 +23,24 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             InitializeComponent();
         } // constructor
 
+        public string OpenBraceText
+        {
+            get;
+            set;
+        } // OpenBraceText
+
+        public string CloseBraceText
+        {
+            get;
+            set;
+        } // CloseBraceText
+
+        public string ParametersList
+        {
+            get;
+            set;
+        } // ParametersList
+
         public string[] Arguments
         {
             get
@@ -30,7 +48,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
                 var arguments = new string[listArguments.Items.Count];
                 for (int index = 0; index < arguments.Length; index++)
                 {
-                    arguments[index] = listArguments.Items[0].ToString();
+                    arguments[index] = listArguments.Items[index].ToString();
                 } // for
 
                 return arguments;
@@ -67,10 +85,25 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             buttonEdit.Enabled = (listArguments.SelectedIndex >= 0);
         } // listArguments_SelectedIndexChanged
 
+        private void listArguments_DoubleClick(object sender, EventArgs e)
+        {
+            buttonEdit.PerformClick();
+        } // listArguments_DoubleClick
+
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            //TODO: implement
-            MessageBox.Show(this, "Not yet implemented!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using (var dialog = GetArgumentEditorDialog())
+            {
+                dialog.Parameter = listArguments.SelectedItem.ToString();
+                if (dialog.ShowDialog(this) != DialogResult.OK)
+                {
+                    return;
+                } // if
+
+                var index = listArguments.SelectedIndex;
+                listArguments.Items[index] = dialog.Parameter;
+                IsDataChanged = true;
+            } // using
         } // buttonEdit_Click
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -81,9 +114,17 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            //TODO: implement
-            MessageBox.Show(this, "Not yet implemented!", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //IsDataChanged = true;
+            using (var dialog = GetArgumentEditorDialog())
+            {
+                dialog.Parameter = null;
+                if (dialog.ShowDialog(this) != DialogResult.OK)
+                {
+                    return;
+                } // if
+
+                listArguments.SelectedIndex = listArguments.Items.Add(dialog.Parameter);
+                IsDataChanged = true;
+            } // using
         } // buttonAdd_Click
 
         private void buttonMoveUp_Click(object sender, EventArgs e)
@@ -98,5 +139,16 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             IsDataChanged = true;
         } // buttonMoveDown_Click
 
+        private ArgumentEditorDialog GetArgumentEditorDialog()
+        {
+            var dialog = new ArgumentEditorDialog()
+            {
+                OpenBraceText = this.OpenBraceText,
+                CloseBraceText = this.CloseBraceText,
+                ParametersList = this.ParametersList
+            };
+
+            return dialog;
+        } // GetArgumentEditorDialog
     } // class ArgumentsEditor
 } // namespace

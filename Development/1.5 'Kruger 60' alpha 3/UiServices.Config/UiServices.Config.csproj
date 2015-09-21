@@ -67,11 +67,17 @@
     <Compile Include="Editors\ArgumentsEditor.Designer.cs">
       <DependentUpon>ArgumentsEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editors\ParameterEditor.cs">
+    <Compile Include="Editors\ArgumentEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Editors\ParameterEditor.Designer.cs">
-      <DependentUpon>ParameterEditor.cs</DependentUpon>
+    <Compile Include="Editors\ArgumentEditor.Designer.cs">
+      <DependentUpon>ArgumentEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\ArgumentEditorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editors\ArgumentEditorDialog.Designer.cs">
+      <DependentUpon>ArgumentEditorDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="IConfigurationItemEditor.cs" />
     <Compile Include="IConfigurationItemRegistration.cs" />
@@ -151,6 +157,12 @@
     <Compile Include="Settings\TvPlayers\Editors\TvPlayersSettingsEditor.Designer.cs">
       <DependentUpon>TvPlayersSettingsEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\TvPlayers\SelectTvPlayerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\TvPlayers\SelectTvPlayerDialog.Designer.cs">
+      <DependentUpon>SelectTvPlayerDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings\TvPlayers\TvPlayersSettingsRegistration.cs" />
     <Compile Include="Settings\TvPlayers\TvPlayer.cs" />
     <Compile Include="Settings\TvPlayers\TvPlayersSettings.cs" />
@@ -179,11 +191,17 @@
     <EmbeddedResource Include="Editors\ArgumentsEditor.resx">
       <DependentUpon>ArgumentsEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editors\ParameterEditor.es.resx">
-      <DependentUpon>ParameterEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\ArgumentEditor.es.resx">
+      <DependentUpon>ArgumentEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editors\ParameterEditor.resx">
-      <DependentUpon>ParameterEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Editors\ArgumentEditor.resx">
+      <DependentUpon>ArgumentEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\ArgumentEditorDialog.es.resx">
+      <DependentUpon>ArgumentEditorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\ArgumentEditorDialog.resx">
+      <DependentUpon>ArgumentEditorDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\InvariantTexts.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -222,6 +240,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\TvPlayers\Editors\TvPlayersSettingsEditor.resx">
       <DependentUpon>TvPlayersSettingsEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TvPlayers\SelectTvPlayerDialog.es.resx">
+      <DependentUpon>SelectTvPlayerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\TvPlayers\SelectTvPlayerDialog.resx">
+      <DependentUpon>SelectTvPlayerDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
