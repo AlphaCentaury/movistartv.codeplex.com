@@ -56,11 +56,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CommonUiResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="EpgBasicGridDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EpgBasicGridDialog.Designer.cs">
+      <DependentUpon>EpgBasicGridDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="EpgChannelPrograms.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EpgChannelPrograms.Designer.cs">
       <DependentUpon>EpgChannelPrograms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EpgEventMiniBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EpgEventMiniBar.Designer.cs">
+      <DependentUpon>EpgEventMiniBar.cs</DependentUpon>
     </Compile>
     <Compile Include="EpgMiniBar.cs">
       <SubType>UserControl</SubType>
@@ -78,11 +90,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EpgRtf.resx</DependentUpon>
     </Compile>
-    <Compile Include="FormEpgNowThen.cs">
+    <Compile Include="EpgNowThenDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEpgNowThen.Designer.cs">
-      <DependentUpon>FormEpgNowThen.cs</DependentUpon>
+    <Compile Include="EpgNowThenDialog.Designer.cs">
+      <DependentUpon>EpgNowThenDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="MovistarEpgInfoDialog.cs">
       <SubType>Form</SubType>
@@ -108,8 +120,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>CommonUiResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="EpgBasicGridDialog.es.resx">
+      <DependentUpon>EpgBasicGridDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EpgBasicGridDialog.resx">
+      <DependentUpon>EpgBasicGridDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EpgChannelPrograms.resx">
       <DependentUpon>EpgChannelPrograms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EpgEventMiniBar.resx">
+      <DependentUpon>EpgEventMiniBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EpgMiniBar.es.resx">
       <DependentUpon>EpgMiniBar.cs</DependentUpon>
@@ -117,16 +138,17 @@
     <EmbeddedResource Include="EpgMiniBar.resx">
       <DependentUpon>EpgMiniBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EpgNowThenDialog.es.resx">
+      <DependentUpon>EpgNowThenDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\EpgRtf.es.resx" />
     <EmbeddedResource Include="Properties\EpgRtf.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EpgRtf.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEpgNowThen.es.resx">
-      <DependentUpon>FormEpgNowThen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEpgNowThen.resx">
-      <DependentUpon>FormEpgNowThen.cs</DependentUpon>
+    <EmbeddedResource Include="EpgNowThenDialog.resx">
+      <DependentUpon>EpgNowThenDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MovistarEpgInfoDialog.resx">
       <DependentUpon>MovistarEpgInfoDialog.cs</DependentUpon>
@@ -142,6 +164,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.IpTvProvider\Core.IpTvProvider.csproj">
+      <Project>{36b8e0a1-f1b1-498d-8fe7-a39bb7fd68ca}</Project>
+      <Name>Core.IpTvProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Etsi.Ts102034\Etsi.Ts102034.csproj">
+      <Project>{b91c438d-0333-4d06-86cd-74ce82df6f40}</Project>
+      <Name>Etsi.Ts102034</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Common\Project.Common.csproj">
       <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
       <Name>Project.Common</Name>
@@ -171,7 +201,11 @@
     <Content Include="..\Common.UI\Resources\Action_Copy_Clip_16x16.png">
       <Link>Resources\Action_Copy_Clip_16x16.png</Link>
     </Content>
+    <Content Include="..\Common.UI\Resources\Action_Properties_16x16.png">
+      <Link>Resources\Action_Properties_16x16.png</Link>
+    </Content>
     <Content Include="License.txt" />
+    <Content Include="Resources\Action_Epg_16x16.png" />
     <Content Include="Resources\Epg.ico" />
     <Content Include="Resources\EpgLoadingProgramImage.png" />
     <Content Include="Resources\EpgNoProgramImage.png" />

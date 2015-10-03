@@ -36,7 +36,7 @@ namespace Project.DvbIpTv.UiServices.EPG
             Back,
             Forward,
             Details,
-            FullView
+            EpgGrid
         } // enum Button
 
         public event EventHandler<EpgMiniBarButtonClickedEventArgs> ButtonClicked;
@@ -126,7 +126,7 @@ namespace Project.DvbIpTv.UiServices.EPG
             epgProgressBar.Visible = false;
 
             EnableBackForward(false, false);
-            buttonFullview.Enabled = false;
+            //buttonEpgGrid.Enabled = false;
             buttonDetails.Enabled = false;
         } // ClearEpgEvents
 
@@ -199,12 +199,12 @@ namespace Project.DvbIpTv.UiServices.EPG
             ButtonClicked(this, new EpgMiniBarButtonClickedEventArgs(Button.Details));
         } // buttonDetails_Click
 
-        private void buttonFullview_Click(object sender, EventArgs e)
+        private void buttonEpgGrid_Click(object sender, EventArgs e)
         {
             if (ButtonClicked == null) return;
 
-            ButtonClicked(this, new EpgMiniBarButtonClickedEventArgs(Button.FullView));
-        } // buttonFullview_Click
+            ButtonClicked(this, new EpgMiniBarButtonClickedEventArgs(Button.EpgGrid));
+        } // buttonEpgGrid_Click
 
         private void LoadEpgEventsAsync()
         {
@@ -256,7 +256,7 @@ namespace Project.DvbIpTv.UiServices.EPG
             SetAutoRefreshTimer(true);
 
             EpgEvents = data.EpgEvents;
-            buttonFullview.Enabled = (EpgEvents != null);
+            //buttonEpgGrid.Enabled = (EpgEvents != null);
 
             if (EpgEvents == null)
             {

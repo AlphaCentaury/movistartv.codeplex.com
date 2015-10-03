@@ -34,6 +34,6 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.ContentGuideDiscovery
         public string Version;
 
         [XmlElement("BCGDiscovery")]
-        public BroadcastContentGuide[] BroadcastContentGuideOffering;
+        public BroadcastContentGuideOffering[] Offering;
     } // class BroadcastContentGuideDiscoveryRoot
 } // namespace

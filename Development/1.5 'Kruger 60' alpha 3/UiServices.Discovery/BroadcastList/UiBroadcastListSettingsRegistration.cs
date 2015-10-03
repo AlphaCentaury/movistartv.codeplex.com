@@ -9,7 +9,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 {
     public class UiBroadcastListSettingsRegistration: IConfigurationItemRegistration
     {
-        public static readonly Guid ConfigurationGuid = new Guid("{68B9F98B-DB50-4A08-AF04-35457F0224FB}");
+        public const string RegistrationGuid = "{68B9F98B-DB50-4A08-AF04-35457F0224FB}";
         private static int MyDirectIndex;
 
         public static UiBroadcastListSettings Settings
@@ -18,9 +18,14 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             set { AppUiConfiguration.Current[MyDirectIndex] = value; }
         } // Settings
 
+        public static Guid SettingsGuid
+        {
+            get { return new Guid(RegistrationGuid); }
+        } // SettingsGuid
+
         public Guid Id
         {
-            get { return ConfigurationGuid; }
+            get { return new Guid(RegistrationGuid); }
         } // Id
 
         public bool HasEditor

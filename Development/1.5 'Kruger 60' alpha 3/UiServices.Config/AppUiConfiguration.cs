@@ -20,6 +20,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
 {
     public class AppUiConfiguration
     {
+        public const string IpTvProviderSettingsRegistrationGuid = "{1E8D4BC4-4D78-4B69-BB50-96BA921A7449}";
+
         private string DefaultSaveLocation;
         internal IDictionary<Guid, IConfigurationItemRegistration> ItemsRegistry;
         internal IDictionary<Guid, int> ItemsIndex;
@@ -53,10 +55,6 @@ namespace Project.DvbIpTv.UiServices.Configuration
             result = config.LoadBasicConfiguration(overrideBasePath);
             if (result.IsError) return result;
 
-            if (displayProgress != null) displayProgress(Properties.Texts.LoadProgress_ContentProvider);
-            result = config.LoadContentProviderData();
-            if (result.IsError) return result;
-
             if (displayProgress != null) displayProgress(Properties.Texts.LoadProgress_UserConfig);
             result = config.LoadUserConfiguration();
             if (result.IsError) return result;
@@ -65,6 +63,10 @@ namespace Project.DvbIpTv.UiServices.Configuration
             if (result.IsError) return result;
 
             result = config.ProcessXmlConfigurationItems();
+            if (result.IsError) return result;
+
+            if (displayProgress != null) displayProgress(Properties.Texts.LoadProgress_ContentProvider);
+            result = config.LoadIpTvProviderData();
             if (result.IsError) return result;
 
             Current = config;
@@ -191,6 +193,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
             get;
             set;
         } // IsDirty
+
+        public string EpgDatabaseFile
+        {
+            get { return Path.Combine(Folders.Cache, "EPG.sdf"); }
+        } // EpgDatabaseFile
 
         #region Public methods
 
@@ -411,13 +418,19 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
         #region Content provider
 
-        protected InitializationResult LoadContentProviderData()
+        protected InitializationResult LoadIpTvProviderData()
         {
             var xmlPath = Path.Combine(Folders.Base, "movistartv-config.xml");
 
             try
             {
-                var xmlContentProvider = ContentProviderData.Load(xmlPath);
+                var ipTvProviderSettingsRegistrationGuid = new Guid(IpTvProviderSettingsRegistrationGuid);
+                var ipTvProviderSettings = this[ipTvProviderSettingsRegistrationGuid];
+
+                var result = ipTvProviderSettings.Initializate();
+                if (!result.IsOk) return result;
+
+                var xmlContentProvider = IpTvProviderData.Load(xmlPath);
 
                 var validationResult = xmlContentProvider.Validate();
                 if (validationResult != null)
@@ -441,7 +454,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
                     InnerException = ex
                 };
             } // try-catch
-        } // LoadContentProviderData
+        } // LoadIpTvProviderData
 
         #endregion
 
@@ -523,6 +536,22 @@ namespace Project.DvbIpTv.UiServices.Configuration
                     using (var reader = new XmlNodeReader(item))
                     {
                         var configItem = (IConfigurationItem) XmlSerialization.Deserialize(reader, registration.ItemType);
+
+                        if (configItem.SupportsValidation)
+                        {
+                            var result = configItem.Validate(item.Name);
+                            if (result != null)
+                            {
+                                return new InitializationResult(result);
+                            } // if
+                        } // if
+
+                        if (configItem.SupportsInitialization)
+                        {
+                            var result = configItem.Initializate();
+                            if (result.IsError) return result;
+                        } // if
+
                         var directIndex = Items.Count;
                         ItemsIndex[id] = directIndex;
                         Items.Add(configItem);

@@ -1,4 +1,7 @@
-﻿using Project.DvbIpTv.Common;
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using Project.DvbIpTv.Common;
 using Project.DvbIpTv.Common.Telemetry;
 using Project.DvbIpTv.Services.EPG;
 using Project.DvbIpTv.Services.EPG.Serialization;
@@ -222,5 +225,5 @@ namespace Project.DvbIpTv.UiServices.EPG
                 // ignore
             } // try-catch
         }  // DisplayData
-    }
-}
+    } // class EpgChannelPrograms
+} // namespace

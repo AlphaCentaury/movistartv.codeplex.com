@@ -32,14 +32,24 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network
 
         #region IConfigurationItem implementation
 
-        bool IConfigurationItem.CanValidate
+        bool IConfigurationItem.SupportsInitialization
+        {
+            get { return false; }
+        } // IConfigurationItem.SupportsInitialization
+
+        bool IConfigurationItem.SupportsValidation
         {
             get { return false; }
         } // IConfigurationItem.CanValidate
 
+        InitializationResult IConfigurationItem.Initializate()
+        {
+            throw new NotSupportedException();
+        } // IConfigurationItem.Initializate
+
         string IConfigurationItem.Validate(string ownerTag)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         } // IConfigurationItem.Validate
 
         #endregion

@@ -113,7 +113,7 @@
     <Compile Include="Schema2014\ContentProvider\BootstrapData.cs" />
     <Compile Include="Schema2014\ContentProvider\BootstrapMethod.cs" />
     <Compile Include="Schema2014\ContentProvider\FriendlyNames.cs" />
-    <Compile Include="Schema2014\ContentProvider\ContentProviderData.cs" />
+    <Compile Include="Schema2014\ContentProvider\IpTvProviderData.cs" />
     <Compile Include="Schema2014\ContentProvider\Identification.cs" />
     <Compile Include="Schema2014\ContentProvider\ProviderTexts.cs" />
     <Compile Include="Schema2014\ContentProvider\SpFriendlyName.cs" />

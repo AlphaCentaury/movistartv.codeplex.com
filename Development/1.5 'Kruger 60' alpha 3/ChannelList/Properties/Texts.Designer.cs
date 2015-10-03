@@ -188,15 +188,6 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Launches {0} player to view DVB-IPTV channel &apos;{1}&apos;.
-        /// </summary>
-        internal static string ExternalPlayerShortcutDescription {
-            get {
-                return ResourceManager.GetString("ExternalPlayerShortcutDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to At least one inactive service is now active. The list will be refreshed to show these new active services..
         /// </summary>
         internal static string MulticastScannerScanCompleteRefresh {
@@ -360,17 +351,6 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static string SchedulerCreateTaskOk {
             get {
                 return ResourceManager.GetString("SchedulerCreateTaskOk", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The selected TV channel has been marked as inactive and might not be available.
-        ///
-        ///Do you still want to show {0}?.
-        /// </summary>
-        internal static string ShowDeadTvChannel {
-            get {
-                return ResourceManager.GetString("ShowDeadTvChannel", resourceCulture);
             }
         }
         

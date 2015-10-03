@@ -97,6 +97,10 @@
       <Project>{8ad3c34b-a1d3-4385-a8a9-c429bd9a37d3}</Project>
       <Name>DvbStpClient</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Etsi.Ts102034\Etsi.Ts102034.csproj">
+      <Project>{b91c438d-0333-4d06-86cd-74ce82df6f40}</Project>
+      <Name>Etsi.Ts102034</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Project.Common\Project.Common.csproj">
       <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
       <Name>Project.Common</Name>
@@ -108,6 +112,10 @@
     <ProjectReference Include="..\..\Services.SqlServerCE\Services.SqlServerCE.csproj">
       <Project>{3a053f34-4edf-4071-b966-923255a0ae14}</Project>
       <Name>Services.SqlServerCE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UiServices.DvbStpClient\UiServices.DvbStpClient.csproj">
+      <Project>{ba481e42-f570-4d2c-94d4-21c4cce27762}</Project>
+      <Name>UiServices.DvbStpClient</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

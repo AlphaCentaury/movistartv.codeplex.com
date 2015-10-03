@@ -291,6 +291,12 @@ namespace Project.DvbIpTv.DvbStp.Client
                 networkInt = BitConverter.ToInt32(RawHeader, Header.PayloadOffset + Header.PayloadSize);
                 Header.CRC = IPAddress.NetworkToHostOrder(networkInt);
             } // if
+
+            // not-implemnted
+            if ((Header.Encription != 0) || (Header.Compression != 0))
+            {
+                throw new NotImplementedException();
+            } // if
         } // DecodeHeader
 
         protected void PartialDecodeHeader()

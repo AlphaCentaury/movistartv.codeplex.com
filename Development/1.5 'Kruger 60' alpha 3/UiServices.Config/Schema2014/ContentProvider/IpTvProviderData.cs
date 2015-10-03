@@ -11,8 +11,8 @@ using System.Xml.Serialization;
 namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.ContentProvider
 {
     [Serializable]
-    [XmlRoot(ElementName = "ContentProvider", Namespace = SerializationCommon.XmlNamespace)]
-    public class ContentProviderData
+    [XmlRoot(ElementName = "IpTvProvider", Namespace = SerializationCommon.XmlNamespace)]
+    public class IpTvProviderData
     {
         public Identification Identification
         {
@@ -33,9 +33,9 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.ContentProvider
             set;
         } // FriendlyNames
 
-        public static ContentProviderData Load(string xmlPath)
+        public static IpTvProviderData Load(string xmlPath)
         {
-            return XmlSerialization.Deserialize<ContentProviderData>(xmlPath,true);
+            return XmlSerialization.Deserialize<IpTvProviderData>(xmlPath,true);
         } // Load
 
         public string Validate()
@@ -45,5 +45,5 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.ContentProvider
 
             return null;
         } // Validate
-    } // class ContentProviderData
+    } // class IpTvProviderData
 } // namespace

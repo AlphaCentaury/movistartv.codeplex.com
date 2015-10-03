@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Text;
 
-namespace Project.DvbIpTv.ChannelList.ShellLink
+namespace Project.DvbIpTv.Native
 {
     public class ShellLink
     {

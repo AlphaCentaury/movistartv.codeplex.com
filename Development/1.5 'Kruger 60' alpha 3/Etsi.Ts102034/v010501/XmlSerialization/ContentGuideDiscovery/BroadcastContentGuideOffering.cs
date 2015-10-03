@@ -22,7 +22,6 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.ContentGuideDiscovery
     [XmlType(Namespace = "urn:dvb:metadata:iptv:sdns:2012-1")]
     public partial class BroadcastContentGuideOffering : OfferingBase
     {
-
         [XmlElement("BCG")]
         public BroadcastContentGuide[] ContentGuides;
     } // class BroadcastContentGuideOffering

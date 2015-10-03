@@ -14,12 +14,56 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Windows.Forms;
+using Project.DvbIpTv.Native;
+using Microsoft.SqlServer.MessageBox;
 
-namespace Project.DvbIpTv.ChannelList
+namespace Project.DvbIpTv.Core.IpTvProvider
 {
-    public static class ExternalPlayer
+    public static class ExternalTvPlayer
     {
         private static string[] LaunchParamKeys;
+
+        public static void ShowTvChannel(Form owner, UiBroadcastService service, bool defaultPlayer = true)
+        {
+            TvPlayer player;
+
+            if (service == null) return;
+            if (service.IsHidden) return;
+
+            if (service.IsInactive)
+            {
+                var box = new ExceptionMessageBox()
+                {
+                    Caption = owner.Text,
+                    Text = string.Format(Properties.Texts.ShowTvChannelInactiveService, service.DisplayName),
+                    Beep = true,
+                    Symbol = ExceptionMessageBoxSymbol.Question,
+                    Buttons = ExceptionMessageBoxButtons.YesNo,
+                    DefaultButton = ExceptionMessageBoxDefaultButton.Button2,
+                };
+                if (box.Show(owner) != System.Windows.Forms.DialogResult.Yes) return;
+            } // if
+
+            var tvPlayerSettings = TvPlayersSettingsRegistration.Settings;
+            if (defaultPlayer)
+            {
+                player = tvPlayerSettings.GetDefaultPlayer();
+            }
+            else
+            {
+                using (var dialog = new SelectTvPlayerDialog())
+                {
+                    if (dialog.ShowDialog(owner) != DialogResult.OK)
+                    {
+                        return;
+                    } // if
+
+                    player = dialog.SelectedPlayer;
+                } // using
+            } // if-else
+
+            ExternalTvPlayer.Launch(player, service, !tvPlayerSettings.DirectLaunch);
+        } // ShowTvChannel
 
         public static void Launch(TvPlayer player, UiBroadcastService service, bool throughShortcut)
         {
@@ -74,7 +118,7 @@ namespace Project.DvbIpTv.ChannelList
                 File.Delete(shortcutPath);
             } // if
 
-            var shortcut = new ShellLink.ShellLink();
+            var shortcut = new ShellLink();
             shortcut.TargetPath = player.Path;
             shortcut.Arguments = arguments;
             shortcut.Description = string.Format(Properties.Texts.ExternalPlayerShortcutDescription, player.Name, service.DisplayName);
@@ -108,5 +152,5 @@ namespace Project.DvbIpTv.ChannelList
                 // no op
             } // using process
         } // LaunchProcess
-    } // ExternalPlayer
+    } // ExternalTvPlayer
 } // namespace

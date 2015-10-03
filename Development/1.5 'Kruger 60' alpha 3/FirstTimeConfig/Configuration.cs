@@ -14,6 +14,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using Project.DvbIpTv.Core.IpTvProvider;
 
 namespace Project.DvbIpTv.Tools.FirstTimeConfig
 {
@@ -86,11 +87,16 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 } // foreach
 
                 var tvPlayers = GetTvPlayers(vlcPath);
+                var movistarPlusIpTvProviderSettings = new IpTvProviderSettings()
+                {
+                    ProviderClass = typeof(IpTvProvider.MovistarPlus.IpTvProviderMovistarPlus).AssemblyQualifiedName
+                };
 
                 var config = AppUiConfiguration.CreateForUserConfig(user);
                 config.RegisterConfiguration(new UiBroadcastListSettingsRegistration(), null, true);
                 config.RegisterConfiguration(new TvPlayersSettingsRegistration(), tvPlayers, false);
                 config.RegisterConfiguration(new NetworkSettingsRegistration(), null, true);
+                config.RegisterConfiguration(new IpTvProviderSettingsRegistration(), movistarPlusIpTvProviderSettings, false);
 
                 config.Save(xmlConfigPath);
                 message = Properties.Texts.ConfigurationCreateOk;

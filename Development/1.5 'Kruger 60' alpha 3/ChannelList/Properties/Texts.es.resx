@@ -160,9 +160,6 @@ Debe cancelarse la verificación antes de poder realizar la acción solicitada.<
   <data name="ChannelListNoCache" xml:space="preserve">
     <value>No existe una versión en caché de la lista de canales. Debe actualizar la lista.</value>
   </data>
-  <data name="ExternalPlayerShortcutDescription" xml:space="preserve">
-    <value>Abre el reproductor {0} para ver el canal DVB-IPTV '{1}'</value>
-  </data>
   <data name="MyAppCtxExceptionCaption" xml:space="preserve">
     <value>Error en la configuración de la aplicación</value>
   </data>
@@ -226,11 +223,6 @@ La aplicación no puede continuar y se terminará.</value>
     <value>El canal de TV seleccionado ha sido marcado como inactivo y puede no estar disponible.
 
 ¿Todavía desea programar una grabación para {0}?</value>
-  </data>
-  <data name="ShowDeadTvChannel" xml:space="preserve">
-    <value>El canal de TV seleccionado ha sido marcado como inactivo y puede no estar disponible.
-
-¿Desea ver en cualquier caso {0}?</value>
   </data>
   <data name="Payload02DisplayName" xml:space="preserve">
     <value>Descripción y datos de los canales</value>

@@ -31,6 +31,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using Project.DvbIpTv.Core.IpTvProvider;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -229,14 +230,12 @@ namespace Project.DvbIpTv.ChannelList
         private void Implementation_menuItemDvbSettings_Click(object sender, EventArgs e)
         {
             var applyChanges = new Dictionary<Guid, Action>(1);
-            applyChanges.Add(UiBroadcastListSettingsRegistration.ConfigurationGuid, () =>
+            applyChanges.Add(UiBroadcastListSettingsRegistration.SettingsGuid, () =>
                 {
                     ListManager.Settings = UiBroadcastListSettingsRegistration.Settings;
                 });
 
             ConfigurationForm.ShowConfigurationForm(this, true, applyChanges);
-
-            // TODO: apply broadcast list settings changes (if any)
         } // menuItemDvbSettings_Click
 
         #endregion
@@ -414,9 +413,13 @@ namespace Project.DvbIpTv.ChannelList
             switch (list)
             {
                 case MulticastScannerOptionsDialog.ScanWhatList.ActiveServices:
+                    whatList = from service in BroadcastDiscovery.Services
+                               where service.IsInactive == false
+                               select service;
+                    break;
                 case MulticastScannerOptionsDialog.ScanWhatList.DeadServices:
                     whatList = from service in BroadcastDiscovery.Services
-                               where service.IsInactive == (list == MulticastScannerOptionsDialog.ScanWhatList.DeadServices)
+                               where service.IsInactive == true
                                select service;
                     break;
                 default:
@@ -798,44 +801,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void ShowTvChannel(bool defaultPlayer)
         {
-            TvPlayer player;
-
-            if (ListManager.SelectedService == null) return;
-            if (ListManager.SelectedService.IsHidden) return;
-
-            if (ListManager.SelectedService.IsInactive)
-            {
-                var box = new ExceptionMessageBox()
-                {
-                    Caption = this.Text,
-                    Text = string.Format(Properties.Texts.ShowDeadTvChannel, ListManager.SelectedService.DisplayName),
-                    Beep = true,
-                    Symbol = ExceptionMessageBoxSymbol.Question,
-                    Buttons = ExceptionMessageBoxButtons.YesNo,
-                    DefaultButton = ExceptionMessageBoxDefaultButton.Button2,
-                };
-                if (box.Show(this) != System.Windows.Forms.DialogResult.Yes) return;
-            } // if
-
-            var tvPlayerSettings = TvPlayersSettingsRegistration.Settings;
-            if (defaultPlayer)
-            {
-                player = tvPlayerSettings.GetDefaultPlayer();
-            }
-            else
-            {
-                using (var dialog = new SelectTvPlayerDialog())
-                {
-                    if (dialog.ShowDialog(this) != DialogResult.OK)
-                    {
-                        return;
-                    } // if
-
-                    player = dialog.SelectedPlayer;
-                } // using
-            } // if-else
-
-            ExternalPlayer.Launch(player, ListManager.SelectedService, !tvPlayerSettings.DirectLaunch);
+            ExternalTvPlayer.ShowTvChannel(this, ListManager.SelectedService, defaultPlayer);
         } // ShowTvChannel
 
         private void NotifyChannelListAge(int daysAge)
@@ -1107,18 +1073,22 @@ namespace Project.DvbIpTv.ChannelList
 
         private void ShowEpgNowThenForm()
         {
-            FormEpgNowThen.ShowEpgEvents(ListManager.SelectedService,
+            EpgNowThenDialog.ShowEpgEvents(ListManager.SelectedService,
                 epgMiniBar.GetEpgEvents(), this, epgMiniBar.ReferenceTime);
         } // ShowEpgNowThenForm
 
+        private void ShowEpgBasicGrid()
+        {
+            EpgBasicGridDialog.ShowGrid(this, ListManager.GetDisplayedBroadcastList(), ListManager.SelectedService);
+        } // ShowEpgBasicGrid
 
         private void epgMiniBar_ButtonClicked(object sender, EpgMiniBarButtonClickedEventArgs e)
         {
-            if (e.Button == EpgMiniBar.Button.FullView)
+            if (e.Button == EpgMiniBar.Button.EpgGrid)
             {
-                ShowEpgNowThenForm();
+                ShowEpgBasicGrid();
             } // if
-        }
+        } // epgMiniBar_ButtonClicked
 
         private void epgMiniBar_NavigationButtonsChanged(object sender, EpgMiniBarNavigationButtonsChangedEventArgs e)
         {

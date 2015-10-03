@@ -8,11 +8,10 @@ namespace Project.DvbIpTv.UiServices.Configuration
     // interface for marking configuration items
     public interface IConfigurationItem
     {
-        bool CanValidate
-        {
-            get;
-        } // CanValidate
+        bool SupportsInitialization { get; }
+        InitializationResult Initializate();
 
+        bool SupportsValidation { get; }
         string Validate(string ownerTag);
     } // interface IConfigurationItem
 } // namespace

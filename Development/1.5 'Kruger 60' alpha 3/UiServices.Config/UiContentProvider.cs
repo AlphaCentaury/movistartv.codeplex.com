@@ -29,7 +29,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
             protected set;
         } // Bootstrap
 
-        public static UiContentProvider FromXmlConfiguration(ContentProviderData contentProvider, IEnumerable<string> uiCultures)
+        public static UiContentProvider FromXmlConfiguration(IpTvProviderData contentProvider, IEnumerable<string> uiCultures)
         {
             if (contentProvider == null) throw new ArgumentNullException();
             if (uiCultures == null) throw new ArgumentNullException();

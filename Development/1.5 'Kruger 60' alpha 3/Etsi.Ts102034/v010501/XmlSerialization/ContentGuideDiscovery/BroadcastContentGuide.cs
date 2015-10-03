@@ -19,17 +19,24 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.ContentGuideDiscovery
     [XmlType(AnonymousType = true, Namespace = "urn:dvb:metadata:iptv:sdns:2012-1")]
     public partial class BroadcastContentGuide
     {
+        // TODO: clean-up code
+        public class TransportModeClass
+        {
+            [XmlElement("DVBSTP", typeof(DvbStpTransportMode), IsNullable = false)]
+            public DvbStpTransportMode[] Push;
+
+            [XmlElement("HTTP", typeof(HttpTransportMode), IsNullable = false)]
+            public HttpTransportMode[] Pull;
+        } // class TransportModeClass
+
         [XmlElement("Name")]
         public MultilingualText[] Name;
 
         [XmlElement("Description")]
         public MultilingualText[] Description;
 
-        [XmlArrayItem("DVBSTP", typeof(DvbStpTransportMode), IsNullable = false)]
-        public DvbStpTransportMode[] Push;
-
-        [XmlArrayItem("HTTP", typeof(HttpTransportMode), IsNullable = false)]
-        public HttpTransportMode[] Pull;
+        [XmlElement("TransportMode")]
+        public TransportModeClass TransportMode;
 
         [XmlElement("Logo", DataType = "anyURI")]
         public string Logo;

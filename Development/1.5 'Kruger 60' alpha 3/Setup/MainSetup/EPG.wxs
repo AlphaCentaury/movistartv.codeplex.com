@@ -29,10 +29,10 @@
     </ComponentGroup>
 
     <ComponentGroup Id="EPG.ThirdParty">
-      <Component Id="EPG.ThirdParty.JsonNet.dll">
+      <Component Id="EPG.ThirdParty.JsonNet.dll" Directory="INSTALLFOLDER">
         <File Id="Newtonsoft.Json.dll" Source="$(var.Services.EPG.TargetDir)Newtonsoft.Json.dll" />
       </Component>
-      <Component Id="EPG.ThirdParty.Newtonsoft.Json.pdb">
+      <Component Id="EPG.ThirdParty.Newtonsoft.Json.pdb" Directory="INSTALLFOLDER">
         <File Id="Newtonsoft.Json.pdb" Source="$(var.Services.EPG.TargetDir)Newtonsoft.Json.pdb" />
       </Component>
     </ComponentGroup>

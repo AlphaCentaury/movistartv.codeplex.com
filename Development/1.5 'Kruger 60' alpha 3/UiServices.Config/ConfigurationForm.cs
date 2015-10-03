@@ -84,9 +84,9 @@ namespace Project.DvbIpTv.UiServices.Configuration
             return result;
         } // ShowConfigurationForm
 
-        public static T ShowConfigurationForm<T>(IWin32Window owner, Guid id, T overrideSettings) where T : class, IConfigurationItem
+        public static T ShowConfigurationForm<T>(IWin32Window owner, string settingsGuid, T overrideSettings) where T : class, IConfigurationItem
         {
-            var registration = AppUiConfiguration.Current.ItemsRegistry[id];
+            var registration = AppUiConfiguration.Current.ItemsRegistry[new Guid(settingsGuid)];
             var data = new ConfigurationItem()
             {
                 Registration = registration,

@@ -11,7 +11,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network
 {
     public class NetworkSettingsRegistration : IConfigurationItemRegistration
     {
-        public static readonly Guid ConfigurationGuid = new Guid("{BA2C8A80-A12A-48A2-91DE-1615D5CBA791}");
+        public const string ConfigurationGuid = "{BA2C8A80-A12A-48A2-91DE-1615D5CBA791}";
         private static int MyDirectIndex;
 
         public static NetworkSettings Settings
@@ -22,7 +22,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.Network
 
         public Guid Id
         {
-            get { return ConfigurationGuid; }
+            get { return new Guid(ConfigurationGuid); }
         } // Id
 
         public bool HasEditor

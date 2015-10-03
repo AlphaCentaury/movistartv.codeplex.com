@@ -96,10 +96,20 @@ namespace Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers
 
         #region IConfigurationItem implementation
 
-        bool IConfigurationItem.CanValidate
+        bool IConfigurationItem.SupportsInitialization
+        {
+            get { return false; }
+        } // IConfigurationItem.SupportsInitialization
+
+        bool IConfigurationItem.SupportsValidation
         {
             get { return true; }
         } // IConfigurationItem.CanValidate
+
+        InitializationResult IConfigurationItem.Initializate()
+        {
+            throw new NotSupportedException();
+        } // IConfigurationItem.Initializate
 
         string IConfigurationItem.Validate(string ownerTag)
         {

@@ -21,6 +21,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         public const LogoSize LargeLogoSize = LogoSize.Size48;
 
         private IList<UiBroadcastService> fieldBroadcastServices;
+        private IList<UiBroadcastService> fieldDisplayBroadcastServices;
         private IEnumerable<UiBroadcastService> SortedBroadcastServices;
         private UiBroadcastListSettings fieldOldSettings;
         private UiBroadcastListSettings fieldSettings;
@@ -249,6 +250,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             set
             {
                 fieldBroadcastServices = value;
+                fieldDisplayBroadcastServices = null;
+                SortedBroadcastServices = null;
                 fieldSelectedService = null;
                 ApplySorting();
                 FillList(false);
@@ -350,9 +353,19 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             return true;
         } // EnableService
 
+        public IList<UiBroadcastService> GetDisplayedBroadcastList()
+        {
+            if (fieldDisplayBroadcastServices == null)
+            {
+                fieldDisplayBroadcastServices = GetDisplayBroadcastList();
+            } // if
+
+            return fieldDisplayBroadcastServices;
+        } // GetDisplayedBroadcastList
+
         public UiBroadcastListSettings ShowSettingsEditor(IWin32Window owner, bool autoApplyChanges)
         {
-            var result = ConfigurationForm.ShowConfigurationForm(owner, UiBroadcastListSettingsRegistration.ConfigurationGuid, fieldSettings);
+            var result = ConfigurationForm.ShowConfigurationForm(owner, UiBroadcastListSettingsRegistration.RegistrationGuid, fieldSettings);
 
             if ((result != null) && (autoApplyChanges))
             {
@@ -537,11 +550,32 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             } // foreach
             ListView.Columns[0].Width += SmallImageList.ImageSize.Width + 5;
 
+            fieldDisplayBroadcastServices = null;
             ApplyCosmeticSettings(null, fieldSettings);
             ApplySorting();
             FillList(true);
             ListView.EndUpdate();
         } // BuildListLayout
+
+        public IList<UiBroadcastService> GetDisplayBroadcastList()
+        {
+            if ((BroadcastServices == null) || (BroadcastServices.Count == 0))
+            {
+                return new List<UiBroadcastService>(0);
+            } // if
+
+            var result = new List<UiBroadcastService>(fieldBroadcastServices.Count);
+
+            foreach (var service in SortedBroadcastServices)
+            {
+                if ((service.IsInactive) && (!Settings.ShowInactiveServices)) continue;
+                if ((service.IsHidden) && (!Settings.ShowHiddenServices)) continue;
+
+                result.Add(service);
+            } // foreach
+
+            return result;
+        } // GetDisplayBroadcastList
 
         private void FillList(bool insideUpdate)
         {
@@ -551,21 +585,19 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             if (!insideUpdate) ListView.BeginUpdate();
 
             ListView.Items.Clear();
-            if ((BroadcastServices == null) || (BroadcastServices.Count == 0))
+            var services = GetDisplayedBroadcastList();
+            if (services.Count == 0)
             {
                 if (!insideUpdate) ListView.EndUpdate();
                 return;
             } // if
 
-            var items = new List<ListViewItem>(BroadcastServices.Count);
+            var items = new List<ListViewItem>(services.Count);
             var columns = Settings.CurrentColumns;
             if (columns.Count < 1) throw new InvalidOperationException();
 
-            foreach (var service in SortedBroadcastServices)
+            foreach (var service in services)
             {
-                if ((service.IsInactive) && (!Settings.ShowInactiveServices)) continue;
-                if ((service.IsHidden) && (!Settings.ShowHiddenServices)) continue;
-
                 var item = new ListViewItem();
                 item.Tag = service;
                 item.Name = service.Key;
@@ -793,6 +825,5 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         } // GetChannelLogoKey
 
         #endregion
-
     } // UiBroadcastListViewManager
 } // namespace

@@ -20,6 +20,15 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
         private BackgroundWorker worker;
         private DialogResult dialogResult;
 
+        public static DialogResult RunWorkerAsync(IWin32Window owner, BackgroundWorkerOptions options)
+        {
+            using (var dialog = new BackgroundWorkerDialog())
+            {
+                dialog.Options = options;
+                return dialog.ShowDialog(owner);
+            } // using
+        } // RunWorkerAsync
+
         public BackgroundWorkerDialog()
         {
             InitializeComponent();
@@ -137,7 +146,7 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
 
             if (e.Cancelled)
             {
-                labelProgressText.Text = (Options.TaskCancelledText != null)? Options.TaskCancelledText : "Task has been cancelled.";
+                labelProgressText.Text = (Options.TaskCancelledText != null)? Options.TaskCancelledText : Properties.BackgroundWorkerDialog.TaskCancelled;
                 dialogResult = DialogResult.Cancel;
             } // if
 
@@ -161,7 +170,7 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
             }
             else
             {
-                labelProgressText.Text = (Options.TaskCompletedText != null)? Options.TaskCompletedText : "Task is completed.";
+                labelProgressText.Text = (Options.TaskCompletedText != null) ? Options.TaskCompletedText : Properties.BackgroundWorkerDialog.TaskCompleted;
                 buttonClose.Size = buttonRequestCancel.Size;
                 buttonClose.Location = buttonRequestCancel.Location;
                 buttonClose.Visible = true;
@@ -179,7 +188,7 @@ namespace Project.DvbIpTv.UiServices.Common.Forms
         {
             if (worker == null) return;
 
-            labelProgressText.Text = (Options.TaskCancellingText != null) ? Options.TaskCancellingText : "Task is being cancelled.";
+            labelProgressText.Text = (Options.TaskCancellingText != null) ? Options.TaskCancellingText : Properties.BackgroundWorkerDialog.TaskCancelling;
             buttonRequestCancel.Enabled = false;
 
             worker.CancelAsync();
