@@ -315,6 +315,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 
         public void Refesh()
         {
+            fieldDisplayBroadcastServices = null;
             FillList(false);
         } // Refresh
 
@@ -322,16 +323,16 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         {
             if (service == null) throw new ArgumentNullException();
 
-            // is int list?
-            var item = ListView.Items[service.Key];
-            if (item == null) return false;
-
             // not changed?
             if ((service.IsInactive == isInactive) && (service.IsHidden == isHidden)) return true;
 
             // save requested status change
             service.IsInactive = isInactive;
             service.IsHidden = isHidden;
+
+            // is int list?
+            var item = ListView.Items[service.Key];
+            if (item == null) return false;
 
             var remove = false;
             if ((isInactive) && (!Settings.ShowInactiveServices)) remove = true;

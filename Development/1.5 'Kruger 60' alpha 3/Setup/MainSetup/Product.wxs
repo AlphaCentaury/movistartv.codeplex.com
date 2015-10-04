@@ -29,6 +29,7 @@ All rights reserved, except those granted by the governing license of this softw
         <ComponentGroupRef Id="ContentProviderComponents" />
         <ComponentGroupRef Id="Logos.Content" />
         <ComponentGroupRef Id="UninstallFolders" />
+        <ComponentGroupRef Id="ThirdParty"/>
         <ComponentGroupRef Id="Redist"/>
       </Feature>
       <Feature Id="Features" Display="expand" Title="Aditional features">

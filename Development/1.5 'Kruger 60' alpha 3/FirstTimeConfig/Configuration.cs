@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using Project.DvbIpTv.Core.IpTvProvider;
+using Project.DvbIpTv.MovistarPlus;
 
 namespace Project.DvbIpTv.Tools.FirstTimeConfig
 {
@@ -89,7 +90,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 var tvPlayers = GetTvPlayers(vlcPath);
                 var movistarPlusIpTvProviderSettings = new IpTvProviderSettings()
                 {
-                    ProviderClass = typeof(IpTvProvider.MovistarPlus.IpTvProviderMovistarPlus).AssemblyQualifiedName
+                    ProviderClass = typeof(IpTvProviderMovistarPlus).AssemblyQualifiedName
                 };
 
                 var config = AppUiConfiguration.CreateForUserConfig(user);

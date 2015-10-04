@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Project.DvbIpTv.Services.EPG.Movistar
+namespace Project.DvbIpTv.MovistarPlus
 {
     public class MovistarEpgInfo
     {

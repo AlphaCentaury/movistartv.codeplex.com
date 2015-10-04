@@ -130,7 +130,7 @@
   <data name="buttonDetails.ToolTip" xml:space="preserve">
     <value>Mostrar detalles del programa</value>
   </data>
-  <data name="buttonFullview.ToolTip" xml:space="preserve">
+  <data name="buttonFullView.ToolTip" xml:space="preserve">
     <value>Mostrar vista extendida de estos programas</value>
   </data>
   <data name="buttonForward.ToolTip" xml:space="preserve">
@@ -138,5 +138,8 @@
   </data>
   <data name="buttonBack.ToolTip" xml:space="preserve">
     <value>Mostrar información del programa anterior</value>
+  </data>
+  <data name="buttonEpgGrid.ToolTip" xml:space="preserve">
+    <value>Mostrar guía de programación</value>
   </data>
 </root>

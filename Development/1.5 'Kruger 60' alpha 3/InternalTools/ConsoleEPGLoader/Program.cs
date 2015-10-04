@@ -366,6 +366,7 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
 
                         var client = new DvbStp.Client.DvbStpClient(endpoint.Address, endpoint.Port);
                         client.NoDataTimeout = -1;
+                        client.ReceiveDatagramTimeout = 30000; // 30 seconds
                         client.OperationTimeout = (60 * 60) * 1000; // 60 minutes
                         client.DatagramReceived += Client_DatagramReceived;
                         client.SegmentDataDownloaded += Client_SegmentDataDownloaded;
@@ -379,8 +380,8 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
                     {
                         Console.WriteLine();
                         Console.WriteLine("UNEXPECTED EXCEPTION!");
-                        Console.WriteLine(Exception.GetType().FullName);
-                        Console.WriteLine(Exception.Message);
+                        Console.WriteLine(ex.GetType().FullName);
+                        Console.WriteLine(ex.Message);
                         Console.WriteLine();
                         //MyApplication.HandleException(null, "Unexpected error while downloading EPG data", ex);
                         Exception = ex;

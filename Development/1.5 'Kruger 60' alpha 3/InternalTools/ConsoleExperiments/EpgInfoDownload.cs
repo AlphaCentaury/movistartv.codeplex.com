@@ -4,7 +4,6 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Project.DvbIpTv.Services.EPG;
-using Project.DvbIpTv.Services.EPG.Movistar;
 using Project.DvbIpTv.Services.EPG.Serialization;
 using Project.DvbIpTv.Services.SqlServerCE;
 using Project.DvbIpTv.UiServices.EPG;
@@ -15,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using Project.DvbIpTv.MovistarPlus;
 
 namespace Project.DvbIpTv.Internal.Tools.ConsoleExperiments
 {
@@ -368,17 +368,6 @@ namespace Project.DvbIpTv.Internal.Tools.ConsoleExperiments
                     let response = JsonConvert.DeserializeObject<MovistarJsonEpgInfoResponse>(json)
                     where response.Code == 0
                     select response.Data;
-
-            using (var f = new MovistarEpgInfoDialog())
-            {
-                f.CurrentEpgInfo = new MovistarEpgInfoData()
-                {
-                    MovistarInfo = q.First(),
-                    Index = 0
-                };
-                f.ShowInTaskbar = true;
-                f.ShowDialog();
-            } //
         } // DisplayJsonData
     } // static class EpgInfoDownload
 } // namespace

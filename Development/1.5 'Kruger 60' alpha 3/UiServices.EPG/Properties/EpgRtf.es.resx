@@ -125,4 +125,52 @@
 }
 \viewkind4\uc1\pard\sa200\sl276\slmult1\lang10</value>
   </data>
+  <data name="LoadingProgramData" xml:space="preserve">
+    <value>Espere, por favor. Descargando información del programa...</value>
+  </data>
+  <data name="NullProgramData" xml:space="preserve">
+    <value>No ha sido posible descargar la información del programa.</value>
+  </data>
+  <data name="NullSynopsis" xml:space="preserve">
+    <value>(No se ha proporcionado una sinópsis para este programa)</value>
+  </data>
+  <data name="NullTitle" xml:space="preserve">
+    <value>(Sin título)</value>
+  </data>
+  <data name="PropertyActor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="PropertyActors" xml:space="preserve">
+    <value>Actores</value>
+  </data>
+  <data name="PropertyCountries" xml:space="preserve">
+    <value>Países</value>
+  </data>
+  <data name="PropertyCountry" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="PropertyDirector" xml:space="preserve">
+    <value>Director</value>
+  </data>
+  <data name="PropertyDirectors" xml:space="preserve">
+    <value>Directores</value>
+  </data>
+  <data name="PropertyProducer" xml:space="preserve">
+    <value>Productor</value>
+  </data>
+  <data name="PropertyProducers" xml:space="preserve">
+    <value>Productores</value>
+  </data>
+  <data name="PropertyProductionDate" xml:space="preserve">
+    <value>Año</value>
+  </data>
+  <data name="PropertyProductionDates" xml:space="preserve">
+    <value>Años</value>
+  </data>
+  <data name="PropertyScripWriter" xml:space="preserve">
+    <value>Guionista</value>
+  </data>
+  <data name="PropertyScripWriters" xml:space="preserve">
+    <value>Guionistas</value>
+  </data>
 </root>

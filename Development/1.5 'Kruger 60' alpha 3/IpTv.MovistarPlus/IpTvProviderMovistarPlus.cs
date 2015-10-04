@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Project.DvbIpTv.UiServices.Configuration;
 
-namespace Project.DvbIpTv.IpTvProvider.MovistarPlus
+namespace Project.DvbIpTv.MovistarPlus
 {
     public class IpTvProviderMovistarPlus : Core.IpTvProvider.IpTvProvider
     {

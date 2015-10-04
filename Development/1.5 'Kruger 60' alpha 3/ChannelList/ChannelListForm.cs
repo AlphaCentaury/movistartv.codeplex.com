@@ -32,6 +32,7 @@ using System.Net;
 using System.Text;
 using System.Windows.Forms;
 using Project.DvbIpTv.Core.IpTvProvider;
+using Project.DvbIpTv.Core.IpTvProvider.EPG;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -448,8 +449,12 @@ namespace Project.DvbIpTv.ChannelList
         {
             if (e.IsSkipped) return;
 
-            var service = e.Service;
-            e.IsInList = ListManager.EnableService(service, e.IsDead, service.IsHidden);
+            // update status in list
+            if (e.WasInactive != e.IsInactive)
+            {
+                var service = e.Service;
+                e.IsInList = ListManager.EnableService(service, e.IsInactive, service.IsHidden);
+            } // if
         }  // MulticastScanner_ChannelScanResult
 
         private void MulticastScanner_ScanCompleted(object sender, MulticastScannerDialog.ScanCompletedEventArgs e)
@@ -897,9 +902,14 @@ namespace Project.DvbIpTv.ChannelList
             NotImplementedBox.ShowBox(this, "menuItemChannelFavorites");
         }  // menuItemChannelFavoritesEdit_Click
 
+        private void menuItemEpgBasicGrid_Click(object sender, EventArgs e)
+        {
+            SafeCall(ShowEpgBasicGrid);
+        } // menuItemEpgBasicGrid_Click
+
         private void menuItemEpgNow_Click(object sender, EventArgs e)
         {
-            ShowEpgNowThenForm();
+            SafeCall(ShowEpgNowThenForm);
         } // menuItemEpgNow_Click
 
         private void menuItemEpgToday_Click(object sender, EventArgs e)
@@ -1051,6 +1061,7 @@ namespace Project.DvbIpTv.ChannelList
             menuItemEpgPrevious.Enabled = false;
             menuItemEpgNext.Enabled = false;
             menuItemEpgRefresh.Enabled = (AppUiConfiguration.Current.User.Epg.Enabled) && (SelectedServiceProvider != null);
+            menuItemEpgBasicGrid.Enabled = menuItemEpgRefresh.Enabled;
         } // EnableEpgMenus
 
         private void ShowEpgMiniBar(bool display)
@@ -1067,7 +1078,7 @@ namespace Project.DvbIpTv.ChannelList
             var fullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
 
             // display mini bar
-            epgMiniBar.DetailsButtonEnabled = false; // TODO: to be implemented
+            epgMiniBar.DetailsButtonEnabled = (IpTvProvider.Current.EpgInfo.Capabilities & EpgInfoProviderCapabilities.ExtendedInfo) != 0;
             epgMiniBar.DisplayEpgEvents(imageListChannelsLarge.Images[ListManager.SelectedService.Logo.Key], fullServiceName, fullAlternateServiceName, DateTime.Now, dbFile);
         }  // ShowEpgMiniBar
 
@@ -1082,12 +1093,27 @@ namespace Project.DvbIpTv.ChannelList
             EpgBasicGridDialog.ShowGrid(this, ListManager.GetDisplayedBroadcastList(), ListManager.SelectedService);
         } // ShowEpgBasicGrid
 
+        private void ShowEpgExtendedInfo()
+        {
+            EpgExtendedInfoDialog.ShowExtendedInfo(this, ListManager.SelectedService, epgMiniBar.SelectedEvent);
+        } // ShowEpgExtendedInfo
+
         private void epgMiniBar_ButtonClicked(object sender, EpgMiniBarButtonClickedEventArgs e)
         {
-            if (e.Button == EpgMiniBar.Button.EpgGrid)
+            switch (e.Button)
             {
-                ShowEpgBasicGrid();
-            } // if
+                case EpgMiniBar.Button.Details:
+                    SafeCall(ShowEpgExtendedInfo);
+                    break;
+
+                case EpgMiniBar.Button.FullView:
+                    SafeCall(ShowEpgNowThenForm);
+                    break;
+
+                case EpgMiniBar.Button.EpgGrid:
+                    SafeCall(ShowEpgBasicGrid);
+                    break;
+            } // switch
         } // epgMiniBar_ButtonClicked
 
         private void epgMiniBar_NavigationButtonsChanged(object sender, EpgMiniBarNavigationButtonsChangedEventArgs e)
@@ -1150,12 +1176,15 @@ namespace Project.DvbIpTv.ChannelList
                 HandleException("Unable to find EPG loader/updater utility", new FileNotFoundException(updater));
                 return;
             } // if
-            var args = string.Format("\"/Database:{0}\"", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
+
+            var args = new string[2];
+            args[0] = string.Format("/Database:{0}", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
+            args[1] = string.Format("/Discovery:{0}:{1}", SelectedServiceProvider.Offering.Push[0].Address, SelectedServiceProvider.Offering.Push[0].Port);
 
             var processInfo = new System.Diagnostics.ProcessStartInfo()
             {
                 FileName = updater,
-                Arguments = args,
+                Arguments = ArgumentsManager.JoinArguments(args),
                 ErrorDialog = true,
                 ErrorDialogParentHandle = ((IWin32Window)this).Handle,
                 WindowStyle = foreground ? System.Diagnostics.ProcessWindowStyle.Normal : System.Diagnostics.ProcessWindowStyle.Minimized

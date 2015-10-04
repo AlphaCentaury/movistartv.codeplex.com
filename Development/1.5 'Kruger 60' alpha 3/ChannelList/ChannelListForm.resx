@@ -1305,8 +1305,17 @@
   <data name="menuItemRecordings.Text" xml:space="preserve">
     <value>&amp;Recordings</value>
   </data>
-  <data name="menuItemEpgNow.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+  <data name="menuItemEpgBasicGrid.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F6</value>
+  </data>
+  <data name="menuItemEpgBasicGrid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 22</value>
+  </data>
+  <data name="menuItemEpgBasicGrid.Text" xml:space="preserve">
+    <value>Current programming...</value>
+  </data>
+  <data name="separatorEpg1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 6</value>
   </data>
   <data name="menuItemEpgNow.Size" type="System.Drawing.Size, System.Drawing">
     <value>256, 22</value>
@@ -1332,7 +1341,7 @@
   <data name="menuItemEpgTomorrow.Text" xml:space="preserve">
     <value>T&amp;omorrow / other days...</value>
   </data>
-  <data name="separatorEpg1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="separatorEpg2.Size" type="System.Drawing.Size, System.Drawing">
     <value>253, 6</value>
   </data>
   <data name="menuItemEpgPrevious.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -1353,7 +1362,7 @@
   <data name="menuItemEpgNext.Text" xml:space="preserve">
     <value>&amp;Next program</value>
   </data>
-  <data name="separatorEpg2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="separatorEpg3.Size" type="System.Drawing.Size, System.Drawing">
     <value>253, 6</value>
   </data>
   <data name="menuItemEpgRefresh.Size" type="System.Drawing.Size, System.Drawing">
@@ -1557,7 +1566,7 @@
   <data name="contextMenuListExportM3u.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6
-        JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsNAAALDQHtB8AsAAACPklE
+        JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsMAAALDAE/QCLIAAACPklE
         QVQ4T6WS70uTURTH9y/03jdBL3prU2O4FqvBU66hLB2GFtKvJ9Isfy3TJEXLVHT5A7QVLp20Wk3CiUb+
         AH8gJmIsJSs1l7TEoabYRDD4ds99dI9Le1MHzvPi3OfzufeeexQA/iv5p7MjAEp32xpaXat45lhGc5Mf
         j6zzqKv9BkuVF/dLZ1BU+Bn5eR+Qkz2OG9c9DN0SENjbA9TWbFDxr7G+sQl9Yi/OJL7iyUISuF6ucEF5
@@ -1589,7 +1598,7 @@
     <value>(Placeholder for properties)</value>
   </data>
   <data name="contextMenuList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 170</value>
+    <value>219, 148</value>
   </data>
   <data name="&gt;&gt;contextMenuList.Name" xml:space="preserve">
     <value>contextMenuList</value>
@@ -2343,6 +2352,18 @@
   </data>
   <data name="&gt;&gt;timerDismissNotification.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;separatorEpg3.Name" xml:space="preserve">
+    <value>separatorEpg3</value>
+  </data>
+  <data name="&gt;&gt;separatorEpg3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpgBasicGrid.Name" xml:space="preserve">
+    <value>menuItemEpgBasicGrid</value>
+  </data>
+  <data name="&gt;&gt;menuItemEpgBasicGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>ChannelListForm</value>

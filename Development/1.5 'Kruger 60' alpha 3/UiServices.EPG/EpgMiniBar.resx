@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelProgramTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt, style=Bold</value>
+    <value>Tahoma, 9.75pt, style=Bold</value>
   </data>
   <data name="labelProgramTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -135,7 +135,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="labelProgramTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>344, 17</value>
+    <value>322, 21</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="labelProgramTitle.TabIndex" type="System.Int32, mscorlib">
@@ -154,13 +154,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelProgramTitle.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="labelStartTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelStartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 27</value>
+    <value>57, 31</value>
   </data>
   <data name="labelStartTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
@@ -184,13 +184,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelStartTime.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="labelEndTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 27</value>
+    <value>249, 31</value>
   </data>
   <data name="labelEndTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 20</value>
@@ -214,7 +214,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelEndTime.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="labelEllapsed.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -223,7 +223,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelEllapsed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>310, 31</value>
+    <value>310, 35</value>
   </data>
   <data name="labelEllapsed.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 13</value>
@@ -244,7 +244,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelEllapsed.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="timerAutoRefresh.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -261,27 +261,11 @@
   <data name="buttonDetails.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="buttonDetails.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACxAAAAsQAa0jvXUAAAJCSURBVDhPpZBtSFNRGMcvQQT1
-        xSAhqAj7En6Rmt+CyNuHCK/uxY2paKVBLgtKJoKNokFuIUpGo5mUEmutGsskAskKnBlOe9E2MjTd3Nai
-        mSszmXu7+3fuXdOtJhEd+HHOeQ7/33nOoQD8F2mbHrN+raVLN/m0WzujaVQcfHRbHbvVrsZNvRodbSro
-        NPVQ11XE9S0qldRCXyT0pwk4es0G09KM1nRSvn8aX04hScSjxOJ7BaaeydCilKD5Ri00rzTpYQ7jdW3+
-        6VLajcBxdF8r48NhtxJL0yewMCpHYIhBpG8HTIYjIB2AOtfpQhJz3yQsxjaEvedxtUkKTiLaswvBD7X4
-        YS9D4HkBZp/sxtzdjWi9LAbdJUgIjC+Ax8M+Phx0X0BdNQPPaxUUVSW8RLyXhuuhALaObRjUZePS0U2Q
-        1BRgX3tuQtA78p0P+xxaPtx85Q6ZC+G0VqO8uBQY2478ndlYvy4LeTlrcEwuQkVjOQStm0FZbW/J0wG/
-        34OmhsPwfXTx+zcjA7xk/F4etmRtQFXlIeg7jdwR/1e5NVvPEFYEYKMJfo1YPA7L/R4oK2k4JrzwBoAD
-        Qhl3lPbpVP/QnwKWhEPROBaCLD7Px3im/KsIBoYdXBGGB4M88ZR1KuO+VQRWm50rLncQI4ZQhMW3xSg+
-        fY3C6Y/A7glhzPMXQfKmMPGk3pzkpZPNLLCNTnDF5Q6CZJlkLgy454F3s4CdkFFQ33AWDCNEsUi2gkSO
-        IrEUjKgERQRuZoSSzILfC/8GqJ+iv/H+QwHX2gAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="buttonDetails.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>405, 29</value>
+    <value>405, 5</value>
   </data>
   <data name="buttonDetails.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 1, 3</value>
@@ -305,7 +289,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonDetails.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="buttonEpgGrid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -317,7 +301,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonEpgGrid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>427, 29</value>
+    <value>427, 31</value>
   </data>
   <data name="buttonEpgGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>1, 3, 3, 3</value>
@@ -341,7 +325,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonEpgGrid.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="buttonForward.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -374,7 +358,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonForward.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="buttonBack.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -404,16 +388,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonBack.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="labelFromTo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelFromTo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 27</value>
+    <value>83, 31</value>
   </data>
   <data name="labelFromTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 20</value>
+    <value>221, 20</value>
   </data>
   <data name="labelFromTo.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -437,10 +421,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelFromTo.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="epgProgressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 27</value>
+    <value>118, 31</value>
   </data>
   <data name="epgProgressBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 20</value>
@@ -458,7 +442,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;epgProgressBar.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="pictureChannelLogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -485,7 +469,43 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureChannelLogo.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
+  </data>
+  <data name="buttonFullView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonFullView.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="buttonFullView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonFullView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>405, 31</value>
+  </data>
+  <data name="buttonFullView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 1, 3</value>
+  </data>
+  <data name="buttonFullView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="buttonFullView.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="buttonFullView.ToolTip" xml:space="preserve">
+    <value>Show program details</value>
+  </data>
+  <data name="&gt;&gt;buttonFullView.Name" xml:space="preserve">
+    <value>buttonFullView</value>
+  </data>
+  <data name="&gt;&gt;buttonFullView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonFullView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonFullView.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

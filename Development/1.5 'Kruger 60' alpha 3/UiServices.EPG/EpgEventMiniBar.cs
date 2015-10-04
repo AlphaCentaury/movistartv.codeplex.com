@@ -13,11 +13,13 @@ using Project.DvbIpTv.Services.EPG;
 using Project.DvbIpTv.Common;
 using Project.DvbIpTv.Core.IpTvProvider;
 using Project.DvbIpTv.UiServices.Discovery;
+using Project.DvbIpTv.UiServices.Common.Forms;
 
 namespace Project.DvbIpTv.UiServices.EPG
 {
     public partial class EpgEventMiniBar : UserControl
     {
+        private UiBroadcastService Service;
         private EpgEvent EpgEvent;
 
         public EpgEventMiniBar()
@@ -27,6 +29,7 @@ namespace Project.DvbIpTv.UiServices.EPG
 
         public void DisplayData(UiBroadcastService service, EpgEvent epgEvent, DateTime referenceTime, string caption)
         {
+            Service = service;
             EpgEvent = epgEvent;
 
             labelProgramCaption.Text = caption;
@@ -52,13 +55,13 @@ namespace Project.DvbIpTv.UiServices.EPG
 
                 pictureProgramThumbnail.Image = Properties.Resources.EpgLoadingProgramImage;
                 pictureProgramThumbnail.ImageLocation = null;
-                pictureProgramThumbnail.ImageLocation = IpTvProvider.Current.EpgInfo.GetEpgProgramThumbnailUrl(service, epgEvent);
+                pictureProgramThumbnail.ImageLocation = IpTvProvider.Current.EpgInfo.GetEpgProgramThumbnailUrl(service, epgEvent, false);
             } // if-else
         }  // DisplayData
 
         private void buttonProgramProperties_Click(object sender, EventArgs e)
         {
-
+            EpgExtendedInfoDialog.ShowExtendedInfo(this, Service, EpgEvent);
         } // buttonProgramProperties_Click
 
         private void pictureProgramThumbnail_LoadCompleted(object sender, AsyncCompletedEventArgs e)
@@ -71,7 +74,7 @@ namespace Project.DvbIpTv.UiServices.EPG
 
         private void pictureProgramThumbnail_Click(object sender, EventArgs e)
         {
-
+            EpgExtendedInfoDialog.ShowExtendedInfo(this, Service, EpgEvent);
         } // pictureProgramThumbnail_Click
     } // class EpgEventMiniBar
 } // namespace

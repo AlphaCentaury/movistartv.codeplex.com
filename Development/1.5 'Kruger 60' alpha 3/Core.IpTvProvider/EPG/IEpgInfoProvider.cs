@@ -13,7 +13,7 @@ namespace Project.DvbIpTv.Core.IpTvProvider.EPG
     public interface IEpgInfoProvider
     {
         EpgInfoProviderCapabilities Capabilities { get; }
-        ProgramEpgInfo GetEpgInfo(UiBroadcastService service, EpgEvent epgEvent);
-        string GetEpgProgramThumbnailUrl(UiBroadcastService service, EpgEvent epgEvent);
+        ExtendedEpgEvent GetEpgInfo(UiBroadcastService service, EpgEvent epgEvent, bool portrait);
+        string GetEpgProgramThumbnailUrl(UiBroadcastService service, EpgEvent epgEvent, bool portrait);
     } // interface IEpgInfoProvider
 } // namespace

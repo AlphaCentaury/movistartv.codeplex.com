@@ -84,7 +84,43 @@ namespace Project.DvbIpTv.UiServices.EPG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \f0\fs20 {0}\par.
+        ///   Looks up a localized string similar to Please wait. Downloading program extended information....
+        /// </summary>
+        internal static string LoadingProgramData {
+            get {
+                return ResourceManager.GetString("LoadingProgramData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to obtain the program extended information..
+        /// </summary>
+        internal static string NullProgramData {
+            get {
+                return ResourceManager.GetString("NullProgramData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (No synopsis has been provided for this program).
+        /// </summary>
+        internal static string NullSynopsis {
+            get {
+                return ResourceManager.GetString("NullSynopsis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (No title).
+        /// </summary>
+        internal static string NullTitle {
+            get {
+                return ResourceManager.GetString("NullTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \f0\fs21 {0}\par.
         /// </summary>
         internal static string ProgramDescription {
             get {
@@ -98,6 +134,124 @@ namespace Project.DvbIpTv.UiServices.EPG.Properties {
         internal static string ProgramTitle {
             get {
                 return ResourceManager.GetString("ProgramTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \f0\fs28\b {0}\b0\line
+        ///\fs25\i {1}\i0\par.
+        /// </summary>
+        internal static string ProgramTitleOriginalTitle {
+            get {
+                return ResourceManager.GetString("ProgramTitleOriginalTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actor.
+        /// </summary>
+        internal static string PropertyActor {
+            get {
+                return ResourceManager.GetString("PropertyActor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actors.
+        /// </summary>
+        internal static string PropertyActors {
+            get {
+                return ResourceManager.GetString("PropertyActors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Countries.
+        /// </summary>
+        internal static string PropertyCountries {
+            get {
+                return ResourceManager.GetString("PropertyCountries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        internal static string PropertyCountry {
+            get {
+                return ResourceManager.GetString("PropertyCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Director.
+        /// </summary>
+        internal static string PropertyDirector {
+            get {
+                return ResourceManager.GetString("PropertyDirector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directors.
+        /// </summary>
+        internal static string PropertyDirectors {
+            get {
+                return ResourceManager.GetString("PropertyDirectors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Producer.
+        /// </summary>
+        internal static string PropertyProducer {
+            get {
+                return ResourceManager.GetString("PropertyProducer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Producers.
+        /// </summary>
+        internal static string PropertyProducers {
+            get {
+                return ResourceManager.GetString("PropertyProducers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        internal static string PropertyProductionDate {
+            get {
+                return ResourceManager.GetString("PropertyProductionDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Years.
+        /// </summary>
+        internal static string PropertyProductionDates {
+            get {
+                return ResourceManager.GetString("PropertyProductionDates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Script writer.
+        /// </summary>
+        internal static string PropertyScripWriter {
+            get {
+                return ResourceManager.GetString("PropertyScripWriter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Script writers.
+        /// </summary>
+        internal static string PropertyScripWriters {
+            get {
+                return ResourceManager.GetString("PropertyScripWriters", resourceCulture);
             }
         }
         
@@ -120,7 +274,7 @@ namespace Project.DvbIpTv.UiServices.EPG.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to \f1\fs20.
+        ///   Looks up a localized string similar to \f1\fs21.
         /// </summary>
         internal static string ValuesHeader {
             get {

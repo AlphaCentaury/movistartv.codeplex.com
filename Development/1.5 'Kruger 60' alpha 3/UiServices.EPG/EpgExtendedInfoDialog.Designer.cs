@@ -1,6 +1,9 @@
-﻿namespace Project.DvbIpTv.UiServices.EPG
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+namespace Project.DvbIpTv.UiServices.EPG
 {
-    partial class MovistarEpgInfoDialog
+    partial class EpgExtendedInfoDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +32,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EpgExtendedInfoDialog));
             this.labelChannelName = new System.Windows.Forms.Label();
             this.richTextProgramData = new System.Windows.Forms.RichTextBox();
             this.contextMenuRtf = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -42,6 +46,7 @@
             this.pictureChannelLogo = new System.Windows.Forms.PictureBox();
             this.buttonZoom = new System.Windows.Forms.Button();
             this.pictureProgramPreview = new System.Windows.Forms.PictureBox();
+            this.labelAdditionalDetails = new System.Windows.Forms.Label();
             this.contextMenuRtf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProgramPreview)).BeginInit();
@@ -49,31 +54,19 @@
             // 
             // labelChannelName
             // 
-            this.labelChannelName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.labelChannelName.Location = new System.Drawing.Point(82, 210);
+            resources.ApplyResources(this.labelChannelName, "labelChannelName");
             this.labelChannelName.Name = "labelChannelName";
-            this.labelChannelName.Size = new System.Drawing.Size(185, 64);
-            this.labelChannelName.TabIndex = 3;
-            this.labelChannelName.Text = "(Channel #\r\nChannel name)";
-            this.labelChannelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // richTextProgramData
             // 
-            this.richTextProgramData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.richTextProgramData, "richTextProgramData");
+            this.richTextProgramData.AutoWordSelection = true;
             this.richTextProgramData.BackColor = System.Drawing.SystemColors.Window;
             this.richTextProgramData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextProgramData.ContextMenuStrip = this.contextMenuRtf;
             this.richTextProgramData.HideSelection = false;
-            this.richTextProgramData.Location = new System.Drawing.Point(283, 12);
-            this.richTextProgramData.Margin = new System.Windows.Forms.Padding(13, 3, 3, 3);
             this.richTextProgramData.Name = "richTextProgramData";
             this.richTextProgramData.ReadOnly = true;
-            this.richTextProgramData.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextProgramData.Size = new System.Drawing.Size(389, 357);
-            this.richTextProgramData.TabIndex = 35;
-            this.richTextProgramData.Text = "";
             // 
             // contextMenuRtf
             // 
@@ -81,133 +74,96 @@
             this.contextRtfMenuCopy,
             this.contextRtfMenuSelectAll});
             this.contextMenuRtf.Name = "contextMenuRtf";
-            this.contextMenuRtf.Size = new System.Drawing.Size(153, 48);
+            resources.ApplyResources(this.contextMenuRtf, "contextMenuRtf");
+            this.contextMenuRtf.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuRtf_Opening);
             // 
             // contextRtfMenuCopy
             // 
             this.contextRtfMenuCopy.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_Copy_Clip_16x16;
             this.contextRtfMenuCopy.Name = "contextRtfMenuCopy";
-            this.contextRtfMenuCopy.Size = new System.Drawing.Size(152, 22);
-            this.contextRtfMenuCopy.Text = "Copy selection";
+            resources.ApplyResources(this.contextRtfMenuCopy, "contextRtfMenuCopy");
             this.contextRtfMenuCopy.Click += new System.EventHandler(this.contextRtfMenuCopy_Click);
             // 
             // contextRtfMenuSelectAll
             // 
             this.contextRtfMenuSelectAll.Name = "contextRtfMenuSelectAll";
-            this.contextRtfMenuSelectAll.Size = new System.Drawing.Size(152, 22);
-            this.contextRtfMenuSelectAll.Text = "Select all";
+            resources.ApplyResources(this.contextRtfMenuSelectAll, "contextRtfMenuSelectAll");
             this.contextRtfMenuSelectAll.Click += new System.EventHandler(this.contextRtfMenuSelectAll_Click);
             // 
             // buttonNext
             // 
-            this.buttonNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            resources.ApplyResources(this.buttonNext, "buttonNext");
             this.buttonNext.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_Forward_16x16;
-            this.buttonNext.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonNext.Location = new System.Drawing.Point(118, 375);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(100, 25);
-            this.buttonNext.TabIndex = 33;
-            this.buttonNext.Text = "&Next";
-            this.buttonNext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // buttonPrevious
             // 
-            this.buttonPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            resources.ApplyResources(this.buttonPrevious, "buttonPrevious");
             this.buttonPrevious.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_Back_16x16;
-            this.buttonPrevious.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonPrevious.Location = new System.Drawing.Point(12, 375);
             this.buttonPrevious.Name = "buttonPrevious";
-            this.buttonPrevious.Size = new System.Drawing.Size(100, 25);
-            this.buttonPrevious.TabIndex = 34;
-            this.buttonPrevious.Text = "&Previous";
-            this.buttonPrevious.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPrevious.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonPrevious.UseVisualStyleBackColor = true;
             this.buttonPrevious.Click += new System.EventHandler(this.buttonPrevious_Click);
             // 
             // buttonRecordProgram
             // 
-            this.buttonRecordProgram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRecordProgram.Enabled = false;
+            resources.ApplyResources(this.buttonRecordProgram, "buttonRecordProgram");
             this.buttonRecordProgram.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_Record_16x16;
-            this.buttonRecordProgram.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonRecordProgram.Location = new System.Drawing.Point(447, 375);
             this.buttonRecordProgram.Name = "buttonRecordProgram";
-            this.buttonRecordProgram.Size = new System.Drawing.Size(100, 25);
-            this.buttonRecordProgram.TabIndex = 31;
-            this.buttonRecordProgram.Text = "Rec&ord...";
-            this.buttonRecordProgram.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonRecordProgram.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonRecordProgram.UseVisualStyleBackColor = true;
+            this.buttonRecordProgram.Click += new System.EventHandler(this.buttonRecordProgram_Click);
             // 
             // buttonShowProgram
             // 
-            this.buttonShowProgram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonShowProgram.Enabled = false;
+            resources.ApplyResources(this.buttonShowProgram, "buttonShowProgram");
             this.buttonShowProgram.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_Play_LG_16x16;
-            this.buttonShowProgram.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonShowProgram.Location = new System.Drawing.Point(341, 375);
             this.buttonShowProgram.Name = "buttonShowProgram";
-            this.buttonShowProgram.Size = new System.Drawing.Size(100, 25);
-            this.buttonShowProgram.TabIndex = 32;
-            this.buttonShowProgram.Text = "&Show...";
-            this.buttonShowProgram.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonShowProgram.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonShowProgram.UseVisualStyleBackColor = true;
+            this.buttonShowProgram.Click += new System.EventHandler(this.buttonShowProgram_Click);
             // 
             // buttonOk
             // 
-            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.buttonOk, "buttonOk");
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_Ok_16x16;
-            this.buttonOk.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonOk.Location = new System.Drawing.Point(572, 375);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 25);
-            this.buttonOk.TabIndex = 30;
-            this.buttonOk.Text = "&Ok";
-            this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
             // pictureChannelLogo
             // 
-            this.pictureChannelLogo.Location = new System.Drawing.Point(12, 210);
+            resources.ApplyResources(this.pictureChannelLogo, "pictureChannelLogo");
             this.pictureChannelLogo.Name = "pictureChannelLogo";
-            this.pictureChannelLogo.Size = new System.Drawing.Size(64, 64);
-            this.pictureChannelLogo.TabIndex = 2;
             this.pictureChannelLogo.TabStop = false;
             // 
             // buttonZoom
             // 
-            this.buttonZoom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            resources.ApplyResources(this.buttonZoom, "buttonZoom");
+            this.buttonZoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonZoom.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_FullView_16x16;
-            this.buttonZoom.Location = new System.Drawing.Point(247, 184);
             this.buttonZoom.Name = "buttonZoom";
-            this.buttonZoom.Size = new System.Drawing.Size(20, 20);
-            this.buttonZoom.TabIndex = 1;
             this.buttonZoom.UseVisualStyleBackColor = true;
             // 
             // pictureProgramPreview
             // 
+            resources.ApplyResources(this.pictureProgramPreview, "pictureProgramPreview");
             this.pictureProgramPreview.ErrorImage = global::Project.DvbIpTv.UiServices.EPG.Properties.Resources.EpgNoProgramImage;
             this.pictureProgramPreview.Image = global::Project.DvbIpTv.UiServices.EPG.Properties.Resources.EpgLoadingProgramImage;
-            this.pictureProgramPreview.Location = new System.Drawing.Point(12, 12);
             this.pictureProgramPreview.Name = "pictureProgramPreview";
-            this.pictureProgramPreview.Size = new System.Drawing.Size(255, 192);
-            this.pictureProgramPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureProgramPreview.TabIndex = 0;
             this.pictureProgramPreview.TabStop = false;
+            this.pictureProgramPreview.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pictureProgramPreview_LoadCompleted);
             // 
-            // MovistarEpgInfoDialog
+            // labelAdditionalDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this.labelAdditionalDetails, "labelAdditionalDetails");
+            this.labelAdditionalDetails.Name = "labelAdditionalDetails";
+            // 
+            // EpgExtendedInfoDialog
+            // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(684, 412);
+            this.Controls.Add(this.labelAdditionalDetails);
             this.Controls.Add(this.richTextProgramData);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonPrevious);
@@ -219,12 +175,11 @@
             this.Controls.Add(this.buttonZoom);
             this.Controls.Add(this.pictureProgramPreview);
             this.MinimizeBox = false;
-            this.Name = "MovistarEpgInfoDialog";
+            this.Name = "EpgExtendedInfoDialog";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "MovistarEpgInfoDialog";
-            this.Load += new System.EventHandler(this.MovistarEpgInfoDialog_Load);
+            this.Load += new System.EventHandler(this.EpgExtendedInfoDialog_Load);
+            this.Shown += new System.EventHandler(this.EpgExtendedInfoDialog_Shown);
             this.contextMenuRtf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProgramPreview)).EndInit();
@@ -247,5 +202,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuRtf;
         private System.Windows.Forms.ToolStripMenuItem contextRtfMenuCopy;
         private System.Windows.Forms.ToolStripMenuItem contextRtfMenuSelectAll;
-    }
-}
+        private System.Windows.Forms.Label labelAdditionalDetails;
+    } // class EpgExtendedInfoDialog
+} // namespace

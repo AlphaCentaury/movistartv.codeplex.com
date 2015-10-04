@@ -128,11 +128,63 @@
 }
 \viewkind4\uc1\pard\sa200\sl276\slmult1\lang10</value>
   </data>
+  <data name="LoadingProgramData" xml:space="preserve">
+    <value>Please wait. Downloading program extended information...</value>
+  </data>
+  <data name="NullProgramData" xml:space="preserve">
+    <value>Unable to obtain the program extended information.</value>
+  </data>
+  <data name="NullSynopsis" xml:space="preserve">
+    <value>(No synopsis has been provided for this program)</value>
+  </data>
+  <data name="NullTitle" xml:space="preserve">
+    <value>(No title)</value>
+  </data>
   <data name="ProgramDescription" xml:space="preserve">
-    <value>\f0\fs20 {0}\par</value>
+    <value>\f0\fs21 {0}\par</value>
   </data>
   <data name="ProgramTitle" xml:space="preserve">
     <value>\f0\fs28\b {0}\b0\par</value>
+  </data>
+  <data name="ProgramTitleOriginalTitle" xml:space="preserve">
+    <value>\f0\fs28\b {0}\b0\line
+\fs25\i {1}\i0\par</value>
+  </data>
+  <data name="PropertyActor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="PropertyActors" xml:space="preserve">
+    <value>Actors</value>
+  </data>
+  <data name="PropertyCountries" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="PropertyCountry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="PropertyDirector" xml:space="preserve">
+    <value>Director</value>
+  </data>
+  <data name="PropertyDirectors" xml:space="preserve">
+    <value>Directors</value>
+  </data>
+  <data name="PropertyProducer" xml:space="preserve">
+    <value>Producer</value>
+  </data>
+  <data name="PropertyProducers" xml:space="preserve">
+    <value>Producers</value>
+  </data>
+  <data name="PropertyProductionDate" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="PropertyProductionDates" xml:space="preserve">
+    <value>Years</value>
+  </data>
+  <data name="PropertyScripWriter" xml:space="preserve">
+    <value>Script writer</value>
+  </data>
+  <data name="PropertyScripWriters" xml:space="preserve">
+    <value>Script writers</value>
   </data>
   <data name="Value" xml:space="preserve">
     <value>\b {0}:\b0  {1}\line </value>
@@ -141,6 +193,6 @@
     <value>\par</value>
   </data>
   <data name="ValuesHeader" xml:space="preserve">
-    <value>\f1\fs20</value>
+    <value>\f1\fs21</value>
   </data>
 </root>

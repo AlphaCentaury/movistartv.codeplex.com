@@ -7,7 +7,7 @@
     <ProjectGuid>{E1748F45-DD50-4479-96F6-F7EBA6F3E28B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Project.DvbIpTv.IpTvProvider.MovistarPlus</RootNamespace>
+    <RootNamespace>Project.DvbIpTv.MovistarPlus</RootNamespace>
     <AssemblyName>IpTv.MovistarPlus</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Third-party\Json70r1\Bin\Net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -46,6 +50,10 @@
     </Compile>
     <Compile Include="EpgInfoProvider.cs" />
     <Compile Include="IpTvProviderMovistarPlus.cs" />
+    <Compile Include="MovistarCrId.cs" />
+    <Compile Include="MovistarEpgInfo.cs" />
+    <Compile Include="MovistarJsonEpgInfoResponse.cs" />
+    <Compile Include="MovistarJsonResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

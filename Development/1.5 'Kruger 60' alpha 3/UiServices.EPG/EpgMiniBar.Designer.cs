@@ -47,6 +47,7 @@ namespace Project.DvbIpTv.UiServices.EPG
             this.labelFromTo = new System.Windows.Forms.Label();
             this.epgProgressBar = new Project.DvbIpTv.UiServices.EPG.EpgProgressBarFixed();
             this.pictureChannelLogo = new System.Windows.Forms.PictureBox();
+            this.buttonFullView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +92,7 @@ namespace Project.DvbIpTv.UiServices.EPG
             // 
             resources.ApplyResources(this.buttonDetails, "buttonDetails");
             this.buttonDetails.FlatAppearance.BorderSize = 0;
+            this.buttonDetails.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_Properties_16x16;
             this.buttonDetails.Name = "buttonDetails";
             this.toolTipControl.SetToolTip(this.buttonDetails, resources.GetString("buttonDetails.ToolTip"));
             this.buttonDetails.UseVisualStyleBackColor = true;
@@ -142,11 +144,22 @@ namespace Project.DvbIpTv.UiServices.EPG
             this.pictureChannelLogo.Name = "pictureChannelLogo";
             this.pictureChannelLogo.TabStop = false;
             // 
+            // buttonFullView
+            // 
+            resources.ApplyResources(this.buttonFullView, "buttonFullView");
+            this.buttonFullView.FlatAppearance.BorderSize = 0;
+            this.buttonFullView.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_FullView_16x16;
+            this.buttonFullView.Name = "buttonFullView";
+            this.toolTipControl.SetToolTip(this.buttonFullView, resources.GetString("buttonFullView.ToolTip"));
+            this.buttonFullView.UseVisualStyleBackColor = true;
+            this.buttonFullView.Click += new System.EventHandler(this.buttonFullView_Click);
+            // 
             // EpgMiniBar
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.buttonFullView);
             this.Controls.Add(this.buttonDetails);
             this.Controls.Add(this.buttonEpgGrid);
             this.Controls.Add(this.epgProgressBar);
@@ -181,5 +194,6 @@ namespace Project.DvbIpTv.UiServices.EPG
         private System.Windows.Forms.Timer timerLoadingData;
         private System.Windows.Forms.ToolTip toolTipControl;
         private System.Windows.Forms.Label labelFromTo;
+        private System.Windows.Forms.Button buttonFullView;
     } // class EpgMiniBar
 } // namespace

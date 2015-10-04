@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Project.DvbIpTv.Common.Telemetry;
+using Project.DvbIpTv.Core.IpTvProvider;
 using Project.DvbIpTv.Services.EPG;
 using Project.DvbIpTv.Services.EPG.Serialization;
 using Project.DvbIpTv.Services.SqlServerCE;
@@ -24,8 +25,9 @@ namespace Project.DvbIpTv.UiServices.EPG
     {
         private IList<UiBroadcastService> ServicesList;
         private UiBroadcastService CurrentService;
+        private UiBroadcastService SelectedService;
         private EpgEvent[,] EpgEvents;
-        private int CurrentRowIndex;
+        private int CurrentRowIndex, SelectedRowIndex;
         private DateTime ReferenceTime;
 
         public EpgBasicGridDialog()
@@ -68,6 +70,8 @@ namespace Project.DvbIpTv.UiServices.EPG
             EpgEvents = new EpgEvent[ServicesList.Count, 3];
 
             epgEventDisplay.Visible = false;
+            buttonDisplayChannel.Enabled = false;
+            buttonRecordChannel.Enabled = false;
         } // EpgBasicGridDialog_Load
 
         private void EpgBasicGridDialog_Shown(object sender, EventArgs e)
@@ -78,6 +82,7 @@ namespace Project.DvbIpTv.UiServices.EPG
                 BackgroundTask = AsyncBuildList,
                 AllowAutoClose = true,
                 TaskDescription = Properties.Texts.EpgDataLoadingList,
+                AllowCancelButton = true,
             };
             if (BackgroundWorkerDialog.RunWorkerAsync(this, workerOptions) != DialogResult.OK)
             {
@@ -113,6 +118,7 @@ namespace Project.DvbIpTv.UiServices.EPG
                 } // for cellIndex
             } // for index
 
+            SelectedService = null;
             if (CurrentRowIndex >= 0)
             {
                 dataGridPrograms.CurrentCell = dataGridPrograms.Rows[CurrentRowIndex].Cells[1];
@@ -125,7 +131,6 @@ namespace Project.DvbIpTv.UiServices.EPG
 
             using (var cn = DbServices.GetConnection(AppUiConfiguration.Current.EpgDatabaseFile))
             {
-
                 var serviceEvents = new Dictionary<string, EpgEvent[]>(ServicesList.Count, StringComparer.InvariantCultureIgnoreCase);
                 foreach (var service in ServicesList)
                 {
@@ -155,14 +160,7 @@ namespace Project.DvbIpTv.UiServices.EPG
                     if (serviceDbId <= 0) continue;
 
                     epgEvents = serviceEvents[serviceName];
-                    if (epgEvents != null)
-                    {
-                        start = epgEvents[0].LocalEndTime;
-                    }
-                    else
-                    {
-                        start = ReferenceTime;
-                    } // if-else
+                    start = (epgEvents != null) ? start = epgEvents[0].LocalEndTime : ReferenceTime;
 
                     var afterEvents = EpgDbQuery.GetDateRange(cn, serviceDbId, start, null, 2);
                     if (afterEvents.Count > 0)
@@ -182,6 +180,8 @@ namespace Project.DvbIpTv.UiServices.EPG
                 for (int index = 0; index < ServicesList.Count; index++)
                 {
                     EpgEvent[] epgEvents;
+
+                    if (dialog.QueryCancel()) return;
 
                     // TODO: do not assume imagenio.es
                     var service = ServicesList[index];
@@ -221,19 +221,21 @@ namespace Project.DvbIpTv.UiServices.EPG
             int columnIndex;
             string caption;
 
-            epgEvent = null;
             var cell = (dataGridPrograms.SelectedCells.Count > 0) ? dataGridPrograms.SelectedCells[0] : null;
             if (cell == null)
             {
+                SelectedService = null;
+                SelectedRowIndex = -1;
                 columnIndex = -1;
+                epgEvent = null;
             }
             else
             {
+                SelectedRowIndex = cell.RowIndex;
+                SelectedService = ServicesList[SelectedRowIndex];
+
                 columnIndex = cell.ColumnIndex;
-                if (columnIndex > 0)
-                {
-                    epgEvent = EpgEvents[cell.RowIndex, columnIndex - 1];
-                } // if
+                epgEvent = (columnIndex > 0)? EpgEvents[cell.RowIndex, columnIndex - 1] : null;
 
                 switch (columnIndex)
                 {
@@ -245,22 +247,22 @@ namespace Project.DvbIpTv.UiServices.EPG
                         break;
                 } // switch
 
-                epgEventDisplay.DisplayData(ServicesList[cell.RowIndex], epgEvent, ReferenceTime, caption);
+                epgEventDisplay.DisplayData(ServicesList[SelectedRowIndex], epgEvent, ReferenceTime, caption);
             } // if-else
 
             epgEventDisplay.Visible = (columnIndex > 0);
-            buttonDisplayChannel.Enabled = (columnIndex == 1) && (epgEvent != null);
+            buttonDisplayChannel.Enabled = (columnIndex == 1);
             buttonRecordChannel.Enabled = (columnIndex >= 1) && (epgEvent != null);
         } // dataGridPrograms_SelectionChanged
 
         private void buttonDisplayChannel_Click(object sender, EventArgs e)
         {
-
+            ExternalTvPlayer.ShowTvChannel(this, SelectedService);
         } // buttonDisplayChannel_Click
 
         private void buttonRecordChannel_Click(object sender, EventArgs e)
         {
-
+            NotImplementedBox.ShowBox(this, "buttonRecordChannel");
         } // buttonRecordChannel_Click
     } // class EpgBasicGridDialog
 } // namespace

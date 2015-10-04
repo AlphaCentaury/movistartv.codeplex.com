@@ -43,31 +43,37 @@ namespace Project.DvbIpTv.Services.EPG
             set;
         } // Synopsis
 
-        public string Directors
+        public string[] Directors
         {
             get;
             set;
         } // Directors
 
-        public string Producers
-        {
-            get;
-            set;
-        } // Producers
-
-        public string ScriptWriters
-        {
-            get;
-            set;
-        } // ScriptWriters
-
-        public string Actors
+        public string[] Actors
         {
             get;
             set;
         } // Actores
 
-        public string ProductionDate
+        public string[] Producers
+        {
+            get;
+            set;
+        } // Producers
+
+        public string[] ScriptWriters
+        {
+            get;
+            set;
+        } // ScriptWriters
+
+        public string[] Country
+        {
+            get;
+            set;
+        } // Country
+
+        public string[] ProductionDate
         {
             get;
             set;
