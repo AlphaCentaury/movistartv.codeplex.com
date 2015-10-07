@@ -33,6 +33,7 @@ using System.Text;
 using System.Windows.Forms;
 using Project.DvbIpTv.Core.IpTvProvider;
 using Project.DvbIpTv.Core.IpTvProvider.EPG;
+using System.Diagnostics;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -924,7 +925,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemEpgRefresh_Click(object sender, EventArgs e)
         {
-            LaunchEpgLoader(false);
+            LaunchEpgLoader(true);
         }  // menuItemEpgRefresh_Click
 
         private void SetupContextMenuList()
@@ -1136,30 +1137,36 @@ namespace Project.DvbIpTv.ChannelList
         {
             if (!enable_Epg) return;
 
+#if DEBUG
+            return;
+#endif
+            var hours = AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
+            if (hours < 0) return;
+
             var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
             var status = Project.DvbIpTv.Services.EPG.Serialization.EpgDbQuery.GetStatus(dbFile);
-            var hours = AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
 
-#if !DEBUG
             if (status.IsNew)
             {
-                if (hours >= 0)
+                var box = new ExceptionMessageBox()
                 {
-                    LaunchEpgLoader(true);
-                }
+                    Caption = this.Text,
+                    Text = string.Format(Properties.Texts.EpgDownloadFirstTime, hours),
+                    Beep = true,
+                    Symbol = ExceptionMessageBoxSymbol.Information
+                };
+                box.Show(this);
+
+                LaunchEpgLoader(false);
             }
             else if (!status.IsError)
             {
-                if (hours >= 0)
+                var update = (DateTime.Now - status.Time.ToLocalTime()).TotalHours >= hours;
+                if (update)
                 {
-                    var update = (DateTime.Now - status.Time.ToLocalTime()).TotalHours >= AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
-                    if (update)
-                    {
-                        LaunchEpgLoader(true);
-                    } // if
+                    LaunchEpgLoader(false);
                 } // if
             } // if
-#endif
         } // UpdateEgpData
 
         private void LaunchEpgLoader(bool foreground)
@@ -1169,6 +1176,7 @@ namespace Project.DvbIpTv.ChannelList
 
 #if DEBUG
             MessageBox.Show(this, "EPG updating is not available in DEBUG builds");
+            return;
 #else
             var updater = Path.Combine(AppUiConfiguration.Current.Folders.Install, "ConsoleEPGLoader.exe");
             if (!File.Exists(updater))
@@ -1187,7 +1195,7 @@ namespace Project.DvbIpTv.ChannelList
                 Arguments = ArgumentsManager.JoinArguments(args),
                 ErrorDialog = true,
                 ErrorDialogParentHandle = ((IWin32Window)this).Handle,
-                WindowStyle = foreground ? System.Diagnostics.ProcessWindowStyle.Normal : System.Diagnostics.ProcessWindowStyle.Minimized
+                WindowStyle = foreground ? ProcessWindowStyle.Normal : ProcessWindowStyle.Minimized
             };
 
             using (var process = System.Diagnostics.Process.Start(processInfo))

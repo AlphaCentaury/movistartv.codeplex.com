@@ -45,6 +45,7 @@ All rights reserved, except those granted by the governing license of this softw
         <File Id="DvbStpClient.dll" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.dll" />
         <File Id="IpTv.MovistarPlus.dll" Source="$(var.IpTv.MovistarPlus.TargetDir)IpTv.MovistarPlus.dll" />
         <File Id="Project.Common.dll" Source="$(var.Project.Common.TargetDir)Project.Common.dll" />
+        <File Id="Project.Native.dll" Source="$(var.Project.Native.TargetDir)Project.Native.dll" />
         <File Id="Services.SqlServerCE.dll" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.dll" />
         <File Id="UiServices.Configuration.dll" Source="$(var.UiServices.Config.TargetDir)UiServices.Configuration.dll" />
         <File Id="UiServices.Common.dll" Source="$(var.UiServices.Common.TargetDir)UiServices.Common.dll" />
@@ -56,9 +57,12 @@ All rights reserved, except those granted by the governing license of this softw
       </Component>
 
       <Component Id="CommonAssemblies.PDB" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.CommonAssemblies.PDB)">
+        <File Id="Core.IpTvProvider.pdb" Source="$(var.Core.IpTvProvider.TargetDir)Core.IpTvProvider.pdb" />
         <File Id="Etsi.Ts102034.pdb" Source="$(var.Etsi.Ts102034.TargetDir)Etsi.Ts102034.pdb" />
         <File Id="DvbStpClient.pdb" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.pdb" />
+        <File Id="IpTv.MovistarPlus.pdb" Source="$(var.IpTv.MovistarPlus.TargetDir)IpTv.MovistarPlus.pdb" />
         <File Id="Project.Common.pdb" Source="$(var.Project.Common.TargetDir)Project.Common.pdb" />
+        <File Id="Project.Native.pdb" Source="$(var.Project.Native.TargetDir)Project.Native.pdb" />
         <File Id="Services.SqlServerCE.pdb" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.pdb" />
         <File Id="UiServices.Configuration.pdb" Source="$(var.UiServices.Config.TargetDir)UiServices.Configuration.pdb" />
         <File Id="UiServices.Common.pdb" Source="$(var.UiServices.Common.TargetDir)UiServices.Common.pdb" />
@@ -78,6 +82,7 @@ All rights reserved, except those granted by the governing license of this softw
         -->
         <File Id="Project.Common.es.dll" Source="$(var.Project.Common.TargetDir)es\Project.Common.resources.dll" />
         <!--
+        <File Id="Project.Native.es.dll" Source="$(var.Project.Native.TargetDir)es\Project.Native.resources.dll" />
         <File Id="Services.SqlServerCE.es.dll" Source="$(var.Services.SqlServerCE.TargetDir)es\Services.SqlServerCE.resources.dll" />
         -->
         <File Id="UiServices.Configuration.es.dll" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Configuration.resources.dll" />
