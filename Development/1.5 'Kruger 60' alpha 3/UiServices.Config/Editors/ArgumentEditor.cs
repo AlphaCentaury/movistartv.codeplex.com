@@ -74,7 +74,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
                 } // for
             } // if
 
-            buttonAddParam.Enabled = listParameters.Items.Count > 0;
+            buttonAddParam.Enabled = false;
             textBoxCommandLine.SelectionStart = textBoxCommandLine.Text.Length;
             textBoxCommandLine.SelectionLength = 0;
         } // ParametersEditor_Load

@@ -29,6 +29,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
             var q = from item in AppUiConfiguration.Current.ItemsRegistry
                     let registration = item.Value
+                    where registration.HasEditor
                     orderby registration.EditorPriority
                     select new ConfigurationItem()
                     {
@@ -136,7 +137,6 @@ namespace Project.DvbIpTv.UiServices.Configuration
             foreach (var configItem in ConfigurationItems)
             {
                 var registration = configItem.Registration;
-                if (!registration.HasEditor) continue;
 
                 using (var img = registration.EditorImage)
                 {

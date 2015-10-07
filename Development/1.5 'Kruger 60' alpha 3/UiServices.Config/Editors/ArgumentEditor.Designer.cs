@@ -86,7 +86,9 @@ namespace Project.DvbIpTv.UiServices.Configuration.Editors
             this.listParameters.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             columnHeader1,
             columnHeader2});
+            this.listParameters.FullRowSelect = true;
             this.listParameters.GridLines = true;
+            this.listParameters.HideSelection = false;
             this.listParameters.MultiSelect = false;
             this.listParameters.Name = "listParameters";
             this.listParameters.ShowItemToolTips = true;

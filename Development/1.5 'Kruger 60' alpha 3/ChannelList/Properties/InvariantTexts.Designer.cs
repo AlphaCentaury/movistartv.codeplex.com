@@ -94,7 +94,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://movistartv.codeplex.com/wikipage?title=Update-v1.5.35.0.
+        ///   Looks up a localized string similar to http://movistartv.codeplex.com/wikipage?title=Update-v1.5.35.5.
         /// </summary>
         internal static string UrlCheckForUpdatesManual {
             get {
