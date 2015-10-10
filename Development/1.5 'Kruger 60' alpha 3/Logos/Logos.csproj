@@ -1085,6 +1085,13 @@
     <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_2%4064.png" />
     <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_2%4096.png" />
     <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_2.ico" />
+    <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_bar%40128.png" />
+    <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_bar%40256.png" />
+    <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_bar%4032.png" />
+    <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_bar%4048.png" />
+    <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_bar%4064.png" />
+    <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_bar%4096.png" />
+    <Content Include="Services\imagenio.es\hd_cplus_ligacampeones_bar.ico" />
     <Content Include="Services\imagenio.es\hd_cplus_liga_2%40128.png" />
     <Content Include="Services\imagenio.es\hd_cplus_liga_2%40256.png" />
     <Content Include="Services\imagenio.es\hd_cplus_liga_2%4032.png" />
