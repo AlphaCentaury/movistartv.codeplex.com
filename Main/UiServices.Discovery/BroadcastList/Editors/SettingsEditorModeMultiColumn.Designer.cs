@@ -96,7 +96,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList.Editors
             // 
             this.buttonAddColumn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
             resources.ApplyResources(this.buttonAddColumn, "buttonAddColumn");
-            this.buttonAddColumn.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_Add_Blue_16x16;
+            this.buttonAddColumn.Image = global::Project.DvbIpTv.UiServices.Discovery.Properties.Resources.Action_Add_16xM;
             this.buttonAddColumn.Name = "buttonAddColumn";
             this.toolTip.SetToolTip(this.buttonAddColumn, resources.GetString("buttonAddColumn.ToolTip"));
             this.buttonAddColumn.UseVisualStyleBackColor = true;

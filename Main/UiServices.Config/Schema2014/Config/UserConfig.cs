@@ -31,14 +31,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
             get;
             set;
         } // PreferredLanguages
-
-        [XmlElement("TvViewer")]
-        public TvViewerConfig TvViewer
-        {
-            get;
-            set;
-        } // TvViewer
-       
+      
         [XmlElement("Record")]
         public RecordConfig Record
         {
@@ -84,10 +77,6 @@ namespace Project.DvbIpTv.UiServices.Configuration.Schema2014.Config
         {
             string validationError;
             string ownerTag = "UserConfiguration";
-
-            if (TvViewer == null) return ConfigCommon.ErrorMissingTag("TvViewer", ownerTag);
-            validationError = TvViewer.Validate("TvViewer");
-            if (validationError != null) return validationError;
 
             if (Record == null) return ConfigCommon.ErrorMissingTag("Record", ownerTag);
             validationError = Record.Validate("Record");

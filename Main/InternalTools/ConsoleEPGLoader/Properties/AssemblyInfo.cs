@@ -8,8 +8,9 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute parameters to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ConsoleEPGLoader")]
-[assembly: AssemblyConfiguration("Project.DvbIpTv.Internal.ConsoleEPGLoader")]
+[assembly: AssemblyTitle("TV-Anytime EPG loader utility")]
+[assembly: AssemblyDescription("Project.DvbIpTv.Internal.ConsoleEPGLoader")]
+[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCopyright(SolutionVersion.DefaultCopyright)]
 [assembly: AssemblyCulture("")]
 

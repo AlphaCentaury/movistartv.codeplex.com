@@ -34,15 +34,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             TopMost = false;
         }  // WizardWelcomeDialog_Shown
 
-        private void checkAnalytics_CheckedChanged(object sender, EventArgs e)
-        {
-            BasicGoogleTelemetry.Init(BasicGoogleTelemetry.TrackingId, BasicGoogleTelemetry.ClientId, checkAnalytics.Checked, true, true);
-            if (!checkAnalytics.Checked)
-            {
-                MessageBox.Show(this, Properties.Texts.AnalyticsKeepChecked, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } // if
-        } // checkAnalytics_CheckedChanged
-
         private void linkAnalyticsHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             HelpDialog.ShowRtfHelp(this, Properties.Texts.GoogleTelemetry, Properties.Texts.TelemetryHelpCaption);

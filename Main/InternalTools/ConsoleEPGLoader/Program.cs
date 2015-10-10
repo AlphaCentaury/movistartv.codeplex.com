@@ -17,6 +17,10 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading;
+using System.Globalization;
+using Project.DvbIpTv.UiServices.DvbStpClient;
+using Etsi.Ts102034.v010501.XmlSerialization.ContentGuideDiscovery;
+using Etsi.Ts102034.v010501.XmlSerialization;
 
 namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
 {
@@ -26,6 +30,8 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
         internal static string DbFile;
         internal static string XmlFilesPath;
         internal static Exception Exception;
+
+        private static IPEndPoint DiscoveryEndpoint;
 
         static int Main(string[] args)
         {
@@ -40,26 +46,64 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
                 } // using icon
 
                 Console.Title = "TV-Anytime EPG loader utility";
-                DisplayLogo();
 
                 if (!ProcessArguments(args))
                 {
                     return 1;
                 } // if
 
+                DisplayLogo();
+
+                var downloader = new UiDvbStpSimpleDownloader()
+                {
+                    Request = new UiDvbStpSimpleDownloadRequest()
+                    {
+                        NoDataTimeout = 180000,
+                        PayloadId = 0x06,
+                        SegmentId = null, // accept any segment
+                        MulticastAddress = DiscoveryEndpoint.Address,
+                        MulticastPort = DiscoveryEndpoint.Port,
+                        Description = "Downloading list of EPG servers...",
+                        DescriptionParsing = "Processing list of EPG servers...",
+                        PayloadDataType = typeof(BroadcastContentGuideDiscoveryRoot),
+                        AllowXmlExtraWhitespace = false,
+                        XmlNamespaceReplacer = NamespaceUnification.Replacer,
+                    },
+                };
+                Console.Write("Downloading list of EPG servers...");
+                downloader.Download(null);
+                if (!downloader.IsOk)
+                {
+                    Console.WriteLine(" failed");
+                    return -1;
+                } // if
+                Console.WriteLine(" ok");
+
+                var bcgDiscovery = downloader.Response.DeserializedPayloadData as BroadcastContentGuideDiscoveryRoot;
+
+                if ((bcgDiscovery == null) || (bcgDiscovery.Offering == null) || (bcgDiscovery.Offering.Length < 1) || (bcgDiscovery.Offering[0].ContentGuides == null))
+                {
+                    throw new ApplicationException("List is EPG servers is empty!");
+                } // if
+
+                var serversList = new List<IPEndPoint>();
+                foreach(var item in bcgDiscovery.Offering[0].ContentGuides)
+                {
+                    if ((item.Id == "p_f") || (item.TransportMode == null) || (item.TransportMode.Push == null)) continue;
+                    foreach (var pushServer in item.TransportMode.Push)
+                    {
+                        serversList.Add(new IPEndPoint(IPAddress.Parse(pushServer.Address), pushServer.Port));
+                    } // foreach
+                } // if
+                if (serversList.Count == 0)
+                {
+                    throw new ApplicationException("List is push EPG servers is empty!");
+                } // if
+
                 PrepareDatabase();
                 CompactDatabase();
 
-                ProcessEpgSource(new List<KeyValuePair<IPAddress, short>>()
-                    {
-                        {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.130"), 3937) },
-                        {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.131"), 3937) },
-                        {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.132"), 3937) },
-                        {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.133"), 3937) },
-                        {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.134"), 3937) },
-                        {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.135"), 3937) },
-                        {new KeyValuePair<IPAddress, short>(IPAddress.Parse("239.0.2.136"), 3937) },
-                    });
+                ProcessEpgSource(serversList);
 
                 Log("Main thread {0} waiting for processing threads to end...", Thread.CurrentThread.ManagedThreadId);
                 MainEvent = new AutoResetEvent(false);
@@ -164,7 +208,51 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
 #else
                 XmlFilesPath = null;
 #endif
-            } // if
+            }
+            else
+            {
+                DisplayLogo();
+                Console.WriteLine("ERROR: 'Database' argument has not been specified.");
+                return false;
+            } // if-else
+
+            if (arguments.TryGetValue("Discovery", out value))
+            {
+                IPAddress ipAddress;
+                int port;
+                
+                var parts = value.Split(':');
+                if (parts.Length != 2)
+                {
+                    Console.WriteLine("ERROR: Bad 'Discovery' argument.");
+                    return false;
+                } // if
+
+                if (!IPAddress.TryParse(parts[0], out ipAddress))
+                {
+                    Console.WriteLine("ERROR: Bad 'Discovery' argument: invalid IP address");
+                    return false;
+                } // if
+
+                if (!int.TryParse(parts[1], NumberStyles.None, NumberFormatInfo.InvariantInfo, out port))
+                {
+                    Console.WriteLine("ERROR: Bad 'Discovery' argument: invalid port number");
+                    return false;
+                } // if
+                if ((port < 1) || (port > UInt16.MaxValue))
+                {
+                    Console.WriteLine("ERROR: Bad 'Discovery' argument: invalid port number");
+                    return false;
+                } // if
+
+                DiscoveryEndpoint = new IPEndPoint(ipAddress, port);
+            }
+            else
+            {
+                DisplayLogo();
+                Console.WriteLine("ERROR: 'Discovery' argument has not been specified.");
+                return false;
+            } // if-else
 
             if (arguments.TryGetValue("ForceUiCulture", out value))
             {
@@ -193,20 +281,6 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
         static void PrepareDatabase()
         {
             Console.Write("Conecting to database...");
-            if (EpgDbQuery.GetStatus(DbFile).IsNew)
-            {
-                var box = new Microsoft.SqlServer.MessageBox.ExceptionMessageBox()
-                {
-                    Caption = "Utilidad de descarga y actualización de EPG TV-Anytime",
-                    Text = "Se va a proceder a descargar la información de la guía electrónica de programas (EPG) por primera vez. " +
-                    "La descarga de la EPG en la primera ejecución es un proceso muy lento (entre 10 y 15 minutos).\r\n\r\n" +
-                    "Durante el proceso de descarga la información de EPG o bien no estará disponible o será incompleta.\r\n" +
-                    "En las siguientes ejecuciones del programa, la información EPG se actualizará en segundo plano de manera automática (si han transcurrido más de 24 horas).",
-                    Beep = true,
-                    Symbol = Microsoft.SqlServer.MessageBox.ExceptionMessageBoxSymbol.Warning
-                };
-                box.Show(null);
-            } // if
             UpdateDbStatus(1);
             Console.WriteLine(" ok");
 
@@ -253,31 +327,32 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
             Console.WriteLine(" ok");
         } // CompactDatabase
 
-        private static void ProcessEpgSource(IList<KeyValuePair<IPAddress, short>> addresses)
+        private static void ProcessEpgSource(IList<IPEndPoint> addresses)
         {
             var list = addresses;
 
             ThreadPool.QueueUserWorkItem(delegate(object state) { ProcessEpgSourceAsync(list); });
         } // ProcessEpgSource
 
-        private static void ProcessEpgSourceAsync(IList<KeyValuePair<IPAddress, short>> list)
+        private static void ProcessEpgSourceAsync(IList<IPEndPoint> list)
         {
             var events = new AutoResetEvent[list.Count];
 
             for (int index = 0; index < list.Count; index++)
             {
                 var myIndex = index;
-                var address = list[myIndex];
+                var endpoint = list[myIndex];
                 events[myIndex] = new AutoResetEvent(false);
 
                 ThreadPool.QueueUserWorkItem(delegate(object o)
                 {
                     try
                     {
-                        Log("=== Loading EPG data from {0}:{1} ===", address.Key, address.Value);
+                        Log("=== Loading EPG data from {0}:{1} ===", endpoint.Address, endpoint.Port);
 
-                        var client = new DvbStp.Client.DvbStpClient(address.Key, address.Value);
+                        var client = new DvbStp.Client.DvbStpClient(endpoint.Address, endpoint.Port);
                         client.NoDataTimeout = -1;
+                        client.ReceiveDatagramTimeout = 30000; // 30 seconds
                         client.OperationTimeout = (60 * 60) * 1000; // 60 minutes
                         client.DatagramReceived += Client_DatagramReceived;
                         client.SegmentDataDownloaded += Client_SegmentDataDownloaded;
@@ -285,11 +360,16 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
 
                         client.DownloadSegments(null);
 
-                        Log("=== EPG data from {0}:{1} downloaded ===", address.Key, address.Value);
+                        Log("=== EPG data from {0}:{1} downloaded ===", endpoint.Address, endpoint.Port);
                     }
                     catch (Exception ex)
                     {
-                        MyApplication.HandleException(null, "Unexpected error while downloading EPG data", ex);
+                        Console.WriteLine();
+                        Console.WriteLine("UNEXPECTED EXCEPTION!");
+                        Console.WriteLine(ex.GetType().FullName);
+                        Console.WriteLine(ex.Message);
+                        Console.WriteLine();
+                        //MyApplication.HandleException(null, "Unexpected error while downloading EPG data", ex);
                         Exception = ex;
                     } // try-catch
                     events[myIndex].Set();
@@ -325,20 +405,27 @@ namespace Project.DvbIpTv.Internal.ConsoleEPGLoader
 
         static void ProcessEpgPayload(IPAddress ipAddress, SegmentAssembler segmentData, string dbFile)
         {
-            var data = segmentData.GetPayload();
-
-            if (XmlFilesPath != null)
+            try
             {
-                var file = string.Format("{0}_{1}.xml", ipAddress.ToString().Replace('.', '-'), segmentData.SegmentIdentity);
-                System.IO.File.WriteAllBytes(System.IO.Path.Combine(XmlFilesPath, file), data);
-            } // if
+                var data = segmentData.GetPayload();
 
-            using (var cn = DbServices.GetConnection(dbFile))
+                if (XmlFilesPath != null)
+                {
+                    var file = string.Format("{0}_{1}.xml", ipAddress.ToString().Replace('.', '-'), segmentData.SegmentIdentity);
+                    System.IO.File.WriteAllBytes(System.IO.Path.Combine(XmlFilesPath, file), data);
+                } // if
+
+                using (var cn = DbServices.GetConnection(dbFile))
+                {
+                    ProcessEpgPayload(data, cn);
+                    cn.Close();
+                } // using cn
+            }
+            catch (Exception ex)
             {
-                ProcessEpgPayload(data, cn);
-                cn.Close();
-            } // using cn
-        } // ProcessFile
+                Console.WriteLine(ex.ToString());
+            } // try-catch
+        } // ProcessEpgPayload
 
         static void ProcessEpgPayload(byte[] data, SqlCeConnection cn)
         {

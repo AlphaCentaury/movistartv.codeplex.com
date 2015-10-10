@@ -31,23 +31,39 @@ namespace Project.DvbIpTv.UiServices.Forms
         private BackgroundWorker Worker;
         private bool AllowFormToClose;
         private DateTime StartTime;
+        private bool RefreshNeeded;
 
         #region Inner classes
 
-        public enum ScanDeadAction
+        public class ScanResultEventArgs: EventArgs
         {
-            Inactivate,
-            Hide,
-            Both
-        } // ScanDeadAction
-
-        public class ChannelScanResultEventArgs: EventArgs
-        {
-            public bool IsDead;
+            public bool IsInactive;
+            public bool WasInactive;
             public bool IsSkipped;
             public UiBroadcastService Service;
-            public ScanDeadAction DeadAction;
-        } // class ChannelScanResultEventArgs
+            public bool IsInList;
+        } // class ScanResultEventArgs
+
+        public class ScanCompletedEventArgs : EventArgs
+        {
+            public bool Cancelled
+            {
+                get;
+                set;
+            } // Cancelled
+
+            public Exception Error
+            {
+                get;
+                set;
+            } // Error
+
+            public bool IsListRefreshNeeded
+            {
+                get;
+                set;
+            } // IsListRefreshNeeded
+        } // ScanCompletedEventArgs
 
         private enum ProgressReportKind
         {
@@ -68,6 +84,8 @@ namespace Project.DvbIpTv.UiServices.Forms
         {
             public UiBroadcastService Service;
             public Image Logo;
+            public bool IsInactive;
+            public bool WasInactive;
 
             public ProgressData ShallowClone()
             {
@@ -83,14 +101,8 @@ namespace Project.DvbIpTv.UiServices.Forms
             Timeout = 5000;
         } // constructor
 
-        public event EventHandler<ChannelScanResultEventArgs> ChannelScanResult;
-        public event EventHandler<RunWorkerCompletedEventArgs> ScanCompleted;
-
-        public ScanDeadAction DeadAction
-        {
-            get;
-            set;
-        } // DeadAction
+        public event EventHandler<ScanResultEventArgs> ChannelScanResult;
+        public event EventHandler<ScanCompletedEventArgs> ScanCompleted;
 
         public IEnumerable<UiBroadcastService> BroadcastServices
         {
@@ -214,6 +226,8 @@ namespace Project.DvbIpTv.UiServices.Forms
 
         private void StartScan()
         {
+            RefreshNeeded = false;
+
             StartTime = DateTime.Now;
             timerEllapsed.Enabled = true;
             DisplayEllapsedTime();
@@ -270,7 +284,13 @@ namespace Project.DvbIpTv.UiServices.Forms
 
             if (ScanCompleted != null)
             {
-                ScanCompleted(this, e);
+                var eventArgs = new ScanCompletedEventArgs()
+                {
+                    Cancelled = e.Cancelled,
+                    Error = e.Error,
+                    IsListRefreshNeeded = RefreshNeeded
+                };
+                ScanCompleted(this, eventArgs);
             } // if
         } // Worker_RunWorkerCompleted
 
@@ -301,31 +321,37 @@ namespace Project.DvbIpTv.UiServices.Forms
                     DisplayStats(progress);
                     break;
                 case ProgressReportKind.ChannelScanned:
-                    if (ChannelScanResult != null)
-                    {
-                        ChannelScanResult(e, new ChannelScanResultEventArgs()
-                            {
-                                IsDead = progress.Service.IsInactive,
-                                IsSkipped = false,
-                                Service = progress.Service,
-                                DeadAction = this.DeadAction
-                            });
-                    } // if
+                    NotifyScanResult(progress, false);
                     break;
                 case ProgressReportKind.SkippedChannel:
-                    if (ChannelScanResult != null)
-                    {
-                        ChannelScanResult(e, new ChannelScanResultEventArgs()
-                            {
-                                IsDead = progress.Service.IsInactive,
-                                IsSkipped = true,
-                                Service = progress.Service,
-                                DeadAction = this.DeadAction
-                            });
-                    } // if
+                    NotifyScanResult(progress, true);
                     break;
             } // switch
         } // Worker_ProgressChanged
+
+        private void NotifyScanResult(ProgressData progress, bool isSkipped)
+        {
+            if (ChannelScanResult == null)
+            {
+                progress.Service.IsInactive = progress.IsInactive;
+                return;
+            } // if
+
+            var e = new ScanResultEventArgs()
+            {
+                IsInactive = progress.IsInactive,
+                WasInactive = progress.WasInactive,
+                IsSkipped = isSkipped,
+                Service = progress.Service,
+            };
+
+            ChannelScanResult(this, e);
+
+            if ((e.WasInactive != e.IsInactive) && (!e.IsInList))
+            {
+                RefreshNeeded = true;
+            } // if
+        } // NotifyScanResult
 
         private void ReplaceLogo(Image newLogo)
         {
@@ -361,9 +387,7 @@ namespace Project.DvbIpTv.UiServices.Forms
 
             buffer = new byte[UdpMaxDatagramSize];
             progress = new ProgressData() { Total = BroadcastServicesCount };
-
-            // cache services enumerable if dead action is delete
-            services = (DeadAction != ScanDeadAction.Hide) ? BroadcastServices : BroadcastServices.ToList();
+            services = BroadcastServices;
 
             foreach (var service in services)
             {
@@ -377,6 +401,8 @@ namespace Project.DvbIpTv.UiServices.Forms
                 if ((service.Data.ServiceLocation == null) || (service.Data.ServiceLocation.IpMulticastAddress == null))
                 {
                     progress.Skipped++;
+                    progress.WasInactive = progress.Service.IsInactive;
+                    progress.IsInactive = progress.Service.IsInactive;
                     Worker.ReportProgress((int)ProgressReportKind.SkippedChannel, progress.ShallowClone());
                     continue;
                 } // if
@@ -394,19 +420,20 @@ namespace Project.DvbIpTv.UiServices.Forms
                 {
                     s.Receive(buffer);
                     progress.Active++;
-                    service.IsInactive = false;
+                    progress.WasInactive = service.IsInactive;
+                    progress.IsInactive = false;
                 }
                 catch (SocketException ex)
                 {
+                    progress.WasInactive = service.IsInactive;
+                    progress.IsInactive = true;
                     if (ex.SocketErrorCode == SocketError.TimedOut)
                     {
                         progress.Dead++;
-                        service.IsInactive = true;
                     }
                     else
                     {
                         progress.Error++;
-                        service.IsInactive = true;
                     } // if
                 } // try-catch
                 s.Close();

@@ -26,12 +26,6 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             set;
         } // TextUserCancelled
 
-        public string CaptionDownloadException
-        {
-            get;
-            set;
-        } // CaptionDownloadException
-
         public string TextDownloadException
         {
             get;
@@ -52,12 +46,6 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             set;
         } // TelemetryScreenName
 
-        public UiDvbStpBaseDownloader()
-        {
-            CaptionUserCancelled = Properties.Texts.HelperUserCancelledCaption;
-            CaptionDownloadException = Properties.Texts.HelperExceptionCaption;
-        } // constructor
-
         public void Download(IWin32Window owner)
         {
             var response = ShowDialog(owner);
@@ -68,8 +56,8 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             {
                 var box = new ExceptionMessageBox()
                 {
-                    Caption = CaptionUserCancelled,
-                    Text = TextUserCancelled,
+                    Caption = CaptionUserCancelled ?? Properties.Texts.HelperUserCancelledCaption,
+                    Text = TextUserCancelled ?? Properties.Texts.HelperUserCancelledText,
                     Beep = true,
                     Symbol = ExceptionMessageBoxSymbol.Information
                 };
@@ -95,9 +83,9 @@ namespace Project.DvbIpTv.UiServices.DvbStpClient
             var isSocket = ex as SocketException;
             var isTimeout = ex as TimeoutException;
 
-            if (isSocket != null) message = string.Format(Properties.Texts.SocketException, TextDownloadException, isSocket.SocketErrorCode);
-            else if (isTimeout != null) message = string.Format(Properties.Texts.TimeoutException);
-            else message = TextDownloadException;
+            message = TextDownloadException ?? Properties.Texts.HelperExceptionText;
+            if (isSocket != null) message = string.Format(Properties.Texts.SocketException, message, isSocket.SocketErrorCode);
+            else if (isTimeout != null) message = string.Format(Properties.Texts.TimeoutException, message);
 
             var box = new ExceptionMessageBox()
             {

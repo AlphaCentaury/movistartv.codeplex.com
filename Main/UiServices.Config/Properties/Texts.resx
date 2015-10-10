@@ -166,7 +166,7 @@ Please verify the XML syntax of the file and correct the detected errors.</value
     <value>User configuration verification failure</value>
   </data>
   <data name="PlayerConfigValidationPathNotFound" xml:space="preserve">
-    <value>{0} player can not be found at '{1}'.</value>
+    <value>'{0}' TV player can not be found at '{1}'.</value>
   </data>
   <data name="RecorderConfigValidationPathNotFound" xml:space="preserve">
     <value>{0} recorder can not be found at '{1}'</value>

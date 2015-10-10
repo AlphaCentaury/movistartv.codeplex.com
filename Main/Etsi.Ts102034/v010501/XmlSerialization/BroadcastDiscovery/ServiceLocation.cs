@@ -29,5 +29,16 @@ namespace Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery
 
         [XmlElement("RTSPURL", typeof(RtspUrl))]
         public RtspUrl RtspUrl;
+
+        [XmlIgnore]
+        public string LocationUrl
+        {
+            get
+            {
+                if (IpMulticastAddress != null) return IpMulticastAddress.Url;
+                if (RtspUrl != null) return RtspUrl.Value;
+                return null;
+            } // get
+        } // LocationUrl
     } // class ServiceLocation
 } // namespace

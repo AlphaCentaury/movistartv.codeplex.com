@@ -6,7 +6,7 @@
     <ProductVersion>3.9</ProductVersion>
     <ProjectGuid>f3fc11c7-8850-4874-9cf3-8ba4de43959a</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>DVB-IPTV_MovistarTV_1-5_alpha-2</OutputName>
+    <OutputName>DVB-IPTV_MovistarTV_1-5_alpha-3c</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -47,6 +47,14 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core.IpTvProvider\Core.IpTvProvider.csproj">
+      <Name>Core.IpTvProvider</Name>
+      <Project>{36b8e0a1-f1b1-498d-8fe7-a39bb7fd68ca}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\..\DvbStpClient\DvbStpClient.csproj">
       <Name>DvbStpClient</Name>
       <Project>{8ad3c34b-a1d3-4385-a8a9-c429bd9a37d3}</Project>
@@ -79,6 +87,14 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
+    <ProjectReference Include="..\..\IpTv.MovistarPlus\IpTv.MovistarPlus.csproj">
+      <Name>IpTv.MovistarPlus</Name>
+      <Project>{e1748f45-dd50-4479-96f6-f7eba6f3e28b}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\..\IpTvRecorderLauncher\IpTvRecorderLauncher.csproj">
       <Name>IpTvRecorderLauncher</Name>
       <Project>{dda7264e-c003-4e3a-b657-27ee2543f101}</Project>
@@ -99,6 +115,14 @@
     <ProjectReference Include="..\..\Project.Common\Project.Common.csproj">
       <Name>Project.Common</Name>
       <Project>{8da15060-5a78-4f89-a9f1-7aa56b0d622c}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Project.Native\Project.Native.csproj">
+      <Name>Project.Native</Name>
+      <Project>{8986cd52-0c65-42d6-9c47-20ff47cf87bb}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>

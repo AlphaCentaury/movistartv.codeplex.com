@@ -51,6 +51,11 @@
     <Compile Include="..\AssemblySolutionInfo.cs">
       <Link>Properties\AssemblySolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="Properties\BackgroundWorkerDialog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BackgroundWorkerDialog.resx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\FilenameTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -168,6 +173,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <EmbeddedResource Include="Properties\BackgroundWorkerDialog.es.resx" />
+    <EmbeddedResource Include="Properties\BackgroundWorkerDialog.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BackgroundWorkerDialog.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\TimeSpanUpDown.resx">
       <DependentUpon>TimeSpanUpDown.cs</DependentUpon>
     </EmbeddedResource>

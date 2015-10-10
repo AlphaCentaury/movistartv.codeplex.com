@@ -168,7 +168,7 @@ Verifique la sintáxis XML del archivo y solucione los errores detectados.</valu
     <value>Error al validar la configuración y las preferencias de usuario</value>
   </data>
   <data name="PlayerConfigValidationPathNotFound" xml:space="preserve">
-    <value>No se ha localizado el reproductor '{0}' en '{1}'.</value>
+    <value>No se ha localizado el reproductor de TV '{0}' en '{1}'.</value>
   </data>
   <data name="RecorderConfigValidationPathNotFound" xml:space="preserve">
     <value>No se ha localizado el grabador externo '{0}' en '{1}'.</value>

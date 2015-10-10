@@ -5,8 +5,13 @@ using System.Text;
 
 namespace Project.DvbIpTv.UiServices.Configuration
 {
+    // interface for marking configuration items
     public interface IConfigurationItem
     {
-        // interface for marking objects
+        bool SupportsInitialization { get; }
+        InitializationResult Initializate();
+
+        bool SupportsValidation { get; }
+        string Validate(string ownerTag);
     } // interface IConfigurationItem
 } // namespace

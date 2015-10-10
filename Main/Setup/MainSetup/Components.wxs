@@ -40,11 +40,14 @@ All rights reserved, except those granted by the governing license of this softw
 
     <ComponentGroup Id="CommonComponents">
       <Component Id="CommonAssemblies" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.CommonAssemblies)">
+        <File Id="Core.IpTvProvider.dll" Source="$(var.Core.IpTvProvider.TargetDir)Core.IpTvProvider.dll" />
         <File Id="Etsi.Ts102034.dll" Source="$(var.Etsi.Ts102034.TargetDir)Etsi.Ts102034.dll" />
         <File Id="DvbStpClient.dll" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.dll" />
+        <File Id="IpTv.MovistarPlus.dll" Source="$(var.IpTv.MovistarPlus.TargetDir)IpTv.MovistarPlus.dll" />
         <File Id="Project.Common.dll" Source="$(var.Project.Common.TargetDir)Project.Common.dll" />
+        <File Id="Project.Native.dll" Source="$(var.Project.Native.TargetDir)Project.Native.dll" />
         <File Id="Services.SqlServerCE.dll" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.dll" />
-        <File Id="UiServices.Config.dll" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.dll" />
+        <File Id="UiServices.Configuration.dll" Source="$(var.UiServices.Config.TargetDir)UiServices.Configuration.dll" />
         <File Id="UiServices.Common.dll" Source="$(var.UiServices.Common.TargetDir)UiServices.Common.dll" />
         <File Id="UiServices.Discovery.dll" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.dll" />
         <File Id="UiServices.DvbStpClient.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.dll" />
@@ -54,11 +57,14 @@ All rights reserved, except those granted by the governing license of this softw
       </Component>
 
       <Component Id="CommonAssemblies.PDB" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.CommonAssemblies.PDB)">
+        <File Id="Core.IpTvProvider.pdb" Source="$(var.Core.IpTvProvider.TargetDir)Core.IpTvProvider.pdb" />
         <File Id="Etsi.Ts102034.pdb" Source="$(var.Etsi.Ts102034.TargetDir)Etsi.Ts102034.pdb" />
         <File Id="DvbStpClient.pdb" Source="$(var.DvbStpClient.TargetDir)DvbStpClient.pdb" />
+        <File Id="IpTv.MovistarPlus.pdb" Source="$(var.IpTv.MovistarPlus.TargetDir)IpTv.MovistarPlus.pdb" />
         <File Id="Project.Common.pdb" Source="$(var.Project.Common.TargetDir)Project.Common.pdb" />
+        <File Id="Project.Native.pdb" Source="$(var.Project.Native.TargetDir)Project.Native.pdb" />
         <File Id="Services.SqlServerCE.pdb" Source="$(var.Services.SqlServerCE.TargetDir)Services.SqlServerCE.pdb" />
-        <File Id="UiServices.Config.pdb" Source="$(var.UiServices.Config.TargetDir)UiServices.Config.pdb" />
+        <File Id="UiServices.Configuration.pdb" Source="$(var.UiServices.Config.TargetDir)UiServices.Configuration.pdb" />
         <File Id="UiServices.Common.pdb" Source="$(var.UiServices.Common.TargetDir)UiServices.Common.pdb" />
         <File Id="UiServices.Discovery.pdb" Source="$(var.UiServices.Discovery.TargetDir)UiServices.Discovery.pdb" />
         <File Id="UiServices.DvbStpClient.pdb" Source="$(var.UiServices.DvbStpClient.TargetDir)UiServices.DvbStpClient.pdb" />
@@ -69,14 +75,17 @@ All rights reserved, except those granted by the governing license of this softw
     <ComponentGroup Id="CommonComponents.Localization">
       <Component Id="CommonAssemblies.Localization.es" Directory="InstallFolder.es" Guid="$(var.Guid.Component.CommonAssemblies.Localization.es)">
         <!--
+        <File Id="Core.IpTvProvider.es.dll" Source="$(var.Core.IpTvProvider.TargetDir)es\Core.IpTvProvider.resources.dll" />
         <File Id="Etsi.Ts102034.es.dll" Source="$(var.Etsi.Ts102034.TargetDir)es\Etsi.Ts102034.resources.dll" />
         <File Id="DvbStpClient.es.dll" Source="$(var.DvbStpClient.TargetDir)es\DvbStpClient.resources.dll" />
+        <File Id="IpTv.MovistarPlus.es.dll" Source="$(var.IpTv.MovistarPlus.TargetDir)es\IpTv.MovistarPlus.resources.dll" />
         -->
         <File Id="Project.Common.es.dll" Source="$(var.Project.Common.TargetDir)es\Project.Common.resources.dll" />
         <!--
+        <File Id="Project.Native.es.dll" Source="$(var.Project.Native.TargetDir)es\Project.Native.resources.dll" />
         <File Id="Services.SqlServerCE.es.dll" Source="$(var.Services.SqlServerCE.TargetDir)es\Services.SqlServerCE.resources.dll" />
         -->
-        <File Id="UiServices.Config.es.dll" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Config.resources.dll" />
+        <File Id="UiServices.Configuration.es.dll" Source="$(var.UiServices.Config.TargetDir)es\UiServices.Configuration.resources.dll" />
         <File Id="UiServices.Common.es.dll" Source="$(var.UiServices.Common.TargetDir)es\UiServices.Common.resources.dll" />
         <File Id="UiServices.Discovery.es.dll" Source="$(var.UiServices.Discovery.TargetDir)es\UiServices.Discovery.resources.dll" />
         <File Id="UiServices.DvbStpClient.es.dll" Source="$(var.UiServices.DvbStpClient.TargetDir)es\UiServices.DvbStpClient.resources.dll" />

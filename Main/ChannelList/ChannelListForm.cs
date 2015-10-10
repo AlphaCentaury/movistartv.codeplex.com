@@ -15,6 +15,7 @@ using Project.DvbIpTv.UiServices.Common.Start;
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Logos;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
+using Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers;
 using Project.DvbIpTv.UiServices.Discovery;
 using Project.DvbIpTv.UiServices.Discovery.BroadcastList;
 using Project.DvbIpTv.UiServices.DvbStpClient;
@@ -30,6 +31,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
+using Project.DvbIpTv.Core.IpTvProvider;
+using Project.DvbIpTv.Core.IpTvProvider.EPG;
+using System.Diagnostics;
 
 namespace Project.DvbIpTv.ChannelList
 {
@@ -45,10 +49,8 @@ namespace Project.DvbIpTv.ChannelList
         // disabled functionality
         private const bool enable_menuItemDvbRecent = false;
         private const bool enable_menuItemDvbPackages = false;
-        private const bool enable_menuItemDvbSettings = false;
         private const bool enable_menuItemDvbExport = false;
         private const bool enable_menuItemChannelFavorites = false;
-        private const bool enable_menuItemChannelShowWith = false;
         private const bool enable_menuItemChannelEditList = false;
         private bool enable_Epg = true;
 
@@ -111,10 +113,9 @@ namespace Project.DvbIpTv.ChannelList
             // disable functionality
             menuItemDvbRecent.Enabled = enable_menuItemDvbRecent;
             menuItemDvbPackages.Enabled = enable_menuItemDvbPackages;
-            menuItemDvbSettings.Enabled = enable_menuItemDvbSettings;
             menuItemDvbExport.Enabled = enable_menuItemDvbExport;
 
-            var settings = UiBroadcastListSettingsConfigurationRegistration.UserSettings;
+            var settings = UiBroadcastListSettingsRegistration.Settings;
             ListManager = new UiBroadcastListManager(listViewChannelList, settings, imageListChannels, imageListChannelsLarge, true);
             ListManager.SelectionChanged += ListManager_SelectionChanged;
             ListManager.StatusChanged += ListManager_StatusChanged;
@@ -176,7 +177,7 @@ namespace Project.DvbIpTv.ChannelList
             var enable = e.Item != null;
             var enable2 = enable && !e.Item.IsHidden;
             menuItemChannelShow.Enabled = enable2;
-            menuItemChannelShowWith.Enabled = enable2 && enable_menuItemChannelShowWith;
+            menuItemChannelShowWith.Enabled = enable2;
             menuItemChannelFavoritesAdd.Enabled = enable2;
             menuItemChannelDetails.Enabled = enable;
             menuItemRecordingsRecord.Enabled = enable2;
@@ -211,7 +212,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemDvbSettings_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this, "menuItemDvbSettings");
+            SafeCall(Implementation_menuItemDvbSettings_Click, sender, e);
         } // menuItemDvbSettings_Click
 
         private void menuItemDvbExport_Click(object sender, EventArgs e)
@@ -223,6 +224,21 @@ namespace Project.DvbIpTv.ChannelList
         {
             this.Close();
         } // menuItemDvbExit_Click
+
+        #endregion
+
+        #region 'DVB-IPTV' menu event handlers implementation
+
+        private void Implementation_menuItemDvbSettings_Click(object sender, EventArgs e)
+        {
+            var applyChanges = new Dictionary<Guid, Action>(1);
+            applyChanges.Add(UiBroadcastListSettingsRegistration.SettingsGuid, () =>
+                {
+                    ListManager.Settings = UiBroadcastListSettingsRegistration.Settings;
+                });
+
+            ConfigurationForm.ShowConfigurationForm(this, true, applyChanges);
+        } // menuItemDvbSettings_Click
 
         #endregion
 
@@ -317,6 +333,16 @@ namespace Project.DvbIpTv.ChannelList
             SafeCall(menuItemChannelListView_Click_Implementation, sender, e);
         } // menuItemChannelListView_Click
 
+        private void menuItemChannelShow_Click(object sender, EventArgs e)
+        {
+            SafeCall(ShowTvChannel, true);
+        } // menuItemChannelShow_Click
+
+        private void menuItemChannelShowWith_Click(object sender, EventArgs e)
+        {
+            SafeCall(ShowTvChannel, false);
+        } // menuItemChannelShowWith_Click
+
         private void menuItemChannelRefreshList_Click(object sender, EventArgs e)
         {
             SafeCall(menuItemChannelRefreshList_Click_Implementation, sender, e);
@@ -334,7 +360,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void listViewChannelsList_DoubleClick(object sender, EventArgs e)
         {
-            SafeCall(ShowTvChannel);
+            SafeCall(ShowTvChannel, true);
         } // listViewChannelsList_DoubleClick
 
         private void buttonRecordChannel_Click(object sender, EventArgs e)
@@ -344,7 +370,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void buttonDisplayChannel_Click(object sender, EventArgs e)
         {
-            SafeCall(ShowTvChannel);
+            SafeCall(ShowTvChannel, true);
         } // buttonDisplayChannel_Click
 
         #endregion
@@ -368,7 +394,6 @@ namespace Project.DvbIpTv.ChannelList
         {
             int timeout;
             MulticastScannerOptionsDialog.ScanWhatList list;
-            MulticastScannerDialog.ScanDeadAction action;
             IEnumerable<UiBroadcastService> whatList;
 
             if ((MulticastScanner != null) && (!MulticastScanner.IsDisposed))
@@ -384,16 +409,19 @@ namespace Project.DvbIpTv.ChannelList
                 if (result != DialogResult.OK) return;
                 timeout = dialog.Timeout;
                 list = dialog.ScanList;
-                action = dialog.DeadAction;
             } // using
 
             // filter whole list, if asked for
             switch (list)
             {
                 case MulticastScannerOptionsDialog.ScanWhatList.ActiveServices:
+                    whatList = from service in BroadcastDiscovery.Services
+                               where service.IsInactive == false
+                               select service;
+                    break;
                 case MulticastScannerOptionsDialog.ScanWhatList.DeadServices:
                     whatList = from service in BroadcastDiscovery.Services
-                               where service.IsInactive == (list == MulticastScannerOptionsDialog.ScanWhatList.DeadServices)
+                               where service.IsInactive == true
                                select service;
                     break;
                 default:
@@ -404,7 +432,6 @@ namespace Project.DvbIpTv.ChannelList
             MulticastScanner = new MulticastScannerDialog()
             {
                 Timeout = timeout,
-                DeadAction = action,
                 BroadcastServices = whatList,
             };
             MulticastScanner.ChannelScanResult += MulticastScanner_ChannelScanResult;
@@ -419,30 +446,29 @@ namespace Project.DvbIpTv.ChannelList
             MulticastScanner = null;
         } // MulticastScanner_Disposed
 
-        private void MulticastScanner_ChannelScanResult(object sender, MulticastScannerDialog.ChannelScanResultEventArgs e)
+        private void MulticastScanner_ChannelScanResult(object sender, MulticastScannerDialog.ScanResultEventArgs e)
         {
             if (e.IsSkipped) return;
 
-            var service = e.Service;
-
-            switch (e.DeadAction)
+            // update status in list
+            if (e.WasInactive != e.IsInactive)
             {
-                case MulticastScannerDialog.ScanDeadAction.Inactivate:
-                    ListManager.EnableItem(service, e.IsDead, service.IsHidden);
-                    break;
-                case MulticastScannerDialog.ScanDeadAction.Hide:
-                    ListManager.EnableItem(service, service.IsInactive, service.IsHidden || e.IsDead);
-                    break;
-                case MulticastScannerDialog.ScanDeadAction.Both:
-                    ListManager.EnableItem(service, e.IsDead, service.IsHidden || e.IsDead);
-                    break;
-            } // switch
+                var service = e.Service;
+                e.IsInList = ListManager.EnableService(service, e.IsInactive, service.IsHidden);
+            } // if
         }  // MulticastScanner_ChannelScanResult
 
-        private void MulticastScanner_ScanCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void MulticastScanner_ScanCompleted(object sender, MulticastScannerDialog.ScanCompletedEventArgs e)
         {
             // Save scan result in cache
             AppUiConfiguration.Current.Cache.SaveXml("UiBroadcastDiscovery", SelectedServiceProvider.Key, BroadcastDiscovery.Version, BroadcastDiscovery);
+
+            // Refresh list if needed
+            if (e.IsListRefreshNeeded)
+            {
+                MessageBox.Show(this, Properties.Texts.MulticastScannerScanCompleteRefresh, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListManager.Refesh();
+            } // if
         } // MulticastScanner_ScanCompleted
 
         private void menuItemChannelDetails_Click_Implementation(object sender, EventArgs e)
@@ -710,10 +736,12 @@ namespace Project.DvbIpTv.ChannelList
                     if (cachedDiscovery == null)
                     {
                         Notify(Properties.Resources.Error_24x24, Properties.Texts.ChannelListNoCache, 60000);
-                        return false;
+                    }
+                    else
+                    {
+                        uiDiscovery = cachedDiscovery.Document;
+                        NotifyChannelListAge((int)cachedDiscovery.Age.TotalDays);
                     } // if
-                    uiDiscovery = cachedDiscovery.Document;
-                    NotifyChannelListAge((int)cachedDiscovery.Age.TotalDays);
                 } // if
 
                 if (uiDiscovery == null)
@@ -743,6 +771,7 @@ namespace Project.DvbIpTv.ChannelList
 
                     var xmlDiscovery = downloader.Request.Payloads[0].XmlDeserializedData as BroadcastDiscoveryRoot;
                     uiDiscovery = new UiBroadcastDiscovery(xmlDiscovery, SelectedServiceProvider.DomainName, downloader.Request.Payloads[0].SegmentVersion);
+
                     UiBroadcastDiscoveryMergeResultDialog.Merge(this, BroadcastDiscovery, uiDiscovery);
 
                     var xmlPackageDiscovery = downloader.Request.Payloads[1].XmlDeserializedData as PackageDiscoveryRoot;
@@ -776,29 +805,9 @@ namespace Project.DvbIpTv.ChannelList
             ListManager.BroadcastServices = (BroadcastDiscovery != null) ? BroadcastDiscovery.Services : null;
         } // SetBroadcastDiscovery
 
-        private void ShowTvChannel()
+        private void ShowTvChannel(bool defaultPlayer)
         {
-            if (ListManager.SelectedService == null) return;
-            if (ListManager.SelectedService.IsHidden) return;
-
-            if (ListManager.SelectedService.IsInactive)
-            {
-                var box = new ExceptionMessageBox()
-                {
-                    Caption = this.Text,
-                    Text = string.Format(Properties.Texts.ShowDeadTvChannel, ListManager.SelectedService.DisplayName),
-                    Beep = true,
-                    Symbol = ExceptionMessageBoxSymbol.Question,
-                    Buttons = ExceptionMessageBoxButtons.YesNo,
-                    DefaultButton = ExceptionMessageBoxDefaultButton.Button2,
-                };
-                if (box.Show(this) != System.Windows.Forms.DialogResult.Yes) return;
-            } // if
-
-            // TODO: player should be user-selectable
-            var player = AppUiConfiguration.Current.User.TvViewer.Players[0];
-
-            ExternalPlayer.Launch(player, ListManager.SelectedService, true);
+            ExternalTvPlayer.ShowTvChannel(this, ListManager.SelectedService, defaultPlayer);
         } // ShowTvChannel
 
         private void NotifyChannelListAge(int daysAge)
@@ -894,9 +903,14 @@ namespace Project.DvbIpTv.ChannelList
             NotImplementedBox.ShowBox(this, "menuItemChannelFavorites");
         }  // menuItemChannelFavoritesEdit_Click
 
+        private void menuItemEpgBasicGrid_Click(object sender, EventArgs e)
+        {
+            SafeCall(ShowEpgBasicGrid);
+        } // menuItemEpgBasicGrid_Click
+
         private void menuItemEpgNow_Click(object sender, EventArgs e)
         {
-            ShowEpgNowThenForm();
+            SafeCall(ShowEpgNowThenForm);
         } // menuItemEpgNow_Click
 
         private void menuItemEpgToday_Click(object sender, EventArgs e)
@@ -911,7 +925,7 @@ namespace Project.DvbIpTv.ChannelList
 
         private void menuItemEpgRefresh_Click(object sender, EventArgs e)
         {
-            LaunchEpgLoader(false);
+            LaunchEpgLoader(true);
         }  // menuItemEpgRefresh_Click
 
         private void SetupContextMenuList()
@@ -931,9 +945,14 @@ namespace Project.DvbIpTv.ChannelList
             contextMenuListProperties.Enabled = menuItemChannelDetails.Enabled;
         } // contextMenuList_Opening
 
+        private void contextMenuListShow_Click(object sender, EventArgs e)
+        {
+            SafeCall(ShowTvChannel, true);
+        } // contextMenuListShow_Click
+
         private void contextMenuListShowWith_Click(object sender, EventArgs e)
         {
-            NotImplementedBox.ShowBox(this, "contextMenuListShowWith");
+            SafeCall(ShowTvChannel, false);
         } // contextMenuListShowWith_Click
 
         private void contextMenuListMode_Click(object sender, EventArgs e)
@@ -1043,6 +1062,7 @@ namespace Project.DvbIpTv.ChannelList
             menuItemEpgPrevious.Enabled = false;
             menuItemEpgNext.Enabled = false;
             menuItemEpgRefresh.Enabled = (AppUiConfiguration.Current.User.Epg.Enabled) && (SelectedServiceProvider != null);
+            menuItemEpgBasicGrid.Enabled = menuItemEpgRefresh.Enabled;
         } // EnableEpgMenus
 
         private void ShowEpgMiniBar(bool display)
@@ -1059,24 +1079,43 @@ namespace Project.DvbIpTv.ChannelList
             var fullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
 
             // display mini bar
-            epgMiniBar.DetailsButtonEnabled = false; // TODO: to be implemented
+            epgMiniBar.DetailsButtonEnabled = (IpTvProvider.Current.EpgInfo.Capabilities & EpgInfoProviderCapabilities.ExtendedInfo) != 0;
             epgMiniBar.DisplayEpgEvents(imageListChannelsLarge.Images[ListManager.SelectedService.Logo.Key], fullServiceName, fullAlternateServiceName, DateTime.Now, dbFile);
         }  // ShowEpgMiniBar
 
         private void ShowEpgNowThenForm()
         {
-            FormEpgNowThen.ShowEpgEvents(ListManager.SelectedService,
+            EpgNowThenDialog.ShowEpgEvents(ListManager.SelectedService,
                 epgMiniBar.GetEpgEvents(), this, epgMiniBar.ReferenceTime);
         } // ShowEpgNowThenForm
 
+        private void ShowEpgBasicGrid()
+        {
+            EpgBasicGridDialog.ShowGrid(this, ListManager.GetDisplayedBroadcastList(), ListManager.SelectedService);
+        } // ShowEpgBasicGrid
+
+        private void ShowEpgExtendedInfo()
+        {
+            EpgExtendedInfoDialog.ShowExtendedInfo(this, ListManager.SelectedService, epgMiniBar.SelectedEvent);
+        } // ShowEpgExtendedInfo
 
         private void epgMiniBar_ButtonClicked(object sender, EpgMiniBarButtonClickedEventArgs e)
         {
-            if (e.Button == EpgMiniBar.Button.FullView)
+            switch (e.Button)
             {
-                ShowEpgNowThenForm();
-            } // if
-        }
+                case EpgMiniBar.Button.Details:
+                    SafeCall(ShowEpgExtendedInfo);
+                    break;
+
+                case EpgMiniBar.Button.FullView:
+                    SafeCall(ShowEpgNowThenForm);
+                    break;
+
+                case EpgMiniBar.Button.EpgGrid:
+                    SafeCall(ShowEpgBasicGrid);
+                    break;
+            } // switch
+        } // epgMiniBar_ButtonClicked
 
         private void epgMiniBar_NavigationButtonsChanged(object sender, EpgMiniBarNavigationButtonsChangedEventArgs e)
         {
@@ -1098,30 +1137,36 @@ namespace Project.DvbIpTv.ChannelList
         {
             if (!enable_Epg) return;
 
+#if DEBUG
+            return;
+#endif
+            var hours = AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
+            if (hours < 0) return;
+
             var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
             var status = Project.DvbIpTv.Services.EPG.Serialization.EpgDbQuery.GetStatus(dbFile);
-            var hours = AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
 
-#if !DEBUG
             if (status.IsNew)
             {
-                if (hours >= 0)
+                var box = new ExceptionMessageBox()
                 {
-                    LaunchEpgLoader(true);
-                }
+                    Caption = this.Text,
+                    Text = string.Format(Properties.Texts.EpgDownloadFirstTime, hours),
+                    Beep = true,
+                    Symbol = ExceptionMessageBoxSymbol.Information
+                };
+                box.Show(this);
+
+                LaunchEpgLoader(false);
             }
             else if (!status.IsError)
             {
-                if (hours >= 0)
+                var update = (DateTime.Now - status.Time.ToLocalTime()).TotalHours >= hours;
+                if (update)
                 {
-                    var update = (DateTime.Now - status.Time.ToLocalTime()).TotalHours >= AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
-                    if (update)
-                    {
-                        LaunchEpgLoader(true);
-                    } // if
+                    LaunchEpgLoader(false);
                 } // if
             } // if
-#endif
         } // UpdateEgpData
 
         private void LaunchEpgLoader(bool foreground)
@@ -1131,6 +1176,7 @@ namespace Project.DvbIpTv.ChannelList
 
 #if DEBUG
             MessageBox.Show(this, "EPG updating is not available in DEBUG builds");
+            return;
 #else
             var updater = Path.Combine(AppUiConfiguration.Current.Folders.Install, "ConsoleEPGLoader.exe");
             if (!File.Exists(updater))
@@ -1138,15 +1184,18 @@ namespace Project.DvbIpTv.ChannelList
                 HandleException("Unable to find EPG loader/updater utility", new FileNotFoundException(updater));
                 return;
             } // if
-            var args = string.Format("\"/Database:{0}\"", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
+
+            var args = new string[2];
+            args[0] = string.Format("/Database:{0}", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
+            args[1] = string.Format("/Discovery:{0}:{1}", SelectedServiceProvider.Offering.Push[0].Address, SelectedServiceProvider.Offering.Push[0].Port);
 
             var processInfo = new System.Diagnostics.ProcessStartInfo()
             {
                 FileName = updater,
-                Arguments = args,
+                Arguments = ArgumentsManager.JoinArguments(args),
                 ErrorDialog = true,
                 ErrorDialogParentHandle = ((IWin32Window)this).Handle,
-                WindowStyle = foreground ? System.Diagnostics.ProcessWindowStyle.Normal : System.Diagnostics.ProcessWindowStyle.Minimized
+                WindowStyle = foreground ? ProcessWindowStyle.Normal : ProcessWindowStyle.Minimized
             };
 
             using (var process = System.Diagnostics.Process.Start(processInfo))

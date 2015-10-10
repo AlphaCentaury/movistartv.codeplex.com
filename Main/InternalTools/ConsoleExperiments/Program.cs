@@ -7,6 +7,7 @@ using Project.DvbIpTv.Services.EPG;
 using Project.DvbIpTv.Services.EPG.Serialization;
 using Project.DvbIpTv.Services.EPG.TvAnytime;
 using Project.DvbIpTv.Services.SqlServerCE;
+using Project.DvbIpTv.UiServices.EPG;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlServerCe;
@@ -14,6 +15,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -23,6 +25,16 @@ namespace Project.DvbIpTv.Internal.Tools.ConsoleExperiments
     {
         static void Main(string[] args)
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            //EpgInfoDownload.Experiment();
+            //EpgInfoDownload.GetJsonSchema();
+            //EpgInfoDownload.ExploreJsonValues();
+            EpgInfoDownload.DisplayJsonData();
+
+            return;
+
             DateTime start;
             DateTime end;
             DateTime now;

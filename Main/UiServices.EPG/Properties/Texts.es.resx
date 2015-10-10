@@ -120,14 +120,32 @@
   <data name="EpgDataLoading" xml:space="preserve">
     <value>Obteniendo información del programa...</value>
   </data>
+  <data name="EpgDataLoadingList" xml:space="preserve">
+    <value>Obteniendo la guía de programación...</value>
+  </data>
+  <data name="EpgNoData" xml:space="preserve">
+    <value>No hay datos</value>
+  </data>
   <data name="EpgNoGenre" xml:space="preserve">
     <value>Género no disponible</value>
   </data>
   <data name="EpgNoInformation" xml:space="preserve">
-    <value>Información de programa no disponible</value>
+    <value>(Información de programa no disponible)</value>
   </data>
   <data name="EpgNoParentalRating" xml:space="preserve">
     <value>Clasificación no disponible</value>
+  </data>
+  <data name="EpgProgramAfterCaption" xml:space="preserve">
+    <value>Se emitirá después</value>
+  </data>
+  <data name="EpgProgramBeforeCaption" xml:space="preserve">
+    <value>Emitido anteriormente</value>
+  </data>
+  <data name="EpgProgramNowCaption" xml:space="preserve">
+    <value>En emisión</value>
+  </data>
+  <data name="EpgProgramThenCaption" xml:space="preserve">
+    <value>A continuación</value>
   </data>
   <data name="ProgramEnded" xml:space="preserve">
     <value>Terminó hace {0}</value>

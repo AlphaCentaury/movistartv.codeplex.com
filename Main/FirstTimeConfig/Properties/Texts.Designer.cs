@@ -262,6 +262,15 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to VLC (no new window).
+        /// </summary>
+        internal static string GetTvPlayersVlcSameWindow {
+            get {
+                return ResourceManager.GetString("GetTvPlayersVlcSameWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Symbol;}}
         ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\qc\lang10\b\f0\fs28 Help improve this program!\b0\par
         ///\pard\sl276\slmult1\qj\fs24 Collecting this information helps us to improve the program through a better understanding of trends and usage patterns of the program, and helps us to try to detect problems and errors.\par
@@ -522,7 +531,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movistar+ DVB-IPTV Decoder 1.5 “Kruger 60” Alpha 2.
+        ///   Looks up a localized string similar to movistar+ DVB-IPTV Decoder 1.5 “Kruger 60” Alpha 3c.
         /// </summary>
         internal static string ProductFullName {
             get {
@@ -540,7 +549,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to v1.5 “Kruger 60” Alpha 2.
+        ///   Looks up a localized string similar to v1.5 “Kruger 60” Alpha 3c.
         /// </summary>
         internal static string ProductShortName {
             get {
@@ -550,8 +559,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fswiss\fprq2\fcharset0 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
-        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard{\pntext\f2\&apos;B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\&apos;B7}}\nowidctlpar\fi-284\li284\sl276\slmult1\qj\lang10\f0\fs24 This program requires, necessarily, having contracted a movistar+ subscription in either fiber (FFTH) or DSL mode in Spain. The satellite connection is not supported.\par
-        ///\pard{\pntext\f [rest of string was truncated]&quot;;.
+        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\nowidctlpar\sl276\slmult1\qj\lang10\f0\fs24 This program requires, necessarily, having contracted a movistar+ subscription in either fiber (FFTH) or DSL mode in Spain. The satellite connection is not supported.\par
+        ///\pard{\pntext\f2\&apos;B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\&apos;B7}}\nowidctlpar\fi-284\li5 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Readme {
             get {

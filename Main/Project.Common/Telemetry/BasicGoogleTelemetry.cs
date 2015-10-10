@@ -91,12 +91,13 @@ namespace Project.DvbIpTv.Common.Telemetry
                 bag.Add("sr", string.Format("{0}x{1}", Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height));
                 bag.Add("vp", string.Format("{0}x{1}", SystemInformation.WorkingArea.Width, SystemInformation.WorkingArea.Height));
                 bag.Add("sd", string.Format("{0}-bits", Screen.PrimaryScreen.BitsPerPixel));
-                bag.Add("ni", "1");
+                bag.Add("ni", "1"); // non-interactive
+                bag.Add("cd<1>", Environment.OSVersion.ToString());
                 Send(bag);
 
                 bag = CreateProperyBag();
                 bag.Add("sc", end ? "end" : "start");
-                bag.Add("ni", "1");
+                bag.Add("ni", "1"); // non-interactive
                 Send(bag);
             });
         } // EndSession
@@ -234,8 +235,9 @@ namespace Project.DvbIpTv.Common.Telemetry
                 var postData = GetPostData(propertyBag);
                 var binPostData = Encoding.UTF8.GetBytes(postData);
 #if DEBUG
-                var result = client.UploadData(UrlEndpoint, binPostData);
-                var json = Encoding.UTF8.GetString(result);
+                // Do NOT send hits in debug mode
+                // var result = client.UploadData(UrlEndpoint, binPostData);
+                // var json = Encoding.UTF8.GetString(result);
 #else
                 //MessageBox.Show(UrlEndpoint.ToString() + "\r\n" + postData, "Basic Google Telemetry");
                 client.UploadDataAsync(UrlEndpoint, binPostData);

@@ -104,7 +104,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
             this.checkAnalytics.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkAnalytics.Name = "checkAnalytics";
             this.checkAnalytics.UseVisualStyleBackColor = true;
-            this.checkAnalytics.CheckedChanged += new System.EventHandler(this.checkAnalytics_CheckedChanged);
             // 
             // linkAnalyticsHelp
             // 

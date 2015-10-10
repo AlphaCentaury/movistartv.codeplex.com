@@ -14,6 +14,8 @@ namespace Project.DvbIpTv.Services.SqlServerCE
 {
     public class DbServices
     {
+        public delegate TData LoadDataAction<TDbData, TData>(TDbData deserializedData, SqlCeDataReader reader);
+            
         public static T Load<T>(string dbFile, SqlCeCommand loadCommand, string xmlDataColumnName) where T : class
         {
             using (var cn = GetConnection(dbFile))
@@ -63,6 +65,14 @@ namespace Project.DvbIpTv.Services.SqlServerCE
             {
                 return null;
             } // if-else
+        } // LoadData<T>
+
+        public static TData LoadData<TDbData, TData>(SqlCeDataReader reader, int dataIndex, int dataAltIdex, LoadDataAction<TDbData, TData> load)
+            where TDbData : class
+            where TData : class
+        {
+            var data = LoadData<TDbData>(reader, dataIndex, dataAltIdex);
+            return load(data, reader);
         } // LoadData<T>
 
         public static int Save<T>(string dbFile, SqlCeCommand saveCommand, string xmlDataParameterName, T obj, bool disposeCommand = true) where T : class

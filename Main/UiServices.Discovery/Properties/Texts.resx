@@ -144,6 +144,9 @@
   <data name="MergeResultChangedServicesCount" xml:space="preserve">
     <value>{0} channels have been reallocated</value>
   </data>
+  <data name="MergeResultDetailsNoData" xml:space="preserve">
+    <value>(No new, discontinued or modified channels)</value>
+  </data>
   <data name="MergeResultEqualServicesCount" xml:space="preserve">
     <value>{0} channels have not changed</value>
   </data>

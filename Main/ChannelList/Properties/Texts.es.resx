@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppCaption" xml:space="preserve">
-    <value>Canales y servicios movistar+ - DVB-IPTV (1.5 “Kruger 60” alpha 2)</value>
+    <value>Canales y servicios movistar+ - DVB-IPTV (1.5 “Kruger 60” alpha 3c)</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>DVB-IPTV: Canales y servicios movistar+</value>
@@ -127,7 +127,7 @@
     <value>Alpha (experimental)</value>
   </data>
   <data name="AppVersion" xml:space="preserve">
-    <value>1.5 “Kruger 60” alpha 2</value>
+    <value>1.5 “Kruger 60” alpha 3c</value>
   </data>
   <data name="BroadcastListUnableRefresh" xml:space="preserve">
     <value>No ha sido posible obtener la lista de canales de TV o servicios</value>
@@ -159,9 +159,6 @@ Debe cancelarse la verificación antes de poder realizar la acción solicitada.<
   </data>
   <data name="ChannelListNoCache" xml:space="preserve">
     <value>No existe una versión en caché de la lista de canales. Debe actualizar la lista.</value>
-  </data>
-  <data name="ExternalPlayerShortcutDescription" xml:space="preserve">
-    <value>Abre el reproductor {0} para ver el canal DVB-IPTV '{1}'</value>
   </data>
   <data name="MyAppCtxExceptionCaption" xml:space="preserve">
     <value>Error en la configuración de la aplicación</value>
@@ -227,11 +224,6 @@ La aplicación no puede continuar y se terminará.</value>
 
 ¿Todavía desea programar una grabación para {0}?</value>
   </data>
-  <data name="ShowDeadTvChannel" xml:space="preserve">
-    <value>El canal de TV seleccionado ha sido marcado como inactivo y puede no estar disponible.
-
-¿Desea ver en cualquier caso {0}?</value>
-  </data>
   <data name="Payload02DisplayName" xml:space="preserve">
     <value>Descripción y datos de los canales</value>
   </data>
@@ -240,5 +232,14 @@ La aplicación no puede continuar y se terminará.</value>
   </data>
   <data name="MyAppHandleExceptionDefaultMessage" xml:space="preserve">
     <value>Ninguna información ha sido proporcionada en cuanto a dónde ni por qué ocurrio el error. Los detalles del error se muestran a continuación:</value>
+  </data>
+  <data name="MulticastScannerScanCompleteRefresh" xml:space="preserve">
+    <value>Al menos un servicio inactivo ha pasado a estar activo. La lista se refrescará para mostrar los nuevos servicios activos.</value>
+  </data>
+  <data name="EpgDownloadFirstTime" xml:space="preserve">
+    <value>Se va a proceder a descargar la información de la guía electrónica de programación (EPG) por primera vez. La descarga de la EPG es un proceso muy lento (entre 10 y 15 minutos).
+
+Durante el proceso de descarga la información de EPG o bien no estará disponible o será incompleta.
+En las siguientes ejecuciones del programa, la información EPG se actualizará en segundo plano de manera automática (si han transcurrido más de {0} horas desde la última actualización).</value>
   </data>
 </root>

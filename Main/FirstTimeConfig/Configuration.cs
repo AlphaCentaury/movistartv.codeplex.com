@@ -3,6 +3,8 @@
 
 using Project.DvbIpTv.UiServices.Configuration;
 using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
+using Project.DvbIpTv.UiServices.Configuration.Settings.Network;
+using Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers;
 using Project.DvbIpTv.UiServices.Discovery.BroadcastList;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+using Project.DvbIpTv.Core.IpTvProvider;
+using Project.DvbIpTv.MovistarPlus;
 
 namespace Project.DvbIpTv.Tools.FirstTimeConfig
 {
@@ -27,23 +31,6 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 {
                     Telemetry = analytics,
                     PreferredLanguages = Properties.Texts.DvbIpTv_PreferredLanguages,
-                    TvViewer = new TvViewerConfig()
-                    {
-                        DefaultPlayer = "VLC",
-                        Players = new PlayerConfig[]
-                        {
-                            new PlayerConfig()
-                            {
-                                Name = "VLC",
-                                Path = vlcPath,
-                                Arguments = new string[]
-                                {
-                                    "{param:Channel.Url}",
-                                    ":meta-title={param:Channel.Name}"
-                                } // Arguments
-                            } // PlayerConfig
-                        }, // Players
-                    }, // TvViewer
                     Record = new RecordConfig()
                     {
                         SaveLocations = new RecordSaveLocation[]
@@ -100,10 +87,21 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                     Directory.CreateDirectory(location.Path);
                 } // foreach
 
+                var tvPlayers = GetTvPlayers(vlcPath);
+                var movistarPlusIpTvProviderSettings = new IpTvProviderSettings()
+                {
+                    ProviderClass = typeof(IpTvProviderMovistarPlus).AssemblyQualifiedName
+                };
+
                 var config = AppUiConfiguration.CreateForUserConfig(user);
-                config.RegisterConfiguration(new UiBroadcastListSettingsConfigurationRegistration(), null, true);
+                config.RegisterConfiguration(new UiBroadcastListSettingsRegistration(), null, true);
+                config.RegisterConfiguration(new TvPlayersSettingsRegistration(), tvPlayers, false);
+                config.RegisterConfiguration(new NetworkSettingsRegistration(), null, true);
+                config.RegisterConfiguration(new IpTvProviderSettingsRegistration(), movistarPlusIpTvProviderSettings, false);
+
                 config.Save(xmlConfigPath);
                 message = Properties.Texts.ConfigurationCreateOk;
+
                 return true;
             }
             catch (Exception ex)
@@ -112,5 +110,73 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig
                 return false;
             } // try-catch
         } // Create
+
+        private static TvPlayersSettings GetTvPlayers(string vlcPath)
+        {
+            List<TvPlayer> players;
+            TvPlayer player;
+            string path;
+
+            players = new List<TvPlayer>(3);
+            var programFilesFolder86 = Installation.GetProgramFilesAnyFolder();
+
+            // VLC
+            player = new TvPlayer()
+            {
+                Name = "VLC",
+                Id = new Guid("{C12055FC-315A-47C4-B9CC-48D2E6ECD8FA}"),
+                Path = vlcPath,
+                Arguments = new string[]
+                {
+                    "{param:Channel.Url}",
+                    ":meta-title={param:Channel.Name}",
+                } // Arguments
+            }; // TvPlayer
+            players.Add(player);
+
+            // VLC (new window)
+            player = new TvPlayer()
+            {
+                Name = Properties.Texts.GetTvPlayersVlcSameWindow,
+                Id = new Guid("{4154BC96-5FE0-45C2-9895-083C4FB4C8CE}"),
+                Path = vlcPath,
+                Arguments = new string[]
+                {
+                    "{param:Channel.Url}",
+                    ":meta-title={param:Channel.Name}",
+                    "--one-instance",
+                    "--no-playlist-enqueue",
+                } // Arguments
+            }; // TvPlayer
+            players.Add(player);
+
+            // locate K-Lite Codec Pack Media Player Classic
+            path = Path.Combine(programFilesFolder86, "K-Lite Codec Pack\\Media Player Classic\\mpc-hc.exe");
+            if (File.Exists(path))
+            {
+                player = new TvPlayer()
+                {
+                    Name = "K-Lite Media Player Classic",
+                    Id = new Guid("{8FFA2EE6-8823-40B1-B20F-F962389D4B07}"),
+                    Path = path,
+                    Arguments = new string[]
+                    {
+                        "{param:Channel.Url}",
+                        "/play",
+                    } // Arguments
+                }; // TvPlayer
+
+                players.Add(player);
+            } // if
+
+            var tvPlayers = new TvPlayersSettings()
+            {
+                DirectLaunch = false,
+                DefaultPlayerId = new Guid("{C12055FC-315A-47C4-B9CC-48D2E6ECD8FA}"),
+                Players = players.ToArray()
+            };
+
+            return tvPlayers;
+        } // GetTvPlayers
     } // class Configuration
 } // namespace

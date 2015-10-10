@@ -3,6 +3,7 @@
 
 using Project.DvbIpTv.Common.Serialization;
 using Project.DvbIpTv.UiServices.Configuration;
+using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ using System.Xml.Serialization;
 namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 {
     [Serializable]
+    [XmlRoot("UiBroadcastList", Namespace=ConfigCommon.ConfigXmlNamespace)]
     public class UiBroadcastListSettings : IConfigurationItem
     {
         private int[] fieldColumnWidth;
@@ -202,5 +204,29 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         {
             get { return this[CurrentMode].Columns.AsReadOnly(); }
         } // CurrentColumns
+
+        #region IConfigurationItem implementation
+
+        bool IConfigurationItem.SupportsInitialization
+        {
+            get { return false; }
+        } // IConfigurationItem.SupportsInitialization
+
+        bool IConfigurationItem.SupportsValidation
+        {
+            get { return false; }
+        } // IConfigurationItem.CanValidate
+
+        InitializationResult IConfigurationItem.Initializate()
+        {
+            throw new NotSupportedException();
+        } // IConfigurationItem.Initializate
+
+        string IConfigurationItem.Validate(string ownerTag)
+        {
+            throw new NotSupportedException();
+        } // IConfigurationItem.Validate
+
+        #endregion
     } // class UiBroadcastListViewSettings
 } // namespace

@@ -120,4 +120,7 @@
   <data name="groupBoxResults.Text" xml:space="preserve">
     <value>Resumen de los cambios con respecto a la lista anterior</value>
   </data>
+  <data name="buttonDetails.Text" xml:space="preserve">
+    <value>&amp;Detalles...</value>
+  </data>
 </root>

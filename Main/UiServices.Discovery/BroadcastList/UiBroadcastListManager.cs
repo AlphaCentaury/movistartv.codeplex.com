@@ -21,6 +21,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
         public const LogoSize LargeLogoSize = LogoSize.Size48;
 
         private IList<UiBroadcastService> fieldBroadcastServices;
+        private IList<UiBroadcastService> fieldDisplayBroadcastServices;
         private IEnumerable<UiBroadcastService> SortedBroadcastServices;
         private UiBroadcastListSettings fieldOldSettings;
         private UiBroadcastListSettings fieldSettings;
@@ -249,6 +250,8 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             set
             {
                 fieldBroadcastServices = value;
+                fieldDisplayBroadcastServices = null;
+                SortedBroadcastServices = null;
                 fieldSelectedService = null;
                 ApplySorting();
                 FillList(false);
@@ -310,12 +313,26 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             get { return (BroadcastServices == null) ? false : BroadcastServices.Count > 0; }
         } // HasItems
 
-        public void EnableItem(UiBroadcastService service, bool isInactive, bool isHidden)
+        public void Refesh()
+        {
+            fieldDisplayBroadcastServices = null;
+            FillList(false);
+        } // Refresh
+
+        public bool EnableService(UiBroadcastService service, bool isInactive, bool isHidden)
         {
             if (service == null) throw new ArgumentNullException();
 
+            // not changed?
+            if ((service.IsInactive == isInactive) && (service.IsHidden == isHidden)) return true;
+
+            // save requested status change
             service.IsInactive = isInactive;
             service.IsHidden = isHidden;
+
+            // is int list?
+            var item = ListView.Items[service.Key];
+            if (item == null) return false;
 
             var remove = false;
             if ((isInactive) && (!Settings.ShowInactiveServices)) remove = true;
@@ -323,26 +340,37 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
 
             ListView.BeginUpdate();
 
-            var item = ListView.Items[service.Key];
             if (remove)
             {
                 ListView.Items.Remove(item);
             }
             else
             {
-                EnableListItem(item, service);
+                EnableListItem(item, service, Settings.CurrentColumns);
             } // if-else
 
             ListView.EndUpdate();
-        } // EnableItem
+
+            return true;
+        } // EnableService
+
+        public IList<UiBroadcastService> GetDisplayedBroadcastList()
+        {
+            if (fieldDisplayBroadcastServices == null)
+            {
+                fieldDisplayBroadcastServices = GetDisplayBroadcastList();
+            } // if
+
+            return fieldDisplayBroadcastServices;
+        } // GetDisplayedBroadcastList
 
         public UiBroadcastListSettings ShowSettingsEditor(IWin32Window owner, bool autoApplyChanges)
         {
-            var result = ConfigurationForm.ShowConfigurationForm(owner, UiBroadcastListSettingsConfigurationRegistration.ConfigurationGuid, fieldSettings);
+            var result = ConfigurationForm.ShowConfigurationForm(owner, UiBroadcastListSettingsRegistration.RegistrationGuid, fieldSettings);
 
             if ((result != null) && (autoApplyChanges))
             {
-                UiBroadcastListSettingsConfigurationRegistration.UserSettings = result;
+                UiBroadcastListSettingsRegistration.Settings = result;
                 AppUiConfiguration.Current.Save();
                 Settings = result;
             } // if
@@ -523,11 +551,32 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             } // foreach
             ListView.Columns[0].Width += SmallImageList.ImageSize.Width + 5;
 
+            fieldDisplayBroadcastServices = null;
             ApplyCosmeticSettings(null, fieldSettings);
             ApplySorting();
             FillList(true);
             ListView.EndUpdate();
         } // BuildListLayout
+
+        public IList<UiBroadcastService> GetDisplayBroadcastList()
+        {
+            if ((BroadcastServices == null) || (BroadcastServices.Count == 0))
+            {
+                return new List<UiBroadcastService>(0);
+            } // if
+
+            var result = new List<UiBroadcastService>(fieldBroadcastServices.Count);
+
+            foreach (var service in SortedBroadcastServices)
+            {
+                if ((service.IsInactive) && (!Settings.ShowInactiveServices)) continue;
+                if ((service.IsHidden) && (!Settings.ShowHiddenServices)) continue;
+
+                result.Add(service);
+            } // foreach
+
+            return result;
+        } // GetDisplayBroadcastList
 
         private void FillList(bool insideUpdate)
         {
@@ -537,26 +586,23 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             if (!insideUpdate) ListView.BeginUpdate();
 
             ListView.Items.Clear();
-            if ((BroadcastServices == null) || (BroadcastServices.Count == 0))
+            var services = GetDisplayedBroadcastList();
+            if (services.Count == 0)
             {
                 if (!insideUpdate) ListView.EndUpdate();
                 return;
             } // if
 
-            var items = new List<ListViewItem>(BroadcastServices.Count);
+            var items = new List<ListViewItem>(services.Count);
             var columns = Settings.CurrentColumns;
             if (columns.Count < 1) throw new InvalidOperationException();
 
-            foreach (var service in SortedBroadcastServices)
+            foreach (var service in services)
             {
-                if ((service.IsInactive) && (!Settings.ShowInactiveServices)) continue;
-                if ((service.IsHidden) && (!Settings.ShowHiddenServices)) continue;
-
                 var item = new ListViewItem();
                 item.Tag = service;
                 item.Name = service.Key;
                 item.Text = GetColumnData(service, columns[0]);
-                EnableListItem(item, service);
 
                 var subItems = new string[columns.Count - 1];
                 var index = (int)0;
@@ -567,29 +613,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
                 } // foreach
                 item.SubItems.AddRange(subItems);
 
-                // set certains columns as bold
-                if ((Settings.CurrentMode == View.Details) && (!item.UseItemStyleForSubItems))
-                {
-                    index = (int)0;
-                    foreach (var column in columns)
-                    {
-                        switch (column)
-                        {
-                            case UiBroadcastListColumn.Name:
-                            case UiBroadcastListColumn.NameAndNumber:
-                            case UiBroadcastListColumn.Number:
-                            case UiBroadcastListColumn.NumberAndName:
-                            case UiBroadcastListColumn.NumberAndNameCrlf:
-                            case UiBroadcastListColumn.OriginalName:
-                            case UiBroadcastListColumn.OriginalNumber:
-                            case UiBroadcastListColumn.UserName:
-                            case UiBroadcastListColumn.UserNumber:
-                                item.SubItems[index].Font = FontDetailsBold;
-                                break;
-                        } // switch
-                        index++;
-                    } // foreach
-                } // if
+                EnableListItem(item, service, columns);
 
                 items.Add(item);
             } // foreach
@@ -725,7 +749,7 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
             else return width;
         } // GetColumnWidth
 
-        private void EnableListItem(ListViewItem item, UiBroadcastService service)
+        private void EnableListItem(ListViewItem item, UiBroadcastService service, IList<UiBroadcastListColumn> columns)
         {
             if (service.IsInactive || service.IsHidden)
             {
@@ -741,6 +765,30 @@ namespace Project.DvbIpTv.UiServices.Discovery.BroadcastList
                 item.Font = (Settings.CurrentMode == View.Details) ? FontDetails : FontNormal;
                 item.ImageKey = GetServiceLogoImageKey(service, false);
             } // if-else
+
+            // set certains columns as bold
+            if ((Settings.CurrentMode == View.Details) && (!item.UseItemStyleForSubItems))
+            {
+                var index = (int)0;
+                foreach (var column in columns)
+                {
+                    switch (column)
+                    {
+                        case UiBroadcastListColumn.Name:
+                        case UiBroadcastListColumn.NameAndNumber:
+                        case UiBroadcastListColumn.Number:
+                        case UiBroadcastListColumn.NumberAndName:
+                        case UiBroadcastListColumn.NumberAndNameCrlf:
+                        case UiBroadcastListColumn.OriginalName:
+                        case UiBroadcastListColumn.OriginalNumber:
+                        case UiBroadcastListColumn.UserName:
+                        case UiBroadcastListColumn.UserNumber:
+                            item.SubItems[index].Font = FontDetailsBold;
+                            break;
+                    } // switch
+                    index++;
+                } // foreach
+            } // if
         } // EnableListItem
 
         private string GetServiceLogoImageKey(UiBroadcastService service, bool disabled)

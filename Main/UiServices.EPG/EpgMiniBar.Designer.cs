@@ -1,4 +1,7 @@
-﻿namespace Project.DvbIpTv.UiServices.EPG
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+namespace Project.DvbIpTv.UiServices.EPG
 {
     partial class EpgMiniBar
     {
@@ -38,12 +41,13 @@
             this.timerLoadingData = new System.Windows.Forms.Timer(this.components);
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
             this.buttonDetails = new System.Windows.Forms.Button();
-            this.buttonFullview = new System.Windows.Forms.Button();
+            this.buttonEpgGrid = new System.Windows.Forms.Button();
             this.buttonForward = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
-            this.pictureChannelLogo = new System.Windows.Forms.PictureBox();
             this.labelFromTo = new System.Windows.Forms.Label();
             this.epgProgressBar = new Project.DvbIpTv.UiServices.EPG.EpgProgressBarFixed();
+            this.pictureChannelLogo = new System.Windows.Forms.PictureBox();
+            this.buttonFullView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChannelLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,15 +98,15 @@
             this.buttonDetails.UseVisualStyleBackColor = true;
             this.buttonDetails.Click += new System.EventHandler(this.buttonDetails_Click);
             // 
-            // buttonFullview
+            // buttonEpgGrid
             // 
-            resources.ApplyResources(this.buttonFullview, "buttonFullview");
-            this.buttonFullview.FlatAppearance.BorderSize = 0;
-            this.buttonFullview.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_FullView_16x16;
-            this.buttonFullview.Name = "buttonFullview";
-            this.toolTipControl.SetToolTip(this.buttonFullview, resources.GetString("buttonFullview.ToolTip"));
-            this.buttonFullview.UseVisualStyleBackColor = true;
-            this.buttonFullview.Click += new System.EventHandler(this.buttonFullview_Click);
+            resources.ApplyResources(this.buttonEpgGrid, "buttonEpgGrid");
+            this.buttonEpgGrid.FlatAppearance.BorderSize = 0;
+            this.buttonEpgGrid.Image = global::Project.DvbIpTv.UiServices.EPG.Properties.Resources.Action_Epg_16x16;
+            this.buttonEpgGrid.Name = "buttonEpgGrid";
+            this.toolTipControl.SetToolTip(this.buttonEpgGrid, resources.GetString("buttonEpgGrid.ToolTip"));
+            this.buttonEpgGrid.UseVisualStyleBackColor = true;
+            this.buttonEpgGrid.Click += new System.EventHandler(this.buttonEpgGrid_Click);
             // 
             // buttonForward
             // 
@@ -124,12 +128,6 @@
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // pictureChannelLogo
-            // 
-            resources.ApplyResources(this.pictureChannelLogo, "pictureChannelLogo");
-            this.pictureChannelLogo.Name = "pictureChannelLogo";
-            this.pictureChannelLogo.TabStop = false;
-            // 
             // labelFromTo
             // 
             resources.ApplyResources(this.labelFromTo, "labelFromTo");
@@ -140,13 +138,30 @@
             resources.ApplyResources(this.epgProgressBar, "epgProgressBar");
             this.epgProgressBar.Name = "epgProgressBar";
             // 
+            // pictureChannelLogo
+            // 
+            resources.ApplyResources(this.pictureChannelLogo, "pictureChannelLogo");
+            this.pictureChannelLogo.Name = "pictureChannelLogo";
+            this.pictureChannelLogo.TabStop = false;
+            // 
+            // buttonFullView
+            // 
+            resources.ApplyResources(this.buttonFullView, "buttonFullView");
+            this.buttonFullView.FlatAppearance.BorderSize = 0;
+            this.buttonFullView.Image = global::Project.DvbIpTv.UiServices.EPG.CommonUiResources.Action_FullView_16x16;
+            this.buttonFullView.Name = "buttonFullView";
+            this.toolTipControl.SetToolTip(this.buttonFullView, resources.GetString("buttonFullView.ToolTip"));
+            this.buttonFullView.UseVisualStyleBackColor = true;
+            this.buttonFullView.Click += new System.EventHandler(this.buttonFullView_Click);
+            // 
             // EpgMiniBar
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.buttonFullView);
             this.Controls.Add(this.buttonDetails);
-            this.Controls.Add(this.buttonFullview);
+            this.Controls.Add(this.buttonEpgGrid);
             this.Controls.Add(this.epgProgressBar);
             this.Controls.Add(this.labelEllapsed);
             this.Controls.Add(this.labelEndTime);
@@ -173,11 +188,12 @@
         private System.Windows.Forms.Label labelEndTime;
         private System.Windows.Forms.Label labelEllapsed;
         private EpgProgressBarFixed epgProgressBar;
-        private System.Windows.Forms.Button buttonFullview;
+        private System.Windows.Forms.Button buttonEpgGrid;
         private System.Windows.Forms.Button buttonDetails;
         private System.Windows.Forms.Timer timerAutoRefresh;
         private System.Windows.Forms.Timer timerLoadingData;
         private System.Windows.Forms.ToolTip toolTipControl;
         private System.Windows.Forms.Label labelFromTo;
-    }
-}
+        private System.Windows.Forms.Button buttonFullView;
+    } // class EpgMiniBar
+} // namespace

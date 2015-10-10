@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movistar+ channels and services - DVB-IPTV (1.5“Kruger 60” Alpha 2).
+        ///   Looks up a localized string similar to movistar+ channels and services - DVB-IPTV (1.5“Kruger 60” Alpha 3c).
         /// </summary>
         internal static string AppCaption {
             get {
@@ -88,7 +88,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.5 “Kruger 60” Alpha 2.
+        ///   Looks up a localized string similar to 1.5 “Kruger 60” Alpha 3c.
         /// </summary>
         internal static string AppVersion {
             get {
@@ -188,11 +188,23 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Launches {0} player to view DVB-IPTV channel &apos;{1}&apos;.
+        ///   Looks up a localized string similar to The program is about to proceed to download the electronic program guide (EPG) information for the first time. The download of the EPG is a very slow process (between 10 and 15 minutes).
+        ///
+        ///During the download process, the EPG information will either be unavailable or incomplete.
+        ///In subsequent executions of the program, the EPG information will be updated in the background automatically (if more than {0} hours have ellapsed since the last update)..
         /// </summary>
-        internal static string ExternalPlayerShortcutDescription {
+        internal static string EpgDownloadFirstTime {
             get {
-                return ResourceManager.GetString("ExternalPlayerShortcutDescription", resourceCulture);
+                return ResourceManager.GetString("EpgDownloadFirstTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to At least one inactive service is now active. The list will be refreshed to show these new active services..
+        /// </summary>
+        internal static string MulticastScannerScanCompleteRefresh {
+            get {
+                return ResourceManager.GetString("MulticastScannerScanCompleteRefresh", resourceCulture);
             }
         }
         
@@ -355,23 +367,12 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The selected TV channel has been marked as inactive and might not be available.
-        ///
-        ///Do you still want to show {0}?.
-        /// </summary>
-        internal static string ShowDeadTvChannel {
-            get {
-                return ResourceManager.GetString("ShowDeadTvChannel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.5 “Kruger 60” Alpha 2
+        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.5 “Kruger 60” Alpha 3c
         ///
         ///NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services.
         ///DO NOT EVER CALL 1002 nor 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
         ///
-        ///This  [rest of string was truncated]&quot;;.
+        ///This [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SolutionLicense {
             get {
@@ -382,8 +383,8 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         /// <summary>
         ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fnil\fcharset0 Segoe UI;}{\f1\fnil\fcharset2 Symbol;}}
         ///{\colortbl ;\red0\green0\blue255;}
-        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\nowidctlpar\sa200\sl276\slmult1\qj\lang10\b\f0\fs22 movistar+ DVB-IPTV decoder version 1.5 \ldblquote Kruger 60\rdblquote  Alpha 2\ul\fs18\par
-        ///NOTICE:\ulnone\b0  \b\i This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telef\&apos;f3nica\b0\i0 . Telef\&apos;f3nica de Espa\&apos;f1a has no responsibility if there a [rest of string was truncated]&quot;;.
+        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\nowidctlpar\sa200\sl276\slmult1\qj\lang10\b\f0\fs22 movistar+ DVB-IPTV decoder version 1.5 \ldblquote Kruger 60\rdblquote  Alpha 3c\ul\fs18\par
+        ///NOTICE:\ulnone\b0  \b\i This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telef\&apos;f3nica\b0\i0 . Telef\&apos;f3nica de Espa\&apos;f1a has no responsibility if there  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SolutionLicenseRtf {
             get {

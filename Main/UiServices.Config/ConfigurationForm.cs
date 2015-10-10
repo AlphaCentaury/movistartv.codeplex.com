@@ -22,13 +22,14 @@ namespace Project.DvbIpTv.UiServices.Configuration
             public IConfigurationItemEditor Editor;
         } // ConfigurationItem
 
-        public static DialogResult ShowConfigurationForm(IWin32Window owner, bool autoSave = true)
+        public static DialogResult ShowConfigurationForm(IWin32Window owner, bool autoSave = true, IDictionary<Guid, Action> applyChanges = null)
         {
             DialogResult result;
             bool changed;
 
             var q = from item in AppUiConfiguration.Current.ItemsRegistry
                     let registration = item.Value
+                    where registration.HasEditor
                     orderby registration.EditorPriority
                     select new ConfigurationItem()
                     {
@@ -52,21 +53,41 @@ namespace Project.DvbIpTv.UiServices.Configuration
             changed = false;
             foreach (var item in items)
             {
-                if (item.NewData == null) continue;
+                var newData = item.NewData;
+                if (newData == null) continue;
+
                 changed = true;
-                AppUiConfiguration.Current[item.Registration.DirectIndex] = item.NewData;    
+                AppUiConfiguration.Current[item.Registration.DirectIndex] = newData;
             } // foreach
+
+            // autosave if settings changed
             if ((changed) && (autoSave))
             {
                 AppUiConfiguration.Current.Save();
             } // if
 
+            // apply changes
+            if ((changed) && (applyChanges != null) && (applyChanges.Count > 0))
+            {
+                Action applyChangesMethod;
+
+                foreach (var item in items)
+                {
+                    if (item.NewData == null) continue;
+
+                    if (applyChanges.TryGetValue(item.Registration.Id, out applyChangesMethod))
+                    {
+                        applyChangesMethod();
+                    } // if
+                } // foreach
+            } // if
+
             return result;
         } // ShowConfigurationForm
 
-        public static T ShowConfigurationForm<T>(IWin32Window owner, Guid id, T overrideSettings) where T : class, IConfigurationItem
+        public static T ShowConfigurationForm<T>(IWin32Window owner, string settingsGuid, T overrideSettings) where T : class, IConfigurationItem
         {
-            var registration = AppUiConfiguration.Current.ItemsRegistry[id];
+            var registration = AppUiConfiguration.Current.ItemsRegistry[new Guid(settingsGuid)];
             var data = new ConfigurationItem()
             {
                 Registration = registration,
@@ -74,8 +95,6 @@ namespace Project.DvbIpTv.UiServices.Configuration
             };
             var items = new List<ConfigurationItem>(1);
             items.Add(data);
-
-            
 
             using (var form = new ConfigurationForm())
             {
@@ -99,6 +118,12 @@ namespace Project.DvbIpTv.UiServices.Configuration
             ConfigurationItems = new List<ConfigurationItem>();
         } // constructor
 
+        public bool IsAppRestartNeeded
+        {
+            get;
+            private set;
+        } // IsAppRestartNeeded
+
         private IList<ConfigurationItem> ConfigurationItems
         {
             get;
@@ -112,6 +137,7 @@ namespace Project.DvbIpTv.UiServices.Configuration
             foreach (var configItem in ConfigurationItems)
             {
                 var registration = configItem.Registration;
+
                 using (var img = registration.EditorImage)
                 {
                     listViewConfigItems.LargeImageList.Images.Add(img);
@@ -140,6 +166,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             {
                 foreach (var configItem in ConfigurationItems)
                 {
+                    if (configItem.Editor == null) return;
+
                     configItem.Editor.EditorClosing(out cancelClose);
                     if (cancelClose)
                     {
@@ -152,9 +180,11 @@ namespace Project.DvbIpTv.UiServices.Configuration
 
         private void ConfigurationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            foreach (var editor in ConfigurationItems)
+            foreach (var configItem in ConfigurationItems)
             {
-                editor.Editor.EditorClosed(DialogResult != DialogResult.OK);
+                if (configItem.Editor == null) return;
+
+                configItem.Editor.EditorClosed(DialogResult != DialogResult.OK);
             } // foreach editorData
         } // ConfigurationForm_FormClosed
 
@@ -177,6 +207,8 @@ namespace Project.DvbIpTv.UiServices.Configuration
             buttonOk.DialogResult = DialogResult.None;
             foreach (var configItem in ConfigurationItems)
             {
+                if (configItem.Editor == null) continue;
+
                 if (configItem.Editor.IsDataChanged)
                 {
                     if (configItem.Editor.SupportsWinFormsValidation)
@@ -190,13 +222,22 @@ namespace Project.DvbIpTv.UiServices.Configuration
                 } // if
             } // foreach
 
+            IsAppRestartNeeded = false;
             foreach (var configItem in ConfigurationItems)
             {
+                if (configItem.Editor == null) continue;
+
                 if (configItem.Editor.IsDataChanged)
                 {
                     configItem.NewData = configItem.Editor.GetNewData();
+                    IsAppRestartNeeded |= configItem.Editor.IsAppRestartNeeded;
                 } // if
             } // foreach
+
+            if (IsAppRestartNeeded)
+            {
+                MessageBox.Show(this, Properties.SettingsTexts.ConfigFormAppRestartRequired, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } // if
 
             buttonOk.DialogResult = DialogResult.OK;
         } // buttonOk_Click

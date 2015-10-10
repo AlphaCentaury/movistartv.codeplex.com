@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Project.DvbIpTv.Common
 {
-    public class ArgumentsManager
+    public static class ArgumentsManager
     {
         public static string[] ExpandArguments(string[] rawArguments, IDictionary<string, string> parameters, string openBrace, string closeBrace, StringComparison braceComparisonType)
         {

@@ -53,6 +53,8 @@
     <Compile Include="EpgEvent.cs" />
     <Compile Include="EpgService.cs" />
     <Compile Include="EpgValue.cs" />
+    <Compile Include="EpgServiceEvent.cs" />
+    <Compile Include="ExtendedEpgEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\EpgDbQuery.cs" />
     <Compile Include="Serialization\EpgDbSerialization.cs" />

@@ -166,15 +166,6 @@
   <data name="groupActionScan.Text" xml:space="preserve">
     <value>Acción para los canales de TV o servicios no disponibles</value>
   </data>
-  <data name="comboAction.Items" xml:space="preserve">
-    <value>Marcar como inactivo</value>
-  </data>
-  <data name="comboAction.Items1" xml:space="preserve">
-    <value>Marcar como oculto</value>
-  </data>
-  <data name="comboAction.Items2" xml:space="preserve">
-    <value>Marcar como inactivo y oculto</value>
-  </data>
   <data name="comboAction.Size" type="System.Drawing.Size, System.Drawing">
     <value>277, 21</value>
   </data>

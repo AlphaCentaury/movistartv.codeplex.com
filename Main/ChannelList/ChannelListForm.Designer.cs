@@ -135,6 +135,8 @@ namespace Project.DvbIpTv.ChannelList
             this.buttonRecordChannel = new System.Windows.Forms.Button();
             this.buttonDisplayChannel = new System.Windows.Forms.Button();
             this.pictureProviderLogo = new System.Windows.Forms.PictureBox();
+            this.separatorEpg3 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemEpgBasicGrid = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.contextMenuList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureNotificationIcon)).BeginInit();
@@ -482,11 +484,13 @@ namespace Project.DvbIpTv.ChannelList
             this.menuItemChannelShow.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Play_LG_16x16;
             this.menuItemChannelShow.Name = "menuItemChannelShow";
             resources.ApplyResources(this.menuItemChannelShow, "menuItemChannelShow");
+            this.menuItemChannelShow.Click += new System.EventHandler(this.menuItemChannelShow_Click);
             // 
             // menuItemChannelShowWith
             // 
             this.menuItemChannelShowWith.Name = "menuItemChannelShowWith";
             resources.ApplyResources(this.menuItemChannelShowWith, "menuItemChannelShowWith");
+            this.menuItemChannelShowWith.Click += new System.EventHandler(this.menuItemChannelShowWith_Click);
             // 
             // separatorChannel2
             // 
@@ -571,13 +575,15 @@ namespace Project.DvbIpTv.ChannelList
             // menuItemEpg
             // 
             this.menuItemEpg.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemEpgBasicGrid,
+            this.separatorEpg1,
             this.menuItemEpgNow,
             this.menuItemEpgToday,
             this.menuItemEpgTomorrow,
-            this.separatorEpg1,
+            this.separatorEpg2,
             this.menuItemEpgPrevious,
             this.menuItemEpgNext,
-            this.separatorEpg2,
+            this.separatorEpg3,
             this.menuItemEpgRefresh});
             this.menuItemEpg.Name = "menuItemEpg";
             resources.ApplyResources(this.menuItemEpg, "menuItemEpg");
@@ -714,7 +720,7 @@ namespace Project.DvbIpTv.ChannelList
             this.contextMenuListShow.Image = global::Project.DvbIpTv.ChannelList.CommonUiResources.Action_Play_LG_16x16;
             this.contextMenuListShow.Name = "contextMenuListShow";
             resources.ApplyResources(this.contextMenuListShow, "contextMenuListShow");
-            this.contextMenuListShow.Click += new System.EventHandler(this.buttonDisplayChannel_Click);
+            this.contextMenuListShow.Click += new System.EventHandler(this.contextMenuListShow_Click);
             // 
             // contextMenuListRecord
             // 
@@ -854,6 +860,17 @@ namespace Project.DvbIpTv.ChannelList
             this.pictureProviderLogo.Name = "pictureProviderLogo";
             this.pictureProviderLogo.TabStop = false;
             // 
+            // separatorEpg3
+            // 
+            this.separatorEpg3.Name = "separatorEpg3";
+            resources.ApplyResources(this.separatorEpg3, "separatorEpg3");
+            // 
+            // menuItemEpgBasicGrid
+            // 
+            this.menuItemEpgBasicGrid.Name = "menuItemEpgBasicGrid";
+            resources.ApplyResources(this.menuItemEpgBasicGrid, "menuItemEpgBasicGrid");
+            this.menuItemEpgBasicGrid.Click += new System.EventHandler(this.menuItemEpgBasicGrid_Click);
+            // 
             // ChannelListForm
             // 
             resources.ApplyResources(this, "$this");
@@ -981,5 +998,7 @@ namespace Project.DvbIpTv.ChannelList
         private System.Windows.Forms.ToolStripMenuItem menuItemChannelFavoritesAdd;
         private System.Windows.Forms.ToolStripSeparator separatorContextList3;
         private System.Windows.Forms.ToolStripMenuItem contextMenuListExportM3u;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEpgBasicGrid;
+        private System.Windows.Forms.ToolStripSeparator separatorEpg3;
     }
 }

@@ -466,7 +466,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} player can not be found at &apos;{1}&apos;..
+        ///   Looks up a localized string similar to &apos;{0}&apos; TV player can not be found at &apos;{1}&apos;..
         /// </summary>
         internal static string PlayerConfigValidationPathNotFound {
             get {

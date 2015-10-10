@@ -1,4 +1,4 @@
-Decodificador DVB-IPTV para movistar+ versión 1.5 “Kruger 60” alpha 2
+Decodificador DVB-IPTV para movistar+ versión 1.5 “Kruger 60” alpha 3c
 
 AVISO IMPORTANTE: El presente software NO ESTÁ SOPORTADO NI RESPALDADO por Movistar ni por Telefónica. Telefónica de España no tiene responsabilidad alguna si hay canales (incluso si están contratados) que no pueden verse en el PC.
 NO DEBE LLAMARSE NUNCA al 1002 o al 1004 si desaparecen canales de la lista o no pueden verse o cualquier otra anomalía. Telefónica sólo proporciona ayuda y soporte técnico para su decodificador físico y sólo para los servicios contratados.
@@ -66,12 +66,12 @@ Microsoft® SQL Server Compact® 4.0 is a free, embedded database that software de
 http://www.microsoft.com/es-es/download/details.aspx?id=30709 (Microsoft® SQL Server® Compact 4.0 SP1)
 x86: ESN\SSCERuntime_x86-ESN.exe; x64: ESN\SSCERuntime_x64-ESN.exe.msi
 
->> "Task Scheduler Managed Wrapper"
+>> "Task Scheduler Managed Wrapper 2.2.2"
 
 This software links to binary code from the Codeplex project "Task Scheduler Managed Wrapper"
 https://taskscheduler.codeplex.com/
 
-"Task Scheduler Managed Wrapper" software is licensed under the MIT License (MIT).
+"Task Scheduler Managed Wrapper" software is licensed under the MIT License (MIT). Complete license text is provided below. Copyright (c) 2003-2010 David Hall
 
 >> FolderBrowserDialogEx class (from DotNetZip)
 
@@ -79,11 +79,16 @@ Contains code extracted from the DotNetZip Codeplex project (http://dotnetzip.co
 Original source code: http://dotnetzip.codeplex.com/SourceControl/changeset/view/29832#432677
 "DotNetZip" software is licensed under the Ms-PL license (http://dotnetzip.codeplex.com/license)
 
+>> "JSON.Net 7.0 Release 1"
+
+This software links to binary code from the Codeplex project "JSON.Net"
+http://json.codeplex.com/
+
+"JSON.Net" software is licensed under the MIT License (MIT). Complete license text is provided below. Copyright (c) 2007 James Newton-King
+
 *****************************************************************************
 ** The MIT License (MIT)                                                   **
 *****************************************************************************
-
-Copyright (c) 2003-2010 David Hall
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

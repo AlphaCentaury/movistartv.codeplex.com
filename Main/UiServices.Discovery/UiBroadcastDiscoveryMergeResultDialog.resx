@@ -121,6 +121,9 @@
   <data name="labelSuccess.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="labelSuccess.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelSuccess.Location" type="System.Drawing.Point, System.Drawing">
     <value>42, 12</value>
@@ -130,7 +133,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="labelSuccess.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="labelSuccess.Text" xml:space="preserve">
     <value>(Success)</value>
@@ -148,7 +151,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelSuccess.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="groupBoxResults.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -158,6 +161,9 @@
   </data>
   <data name="labelEqual.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelEqual.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelEqual.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 80</value>
@@ -169,7 +175,7 @@
     <value>39, 13</value>
   </data>
   <data name="labelEqual.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>7</value>
   </data>
   <data name="labelEqual.Text" xml:space="preserve">
     <value>(equal)</value>
@@ -202,7 +208,7 @@
     <value>16, 14</value>
   </data>
   <data name="labelBulletEqual.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>6</value>
   </data>
   <data name="labelBulletEqual.Text" xml:space="preserve">
     <value>l</value>
@@ -225,6 +231,9 @@
   <data name="labelChanged.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelChanged.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelChanged.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 61</value>
   </data>
@@ -235,7 +244,7 @@
     <value>55, 13</value>
   </data>
   <data name="labelChanged.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>5</value>
   </data>
   <data name="labelChanged.Text" xml:space="preserve">
     <value>(changed)</value>
@@ -268,7 +277,7 @@
     <value>16, 14</value>
   </data>
   <data name="labelBulletChanged.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>4</value>
   </data>
   <data name="labelBulletChanged.Text" xml:space="preserve">
     <value>l</value>
@@ -291,6 +300,9 @@
   <data name="labelRemoved.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelRemoved.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelRemoved.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 42</value>
   </data>
@@ -301,7 +313,7 @@
     <value>54, 13</value>
   </data>
   <data name="labelRemoved.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>3</value>
   </data>
   <data name="labelRemoved.Text" xml:space="preserve">
     <value>(removed)</value>
@@ -334,7 +346,7 @@
     <value>16, 14</value>
   </data>
   <data name="labelBulletRemoved.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>2</value>
   </data>
   <data name="labelBulletRemoved.Text" xml:space="preserve">
     <value>l</value>
@@ -357,6 +369,9 @@
   <data name="labelAdded.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelAdded.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelAdded.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 23</value>
   </data>
@@ -367,7 +382,7 @@
     <value>43, 13</value>
   </data>
   <data name="labelAdded.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="labelAdded.Text" xml:space="preserve">
     <value>(added)</value>
@@ -400,7 +415,7 @@
     <value>16, 14</value>
   </data>
   <data name="labelBulletAdded.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>0</value>
   </data>
   <data name="labelBulletAdded.Text" xml:space="preserve">
     <value>l</value>
@@ -424,7 +439,7 @@
     <value>360, 108</value>
   </data>
   <data name="groupBoxResults.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="groupBoxResults.Text" xml:space="preserve">
     <value>Summary of changes from previous list</value>
@@ -439,7 +454,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBoxResults.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="buttonClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -454,7 +469,7 @@
     <value>100, 25</value>
   </data>
   <data name="buttonClose.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>3</value>
   </data>
   <data name="buttonClose.Text" xml:space="preserve">
     <value>&amp;OK</value>
@@ -475,7 +490,46 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonClose.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="buttonDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="buttonDetails.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 156</value>
+  </data>
+  <data name="buttonDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 25</value>
+  </data>
+  <data name="buttonDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonDetails.Text" xml:space="preserve">
+    <value>&amp;Details...</value>
+  </data>
+  <data name="buttonDetails.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="buttonDetails.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;buttonDetails.Name" xml:space="preserve">
+    <value>buttonDetails</value>
+  </data>
+  <data name="&gt;&gt;buttonDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDetails.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonDetails.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="pictureIconSuccess.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="pictureIconSuccess.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
@@ -499,7 +553,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureIconSuccess.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

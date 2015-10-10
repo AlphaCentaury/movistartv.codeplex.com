@@ -125,11 +125,11 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
             };
         } // GetBeforeNowAndThenEvents
 
-        public static IList<EpgEvent> GetDateRange(SqlCeConnection cn, int serviceDbId, DateTime? start = null, DateTime? end = null)
+        public static IList<EpgEvent> GetDateRange(SqlCeConnection cn, int serviceDbId, DateTime? start = null, DateTime? end = null, int? top = null)
         {
             List<EpgEvent> epgEvents = new List<EpgEvent>();
 
-            using (var cmd = GetFromDateRangeCommand(serviceDbId, start, end))
+            using (var cmd = GetFromDateRangeCommand(serviceDbId, start, end, top))
             {
                 cmd.Connection = cn;
                 using (var reader = cmd.ExecuteReader())
@@ -143,7 +143,35 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
             } // using cmd
 
             return epgEvents;
-        } // GetEpgEvents
+        } // GetDateRange
+
+        public static IList<EpgServiceEvent> GetAllServicesNowEvent(string dbFile, DateTime now)
+        {
+            using (var cn = DbServices.GetConnection(dbFile))
+            {
+                return GetAllServicesNowEvent(cn, now);
+            } // using
+        } // GetAllServicesNowEvent
+
+        public static IList<EpgServiceEvent> GetAllServicesNowEvent(SqlCeConnection cn, DateTime now)
+        {
+            List<EpgServiceEvent> epgEvents = new List<EpgServiceEvent>();
+
+            using (var cmd = GetAllServicesNowEventCommand(now))
+            {
+                cmd.Connection = cn;
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var epgEvent = DbServices.LoadData<EpgEvent, EpgServiceEvent>(reader, 0, 1, LoadEpgServiceEvent);
+                        epgEvents.Add(epgEvent);
+                    } // while
+                } // using reader
+            } // using cmd
+
+            return epgEvents;
+        } // GetAllServicesNowEvent
 
         #region
 
@@ -205,14 +233,22 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
             return cmd;
         } // GetSingleEventCommand
 
-        private static SqlCeCommand GetFromDateRangeCommand(int serviceDbId, DateTime? start, DateTime? end)
+        private static SqlCeCommand GetFromDateRangeCommand(int serviceDbId, DateTime? start, DateTime? end, int? top)
         {
             var cmd = new SqlCeCommand();
             cmd.CommandType = System.Data.CommandType.Text;
 
             var cmdText = new StringBuilder();
-            cmdText.Append("SELECT XmlEpgData, XmlEpgDataAlt " +
-                "FROM Events ");
+            if ((top.HasValue) && (top.Value > 0))
+            {
+                cmdText.AppendFormat("SELECT TOP {0} ", top.Value);
+            }
+            else
+            {
+                cmdText.Append("SELECT ");
+            }
+            cmdText.Append("XmlEpgData, XmlEpgDataAlt " + "FROM Events ");
+
             if (start == null)
             {
                 if (end == null)
@@ -232,6 +268,7 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
             {
                 cmdText.Append("WHERE ((StartTime >= ?) AND (StartTime < ?) AND (ServiceDbId = ?)) ");
             } // if-else
+
             cmdText.Append("ORDER BY StartTime ASC");
             cmd.CommandText = cmdText.ToString();
 
@@ -241,6 +278,36 @@ namespace Project.DvbIpTv.Services.EPG.Serialization
 
             return cmd;
         } // GetFromDateRangeCommand
+
+        private static SqlCeCommand GetAllServicesNowEventCommand(DateTime now)
+        {
+            var cmd = new SqlCeCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+
+            var cmdText = new StringBuilder();
+            cmdText.Append("SELECT Events.XmlEpgData AS XmlEpgData, Events.XmlEpgDataAlt AS XmlEpgDataAlt, ServiceId.ServiceId AS ServiceId " +
+                "FROM Events INNER JOIN ServiceId ON Events.ServiceDbId = ServiceId.DbId ");
+
+            now = now.ToUniversalTime();
+            cmdText.Append("WHERE ((StartTime <= ?) AND (EndTime > ?))");
+            cmd.CommandText = cmdText.ToString();
+
+            cmd.Parameters.Add("@StartTime", System.Data.SqlDbType.DateTime).Value = now;
+            cmd.Parameters.Add("@EndTime", System.Data.SqlDbType.DateTime).Value = now;
+
+            return cmd;
+        } // GetAllServicesNowEventCommand
+
+        private static EpgServiceEvent LoadEpgServiceEvent(EpgEvent data, SqlCeDataReader reader)
+        {
+            var result = new EpgServiceEvent()
+            {
+                 FullServiceName = reader.GetString(2),
+                 EpgEvent = data
+            };
+
+            return result;
+        } // LoadEpgServiceEvent
 
         #endregion
 
