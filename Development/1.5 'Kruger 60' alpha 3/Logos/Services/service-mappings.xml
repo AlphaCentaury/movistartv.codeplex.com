@@ -268,7 +268,6 @@
       <Mapping serviceName="2305" logo="hd_movistar_generico" />
       <Mapping serviceName="2306" logo="hd_movistar_generico" />
       <Mapping serviceName="2307" logo="hd_movistar_generico" />
-      <Mapping serviceName="2343" logo="hd_movistar_futbol" remarks="Pruebas Movistar Fútbol HD" />
       <Mapping serviceName="2383" logo="hd_movistar_series" />
       <Mapping serviceName="2423" logo="hd_cplus_1_bar" />
       <Mapping serviceName="2443" logo="hd_cplus_1_bar" />
