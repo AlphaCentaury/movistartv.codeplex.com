@@ -124,7 +124,7 @@
       <Mapping serviceName="1243" logo="hd_cplus_ligacampeones" />
       <Mapping serviceName="1263" logo="movistar_futbol" remarks="Europa League 6" />
       <Mapping serviceName="1264" logo="movistar_futbol" remarks="Euro 8" />
-      <Mapping serviceName="1276" logo="cplus_ligacampeones_2" />
+      <Mapping serviceName="1276" logo="movistar_futbol" remarks="Euro M1" />
       <Mapping serviceName="1277" logo="movistar_futbol" remarks="Europa League 2" />
       <Mapping serviceName="1278" logo="movistar_futbol" remarks="Europa League 3" />
       <Mapping serviceName="1279" logo="movistar_futbol" remarks="Europa League 4" />
@@ -351,9 +351,9 @@
       <Mapping serviceName="2923" logo="iberalia" remarks="Iberalia TV" />
       <Mapping serviceName="2924" logo="hd_iberalia" remarks="Iberalia TV HD" />
       <Mapping serviceName="2943" logo="garage" remarks="Garage TV" />
-      <Mapping serviceName="2963" logo="movistarplus_multideporte" remarks="Multideporte 6" />
-      <Mapping serviceName="2964" logo="movistarplus_multideporte" remarks="Multideporte 7" />
-      <Mapping serviceName="2965" logo="movistarplus_multideporte" remarks="Multideporte 4" />
+      <Mapping serviceName="2963" logo="movistarplus_multifutbol" remarks="Multifútbol 1" />
+      <Mapping serviceName="2964" logo="movistarplus_multifutbol" remarks="Multifútbol 3" />
+      <Mapping serviceName="2965" logo="movistarplus_multifutbol" remarks="Multifútbol 4" />
       <Mapping serviceName="2966" logo="movistarplus_multifutbol" remarks="Multifútbol 5" />
       <Mapping serviceName="2967" logo="movistarplus_multifutbol" remarks="Multifútbol 6" />
       <Mapping serviceName="2968" logo="movistarplus_multifutbol" remarks="Multifútbol 7" />
@@ -362,11 +362,19 @@
       <Mapping serviceName="2983" logo="cplus_partidazo_bar" remarks="C+Partidazo BAR" />
       <Mapping serviceName="2984" logo="hd_cplus_partidazo_bar" remarks="C+Partidazo BAR HD" />
       <Mapping serviceName="2989" logo="hd_cplus_liga_bar" remarks="C+Liga Loc.Pub. HD" />
+      <Mapping serviceName="3003" logo="movistarplus_multideporte" remarks="Multideporte 2" />
+      <Mapping serviceName="3004" logo="movistarplus_multideporte" remarks="Multideporte 3" />
+      <Mapping serviceName="3005" logo="movistarplus_multideporte" remarks="Multideporte 4" />
+      <Mapping serviceName="3006" logo="movistarplus_multideporte" remarks="Multideporte 5" />
+      <Mapping serviceName="3007" logo="movistarplus_multideporte" remarks="Multideporte 6" />
+      <Mapping serviceName="3008" logo="movistarplus_multideporte" remarks="Multideporte 7" />
+      <Mapping serviceName="3009" logo="movistarplus_multideporte" remarks="Multideporte 8" />
       <Mapping serviceName="3023" logo="cplus_partidazo_bar" remarks="C+Partidazo L.Pub." />
       <Mapping serviceName="3024" logo="hd_cplus_partidazo_bar" remarks="C+Partidazo L.Pub.HD" />
       <Mapping serviceName="3026" logo="hd_cplus_liga_bar" remarks="C+Liga L.Pub.HD" />
       <Mapping serviceName="3043" logo="movistar_generico" remarks="Promocional Virtual" />
       <Mapping serviceName="3044" logo="hd_movistar_generico" remarks="Canal Distribuidores HD" />
+      <Mapping serviceName="3063" logo="hd_realmadridtv" remarks="Real Madrid TV HD" />
     </Domain>
     <Domain name="dem_1.imagenio.es" redirectDomain="imagenio.es">
       <Mapping serviceName="56" logo="autonomico_cataluna" remarks="TV3" />
