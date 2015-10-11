@@ -1,4 +1,4 @@
-Decodificador DVB-IPTV para movistar+ versión 1.5 “Kruger 60” alpha 3c
+Decodificador DVB-IPTV para movistar+ versión 1.5 “Kruger 60” alpha 4
 
 AVISO IMPORTANTE: El presente software NO ESTÁ SOPORTADO NI RESPALDADO por Movistar ni por Telefónica. Telefónica de España no tiene responsabilidad alguna si hay canales (incluso si están contratados) que no pueden verse en el PC.
 NO DEBE LLAMARSE NUNCA al 1002 o al 1004 si desaparecen canales de la lista o no pueden verse o cualquier otra anomalía. Telefónica sólo proporciona ayuda y soporte técnico para su decodificador físico y sólo para los servicios contratados.
