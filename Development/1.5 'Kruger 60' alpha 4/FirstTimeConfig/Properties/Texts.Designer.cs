@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
+namespace Project.IpTv.Tools.FirstTimeConfig.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.Tools.FirstTimeConfig.Properties.Texts", typeof(Texts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.IpTv.Tools.FirstTimeConfig.Properties.Texts", typeof(Texts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -531,7 +531,7 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movistar+ DVB-IPTV Decoder 1.5 “Kruger 60” Alpha 4.
+        ///   Looks up a localized string similar to movistar+ virtual IPTV Decoder 1.5 “Kruger 60” Alpha 4.
         /// </summary>
         internal static string ProductFullName {
             get {
@@ -559,8 +559,8 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\deflang3082{\fonttbl{\f0\fswiss\fprq2\fcharset0 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset2 Symbol;}}
-        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\nowidctlpar\sl276\slmult1\qj\lang10\f0\fs24 This program requires, necessarily, having contracted a movistar+ subscription in either fiber (FFTH) or DSL mode in Spain. The satellite connection is not supported.\par
-        ///\pard{\pntext\f2\&apos;B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\&apos;B7}}\nowidctlpar\fi-284\li5 [rest of string was truncated]&quot;;.
+        ///{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\nowidctlpar\sl276\slmult1\qj\lang10\f0\fs24 This program \b requires\b0 , necessarily, having contracted \b a movistar+ subscription\b0  in either fiber (FFTH) or DSL mode in Spain. \b The satellite connection is not supported\b0 .\par
+        ///\pard{\pntext\f2\&apos;B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\&apos;B7}}\n [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Readme {
             get {
@@ -623,11 +623,20 @@ namespace Project.DvbIpTv.Tools.FirstTimeConfig.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DVB-IPTV folder.
+        ///   Looks up a localized string similar to Virtual IPTV decoder folder.
         /// </summary>
-        internal static string TaskSchedulerFolderDvbIpTv {
+        internal static string TaskSchedulerFolderIpTv {
             get {
-                return ResourceManager.GetString("TaskSchedulerFolderDvbIpTv", resourceCulture);
+                return ResourceManager.GetString("TaskSchedulerFolderIpTv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \IPTV virtual decoder.
+        /// </summary>
+        internal static string TaskSchedulerFolderIpTvPath {
+            get {
+                return ResourceManager.GetString("TaskSchedulerFolderIpTvPath", resourceCulture);
             }
         }
         

@@ -34,7 +34,7 @@ All rights reserved, except those granted by the governing license of this softw
       </Feature>
       <Feature Id="Features" Display="expand" Title="Aditional features">
         <FeatureRef Id="Feature.Record" />
-        <FeatureRef Id="Feature.EPG" />
+        <!--<FeatureRef Id="Feature.EPG" />-->
       </Feature>
       <FeatureRef Id="Feature.Tools" />
     </Feature>
@@ -65,7 +65,7 @@ All rights reserved, except those granted by the governing license of this softw
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="PersonalFolder">
-        <Directory Id="DvbFolder" Name="DVB-IPTV">
+        <Directory Id="IpTvFolder" Name="IPTV">
           <Directory Id="BaseFolder" Name="movistar+ (v1.5 Kruger-60)">
             <Directory Id="INSTALLFOLDER" Name="bin">
               <Directory Id="RedistFolderBase" Name ="Redist">
@@ -87,7 +87,7 @@ All rights reserved, except those granted by the governing license of this softw
       </Directory>
 
       <Directory Id="ProgramMenuFolder">
-        <Directory Id="DvbIpTvStartMenuFolder" Name="!(loc.DvbIpTvStartMenuFolder)">
+        <Directory Id="IpTvStartMenuFolder" Name="!(loc.IpTvStartMenuFolder)">
           <Directory Id="ProgramStartMenuFolder" Name="!(loc.ProgramStartMenuFolder)" />
         </Directory>
       </Directory>
@@ -102,7 +102,7 @@ All rights reserved, except those granted by the governing license of this softw
         <RemoveFile Id="Purge_LogosFolder" Name="*.*" On="uninstall" Directory="LogosFolder"/>
         <RemoveFile Id="Purge_RecordTasksFolder" Name="*.*" On="uninstall" Directory="RecordTasksFolder"/>
 
-        <RemoveFolder Id="Remove_DvbFolder" On="uninstall" Directory="DvbFolder" />
+        <RemoveFolder Id="Remove_IpTvFolder" On="uninstall" Directory="IpTvFolder" />
         <RemoveFolder Id="Remove_BaseFolder" On="uninstall" Directory="BaseFolder"/>
         <RemoveFolder Id="Remove_INSTALLFOLDER" On="uninstall" Directory="INSTALLFOLDER"/>
         <RemoveFolder Id="Remove_InstallFolder.es" On="uninstall" Directory="InstallFolder.es"/>
@@ -112,7 +112,7 @@ All rights reserved, except those granted by the governing license of this softw
       
         <RemoveFile Id="Purge_ProgramStartMenuFolder" Name="*.*" On="uninstall" Directory="ProgramStartMenuFolder"/>
 
-        <RemoveFolder Id="Remove_DvbIpTvStartMenuFolder" On="uninstall" Directory="DvbIpTvStartMenuFolder" />
+        <RemoveFolder Id="Remove_IpTvStartMenuFolder" On="uninstall" Directory="IpTvStartMenuFolder" />
         <RemoveFolder Id="Remove_ProgramStartMenuFolder" On="uninstall" Directory="ProgramStartMenuFolder"/>
       </Component>
     </ComponentGroup>

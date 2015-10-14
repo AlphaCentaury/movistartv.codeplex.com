@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.UiServices.Configuration.Properties {
+namespace Project.IpTv.UiServices.Configuration.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.UiServices.Configuration.Properties.InvariantTexts", typeof(InvariantTexts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.IpTv.UiServices.Configuration.Properties.InvariantTexts", typeof(InvariantTexts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -124,7 +124,7 @@ namespace Project.DvbIpTv.UiServices.Configuration.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Software\movistartv.codeplex.com\DVBIPTV\v1.5.
+        ///   Looks up a localized string similar to Software\movistartv.codeplex.com\IPTV\v1.5.
         /// </summary>
         internal static string RegistryKey_Root {
             get {

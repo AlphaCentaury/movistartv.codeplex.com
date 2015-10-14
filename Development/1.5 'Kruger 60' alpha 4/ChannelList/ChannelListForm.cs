@@ -5,23 +5,23 @@ using Etsi.Ts102034.v010501.XmlSerialization;
 using Etsi.Ts102034.v010501.XmlSerialization.BroadcastDiscovery;
 using Etsi.Ts102034.v010501.XmlSerialization.PackageDiscovery;
 using Microsoft.SqlServer.MessageBox;
-using Project.DvbIpTv.ChannelList.Properties;
-using Project.DvbIpTv.Common;
-using Project.DvbIpTv.Common.Telemetry;
-using Project.DvbIpTv.Services.Record;
-using Project.DvbIpTv.Services.Record.Serialization;
-using Project.DvbIpTv.UiServices.Common.Forms;
-using Project.DvbIpTv.UiServices.Common.Start;
-using Project.DvbIpTv.UiServices.Configuration;
-using Project.DvbIpTv.UiServices.Configuration.Logos;
-using Project.DvbIpTv.UiServices.Configuration.Schema2014.Config;
-using Project.DvbIpTv.UiServices.Configuration.Settings.TvPlayers;
-using Project.DvbIpTv.UiServices.Discovery;
-using Project.DvbIpTv.UiServices.Discovery.BroadcastList;
-using Project.DvbIpTv.UiServices.DvbStpClient;
-using Project.DvbIpTv.UiServices.EPG;
-using Project.DvbIpTv.UiServices.Forms;
-using Project.DvbIpTv.UiServices.Record;
+using Project.IpTv.ChannelList.Properties;
+using Project.IpTv.Common;
+using Project.IpTv.Common.Telemetry;
+using Project.IpTv.Services.Record;
+using Project.IpTv.Services.Record.Serialization;
+using Project.IpTv.UiServices.Common.Forms;
+using Project.IpTv.UiServices.Common.Start;
+using Project.IpTv.UiServices.Configuration;
+using Project.IpTv.UiServices.Configuration.Logos;
+using Project.IpTv.UiServices.Configuration.Schema2014.Config;
+using Project.IpTv.UiServices.Configuration.Settings.TvPlayers;
+using Project.IpTv.UiServices.Discovery;
+using Project.IpTv.UiServices.Discovery.BroadcastList;
+using Project.IpTv.UiServices.DvbStpClient;
+//using Project.IpTv.UiServices.EPG;
+using Project.IpTv.UiServices.Forms;
+using Project.IpTv.UiServices.Record;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,11 +31,11 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
-using Project.DvbIpTv.Core.IpTvProvider;
-using Project.DvbIpTv.Core.IpTvProvider.EPG;
+using Project.IpTv.Core.IpTvProvider;
+//using Project.IpTv.Core.IpTvProvider.EPG;
 using System.Diagnostics;
 
-namespace Project.DvbIpTv.ChannelList
+namespace Project.IpTv.ChannelList
 {
     public sealed partial class ChannelListForm : CommonBaseForm, ISplashScreenAwareForm
     {
@@ -52,7 +52,7 @@ namespace Project.DvbIpTv.ChannelList
         private const bool enable_menuItemDvbExport = false;
         private const bool enable_menuItemChannelFavorites = false;
         private const bool enable_menuItemChannelEditList = false;
-        private bool enable_Epg = true;
+        //private bool enable_Epg = true;
 
         public ChannelListForm()
         {
@@ -122,16 +122,18 @@ namespace Project.DvbIpTv.ChannelList
 
             SetupContextMenuList();
 
-            // set-up EPG functionality
-            enable_Epg = AppUiConfiguration.Current.User.Epg.Enabled;
-            epgMiniBar.IsDisabled = !enable_Epg;
-            if (epgMiniBar.IsDisabled)
-            {
-                foreach (ToolStripItem item in menuItemEpg.DropDownItems)
-                {
-                    item.Enabled = false;
-                } // foreach
-            } // if
+            #region Commented-out EPG code
+            //// set-up EPG functionality
+            //enable_Epg = AppUiConfiguration.Current.User.Epg.Enabled;
+            //epgMiniBar.IsDisabled = !enable_Epg;
+            //if (epgMiniBar.IsDisabled)
+            //{
+            //    foreach (ToolStripItem item in menuItemEpg.DropDownItems)
+            //    {
+            //        item.Enabled = false;
+            //    } // foreach
+            //} // if
+            #endregion
 
             // load from cache, if available
             SelectedServiceProvider = SelectProviderDialog.GetLastUserSelectedProvider();
@@ -184,21 +186,22 @@ namespace Project.DvbIpTv.ChannelList
             buttonRecordChannel.Enabled = enable2;
             buttonDisplayChannel.Enabled = enable2;
 
+            // Commented-out EPG code
             // EPG
-            EnableEpgMenus(enable);
-            if (enable)
-            {
-                ShowEpgMiniBar(true);
-            }
-            else
-            {
-                epgMiniBar.ClearEpgEvents();
-            } // if-else
+            //EnableEpgMenus(enable);
+            //if (enable)
+            //{
+            //    ShowEpgMiniBar(true);
+            //}
+            //else
+            //{
+            //    epgMiniBar.ClearEpgEvents();
+            //} // if-else
         } // ListManager_SelectionChanged_Implementation
 
         #endregion
 
-        #region 'DVB-IPTV' menu event handlers
+        #region 'IPTV' menu event handlers
 
         private void menuItemDvbRecent_DropDownOpening(object sender, EventArgs e)
         {
@@ -227,7 +230,7 @@ namespace Project.DvbIpTv.ChannelList
 
         #endregion
 
-        #region 'DVB-IPTV' menu event handlers implementation
+        #region 'IPTV' menu event handlers implementation
 
         private void Implementation_menuItemDvbSettings_Click(object sender, EventArgs e)
         {
@@ -298,7 +301,7 @@ namespace Project.DvbIpTv.ChannelList
 
         #endregion
 
-        #region 'DVB-IPTV > Package' menu event handlers
+        #region 'IPTV > Package' menu event handlers
 
         private void menuItemPackagesSelect_Click(object sender, EventArgs e)
         {
@@ -312,7 +315,7 @@ namespace Project.DvbIpTv.ChannelList
 
         #endregion
 
-        #region 'DVB-IPTV > Package' menu event handlers implementation
+        #region 'IPTV > Package' menu event handlers implementation
 
         private void Implementation_menuItemPackagesSelect_Click(object sender, EventArgs e)
         {
@@ -693,7 +696,8 @@ namespace Project.DvbIpTv.ChannelList
             menuItemChannelEditList.Enabled = true;
 
             // TODO: clean-up
-            UpdateEpgData();
+            // Commented-out EPG code
+            //UpdateEpgData();
 
             SetBroadcastDiscovery(null);
             LoadBroadcastDiscovery(true);
@@ -779,7 +783,8 @@ namespace Project.DvbIpTv.ChannelList
                     AppUiConfiguration.Current.Cache.SaveXml("UiBroadcastDiscovery", SelectedServiceProvider.Key, uiDiscovery.Version, uiDiscovery);
                 } // if
 
-                ShowEpgMiniBar(false);
+                // Commented-out EPG code
+                //ShowEpgMiniBar(false);
                 SetBroadcastDiscovery(uiDiscovery);
 
                 if (fromCache)
@@ -903,30 +908,32 @@ namespace Project.DvbIpTv.ChannelList
             NotImplementedBox.ShowBox(this, "menuItemChannelFavorites");
         }  // menuItemChannelFavoritesEdit_Click
 
-        private void menuItemEpgBasicGrid_Click(object sender, EventArgs e)
-        {
-            SafeCall(ShowEpgBasicGrid);
-        } // menuItemEpgBasicGrid_Click
+        #region Commented-out EPG code
+        //private void menuItemEpgBasicGrid_Click(object sender, EventArgs e)
+        //{
+        //    SafeCall(ShowEpgBasicGrid);
+        //} // menuItemEpgBasicGrid_Click
 
-        private void menuItemEpgNow_Click(object sender, EventArgs e)
-        {
-            SafeCall(ShowEpgNowThenForm);
-        } // menuItemEpgNow_Click
+        //private void menuItemEpgNow_Click(object sender, EventArgs e)
+        //{
+        //    SafeCall(ShowEpgNowThenForm);
+        //} // menuItemEpgNow_Click
 
-        private void menuItemEpgToday_Click(object sender, EventArgs e)
-        {
-            ShowEpgList(0);
-        } // menuItemEpgToday_Click
+        //private void menuItemEpgToday_Click(object sender, EventArgs e)
+        //{
+        //    ShowEpgList(0);
+        //} // menuItemEpgToday_Click
 
-        private void menuItemEpgTomorrow_Click(object sender, EventArgs e)
-        {
-            ShowEpgList(1);
-        } // menuItemEpgTomorrow_Click
+        //private void menuItemEpgTomorrow_Click(object sender, EventArgs e)
+        //{
+        //    ShowEpgList(1);
+        //} // menuItemEpgTomorrow_Click
 
-        private void menuItemEpgRefresh_Click(object sender, EventArgs e)
-        {
-            LaunchEpgLoader(true);
-        }  // menuItemEpgRefresh_Click
+        //private void menuItemEpgRefresh_Click(object sender, EventArgs e)
+        //{
+        //    LaunchEpgLoader(true);
+        //}  // menuItemEpgRefresh_Click
+        #endregion
 
         private void SetupContextMenuList()
         {
@@ -1054,179 +1061,182 @@ namespace Project.DvbIpTv.ChannelList
             } // if
         } // DumpBroadcastService
 
-        private void EnableEpgMenus(bool enable)
-        {
-            menuItemEpgNow.Enabled = enable & enable_Epg;
-            menuItemEpgToday.Enabled = enable & enable_Epg;
-            menuItemEpgTomorrow.Enabled = enable & enable_Epg;
-            menuItemEpgPrevious.Enabled = false;
-            menuItemEpgNext.Enabled = false;
-            menuItemEpgRefresh.Enabled = (AppUiConfiguration.Current.User.Epg.Enabled) && (SelectedServiceProvider != null);
-            menuItemEpgBasicGrid.Enabled = menuItemEpgRefresh.Enabled;
-        } // EnableEpgMenus
+        #region Commented-out EPG code
+//        private void EnableEpgMenus(bool enable)
+//        {
+//            menuItemEpgNow.Enabled = enable & enable_Epg;
+//            menuItemEpgToday.Enabled = enable & enable_Epg;
+//            menuItemEpgTomorrow.Enabled = enable & enable_Epg;
+//            menuItemEpgPrevious.Enabled = false;
+//            menuItemEpgNext.Enabled = false;
+//            menuItemEpgRefresh.Enabled = (AppUiConfiguration.Current.User.Epg.Enabled) && (SelectedServiceProvider != null);
+//            menuItemEpgBasicGrid.Enabled = menuItemEpgRefresh.Enabled;
+//        } // EnableEpgMenus
 
-        private void ShowEpgMiniBar(bool display)
-        {
-            epgMiniBar.Visible = display;
-            if (!display) return;
+//        private void ShowEpgMiniBar(bool display)
+//        {
+//            epgMiniBar.Visible = display;
+//            if (!display) return;
 
-            // TODO: get dbFile from config
-            var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
+//            // TODO: get dbFile from config
+//            var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
 
-            // TODO: do NOT assume .imagenio.es
-            var fullServiceName = ListManager.SelectedService.ServiceName + ".imagenio.es";
-            var replacement = ListManager.SelectedService.ReplacementService;
-            var fullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
+//            // TODO: do NOT assume .imagenio.es
+//            var fullServiceName = ListManager.SelectedService.ServiceName + ".imagenio.es";
+//            var replacement = ListManager.SelectedService.ReplacementService;
+//            var fullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
 
-            // display mini bar
-            epgMiniBar.DetailsButtonEnabled = (IpTvProvider.Current.EpgInfo.Capabilities & EpgInfoProviderCapabilities.ExtendedInfo) != 0;
-            epgMiniBar.DisplayEpgEvents(imageListChannelsLarge.Images[ListManager.SelectedService.Logo.Key], fullServiceName, fullAlternateServiceName, DateTime.Now, dbFile);
-        }  // ShowEpgMiniBar
+//            // display mini bar
+//            epgMiniBar.DetailsButtonEnabled = (IpTvProvider.Current.EpgInfo.Capabilities & EpgInfoProviderCapabilities.ExtendedInfo) != 0;
+//            epgMiniBar.DisplayEpgEvents(imageListChannelsLarge.Images[ListManager.SelectedService.Logo.Key], fullServiceName, fullAlternateServiceName, DateTime.Now, dbFile);
+//        }  // ShowEpgMiniBar
 
-        private void ShowEpgNowThenForm()
-        {
-            EpgNowThenDialog.ShowEpgEvents(ListManager.SelectedService,
-                epgMiniBar.GetEpgEvents(), this, epgMiniBar.ReferenceTime);
-        } // ShowEpgNowThenForm
+//        private void ShowEpgNowThenForm()
+//        {
+//            EpgNowThenDialog.ShowEpgEvents(ListManager.SelectedService,
+//                epgMiniBar.GetEpgEvents(), this, epgMiniBar.ReferenceTime);
+//        } // ShowEpgNowThenForm
 
-        private void ShowEpgBasicGrid()
-        {
-            EpgBasicGridDialog.ShowGrid(this, ListManager.GetDisplayedBroadcastList(), ListManager.SelectedService);
-        } // ShowEpgBasicGrid
+//        private void ShowEpgBasicGrid()
+//        {
+//            EpgBasicGridDialog.ShowGrid(this, ListManager.GetDisplayedBroadcastList(), ListManager.SelectedService);
+//        } // ShowEpgBasicGrid
 
-        private void ShowEpgExtendedInfo()
-        {
-            EpgExtendedInfoDialog.ShowExtendedInfo(this, ListManager.SelectedService, epgMiniBar.SelectedEvent);
-        } // ShowEpgExtendedInfo
+//        private void ShowEpgExtendedInfo()
+//        {
+//            EpgExtendedInfoDialog.ShowExtendedInfo(this, ListManager.SelectedService, epgMiniBar.SelectedEvent);
+//        } // ShowEpgExtendedInfo
 
-        private void epgMiniBar_ButtonClicked(object sender, EpgMiniBarButtonClickedEventArgs e)
-        {
-            switch (e.Button)
-            {
-                case EpgMiniBar.Button.Details:
-                    SafeCall(ShowEpgExtendedInfo);
-                    break;
+//        private void epgMiniBar_ButtonClicked(object sender, EpgMiniBarButtonClickedEventArgs e)
+//        {
+//            switch (e.Button)
+//            {
+//                case EpgMiniBar.Button.Details:
+//                    SafeCall(ShowEpgExtendedInfo);
+//                    break;
 
-                case EpgMiniBar.Button.FullView:
-                    SafeCall(ShowEpgNowThenForm);
-                    break;
+//                case EpgMiniBar.Button.FullView:
+//                    SafeCall(ShowEpgNowThenForm);
+//                    break;
 
-                case EpgMiniBar.Button.EpgGrid:
-                    SafeCall(ShowEpgBasicGrid);
-                    break;
-            } // switch
-        } // epgMiniBar_ButtonClicked
+//                case EpgMiniBar.Button.EpgGrid:
+//                    SafeCall(ShowEpgBasicGrid);
+//                    break;
+//            } // switch
+//        } // epgMiniBar_ButtonClicked
 
-        private void epgMiniBar_NavigationButtonsChanged(object sender, EpgMiniBarNavigationButtonsChangedEventArgs e)
-        {
-            menuItemEpgPrevious.Enabled = e.IsBackEnabled;
-            menuItemEpgNext.Enabled = e.IsForwardEnabled;
-        }
+//        private void epgMiniBar_NavigationButtonsChanged(object sender, EpgMiniBarNavigationButtonsChangedEventArgs e)
+//        {
+//            menuItemEpgPrevious.Enabled = e.IsBackEnabled;
+//            menuItemEpgNext.Enabled = e.IsForwardEnabled;
+//        }
 
-        private void menuItemEpgPrevious_Click(object sender, EventArgs e)
-        {
-            epgMiniBar.GoBack();
-        }
+//        private void menuItemEpgPrevious_Click(object sender, EventArgs e)
+//        {
+//            epgMiniBar.GoBack();
+//        }
 
-        private void menuItemEpgNext_Click(object sender, EventArgs e)
-        {
-            epgMiniBar.GoForward();
-        }
+//        private void menuItemEpgNext_Click(object sender, EventArgs e)
+//        {
+//            epgMiniBar.GoForward();
+//        }
 
-        private void UpdateEpgData()
-        {
-            if (!enable_Epg) return;
+//        private void UpdateEpgData()
+//        {
+//            if (!enable_Epg) return;
 
-#if DEBUG
-            return;
-#endif
-            var hours = AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
-            if (hours < 0) return;
+//#if DEBUG
+//            return;
+//#endif
+//            var hours = AppUiConfiguration.Current.User.Epg.AutoUpdateHours;
+//            if (hours < 0) return;
 
-            var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
-            var status = Project.DvbIpTv.Services.EPG.Serialization.EpgDbQuery.GetStatus(dbFile);
+//            var dbFile = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
+//            var status = Project.IpTv.Services.EPG.Serialization.EpgDbQuery.GetStatus(dbFile);
 
-            if (status.IsNew)
-            {
-                var box = new ExceptionMessageBox()
-                {
-                    Caption = this.Text,
-                    Text = string.Format(Properties.Texts.EpgDownloadFirstTime, hours),
-                    Beep = true,
-                    Symbol = ExceptionMessageBoxSymbol.Information
-                };
-                box.Show(this);
+//            if (status.IsNew)
+//            {
+//                var box = new ExceptionMessageBox()
+//                {
+//                    Caption = this.Text,
+//                    Text = string.Format(Properties.Texts.EpgDownloadFirstTime, hours),
+//                    Beep = true,
+//                    Symbol = ExceptionMessageBoxSymbol.Information
+//                };
+//                box.Show(this);
 
-                LaunchEpgLoader(false);
-            }
-            else if (!status.IsError)
-            {
-                var update = (DateTime.Now - status.Time.ToLocalTime()).TotalHours >= hours;
-                if (update)
-                {
-                    LaunchEpgLoader(false);
-                } // if
-            } // if
-        } // UpdateEgpData
+//                LaunchEpgLoader(false);
+//            }
+//            else if (!status.IsError)
+//            {
+//                var update = (DateTime.Now - status.Time.ToLocalTime()).TotalHours >= hours;
+//                if (update)
+//                {
+//                    LaunchEpgLoader(false);
+//                } // if
+//            } // if
+//        } // UpdateEgpData
 
-        private void LaunchEpgLoader(bool foreground)
-        {
-            //TODO: avoid fixed paths & code clean-up
-            //TODO: avoid updating if an update is already in progress
+//        private void LaunchEpgLoader(bool foreground)
+//        {
+//            //TODO: avoid fixed paths & code clean-up
+//            //TODO: avoid updating if an update is already in progress
 
-#if DEBUG
-            MessageBox.Show(this, "EPG updating is not available in DEBUG builds");
-            return;
-#else
-            var updater = Path.Combine(AppUiConfiguration.Current.Folders.Install, "ConsoleEPGLoader.exe");
-            if (!File.Exists(updater))
-            {
-                HandleException("Unable to find EPG loader/updater utility", new FileNotFoundException(updater));
-                return;
-            } // if
+//#if DEBUG
+//            MessageBox.Show(this, "EPG updating is not available in DEBUG builds");
+//            return;
+//#else
+//            var updater = Path.Combine(AppUiConfiguration.Current.Folders.Install, "ConsoleEPGLoader.exe");
+//            if (!File.Exists(updater))
+//            {
+//                HandleException("Unable to find EPG loader/updater utility", new FileNotFoundException(updater));
+//                return;
+//            } // if
 
-            var args = new string[2];
-            args[0] = string.Format("/Database:{0}", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
-            args[1] = string.Format("/Discovery:{0}:{1}", SelectedServiceProvider.Offering.Push[0].Address, SelectedServiceProvider.Offering.Push[0].Port);
+//            var args = new string[2];
+//            args[0] = string.Format("/Database:{0}", Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf"));
+//            args[1] = string.Format("/Discovery:{0}:{1}", SelectedServiceProvider.Offering.Push[0].Address, SelectedServiceProvider.Offering.Push[0].Port);
 
-            var processInfo = new System.Diagnostics.ProcessStartInfo()
-            {
-                FileName = updater,
-                Arguments = ArgumentsManager.JoinArguments(args),
-                ErrorDialog = true,
-                ErrorDialogParentHandle = ((IWin32Window)this).Handle,
-                WindowStyle = foreground ? ProcessWindowStyle.Normal : ProcessWindowStyle.Minimized
-            };
+//            var processInfo = new System.Diagnostics.ProcessStartInfo()
+//            {
+//                FileName = updater,
+//                Arguments = ArgumentsManager.JoinArguments(args),
+//                ErrorDialog = true,
+//                ErrorDialogParentHandle = ((IWin32Window)this).Handle,
+//                WindowStyle = foreground ? ProcessWindowStyle.Normal : ProcessWindowStyle.Minimized
+//            };
 
-            using (var process = System.Diagnostics.Process.Start(processInfo))
-            {
-                // no op
-            } // using
-#endif
-        } // LaunchEpgLoader
+//            using (var process = System.Diagnostics.Process.Start(processInfo))
+//            {
+//                // no op
+//            } // using
+//#endif
+//        } // LaunchEpgLoader
 
-        private void ShowEpgList(int daysDelta)
-        {
-            if (ListManager.SelectedService == null) return;
+//        private void ShowEpgList(int daysDelta)
+//        {
+//            if (ListManager.SelectedService == null) return;
 
-            using (var form = new EpgChannelPrograms())
-            {
-                // TODO: unify code with mini-bar code
+//            using (var form = new EpgChannelPrograms())
+//            {
+//                // TODO: unify code with mini-bar code
 
-                // TODO: get dbFile from config
-                form.EpgDatabase = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
+//                // TODO: get dbFile from config
+//                form.EpgDatabase = Path.Combine(AppUiConfiguration.Current.Folders.Cache, "EPG.sdf");
 
-                // TODO: do NOT assume .imagenio.es
-                form.FullServiceName = ListManager.SelectedService.ServiceName + ".imagenio.es";
-                var replacement = ListManager.SelectedService.ReplacementService;
-                form.FullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
+//                // TODO: do NOT assume .imagenio.es
+//                form.FullServiceName = ListManager.SelectedService.ServiceName + ".imagenio.es";
+//                var replacement = ListManager.SelectedService.ReplacementService;
+//                form.FullAlternateServiceName = (replacement == null) ? null : replacement.ServiceName + ".imagenio.es";
 
-                form.DaysDelta = daysDelta;
-                form.Service = ListManager.SelectedService;
+//                form.DaysDelta = daysDelta;
+//                form.Service = ListManager.SelectedService;
 
-                form.ShowDialog(this);
-            } // using form
-        } // ShowEpgList
+//                form.ShowDialog(this);
+//            } // using form
+//        } // ShowEpgList
+
+        #endregion
 
         private void GetLogicalNumbers(UiBroadcastDiscovery uiDiscovery, PackageDiscoveryRoot xmlPackage, bool hdPriority)
         {

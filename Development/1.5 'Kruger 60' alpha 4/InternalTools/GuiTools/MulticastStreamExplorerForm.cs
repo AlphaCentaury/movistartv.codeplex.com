@@ -13,7 +13,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Project.DvbIpTv.Internal.Tools.GuiTools
+namespace Project.IpTv.Internal.Tools.GuiTools
 {
     public partial class MulticastStreamExplorerForm : Form
     {

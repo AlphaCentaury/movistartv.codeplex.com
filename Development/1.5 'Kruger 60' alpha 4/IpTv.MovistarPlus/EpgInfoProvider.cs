@@ -1,167 +1,172 @@
-﻿using System;
+﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+// All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
-using Project.DvbIpTv.Core.IpTvProvider.EPG;
-using Project.DvbIpTv.Services.EPG;
-using Project.DvbIpTv.UiServices.Discovery;
+using Project.IpTv.Core.IpTvProvider.EPG;
+//using Project.IpTv.Services.EPG;
+using Project.IpTv.UiServices.Discovery;
 
-namespace Project.DvbIpTv.MovistarPlus
+namespace Project.IpTv.MovistarPlus
 {
     internal class EpgInfoProvider: IEpgInfoProvider
     {
-        #region IEpgInfoProvider Members
+        // Commented-out EPG code
 
-        // TODO: get from xml settings, updated from http://www-60.svc.imagenio.telefonica.net:2001/appserver/mvtv.do?action=getConfigurationParams
-        private const string EpgThumbnailScheme = "http";
-        private const string EpgThumbnailHost = "www-60.svc.imagenio.telefonica.net";
-        private const int EpgThumbnailPort = 2001;
-        private const string EpgThumbnailPortraitSubPath = "portrait/";
-        private const string EpgThumbnailLandscapeSubPath = "landscape/";
-        private const string EpgThumbnailBigSubPath = "big/";
-        private const string EpgThumbnailUrlFormat = "appclient/incoming/covers/programmeImages/{0}{1}{2}/{3}.jpg";
+        //#region IEpgInfoProvider Members
 
-        public EpgInfoProviderCapabilities Capabilities
-        {
-            get
-            {
-                return EpgInfoProviderCapabilities.ExtendedInfo |
-                    EpgInfoProviderCapabilities.IndependentProgramThumbnail;
-            } // get
-        } // Capabilities
+        //// TODO: get from xml settings, updated from http://www-60.svc.imagenio.telefonica.net:2001/appserver/mvtv.do?action=getConfigurationParams
+        //private const string EpgThumbnailScheme = "http";
+        //private const string EpgThumbnailHost = "www-60.svc.imagenio.telefonica.net";
+        //private const int EpgThumbnailPort = 2001;
+        //private const string EpgThumbnailPortraitSubPath = "portrait/";
+        //private const string EpgThumbnailLandscapeSubPath = "landscape/";
+        //private const string EpgThumbnailBigSubPath = "big/";
+        //private const string EpgThumbnailUrlFormat = "appclient/incoming/covers/programmeImages/{0}{1}{2}/{3}.jpg";
 
-        public ExtendedEpgEvent GetEpgInfo(UiBroadcastService service, EpgEvent epgEvent, bool portrait)
-        {
-            var request = GetExtendedInfoRequest(epgEvent);
-            if (request == null) return null;
+        //public EpgInfoProviderCapabilities Capabilities
+        //{
+        //    get
+        //    {
+        //        return EpgInfoProviderCapabilities.ExtendedInfo |
+        //            EpgInfoProviderCapabilities.IndependentProgramThumbnail;
+        //    } // get
+        //} // Capabilities
 
-            var movistarEpgInfoResponse = SendRequest<MovistarJsonEpgInfoResponse>(request);
-            if (movistarEpgInfoResponse.Code != 0) return null;
+        //public ExtendedEpgEvent GetEpgInfo(UiBroadcastService service, EpgEvent epgEvent, bool portrait)
+        //{
+        //    var request = GetExtendedInfoRequest(epgEvent);
+        //    if (request == null) return null;
 
-            var result = ToExtendedEpgEvent(movistarEpgInfoResponse.Data);
-            result.UrlThumbnail = GetEpgProgramThumbnailUrl(service, epgEvent, portrait);
+        //    var movistarEpgInfoResponse = SendRequest<MovistarJsonEpgInfoResponse>(request);
+        //    if (movistarEpgInfoResponse.Code != 0) return null;
 
-            return result;
-        } // GetEpgInfo
+        //    var result = ToExtendedEpgEvent(movistarEpgInfoResponse.Data);
+        //    result.UrlThumbnail = GetEpgProgramThumbnailUrl(service, epgEvent, portrait);
 
-        public string GetEpgProgramThumbnailUrl(UiBroadcastService service, EpgEvent epgEvent, bool portrait)
-        {
-            try
-            {
-                var crid = MovistarCrId.Get(epgEvent.CRID);
-                if (crid == null) return null;
+        //    return result;
+        //} // GetEpgInfo
 
-                var builder = new UriBuilder();
-                builder.Scheme = EpgThumbnailScheme;
-                builder.Host = EpgThumbnailHost;
-                builder.Port = EpgThumbnailPort;
-                builder.Path = string.Format(EpgThumbnailUrlFormat,
-                    portrait? EpgThumbnailPortraitSubPath: EpgThumbnailLandscapeSubPath,
-                    EpgThumbnailBigSubPath,
-                    crid.ContentIdRoot, crid.ContentId);
+        //public string GetEpgProgramThumbnailUrl(UiBroadcastService service, EpgEvent epgEvent, bool portrait)
+        //{
+        //    try
+        //    {
+        //        var crid = MovistarCrId.Get(epgEvent.CRID);
+        //        if (crid == null) return null;
 
-                return builder.Uri.ToString();
-            }
-            catch
-            {
-                // ignore
-                return null;
-            } // try-catch
-        } // GetEpgProgramThumbnailUrl
+        //        var builder = new UriBuilder();
+        //        builder.Scheme = EpgThumbnailScheme;
+        //        builder.Host = EpgThumbnailHost;
+        //        builder.Port = EpgThumbnailPort;
+        //        builder.Path = string.Format(EpgThumbnailUrlFormat,
+        //            portrait? EpgThumbnailPortraitSubPath: EpgThumbnailLandscapeSubPath,
+        //            EpgThumbnailBigSubPath,
+        //            crid.ContentIdRoot, crid.ContentId);
 
-        #endregion
+        //        return builder.Uri.ToString();
+        //    }
+        //    catch
+        //    {
+        //        // ignore
+        //        return null;
+        //    } // try-catch
+        //} // GetEpgProgramThumbnailUrl
 
-        public ExtendedEpgEvent ToExtendedEpgEvent(MovistarEpgInfo info)
-        {
-            var result = new ExtendedEpgEvent();
+        //#endregion
 
-            // Title
-            if ((info.LongTitle != null) && (info.LongTitle.Length > 0))
-            {
-                result.Title = info.LongTitle[0];
-            }
-            else if (info.Title != null)
-            {
-                result.Title = info.Title;
-            } // if-else if
+        //public ExtendedEpgEvent ToExtendedEpgEvent(MovistarEpgInfo info)
+        //{
+        //    var result = new ExtendedEpgEvent();
 
-            // Original title
-            if ((info.OriginalLongTitle != null) && (info.OriginalLongTitle.Length > 0))
-            {
-                result.OriginalTitle = info.OriginalLongTitle[0];
-            }
-            else if ((info.OriginalTitle != null) && (info.OriginalTitle.Length > 0))
-            {
-                result.OriginalTitle = info.OriginalTitle[0];
-            } // if-else if
+        //    // Title
+        //    if ((info.LongTitle != null) && (info.LongTitle.Length > 0))
+        //    {
+        //        result.Title = info.LongTitle[0];
+        //    }
+        //    else if (info.Title != null)
+        //    {
+        //        result.Title = info.Title;
+        //    } // if-else if
 
-            // Genre / Subgrenre
-            result.Genre = info.Genre;
-            result.SubGenre = info.SubGenre;
+        //    // Original title
+        //    if ((info.OriginalLongTitle != null) && (info.OriginalLongTitle.Length > 0))
+        //    {
+        //        result.OriginalTitle = info.OriginalLongTitle[0];
+        //    }
+        //    else if ((info.OriginalTitle != null) && (info.OriginalTitle.Length > 0))
+        //    {
+        //        result.OriginalTitle = info.OriginalTitle[0];
+        //    } // if-else if
 
-            // Synopsis
-            result.Synopsis = info.Description;
+        //    // Genre / Subgrenre
+        //    result.Genre = info.Genre;
+        //    result.SubGenre = info.SubGenre;
 
-            // Directors
-            result.Directors = Split(info.Directors, ',');
+        //    // Synopsis
+        //    result.Synopsis = info.Description;
 
-            // Actors
-            result.Actors = Split(info.MainActors, ',');
+        //    // Directors
+        //    result.Directors = Split(info.Directors, ',');
 
-            // Producers
-            result.Producers = Split(info.Producer, ',');
+        //    // Actors
+        //    result.Actors = Split(info.MainActors, ',');
 
-            // ScriptWriters
-            result.ScriptWriters = Split(info.ScriptWriter, ',');
+        //    // Producers
+        //    result.Producers = Split(info.Producer, ',');
 
-            // Country
-            result.Country = Split(info.Countries, ',');
+        //    // ScriptWriters
+        //    result.ScriptWriters = Split(info.ScriptWriter, ',');
 
-            // Production date
-            result.ProductionDate = Split(info.ProductionDate, ',');
+        //    // Country
+        //    result.Country = Split(info.Countries, ',');
 
-            return result;
-        } // ToExtendedEpgEvent
+        //    // Production date
+        //    result.ProductionDate = Split(info.ProductionDate, ',');
 
-        private string[] Split(string[] data, params char[] chars)
-        {
-            if ((data == null) || (data.Length == 0)) return null;
+        //    return result;
+        //} // ToExtendedEpgEvent
 
-            var q = from element in data
-                    let split = element.Split(chars)
-                    from item in split
-                    let text = item.Trim()
-                    where text != ""
-                    select text;
+        //private string[] Split(string[] data, params char[] chars)
+        //{
+        //    if ((data == null) || (data.Length == 0)) return null;
 
-            return q.ToArray();
-        } // Split
+        //    var q = from element in data
+        //            let split = element.Split(chars)
+        //            from item in split
+        //            let text = item.Trim()
+        //            where text != ""
+        //            select text;
 
-        private UriBuilder GetExtendedInfoRequest(EpgEvent epgEvent)
-        {
-            var crid = MovistarCrId.Get(epgEvent.CRID);
-            if (crid == null) return null;
+        //    return q.ToArray();
+        //} // Split
 
-            var builder = new UriBuilder();
-            builder.Scheme = "http";
-            builder.Host = "www-60.svc.imagenio.telefonica.net";
-            builder.Port = 2001;
-            builder.Path = "appserver/mvtv.do";
-            builder.Query = string.Format("action=getEpgInfo&extInfoID={0}&tvWholesaler={1}", crid.ContentId, 1);
+        //private UriBuilder GetExtendedInfoRequest(EpgEvent epgEvent)
+        //{
+        //    var crid = MovistarCrId.Get(epgEvent.CRID);
+        //    if (crid == null) return null;
 
-            return builder;
-        } // GetExtendedInfoRequest
+        //    var builder = new UriBuilder();
+        //    builder.Scheme = "http";
+        //    builder.Host = "www-60.svc.imagenio.telefonica.net";
+        //    builder.Port = 2001;
+        //    builder.Path = "appserver/mvtv.do";
+        //    builder.Query = string.Format("action=getEpgInfo&extInfoID={0}&tvWholesaler={1}", crid.ContentId, 1);
 
-        public static T SendRequest<T>(UriBuilder uri)
-        {
-            using (var client = new WebClient())
-            {
-                var data = client.DownloadData(uri.Uri);
-                var jsonData = Encoding.UTF8.GetString(data);
-                return JsonConvert.DeserializeObject<T>(jsonData);
-            } // using client
-        } // SendRequest
+        //    return builder;
+        //} // GetExtendedInfoRequest
+
+        //public static T SendRequest<T>(UriBuilder uri)
+        //{
+        //    using (var client = new WebClient())
+        //    {
+        //        var data = client.DownloadData(uri.Uri);
+        //        var jsonData = Encoding.UTF8.GetString(data);
+        //        return JsonConvert.DeserializeObject<T>(jsonData);
+        //    } // using client
+        //} // SendRequest
     } // class EpgInfoProvider
 } // namespace

@@ -300,7 +300,7 @@ Si sobreescribe el archivo se perderá cualquier configuración personalizada.
 ¿Desea sobreescribir el archivo?</value>
   </data>
   <data name="ProductFullName" xml:space="preserve">
-    <value>Decodificador DVB-IPTV para movistar+ 1.5 “Kruger 60” alpha 4</value>
+    <value>Decodificador virtual IPTV para movistar+ 1.5 “Kruger 60” alpha 4</value>
   </data>
   <data name="ProductMainProgramName" xml:space="preserve">
     <value>Canales movistar+</value>
@@ -329,8 +329,11 @@ Si sobreescribe el archivo se perderá cualquier configuración personalizada.
   <data name="SelectFolderSaveDescription" xml:space="preserve">
     <value>Por favor, especifique la carpeta en la que, por defecto, se grabarán los programas de TV.</value>
   </data>
-  <data name="TaskSchedulerFolderDvbIpTv" xml:space="preserve">
-    <value>Carpeta DVB-IPTV</value>
+  <data name="TaskSchedulerFolderIpTv" xml:space="preserve">
+    <value>Carpeta 'Decodificador virtual IPTV'</value>
+  </data>
+  <data name="TaskSchedulerFolderIpTvPath" xml:space="preserve">
+    <value>\Decodificador virtual IPTV</value>
   </data>
   <data name="TelemetryHelpCaption" xml:space="preserve">
     <value>Recolección de datos del programa</value>

@@ -7,7 +7,7 @@
     <ProjectGuid>{E1748F45-DD50-4479-96F6-F7EBA6F3E28B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Project.DvbIpTv.MovistarPlus</RootNamespace>
+    <RootNamespace>Project.IpTv.MovistarPlus</RootNamespace>
     <AssemblyName>IpTv.MovistarPlus</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -63,10 +63,6 @@
     <ProjectReference Include="..\Core.IpTvProvider\Core.IpTvProvider.csproj">
       <Project>{36b8e0a1-f1b1-498d-8fe7-a39bb7fd68ca}</Project>
       <Name>Core.IpTvProvider</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Services.EPG\Services.EPG.csproj">
-      <Project>{ed5c1cf5-0975-4995-8933-9a7df39fd739}</Project>
-      <Name>Services.EPG</Name>
     </ProjectReference>
     <ProjectReference Include="..\UiServices.Config\UiServices.Config.csproj">
       <Project>{a722de9d-ae51-479c-825f-a19f4c69bd75}</Project>

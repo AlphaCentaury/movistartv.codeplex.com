@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <?include Strings.wxi ?>
+  <!--<?include Strings.wxi ?>
   <Fragment>
     <Feature Id="Feature.EPG"
              Absent="allow"
@@ -12,7 +12,7 @@
       <ComponentGroupRef Id="EPG.DB"/>
     </Feature>
 
-    <!-- Assemblies -->
+    --><!-- Assemblies --><!--
     <ComponentGroup Id="EPG.Assemblies">
       <Component Id="EPG.Assemblies" Directory="INSTALLFOLDER" Guid="$(var.Guid.Component.EPG.Assemblies)">
         <RegistryValue Root="HKCU" Key="$(var.BaseRegistryKey)\Features" Name="EPG"  Type="integer" Value="1" />
@@ -29,17 +29,17 @@
 
     <ComponentGroup Id="EPG.Assemblies.Localization">
       <Component Id="EPG.Assemblies.Localization.es" Directory="InstallFolder.es" Guid="$(var.Guid.Component.EPG.Assemblies.Localization.es)">
-        <!--<File Id="Services.EPG.es.dll" Source="$(var.Services.EPG.TargetDir)es\Services.EPG.resources.dll" />-->
+        --><!--<File Id="Services.EPG.es.dll" Source="$(var.Services.EPG.TargetDir)es\Services.EPG.resources.dll" />--><!--
         <File Id="UiServices.EPG.es.dll" Source="$(var.UiServices.EPG.TargetDir)es\UiServices.EPG.resources.dll" />
         <File Id="ConsoleEPGLoader.es.exe" Source="$(var.ConsoleEPGLoader.TargetDir)es\ConsoleEPGLoader.resources.dll" />
       </Component>
     </ComponentGroup>
 
-    <!-- Database -->
+    --><!-- Database --><!--
     <ComponentGroup Id="EPG.DB">
       <Component Id="EPG.DB" Directory="CacheFolder">
         <File Id="EPG.sdf" Source="$(var.SolutionDir)DB\EPG.sdf" />
       </Component>
     </ComponentGroup>
-  </Fragment>
+  </Fragment>-->
 </Wix>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project.DvbIpTv.ChannelList.Properties {
+namespace Project.IpTv.ChannelList.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.DvbIpTv.ChannelList.Properties.Texts", typeof(Texts).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Project.IpTv.ChannelList.Properties.Texts", typeof(Texts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movistar+ channels and services - DVB-IPTV (1.5“Kruger 60” Alpha 4).
+        ///   Looks up a localized string similar to movistar+ channels and services - IPTV (1.5“Kruger 60” Alpha 4).
         /// </summary>
         internal static string AppCaption {
             get {
@@ -70,7 +70,7 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DVB-IPTV: movistar+ channels and services.
+        ///   Looks up a localized string similar to IPTV: movistar+ channels and services.
         /// </summary>
         internal static string AppName {
             get {
@@ -367,12 +367,12 @@ namespace Project.DvbIpTv.ChannelList.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to movistar+ DVB-IPTV decoder version 1.5 “Kruger 60” Alpha 4
+        ///   Looks up a localized string similar to movistar+ virtual IPTV decoder version 1.5 “Kruger 60” Alpha 4
         ///
         ///NOTICE: This software IS NOT SUPPORTED NOR ENDORSED by Movistar or Telefónica. Telefónica de España has no responsibility if there are channels that can not be seen on the PC, even if they are part of contracted services.
         ///DO NOT EVER CALL 1002 nor 1004 if channels disappear from the list or can not be seen or any other abnormality. Telefónica only provides help and support for their physical decoder and only for the contracted services.
         ///
-        ///This  [rest of string was truncated]&quot;;.
+        ///T [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SolutionLicense {
             get {

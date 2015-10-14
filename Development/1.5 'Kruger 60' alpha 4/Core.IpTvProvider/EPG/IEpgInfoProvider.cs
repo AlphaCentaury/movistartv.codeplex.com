@@ -5,15 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Project.DvbIpTv.Services.EPG;
-using Project.DvbIpTv.UiServices.Discovery;
+//using Project.IpTv.Services.EPG;
+using Project.IpTv.UiServices.Discovery;
 
-namespace Project.DvbIpTv.Core.IpTvProvider.EPG
+namespace Project.IpTv.Core.IpTvProvider.EPG
 {
     public interface IEpgInfoProvider
     {
-        EpgInfoProviderCapabilities Capabilities { get; }
-        ExtendedEpgEvent GetEpgInfo(UiBroadcastService service, EpgEvent epgEvent, bool portrait);
-        string GetEpgProgramThumbnailUrl(UiBroadcastService service, EpgEvent epgEvent, bool portrait);
+        // Commented-out EPG code
+        //EpgInfoProviderCapabilities Capabilities { get; }
+        //ExtendedEpgEvent GetEpgInfo(UiBroadcastService service, EpgEvent epgEvent, bool portrait);
+        //string GetEpgProgramThumbnailUrl(UiBroadcastService service, EpgEvent epgEvent, bool portrait);
     } // interface IEpgInfoProvider
 } // namespace
