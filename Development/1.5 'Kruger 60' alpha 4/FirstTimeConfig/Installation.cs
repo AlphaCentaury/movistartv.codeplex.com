@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2016, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Microsoft.Win32;
@@ -32,11 +32,15 @@ namespace Project.IpTv.Tools.FirstTimeConfig
         {
             Is32BitWindows = WindowsBitness.Is32BitWindows();
             var result = AppUiConfiguration.LoadRegistryAppConfiguration(out initializationResult);
+
+            if (result != null)
+            {
 #if DEBUG
-            RedistFolder = Path.Combine(result.Folders.Base, "Bin\\Redist");
+                RedistFolder = Path.Combine(result.Folders.Base, "Bin\\Redist");
 #else
             RedistFolder = Path.Combine(result.Folders.Install, "Redist");
 #endif
+            } // if
 
             return result;
         } // LoadRegistrySettings

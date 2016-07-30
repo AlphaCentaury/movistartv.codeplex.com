@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2016, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 namespace Project.IpTv.ChannelList
@@ -16,7 +16,7 @@ namespace Project.IpTv.ChannelList
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
+            if (disposing && (ListManager != null))
             {
                 ListManager.Dispose();
             } // if

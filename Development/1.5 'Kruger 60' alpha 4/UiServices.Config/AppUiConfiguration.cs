@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2014-2015, Codeplex user AlphaCentaury
+﻿// Copyright (C) 2014-2016, Codeplex user AlphaCentaury
 // All rights reserved, except those granted by the governing license of this software. See 'license.txt' file in the project root for complete license information.
 
 using Microsoft.Win32;
@@ -503,7 +503,9 @@ namespace Project.IpTv.UiServices.Configuration
                 foreach (var registerType in registerItems)
                 {
                     var type = Type.GetType(registerType);
-                    var registration = (IConfigurationItemRegistration)Activator.CreateInstance(type);
+                    if (type == null) continue;
+
+                    var registration = Activator.CreateInstance(type) as IConfigurationItemRegistration;
                     if (registration == null) continue;
 
                     ItemsRegistry.Add(registration.Id, registration);
