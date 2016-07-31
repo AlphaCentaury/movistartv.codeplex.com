@@ -1,0 +1,7 @@
+*** AVISO IMPORTANTE ***
+
+¡Nos vamos a GitHub!
+https://github.com/AlphaCentaury/MovistarTV
+
+Hemos reemplazado codeplex por GitHub como repositorio del código fuente y de control de cambios.
+No se actualizá el código fuente en codeplex.
